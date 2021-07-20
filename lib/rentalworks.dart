@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library dart_rentalworks;
 
-export 'src/dart_rentalworks_base.dart';
+export 'generated_code/rentalworks.swagger.dart';
+export 'src/rentalworksWithAPI.dart';
 
 // TODO: Export any libraries intended for clients of this package.

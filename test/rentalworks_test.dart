@@ -1,16 +1,12 @@
-import 'package:dart_rentalworks/dart_rentalworks.dart';
+import 'package:rentalworks/rentalworks.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    Awesome awesome;
+    RentalWorks rentalworks = rentalworksWithApiKey('my-api-key');
 
-    setUp(() {
-      awesome = Awesome();
-    });
-
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+    test('Create instance with API Key', () {
+      expect(rentalworks, isA<RentalWorks>());
     });
   });
 }

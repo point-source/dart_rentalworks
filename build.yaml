@@ -9,7 +9,7 @@ targets:
           header: "//Generated code"
       swagger_dart_code_generator:
         options:
-          #with_base_url: true
+          with_base_url: false
           #with_converter: true
           #use_required_attribute_for_headers: true
           #ignore_headers: false
