@@ -3,6 +3,7 @@ targets:
     sources:
       - $package$
       - lib/**
+      - swagger/**
     builders:
       chopper_generator:
         options:
@@ -21,7 +22,7 @@ targets:
           #include_if_null:
           #  enabled: true
           #  value: false
-          input_folder: "lib/swagger"
+          input_folder: "swagger/"
           output_folder: "lib/generated_code/"
           #enums_case_sensitive: true
           #default_values_map:

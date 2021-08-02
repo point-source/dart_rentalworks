@@ -24,7 +24,7 @@ class RentalWorks {
     if (_password == null) {
       throw Exception('No password or token supplied');
     }
-    final response = await accountServices.apiV1JwtPost(
+    final response = await accountServices.jwtPost(
         body: FwStandardModelsFwApplicationUser(
             userName: _username, password: _password));
     if (response.isSuccessful) {

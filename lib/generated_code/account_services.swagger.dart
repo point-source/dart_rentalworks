@@ -1,0 +1,2849 @@
+import 'package:meta/meta.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
+
+import 'package:chopper/chopper.dart';
+import 'package:chopper/chopper.dart' as chopper;
+import 'account_services.enums.swagger.dart' as enums;
+export 'account_services.enums.swagger.dart';
+
+part 'account_services.swagger.chopper.dart';
+part 'account_services.swagger.g.dart';
+
+// **************************************************************************
+// SwaggerChopperGenerator
+// **************************************************************************
+
+@ChopperApi()
+abstract class AccountServices extends ChopperService {
+  static AccountServices create([ChopperClient? client]) {
+    if (client != null) {
+      return _$AccountServices(client);
+    }
+
+    final newClient = ChopperClient(
+      services: [_$AccountServices()],
+      converter: chopper.JsonConverter(), /*baseUrl: YOUR_BASE_URL*/
+    );
+    return _$AccountServices(newClient);
+  }
+
+  ///
+  ///@param applicationId
+
+  @Get(path: '/account/session')
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
+      accountSessionGet({@Query('applicationId') String? applicationId});
+
+  ///
+  ///@param locationid
+  ///@param warehouseid
+  ///@param departmentid
+
+  @Get(path: '/account/officelocation')
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>>
+      accountOfficelocationGet(
+          {@Query('locationid') String? locationid,
+          @Query('warehouseid') String? warehouseid,
+          @Query('departmentid') String? departmentid});
+
+  ///
+  ///@param body
+
+  @Post(path: '/account/resetpassword')
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesAccountResetPasswordResponse>>
+      accountResetpasswordPost(
+          {@Body()
+          @required
+              WebApiModulesAccountServicesAccountResetPasswordRequest? body});
+
+  ///
+  ///@param body
+
+  @Post(path: '/account/getsettings')
+  Future<chopper.Response<WebApiLogicAppFuncGetSettingsResponse>>
+      accountGetsettingsPost(
+          {@Body()
+          @required
+              WebApiModulesAccountServicesAccountGetSettingsRequest? body});
+
+  ///
+  ///@param body
+
+  @Post(path: '/jwt')
+  Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      jwtPost({@Body() @required FwStandardModelsFwApplicationUser? body});
+
+  ///
+  ///@param body
+
+  @Post(path: '/jwt/okta')
+  Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      jwtOktaPost(
+          {@Body() @required WebApiModulesAccountServicesJwtOktaRequest? body});
+
+  ///
+  ///@param body
+
+  @Post(path: '/jwt/oktaverify')
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
+      jwtOktaverifyPost(
+          {@Body()
+          @required
+              WebApiModulesAccountServicesJwtOktaSessionRequest? body});
+}
+
+final Map<Type, Object Function(Map<String, dynamic>)>
+    AccountServicesJsonDecoderMappings = {
+  FwCoreApiSwashbuckleBadRequestResponse:
+      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
+  FwCoreControllersFwJwtControllerJwtResponseModel:
+      FwCoreControllersFwJwtControllerJwtResponseModel.fromJsonFactory,
+  FwStandardAppManagerFwAmSecurityTreeNode:
+      FwStandardAppManagerFwAmSecurityTreeNode.fromJsonFactory,
+  FwStandardModelsFwApiException:
+      FwStandardModelsFwApiException.fromJsonFactory,
+  FwStandardModelsFwApplicationUser:
+      FwStandardModelsFwApplicationUser.fromJsonFactory,
+  FwStandardSqlServerFwJsonDataTable:
+      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+  FwStandardSqlServerFwJsonDataTableColumn:
+      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
+  WebApiLogicAppFuncCustomFieldsResponse:
+      WebApiLogicAppFuncCustomFieldsResponse.fromJsonFactory,
+  WebApiLogicAppFuncCustomFormModel:
+      WebApiLogicAppFuncCustomFormModel.fromJsonFactory,
+  WebApiLogicAppFuncCustomFormsResponse:
+      WebApiLogicAppFuncCustomFormsResponse.fromJsonFactory,
+  WebApiLogicAppFuncDefaultSettingsResponse:
+      WebApiLogicAppFuncDefaultSettingsResponse.fromJsonFactory,
+  WebApiLogicAppFuncDepartmentActivitiesResponse:
+      WebApiLogicAppFuncDepartmentActivitiesResponse.fromJsonFactory,
+  WebApiLogicAppFuncDocumentBarcodeSettingsResponse:
+      WebApiLogicAppFuncDocumentBarcodeSettingsResponse.fromJsonFactory,
+  WebApiLogicAppFuncGetSettingsResponse:
+      WebApiLogicAppFuncGetSettingsResponse.fromJsonFactory,
+  WebApiLogicAppFuncInventorySettingsResponse:
+      WebApiLogicAppFuncInventorySettingsResponse.fromJsonFactory,
+  WebApiLogicAppFuncSessionDeal: WebApiLogicAppFuncSessionDeal.fromJsonFactory,
+  WebApiLogicAppFuncSessionDepartment:
+      WebApiLogicAppFuncSessionDepartment.fromJsonFactory,
+  WebApiLogicAppFuncSessionLocation:
+      WebApiLogicAppFuncSessionLocation.fromJsonFactory,
+  WebApiLogicAppFuncSessionUser: WebApiLogicAppFuncSessionUser.fromJsonFactory,
+  WebApiLogicAppFuncSessionWarehouse:
+      WebApiLogicAppFuncSessionWarehouse.fromJsonFactory,
+  WebApiLogicAppFuncSystemNumbersModel:
+      WebApiLogicAppFuncSystemNumbersModel.fromJsonFactory,
+  WebApiLogicAppFuncSystemNumbersResponse:
+      WebApiLogicAppFuncSystemNumbersResponse.fromJsonFactory,
+  WebApiLogicAppFuncSystemSettingsResponse:
+      WebApiLogicAppFuncSystemSettingsResponse.fromJsonFactory,
+  WebApiLogicAppFuncUserSettingsResponse:
+      WebApiLogicAppFuncUserSettingsResponse.fromJsonFactory,
+  WebApiLogicAppFuncWarehouseResponse:
+      WebApiLogicAppFuncWarehouseResponse.fromJsonFactory,
+  WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse:
+      WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+          .fromJsonFactory,
+  WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse:
+      WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+          .fromJsonFactory,
+  WebApiModulesAccountServicesAccountGetSettingsRequest:
+      WebApiModulesAccountServicesAccountGetSettingsRequest.fromJsonFactory,
+  WebApiModulesAccountServicesAccountResetPasswordRequest:
+      WebApiModulesAccountServicesAccountResetPasswordRequest.fromJsonFactory,
+  WebApiModulesAccountServicesAccountResetPasswordResponse:
+      WebApiModulesAccountServicesAccountResetPasswordResponse.fromJsonFactory,
+  WebApiModulesAccountServicesAccountSystemSettingsResponse:
+      WebApiModulesAccountServicesAccountSystemSettingsResponse.fromJsonFactory,
+  WebApiModulesAccountServicesJwtOktaRequest:
+      WebApiModulesAccountServicesJwtOktaRequest.fromJsonFactory,
+  WebApiModulesAccountServicesJwtOktaSessionRequest:
+      WebApiModulesAccountServicesJwtOktaSessionRequest.fromJsonFactory,
+  WebApiModulesAccountServicesJwtOktaSessionResponseModel:
+      WebApiModulesAccountServicesJwtOktaSessionResponseModel.fromJsonFactory,
+};
+
+@JsonSerializable(explicitToJson: true)
+class FwCoreApiSwashbuckleBadRequestResponse {
+  FwCoreApiSwashbuckleBadRequestResponse();
+
+  factory FwCoreApiSwashbuckleBadRequestResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
+
+  static const fromJsonFactory =
+      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
+  static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwCoreControllersFwJwtControllerJwtResponseModel {
+  FwCoreControllersFwJwtControllerJwtResponseModel({
+    this.statuscode,
+    this.statusmessage,
+    this.accessToken,
+    this.expiresIn,
+    this.resetpassword,
+  });
+
+  factory FwCoreControllersFwJwtControllerJwtResponseModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson(json);
+
+  @JsonKey(name: 'statuscode')
+  final int? statuscode;
+  @JsonKey(name: 'statusmessage')
+  final String? statusmessage;
+  @JsonKey(name: 'access_token')
+  final String? accessToken;
+  @JsonKey(name: 'expires_in')
+  final int? expiresIn;
+  @JsonKey(name: 'resetpassword')
+  final bool? resetpassword;
+  static const fromJsonFactory =
+      _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson;
+  static const toJsonFactory =
+      _$FwCoreControllersFwJwtControllerJwtResponseModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersFwJwtControllerJwtResponseModel &&
+            (identical(other.statuscode, statuscode) ||
+                const DeepCollectionEquality()
+                    .equals(other.statuscode, statuscode)) &&
+            (identical(other.statusmessage, statusmessage) ||
+                const DeepCollectionEquality()
+                    .equals(other.statusmessage, statusmessage)) &&
+            (identical(other.accessToken, accessToken) ||
+                const DeepCollectionEquality()
+                    .equals(other.accessToken, accessToken)) &&
+            (identical(other.expiresIn, expiresIn) ||
+                const DeepCollectionEquality()
+                    .equals(other.expiresIn, expiresIn)) &&
+            (identical(other.resetpassword, resetpassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.resetpassword, resetpassword)));
+  }
+}
+
+extension $FwCoreControllersFwJwtControllerJwtResponseModelExtension
+    on FwCoreControllersFwJwtControllerJwtResponseModel {
+  FwCoreControllersFwJwtControllerJwtResponseModel copyWith(
+      {int? statuscode,
+      String? statusmessage,
+      String? accessToken,
+      int? expiresIn,
+      bool? resetpassword}) {
+    return FwCoreControllersFwJwtControllerJwtResponseModel(
+        statuscode: statuscode ?? this.statuscode,
+        statusmessage: statusmessage ?? this.statusmessage,
+        accessToken: accessToken ?? this.accessToken,
+        expiresIn: expiresIn ?? this.expiresIn,
+        resetpassword: resetpassword ?? this.resetpassword);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardAppManagerFwAmSecurityTreeNode {
+  FwStandardAppManagerFwAmSecurityTreeNode({
+    this.id,
+    this.caption,
+    this.nodetype,
+    this.properties,
+    this.children,
+  });
+
+  factory FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(json);
+
+  @JsonKey(name: 'id')
+  final String? id;
+  @JsonKey(name: 'caption')
+  final String? caption;
+  @JsonKey(name: 'nodetype')
+  final String? nodetype;
+  @JsonKey(name: 'properties')
+  final Object? properties;
+  @JsonKey(
+      name: 'children',
+      defaultValue: <FwStandardAppManagerFwAmSecurityTreeNode>[])
+  final List<FwStandardAppManagerFwAmSecurityTreeNode>? children;
+  static const fromJsonFactory =
+      _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson;
+  static const toJsonFactory = _$FwStandardAppManagerFwAmSecurityTreeNodeToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardAppManagerFwAmSecurityTreeNode &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.caption, caption) ||
+                const DeepCollectionEquality()
+                    .equals(other.caption, caption)) &&
+            (identical(other.nodetype, nodetype) ||
+                const DeepCollectionEquality()
+                    .equals(other.nodetype, nodetype)) &&
+            (identical(other.properties, properties) ||
+                const DeepCollectionEquality()
+                    .equals(other.properties, properties)) &&
+            (identical(other.children, children) ||
+                const DeepCollectionEquality()
+                    .equals(other.children, children)));
+  }
+}
+
+extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
+    on FwStandardAppManagerFwAmSecurityTreeNode {
+  FwStandardAppManagerFwAmSecurityTreeNode copyWith(
+      {String? id,
+      String? caption,
+      String? nodetype,
+      Object? properties,
+      List<FwStandardAppManagerFwAmSecurityTreeNode>? children}) {
+    return FwStandardAppManagerFwAmSecurityTreeNode(
+        id: id ?? this.id,
+        caption: caption ?? this.caption,
+        nodetype: nodetype ?? this.nodetype,
+        properties: properties ?? this.properties,
+        children: children ?? this.children);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardModelsFwApiException {
+  FwStandardModelsFwApiException({
+    this.statusCode,
+    this.message,
+    this.stackTrace,
+  });
+
+  factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
+      _$FwStandardModelsFwApiExceptionFromJson(json);
+
+  @JsonKey(name: 'StatusCode')
+  final int? statusCode;
+  @JsonKey(name: 'Message')
+  final String? message;
+  @JsonKey(name: 'StackTrace')
+  final String? stackTrace;
+  static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
+  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardModelsFwApiException &&
+            (identical(other.statusCode, statusCode) ||
+                const DeepCollectionEquality()
+                    .equals(other.statusCode, statusCode)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality()
+                    .equals(other.message, message)) &&
+            (identical(other.stackTrace, stackTrace) ||
+                const DeepCollectionEquality()
+                    .equals(other.stackTrace, stackTrace)));
+  }
+}
+
+extension $FwStandardModelsFwApiExceptionExtension
+    on FwStandardModelsFwApiException {
+  FwStandardModelsFwApiException copyWith(
+      {int? statusCode, String? message, String? stackTrace}) {
+    return FwStandardModelsFwApiException(
+        statusCode: statusCode ?? this.statusCode,
+        message: message ?? this.message,
+        stackTrace: stackTrace ?? this.stackTrace);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardModelsFwApplicationUser {
+  FwStandardModelsFwApplicationUser({
+    this.userName,
+    this.password,
+  });
+
+  factory FwStandardModelsFwApplicationUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwStandardModelsFwApplicationUserFromJson(json);
+
+  @JsonKey(name: 'UserName')
+  final String? userName;
+  @JsonKey(name: 'Password')
+  final String? password;
+  static const fromJsonFactory = _$FwStandardModelsFwApplicationUserFromJson;
+  static const toJsonFactory = _$FwStandardModelsFwApplicationUserToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsFwApplicationUserToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardModelsFwApplicationUser &&
+            (identical(other.userName, userName) ||
+                const DeepCollectionEquality()
+                    .equals(other.userName, userName)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)));
+  }
+}
+
+extension $FwStandardModelsFwApplicationUserExtension
+    on FwStandardModelsFwApplicationUser {
+  FwStandardModelsFwApplicationUser copyWith(
+      {String? userName, String? password}) {
+    return FwStandardModelsFwApplicationUser(
+        userName: userName ?? this.userName,
+        password: password ?? this.password);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardSqlServerFwJsonDataTable {
+  FwStandardSqlServerFwJsonDataTable({
+    this.columnIndex,
+    this.totals,
+    this.columns,
+    this.rows,
+    this.pageNo,
+    this.pageSize,
+    this.totalPages,
+    this.totalRows,
+    this.dateFields,
+    this.columnNameByIndex,
+  });
+
+  factory FwStandardSqlServerFwJsonDataTable.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwStandardSqlServerFwJsonDataTableFromJson(json);
+
+  @JsonKey(name: 'ColumnIndex')
+  final Object? columnIndex;
+  @JsonKey(name: 'Totals')
+  final Object? totals;
+  @JsonKey(
+      name: 'Columns',
+      defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
+  final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
+  @JsonKey(name: 'Rows', defaultValue: <List<Object>>[])
+  final List<List<Object>>? rows;
+  @JsonKey(name: 'PageNo')
+  final int? pageNo;
+  @JsonKey(name: 'PageSize')
+  final int? pageSize;
+  @JsonKey(name: 'TotalPages')
+  final int? totalPages;
+  @JsonKey(name: 'TotalRows')
+  final int? totalRows;
+  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  final List<String>? dateFields;
+  @JsonKey(name: 'ColumnNameByIndex')
+  final Object? columnNameByIndex;
+  static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardSqlServerFwJsonDataTable &&
+            (identical(other.columnIndex, columnIndex) ||
+                const DeepCollectionEquality()
+                    .equals(other.columnIndex, columnIndex)) &&
+            (identical(other.totals, totals) ||
+                const DeepCollectionEquality().equals(other.totals, totals)) &&
+            (identical(other.columns, columns) ||
+                const DeepCollectionEquality()
+                    .equals(other.columns, columns)) &&
+            (identical(other.rows, rows) ||
+                const DeepCollectionEquality().equals(other.rows, rows)) &&
+            (identical(other.pageNo, pageNo) ||
+                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality()
+                    .equals(other.pageSize, pageSize)) &&
+            (identical(other.totalPages, totalPages) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalPages, totalPages)) &&
+            (identical(other.totalRows, totalRows) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalRows, totalRows)) &&
+            (identical(other.dateFields, dateFields) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateFields, dateFields)) &&
+            (identical(other.columnNameByIndex, columnNameByIndex) ||
+                const DeepCollectionEquality()
+                    .equals(other.columnNameByIndex, columnNameByIndex)));
+  }
+}
+
+extension $FwStandardSqlServerFwJsonDataTableExtension
+    on FwStandardSqlServerFwJsonDataTable {
+  FwStandardSqlServerFwJsonDataTable copyWith(
+      {Object? columnIndex,
+      Object? totals,
+      List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
+      List<List<Object>>? rows,
+      int? pageNo,
+      int? pageSize,
+      int? totalPages,
+      int? totalRows,
+      List<String>? dateFields,
+      Object? columnNameByIndex}) {
+    return FwStandardSqlServerFwJsonDataTable(
+        columnIndex: columnIndex ?? this.columnIndex,
+        totals: totals ?? this.totals,
+        columns: columns ?? this.columns,
+        rows: rows ?? this.rows,
+        pageNo: pageNo ?? this.pageNo,
+        pageSize: pageSize ?? this.pageSize,
+        totalPages: totalPages ?? this.totalPages,
+        totalRows: totalRows ?? this.totalRows,
+        dateFields: dateFields ?? this.dateFields,
+        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardSqlServerFwJsonDataTableColumn {
+  FwStandardSqlServerFwJsonDataTableColumn({
+    this.name,
+    this.dataField,
+    this.dataType,
+    this.isUniqueId,
+    this.isVisible,
+  });
+
+  factory FwStandardSqlServerFwJsonDataTableColumn.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
+
+  @JsonKey(name: 'Name')
+  final String? name;
+  @JsonKey(name: 'DataField')
+  final String? dataField;
+  @JsonKey(
+      name: 'DataType',
+      toJson: fwStandardSqlServerFwDataTypesToJson,
+      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+  final enums.FwStandardSqlServerFwDataTypes? dataType;
+  @JsonKey(name: 'IsUniqueId')
+  final bool? isUniqueId;
+  @JsonKey(name: 'IsVisible')
+  final bool? isVisible;
+  static const fromJsonFactory =
+      _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardSqlServerFwJsonDataTableColumn &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.dataField, dataField) ||
+                const DeepCollectionEquality()
+                    .equals(other.dataField, dataField)) &&
+            (identical(other.dataType, dataType) ||
+                const DeepCollectionEquality()
+                    .equals(other.dataType, dataType)) &&
+            (identical(other.isUniqueId, isUniqueId) ||
+                const DeepCollectionEquality()
+                    .equals(other.isUniqueId, isUniqueId)) &&
+            (identical(other.isVisible, isVisible) ||
+                const DeepCollectionEquality()
+                    .equals(other.isVisible, isVisible)));
+  }
+}
+
+extension $FwStandardSqlServerFwJsonDataTableColumnExtension
+    on FwStandardSqlServerFwJsonDataTableColumn {
+  FwStandardSqlServerFwJsonDataTableColumn copyWith(
+      {String? name,
+      String? dataField,
+      enums.FwStandardSqlServerFwDataTypes? dataType,
+      bool? isUniqueId,
+      bool? isVisible}) {
+    return FwStandardSqlServerFwJsonDataTableColumn(
+        name: name ?? this.name,
+        dataField: dataField ?? this.dataField,
+        dataType: dataType ?? this.dataType,
+        isUniqueId: isUniqueId ?? this.isUniqueId,
+        isVisible: isVisible ?? this.isVisible);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncCustomFieldsResponse {
+  WebApiLogicAppFuncCustomFieldsResponse({
+    this.moduleNames,
+  });
+
+  factory WebApiLogicAppFuncCustomFieldsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncCustomFieldsResponseFromJson(json);
+
+  @JsonKey(name: 'ModuleNames', defaultValue: <String>[])
+  final List<String>? moduleNames;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncCustomFieldsResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncCustomFieldsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncCustomFieldsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncCustomFieldsResponse &&
+            (identical(other.moduleNames, moduleNames) ||
+                const DeepCollectionEquality()
+                    .equals(other.moduleNames, moduleNames)));
+  }
+}
+
+extension $WebApiLogicAppFuncCustomFieldsResponseExtension
+    on WebApiLogicAppFuncCustomFieldsResponse {
+  WebApiLogicAppFuncCustomFieldsResponse copyWith({List<String>? moduleNames}) {
+    return WebApiLogicAppFuncCustomFieldsResponse(
+        moduleNames: moduleNames ?? this.moduleNames);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncCustomFormModel {
+  WebApiLogicAppFuncCustomFormModel({
+    this.baseForm,
+    this.customFormId,
+    this.description,
+    this.thisUserOnly,
+    this.html,
+    this.assignTo,
+  });
+
+  factory WebApiLogicAppFuncCustomFormModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncCustomFormModelFromJson(json);
+
+  @JsonKey(name: 'BaseForm')
+  final String? baseForm;
+  @JsonKey(name: 'CustomFormId')
+  final String? customFormId;
+  @JsonKey(name: 'Description')
+  final String? description;
+  @JsonKey(name: 'ThisUserOnly')
+  final bool? thisUserOnly;
+  @JsonKey(name: 'Html')
+  final String? html;
+  @JsonKey(name: 'AssignTo')
+  final String? assignTo;
+  static const fromJsonFactory = _$WebApiLogicAppFuncCustomFormModelFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncCustomFormModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncCustomFormModelToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncCustomFormModel &&
+            (identical(other.baseForm, baseForm) ||
+                const DeepCollectionEquality()
+                    .equals(other.baseForm, baseForm)) &&
+            (identical(other.customFormId, customFormId) ||
+                const DeepCollectionEquality()
+                    .equals(other.customFormId, customFormId)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
+            (identical(other.thisUserOnly, thisUserOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.thisUserOnly, thisUserOnly)) &&
+            (identical(other.html, html) ||
+                const DeepCollectionEquality().equals(other.html, html)) &&
+            (identical(other.assignTo, assignTo) ||
+                const DeepCollectionEquality()
+                    .equals(other.assignTo, assignTo)));
+  }
+}
+
+extension $WebApiLogicAppFuncCustomFormModelExtension
+    on WebApiLogicAppFuncCustomFormModel {
+  WebApiLogicAppFuncCustomFormModel copyWith(
+      {String? baseForm,
+      String? customFormId,
+      String? description,
+      bool? thisUserOnly,
+      String? html,
+      String? assignTo}) {
+    return WebApiLogicAppFuncCustomFormModel(
+        baseForm: baseForm ?? this.baseForm,
+        customFormId: customFormId ?? this.customFormId,
+        description: description ?? this.description,
+        thisUserOnly: thisUserOnly ?? this.thisUserOnly,
+        html: html ?? this.html,
+        assignTo: assignTo ?? this.assignTo);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncCustomFormsResponse {
+  WebApiLogicAppFuncCustomFormsResponse({
+    this.customForms,
+  });
+
+  factory WebApiLogicAppFuncCustomFormsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncCustomFormsResponseFromJson(json);
+
+  @JsonKey(
+      name: 'customForms', defaultValue: <WebApiLogicAppFuncCustomFormModel>[])
+  final List<WebApiLogicAppFuncCustomFormModel>? customForms;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncCustomFormsResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncCustomFormsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncCustomFormsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncCustomFormsResponse &&
+            (identical(other.customForms, customForms) ||
+                const DeepCollectionEquality()
+                    .equals(other.customForms, customForms)));
+  }
+}
+
+extension $WebApiLogicAppFuncCustomFormsResponseExtension
+    on WebApiLogicAppFuncCustomFormsResponse {
+  WebApiLogicAppFuncCustomFormsResponse copyWith(
+      {List<WebApiLogicAppFuncCustomFormModel>? customForms}) {
+    return WebApiLogicAppFuncCustomFormsResponse(
+        customForms: customForms ?? this.customForms);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncDefaultSettingsResponse {
+  WebApiLogicAppFuncDefaultSettingsResponse({
+    this.defaultUnitId,
+    this.defaultUnit,
+    this.defaultDealStatusId,
+    this.defaultDealStatus,
+    this.defaultDealPoRequired,
+    this.defaultDealPoType,
+    this.defaultCustomerStatusId,
+    this.defaultCustomerStatus,
+    this.defaultDealBillingCycleId,
+    this.defaultDealBillingCycle,
+    this.defaultNonRecurringBillingCycleId,
+    this.defaultNonRecurringBillingCycle,
+    this.defaultCustomerPaymentTermsId,
+    this.defaultCustomerPaymentTerms,
+    this.defaultRank,
+    this.defaultCreditStatusId,
+    this.defaultCreditStatus,
+    this.contactShowAllDeals,
+  });
+
+  factory WebApiLogicAppFuncDefaultSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncDefaultSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'DefaultUnitId')
+  final String? defaultUnitId;
+  @JsonKey(name: 'DefaultUnit')
+  final String? defaultUnit;
+  @JsonKey(name: 'DefaultDealStatusId')
+  final String? defaultDealStatusId;
+  @JsonKey(name: 'DefaultDealStatus')
+  final String? defaultDealStatus;
+  @JsonKey(name: 'DefaultDealPoRequired')
+  final bool? defaultDealPoRequired;
+  @JsonKey(name: 'DefaultDealPoType')
+  final String? defaultDealPoType;
+  @JsonKey(name: 'DefaultCustomerStatusId')
+  final String? defaultCustomerStatusId;
+  @JsonKey(name: 'DefaultCustomerStatus')
+  final String? defaultCustomerStatus;
+  @JsonKey(name: 'DefaultDealBillingCycleId')
+  final String? defaultDealBillingCycleId;
+  @JsonKey(name: 'DefaultDealBillingCycle')
+  final String? defaultDealBillingCycle;
+  @JsonKey(name: 'DefaultNonRecurringBillingCycleId')
+  final String? defaultNonRecurringBillingCycleId;
+  @JsonKey(name: 'DefaultNonRecurringBillingCycle')
+  final String? defaultNonRecurringBillingCycle;
+  @JsonKey(name: 'DefaultCustomerPaymentTermsId')
+  final String? defaultCustomerPaymentTermsId;
+  @JsonKey(name: 'DefaultCustomerPaymentTerms')
+  final String? defaultCustomerPaymentTerms;
+  @JsonKey(name: 'DefaultRank')
+  final String? defaultRank;
+  @JsonKey(name: 'DefaultCreditStatusId')
+  final String? defaultCreditStatusId;
+  @JsonKey(name: 'DefaultCreditStatus')
+  final String? defaultCreditStatus;
+  @JsonKey(name: 'ContactShowAllDeals')
+  final bool? contactShowAllDeals;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncDefaultSettingsResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncDefaultSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncDefaultSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncDefaultSettingsResponse &&
+            (identical(other.defaultUnitId, defaultUnitId) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultUnitId, defaultUnitId)) &&
+            (identical(other.defaultUnit, defaultUnit) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultUnit, defaultUnit)) &&
+            (identical(other.defaultDealStatusId, defaultDealStatusId) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultDealStatusId, defaultDealStatusId)) &&
+            (identical(other.defaultDealStatus, defaultDealStatus) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultDealStatus, defaultDealStatus)) &&
+            (identical(other.defaultDealPoRequired, defaultDealPoRequired) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultDealPoRequired, defaultDealPoRequired)) &&
+            (identical(other.defaultDealPoType, defaultDealPoType) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultDealPoType, defaultDealPoType)) &&
+            (identical(other.defaultCustomerStatusId, defaultCustomerStatusId) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultCustomerStatusId, defaultCustomerStatusId)) &&
+            (identical(other.defaultCustomerStatus, defaultCustomerStatus) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultCustomerStatus, defaultCustomerStatus)) &&
+            (identical(other.defaultDealBillingCycleId, defaultDealBillingCycleId) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultDealBillingCycleId,
+                    defaultDealBillingCycleId)) &&
+            (identical(other.defaultDealBillingCycle, defaultDealBillingCycle) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultDealBillingCycle, defaultDealBillingCycle)) &&
+            (identical(other.defaultNonRecurringBillingCycleId, defaultNonRecurringBillingCycleId) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultNonRecurringBillingCycleId,
+                    defaultNonRecurringBillingCycleId)) &&
+            (identical(other.defaultNonRecurringBillingCycle, defaultNonRecurringBillingCycle) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultNonRecurringBillingCycle,
+                    defaultNonRecurringBillingCycle)) &&
+            (identical(other.defaultCustomerPaymentTermsId, defaultCustomerPaymentTermsId) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultCustomerPaymentTermsId,
+                    defaultCustomerPaymentTermsId)) &&
+            (identical(other.defaultCustomerPaymentTerms, defaultCustomerPaymentTerms) || const DeepCollectionEquality().equals(other.defaultCustomerPaymentTerms, defaultCustomerPaymentTerms)) &&
+            (identical(other.defaultRank, defaultRank) || const DeepCollectionEquality().equals(other.defaultRank, defaultRank)) &&
+            (identical(other.defaultCreditStatusId, defaultCreditStatusId) || const DeepCollectionEquality().equals(other.defaultCreditStatusId, defaultCreditStatusId)) &&
+            (identical(other.defaultCreditStatus, defaultCreditStatus) || const DeepCollectionEquality().equals(other.defaultCreditStatus, defaultCreditStatus)) &&
+            (identical(other.contactShowAllDeals, contactShowAllDeals) || const DeepCollectionEquality().equals(other.contactShowAllDeals, contactShowAllDeals)));
+  }
+}
+
+extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
+    on WebApiLogicAppFuncDefaultSettingsResponse {
+  WebApiLogicAppFuncDefaultSettingsResponse copyWith(
+      {String? defaultUnitId,
+      String? defaultUnit,
+      String? defaultDealStatusId,
+      String? defaultDealStatus,
+      bool? defaultDealPoRequired,
+      String? defaultDealPoType,
+      String? defaultCustomerStatusId,
+      String? defaultCustomerStatus,
+      String? defaultDealBillingCycleId,
+      String? defaultDealBillingCycle,
+      String? defaultNonRecurringBillingCycleId,
+      String? defaultNonRecurringBillingCycle,
+      String? defaultCustomerPaymentTermsId,
+      String? defaultCustomerPaymentTerms,
+      String? defaultRank,
+      String? defaultCreditStatusId,
+      String? defaultCreditStatus,
+      bool? contactShowAllDeals}) {
+    return WebApiLogicAppFuncDefaultSettingsResponse(
+        defaultUnitId: defaultUnitId ?? this.defaultUnitId,
+        defaultUnit: defaultUnit ?? this.defaultUnit,
+        defaultDealStatusId: defaultDealStatusId ?? this.defaultDealStatusId,
+        defaultDealStatus: defaultDealStatus ?? this.defaultDealStatus,
+        defaultDealPoRequired:
+            defaultDealPoRequired ?? this.defaultDealPoRequired,
+        defaultDealPoType: defaultDealPoType ?? this.defaultDealPoType,
+        defaultCustomerStatusId:
+            defaultCustomerStatusId ?? this.defaultCustomerStatusId,
+        defaultCustomerStatus:
+            defaultCustomerStatus ?? this.defaultCustomerStatus,
+        defaultDealBillingCycleId:
+            defaultDealBillingCycleId ?? this.defaultDealBillingCycleId,
+        defaultDealBillingCycle:
+            defaultDealBillingCycle ?? this.defaultDealBillingCycle,
+        defaultNonRecurringBillingCycleId: defaultNonRecurringBillingCycleId ??
+            this.defaultNonRecurringBillingCycleId,
+        defaultNonRecurringBillingCycle: defaultNonRecurringBillingCycle ??
+            this.defaultNonRecurringBillingCycle,
+        defaultCustomerPaymentTermsId:
+            defaultCustomerPaymentTermsId ?? this.defaultCustomerPaymentTermsId,
+        defaultCustomerPaymentTerms:
+            defaultCustomerPaymentTerms ?? this.defaultCustomerPaymentTerms,
+        defaultRank: defaultRank ?? this.defaultRank,
+        defaultCreditStatusId:
+            defaultCreditStatusId ?? this.defaultCreditStatusId,
+        defaultCreditStatus: defaultCreditStatus ?? this.defaultCreditStatus,
+        contactShowAllDeals: contactShowAllDeals ?? this.contactShowAllDeals);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncDepartmentActivitiesResponse {
+  WebApiLogicAppFuncDepartmentActivitiesResponse({
+    this.defaultActivityFacilities,
+    this.defaultActivityLabor,
+    this.defaultActivityMiscellaneous,
+    this.defaultActivityRental,
+    this.defaultActivitySales,
+    this.defaultActivityTransportation,
+    this.defaultActivityRentalSale,
+  });
+
+  factory WebApiLogicAppFuncDepartmentActivitiesResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson(json);
+
+  @JsonKey(name: 'DefaultActivityFacilities')
+  final bool? defaultActivityFacilities;
+  @JsonKey(name: 'DefaultActivityLabor')
+  final bool? defaultActivityLabor;
+  @JsonKey(name: 'DefaultActivityMiscellaneous')
+  final bool? defaultActivityMiscellaneous;
+  @JsonKey(name: 'DefaultActivityRental')
+  final bool? defaultActivityRental;
+  @JsonKey(name: 'DefaultActivitySales')
+  final bool? defaultActivitySales;
+  @JsonKey(name: 'DefaultActivityTransportation')
+  final bool? defaultActivityTransportation;
+  @JsonKey(name: 'DefaultActivityRentalSale')
+  final bool? defaultActivityRentalSale;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncDepartmentActivitiesResponse &&
+            (identical(other.defaultActivityFacilities,
+                    defaultActivityFacilities) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivityFacilities,
+                    defaultActivityFacilities)) &&
+            (identical(other.defaultActivityLabor, defaultActivityLabor) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivityLabor, defaultActivityLabor)) &&
+            (identical(other.defaultActivityMiscellaneous,
+                    defaultActivityMiscellaneous) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivityMiscellaneous,
+                    defaultActivityMiscellaneous)) &&
+            (identical(other.defaultActivityRental, defaultActivityRental) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivityRental, defaultActivityRental)) &&
+            (identical(other.defaultActivitySales, defaultActivitySales) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivitySales, defaultActivitySales)) &&
+            (identical(other.defaultActivityTransportation,
+                    defaultActivityTransportation) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivityTransportation,
+                    defaultActivityTransportation)) &&
+            (identical(other.defaultActivityRentalSale,
+                    defaultActivityRentalSale) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultActivityRentalSale, defaultActivityRentalSale)));
+  }
+}
+
+extension $WebApiLogicAppFuncDepartmentActivitiesResponseExtension
+    on WebApiLogicAppFuncDepartmentActivitiesResponse {
+  WebApiLogicAppFuncDepartmentActivitiesResponse copyWith(
+      {bool? defaultActivityFacilities,
+      bool? defaultActivityLabor,
+      bool? defaultActivityMiscellaneous,
+      bool? defaultActivityRental,
+      bool? defaultActivitySales,
+      bool? defaultActivityTransportation,
+      bool? defaultActivityRentalSale}) {
+    return WebApiLogicAppFuncDepartmentActivitiesResponse(
+        defaultActivityFacilities:
+            defaultActivityFacilities ?? this.defaultActivityFacilities,
+        defaultActivityLabor: defaultActivityLabor ?? this.defaultActivityLabor,
+        defaultActivityMiscellaneous:
+            defaultActivityMiscellaneous ?? this.defaultActivityMiscellaneous,
+        defaultActivityRental:
+            defaultActivityRental ?? this.defaultActivityRental,
+        defaultActivitySales: defaultActivitySales ?? this.defaultActivitySales,
+        defaultActivityTransportation:
+            defaultActivityTransportation ?? this.defaultActivityTransportation,
+        defaultActivityRentalSale:
+            defaultActivityRentalSale ?? this.defaultActivityRentalSale);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncDocumentBarcodeSettingsResponse {
+  WebApiLogicAppFuncDocumentBarcodeSettingsResponse({
+    this.documentBarCodeStyle,
+  });
+
+  factory WebApiLogicAppFuncDocumentBarcodeSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'DocumentBarCodeStyle')
+  final String? documentBarCodeStyle;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncDocumentBarcodeSettingsResponse &&
+            (identical(other.documentBarCodeStyle, documentBarCodeStyle) ||
+                const DeepCollectionEquality()
+                    .equals(other.documentBarCodeStyle, documentBarCodeStyle)));
+  }
+}
+
+extension $WebApiLogicAppFuncDocumentBarcodeSettingsResponseExtension
+    on WebApiLogicAppFuncDocumentBarcodeSettingsResponse {
+  WebApiLogicAppFuncDocumentBarcodeSettingsResponse copyWith(
+      {String? documentBarCodeStyle}) {
+    return WebApiLogicAppFuncDocumentBarcodeSettingsResponse(
+        documentBarCodeStyle:
+            documentBarCodeStyle ?? this.documentBarCodeStyle);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncGetSettingsResponse {
+  WebApiLogicAppFuncGetSettingsResponse({
+    this.userSettings,
+    this.customFields,
+    this.customForms,
+    this.defaultSettings,
+    this.inventorySettings,
+    this.systemSettings,
+    this.department,
+    this.documentBarcodeSettings,
+    this.systemNumbers,
+    this.warehouses,
+    this.isTraining,
+  });
+
+  factory WebApiLogicAppFuncGetSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncGetSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'userSettings')
+  final WebApiLogicAppFuncUserSettingsResponse? userSettings;
+  @JsonKey(name: 'customFields')
+  final WebApiLogicAppFuncCustomFieldsResponse? customFields;
+  @JsonKey(name: 'customForms')
+  final WebApiLogicAppFuncCustomFormsResponse? customForms;
+  @JsonKey(name: 'defaultSettings')
+  final WebApiLogicAppFuncDefaultSettingsResponse? defaultSettings;
+  @JsonKey(name: 'inventorySettings')
+  final WebApiLogicAppFuncInventorySettingsResponse? inventorySettings;
+  @JsonKey(name: 'systemSettings')
+  final WebApiLogicAppFuncSystemSettingsResponse? systemSettings;
+  @JsonKey(name: 'department')
+  final WebApiLogicAppFuncDepartmentActivitiesResponse? department;
+  @JsonKey(name: 'documentBarcodeSettings')
+  final WebApiLogicAppFuncDocumentBarcodeSettingsResponse?
+      documentBarcodeSettings;
+  @JsonKey(name: 'systemNumbers')
+  final WebApiLogicAppFuncSystemNumbersResponse? systemNumbers;
+  @JsonKey(name: 'warehouses')
+  final WebApiLogicAppFuncWarehouseResponse? warehouses;
+  @JsonKey(name: 'isTraining')
+  final bool? isTraining;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncGetSettingsResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncGetSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncGetSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncGetSettingsResponse &&
+            (identical(other.userSettings, userSettings) ||
+                const DeepCollectionEquality()
+                    .equals(other.userSettings, userSettings)) &&
+            (identical(other.customFields, customFields) ||
+                const DeepCollectionEquality()
+                    .equals(other.customFields, customFields)) &&
+            (identical(other.customForms, customForms) ||
+                const DeepCollectionEquality()
+                    .equals(other.customForms, customForms)) &&
+            (identical(other.defaultSettings, defaultSettings) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultSettings, defaultSettings)) &&
+            (identical(other.inventorySettings, inventorySettings) ||
+                const DeepCollectionEquality()
+                    .equals(other.inventorySettings, inventorySettings)) &&
+            (identical(other.systemSettings, systemSettings) ||
+                const DeepCollectionEquality()
+                    .equals(other.systemSettings, systemSettings)) &&
+            (identical(other.department, department) ||
+                const DeepCollectionEquality()
+                    .equals(other.department, department)) &&
+            (identical(
+                    other.documentBarcodeSettings, documentBarcodeSettings) ||
+                const DeepCollectionEquality().equals(
+                    other.documentBarcodeSettings, documentBarcodeSettings)) &&
+            (identical(other.systemNumbers, systemNumbers) ||
+                const DeepCollectionEquality()
+                    .equals(other.systemNumbers, systemNumbers)) &&
+            (identical(other.warehouses, warehouses) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouses, warehouses)) &&
+            (identical(other.isTraining, isTraining) ||
+                const DeepCollectionEquality()
+                    .equals(other.isTraining, isTraining)));
+  }
+}
+
+extension $WebApiLogicAppFuncGetSettingsResponseExtension
+    on WebApiLogicAppFuncGetSettingsResponse {
+  WebApiLogicAppFuncGetSettingsResponse copyWith(
+      {WebApiLogicAppFuncUserSettingsResponse? userSettings,
+      WebApiLogicAppFuncCustomFieldsResponse? customFields,
+      WebApiLogicAppFuncCustomFormsResponse? customForms,
+      WebApiLogicAppFuncDefaultSettingsResponse? defaultSettings,
+      WebApiLogicAppFuncInventorySettingsResponse? inventorySettings,
+      WebApiLogicAppFuncSystemSettingsResponse? systemSettings,
+      WebApiLogicAppFuncDepartmentActivitiesResponse? department,
+      WebApiLogicAppFuncDocumentBarcodeSettingsResponse?
+          documentBarcodeSettings,
+      WebApiLogicAppFuncSystemNumbersResponse? systemNumbers,
+      WebApiLogicAppFuncWarehouseResponse? warehouses,
+      bool? isTraining}) {
+    return WebApiLogicAppFuncGetSettingsResponse(
+        userSettings: userSettings ?? this.userSettings,
+        customFields: customFields ?? this.customFields,
+        customForms: customForms ?? this.customForms,
+        defaultSettings: defaultSettings ?? this.defaultSettings,
+        inventorySettings: inventorySettings ?? this.inventorySettings,
+        systemSettings: systemSettings ?? this.systemSettings,
+        department: department ?? this.department,
+        documentBarcodeSettings:
+            documentBarcodeSettings ?? this.documentBarcodeSettings,
+        systemNumbers: systemNumbers ?? this.systemNumbers,
+        warehouses: warehouses ?? this.warehouses,
+        isTraining: isTraining ?? this.isTraining);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncInventorySettingsResponse {
+  WebApiLogicAppFuncInventorySettingsResponse({
+    this.iCodeMask,
+    this.userAssignedICodes,
+    this.enable3WeekPricing,
+    this.autoUpdateInventoryMetricImperialDimensions,
+    this.enableConsignment,
+    this.enableLease,
+    this.defaultRentalSaleRetiredReasonId,
+    this.defaultRentalSaleRetiredReason,
+    this.defaultLossAndDamageRetiredReasonId,
+    this.defaultLossAndDamageRetiredReason,
+  });
+
+  factory WebApiLogicAppFuncInventorySettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncInventorySettingsResponseFromJson(json);
+
+  @JsonKey(name: 'ICodeMask')
+  final String? iCodeMask;
+  @JsonKey(name: 'UserAssignedICodes')
+  final bool? userAssignedICodes;
+  @JsonKey(name: 'Enable3WeekPricing')
+  final bool? enable3WeekPricing;
+  @JsonKey(name: 'AutoUpdateInventoryMetricImperialDimensions')
+  final bool? autoUpdateInventoryMetricImperialDimensions;
+  @JsonKey(name: 'EnableConsignment')
+  final bool? enableConsignment;
+  @JsonKey(name: 'EnableLease')
+  final bool? enableLease;
+  @JsonKey(name: 'DefaultRentalSaleRetiredReasonId')
+  final String? defaultRentalSaleRetiredReasonId;
+  @JsonKey(name: 'DefaultRentalSaleRetiredReason')
+  final String? defaultRentalSaleRetiredReason;
+  @JsonKey(name: 'DefaultLossAndDamageRetiredReasonId')
+  final String? defaultLossAndDamageRetiredReasonId;
+  @JsonKey(name: 'DefaultLossAndDamageRetiredReason')
+  final String? defaultLossAndDamageRetiredReason;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncInventorySettingsResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncInventorySettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncInventorySettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncInventorySettingsResponse &&
+            (identical(other.iCodeMask, iCodeMask) ||
+                const DeepCollectionEquality()
+                    .equals(other.iCodeMask, iCodeMask)) &&
+            (identical(other.userAssignedICodes, userAssignedICodes) ||
+                const DeepCollectionEquality()
+                    .equals(other.userAssignedICodes, userAssignedICodes)) &&
+            (identical(other.enable3WeekPricing, enable3WeekPricing) ||
+                const DeepCollectionEquality()
+                    .equals(other.enable3WeekPricing, enable3WeekPricing)) &&
+            (identical(other.autoUpdateInventoryMetricImperialDimensions,
+                    autoUpdateInventoryMetricImperialDimensions) ||
+                const DeepCollectionEquality().equals(
+                    other.autoUpdateInventoryMetricImperialDimensions,
+                    autoUpdateInventoryMetricImperialDimensions)) &&
+            (identical(other.enableConsignment, enableConsignment) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableConsignment, enableConsignment)) &&
+            (identical(other.enableLease, enableLease) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableLease, enableLease)) &&
+            (identical(other.defaultRentalSaleRetiredReasonId, defaultRentalSaleRetiredReasonId) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultRentalSaleRetiredReasonId,
+                    defaultRentalSaleRetiredReasonId)) &&
+            (identical(other.defaultRentalSaleRetiredReason, defaultRentalSaleRetiredReason) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultRentalSaleRetiredReason,
+                    defaultRentalSaleRetiredReason)) &&
+            (identical(other.defaultLossAndDamageRetiredReasonId,
+                    defaultLossAndDamageRetiredReasonId) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultLossAndDamageRetiredReasonId,
+                    defaultLossAndDamageRetiredReasonId)) &&
+            (identical(other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason)));
+  }
+}
+
+extension $WebApiLogicAppFuncInventorySettingsResponseExtension
+    on WebApiLogicAppFuncInventorySettingsResponse {
+  WebApiLogicAppFuncInventorySettingsResponse copyWith(
+      {String? iCodeMask,
+      bool? userAssignedICodes,
+      bool? enable3WeekPricing,
+      bool? autoUpdateInventoryMetricImperialDimensions,
+      bool? enableConsignment,
+      bool? enableLease,
+      String? defaultRentalSaleRetiredReasonId,
+      String? defaultRentalSaleRetiredReason,
+      String? defaultLossAndDamageRetiredReasonId,
+      String? defaultLossAndDamageRetiredReason}) {
+    return WebApiLogicAppFuncInventorySettingsResponse(
+        iCodeMask: iCodeMask ?? this.iCodeMask,
+        userAssignedICodes: userAssignedICodes ?? this.userAssignedICodes,
+        enable3WeekPricing: enable3WeekPricing ?? this.enable3WeekPricing,
+        autoUpdateInventoryMetricImperialDimensions:
+            autoUpdateInventoryMetricImperialDimensions ??
+                this.autoUpdateInventoryMetricImperialDimensions,
+        enableConsignment: enableConsignment ?? this.enableConsignment,
+        enableLease: enableLease ?? this.enableLease,
+        defaultRentalSaleRetiredReasonId: defaultRentalSaleRetiredReasonId ??
+            this.defaultRentalSaleRetiredReasonId,
+        defaultRentalSaleRetiredReason: defaultRentalSaleRetiredReason ??
+            this.defaultRentalSaleRetiredReason,
+        defaultLossAndDamageRetiredReasonId:
+            defaultLossAndDamageRetiredReasonId ??
+                this.defaultLossAndDamageRetiredReasonId,
+        defaultLossAndDamageRetiredReason: defaultLossAndDamageRetiredReason ??
+            this.defaultLossAndDamageRetiredReason);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSessionDeal {
+  WebApiLogicAppFuncSessionDeal({
+    this.dealid,
+    this.deal,
+  });
+
+  factory WebApiLogicAppFuncSessionDeal.fromJson(Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSessionDealFromJson(json);
+
+  @JsonKey(name: 'dealid')
+  final String? dealid;
+  @JsonKey(name: 'deal')
+  final String? deal;
+  static const fromJsonFactory = _$WebApiLogicAppFuncSessionDealFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionDealToJson;
+  Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionDealToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSessionDeal &&
+            (identical(other.dealid, dealid) ||
+                const DeepCollectionEquality().equals(other.dealid, dealid)) &&
+            (identical(other.deal, deal) ||
+                const DeepCollectionEquality().equals(other.deal, deal)));
+  }
+}
+
+extension $WebApiLogicAppFuncSessionDealExtension
+    on WebApiLogicAppFuncSessionDeal {
+  WebApiLogicAppFuncSessionDeal copyWith({String? dealid, String? deal}) {
+    return WebApiLogicAppFuncSessionDeal(
+        dealid: dealid ?? this.dealid, deal: deal ?? this.deal);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSessionDepartment {
+  WebApiLogicAppFuncSessionDepartment({
+    this.departmentid,
+    this.department,
+  });
+
+  factory WebApiLogicAppFuncSessionDepartment.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSessionDepartmentFromJson(json);
+
+  @JsonKey(name: 'departmentid')
+  final String? departmentid;
+  @JsonKey(name: 'department')
+  final String? department;
+  static const fromJsonFactory = _$WebApiLogicAppFuncSessionDepartmentFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionDepartmentToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSessionDepartmentToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSessionDepartment &&
+            (identical(other.departmentid, departmentid) ||
+                const DeepCollectionEquality()
+                    .equals(other.departmentid, departmentid)) &&
+            (identical(other.department, department) ||
+                const DeepCollectionEquality()
+                    .equals(other.department, department)));
+  }
+}
+
+extension $WebApiLogicAppFuncSessionDepartmentExtension
+    on WebApiLogicAppFuncSessionDepartment {
+  WebApiLogicAppFuncSessionDepartment copyWith(
+      {String? departmentid, String? department}) {
+    return WebApiLogicAppFuncSessionDepartment(
+        departmentid: departmentid ?? this.departmentid,
+        department: department ?? this.department);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSessionLocation {
+  WebApiLogicAppFuncSessionLocation({
+    this.locationid,
+    this.location,
+    this.locationcode,
+    this.companyname,
+    this.locationcolor,
+    this.ratetype,
+    this.ratetypedisplay,
+    this.defaultcurrency,
+    this.defaultcurrencyid,
+    this.defaultcurrencycode,
+    this.defaultcurrencysymbol,
+    this.countryid,
+    this.country,
+    this.phone,
+    this.useorderlocationbydefault,
+  });
+
+  factory WebApiLogicAppFuncSessionLocation.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSessionLocationFromJson(json);
+
+  @JsonKey(name: 'locationid')
+  final String? locationid;
+  @JsonKey(name: 'location')
+  final String? location;
+  @JsonKey(name: 'locationcode')
+  final String? locationcode;
+  @JsonKey(name: 'companyname')
+  final String? companyname;
+  @JsonKey(name: 'locationcolor')
+  final String? locationcolor;
+  @JsonKey(name: 'ratetype')
+  final String? ratetype;
+  @JsonKey(name: 'ratetypedisplay')
+  final String? ratetypedisplay;
+  @JsonKey(name: 'defaultcurrency')
+  final String? defaultcurrency;
+  @JsonKey(name: 'defaultcurrencyid')
+  final String? defaultcurrencyid;
+  @JsonKey(name: 'defaultcurrencycode')
+  final String? defaultcurrencycode;
+  @JsonKey(name: 'defaultcurrencysymbol')
+  final String? defaultcurrencysymbol;
+  @JsonKey(name: 'countryid')
+  final String? countryid;
+  @JsonKey(name: 'country')
+  final String? country;
+  @JsonKey(name: 'phone')
+  final String? phone;
+  @JsonKey(name: 'useorderlocationbydefault')
+  final bool? useorderlocationbydefault;
+  static const fromJsonFactory = _$WebApiLogicAppFuncSessionLocationFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionLocationToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSessionLocationToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSessionLocation &&
+            (identical(other.locationid, locationid) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationid, locationid)) &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)) &&
+            (identical(other.locationcode, locationcode) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationcode, locationcode)) &&
+            (identical(other.companyname, companyname) ||
+                const DeepCollectionEquality()
+                    .equals(other.companyname, companyname)) &&
+            (identical(other.locationcolor, locationcolor) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationcolor, locationcolor)) &&
+            (identical(other.ratetype, ratetype) ||
+                const DeepCollectionEquality()
+                    .equals(other.ratetype, ratetype)) &&
+            (identical(other.ratetypedisplay, ratetypedisplay) ||
+                const DeepCollectionEquality()
+                    .equals(other.ratetypedisplay, ratetypedisplay)) &&
+            (identical(other.defaultcurrency, defaultcurrency) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultcurrency, defaultcurrency)) &&
+            (identical(other.defaultcurrencyid, defaultcurrencyid) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultcurrencyid, defaultcurrencyid)) &&
+            (identical(other.defaultcurrencycode, defaultcurrencycode) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultcurrencycode, defaultcurrencycode)) &&
+            (identical(other.defaultcurrencysymbol, defaultcurrencysymbol) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultcurrencysymbol, defaultcurrencysymbol)) &&
+            (identical(other.countryid, countryid) ||
+                const DeepCollectionEquality()
+                    .equals(other.countryid, countryid)) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality()
+                    .equals(other.country, country)) &&
+            (identical(other.phone, phone) ||
+                const DeepCollectionEquality().equals(other.phone, phone)) &&
+            (identical(other.useorderlocationbydefault,
+                    useorderlocationbydefault) ||
+                const DeepCollectionEquality().equals(
+                    other.useorderlocationbydefault,
+                    useorderlocationbydefault)));
+  }
+}
+
+extension $WebApiLogicAppFuncSessionLocationExtension
+    on WebApiLogicAppFuncSessionLocation {
+  WebApiLogicAppFuncSessionLocation copyWith(
+      {String? locationid,
+      String? location,
+      String? locationcode,
+      String? companyname,
+      String? locationcolor,
+      String? ratetype,
+      String? ratetypedisplay,
+      String? defaultcurrency,
+      String? defaultcurrencyid,
+      String? defaultcurrencycode,
+      String? defaultcurrencysymbol,
+      String? countryid,
+      String? country,
+      String? phone,
+      bool? useorderlocationbydefault}) {
+    return WebApiLogicAppFuncSessionLocation(
+        locationid: locationid ?? this.locationid,
+        location: location ?? this.location,
+        locationcode: locationcode ?? this.locationcode,
+        companyname: companyname ?? this.companyname,
+        locationcolor: locationcolor ?? this.locationcolor,
+        ratetype: ratetype ?? this.ratetype,
+        ratetypedisplay: ratetypedisplay ?? this.ratetypedisplay,
+        defaultcurrency: defaultcurrency ?? this.defaultcurrency,
+        defaultcurrencyid: defaultcurrencyid ?? this.defaultcurrencyid,
+        defaultcurrencycode: defaultcurrencycode ?? this.defaultcurrencycode,
+        defaultcurrencysymbol:
+            defaultcurrencysymbol ?? this.defaultcurrencysymbol,
+        countryid: countryid ?? this.countryid,
+        country: country ?? this.country,
+        phone: phone ?? this.phone,
+        useorderlocationbydefault:
+            useorderlocationbydefault ?? this.useorderlocationbydefault);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSessionUser {
+  WebApiLogicAppFuncSessionUser({
+    this.webusersid,
+    this.usersid,
+    this.contactid,
+    this.usertype,
+    this.email,
+    this.fullname,
+    this.name,
+    this.browsedefaultrows,
+    this.applicationtheme,
+    this.locationid,
+    this.location,
+    this.warehouseid,
+    this.warehouse,
+    this.departmentid,
+    this.department,
+    this.webadministrator,
+    this.firstdayofweek,
+    this.rentalinventorydepartmentid,
+    this.rentalinventorydepartment,
+    this.salesinventorydepartmentid,
+    this.salesinventorydepartment,
+    this.partsinventorydepartmentid,
+    this.partsinventorydepartment,
+    this.transportationinvdepartmentid,
+    this.transportationinvdepartment,
+    this.laborinventorydepartmentid,
+    this.laborinventorydepartment,
+    this.miscinventorydepartmentid,
+    this.miscinventorydepartment,
+    this.spaceinventorydepartmentid,
+    this.spaceinventorydepartment,
+    this.iscrew,
+    this.enablecreatecontract,
+    this.qsallowapplyallqtyitems,
+    this.allowcontractwithexceptions,
+  });
+
+  factory WebApiLogicAppFuncSessionUser.fromJson(Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSessionUserFromJson(json);
+
+  @JsonKey(name: 'webusersid')
+  final String? webusersid;
+  @JsonKey(name: 'usersid')
+  final String? usersid;
+  @JsonKey(name: 'contactid')
+  final String? contactid;
+  @JsonKey(name: 'usertype')
+  final String? usertype;
+  @JsonKey(name: 'email')
+  final String? email;
+  @JsonKey(name: 'fullname')
+  final String? fullname;
+  @JsonKey(name: 'name')
+  final String? name;
+  @JsonKey(name: 'browsedefaultrows')
+  final int? browsedefaultrows;
+  @JsonKey(name: 'applicationtheme')
+  final String? applicationtheme;
+  @JsonKey(name: 'locationid')
+  final String? locationid;
+  @JsonKey(name: 'location')
+  final String? location;
+  @JsonKey(name: 'warehouseid')
+  final String? warehouseid;
+  @JsonKey(name: 'warehouse')
+  final String? warehouse;
+  @JsonKey(name: 'departmentid')
+  final String? departmentid;
+  @JsonKey(name: 'department')
+  final String? department;
+  @JsonKey(name: 'webadministrator')
+  final bool? webadministrator;
+  @JsonKey(name: 'firstdayofweek')
+  final int? firstdayofweek;
+  @JsonKey(name: 'rentalinventorydepartmentid')
+  final String? rentalinventorydepartmentid;
+  @JsonKey(name: 'rentalinventorydepartment')
+  final String? rentalinventorydepartment;
+  @JsonKey(name: 'salesinventorydepartmentid')
+  final String? salesinventorydepartmentid;
+  @JsonKey(name: 'salesinventorydepartment')
+  final String? salesinventorydepartment;
+  @JsonKey(name: 'partsinventorydepartmentid')
+  final String? partsinventorydepartmentid;
+  @JsonKey(name: 'partsinventorydepartment')
+  final String? partsinventorydepartment;
+  @JsonKey(name: 'transportationinvdepartmentid')
+  final String? transportationinvdepartmentid;
+  @JsonKey(name: 'transportationinvdepartment')
+  final String? transportationinvdepartment;
+  @JsonKey(name: 'laborinventorydepartmentid')
+  final String? laborinventorydepartmentid;
+  @JsonKey(name: 'laborinventorydepartment')
+  final String? laborinventorydepartment;
+  @JsonKey(name: 'miscinventorydepartmentid')
+  final String? miscinventorydepartmentid;
+  @JsonKey(name: 'miscinventorydepartment')
+  final String? miscinventorydepartment;
+  @JsonKey(name: 'spaceinventorydepartmentid')
+  final String? spaceinventorydepartmentid;
+  @JsonKey(name: 'spaceinventorydepartment')
+  final String? spaceinventorydepartment;
+  @JsonKey(name: 'iscrew')
+  final bool? iscrew;
+  @JsonKey(name: 'enablecreatecontract')
+  final bool? enablecreatecontract;
+  @JsonKey(name: 'qsallowapplyallqtyitems')
+  final bool? qsallowapplyallqtyitems;
+  @JsonKey(name: 'allowcontractwithexceptions')
+  final bool? allowcontractwithexceptions;
+  static const fromJsonFactory = _$WebApiLogicAppFuncSessionUserFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionUserToJson;
+  Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionUserToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSessionUser &&
+            (identical(other.webusersid, webusersid) ||
+                const DeepCollectionEquality()
+                    .equals(other.webusersid, webusersid)) &&
+            (identical(other.usersid, usersid) ||
+                const DeepCollectionEquality()
+                    .equals(other.usersid, usersid)) &&
+            (identical(other.contactid, contactid) ||
+                const DeepCollectionEquality()
+                    .equals(other.contactid, contactid)) &&
+            (identical(other.usertype, usertype) ||
+                const DeepCollectionEquality()
+                    .equals(other.usertype, usertype)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.fullname, fullname) ||
+                const DeepCollectionEquality()
+                    .equals(other.fullname, fullname)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.browsedefaultrows, browsedefaultrows) ||
+                const DeepCollectionEquality()
+                    .equals(other.browsedefaultrows, browsedefaultrows)) &&
+            (identical(other.applicationtheme, applicationtheme) ||
+                const DeepCollectionEquality()
+                    .equals(other.applicationtheme, applicationtheme)) &&
+            (identical(other.locationid, locationid) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationid, locationid)) &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)) &&
+            (identical(other.warehouseid, warehouseid) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouseid, warehouseid)) &&
+            (identical(other.warehouse, warehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouse, warehouse)) &&
+            (identical(other.departmentid, departmentid) ||
+                const DeepCollectionEquality()
+                    .equals(other.departmentid, departmentid)) &&
+            (identical(other.department, department) ||
+                const DeepCollectionEquality()
+                    .equals(other.department, department)) &&
+            (identical(other.webadministrator, webadministrator) ||
+                const DeepCollectionEquality()
+                    .equals(other.webadministrator, webadministrator)) &&
+            (identical(other.firstdayofweek, firstdayofweek) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstdayofweek, firstdayofweek)) &&
+            (identical(other.rentalinventorydepartmentid, rentalinventorydepartmentid) ||
+                const DeepCollectionEquality().equals(
+                    other.rentalinventorydepartmentid,
+                    rentalinventorydepartmentid)) &&
+            (identical(other.rentalinventorydepartment, rentalinventorydepartment) ||
+                const DeepCollectionEquality().equals(
+                    other.rentalinventorydepartment,
+                    rentalinventorydepartment)) &&
+            (identical(other.salesinventorydepartmentid, salesinventorydepartmentid) ||
+                const DeepCollectionEquality().equals(
+                    other.salesinventorydepartmentid,
+                    salesinventorydepartmentid)) &&
+            (identical(other.salesinventorydepartment, salesinventorydepartment) || const DeepCollectionEquality().equals(other.salesinventorydepartment, salesinventorydepartment)) &&
+            (identical(other.partsinventorydepartmentid, partsinventorydepartmentid) || const DeepCollectionEquality().equals(other.partsinventorydepartmentid, partsinventorydepartmentid)) &&
+            (identical(other.partsinventorydepartment, partsinventorydepartment) || const DeepCollectionEquality().equals(other.partsinventorydepartment, partsinventorydepartment)) &&
+            (identical(other.transportationinvdepartmentid, transportationinvdepartmentid) || const DeepCollectionEquality().equals(other.transportationinvdepartmentid, transportationinvdepartmentid)) &&
+            (identical(other.transportationinvdepartment, transportationinvdepartment) || const DeepCollectionEquality().equals(other.transportationinvdepartment, transportationinvdepartment)) &&
+            (identical(other.laborinventorydepartmentid, laborinventorydepartmentid) || const DeepCollectionEquality().equals(other.laborinventorydepartmentid, laborinventorydepartmentid)) &&
+            (identical(other.laborinventorydepartment, laborinventorydepartment) || const DeepCollectionEquality().equals(other.laborinventorydepartment, laborinventorydepartment)) &&
+            (identical(other.miscinventorydepartmentid, miscinventorydepartmentid) || const DeepCollectionEquality().equals(other.miscinventorydepartmentid, miscinventorydepartmentid)) &&
+            (identical(other.miscinventorydepartment, miscinventorydepartment) || const DeepCollectionEquality().equals(other.miscinventorydepartment, miscinventorydepartment)) &&
+            (identical(other.spaceinventorydepartmentid, spaceinventorydepartmentid) || const DeepCollectionEquality().equals(other.spaceinventorydepartmentid, spaceinventorydepartmentid)) &&
+            (identical(other.spaceinventorydepartment, spaceinventorydepartment) || const DeepCollectionEquality().equals(other.spaceinventorydepartment, spaceinventorydepartment)) &&
+            (identical(other.iscrew, iscrew) || const DeepCollectionEquality().equals(other.iscrew, iscrew)) &&
+            (identical(other.enablecreatecontract, enablecreatecontract) || const DeepCollectionEquality().equals(other.enablecreatecontract, enablecreatecontract)) &&
+            (identical(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems) || const DeepCollectionEquality().equals(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems)) &&
+            (identical(other.allowcontractwithexceptions, allowcontractwithexceptions) || const DeepCollectionEquality().equals(other.allowcontractwithexceptions, allowcontractwithexceptions)));
+  }
+}
+
+extension $WebApiLogicAppFuncSessionUserExtension
+    on WebApiLogicAppFuncSessionUser {
+  WebApiLogicAppFuncSessionUser copyWith(
+      {String? webusersid,
+      String? usersid,
+      String? contactid,
+      String? usertype,
+      String? email,
+      String? fullname,
+      String? name,
+      int? browsedefaultrows,
+      String? applicationtheme,
+      String? locationid,
+      String? location,
+      String? warehouseid,
+      String? warehouse,
+      String? departmentid,
+      String? department,
+      bool? webadministrator,
+      int? firstdayofweek,
+      String? rentalinventorydepartmentid,
+      String? rentalinventorydepartment,
+      String? salesinventorydepartmentid,
+      String? salesinventorydepartment,
+      String? partsinventorydepartmentid,
+      String? partsinventorydepartment,
+      String? transportationinvdepartmentid,
+      String? transportationinvdepartment,
+      String? laborinventorydepartmentid,
+      String? laborinventorydepartment,
+      String? miscinventorydepartmentid,
+      String? miscinventorydepartment,
+      String? spaceinventorydepartmentid,
+      String? spaceinventorydepartment,
+      bool? iscrew,
+      bool? enablecreatecontract,
+      bool? qsallowapplyallqtyitems,
+      bool? allowcontractwithexceptions}) {
+    return WebApiLogicAppFuncSessionUser(
+        webusersid: webusersid ?? this.webusersid,
+        usersid: usersid ?? this.usersid,
+        contactid: contactid ?? this.contactid,
+        usertype: usertype ?? this.usertype,
+        email: email ?? this.email,
+        fullname: fullname ?? this.fullname,
+        name: name ?? this.name,
+        browsedefaultrows: browsedefaultrows ?? this.browsedefaultrows,
+        applicationtheme: applicationtheme ?? this.applicationtheme,
+        locationid: locationid ?? this.locationid,
+        location: location ?? this.location,
+        warehouseid: warehouseid ?? this.warehouseid,
+        warehouse: warehouse ?? this.warehouse,
+        departmentid: departmentid ?? this.departmentid,
+        department: department ?? this.department,
+        webadministrator: webadministrator ?? this.webadministrator,
+        firstdayofweek: firstdayofweek ?? this.firstdayofweek,
+        rentalinventorydepartmentid:
+            rentalinventorydepartmentid ?? this.rentalinventorydepartmentid,
+        rentalinventorydepartment:
+            rentalinventorydepartment ?? this.rentalinventorydepartment,
+        salesinventorydepartmentid:
+            salesinventorydepartmentid ?? this.salesinventorydepartmentid,
+        salesinventorydepartment:
+            salesinventorydepartment ?? this.salesinventorydepartment,
+        partsinventorydepartmentid:
+            partsinventorydepartmentid ?? this.partsinventorydepartmentid,
+        partsinventorydepartment:
+            partsinventorydepartment ?? this.partsinventorydepartment,
+        transportationinvdepartmentid:
+            transportationinvdepartmentid ?? this.transportationinvdepartmentid,
+        transportationinvdepartment:
+            transportationinvdepartment ?? this.transportationinvdepartment,
+        laborinventorydepartmentid:
+            laborinventorydepartmentid ?? this.laborinventorydepartmentid,
+        laborinventorydepartment:
+            laborinventorydepartment ?? this.laborinventorydepartment,
+        miscinventorydepartmentid:
+            miscinventorydepartmentid ?? this.miscinventorydepartmentid,
+        miscinventorydepartment:
+            miscinventorydepartment ?? this.miscinventorydepartment,
+        spaceinventorydepartmentid:
+            spaceinventorydepartmentid ?? this.spaceinventorydepartmentid,
+        spaceinventorydepartment:
+            spaceinventorydepartment ?? this.spaceinventorydepartment,
+        iscrew: iscrew ?? this.iscrew,
+        enablecreatecontract: enablecreatecontract ?? this.enablecreatecontract,
+        qsallowapplyallqtyitems:
+            qsallowapplyallqtyitems ?? this.qsallowapplyallqtyitems,
+        allowcontractwithexceptions:
+            allowcontractwithexceptions ?? this.allowcontractwithexceptions);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSessionWarehouse {
+  WebApiLogicAppFuncSessionWarehouse({
+    this.warehouseid,
+    this.warehouse,
+    this.warehousecode,
+    this.promptforcheckoutexceptions,
+    this.promptforcheckinexceptions,
+    this.storagecontainerstagingenable,
+    this.storagecontainerrescanrequired,
+    this.quikreceiptenable,
+  });
+
+  factory WebApiLogicAppFuncSessionWarehouse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSessionWarehouseFromJson(json);
+
+  @JsonKey(name: 'warehouseid')
+  final String? warehouseid;
+  @JsonKey(name: 'warehouse')
+  final String? warehouse;
+  @JsonKey(name: 'warehousecode')
+  final String? warehousecode;
+  @JsonKey(name: 'promptforcheckoutexceptions')
+  final bool? promptforcheckoutexceptions;
+  @JsonKey(name: 'promptforcheckinexceptions')
+  final bool? promptforcheckinexceptions;
+  @JsonKey(name: 'storagecontainerstagingenable')
+  final bool? storagecontainerstagingenable;
+  @JsonKey(name: 'storagecontainerrescanrequired')
+  final bool? storagecontainerrescanrequired;
+  @JsonKey(name: 'quikreceiptenable')
+  final bool? quikreceiptenable;
+  static const fromJsonFactory = _$WebApiLogicAppFuncSessionWarehouseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionWarehouseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSessionWarehouseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSessionWarehouse &&
+            (identical(other.warehouseid, warehouseid) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouseid, warehouseid)) &&
+            (identical(other.warehouse, warehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouse, warehouse)) &&
+            (identical(other.warehousecode, warehousecode) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehousecode, warehousecode)) &&
+            (identical(other.promptforcheckoutexceptions,
+                    promptforcheckoutexceptions) ||
+                const DeepCollectionEquality().equals(
+                    other.promptforcheckoutexceptions,
+                    promptforcheckoutexceptions)) &&
+            (identical(other.promptforcheckinexceptions, promptforcheckinexceptions) ||
+                const DeepCollectionEquality().equals(
+                    other.promptforcheckinexceptions,
+                    promptforcheckinexceptions)) &&
+            (identical(other.storagecontainerstagingenable,
+                    storagecontainerstagingenable) ||
+                const DeepCollectionEquality().equals(
+                    other.storagecontainerstagingenable,
+                    storagecontainerstagingenable)) &&
+            (identical(other.storagecontainerrescanrequired,
+                    storagecontainerrescanrequired) ||
+                const DeepCollectionEquality().equals(
+                    other.storagecontainerrescanrequired,
+                    storagecontainerrescanrequired)) &&
+            (identical(other.quikreceiptenable, quikreceiptenable) ||
+                const DeepCollectionEquality()
+                    .equals(other.quikreceiptenable, quikreceiptenable)));
+  }
+}
+
+extension $WebApiLogicAppFuncSessionWarehouseExtension
+    on WebApiLogicAppFuncSessionWarehouse {
+  WebApiLogicAppFuncSessionWarehouse copyWith(
+      {String? warehouseid,
+      String? warehouse,
+      String? warehousecode,
+      bool? promptforcheckoutexceptions,
+      bool? promptforcheckinexceptions,
+      bool? storagecontainerstagingenable,
+      bool? storagecontainerrescanrequired,
+      bool? quikreceiptenable}) {
+    return WebApiLogicAppFuncSessionWarehouse(
+        warehouseid: warehouseid ?? this.warehouseid,
+        warehouse: warehouse ?? this.warehouse,
+        warehousecode: warehousecode ?? this.warehousecode,
+        promptforcheckoutexceptions:
+            promptforcheckoutexceptions ?? this.promptforcheckoutexceptions,
+        promptforcheckinexceptions:
+            promptforcheckinexceptions ?? this.promptforcheckinexceptions,
+        storagecontainerstagingenable:
+            storagecontainerstagingenable ?? this.storagecontainerstagingenable,
+        storagecontainerrescanrequired: storagecontainerrescanrequired ??
+            this.storagecontainerrescanrequired,
+        quikreceiptenable: quikreceiptenable ?? this.quikreceiptenable);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSystemNumbersModel {
+  WebApiLogicAppFuncSystemNumbersModel({
+    this.module,
+    this.isAssignedByUser,
+  });
+
+  factory WebApiLogicAppFuncSystemNumbersModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSystemNumbersModelFromJson(json);
+
+  @JsonKey(name: 'Module')
+  final String? module;
+  @JsonKey(name: 'IsAssignedByUser')
+  final bool? isAssignedByUser;
+  static const fromJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSystemNumbersModelToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSystemNumbersModel &&
+            (identical(other.module, module) ||
+                const DeepCollectionEquality().equals(other.module, module)) &&
+            (identical(other.isAssignedByUser, isAssignedByUser) ||
+                const DeepCollectionEquality()
+                    .equals(other.isAssignedByUser, isAssignedByUser)));
+  }
+}
+
+extension $WebApiLogicAppFuncSystemNumbersModelExtension
+    on WebApiLogicAppFuncSystemNumbersModel {
+  WebApiLogicAppFuncSystemNumbersModel copyWith(
+      {String? module, bool? isAssignedByUser}) {
+    return WebApiLogicAppFuncSystemNumbersModel(
+        module: module ?? this.module,
+        isAssignedByUser: isAssignedByUser ?? this.isAssignedByUser);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSystemNumbersResponse {
+  WebApiLogicAppFuncSystemNumbersResponse({
+    this.systemNumbers,
+  });
+
+  factory WebApiLogicAppFuncSystemNumbersResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSystemNumbersResponseFromJson(json);
+
+  @JsonKey(
+      name: 'SystemNumbers',
+      defaultValue: <WebApiLogicAppFuncSystemNumbersModel>[])
+  final List<WebApiLogicAppFuncSystemNumbersModel>? systemNumbers;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncSystemNumbersResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSystemNumbersResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSystemNumbersResponse &&
+            (identical(other.systemNumbers, systemNumbers) ||
+                const DeepCollectionEquality()
+                    .equals(other.systemNumbers, systemNumbers)));
+  }
+}
+
+extension $WebApiLogicAppFuncSystemNumbersResponseExtension
+    on WebApiLogicAppFuncSystemNumbersResponse {
+  WebApiLogicAppFuncSystemNumbersResponse copyWith(
+      {List<WebApiLogicAppFuncSystemNumbersModel>? systemNumbers}) {
+    return WebApiLogicAppFuncSystemNumbersResponse(
+        systemNumbers: systemNumbers ?? this.systemNumbers);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSystemSettingsResponse {
+  WebApiLogicAppFuncSystemSettingsResponse({
+    this.allowDeleteInvoices,
+    this.allowInvoiceDateChange,
+    this.enableReceipts,
+    this.enablePayments,
+    this.shareDealsAcrossOfficeLocations,
+    this.systemName,
+    this.companyName,
+    this.isVendorNumberAssignedByUser,
+  });
+
+  factory WebApiLogicAppFuncSystemSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncSystemSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'AllowDeleteInvoices')
+  final bool? allowDeleteInvoices;
+  @JsonKey(name: 'AllowInvoiceDateChange')
+  final bool? allowInvoiceDateChange;
+  @JsonKey(name: 'EnableReceipts')
+  final bool? enableReceipts;
+  @JsonKey(name: 'EnablePayments')
+  final bool? enablePayments;
+  @JsonKey(name: 'ShareDealsAcrossOfficeLocations')
+  final bool? shareDealsAcrossOfficeLocations;
+  @JsonKey(name: 'SystemName')
+  final String? systemName;
+  @JsonKey(name: 'CompanyName')
+  final String? companyName;
+  @JsonKey(name: 'IsVendorNumberAssignedByUser')
+  final bool? isVendorNumberAssignedByUser;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncSystemSettingsResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncSystemSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSystemSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSystemSettingsResponse &&
+            (identical(other.allowDeleteInvoices, allowDeleteInvoices) ||
+                const DeepCollectionEquality()
+                    .equals(other.allowDeleteInvoices, allowDeleteInvoices)) &&
+            (identical(other.allowInvoiceDateChange, allowInvoiceDateChange) ||
+                const DeepCollectionEquality().equals(
+                    other.allowInvoiceDateChange, allowInvoiceDateChange)) &&
+            (identical(other.enableReceipts, enableReceipts) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableReceipts, enableReceipts)) &&
+            (identical(other.enablePayments, enablePayments) ||
+                const DeepCollectionEquality()
+                    .equals(other.enablePayments, enablePayments)) &&
+            (identical(other.shareDealsAcrossOfficeLocations,
+                    shareDealsAcrossOfficeLocations) ||
+                const DeepCollectionEquality().equals(
+                    other.shareDealsAcrossOfficeLocations,
+                    shareDealsAcrossOfficeLocations)) &&
+            (identical(other.systemName, systemName) ||
+                const DeepCollectionEquality()
+                    .equals(other.systemName, systemName)) &&
+            (identical(other.companyName, companyName) ||
+                const DeepCollectionEquality()
+                    .equals(other.companyName, companyName)) &&
+            (identical(other.isVendorNumberAssignedByUser,
+                    isVendorNumberAssignedByUser) ||
+                const DeepCollectionEquality().equals(
+                    other.isVendorNumberAssignedByUser,
+                    isVendorNumberAssignedByUser)));
+  }
+}
+
+extension $WebApiLogicAppFuncSystemSettingsResponseExtension
+    on WebApiLogicAppFuncSystemSettingsResponse {
+  WebApiLogicAppFuncSystemSettingsResponse copyWith(
+      {bool? allowDeleteInvoices,
+      bool? allowInvoiceDateChange,
+      bool? enableReceipts,
+      bool? enablePayments,
+      bool? shareDealsAcrossOfficeLocations,
+      String? systemName,
+      String? companyName,
+      bool? isVendorNumberAssignedByUser}) {
+    return WebApiLogicAppFuncSystemSettingsResponse(
+        allowDeleteInvoices: allowDeleteInvoices ?? this.allowDeleteInvoices,
+        allowInvoiceDateChange:
+            allowInvoiceDateChange ?? this.allowInvoiceDateChange,
+        enableReceipts: enableReceipts ?? this.enableReceipts,
+        enablePayments: enablePayments ?? this.enablePayments,
+        shareDealsAcrossOfficeLocations: shareDealsAcrossOfficeLocations ??
+            this.shareDealsAcrossOfficeLocations,
+        systemName: systemName ?? this.systemName,
+        companyName: companyName ?? this.companyName,
+        isVendorNumberAssignedByUser:
+            isVendorNumberAssignedByUser ?? this.isVendorNumberAssignedByUser);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncUserSettingsResponse {
+  WebApiLogicAppFuncUserSettingsResponse({
+    this.successBase64Sound,
+    this.errorBase64Sound,
+    this.notificationBase64Sound,
+    this.webAdministrator,
+    this.homeMenuGuid,
+    this.homeMenuPath,
+    this.reportsNavigationMenuVisible,
+    this.settingsNavigationMenuVisible,
+    this.mainMenuPinned,
+    this.quikActivitySetting,
+    this.favoritesJson,
+    this.emailSignature,
+  });
+
+  factory WebApiLogicAppFuncUserSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncUserSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'SuccessBase64Sound')
+  final String? successBase64Sound;
+  @JsonKey(name: 'ErrorBase64Sound')
+  final String? errorBase64Sound;
+  @JsonKey(name: 'NotificationBase64Sound')
+  final String? notificationBase64Sound;
+  @JsonKey(name: 'WebAdministrator')
+  final bool? webAdministrator;
+  @JsonKey(name: 'HomeMenuGuid')
+  final String? homeMenuGuid;
+  @JsonKey(name: 'HomeMenuPath')
+  final String? homeMenuPath;
+  @JsonKey(name: 'ReportsNavigationMenuVisible')
+  final bool? reportsNavigationMenuVisible;
+  @JsonKey(name: 'SettingsNavigationMenuVisible')
+  final bool? settingsNavigationMenuVisible;
+  @JsonKey(name: 'MainMenuPinned')
+  final bool? mainMenuPinned;
+  @JsonKey(name: 'QuikActivitySetting')
+  final String? quikActivitySetting;
+  @JsonKey(name: 'FavoritesJson')
+  final String? favoritesJson;
+  @JsonKey(name: 'EmailSignature')
+  final String? emailSignature;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncUserSettingsResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncUserSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncUserSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncUserSettingsResponse &&
+            (identical(other.successBase64Sound, successBase64Sound) ||
+                const DeepCollectionEquality()
+                    .equals(other.successBase64Sound, successBase64Sound)) &&
+            (identical(other.errorBase64Sound, errorBase64Sound) ||
+                const DeepCollectionEquality()
+                    .equals(other.errorBase64Sound, errorBase64Sound)) &&
+            (identical(
+                    other.notificationBase64Sound, notificationBase64Sound) ||
+                const DeepCollectionEquality().equals(
+                    other.notificationBase64Sound, notificationBase64Sound)) &&
+            (identical(other.webAdministrator, webAdministrator) ||
+                const DeepCollectionEquality()
+                    .equals(other.webAdministrator, webAdministrator)) &&
+            (identical(other.homeMenuGuid, homeMenuGuid) ||
+                const DeepCollectionEquality()
+                    .equals(other.homeMenuGuid, homeMenuGuid)) &&
+            (identical(other.homeMenuPath, homeMenuPath) ||
+                const DeepCollectionEquality()
+                    .equals(other.homeMenuPath, homeMenuPath)) &&
+            (identical(other.reportsNavigationMenuVisible, reportsNavigationMenuVisible) ||
+                const DeepCollectionEquality().equals(
+                    other.reportsNavigationMenuVisible,
+                    reportsNavigationMenuVisible)) &&
+            (identical(other.settingsNavigationMenuVisible, settingsNavigationMenuVisible) ||
+                const DeepCollectionEquality().equals(
+                    other.settingsNavigationMenuVisible,
+                    settingsNavigationMenuVisible)) &&
+            (identical(other.mainMenuPinned, mainMenuPinned) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainMenuPinned, mainMenuPinned)) &&
+            (identical(other.quikActivitySetting, quikActivitySetting) ||
+                const DeepCollectionEquality()
+                    .equals(other.quikActivitySetting, quikActivitySetting)) &&
+            (identical(other.favoritesJson, favoritesJson) ||
+                const DeepCollectionEquality()
+                    .equals(other.favoritesJson, favoritesJson)) &&
+            (identical(other.emailSignature, emailSignature) ||
+                const DeepCollectionEquality()
+                    .equals(other.emailSignature, emailSignature)));
+  }
+}
+
+extension $WebApiLogicAppFuncUserSettingsResponseExtension
+    on WebApiLogicAppFuncUserSettingsResponse {
+  WebApiLogicAppFuncUserSettingsResponse copyWith(
+      {String? successBase64Sound,
+      String? errorBase64Sound,
+      String? notificationBase64Sound,
+      bool? webAdministrator,
+      String? homeMenuGuid,
+      String? homeMenuPath,
+      bool? reportsNavigationMenuVisible,
+      bool? settingsNavigationMenuVisible,
+      bool? mainMenuPinned,
+      String? quikActivitySetting,
+      String? favoritesJson,
+      String? emailSignature}) {
+    return WebApiLogicAppFuncUserSettingsResponse(
+        successBase64Sound: successBase64Sound ?? this.successBase64Sound,
+        errorBase64Sound: errorBase64Sound ?? this.errorBase64Sound,
+        notificationBase64Sound:
+            notificationBase64Sound ?? this.notificationBase64Sound,
+        webAdministrator: webAdministrator ?? this.webAdministrator,
+        homeMenuGuid: homeMenuGuid ?? this.homeMenuGuid,
+        homeMenuPath: homeMenuPath ?? this.homeMenuPath,
+        reportsNavigationMenuVisible:
+            reportsNavigationMenuVisible ?? this.reportsNavigationMenuVisible,
+        settingsNavigationMenuVisible:
+            settingsNavigationMenuVisible ?? this.settingsNavigationMenuVisible,
+        mainMenuPinned: mainMenuPinned ?? this.mainMenuPinned,
+        quikActivitySetting: quikActivitySetting ?? this.quikActivitySetting,
+        favoritesJson: favoritesJson ?? this.favoritesJson,
+        emailSignature: emailSignature ?? this.emailSignature);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncWarehouseResponse {
+  WebApiLogicAppFuncWarehouseResponse({
+    this.multiWarehouse,
+  });
+
+  factory WebApiLogicAppFuncWarehouseResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncWarehouseResponseFromJson(json);
+
+  @JsonKey(name: 'MultiWarehouse')
+  final bool? multiWarehouse;
+  static const fromJsonFactory = _$WebApiLogicAppFuncWarehouseResponseFromJson;
+  static const toJsonFactory = _$WebApiLogicAppFuncWarehouseResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncWarehouseResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncWarehouseResponse &&
+            (identical(other.multiWarehouse, multiWarehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.multiWarehouse, multiWarehouse)));
+  }
+}
+
+extension $WebApiLogicAppFuncWarehouseResponseExtension
+    on WebApiLogicAppFuncWarehouseResponse {
+  WebApiLogicAppFuncWarehouseResponse copyWith({bool? multiWarehouse}) {
+    return WebApiLogicAppFuncWarehouseResponse(
+        multiWarehouse: multiWarehouse ?? this.multiWarehouse);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse {
+  WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse({
+    this.location,
+    this.warehouse,
+    this.department,
+  });
+
+  factory WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson(
+          json);
+
+  @JsonKey(name: 'location')
+  final WebApiLogicAppFuncSessionLocation? location;
+  @JsonKey(name: 'warehouse')
+  final WebApiLogicAppFuncSessionWarehouse? warehouse;
+  @JsonKey(name: 'department')
+  final WebApiLogicAppFuncSessionDepartment? department;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)) &&
+            (identical(other.warehouse, warehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouse, warehouse)) &&
+            (identical(other.department, department) ||
+                const DeepCollectionEquality()
+                    .equals(other.department, department)));
+  }
+}
+
+extension $WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseExtension
+    on WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse {
+  WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+      copyWith(
+          {WebApiLogicAppFuncSessionLocation? location,
+          WebApiLogicAppFuncSessionWarehouse? warehouse,
+          WebApiLogicAppFuncSessionDepartment? department}) {
+    return WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse(
+        location: location ?? this.location,
+        warehouse: warehouse ?? this.warehouse,
+        department: department ?? this.department);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
+  WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse({
+    this.location,
+    this.warehouse,
+    this.department,
+    this.webUser,
+    this.deal,
+    this.applicationtree,
+    this.applicationOptions,
+    this.clientcode,
+    this.serverVersion,
+    this.systemSettings,
+    this.plugins,
+  });
+
+  factory WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson(
+          json);
+
+  @JsonKey(name: 'location')
+  final WebApiLogicAppFuncSessionLocation? location;
+  @JsonKey(name: 'warehouse')
+  final WebApiLogicAppFuncSessionWarehouse? warehouse;
+  @JsonKey(name: 'department')
+  final WebApiLogicAppFuncSessionDepartment? department;
+  @JsonKey(name: 'webUser')
+  final WebApiLogicAppFuncSessionUser? webUser;
+  @JsonKey(name: 'deal')
+  final WebApiLogicAppFuncSessionDeal? deal;
+  @JsonKey(name: 'applicationtree')
+  final FwStandardAppManagerFwAmSecurityTreeNode? applicationtree;
+  @JsonKey(name: 'applicationOptions')
+  final dynamic? applicationOptions;
+  @JsonKey(name: 'clientcode')
+  final String? clientcode;
+  @JsonKey(name: 'serverVersion')
+  final String? serverVersion;
+  @JsonKey(name: 'systemSettings')
+  final WebApiModulesAccountServicesAccountSystemSettingsResponse?
+      systemSettings;
+  @JsonKey(name: 'plugins')
+  final dynamic? plugins;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)) &&
+            (identical(other.warehouse, warehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouse, warehouse)) &&
+            (identical(other.department, department) ||
+                const DeepCollectionEquality()
+                    .equals(other.department, department)) &&
+            (identical(other.webUser, webUser) ||
+                const DeepCollectionEquality()
+                    .equals(other.webUser, webUser)) &&
+            (identical(other.deal, deal) ||
+                const DeepCollectionEquality().equals(other.deal, deal)) &&
+            (identical(other.applicationtree, applicationtree) ||
+                const DeepCollectionEquality()
+                    .equals(other.applicationtree, applicationtree)) &&
+            (identical(other.applicationOptions, applicationOptions) ||
+                const DeepCollectionEquality()
+                    .equals(other.applicationOptions, applicationOptions)) &&
+            (identical(other.clientcode, clientcode) ||
+                const DeepCollectionEquality()
+                    .equals(other.clientcode, clientcode)) &&
+            (identical(other.serverVersion, serverVersion) ||
+                const DeepCollectionEquality()
+                    .equals(other.serverVersion, serverVersion)) &&
+            (identical(other.systemSettings, systemSettings) ||
+                const DeepCollectionEquality()
+                    .equals(other.systemSettings, systemSettings)) &&
+            (identical(other.plugins, plugins) ||
+                const DeepCollectionEquality().equals(other.plugins, plugins)));
+  }
+}
+
+extension $WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseExtension
+    on WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
+  WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+      copyWith(
+          {WebApiLogicAppFuncSessionLocation? location,
+          WebApiLogicAppFuncSessionWarehouse? warehouse,
+          WebApiLogicAppFuncSessionDepartment? department,
+          WebApiLogicAppFuncSessionUser? webUser,
+          WebApiLogicAppFuncSessionDeal? deal,
+          FwStandardAppManagerFwAmSecurityTreeNode? applicationtree,
+          dynamic? applicationOptions,
+          String? clientcode,
+          String? serverVersion,
+          WebApiModulesAccountServicesAccountSystemSettingsResponse?
+              systemSettings,
+          dynamic? plugins}) {
+    return WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse(
+        location: location ?? this.location,
+        warehouse: warehouse ?? this.warehouse,
+        department: department ?? this.department,
+        webUser: webUser ?? this.webUser,
+        deal: deal ?? this.deal,
+        applicationtree: applicationtree ?? this.applicationtree,
+        applicationOptions: applicationOptions ?? this.applicationOptions,
+        clientcode: clientcode ?? this.clientcode,
+        serverVersion: serverVersion ?? this.serverVersion,
+        systemSettings: systemSettings ?? this.systemSettings,
+        plugins: plugins ?? this.plugins);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesAccountGetSettingsRequest {
+  WebApiModulesAccountServicesAccountGetSettingsRequest({
+    this.webUsersId,
+    this.departmentId,
+    this.locationId,
+  });
+
+  factory WebApiModulesAccountServicesAccountGetSettingsRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson(json);
+
+  @JsonKey(name: 'WebUsersId')
+  final String? webUsersId;
+  @JsonKey(name: 'DepartmentId')
+  final String? departmentId;
+  @JsonKey(name: 'LocationId')
+  final String? locationId;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesAccountGetSettingsRequest &&
+            (identical(other.webUsersId, webUsersId) ||
+                const DeepCollectionEquality()
+                    .equals(other.webUsersId, webUsersId)) &&
+            (identical(other.departmentId, departmentId) ||
+                const DeepCollectionEquality()
+                    .equals(other.departmentId, departmentId)) &&
+            (identical(other.locationId, locationId) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationId, locationId)));
+  }
+}
+
+extension $WebApiModulesAccountServicesAccountGetSettingsRequestExtension
+    on WebApiModulesAccountServicesAccountGetSettingsRequest {
+  WebApiModulesAccountServicesAccountGetSettingsRequest copyWith(
+      {String? webUsersId, String? departmentId, String? locationId}) {
+    return WebApiModulesAccountServicesAccountGetSettingsRequest(
+        webUsersId: webUsersId ?? this.webUsersId,
+        departmentId: departmentId ?? this.departmentId,
+        locationId: locationId ?? this.locationId);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesAccountResetPasswordRequest {
+  WebApiModulesAccountServicesAccountResetPasswordRequest({
+    this.password,
+  });
+
+  factory WebApiModulesAccountServicesAccountResetPasswordRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(json);
+
+  @JsonKey(name: 'Password')
+  final String? password;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesAccountResetPasswordRequest &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)));
+  }
+}
+
+extension $WebApiModulesAccountServicesAccountResetPasswordRequestExtension
+    on WebApiModulesAccountServicesAccountResetPasswordRequest {
+  WebApiModulesAccountServicesAccountResetPasswordRequest copyWith(
+      {String? password}) {
+    return WebApiModulesAccountServicesAccountResetPasswordRequest(
+        password: password ?? this.password);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesAccountResetPasswordResponse {
+  WebApiModulesAccountServicesAccountResetPasswordResponse({
+    this.status,
+    this.message,
+  });
+
+  factory WebApiModulesAccountServicesAccountResetPasswordResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(json);
+
+  @JsonKey(name: 'Status')
+  final int? status;
+  @JsonKey(name: 'Message')
+  final String? message;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesAccountResetPasswordResponse &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+}
+
+extension $WebApiModulesAccountServicesAccountResetPasswordResponseExtension
+    on WebApiModulesAccountServicesAccountResetPasswordResponse {
+  WebApiModulesAccountServicesAccountResetPasswordResponse copyWith(
+      {int? status, String? message}) {
+    return WebApiModulesAccountServicesAccountResetPasswordResponse(
+        status: status ?? this.status, message: message ?? this.message);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesAccountSystemSettingsResponse {
+  WebApiModulesAccountServicesAccountSystemSettingsResponse({
+    this.defaultUnitId,
+    this.defaultRank,
+    this.requireOriginalShow,
+    this.userAssignedICodes,
+    this.quikScanStageBySession,
+    this.barcodeSkipPrefixes,
+  });
+
+  factory WebApiModulesAccountServicesAccountSystemSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'DefaultUnitId')
+  final String? defaultUnitId;
+  @JsonKey(name: 'DefaultRank')
+  final String? defaultRank;
+  @JsonKey(name: 'RequireOriginalShow')
+  final bool? requireOriginalShow;
+  @JsonKey(name: 'UserAssignedICodes')
+  final bool? userAssignedICodes;
+  @JsonKey(name: 'QuikScanStageBySession')
+  final bool? quikScanStageBySession;
+  @JsonKey(name: 'BarcodeSkipPrefixes')
+  final FwStandardSqlServerFwJsonDataTable? barcodeSkipPrefixes;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesAccountSystemSettingsResponse &&
+            (identical(other.defaultUnitId, defaultUnitId) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultUnitId, defaultUnitId)) &&
+            (identical(other.defaultRank, defaultRank) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultRank, defaultRank)) &&
+            (identical(other.requireOriginalShow, requireOriginalShow) ||
+                const DeepCollectionEquality()
+                    .equals(other.requireOriginalShow, requireOriginalShow)) &&
+            (identical(other.userAssignedICodes, userAssignedICodes) ||
+                const DeepCollectionEquality()
+                    .equals(other.userAssignedICodes, userAssignedICodes)) &&
+            (identical(other.quikScanStageBySession, quikScanStageBySession) ||
+                const DeepCollectionEquality().equals(
+                    other.quikScanStageBySession, quikScanStageBySession)) &&
+            (identical(other.barcodeSkipPrefixes, barcodeSkipPrefixes) ||
+                const DeepCollectionEquality()
+                    .equals(other.barcodeSkipPrefixes, barcodeSkipPrefixes)));
+  }
+}
+
+extension $WebApiModulesAccountServicesAccountSystemSettingsResponseExtension
+    on WebApiModulesAccountServicesAccountSystemSettingsResponse {
+  WebApiModulesAccountServicesAccountSystemSettingsResponse copyWith(
+      {String? defaultUnitId,
+      String? defaultRank,
+      bool? requireOriginalShow,
+      bool? userAssignedICodes,
+      bool? quikScanStageBySession,
+      FwStandardSqlServerFwJsonDataTable? barcodeSkipPrefixes}) {
+    return WebApiModulesAccountServicesAccountSystemSettingsResponse(
+        defaultUnitId: defaultUnitId ?? this.defaultUnitId,
+        defaultRank: defaultRank ?? this.defaultRank,
+        requireOriginalShow: requireOriginalShow ?? this.requireOriginalShow,
+        userAssignedICodes: userAssignedICodes ?? this.userAssignedICodes,
+        quikScanStageBySession:
+            quikScanStageBySession ?? this.quikScanStageBySession,
+        barcodeSkipPrefixes: barcodeSkipPrefixes ?? this.barcodeSkipPrefixes);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesJwtOktaRequest {
+  WebApiModulesAccountServicesJwtOktaRequest({
+    this.email,
+    this.token,
+  });
+
+  factory WebApiModulesAccountServicesJwtOktaRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesJwtOktaRequestFromJson(json);
+
+  @JsonKey(name: 'Email')
+  final String? email;
+  @JsonKey(name: 'Token')
+  final String? token;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaRequestFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesJwtOktaRequestToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesJwtOktaRequest &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)));
+  }
+}
+
+extension $WebApiModulesAccountServicesJwtOktaRequestExtension
+    on WebApiModulesAccountServicesJwtOktaRequest {
+  WebApiModulesAccountServicesJwtOktaRequest copyWith(
+      {String? email, String? token}) {
+    return WebApiModulesAccountServicesJwtOktaRequest(
+        email: email ?? this.email, token: token ?? this.token);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesJwtOktaSessionRequest {
+  WebApiModulesAccountServicesJwtOktaSessionRequest({
+    this.token,
+    this.apiurl,
+  });
+
+  factory WebApiModulesAccountServicesJwtOktaSessionRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson(json);
+
+  @JsonKey(name: 'Token')
+  final String? token;
+  @JsonKey(name: 'Apiurl')
+  final String? apiurl;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesJwtOktaSessionRequest &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.apiurl, apiurl) ||
+                const DeepCollectionEquality().equals(other.apiurl, apiurl)));
+  }
+}
+
+extension $WebApiModulesAccountServicesJwtOktaSessionRequestExtension
+    on WebApiModulesAccountServicesJwtOktaSessionRequest {
+  WebApiModulesAccountServicesJwtOktaSessionRequest copyWith(
+      {String? token, String? apiurl}) {
+    return WebApiModulesAccountServicesJwtOktaSessionRequest(
+        token: token ?? this.token, apiurl: apiurl ?? this.apiurl);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesJwtOktaSessionResponseModel {
+  WebApiModulesAccountServicesJwtOktaSessionResponseModel({
+    this.status,
+  });
+
+  factory WebApiModulesAccountServicesJwtOktaSessionResponseModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson(json);
+
+  @JsonKey(name: 'Status')
+  final String? status;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesJwtOktaSessionResponseModel &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)));
+  }
+}
+
+extension $WebApiModulesAccountServicesJwtOktaSessionResponseModelExtension
+    on WebApiModulesAccountServicesJwtOktaSessionResponseModel {
+  WebApiModulesAccountServicesJwtOktaSessionResponseModel copyWith(
+      {String? status}) {
+    return WebApiModulesAccountServicesJwtOktaSessionResponseModel(
+        status: status ?? this.status);
+  }
+}
+
+String? fwStandardSqlServerFwDataTypesToJson(
+    enums.FwStandardSqlServerFwDataTypes? fwStandardSqlServerFwDataTypes) {
+  return enums
+      .$FwStandardSqlServerFwDataTypesMap[fwStandardSqlServerFwDataTypes];
+}
+
+enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
+    String? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes == null) {
+    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+  }
+
+  return enums.$FwStandardSqlServerFwDataTypesMap.entries
+      .firstWhere(
+          (element) =>
+              element.value.toLowerCase() ==
+              fwStandardSqlServerFwDataTypes.toLowerCase(),
+          orElse: () => const MapEntry(
+              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
+      .key;
+}
+
+List<String> fwStandardSqlServerFwDataTypesListToJson(
+    List<enums.FwStandardSqlServerFwDataTypes>?
+        fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes == null) {
+    return [];
+  }
+
+  return fwStandardSqlServerFwDataTypes
+      .map((e) => enums.$FwStandardSqlServerFwDataTypesMap[e]!)
+      .toList();
+}
+
+List<enums.FwStandardSqlServerFwDataTypes>
+    fwStandardSqlServerFwDataTypesListFromJson(
+        List? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes == null) {
+    return [];
+  }
+
+  return fwStandardSqlServerFwDataTypes
+      .map((e) => fwStandardSqlServerFwDataTypesFromJson(e.toString()))
+      .toList();
+}
+
+// ignore: unused_element
+String? _dateToJson(DateTime? date) {
+  if (date == null) {
+    return null;
+  }
+
+  final year = date.year.toString();
+  final month = date.month < 10 ? '0${date.month}' : date.month.toString();
+  final day = date.day < 10 ? '0${date.day}' : date.day.toString();
+
+  return '$year-$month-$day';
+}
