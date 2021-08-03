@@ -5,9 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "dart_rentalworks",
+            "name": "example",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "cwd": "example",
+            "program": "rentalworks_example.dart",
+            "args": []
         },
         {
             "name": "builder",
