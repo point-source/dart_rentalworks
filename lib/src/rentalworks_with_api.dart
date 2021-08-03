@@ -1,7 +1,7 @@
 import 'package:chopper/chopper.dart';
-import 'package:rentalworks/generated_code/account_services.swagger.dart';
-import 'package:rentalworks/generated_code/exports.swagger.dart';
-import 'package:rentalworks/generated_code/plugins.swagger.dart';
+import 'package:rentalworks/generated_code/account_services.swagger.dart'
+    show FwStandardModelsFwApplicationUser;
+import 'package:rentalworks/rentalworks.dart';
 import 'package:rentalworks/src/json_serializable_converter.dart';
 
 class RentalWorks {
@@ -31,35 +31,36 @@ class RentalWorks {
       final jwt = response.body?.accessToken;
       if (jwt != null) return jwt;
     }
-    throw Exception(response.error);
+    throw Exception('${response.statusCode}: ${response.error}');
   }
 
   Future<Request> Function(Request) get _jwtInterceptor =>
-      (Request request) async =>
-          applyHeader(request, 'Authorization', await jwt, override: false);
+      (Request request) async {
+        if (request.url.startsWith('/jwt')) return request;
+        return applyHeader(request, 'Authorization', await jwt,
+            override: false);
+      };
 
-  AccountServices? _accountServices;
+  ChopperClient? _client;
 
-  AccountServices get accountServices =>
-      _accountServices ??= AccountServices.create(ChopperClient(
-          services: [AccountServices.create()],
-          converter:
-              JsonSerializableConverter(AccountServicesJsonDecoderMappings),
-          baseUrl: baseUrl));
+  ChopperClient get client => _client ??= ChopperClient(
+          services: [
+            AccountServices.create(),
+            Exports.create(),
+            Plugins.create(),
+            Home.create()
+          ],
+          interceptors: [
+            _jwtInterceptor
+          ],
+          converter: JsonSerializableConverter(generatedMapping),
+          baseUrl: baseUrl);
 
-  Exports? _exports;
+  AccountServices get accountServices => client.getService<AccountServices>();
 
-  Exports get exports => _exports ??= Exports.create(ChopperClient(
-      services: [Exports.create()],
-      interceptors: [_jwtInterceptor],
-      converter: JsonSerializableConverter(ExportsJsonDecoderMappings),
-      baseUrl: baseUrl));
+  Home get home => client.getService<Home>();
 
-  Plugins? _plugins;
+  Exports get exports => client.getService<Exports>();
 
-  Plugins get plugins => _plugins ??= Plugins.create(ChopperClient(
-      services: [Plugins.create()],
-      interceptors: [_jwtInterceptor],
-      converter: JsonSerializableConverter(PluginsJsonDecoderMappings),
-      baseUrl: baseUrl));
+  Plugins get plugins => client.getService<Plugins>();
 }
