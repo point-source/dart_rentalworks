@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
@@ -23,14 +23,13 @@ abstract class AccountServices extends ChopperService {
 
     final newClient = ChopperClient(
       services: [_$AccountServices()],
-      converter: chopper.JsonConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
     );
     return _$AccountServices(newClient);
   }
 
   ///
   ///@param applicationId
-
   @Get(path: '/account/session')
   Future<
           chopper.Response<
@@ -41,7 +40,6 @@ abstract class AccountServices extends ChopperService {
   ///@param locationid
   ///@param warehouseid
   ///@param departmentid
-
   @Get(path: '/account/officelocation')
   Future<
           chopper.Response<
@@ -52,53 +50,43 @@ abstract class AccountServices extends ChopperService {
           @Query('departmentid') String? departmentid});
 
   ///
-  ///@param body
-
   @Post(path: '/account/resetpassword')
   Future<
           chopper.Response<
               WebApiModulesAccountServicesAccountResetPasswordResponse>>
       accountResetpasswordPost(
           {@Body()
-          @required
-              WebApiModulesAccountServicesAccountResetPasswordRequest? body});
+              required WebApiModulesAccountServicesAccountResetPasswordRequest?
+                  body});
 
   ///
-  ///@param body
-
   @Post(path: '/account/getsettings')
   Future<chopper.Response<WebApiLogicAppFuncGetSettingsResponse>>
       accountGetsettingsPost(
           {@Body()
-          @required
-              WebApiModulesAccountServicesAccountGetSettingsRequest? body});
+              required WebApiModulesAccountServicesAccountGetSettingsRequest?
+                  body});
 
   ///
-  ///@param body
-
   @Post(path: '/jwt')
   Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      jwtPost({@Body() @required FwStandardModelsFwApplicationUser? body});
+      jwtPost({@Body() required FwStandardModelsFwApplicationUser? body});
 
   ///
-  ///@param body
-
   @Post(path: '/jwt/okta')
   Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
       jwtOktaPost(
-          {@Body() @required WebApiModulesAccountServicesJwtOktaRequest? body});
+          {@Body() required WebApiModulesAccountServicesJwtOktaRequest? body});
 
   ///
-  ///@param body
-
   @Post(path: '/jwt/oktaverify')
   Future<
           chopper.Response<
               WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
       jwtOktaverifyPost(
           {@Body()
-          @required
-              WebApiModulesAccountServicesJwtOktaSessionRequest? body});
+              required WebApiModulesAccountServicesJwtOktaSessionRequest?
+                  body});
 }
 
 final Map<Type, Object Function(Map<String, dynamic>)>
@@ -2834,6 +2822,60 @@ List<enums.FwStandardSqlServerFwDataTypes>
       .map((e) => fwStandardSqlServerFwDataTypesFromJson(e.toString()))
       .toList();
 }
+
+typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
+
+class CustomJsonDecoder {
+  CustomJsonDecoder(this.factories);
+
+  final Map<Type, JsonFactory> factories;
+
+  dynamic decode<T>(dynamic entity) {
+    if (entity is Iterable) {
+      return _decodeList<T>(entity);
+    }
+
+    if (entity is T) {
+      return entity;
+    }
+
+    if (entity is Map<String, dynamic>) {
+      return _decodeMap<T>(entity);
+    }
+
+    return entity;
+  }
+
+  T _decodeMap<T>(Map<String, dynamic> values) {
+    final jsonFactory = factories[T];
+    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+      return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
+    }
+
+    return jsonFactory(values);
+  }
+
+  List<T> _decodeList<T>(Iterable values) =>
+      values.where((v) => v != null).map<T>((v) => decode<T>(v) as T).toList();
+}
+
+class JsonSerializableConverter extends chopper.JsonConverter {
+  @override
+  chopper.Response<ResultType> convertResponse<ResultType, Item>(
+      chopper.Response response) {
+    if (response.bodyString.isEmpty) {
+      // In rare cases, when let's say 204 (no content) is returned -
+      // we cannot decode the missing json with the result type specified
+      return chopper.Response(response.base, null, error: response.error);
+    }
+
+    final jsonRes = super.convertResponse(response);
+    return jsonRes.copyWith<ResultType>(
+        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+  }
+}
+
+final jsonDecoder = CustomJsonDecoder(AccountServicesJsonDecoderMappings);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

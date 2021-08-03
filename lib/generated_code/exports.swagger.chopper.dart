@@ -21,7 +21,7 @@ class _$Exports extends Exports {
           Response<
               WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse>>
       invoicebatchexportExportPost(
-          {WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest?
+          {required WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest?
               body}) {
     final $url = '/invoicebatchexport/export';
     final $body = body;
@@ -46,7 +46,7 @@ class _$Exports extends Exports {
           Response<
               WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse>>
       receiptbatchexportExportPost(
-          {WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest?
+          {required WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest?
               body}) {
     final $url = '/receiptbatchexport/export';
     final $body = body;
@@ -71,7 +71,7 @@ class _$Exports extends Exports {
           Response<
               WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse>>
       vendorinvoicebatchexportExportPost(
-          {WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest?
+          {required WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest?
               body}) {
     final $url = '/vendorinvoicebatchexport/export';
     final $body = body;

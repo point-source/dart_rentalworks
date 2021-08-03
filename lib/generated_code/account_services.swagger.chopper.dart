@@ -52,7 +52,8 @@ class _$AccountServices extends AccountServices {
   @override
   Future<Response<WebApiModulesAccountServicesAccountResetPasswordResponse>>
       accountResetpasswordPost(
-          {WebApiModulesAccountServicesAccountResetPasswordRequest? body}) {
+          {required WebApiModulesAccountServicesAccountResetPasswordRequest?
+              body}) {
     final $url = '/account/resetpassword';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -63,7 +64,8 @@ class _$AccountServices extends AccountServices {
   @override
   Future<Response<WebApiLogicAppFuncGetSettingsResponse>>
       accountGetsettingsPost(
-          {WebApiModulesAccountServicesAccountGetSettingsRequest? body}) {
+          {required WebApiModulesAccountServicesAccountGetSettingsRequest?
+              body}) {
     final $url = '/account/getsettings';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -73,7 +75,7 @@ class _$AccountServices extends AccountServices {
 
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> jwtPost(
-      {FwStandardModelsFwApplicationUser? body}) {
+      {required FwStandardModelsFwApplicationUser? body}) {
     final $url = '/jwt';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -83,7 +85,7 @@ class _$AccountServices extends AccountServices {
 
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      jwtOktaPost({WebApiModulesAccountServicesJwtOktaRequest? body}) {
+      jwtOktaPost({required WebApiModulesAccountServicesJwtOktaRequest? body}) {
     final $url = '/jwt/okta';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -94,7 +96,7 @@ class _$AccountServices extends AccountServices {
   @override
   Future<Response<WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
       jwtOktaverifyPost(
-          {WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
+          {required WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
     final $url = '/jwt/oktaverify';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);

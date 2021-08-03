@@ -19,7 +19,7 @@ class _$Plugins extends Plugins {
   @override
   Future<Response<WebApiModulesPluginsAzureADGetAzureADGroupsResponse>>
       azureadpluginLoadadgroupsPost(
-          {WebApiModulesPluginsAzureADGetAzureADGroupsRequest? body}) {
+          {required WebApiModulesPluginsAzureADGetAzureADGroupsRequest? body}) {
     final $url = '/azureadplugin/loadadgroups';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -30,7 +30,7 @@ class _$Plugins extends Plugins {
   @override
   Future<Response<WebApiModulesPluginsAzureADImportGroupResponse>>
       azureadpluginImportgroupPost(
-          {WebApiModulesPluginsAzureADImportGroupRequest? body}) {
+          {required WebApiModulesPluginsAzureADImportGroupRequest? body}) {
     final $url = '/azureadplugin/importgroup';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -63,10 +63,9 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool>>
-      hubspotpluginHashubspotrefreshtokenPost({Object? body}) {
+      hubspotpluginHashubspotrefreshtokenPost() {
     final $url = '/hubspotplugin/hashubspotrefreshtoken';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final $request = Request('POST', $url, client.baseUrl);
     return client.send<
             WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool,
             WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool>(
@@ -75,10 +74,9 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens>>
-      hubspotpluginDeletehubspottokensPost({Object? body}) {
+      hubspotpluginDeletehubspottokensPost() {
     final $url = '/hubspotplugin/deletehubspottokens';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final $request = Request('POST', $url, client.baseUrl);
     return client.send<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens,
         WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens>($request);
   }
