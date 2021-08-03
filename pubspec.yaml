@@ -24,4 +24,4 @@ dependency_overrides:
   swagger_dart_code_generator:
     git:
       url: https://github.com/epam-cross-platform-lab/swagger-dart-code-generator.git
-      ref: master
+      ref: version/2.1.0
