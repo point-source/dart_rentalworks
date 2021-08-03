@@ -59,9 +59,19 @@ class RentalWorks {
 
   AccountServices get accountServices => client.getService<AccountServices>();
 
-  Home get home => client.getService<Home>();
+  Administrator get administrator => client.getService<Administrator>();
 
   Exports get exports => client.getService<Exports>();
 
+  Home get home => client.getService<Home>();
+
+  Mobile get mobile => client.getService<Mobile>();
+
   Plugins get plugins => client.getService<Plugins>();
+
+  Reports get reports => client.getService<Reports>();
+
+  Settings get settings => client.getService<Settings>();
+
+  Utilities get utilities => client.getService<Utilities>();
 }
