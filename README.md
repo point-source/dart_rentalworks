@@ -12,20 +12,21 @@ A simple usage example:
 ```dart
 import 'package:rentalworks/rentalworks.dart';
 
-Future main() async {
-  var rw = RentalWorks.withJWT('https://example.my-rentalworks.com/api/v1',
-      'my-jwt-here');
+void main() async {
+  var rw = RentalWorks.withCredentials(
+      'https://example.my-rentalworks.com/api/v1',
+      'my-username',
+      'my-password');
   var deals = await rw.home.dealGet(pageno: 1, pagesize: 25);
 
   if (!deals.isSuccessful) {
     print('${deals.statusCode}: ${deals.base.reasonPhrase}');
   }
 
-  for (WebApiModulesAgentDealDeal d in deals.body?.items ?? []) {
+  for (var d in deals.body?.items ?? []) {
     print(d.dealNumber);
   }
 }
-
 ```
 
 ## Features and bugs
