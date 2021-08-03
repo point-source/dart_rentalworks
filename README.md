@@ -1,4 +1,4 @@
-A RentalWorks API library for Dart developers. (https://rentalworks.io)
+A [RentalWorks](https://rentalworks.io) API library for Dart developers.
 
 Created from templates made available by Stagehand under a BSD-style
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
@@ -13,17 +13,16 @@ A simple usage example:
 import 'package:rentalworks/rentalworks.dart';
 
 Future main() async {
-  final client = rentalworksWithApiKey('my-api-key');
+  var rw = RentalWorks.withJWT('https://example.my-rentalworks.com/api/v1',
+      'my-jwt-here');
+  var deals = await rw.home.dealGet(pageno: 1, pagesize: 25);
 
-  final crewResult = await client.crewList(limit: 10);
-
-  if (crewResult.statusCode != 200) {
-    ///Some network error
-    print(crewResult.error);
+  if (!deals.isSuccessful) {
+    print('${deals.statusCode}: ${deals.base.reasonPhrase}');
   }
 
-  for (Crew c in crewResult.body?.results ?? []) {
-    print('${c.firstName} ${c.lastName}');
+  for (WebApiModulesAgentDealDeal d in deals.body?.items ?? []) {
+    print(d.dealNumber);
   }
 }
 
