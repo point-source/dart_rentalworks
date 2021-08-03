@@ -31,13 +31,14 @@ class RentalWorks {
       final jwt = response.body?.accessToken;
       if (jwt != null) return jwt;
     }
-    throw Exception('${response.statusCode}: ${response.error}');
+    throw Exception('${response.statusCode}: ${response.base.reasonPhrase}');
   }
 
   Future<Request> Function(Request) get _jwtInterceptor =>
       (Request request) async {
         if (request.url.startsWith('/jwt')) return request;
-        return applyHeader(request, 'Authorization', await jwt,
+        final token = await jwt;
+        return applyHeader(request, 'Authorization', 'Bearer $token',
             override: false);
       };
 
