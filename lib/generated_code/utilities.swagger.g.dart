@@ -26,11 +26,19 @@ FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
 
 Map<String, dynamic>
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-                instance) =>
-        <String, dynamic>{
-          'downloadUrl': instance.downloadUrl,
-        };
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 FwStandardBusinessLogicFwAppImageLogicEmailRequest
     _$FwStandardBusinessLogicFwAppImageLogicEmailRequestFromJson(
@@ -50,16 +58,24 @@ FwStandardBusinessLogicFwAppImageLogicEmailRequest
 }
 
 Map<String, dynamic> _$FwStandardBusinessLogicFwAppImageLogicEmailRequestToJson(
-        FwStandardBusinessLogicFwAppImageLogicEmailRequest instance) =>
-    <String, dynamic>{
-      'From': instance.from,
-      'To': instance.to,
-      'CC': instance.cc,
-      'Subject': instance.subject,
-      'Body': instance.body,
-      'ShowImagesInBody': instance.showImagesInBody,
-      'AppImageIds': instance.appImageIds,
-    };
+    FwStandardBusinessLogicFwAppImageLogicEmailRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('From', instance.from);
+  writeNotNull('To', instance.to);
+  writeNotNull('CC', instance.cc);
+  writeNotNull('Subject', instance.subject);
+  writeNotNull('Body', instance.body);
+  writeNotNull('ShowImagesInBody', instance.showImagesInBody);
+  writeNotNull('AppImageIds', instance.appImageIds);
+  return val;
+}
 
 FwStandardBusinessLogicFwBusinessLogicFieldDefinition
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
@@ -73,11 +89,20 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
 
 Map<String, dynamic>
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
-            FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) =>
-        <String, dynamic>{
-          'Name': instance.name,
-          'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-        };
+        FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  return val;
+}
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
     Map<String, dynamic> json) {
@@ -89,12 +114,20 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
 }
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
-        FwStandardDataFwCustomValue instance) =>
-    <String, dynamic>{
-      'FieldName': instance.fieldName,
-      'FieldValue': instance.fieldValue,
-      'FieldType': instance.fieldType,
-    };
+    FwStandardDataFwCustomValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('FieldValue', instance.fieldValue);
+  writeNotNull('FieldType', instance.fieldType);
+  return val;
+}
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
     Map<String, dynamic> json) {
@@ -106,12 +139,20 @@ FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
 }
 
 Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
-        FwStandardDataFwDefaultAttribute instance) =>
-    <String, dynamic>{
-      'FieldName': instance.fieldName,
-      'AttributeName': instance.attributeName,
-      'DefaultValue': instance.defaultValue,
-    };
+    FwStandardDataFwDefaultAttribute instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('AttributeName', instance.attributeName);
+  writeNotNull('DefaultValue', instance.defaultValue);
+  return val;
+}
 
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
     Map<String, dynamic> json) {
@@ -172,33 +213,42 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
-        FwStandardModelsBrowseRequest instance) =>
-    <String, dynamic>{
-      'miscfields': instance.miscfields,
-      'module': instance.module,
-      'options': instance.options,
-      'orderby': instance.orderby,
-      'orderbydirection': instance.orderbydirection,
-      'top': instance.top,
-      'pageno': instance.pageno,
-      'pagesize': instance.pagesize,
-      'searchfieldoperators': instance.searchfieldoperators,
-      'searchfields': instance.searchfields,
-      'searchfieldvalues': instance.searchfieldvalues,
-      'searchfieldtypes': instance.searchfieldtypes,
-      'searchseparators': instance.searchseparators,
-      'searchcondition': instance.searchcondition,
-      'searchconjunctions': instance.searchconjunctions,
-      'uniqueids': instance.uniqueids,
-      'boundids': instance.boundids,
-      'filterfields': instance.filterfields,
-      'activeview': instance.activeview,
-      'emptyobject': instance.emptyobject,
-      'forexcel': instance.forexcel,
-      'excelfields': instance.excelfields?.map((e) => e.toJson()).toList(),
-      'totalfields': instance.totalfields,
-      'activeviewfields': instance.activeviewfields,
-    };
+    FwStandardModelsBrowseRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('miscfields', instance.miscfields);
+  writeNotNull('module', instance.module);
+  writeNotNull('options', instance.options);
+  writeNotNull('orderby', instance.orderby);
+  writeNotNull('orderbydirection', instance.orderbydirection);
+  writeNotNull('top', instance.top);
+  writeNotNull('pageno', instance.pageno);
+  writeNotNull('pagesize', instance.pagesize);
+  writeNotNull('searchfieldoperators', instance.searchfieldoperators);
+  writeNotNull('searchfields', instance.searchfields);
+  writeNotNull('searchfieldvalues', instance.searchfieldvalues);
+  writeNotNull('searchfieldtypes', instance.searchfieldtypes);
+  writeNotNull('searchseparators', instance.searchseparators);
+  writeNotNull('searchcondition', instance.searchcondition);
+  writeNotNull('searchconjunctions', instance.searchconjunctions);
+  writeNotNull('uniqueids', instance.uniqueids);
+  writeNotNull('boundids', instance.boundids);
+  writeNotNull('filterfields', instance.filterfields);
+  writeNotNull('activeview', instance.activeview);
+  writeNotNull('emptyobject', instance.emptyobject);
+  writeNotNull('forexcel', instance.forexcel);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  writeNotNull('totalfields', instance.totalfields);
+  writeNotNull('activeviewfields', instance.activeviewfields);
+  return val;
+}
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
     Map<String, dynamic> json) {
@@ -210,12 +260,20 @@ FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
-        FwStandardModelsCheckBoxListItem instance) =>
-    <String, dynamic>{
-      'value': instance.value,
-      'text': instance.text,
-      'selected': instance.selected,
-    };
+    FwStandardModelsCheckBoxListItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('value', instance.value);
+  writeNotNull('text', instance.text);
+  writeNotNull('selected', instance.selected);
+  return val;
+}
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
     Map<String, dynamic> json) {
@@ -227,12 +285,20 @@ FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-        FwStandardModelsFwApiException instance) =>
-    <String, dynamic>{
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-      'StackTrace': instance.stackTrace,
-    };
+    FwStandardModelsFwApiException instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  writeNotNull('StackTrace', instance.stackTrace);
+  return val;
+}
 
 FwStandardModelsFwAppImageModel _$FwStandardModelsFwAppImageModelFromJson(
     Map<String, dynamic> json) {
@@ -252,20 +318,28 @@ FwStandardModelsFwAppImageModel _$FwStandardModelsFwAppImageModelFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwAppImageModelToJson(
-        FwStandardModelsFwAppImageModel instance) =>
-    <String, dynamic>{
-      'AppImageId': instance.appImageId,
-      'DateStamp': instance.dateStamp,
-      'Description': instance.description,
-      'Extension': instance.extension,
-      'MimeType': instance.mimeType,
-      'Width': instance.width,
-      'Height': instance.height,
-      'RecType': instance.recType,
-      'FileDownloadName': instance.fileDownloadName,
-      'OrderBy': instance.orderBy,
-      'Image': instance.image,
-    };
+    FwStandardModelsFwAppImageModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AppImageId', instance.appImageId);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Extension', instance.extension);
+  writeNotNull('MimeType', instance.mimeType);
+  writeNotNull('Width', instance.width);
+  writeNotNull('Height', instance.height);
+  writeNotNull('RecType', instance.recType);
+  writeNotNull('FileDownloadName', instance.fileDownloadName);
+  writeNotNull('OrderBy', instance.orderBy);
+  writeNotNull('Image', instance.image);
+  return val;
+}
 
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
     Map<String, dynamic> json) {
@@ -277,12 +351,20 @@ FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
-        FwStandardModelsFwQueryFilter instance) =>
-    <String, dynamic>{
-      'Field': instance.field,
-      'Op': instance.op,
-      'Value': instance.value,
-    };
+    FwStandardModelsFwQueryFilter instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Field', instance.field);
+  writeNotNull('Op', instance.op);
+  writeNotNull('Value', instance.value);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogicFromJson(
@@ -303,15 +385,23 @@ FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOr
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogicFromJson(
@@ -332,15 +422,23 @@ FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBa
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogicFromJson(
@@ -361,15 +459,23 @@ FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpda
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogicFromJson(
@@ -390,15 +496,23 @@ FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateIte
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogicFromJson(
@@ -419,15 +533,23 @@ FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFie
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogicFromJson(
@@ -448,15 +570,23 @@ FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySetting
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
     _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderFromJson(
@@ -480,23 +610,32 @@ FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderToJson(
-            FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
-                instance) =>
-        <String, dynamic>{
-          'requireminlengthpassword': instance.requireminlengthpassword,
-          'hubspotaccesstoken': instance.hubspotaccesstoken,
-          'hubspotrefreshtoken': instance.hubspotrefreshtoken,
-          'minlengthpassword': instance.minlengthpassword,
-          'requiredigitinpassword': instance.requiredigitinpassword,
-          'requiresymbolinpassword': instance.requiresymbolinpassword,
-          'autologoutuser': instance.autologoutuser,
-          'autologoutminutes': instance.autologoutminutes,
-          'lockuserafterfailedattempts': instance.lockuserafterfailedattempts,
-          'lockuserafterfailedattemptsnumber':
-              instance.lockuserafterfailedattemptsnumber,
-          'epochlastsynced': instance.epochlastsynced,
-          'RecordTitle': instance.recordTitle,
-        };
+        FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('requireminlengthpassword', instance.requireminlengthpassword);
+  writeNotNull('hubspotaccesstoken', instance.hubspotaccesstoken);
+  writeNotNull('hubspotrefreshtoken', instance.hubspotrefreshtoken);
+  writeNotNull('minlengthpassword', instance.minlengthpassword);
+  writeNotNull('requiredigitinpassword', instance.requiredigitinpassword);
+  writeNotNull('requiresymbolinpassword', instance.requiresymbolinpassword);
+  writeNotNull('autologoutuser', instance.autologoutuser);
+  writeNotNull('autologoutminutes', instance.autologoutminutes);
+  writeNotNull(
+      'lockuserafterfailedattempts', instance.lockuserafterfailedattempts);
+  writeNotNull('lockuserafterfailedattemptsnumber',
+      instance.lockuserafterfailedattemptsnumber);
+  writeNotNull('epochlastsynced', instance.epochlastsynced);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     Map<String, dynamic> json) {
@@ -525,19 +664,27 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-        FwStandardSqlServerFwJsonDataTable instance) =>
-    <String, dynamic>{
-      'ColumnIndex': instance.columnIndex,
-      'Totals': instance.totals,
-      'Columns': instance.columns?.map((e) => e.toJson()).toList(),
-      'Rows': instance.rows,
-      'PageNo': instance.pageNo,
-      'PageSize': instance.pageSize,
-      'TotalPages': instance.totalPages,
-      'TotalRows': instance.totalRows,
-      'DateFields': instance.dateFields,
-      'ColumnNameByIndex': instance.columnNameByIndex,
-    };
+    FwStandardSqlServerFwJsonDataTable instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ColumnIndex', instance.columnIndex);
+  writeNotNull('Totals', instance.totals);
+  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
+  writeNotNull('Rows', instance.rows);
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalPages', instance.totalPages);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('DateFields', instance.dateFields);
+  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -553,14 +700,23 @@ FwStandardSqlServerFwJsonDataTableColumn
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-        FwStandardSqlServerFwJsonDataTableColumn instance) =>
-    <String, dynamic>{
-      'Name': instance.name,
-      'DataField': instance.dataField,
-      'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-      'IsUniqueId': instance.isUniqueId,
-      'IsVisible': instance.isVisible,
-    };
+    FwStandardSqlServerFwJsonDataTableColumn instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull('DataField', instance.dataField);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  writeNotNull('IsUniqueId', instance.isUniqueId);
+  writeNotNull('IsVisible', instance.isVisible);
+  return val;
+}
 
 MicrosoftAspNetCoreMvcActionResult _$MicrosoftAspNetCoreMvcActionResultFromJson(
     Map<String, dynamic> json) {
@@ -588,12 +744,20 @@ MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdate
 
 Map<String, dynamic>
     _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogicToJson(
-            MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
-                instance) =>
-        <String, dynamic>{
-          'Result': instance.result?.toJson(),
-          'Value': instance.value?.toJson(),
-        };
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Result', instance.result?.toJson());
+  writeNotNull('Value', instance.value?.toJson());
+  return val;
+}
 
 WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
     _$WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequestFromJson(
@@ -611,17 +775,25 @@ WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
 
 Map<String, dynamic>
     _$WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequestToJson(
-            WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
-                instance) =>
-        <String, dynamic>{
-          'Uniqueid1': instance.uniqueid1,
-          'Uniqueid2': instance.uniqueid2,
-          'Uniqueid3': instance.uniqueid3,
-          'Description': instance.description,
-          'Extension': instance.extension,
-          'RecType': instance.recType,
-          'ImageDataUrl': instance.imageDataUrl,
-        };
+        WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Uniqueid1', instance.uniqueid1);
+  writeNotNull('Uniqueid2', instance.uniqueid2);
+  writeNotNull('Uniqueid3', instance.uniqueid3);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Extension', instance.extension);
+  writeNotNull('RecType', instance.recType);
+  writeNotNull('ImageDataUrl', instance.imageDataUrl);
+  return val;
+}
 
 WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
     _$WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequestFromJson(
@@ -633,11 +805,19 @@ WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
 
 Map<String, dynamic>
     _$WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequestToJson(
-            WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
-                instance) =>
-        <String, dynamic>{
-          'AppImageId': instance.appImageId,
-        };
+        WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AppImageId', instance.appImageId);
+  return val;
+}
 
 WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
     _$WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequestFromJson(
@@ -650,12 +830,20 @@ WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
 
 Map<String, dynamic>
     _$WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequestToJson(
-            WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
-                instance) =>
-        <String, dynamic>{
-          'AppImageId': instance.appImageId,
-          'OrderBy': instance.orderBy,
-        };
+        WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AppImageId', instance.appImageId);
+  writeNotNull('OrderBy', instance.orderBy);
+  return val;
+}
 
 WebApiLogicTSpStatusResponse _$WebApiLogicTSpStatusResponseFromJson(
     Map<String, dynamic> json) {
@@ -667,12 +855,20 @@ WebApiLogicTSpStatusResponse _$WebApiLogicTSpStatusResponseFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicTSpStatusResponseToJson(
-        WebApiLogicTSpStatusResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'success': instance.success,
-      'msg': instance.msg,
-    };
+    WebApiLogicTSpStatusResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesAgentOrderChangeOrderStatusRequest
     _$WebApiModulesAgentOrderChangeOrderStatusRequestFromJson(
@@ -684,11 +880,19 @@ WebApiModulesAgentOrderChangeOrderStatusRequest
 }
 
 Map<String, dynamic> _$WebApiModulesAgentOrderChangeOrderStatusRequestToJson(
-        WebApiModulesAgentOrderChangeOrderStatusRequest instance) =>
-    <String, dynamic>{
-      'OrderId': instance.orderId,
-      'NewStatus': instance.newStatus,
-    };
+    WebApiModulesAgentOrderChangeOrderStatusRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('NewStatus', instance.newStatus);
+  return val;
+}
 
 WebApiModulesAgentOrderChangeOrderStatusResponse
     _$WebApiModulesAgentOrderChangeOrderStatusResponseFromJson(
@@ -701,12 +905,20 @@ WebApiModulesAgentOrderChangeOrderStatusResponse
 }
 
 Map<String, dynamic> _$WebApiModulesAgentOrderChangeOrderStatusResponseToJson(
-        WebApiModulesAgentOrderChangeOrderStatusResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'success': instance.success,
-      'msg': instance.msg,
-    };
+    WebApiModulesAgentOrderChangeOrderStatusResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest
     _$WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequestFromJson(
@@ -725,14 +937,23 @@ WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest
 
 Map<String, dynamic>
     _$WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequestToJson(
-            WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest
-                instance) =>
-        <String, dynamic>{
-          'FromDate': instance.fromDate?.toIso8601String(),
-          'ToDate': instance.toDate?.toIso8601String(),
-          'IncludeOrdersWithoutTracking': instance.includeOrdersWithoutTracking,
-          'DataExportFormatId': instance.dataExportFormatId,
-        };
+        WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull(
+      'IncludeOrdersWithoutTracking', instance.includeOrdersWithoutTracking);
+  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  return val;
+}
 
 WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse
     _$WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponseFromJson(
@@ -746,13 +967,21 @@ WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse
 
 Map<String, dynamic>
     _$WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponseToJson(
-            WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'BatchNumber': instance.batchNumber,
-          'downloadUrl': instance.downloadUrl,
-        };
+        WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 WebApiModulesExportsOrderExportOrderExportRequest
     _$WebApiModulesExportsOrderExportOrderExportRequestFromJson(
@@ -769,12 +998,20 @@ WebApiModulesExportsOrderExportOrderExportRequest
 }
 
 Map<String, dynamic> _$WebApiModulesExportsOrderExportOrderExportRequestToJson(
-        WebApiModulesExportsOrderExportOrderExportRequest instance) =>
-    <String, dynamic>{
-      'FromDate': instance.fromDate?.toIso8601String(),
-      'ToDate': instance.toDate?.toIso8601String(),
-      'DataExportFormatId': instance.dataExportFormatId,
-    };
+    WebApiModulesExportsOrderExportOrderExportRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  return val;
+}
 
 WebApiModulesExportsOrderExportOrderExportResponse
     _$WebApiModulesExportsOrderExportOrderExportResponseFromJson(
@@ -787,12 +1024,20 @@ WebApiModulesExportsOrderExportOrderExportResponse
 }
 
 Map<String, dynamic> _$WebApiModulesExportsOrderExportOrderExportResponseToJson(
-        WebApiModulesExportsOrderExportOrderExportResponse instance) =>
-    <String, dynamic>{
-      'BatchId': instance.batchId,
-      'BatchNumber': instance.batchNumber,
-      'downloadUrl': instance.downloadUrl,
-    };
+    WebApiModulesExportsOrderExportOrderExportResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest
     _$WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequestFromJson(
@@ -804,11 +1049,19 @@ WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest
 
 Map<String, dynamic>
     _$WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequestToJson(
-            WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest
-                instance) =>
-        <String, dynamic>{
-          'RateUpdateBatchName': instance.rateUpdateBatchName,
-        };
+        WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RateUpdateBatchName', instance.rateUpdateBatchName);
+  return val;
+}
 
 WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
     _$WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponseFromJson(
@@ -826,14 +1079,22 @@ WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
 
 Map<String, dynamic>
     _$WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponseToJson(
-            WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'RateUpdateBatch': instance.rateUpdateBatch?.toJson(),
-        };
+        WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('RateUpdateBatch', instance.rateUpdateBatch?.toJson());
+  return val;
+}
 
 WebApiModulesInventoryInventoryChangeICodeRequest
     _$WebApiModulesInventoryInventoryChangeICodeRequestFromJson(
@@ -845,11 +1106,19 @@ WebApiModulesInventoryInventoryChangeICodeRequest
 }
 
 Map<String, dynamic> _$WebApiModulesInventoryInventoryChangeICodeRequestToJson(
-        WebApiModulesInventoryInventoryChangeICodeRequest instance) =>
-    <String, dynamic>{
-      'ItemId': instance.itemId,
-      'InventoryId': instance.inventoryId,
-    };
+    WebApiModulesInventoryInventoryChangeICodeRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ItemId', instance.itemId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  return val;
+}
 
 WebApiModulesInventoryInventoryChangeICodeResponse
     _$WebApiModulesInventoryInventoryChangeICodeResponseFromJson(
@@ -862,12 +1131,20 @@ WebApiModulesInventoryInventoryChangeICodeResponse
 }
 
 Map<String, dynamic> _$WebApiModulesInventoryInventoryChangeICodeResponseToJson(
-        WebApiModulesInventoryInventoryChangeICodeResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'success': instance.success,
-      'msg': instance.msg,
-    };
+    WebApiModulesInventoryInventoryChangeICodeResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesInventoryInventoryRetireInventoryRequest
     _$WebApiModulesInventoryInventoryRetireInventoryRequestFromJson(
@@ -884,15 +1161,23 @@ WebApiModulesInventoryInventoryRetireInventoryRequest
 
 Map<String, dynamic>
     _$WebApiModulesInventoryInventoryRetireInventoryRequestToJson(
-            WebApiModulesInventoryInventoryRetireInventoryRequest instance) =>
-        <String, dynamic>{
-          'InventoryId': instance.inventoryId,
-          'WarehouseId': instance.warehouseId,
-          'ItemId': instance.itemId,
-          'RetiredReasonId': instance.retiredReasonId,
-          'Notes': instance.notes,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesInventoryInventoryRetireInventoryRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('ItemId', instance.itemId);
+  writeNotNull('RetiredReasonId', instance.retiredReasonId);
+  writeNotNull('Notes', instance.notes);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesInventoryInventoryRetireInventoryResponse
     _$WebApiModulesInventoryInventoryRetireInventoryResponseFromJson(
@@ -907,13 +1192,21 @@ WebApiModulesInventoryInventoryRetireInventoryResponse
 
 Map<String, dynamic>
     _$WebApiModulesInventoryInventoryRetireInventoryResponseToJson(
-            WebApiModulesInventoryInventoryRetireInventoryResponse instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'RetiredId': instance.retiredId,
-        };
+        WebApiModulesInventoryInventoryRetireInventoryResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('RetiredId', instance.retiredId);
+  return val;
+}
 
 WebApiModulesInventoryInventoryUnretireInventoryRequest
     _$WebApiModulesInventoryInventoryUnretireInventoryRequestFromJson(
@@ -929,14 +1222,22 @@ WebApiModulesInventoryInventoryUnretireInventoryRequest
 
 Map<String, dynamic>
     _$WebApiModulesInventoryInventoryUnretireInventoryRequestToJson(
-            WebApiModulesInventoryInventoryUnretireInventoryRequest instance) =>
-        <String, dynamic>{
-          'RetiredId': instance.retiredId,
-          'ItemId': instance.itemId,
-          'UnretiredReasonId': instance.unretiredReasonId,
-          'Notes': instance.notes,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesInventoryInventoryUnretireInventoryRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RetiredId', instance.retiredId);
+  writeNotNull('ItemId', instance.itemId);
+  writeNotNull('UnretiredReasonId', instance.unretiredReasonId);
+  writeNotNull('Notes', instance.notes);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesSettingsAvailableWidgetAvailableWidget
     _$WebApiModulesSettingsAvailableWidgetAvailableWidgetFromJson(
@@ -968,18 +1269,26 @@ WebApiModulesSettingsAvailableWidgetAvailableWidget
 
 Map<String, dynamic>
     _$WebApiModulesSettingsAvailableWidgetAvailableWidgetToJson(
-            WebApiModulesSettingsAvailableWidgetAvailableWidget instance) =>
-        <String, dynamic>{
-          'WidgetId': instance.widgetId,
-          'Widget': instance.widget,
-          'value': instance.value,
-          'text': instance.text,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesSettingsAvailableWidgetAvailableWidget instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WidgetId', instance.widgetId);
+  writeNotNull('Widget', instance.widget);
+  writeNotNull('value', instance.value);
+  writeNotNull('text', instance.text);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSettingsDepartmentLocationDepartmentLocation
     _$WebApiModulesSettingsDepartmentLocationDepartmentLocationFromJson(
@@ -1012,23 +1321,31 @@ WebApiModulesSettingsDepartmentLocationDepartmentLocation
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(
-        WebApiModulesSettingsDepartmentLocationDepartmentLocation instance) =>
-    <String, dynamic>{
-      'DepartmentId': instance.departmentId,
-      'LocationId': instance.locationId,
-      'Department': instance.department,
-      'Location': instance.location,
-      'DefaultOrderTypeId': instance.defaultOrderTypeId,
-      'DefaultOrderType': instance.defaultOrderType,
-      'Inactive': instance.inactive,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic>
+    _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(
+        WebApiModulesSettingsDepartmentLocationDepartmentLocation instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('Department', instance.department);
+  writeNotNull('Location', instance.location);
+  writeNotNull('DefaultOrderTypeId', instance.defaultOrderTypeId);
+  writeNotNull('DefaultOrderType', instance.defaultOrderType);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidget2
     _$WebApiModulesSettingsWidgetSettingsWidgetWidget2FromJson(
@@ -1069,30 +1386,38 @@ WebApiModulesSettingsWidgetSettingsWidgetWidget2
 }
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetSettingsWidgetWidget2ToJson(
-        WebApiModulesSettingsWidgetSettingsWidgetWidget2 instance) =>
-    <String, dynamic>{
-      'locationId': instance.locationId,
-      'warehouseId': instance.warehouseId,
-      'departmentId': instance.departmentId,
-      'locationCodes': instance.locationCodes,
-      'dateBehaviorId': instance.dateBehaviorId,
-      'dateField': instance.dateField,
-      'fromDate': instance.fromDate?.toIso8601String(),
-      'toDate': instance.toDate?.toIso8601String(),
-      'type': instance.type,
-      'data': instance.data?.toJson(),
-      'options': instance.options?.toJson(),
-      'dataPoints': instance.dataPoints,
-      'apiName': instance.apiName,
-      'procedureName': instance.procedureName,
-      'counterFieldName': instance.counterFieldName,
-      'label1FieldName': instance.label1FieldName,
-      'label2FieldName': instance.label2FieldName,
-      'backgroundColorFieldName': instance.backgroundColorFieldName,
-      'borderColorFieldName': instance.borderColorFieldName,
-      'opacity': instance.opacity,
-      'stacked': instance.stacked,
-    };
+    WebApiModulesSettingsWidgetSettingsWidgetWidget2 instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('locationId', instance.locationId);
+  writeNotNull('warehouseId', instance.warehouseId);
+  writeNotNull('departmentId', instance.departmentId);
+  writeNotNull('locationCodes', instance.locationCodes);
+  writeNotNull('dateBehaviorId', instance.dateBehaviorId);
+  writeNotNull('dateField', instance.dateField);
+  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('toDate', instance.toDate?.toIso8601String());
+  writeNotNull('type', instance.type);
+  writeNotNull('data', instance.data?.toJson());
+  writeNotNull('options', instance.options?.toJson());
+  writeNotNull('dataPoints', instance.dataPoints);
+  writeNotNull('apiName', instance.apiName);
+  writeNotNull('procedureName', instance.procedureName);
+  writeNotNull('counterFieldName', instance.counterFieldName);
+  writeNotNull('label1FieldName', instance.label1FieldName);
+  writeNotNull('label2FieldName', instance.label2FieldName);
+  writeNotNull('backgroundColorFieldName', instance.backgroundColorFieldName);
+  writeNotNull('borderColorFieldName', instance.borderColorFieldName);
+  writeNotNull('opacity', instance.opacity);
+  writeNotNull('stacked', instance.stacked);
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisFromJson(
@@ -1108,11 +1433,19 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis instance) =>
-        <String, dynamic>{
-          'ticks': instance.ticks?.toJson(),
-          'stacked': instance.stacked,
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ticks', instance.ticks?.toJson());
+  writeNotNull('stacked', instance.stacked);
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicksFromJson(
@@ -1122,12 +1455,20 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicksToJson(
-        WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks instance) =>
-    <String, dynamic>{
-      'beginAtZero': instance.beginAtZero,
-    };
+Map<String, dynamic>
+    _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicksToJson(
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('beginAtZero', instance.beginAtZero);
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetData
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataFromJson(
@@ -1147,11 +1488,19 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetData
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetData instance) =>
-        <String, dynamic>{
-          'labels': instance.labels,
-          'datasets': instance.datasets?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetData instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('labels', instance.labels);
+  writeNotNull('datasets', instance.datasets?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSetFromJson(
@@ -1176,14 +1525,22 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSetToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet instance) =>
-        <String, dynamic>{
-          'label': instance.label,
-          'data': instance.data,
-          'backgroundColor': instance.backgroundColor,
-          'borderColor': instance.borderColor,
-          'borderWidth': instance.borderWidth,
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('label', instance.label);
+  writeNotNull('data', instance.data);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('borderColor', instance.borderColor);
+  writeNotNull('borderWidth', instance.borderWidth);
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetLegendFromJson(
@@ -1195,10 +1552,18 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetLegendToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend instance) =>
-        <String, dynamic>{
-          'display': instance.display,
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('display', instance.display);
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetOptionsFromJson(
@@ -1223,14 +1588,22 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetOptionsToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions instance) =>
-        <String, dynamic>{
-          'title': instance.title?.toJson(),
-          'legend': instance.legend?.toJson(),
-          'scales': instance.scales?.toJson(),
-          'responsive': instance.responsive,
-          'maintainAspectRatio': instance.maintainAspectRatio,
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('title', instance.title?.toJson());
+  writeNotNull('legend', instance.legend?.toJson());
+  writeNotNull('scales', instance.scales?.toJson());
+  writeNotNull('responsive', instance.responsive);
+  writeNotNull('maintainAspectRatio', instance.maintainAspectRatio);
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetScales
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetScalesFromJson(
@@ -1253,11 +1626,19 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetScales
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetScalesToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetScales instance) =>
-        <String, dynamic>{
-          'xAxes': instance.xAxes?.map((e) => e.toJson()).toList(),
-          'yAxes': instance.yAxes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetScales instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('xAxes', instance.xAxes?.map((e) => e.toJson()).toList());
+  writeNotNull('yAxes', instance.yAxes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetTitleFromJson(
@@ -1271,12 +1652,20 @@ WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle
 
 Map<String, dynamic>
     _$WebApiModulesSettingsWidgetSettingsWidgetWidgetTitleToJson(
-            WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle instance) =>
-        <String, dynamic>{
-          'fontSize': instance.fontSize,
-          'display': instance.display,
-          'text': instance.text,
-        };
+        WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('display', instance.display);
+  writeNotNull('text', instance.text);
+  return val;
+}
 
 WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest
     _$WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequestFromJson(
@@ -1302,13 +1691,21 @@ WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponseToJson(
-            WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesDashboardSettingsDashboardSettings
     _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsFromJson(
@@ -1348,21 +1745,30 @@ WebApiModulesUtilitiesDashboardSettingsDashboardSettings
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsToJson(
-        WebApiModulesUtilitiesDashboardSettingsDashboardSettings instance) =>
-    <String, dynamic>{
-      'UserId': instance.userId,
-      'WidgetsPerRow': instance.widgetsPerRow,
-      'AvailableWidgets':
-          instance.availableWidgets?.map((e) => e.toJson()).toList(),
-      'UserWidgets': instance.userWidgets?.map((e) => e.toJson()).toList(),
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic>
+    _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsToJson(
+        WebApiModulesUtilitiesDashboardSettingsDashboardSettings instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('UserId', instance.userId);
+  writeNotNull('WidgetsPerRow', instance.widgetsPerRow);
+  writeNotNull('AvailableWidgets',
+      instance.availableWidgets?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'UserWidgets', instance.userWidgets?.map((e) => e.toJson()).toList());
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSetting
     _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSettingFromJson(
@@ -1421,50 +1827,60 @@ WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSettin
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSettingToJson(
-            WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSetting
-                instance) =>
-        <String, dynamic>{
-          'userWidgetId': instance.userWidgetId,
-          'value': instance.value,
-          'text': instance.text,
-          'selected': instance.selected,
-          'apiname': instance.apiname,
-          'modulename': instance.modulename,
-          'clickpath': instance.clickpath,
-          'defaulttype': instance.defaulttype,
-          'widgettype': instance.widgettype,
-          'defaultDataPoints': instance.defaultDataPoints,
-          'dataPoints': instance.dataPoints,
-          'defaultAxisNumberFormatId': instance.defaultAxisNumberFormatId,
-          'defaultAxisNumberFormat': instance.defaultAxisNumberFormat,
-          'defaultAxisNumberFormatMask': instance.defaultAxisNumberFormatMask,
-          'axisNumberFormatId': instance.axisNumberFormatId,
-          'axisNumberFormat': instance.axisNumberFormat,
-          'axisNumberFormatMask': instance.axisNumberFormatMask,
-          'defaultDataNumberFormatId': instance.defaultDataNumberFormatId,
-          'defaultDataNumberFormat': instance.defaultDataNumberFormat,
-          'defaultDataNumberFormatMask': instance.defaultDataNumberFormatMask,
-          'dataNumberFormatId': instance.dataNumberFormatId,
-          'dataNumberFormat': instance.dataNumberFormat,
-          'dataNumberFormatMask': instance.dataNumberFormatMask,
-          'defaultDateBehaviorId': instance.defaultDateBehaviorId,
-          'defaultDateBehavior': instance.defaultDateBehavior,
-          'dateBehaviorId': instance.dateBehaviorId,
-          'dateBehavior': instance.dateBehavior,
-          'dateFieldDisplayNames': instance.dateFieldDisplayNames,
-          'dateFields': instance.dateFields,
-          'defaultDateField': instance.defaultDateField,
-          'dateField': instance.dateField,
-          'defaultFromDate': instance.defaultFromDate?.toIso8601String(),
-          'fromDate': instance.fromDate?.toIso8601String(),
-          'defaultToDate': instance.defaultToDate?.toIso8601String(),
-          'toDate': instance.toDate?.toIso8601String(),
-          'officeLocationId': instance.officeLocationId,
-          'officeLocation': instance.officeLocation,
-          'officeLocationCode': instance.officeLocationCode,
-          'defaultStacked': instance.defaultStacked,
-          'stacked': instance.stacked,
-        };
+        WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSetting
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('userWidgetId', instance.userWidgetId);
+  writeNotNull('value', instance.value);
+  writeNotNull('text', instance.text);
+  writeNotNull('selected', instance.selected);
+  writeNotNull('apiname', instance.apiname);
+  writeNotNull('modulename', instance.modulename);
+  writeNotNull('clickpath', instance.clickpath);
+  writeNotNull('defaulttype', instance.defaulttype);
+  writeNotNull('widgettype', instance.widgettype);
+  writeNotNull('defaultDataPoints', instance.defaultDataPoints);
+  writeNotNull('dataPoints', instance.dataPoints);
+  writeNotNull('defaultAxisNumberFormatId', instance.defaultAxisNumberFormatId);
+  writeNotNull('defaultAxisNumberFormat', instance.defaultAxisNumberFormat);
+  writeNotNull(
+      'defaultAxisNumberFormatMask', instance.defaultAxisNumberFormatMask);
+  writeNotNull('axisNumberFormatId', instance.axisNumberFormatId);
+  writeNotNull('axisNumberFormat', instance.axisNumberFormat);
+  writeNotNull('axisNumberFormatMask', instance.axisNumberFormatMask);
+  writeNotNull('defaultDataNumberFormatId', instance.defaultDataNumberFormatId);
+  writeNotNull('defaultDataNumberFormat', instance.defaultDataNumberFormat);
+  writeNotNull(
+      'defaultDataNumberFormatMask', instance.defaultDataNumberFormatMask);
+  writeNotNull('dataNumberFormatId', instance.dataNumberFormatId);
+  writeNotNull('dataNumberFormat', instance.dataNumberFormat);
+  writeNotNull('dataNumberFormatMask', instance.dataNumberFormatMask);
+  writeNotNull('defaultDateBehaviorId', instance.defaultDateBehaviorId);
+  writeNotNull('defaultDateBehavior', instance.defaultDateBehavior);
+  writeNotNull('dateBehaviorId', instance.dateBehaviorId);
+  writeNotNull('dateBehavior', instance.dateBehavior);
+  writeNotNull('dateFieldDisplayNames', instance.dateFieldDisplayNames);
+  writeNotNull('dateFields', instance.dateFields);
+  writeNotNull('defaultDateField', instance.defaultDateField);
+  writeNotNull('dateField', instance.dateField);
+  writeNotNull('defaultFromDate', instance.defaultFromDate?.toIso8601String());
+  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('defaultToDate', instance.defaultToDate?.toIso8601String());
+  writeNotNull('toDate', instance.toDate?.toIso8601String());
+  writeNotNull('officeLocationId', instance.officeLocationId);
+  writeNotNull('officeLocation', instance.officeLocation);
+  writeNotNull('officeLocationCode', instance.officeLocationCode);
+  writeNotNull('defaultStacked', instance.defaultStacked);
+  writeNotNull('stacked', instance.stacked);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryMergeInventoryMerge
     _$WebApiModulesUtilitiesInventoryMergeInventoryMergeFromJson(
@@ -1502,25 +1918,33 @@ WebApiModulesUtilitiesInventoryMergeInventoryMerge
 }
 
 Map<String, dynamic> _$WebApiModulesUtilitiesInventoryMergeInventoryMergeToJson(
-        WebApiModulesUtilitiesInventoryMergeInventoryMerge instance) =>
-    <String, dynamic>{
-      'InventoryMergeId': instance.inventoryMergeId,
-      'SessionId': instance.sessionId,
-      'FromInventoryId': instance.fromInventoryId,
-      'FromICode': instance.fromICode,
-      'FromDescription': instance.fromDescription,
-      'ToInventoryId': instance.toInventoryId,
-      'ToICode': instance.toICode,
-      'ToDescription': instance.toDescription,
-      'WarehouseId': instance.warehouseId,
-      'Warehouse': instance.warehouse,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesUtilitiesInventoryMergeInventoryMerge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryMergeId', instance.inventoryMergeId);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('FromInventoryId', instance.fromInventoryId);
+  writeNotNull('FromICode', instance.fromICode);
+  writeNotNull('FromDescription', instance.fromDescription);
+  writeNotNull('ToInventoryId', instance.toInventoryId);
+  writeNotNull('ToICode', instance.toICode);
+  writeNotNull('ToDescription', instance.toDescription);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest
     _$WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequestFromJson(
@@ -1533,12 +1957,20 @@ WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequestToJson(
-            WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-          'MakeInactive': instance.makeInactive,
-        };
+        WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('MakeInactive', instance.makeInactive);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequestFromJson(
@@ -1555,16 +1987,24 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesReq
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'SessionId': instance.sessionId,
-          'InventoryId': instance.inventoryId,
-          'WarehouseId': instance.warehouseId,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponseFromJson(
@@ -1578,13 +2018,21 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRes
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson(
@@ -1621,32 +2069,40 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRe
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'SessionId': instance.sessionId,
-          'InventoryId': instance.inventoryId,
-          'Quantity': instance.quantity,
-          'WarehouseId': instance.warehouseId,
-          'AisleLocation': instance.aisleLocation,
-          'ShelfLocation': instance.shelfLocation,
-          'ManufacturerVendorId': instance.manufacturerVendorId,
-          'ManufacturerModelNumber': instance.manufacturerModelNumber,
-          'ManufacturerPartNumber': instance.manufacturerPartNumber,
-          'CountryId': instance.countryId,
-          'WarrantyDays': instance.warrantyDays,
-          'WarrantyExpiration': instance.warrantyExpiration,
-          'PurchaseVendorId': instance.purchaseVendorId,
-          'OutsidePoNumber': instance.outsidePoNumber,
-          'PurchaseDate': instance.purchaseDate?.toIso8601String(),
-          'ReceiveDate': instance.receiveDate?.toIso8601String(),
-          'VendorPartNumber': instance.vendorPartNumber,
-          'CurrencyId': instance.currencyId,
-          'UnitCost': instance.unitCost,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Quantity', instance.quantity);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('AisleLocation', instance.aisleLocation);
+  writeNotNull('ShelfLocation', instance.shelfLocation);
+  writeNotNull('ManufacturerVendorId', instance.manufacturerVendorId);
+  writeNotNull('ManufacturerModelNumber', instance.manufacturerModelNumber);
+  writeNotNull('ManufacturerPartNumber', instance.manufacturerPartNumber);
+  writeNotNull('CountryId', instance.countryId);
+  writeNotNull('WarrantyDays', instance.warrantyDays);
+  writeNotNull('WarrantyExpiration', instance.warrantyExpiration);
+  writeNotNull('PurchaseVendorId', instance.purchaseVendorId);
+  writeNotNull('OutsidePoNumber', instance.outsidePoNumber);
+  writeNotNull('PurchaseDate', instance.purchaseDate?.toIso8601String());
+  writeNotNull('ReceiveDate', instance.receiveDate?.toIso8601String());
+  writeNotNull('VendorPartNumber', instance.vendorPartNumber);
+  writeNotNull('CurrencyId', instance.currencyId);
+  writeNotNull('UnitCost', instance.unitCost);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson(
@@ -1668,16 +2124,24 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRe
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'PurchaseId': instance.purchaseId,
-          'ItemId': instance.itemId,
-          'QuantityAdded': instance.quantityAdded,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('PurchaseId', instance.purchaseId);
+  writeNotNull('ItemId', instance.itemId);
+  writeNotNull('QuantityAdded', instance.quantityAdded);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson(
@@ -1690,12 +2154,20 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionReque
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
-                instance) =>
-        <String, dynamic>{
-          'InventoryId': instance.inventoryId,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson(
@@ -1707,11 +2179,19 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRespo
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson(
@@ -1725,13 +2205,21 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequ
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-          'InventoryId': instance.inventoryId,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson(
@@ -1745,13 +2233,21 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResp
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch
     _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchFromJson(
@@ -1791,27 +2287,34 @@ WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchToJson(
-            WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'LocationId': instance.locationId,
-          'BatchType': instance.batchType,
-          'DivisionCode': instance.divisionCode,
-          'BatchNumber': instance.batchNumber,
-          'BatchDate': instance.batchDate,
-          'BatchTime': instance.batchTime,
-          'BatchDateTime': instance.batchDateTime,
-          'ExportDate': instance.exportDate,
-          'Exported': instance.exported,
-          'RecordCount': instance.recordCount,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('BatchType', instance.batchType);
+  writeNotNull('DivisionCode', instance.divisionCode);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('BatchDate', instance.batchDate);
+  writeNotNull('BatchTime', instance.batchTime);
+  writeNotNull('BatchDateTime', instance.batchDateTime);
+  writeNotNull('ExportDate', instance.exportDate);
+  writeNotNull('Exported', instance.exported);
+  writeNotNull('RecordCount', instance.recordCount);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest
     _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequestFromJson(
@@ -1826,12 +2329,20 @@ WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequestToJson(
-            WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest
-                instance) =>
-        <String, dynamic>{
-          'LocationId': instance.locationId,
-          'AsOfDate': instance.asOfDate?.toIso8601String(),
-        };
+        WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
+  return val;
+}
 
 WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse
     _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponseFromJson(
@@ -1850,15 +2361,24 @@ WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponseToJson(
-            WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'Batch': instance.batch?.toJson(),
-          'AutoProcessDepeletingDeposit': instance.autoProcessDepeletingDeposit,
-        };
+        WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('Batch', instance.batch?.toJson());
+  writeNotNull(
+      'AutoProcessDepeletingDeposit', instance.autoProcessDepeletingDeposit);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest
     _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestFromJson(
@@ -1898,39 +2418,49 @@ WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestToJson(
-        WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest instance) =>
-    <String, dynamic>{
-      'SessionId': instance.sessionId,
-      'MigrateToNewOrder': instance.migrateToNewOrder,
-      'NewOrderOfficeLocationId': instance.newOrderOfficeLocationId,
-      'NewOrderWarehouseId': instance.newOrderWarehouseId,
-      'NewOrderDealId': instance.newOrderDealId,
-      'NewOrderDepartmentId': instance.newOrderDepartmentId,
-      'NewOrderOrderTypeId': instance.newOrderOrderTypeId,
-      'NewOrderDescription': instance.newOrderDescription,
-      'NewOrderRateType': instance.newOrderRateType,
-      'NewOrderFromDate': instance.newOrderFromDate,
-      'NewOrderFromTime': instance.newOrderFromTime,
-      'NewOrderToDate': instance.newOrderToDate,
-      'NewOrderToTime': instance.newOrderToTime,
-      'NewOrderBillingStopDate': instance.newOrderBillingStopDate,
-      'NewOrderPendingPO': instance.newOrderPendingPO,
-      'NewOrderFlatPO': instance.newOrderFlatPO,
-      'NewOrderPurchaseOrderNumber': instance.newOrderPurchaseOrderNumber,
-      'NewOrderPurchaseOrderAmount': instance.newOrderPurchaseOrderAmount,
-      'MigrateToExistingOrder': instance.migrateToExistingOrder,
-      'ExistingOrderId': instance.existingOrderId,
-      'InventoryFulfillIncrement': instance.inventoryFulfillIncrement,
-      'CopyLineItemNotes': instance.copyLineItemNotes,
-      'CopyOrderNotes': instance.copyOrderNotes,
-      'CopyRentalRates': instance.copyRentalRates,
-      'UpdateBillingStopDate': instance.updateBillingStopDate,
-      'BillingStopDate': instance.billingStopDate?.toIso8601String(),
-      'OfficeLocationId': instance.officeLocationId,
-      'WarehouseId': instance.warehouseId,
-    };
+Map<String, dynamic>
+    _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestToJson(
+        WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('MigrateToNewOrder', instance.migrateToNewOrder);
+  writeNotNull('NewOrderOfficeLocationId', instance.newOrderOfficeLocationId);
+  writeNotNull('NewOrderWarehouseId', instance.newOrderWarehouseId);
+  writeNotNull('NewOrderDealId', instance.newOrderDealId);
+  writeNotNull('NewOrderDepartmentId', instance.newOrderDepartmentId);
+  writeNotNull('NewOrderOrderTypeId', instance.newOrderOrderTypeId);
+  writeNotNull('NewOrderDescription', instance.newOrderDescription);
+  writeNotNull('NewOrderRateType', instance.newOrderRateType);
+  writeNotNull('NewOrderFromDate', instance.newOrderFromDate);
+  writeNotNull('NewOrderFromTime', instance.newOrderFromTime);
+  writeNotNull('NewOrderToDate', instance.newOrderToDate);
+  writeNotNull('NewOrderToTime', instance.newOrderToTime);
+  writeNotNull('NewOrderBillingStopDate', instance.newOrderBillingStopDate);
+  writeNotNull('NewOrderPendingPO', instance.newOrderPendingPO);
+  writeNotNull('NewOrderFlatPO', instance.newOrderFlatPO);
+  writeNotNull(
+      'NewOrderPurchaseOrderNumber', instance.newOrderPurchaseOrderNumber);
+  writeNotNull(
+      'NewOrderPurchaseOrderAmount', instance.newOrderPurchaseOrderAmount);
+  writeNotNull('MigrateToExistingOrder', instance.migrateToExistingOrder);
+  writeNotNull('ExistingOrderId', instance.existingOrderId);
+  writeNotNull('InventoryFulfillIncrement', instance.inventoryFulfillIncrement);
+  writeNotNull('CopyLineItemNotes', instance.copyLineItemNotes);
+  writeNotNull('CopyOrderNotes', instance.copyOrderNotes);
+  writeNotNull('CopyRentalRates', instance.copyRentalRates);
+  writeNotNull('UpdateBillingStopDate', instance.updateBillingStopDate);
+  writeNotNull('BillingStopDate', instance.billingStopDate?.toIso8601String());
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
     _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseFromJson(
@@ -1950,15 +2480,23 @@ WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseToJson(
-            WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'ContractIds': instance.contractIds,
-          'Contracts': instance.contracts?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('ContractIds', instance.contractIds);
+  writeNotNull(
+      'Contracts', instance.contracts?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest
     _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequestFromJson(
@@ -1970,11 +2508,18 @@ WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequestToJson(
-            WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-        };
+        WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
     _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponseFromJson(
@@ -1988,13 +2533,21 @@ WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponseToJson(
-            WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateStartMigrateSessionRequest
     _$WebApiModulesUtilitiesMigrateStartMigrateSessionRequestFromJson(
@@ -2008,12 +2561,20 @@ WebApiModulesUtilitiesMigrateStartMigrateSessionRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesMigrateStartMigrateSessionRequestToJson(
-            WebApiModulesUtilitiesMigrateStartMigrateSessionRequest instance) =>
-        <String, dynamic>{
-          'DealId': instance.dealId,
-          'DepartmentId': instance.departmentId,
-          'OrderIds': instance.orderIds,
-        };
+        WebApiModulesUtilitiesMigrateStartMigrateSessionRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('OrderIds', instance.orderIds);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateStartMigrateSessionResponse
     _$WebApiModulesUtilitiesMigrateStartMigrateSessionResponseFromJson(
@@ -2026,15 +2587,23 @@ WebApiModulesUtilitiesMigrateStartMigrateSessionResponse
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesUtilitiesMigrateStartMigrateSessionResponseToJson(
-        WebApiModulesUtilitiesMigrateStartMigrateSessionResponse instance) =>
-    <String, dynamic>{
-      'SessionId': instance.sessionId,
-      'status': instance.status,
-      'success': instance.success,
-      'msg': instance.msg,
-    };
+Map<String, dynamic>
+    _$WebApiModulesUtilitiesMigrateStartMigrateSessionResponseToJson(
+        WebApiModulesUtilitiesMigrateStartMigrateSessionResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest
     _$WebApiModulesUtilitiesMigrateUpdateMigrateItemRequestFromJson(
@@ -2050,14 +2619,22 @@ WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesMigrateUpdateMigrateItemRequestToJson(
-            WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-          'OrderId': instance.orderId,
-          'OrderItemId': instance.orderItemId,
-          'BarCode': instance.barCode,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('BarCode', instance.barCode);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse
     _$WebApiModulesUtilitiesMigrateUpdateMigrateItemResponseFromJson(
@@ -2072,13 +2649,21 @@ WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesMigrateUpdateMigrateItemResponseToJson(
-            WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse instance) =>
-        <String, dynamic>{
-          'NewQuantity': instance.newQuantity,
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('NewQuantity', instance.newQuantity);
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
     _$WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingFromJson(
@@ -2124,33 +2709,40 @@ WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingToJson(
-            WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
-                instance) =>
-        <String, dynamic>{
-          'DeliveryShipId': instance.deliveryShipId,
-          'OrderId': instance.orderId,
-          'DeliveryId': instance.deliveryId,
-          'OrderNumber': instance.orderNumber,
-          'OrderDate': instance.orderDate,
-          'OrderDescription': instance.orderDescription,
-          'Status': instance.status,
-          'StatusDate': instance.statusDate,
-          'DealId': instance.dealId,
-          'Deal': instance.deal,
-          'DealNumber': instance.dealNumber,
-          'TrackingNumber': instance.trackingNumber,
-          'ShippingVendorId': instance.shippingVendorId,
-          'ShippingVendor': instance.shippingVendor,
-          'CarrierId': instance.carrierId,
-          'Carrier': instance.carrier,
-          'OnlineOrderNumber': instance.onlineOrderNumber,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DeliveryShipId', instance.deliveryShipId);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('DeliveryId', instance.deliveryId);
+  writeNotNull('OrderNumber', instance.orderNumber);
+  writeNotNull('OrderDate', instance.orderDate);
+  writeNotNull('OrderDescription', instance.orderDescription);
+  writeNotNull('Status', instance.status);
+  writeNotNull('StatusDate', instance.statusDate);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('Deal', instance.deal);
+  writeNotNull('DealNumber', instance.dealNumber);
+  writeNotNull('TrackingNumber', instance.trackingNumber);
+  writeNotNull('ShippingVendorId', instance.shippingVendorId);
+  writeNotNull('ShippingVendor', instance.shippingVendor);
+  writeNotNull('CarrierId', instance.carrierId);
+  writeNotNull('Carrier', instance.carrier);
+  writeNotNull('OnlineOrderNumber', instance.onlineOrderNumber);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEventFromJson(
@@ -2178,27 +2770,35 @@ WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEventToJson(
-            WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
-                instance) =>
-        <String, dynamic>{
-          'start': instance.start,
-          'end': instance.end,
-          'text': instance.text,
-          'backColor': instance.backColor,
-          'barColor': instance.barColor,
-          'textColor': instance.textColor,
-          'resource': instance.resource,
-          'orderId': instance.orderId,
-          'orderNumber': instance.orderNumber,
-          'orderType': instance.orderType,
-          'orderStatus': instance.orderStatus,
-          'orderDescription': instance.orderDescription,
-          'orderLocation': instance.orderLocation,
-          'deal': instance.deal,
-          'poNumber': instance.poNumber,
-          'id': instance.id,
-          'orderBy': instance.orderBy,
-        };
+        WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('start', instance.start);
+  writeNotNull('end', instance.end);
+  writeNotNull('text', instance.text);
+  writeNotNull('backColor', instance.backColor);
+  writeNotNull('barColor', instance.barColor);
+  writeNotNull('textColor', instance.textColor);
+  writeNotNull('resource', instance.resource);
+  writeNotNull('orderId', instance.orderId);
+  writeNotNull('orderNumber', instance.orderNumber);
+  writeNotNull('orderType', instance.orderType);
+  writeNotNull('orderStatus', instance.orderStatus);
+  writeNotNull('orderDescription', instance.orderDescription);
+  writeNotNull('orderLocation', instance.orderLocation);
+  writeNotNull('deal', instance.deal);
+  writeNotNull('poNumber', instance.poNumber);
+  writeNotNull('id', instance.id);
+  writeNotNull('orderBy', instance.orderBy);
+  return val;
+}
 
 WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequestFromJson(
@@ -2222,19 +2822,27 @@ WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequestToJson(
-            WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
-                instance) =>
-        <String, dynamic>{
-          'FromDate': instance.fromDate?.toIso8601String(),
-          'ToDate': instance.toDate?.toIso8601String(),
-          'OfficeLocationId': instance.officeLocationId,
-          'CustomerId': instance.customerId,
-          'DepartmentId': instance.departmentId,
-          'DealId': instance.dealId,
-          'ProjectId': instance.projectId,
-          'ProjectManagerId': instance.projectManagerId,
-          'IncludeCompleted': instance.includeCompleted,
-        };
+        WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('CustomerId', instance.customerId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('ProjectId', instance.projectId);
+  writeNotNull('ProjectManagerId', instance.projectManagerId);
+  writeNotNull('IncludeCompleted', instance.includeCompleted);
+  return val;
+}
 
 WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResourceFromJson(
@@ -2249,14 +2857,22 @@ WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResourceToJson(
-            WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
-                instance) =>
-        <String, dynamic>{
-          'name': instance.name,
-          'id': instance.id,
-          'backColor': instance.backColor,
-          'orderBy': instance.orderBy,
-        };
+        WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('id', instance.id);
+  writeNotNull('backColor', instance.backColor);
+  writeNotNull('orderBy', instance.orderBy);
+  return val;
+}
 
 WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponseFromJson(
@@ -2281,17 +2897,22 @@ WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponseToJson(
-            WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
-                instance) =>
-        <String, dynamic>{
-          'OrderLocationScheduleResources': instance
-              .orderLocationScheduleResources
-              ?.map((e) => e.toJson())
-              .toList(),
-          'OrderLocationScheduleEvents': instance.orderLocationScheduleEvents
-              ?.map((e) => e.toJson())
-              .toList(),
-        };
+        WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderLocationScheduleResources',
+      instance.orderLocationScheduleResources?.map((e) => e.toJson()).toList());
+  writeNotNull('OrderLocationScheduleEvents',
+      instance.orderLocationScheduleEvents?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesProgressMeterProgressMeter
     _$WebApiModulesUtilitiesProgressMeterProgressMeterFromJson(
@@ -2323,19 +2944,27 @@ WebApiModulesUtilitiesProgressMeterProgressMeter
 }
 
 Map<String, dynamic> _$WebApiModulesUtilitiesProgressMeterProgressMeterToJson(
-        WebApiModulesUtilitiesProgressMeterProgressMeter instance) =>
-    <String, dynamic>{
-      'SessionId': instance.sessionId,
-      'Caption': instance.caption,
-      'CurrentStep': instance.currentStep,
-      'TotalSteps': instance.totalSteps,
-      'PercentComplete': instance.percentComplete,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesUtilitiesProgressMeterProgressMeter instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('Caption', instance.caption);
+  writeNotNull('CurrentStep', instance.currentStep);
+  writeNotNull('TotalSteps', instance.totalSteps);
+  writeNotNull('PercentComplete', instance.percentComplete);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesQuikActivityQuikActivity
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFromJson(
@@ -2391,43 +3020,51 @@ WebApiModulesUtilitiesQuikActivityQuikActivity
 }
 
 Map<String, dynamic> _$WebApiModulesUtilitiesQuikActivityQuikActivityToJson(
-        WebApiModulesUtilitiesQuikActivityQuikActivity instance) =>
-    <String, dynamic>{
-      'ActivityId': instance.activityId,
-      'ActivityDate': instance.activityDate,
-      'ActivityTime': instance.activityTime,
-      'ActivityTypeId': instance.activityTypeId,
-      'ActivityTypeDescription': instance.activityTypeDescription,
-      'ActivityTypeColor': instance.activityTypeColor,
-      'ActivityTypeTextColor': instance.activityTypeTextColor,
-      'ActivityStatusId': instance.activityStatusId,
-      'ActivityStatus': instance.activityStatus,
-      'ActivityStatusColor': instance.activityStatusColor,
-      'ActivityStatusTextColor': instance.activityStatusTextColor,
-      'OrderId': instance.orderId,
-      'OrderNumber': instance.orderNumber,
-      'OrderType': instance.orderType,
-      'OrderTypeController': instance.orderTypeController,
-      'OrderDescription': instance.orderDescription,
-      'DealId': instance.dealId,
-      'Deal': instance.deal,
-      'VendorId': instance.vendorId,
-      'Vendor': instance.vendor,
-      'InventoryId': instance.inventoryId,
-      'ICode': instance.iCode,
-      'Description': instance.description,
-      'TotalQuantity': instance.totalQuantity,
-      'RemainingQuantity': instance.remainingQuantity,
-      'CompleteQuantity': instance.completeQuantity,
-      'CompletePercent': instance.completePercent,
-      'AssignedToUserId': instance.assignedToUserId,
-      'AssignedToUserName': instance.assignedToUserName,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesUtilitiesQuikActivityQuikActivity instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ActivityId', instance.activityId);
+  writeNotNull('ActivityDate', instance.activityDate);
+  writeNotNull('ActivityTime', instance.activityTime);
+  writeNotNull('ActivityTypeId', instance.activityTypeId);
+  writeNotNull('ActivityTypeDescription', instance.activityTypeDescription);
+  writeNotNull('ActivityTypeColor', instance.activityTypeColor);
+  writeNotNull('ActivityTypeTextColor', instance.activityTypeTextColor);
+  writeNotNull('ActivityStatusId', instance.activityStatusId);
+  writeNotNull('ActivityStatus', instance.activityStatus);
+  writeNotNull('ActivityStatusColor', instance.activityStatusColor);
+  writeNotNull('ActivityStatusTextColor', instance.activityStatusTextColor);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderNumber', instance.orderNumber);
+  writeNotNull('OrderType', instance.orderType);
+  writeNotNull('OrderTypeController', instance.orderTypeController);
+  writeNotNull('OrderDescription', instance.orderDescription);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('Deal', instance.deal);
+  writeNotNull('VendorId', instance.vendorId);
+  writeNotNull('Vendor', instance.vendor);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('Description', instance.description);
+  writeNotNull('TotalQuantity', instance.totalQuantity);
+  writeNotNull('RemainingQuantity', instance.remainingQuantity);
+  writeNotNull('CompleteQuantity', instance.completeQuantity);
+  writeNotNull('CompletePercent', instance.completePercent);
+  writeNotNull('AssignedToUserId', instance.assignedToUserId);
+  writeNotNull('AssignedToUserName', instance.assignedToUserName);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEventFromJson(
@@ -2445,17 +3082,25 @@ WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEventToJson(
-            WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent
-                instance) =>
-        <String, dynamic>{
-          'start': instance.start,
-          'end': instance.end,
-          'text': instance.text,
-          'backColor': instance.backColor,
-          'textColor': instance.textColor,
-          'activityType': instance.activityType,
-          'id': instance.id,
-        };
+        WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('start', instance.start);
+  writeNotNull('end', instance.end);
+  writeNotNull('text', instance.text);
+  writeNotNull('backColor', instance.backColor);
+  writeNotNull('textColor', instance.textColor);
+  writeNotNull('activityType', instance.activityType);
+  writeNotNull('id', instance.id);
+  return val;
+}
 
 WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequestFromJson(
@@ -2480,20 +3125,28 @@ WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequestToJson(
-            WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest
-                instance) =>
-        <String, dynamic>{
-          'FromDate': instance.fromDate?.toIso8601String(),
-          'ToDate': instance.toDate?.toIso8601String(),
-          'OfficeLocationId': instance.officeLocationId,
-          'WarehouseId': instance.warehouseId,
-          'DepartmentId': instance.departmentId,
-          'DealId': instance.dealId,
-          'ActivityTypeId': instance.activityTypeId,
-          'AssignedToUserId': instance.assignedToUserId,
-          'IncludeCompleted': instance.includeCompleted,
-          'IncludeTimes': instance.includeTimes,
-        };
+        WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('ActivityTypeId', instance.activityTypeId);
+  writeNotNull('AssignedToUserId', instance.assignedToUserId);
+  writeNotNull('IncludeCompleted', instance.includeCompleted);
+  writeNotNull('IncludeTimes', instance.includeTimes);
+  return val;
+}
 
 WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponseFromJson(
@@ -2512,14 +3165,21 @@ WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponseToJson(
-            WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-          'QuikActivityCalendarEvents': instance.quikActivityCalendarEvents
-              ?.map((e) => e.toJson())
-              .toList(),
-        };
+        WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('QuikActivityCalendarEvents',
+      instance.quikActivityCalendarEvents?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch
     _$WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchFromJson(
@@ -2555,20 +3215,28 @@ WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchToJson(
-            WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch instance) =>
-        <String, dynamic>{
-          'RateUpdateBatchId': instance.rateUpdateBatchId,
-          'RateUpdateBatch': instance.rateUpdateBatch,
-          'UsersId': instance.usersId,
-          'UserName': instance.userName,
-          'Applied': instance.applied?.toIso8601String(),
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RateUpdateBatchId', instance.rateUpdateBatchId);
+  writeNotNull('RateUpdateBatch', instance.rateUpdateBatch);
+  writeNotNull('UsersId', instance.usersId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('Applied', instance.applied?.toIso8601String());
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem
     _$WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemFromJson(
@@ -2658,77 +3326,84 @@ WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemToJson(
-            WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem
-                instance) =>
-        <String, dynamic>{
-          'RateUpdateBatchItemId': instance.rateUpdateBatchItemId,
-          'InventoryId': instance.inventoryId,
-          'ICode': instance.iCode,
-          'Description': instance.description,
-          'AvailableFor': instance.availableFor,
-          'Rank': instance.rank,
-          'Classification': instance.classification,
-          'InventoryTypeId': instance.inventoryTypeId,
-          'InventoryType': instance.inventoryType,
-          'CategoryId': instance.categoryId,
-          'Category': instance.category,
-          'SubCategoryId': instance.subCategoryId,
-          'SubCategory': instance.subCategory,
-          'WarehouseId': instance.warehouseId,
-          'WarehouseCode': instance.warehouseCode,
-          'Warehouse': instance.warehouse,
-          'ManufacturerId': instance.manufacturerId,
-          'Manufacturer': instance.manufacturer,
-          'UnitId': instance.unitId,
-          'PartNumber': instance.partNumber,
-          'OldDefaultCost': instance.oldDefaultCost,
-          'NewDefaultCost': instance.newDefaultCost,
-          'OldCost': instance.oldCost,
-          'NewCost': instance.newCost,
-          'OldPrice': instance.oldPrice,
-          'NewPrice': instance.newPrice,
-          'OldRetail': instance.oldRetail,
-          'NewRetail': instance.newRetail,
-          'OldHourlyRate': instance.oldHourlyRate,
-          'NewHourlyRate': instance.newHourlyRate,
-          'OldHourlyCost': instance.oldHourlyCost,
-          'NewHourlyCost': instance.newHourlyCost,
-          'OldDailyRate': instance.oldDailyRate,
-          'NewDailyRate': instance.newDailyRate,
-          'OldDailyCost': instance.oldDailyCost,
-          'NewDailyCost': instance.newDailyCost,
-          'OldWeeklyRate': instance.oldWeeklyRate,
-          'OldWeek2Rate': instance.oldWeek2Rate,
-          'OldWeek3Rate': instance.oldWeek3Rate,
-          'OldWeek4Rate': instance.oldWeek4Rate,
-          'OldWeek5Rate': instance.oldWeek5Rate,
-          'OldWeeklyCost': instance.oldWeeklyCost,
-          'NewWeeklyRate': instance.newWeeklyRate,
-          'NewWeek2Rate': instance.newWeek2Rate,
-          'NewWeek3Rate': instance.newWeek3Rate,
-          'NewWeek4Rate': instance.newWeek4Rate,
-          'NewWeek5Rate': instance.newWeek5Rate,
-          'NewWeeklyCost': instance.newWeeklyCost,
-          'OldMonthlyRate': instance.oldMonthlyRate,
-          'OldMonthlyCost': instance.oldMonthlyCost,
-          'OldMaxDiscount': instance.oldMaxDiscount,
-          'NewMonthlyRate': instance.newMonthlyRate,
-          'NewMonthlyCost': instance.newMonthlyCost,
-          'NewMaxDiscount': instance.newMaxDiscount,
-          'OldUnitValue': instance.oldUnitValue,
-          'NewUnitValue': instance.newUnitValue,
-          'OldReplacementCost': instance.oldReplacementCost,
-          'NewReplacementCost': instance.newReplacementCost,
-          'OldMinDaysPerWeek': instance.oldMinDaysPerWeek,
-          'NewMinDaysPerWeek': instance.newMinDaysPerWeek,
-          'RateUpdateBatchId': instance.rateUpdateBatchId,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RateUpdateBatchItemId', instance.rateUpdateBatchItemId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('Description', instance.description);
+  writeNotNull('AvailableFor', instance.availableFor);
+  writeNotNull('Rank', instance.rank);
+  writeNotNull('Classification', instance.classification);
+  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
+  writeNotNull('InventoryType', instance.inventoryType);
+  writeNotNull('CategoryId', instance.categoryId);
+  writeNotNull('Category', instance.category);
+  writeNotNull('SubCategoryId', instance.subCategoryId);
+  writeNotNull('SubCategory', instance.subCategory);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('ManufacturerId', instance.manufacturerId);
+  writeNotNull('Manufacturer', instance.manufacturer);
+  writeNotNull('UnitId', instance.unitId);
+  writeNotNull('PartNumber', instance.partNumber);
+  writeNotNull('OldDefaultCost', instance.oldDefaultCost);
+  writeNotNull('NewDefaultCost', instance.newDefaultCost);
+  writeNotNull('OldCost', instance.oldCost);
+  writeNotNull('NewCost', instance.newCost);
+  writeNotNull('OldPrice', instance.oldPrice);
+  writeNotNull('NewPrice', instance.newPrice);
+  writeNotNull('OldRetail', instance.oldRetail);
+  writeNotNull('NewRetail', instance.newRetail);
+  writeNotNull('OldHourlyRate', instance.oldHourlyRate);
+  writeNotNull('NewHourlyRate', instance.newHourlyRate);
+  writeNotNull('OldHourlyCost', instance.oldHourlyCost);
+  writeNotNull('NewHourlyCost', instance.newHourlyCost);
+  writeNotNull('OldDailyRate', instance.oldDailyRate);
+  writeNotNull('NewDailyRate', instance.newDailyRate);
+  writeNotNull('OldDailyCost', instance.oldDailyCost);
+  writeNotNull('NewDailyCost', instance.newDailyCost);
+  writeNotNull('OldWeeklyRate', instance.oldWeeklyRate);
+  writeNotNull('OldWeek2Rate', instance.oldWeek2Rate);
+  writeNotNull('OldWeek3Rate', instance.oldWeek3Rate);
+  writeNotNull('OldWeek4Rate', instance.oldWeek4Rate);
+  writeNotNull('OldWeek5Rate', instance.oldWeek5Rate);
+  writeNotNull('OldWeeklyCost', instance.oldWeeklyCost);
+  writeNotNull('NewWeeklyRate', instance.newWeeklyRate);
+  writeNotNull('NewWeek2Rate', instance.newWeek2Rate);
+  writeNotNull('NewWeek3Rate', instance.newWeek3Rate);
+  writeNotNull('NewWeek4Rate', instance.newWeek4Rate);
+  writeNotNull('NewWeek5Rate', instance.newWeek5Rate);
+  writeNotNull('NewWeeklyCost', instance.newWeeklyCost);
+  writeNotNull('OldMonthlyRate', instance.oldMonthlyRate);
+  writeNotNull('OldMonthlyCost', instance.oldMonthlyCost);
+  writeNotNull('OldMaxDiscount', instance.oldMaxDiscount);
+  writeNotNull('NewMonthlyRate', instance.newMonthlyRate);
+  writeNotNull('NewMonthlyCost', instance.newMonthlyCost);
+  writeNotNull('NewMaxDiscount', instance.newMaxDiscount);
+  writeNotNull('OldUnitValue', instance.oldUnitValue);
+  writeNotNull('NewUnitValue', instance.newUnitValue);
+  writeNotNull('OldReplacementCost', instance.oldReplacementCost);
+  writeNotNull('NewReplacementCost', instance.newReplacementCost);
+  writeNotNull('OldMinDaysPerWeek', instance.oldMinDaysPerWeek);
+  writeNotNull('NewMinDaysPerWeek', instance.newMinDaysPerWeek);
+  writeNotNull('RateUpdateBatchId', instance.rateUpdateBatchId);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesRateUpdateItemRateUpdateItem
     _$WebApiModulesUtilitiesRateUpdateItemRateUpdateItemFromJson(
@@ -2815,74 +3490,82 @@ WebApiModulesUtilitiesRateUpdateItemRateUpdateItem
 }
 
 Map<String, dynamic> _$WebApiModulesUtilitiesRateUpdateItemRateUpdateItemToJson(
-        WebApiModulesUtilitiesRateUpdateItemRateUpdateItem instance) =>
-    <String, dynamic>{
-      'InventoryId': instance.inventoryId,
-      'WarehouseId': instance.warehouseId,
-      'Description': instance.description,
-      'ICode': instance.iCode,
-      'WarehouseCode': instance.warehouseCode,
-      'Warehouse': instance.warehouse,
-      'AvailableFor': instance.availableFor,
-      'Rank': instance.rank,
-      'Classification': instance.classification,
-      'InventoryTypeId': instance.inventoryTypeId,
-      'InventoryType': instance.inventoryType,
-      'CategoryId': instance.categoryId,
-      'Category': instance.category,
-      'SubCategoryId': instance.subCategoryId,
-      'SubCategory': instance.subCategory,
-      'UnitId': instance.unitId,
-      'PartNumber': instance.partNumber,
-      'ManufacturerId': instance.manufacturerId,
-      'Manufacturer': instance.manufacturer,
-      'Cost': instance.cost,
-      'NewCost': instance.newCost,
-      'DefaultCost': instance.defaultCost,
-      'NewDefaultCost': instance.newDefaultCost,
-      'Price': instance.price,
-      'NewPrice': instance.newPrice,
-      'HourlyRate': instance.hourlyRate,
-      'DailyRate': instance.dailyRate,
-      'WeeklyRate': instance.weeklyRate,
-      'MonthlyRate': instance.monthlyRate,
-      'NewHourlyRate': instance.newHourlyRate,
-      'NewDailyRate': instance.newDailyRate,
-      'NewWeeklyRate': instance.newWeeklyRate,
-      'NewMonthlyRate': instance.newMonthlyRate,
-      'Week2Rate': instance.week2Rate,
-      'Week3Rate': instance.week3Rate,
-      'Week4Rate': instance.week4Rate,
-      'Week5Rate': instance.week5Rate,
-      'NewWeek2Rate': instance.newWeek2Rate,
-      'NewWeek3Rate': instance.newWeek3Rate,
-      'NewWeek4Rate': instance.newWeek4Rate,
-      'NewWeek5Rate': instance.newWeek5Rate,
-      'MaxDiscount': instance.maxDiscount,
-      'NewMaxDiscount': instance.newMaxDiscount,
-      'HourlyCost': instance.hourlyCost,
-      'NewHourlyCost': instance.newHourlyCost,
-      'DailyCost': instance.dailyCost,
-      'NewDailyCost': instance.newDailyCost,
-      'WeeklyCost': instance.weeklyCost,
-      'NewWeeklyCost': instance.newWeeklyCost,
-      'MonthlyCost': instance.monthlyCost,
-      'NewMonthlyCost': instance.newMonthlyCost,
-      'UnitValue': instance.unitValue,
-      'NewUnitValue': instance.newUnitValue,
-      'ReplacementCost': instance.replacementCost,
-      'NewReplacementCost': instance.newReplacementCost,
-      'Retail': instance.retail,
-      'NewRetail': instance.newRetail,
-      'MinDaysPerWeek': instance.minDaysPerWeek,
-      'NewMinDaysPerWeek': instance.newMinDaysPerWeek,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesUtilitiesRateUpdateItemRateUpdateItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('AvailableFor', instance.availableFor);
+  writeNotNull('Rank', instance.rank);
+  writeNotNull('Classification', instance.classification);
+  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
+  writeNotNull('InventoryType', instance.inventoryType);
+  writeNotNull('CategoryId', instance.categoryId);
+  writeNotNull('Category', instance.category);
+  writeNotNull('SubCategoryId', instance.subCategoryId);
+  writeNotNull('SubCategory', instance.subCategory);
+  writeNotNull('UnitId', instance.unitId);
+  writeNotNull('PartNumber', instance.partNumber);
+  writeNotNull('ManufacturerId', instance.manufacturerId);
+  writeNotNull('Manufacturer', instance.manufacturer);
+  writeNotNull('Cost', instance.cost);
+  writeNotNull('NewCost', instance.newCost);
+  writeNotNull('DefaultCost', instance.defaultCost);
+  writeNotNull('NewDefaultCost', instance.newDefaultCost);
+  writeNotNull('Price', instance.price);
+  writeNotNull('NewPrice', instance.newPrice);
+  writeNotNull('HourlyRate', instance.hourlyRate);
+  writeNotNull('DailyRate', instance.dailyRate);
+  writeNotNull('WeeklyRate', instance.weeklyRate);
+  writeNotNull('MonthlyRate', instance.monthlyRate);
+  writeNotNull('NewHourlyRate', instance.newHourlyRate);
+  writeNotNull('NewDailyRate', instance.newDailyRate);
+  writeNotNull('NewWeeklyRate', instance.newWeeklyRate);
+  writeNotNull('NewMonthlyRate', instance.newMonthlyRate);
+  writeNotNull('Week2Rate', instance.week2Rate);
+  writeNotNull('Week3Rate', instance.week3Rate);
+  writeNotNull('Week4Rate', instance.week4Rate);
+  writeNotNull('Week5Rate', instance.week5Rate);
+  writeNotNull('NewWeek2Rate', instance.newWeek2Rate);
+  writeNotNull('NewWeek3Rate', instance.newWeek3Rate);
+  writeNotNull('NewWeek4Rate', instance.newWeek4Rate);
+  writeNotNull('NewWeek5Rate', instance.newWeek5Rate);
+  writeNotNull('MaxDiscount', instance.maxDiscount);
+  writeNotNull('NewMaxDiscount', instance.newMaxDiscount);
+  writeNotNull('HourlyCost', instance.hourlyCost);
+  writeNotNull('NewHourlyCost', instance.newHourlyCost);
+  writeNotNull('DailyCost', instance.dailyCost);
+  writeNotNull('NewDailyCost', instance.newDailyCost);
+  writeNotNull('WeeklyCost', instance.weeklyCost);
+  writeNotNull('NewWeeklyCost', instance.newWeeklyCost);
+  writeNotNull('MonthlyCost', instance.monthlyCost);
+  writeNotNull('NewMonthlyCost', instance.newMonthlyCost);
+  writeNotNull('UnitValue', instance.unitValue);
+  writeNotNull('NewUnitValue', instance.newUnitValue);
+  writeNotNull('ReplacementCost', instance.replacementCost);
+  writeNotNull('NewReplacementCost', instance.newReplacementCost);
+  writeNotNull('Retail', instance.retail);
+  writeNotNull('NewRetail', instance.newRetail);
+  writeNotNull('MinDaysPerWeek', instance.minDaysPerWeek);
+  writeNotNull('NewMinDaysPerWeek', instance.newMinDaysPerWeek);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch
     _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchFromJson(
@@ -2922,27 +3605,34 @@ WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchToJson(
-            WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'LocationId': instance.locationId,
-          'BatchType': instance.batchType,
-          'DivisionCode': instance.divisionCode,
-          'BatchNumber': instance.batchNumber,
-          'BatchDate': instance.batchDate,
-          'BatchTime': instance.batchTime,
-          'BatchDateTime': instance.batchDateTime,
-          'ExportDate': instance.exportDate,
-          'Exported': instance.exported,
-          'RecordCount': instance.recordCount,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('BatchType', instance.batchType);
+  writeNotNull('DivisionCode', instance.divisionCode);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('BatchDate', instance.batchDate);
+  writeNotNull('BatchTime', instance.batchTime);
+  writeNotNull('BatchDateTime', instance.batchDateTime);
+  writeNotNull('ExportDate', instance.exportDate);
+  writeNotNull('Exported', instance.exported);
+  writeNotNull('RecordCount', instance.recordCount);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest
     _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequestFromJson(
@@ -2960,13 +3650,21 @@ WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequestToJson(
-            WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest
-                instance) =>
-        <String, dynamic>{
-          'OfficeLocationId': instance.officeLocationId,
-          'FromDate': instance.fromDate?.toIso8601String(),
-          'ToDate': instance.toDate?.toIso8601String(),
-        };
+        WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  return val;
+}
 
 WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse
     _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponseFromJson(
@@ -2984,14 +3682,22 @@ WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponseToJson(
-            WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse
-                instance) =>
-        <String, dynamic>{
-          'Batch': instance.batch?.toJson(),
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Batch', instance.batch?.toJson());
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch
     _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchFromJson(
@@ -3031,27 +3737,35 @@ WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchToJson(
-            WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'LocationId': instance.locationId,
-          'BatchType': instance.batchType,
-          'DivisionCode': instance.divisionCode,
-          'BatchNumber': instance.batchNumber,
-          'BatchDate': instance.batchDate,
-          'BatchTime': instance.batchTime,
-          'BatchDateTime': instance.batchDateTime,
-          'ExportDate': instance.exportDate,
-          'Exported': instance.exported,
-          'RecordCount': instance.recordCount,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('BatchType', instance.batchType);
+  writeNotNull('DivisionCode', instance.divisionCode);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('BatchDate', instance.batchDate);
+  writeNotNull('BatchTime', instance.batchTime);
+  writeNotNull('BatchDateTime', instance.batchDateTime);
+  writeNotNull('ExportDate', instance.exportDate);
+  writeNotNull('Exported', instance.exported);
+  writeNotNull('RecordCount', instance.recordCount);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest
     _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequestFromJson(
@@ -3063,11 +3777,19 @@ WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequestToJson(
-            WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest
-                instance) =>
-        <String, dynamic>{
-          'LocationId': instance.locationId,
-        };
+        WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('LocationId', instance.locationId);
+  return val;
+}
 
 WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse
     _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponseFromJson(
@@ -3085,14 +3807,22 @@ WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponseToJson(
-            WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'Batch': instance.batch?.toJson(),
-        };
+        WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('Batch', instance.batch?.toJson());
+  return val;
+}
 
 WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
     _$WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsFromJson(
@@ -3126,21 +3856,29 @@ WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsToJson(
-            WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
-                instance) =>
-        <String, dynamic>{
-          'Id': instance.id,
-          'WebUserId': instance.webUserId,
-          'OfficeLocationId': instance.officeLocationId,
-          'ModuleName': instance.moduleName,
-          'ActiveViewFields': instance.activeViewFields,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Id', instance.id);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('ActiveViewFields', instance.activeViewFields);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
     _$WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsFromJson(
@@ -3173,20 +3911,28 @@ WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsToJson(
-            WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
-                instance) =>
-        <String, dynamic>{
-          'Id': instance.id,
-          'WebUsersId': instance.webUsersId,
-          'Description': instance.description,
-          'Settings': instance.settings,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Id', instance.id);
+  writeNotNull('WebUsersId', instance.webUsersId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Settings', instance.settings);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse
     _$WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponseFromJson(
@@ -3198,11 +3944,19 @@ WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponseToJson(
-            WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-        };
+        WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  return val;
+}
 
 WebApiModulesWarehouseContractContract
     _$WebApiModulesWarehouseContractContractFromJson(
@@ -3346,123 +4100,140 @@ WebApiModulesWarehouseContractContract
 }
 
 Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
-        WebApiModulesWarehouseContractContract instance) =>
-    <String, dynamic>{
-      'ContractId': instance.contractId,
-      'ContractNumber': instance.contractNumber,
-      'ContractType': instance.contractType,
-      'ContractDate': instance.contractDate,
-      'ContractTime': instance.contractTime,
-      'LocationId': instance.locationId,
-      'LocationCode': instance.locationCode,
-      'Location': instance.location,
-      'WarehouseId': instance.warehouseId,
-      'WarehouseCode': instance.warehouseCode,
-      'Warehouse': instance.warehouse,
-      'CustomerId': instance.customerId,
-      'Customer': instance.customer,
-      'DealId': instance.dealId,
-      'Deal': instance.deal,
-      'DepartmentId': instance.departmentId,
-      'Department': instance.department,
-      'PurchaseOrderId': instance.purchaseOrderId,
-      'PurchaseOrderNumber': instance.purchaseOrderNumber,
-      'RequisitionNumber': instance.requisitionNumber,
-      'VendorId': instance.vendorId,
-      'Vendor': instance.vendor,
-      'IsMigrated': instance.isMigrated,
-      'NeedReconcile': instance.needReconcile,
-      'PendingExchange': instance.pendingExchange,
-      'ExchangeContractId': instance.exchangeContractId,
-      'Rental': instance.rental,
-      'Sales': instance.sales,
-      'Exchange': instance.exchange,
-      'InputByUserId': instance.inputByUserId,
-      'InputByUser': instance.inputByUser,
-      'DealInactive': instance.dealInactive,
-      'Truck': instance.truck,
-      'BillingDate': instance.billingDate,
-      'BillingDateChangeReason': instance.billingDateChangeReason,
-      'LastBillingDateChangeReason': instance.lastBillingDateChangeReason,
-      'BillingDateAdjusted': instance.billingDateAdjusted,
-      'HasVoId': instance.hasVoId,
-      'SessionId': instance.sessionId,
-      'OrderDescription': instance.orderDescription,
-      'PoOrderDescription': instance.poOrderDescription,
-      'DeliveryId': instance.deliveryId,
-      'DeliveryDeliveryType': instance.deliveryDeliveryType,
-      'DeliveryRequiredDate': instance.deliveryRequiredDate,
-      'DeliveryRequiredTime': instance.deliveryRequiredTime,
-      'DeliveryTargetShipDate': instance.deliveryTargetShipDate,
-      'DeliveryTargetShipTime': instance.deliveryTargetShipTime,
-      'DeliveryDirection': instance.deliveryDirection,
-      'DeliveryAddressType': instance.deliveryAddressType,
-      'DeliveryFromLocation': instance.deliveryFromLocation,
-      'DeliveryFromContact': instance.deliveryFromContact,
-      'DeliveryFromContactPhone': instance.deliveryFromContactPhone,
-      'DeliveryFromAlternateContact': instance.deliveryFromAlternateContact,
-      'DeliveryFromAlternateContactPhone':
-          instance.deliveryFromAlternateContactPhone,
-      'DeliveryFromAttention': instance.deliveryFromAttention,
-      'DeliveryFromAddress1': instance.deliveryFromAddress1,
-      'DeliveryFromAdd2ress': instance.deliveryFromAdd2ress,
-      'DeliveryFromCity': instance.deliveryFromCity,
-      'DeliveryFromState': instance.deliveryFromState,
-      'DeliveryFromZipCode': instance.deliveryFromZipCode,
-      'DeliveryFromCountry': instance.deliveryFromCountry,
-      'DeliveryFromCountryId': instance.deliveryFromCountryId,
-      'DeliveryFromCrossStreets': instance.deliveryFromCrossStreets,
-      'DeliveryToLocation': instance.deliveryToLocation,
-      'DeliveryToContact': instance.deliveryToContact,
-      'DeliveryToContactPhone': instance.deliveryToContactPhone,
-      'DeliveryToAlternateContact': instance.deliveryToAlternateContact,
-      'DeliveryToAlternateContactPhone':
-          instance.deliveryToAlternateContactPhone,
-      'DeliveryToAttention': instance.deliveryToAttention,
-      'DeliveryToAddress1': instance.deliveryToAddress1,
-      'DeliveryToAddress2': instance.deliveryToAddress2,
-      'DeliveryToCity': instance.deliveryToCity,
-      'DeliveryToState': instance.deliveryToState,
-      'DeliveryToZipCode': instance.deliveryToZipCode,
-      'DeliveryToCountryId': instance.deliveryToCountryId,
-      'DeliveryToCountry': instance.deliveryToCountry,
-      'DeliveryToContactFax': instance.deliveryToContactFax,
-      'DeliveryToCrossStreets': instance.deliveryToCrossStreets,
-      'DeliveryDeliveryNotes': instance.deliveryDeliveryNotes,
-      'DeliveryCarrierId': instance.deliveryCarrierId,
-      'DeliveryCarrier': instance.deliveryCarrier,
-      'DeliveryCarrierAccount': instance.deliveryCarrierAccount,
-      'DeliveryShipViaId': instance.deliveryShipViaId,
-      'DeliveryShipVia': instance.deliveryShipVia,
-      'DeliveryInvoiceId': instance.deliveryInvoiceId,
-      'DeliveryVendorInvoiceId': instance.deliveryVendorInvoiceId,
-      'DeliveryEstimatedFreight': instance.deliveryEstimatedFreight,
-      'DeliveryFreightInvoiceAmount': instance.deliveryFreightInvoiceAmount,
-      'DeliveryChargeType': instance.deliveryChargeType,
-      'DeliveryFreightTrackingNumber': instance.deliveryFreightTrackingNumber,
-      'DeliveryFreightTrackingUrl': instance.deliveryFreightTrackingUrl,
-      'DeliveryDropShip': instance.deliveryDropShip,
-      'DeliveryPackageCode': instance.deliveryPackageCode,
-      'DeliveryBillPoFreightOnOrder': instance.deliveryBillPoFreightOnOrder,
-      'DeliveryOnlineOrderNumber': instance.deliveryOnlineOrderNumber,
-      'DeliveryOnlineOrderStatus': instance.deliveryOnlineOrderStatus,
-      'DeliveryToVenue': instance.deliveryToVenue,
-      'DeliveryToVenueId': instance.deliveryToVenueId,
-      'DeliveryDateStamp': instance.deliveryDateStamp,
-      'Note': instance.note,
-      'PrintNoteOnOrder': instance.printNoteOnOrder,
-      'TermsConditionsId': instance.termsConditionsId,
-      'QuikReceiptTermsConditionsId': instance.quikReceiptTermsConditionsId,
-      'QuikReceiptTermsConditions': instance.quikReceiptTermsConditions,
-      'TermsConditions': instance.termsConditions,
-      'ContainerId': instance.containerId,
-      'ContainerItemId': instance.containerItemId,
-      'ContainerDescription': instance.containerDescription,
-      'ContainerScannableBarCode': instance.containerScannableBarCode,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesWarehouseContractContract instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('ContractNumber', instance.contractNumber);
+  writeNotNull('ContractType', instance.contractType);
+  writeNotNull('ContractDate', instance.contractDate);
+  writeNotNull('ContractTime', instance.contractTime);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('LocationCode', instance.locationCode);
+  writeNotNull('Location', instance.location);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('CustomerId', instance.customerId);
+  writeNotNull('Customer', instance.customer);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('Deal', instance.deal);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('Department', instance.department);
+  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
+  writeNotNull('PurchaseOrderNumber', instance.purchaseOrderNumber);
+  writeNotNull('RequisitionNumber', instance.requisitionNumber);
+  writeNotNull('VendorId', instance.vendorId);
+  writeNotNull('Vendor', instance.vendor);
+  writeNotNull('IsMigrated', instance.isMigrated);
+  writeNotNull('NeedReconcile', instance.needReconcile);
+  writeNotNull('PendingExchange', instance.pendingExchange);
+  writeNotNull('ExchangeContractId', instance.exchangeContractId);
+  writeNotNull('Rental', instance.rental);
+  writeNotNull('Sales', instance.sales);
+  writeNotNull('Exchange', instance.exchange);
+  writeNotNull('InputByUserId', instance.inputByUserId);
+  writeNotNull('InputByUser', instance.inputByUser);
+  writeNotNull('DealInactive', instance.dealInactive);
+  writeNotNull('Truck', instance.truck);
+  writeNotNull('BillingDate', instance.billingDate);
+  writeNotNull('BillingDateChangeReason', instance.billingDateChangeReason);
+  writeNotNull(
+      'LastBillingDateChangeReason', instance.lastBillingDateChangeReason);
+  writeNotNull('BillingDateAdjusted', instance.billingDateAdjusted);
+  writeNotNull('HasVoId', instance.hasVoId);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('OrderDescription', instance.orderDescription);
+  writeNotNull('PoOrderDescription', instance.poOrderDescription);
+  writeNotNull('DeliveryId', instance.deliveryId);
+  writeNotNull('DeliveryDeliveryType', instance.deliveryDeliveryType);
+  writeNotNull('DeliveryRequiredDate', instance.deliveryRequiredDate);
+  writeNotNull('DeliveryRequiredTime', instance.deliveryRequiredTime);
+  writeNotNull('DeliveryTargetShipDate', instance.deliveryTargetShipDate);
+  writeNotNull('DeliveryTargetShipTime', instance.deliveryTargetShipTime);
+  writeNotNull('DeliveryDirection', instance.deliveryDirection);
+  writeNotNull('DeliveryAddressType', instance.deliveryAddressType);
+  writeNotNull('DeliveryFromLocation', instance.deliveryFromLocation);
+  writeNotNull('DeliveryFromContact', instance.deliveryFromContact);
+  writeNotNull('DeliveryFromContactPhone', instance.deliveryFromContactPhone);
+  writeNotNull(
+      'DeliveryFromAlternateContact', instance.deliveryFromAlternateContact);
+  writeNotNull('DeliveryFromAlternateContactPhone',
+      instance.deliveryFromAlternateContactPhone);
+  writeNotNull('DeliveryFromAttention', instance.deliveryFromAttention);
+  writeNotNull('DeliveryFromAddress1', instance.deliveryFromAddress1);
+  writeNotNull('DeliveryFromAdd2ress', instance.deliveryFromAdd2ress);
+  writeNotNull('DeliveryFromCity', instance.deliveryFromCity);
+  writeNotNull('DeliveryFromState', instance.deliveryFromState);
+  writeNotNull('DeliveryFromZipCode', instance.deliveryFromZipCode);
+  writeNotNull('DeliveryFromCountry', instance.deliveryFromCountry);
+  writeNotNull('DeliveryFromCountryId', instance.deliveryFromCountryId);
+  writeNotNull('DeliveryFromCrossStreets', instance.deliveryFromCrossStreets);
+  writeNotNull('DeliveryToLocation', instance.deliveryToLocation);
+  writeNotNull('DeliveryToContact', instance.deliveryToContact);
+  writeNotNull('DeliveryToContactPhone', instance.deliveryToContactPhone);
+  writeNotNull(
+      'DeliveryToAlternateContact', instance.deliveryToAlternateContact);
+  writeNotNull('DeliveryToAlternateContactPhone',
+      instance.deliveryToAlternateContactPhone);
+  writeNotNull('DeliveryToAttention', instance.deliveryToAttention);
+  writeNotNull('DeliveryToAddress1', instance.deliveryToAddress1);
+  writeNotNull('DeliveryToAddress2', instance.deliveryToAddress2);
+  writeNotNull('DeliveryToCity', instance.deliveryToCity);
+  writeNotNull('DeliveryToState', instance.deliveryToState);
+  writeNotNull('DeliveryToZipCode', instance.deliveryToZipCode);
+  writeNotNull('DeliveryToCountryId', instance.deliveryToCountryId);
+  writeNotNull('DeliveryToCountry', instance.deliveryToCountry);
+  writeNotNull('DeliveryToContactFax', instance.deliveryToContactFax);
+  writeNotNull('DeliveryToCrossStreets', instance.deliveryToCrossStreets);
+  writeNotNull('DeliveryDeliveryNotes', instance.deliveryDeliveryNotes);
+  writeNotNull('DeliveryCarrierId', instance.deliveryCarrierId);
+  writeNotNull('DeliveryCarrier', instance.deliveryCarrier);
+  writeNotNull('DeliveryCarrierAccount', instance.deliveryCarrierAccount);
+  writeNotNull('DeliveryShipViaId', instance.deliveryShipViaId);
+  writeNotNull('DeliveryShipVia', instance.deliveryShipVia);
+  writeNotNull('DeliveryInvoiceId', instance.deliveryInvoiceId);
+  writeNotNull('DeliveryVendorInvoiceId', instance.deliveryVendorInvoiceId);
+  writeNotNull('DeliveryEstimatedFreight', instance.deliveryEstimatedFreight);
+  writeNotNull(
+      'DeliveryFreightInvoiceAmount', instance.deliveryFreightInvoiceAmount);
+  writeNotNull('DeliveryChargeType', instance.deliveryChargeType);
+  writeNotNull(
+      'DeliveryFreightTrackingNumber', instance.deliveryFreightTrackingNumber);
+  writeNotNull(
+      'DeliveryFreightTrackingUrl', instance.deliveryFreightTrackingUrl);
+  writeNotNull('DeliveryDropShip', instance.deliveryDropShip);
+  writeNotNull('DeliveryPackageCode', instance.deliveryPackageCode);
+  writeNotNull(
+      'DeliveryBillPoFreightOnOrder', instance.deliveryBillPoFreightOnOrder);
+  writeNotNull('DeliveryOnlineOrderNumber', instance.deliveryOnlineOrderNumber);
+  writeNotNull('DeliveryOnlineOrderStatus', instance.deliveryOnlineOrderStatus);
+  writeNotNull('DeliveryToVenue', instance.deliveryToVenue);
+  writeNotNull('DeliveryToVenueId', instance.deliveryToVenueId);
+  writeNotNull('DeliveryDateStamp', instance.deliveryDateStamp);
+  writeNotNull('Note', instance.note);
+  writeNotNull('PrintNoteOnOrder', instance.printNoteOnOrder);
+  writeNotNull('TermsConditionsId', instance.termsConditionsId);
+  writeNotNull(
+      'QuikReceiptTermsConditionsId', instance.quikReceiptTermsConditionsId);
+  writeNotNull(
+      'QuikReceiptTermsConditions', instance.quikReceiptTermsConditions);
+  writeNotNull('TermsConditions', instance.termsConditions);
+  writeNotNull('ContainerId', instance.containerId);
+  writeNotNull('ContainerItemId', instance.containerItemId);
+  writeNotNull('ContainerDescription', instance.containerDescription);
+  writeNotNull('ContainerScannableBarCode', instance.containerScannableBarCode);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}

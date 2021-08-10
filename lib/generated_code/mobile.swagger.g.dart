@@ -28,11 +28,20 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
 
 Map<String, dynamic>
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
-            FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) =>
-        <String, dynamic>{
-          'Name': instance.name,
-          'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-        };
+        FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  return val;
+}
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
     Map<String, dynamic> json) {
@@ -44,12 +53,20 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
 }
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
-        FwStandardDataFwCustomValue instance) =>
-    <String, dynamic>{
-      'FieldName': instance.fieldName,
-      'FieldValue': instance.fieldValue,
-      'FieldType': instance.fieldType,
-    };
+    FwStandardDataFwCustomValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('FieldValue', instance.fieldValue);
+  writeNotNull('FieldType', instance.fieldType);
+  return val;
+}
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
     Map<String, dynamic> json) {
@@ -61,12 +78,20 @@ FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
 }
 
 Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
-        FwStandardDataFwDefaultAttribute instance) =>
-    <String, dynamic>{
-      'FieldName': instance.fieldName,
-      'AttributeName': instance.attributeName,
-      'DefaultValue': instance.defaultValue,
-    };
+    FwStandardDataFwDefaultAttribute instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('AttributeName', instance.attributeName);
+  writeNotNull('DefaultValue', instance.defaultValue);
+  return val;
+}
 
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
     Map<String, dynamic> json) {
@@ -127,33 +152,42 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
-        FwStandardModelsBrowseRequest instance) =>
-    <String, dynamic>{
-      'miscfields': instance.miscfields,
-      'module': instance.module,
-      'options': instance.options,
-      'orderby': instance.orderby,
-      'orderbydirection': instance.orderbydirection,
-      'top': instance.top,
-      'pageno': instance.pageno,
-      'pagesize': instance.pagesize,
-      'searchfieldoperators': instance.searchfieldoperators,
-      'searchfields': instance.searchfields,
-      'searchfieldvalues': instance.searchfieldvalues,
-      'searchfieldtypes': instance.searchfieldtypes,
-      'searchseparators': instance.searchseparators,
-      'searchcondition': instance.searchcondition,
-      'searchconjunctions': instance.searchconjunctions,
-      'uniqueids': instance.uniqueids,
-      'boundids': instance.boundids,
-      'filterfields': instance.filterfields,
-      'activeview': instance.activeview,
-      'emptyobject': instance.emptyobject,
-      'forexcel': instance.forexcel,
-      'excelfields': instance.excelfields?.map((e) => e.toJson()).toList(),
-      'totalfields': instance.totalfields,
-      'activeviewfields': instance.activeviewfields,
-    };
+    FwStandardModelsBrowseRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('miscfields', instance.miscfields);
+  writeNotNull('module', instance.module);
+  writeNotNull('options', instance.options);
+  writeNotNull('orderby', instance.orderby);
+  writeNotNull('orderbydirection', instance.orderbydirection);
+  writeNotNull('top', instance.top);
+  writeNotNull('pageno', instance.pageno);
+  writeNotNull('pagesize', instance.pagesize);
+  writeNotNull('searchfieldoperators', instance.searchfieldoperators);
+  writeNotNull('searchfields', instance.searchfields);
+  writeNotNull('searchfieldvalues', instance.searchfieldvalues);
+  writeNotNull('searchfieldtypes', instance.searchfieldtypes);
+  writeNotNull('searchseparators', instance.searchseparators);
+  writeNotNull('searchcondition', instance.searchcondition);
+  writeNotNull('searchconjunctions', instance.searchconjunctions);
+  writeNotNull('uniqueids', instance.uniqueids);
+  writeNotNull('boundids', instance.boundids);
+  writeNotNull('filterfields', instance.filterfields);
+  writeNotNull('activeview', instance.activeview);
+  writeNotNull('emptyobject', instance.emptyobject);
+  writeNotNull('forexcel', instance.forexcel);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  writeNotNull('totalfields', instance.totalfields);
+  writeNotNull('activeviewfields', instance.activeviewfields);
+  return val;
+}
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
     Map<String, dynamic> json) {
@@ -165,12 +199,20 @@ FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
-        FwStandardModelsCheckBoxListItem instance) =>
-    <String, dynamic>{
-      'value': instance.value,
-      'text': instance.text,
-      'selected': instance.selected,
-    };
+    FwStandardModelsCheckBoxListItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('value', instance.value);
+  writeNotNull('text', instance.text);
+  writeNotNull('selected', instance.selected);
+  return val;
+}
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
     Map<String, dynamic> json) {
@@ -182,12 +224,20 @@ FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-        FwStandardModelsFwApiException instance) =>
-    <String, dynamic>{
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-      'StackTrace': instance.stackTrace,
-    };
+    FwStandardModelsFwApiException instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  writeNotNull('StackTrace', instance.stackTrace);
+  return val;
+}
 
 FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
     _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
@@ -208,15 +258,23 @@ FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescri
 
 Map<String, dynamic>
     _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseToJson(
-            FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalRows': instance.totalRows,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
     _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
@@ -237,15 +295,23 @@ FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReaso
 
 Map<String, dynamic>
     _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
-            FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalRows': instance.totalRows,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     Map<String, dynamic> json) {
@@ -274,19 +340,27 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-        FwStandardSqlServerFwJsonDataTable instance) =>
-    <String, dynamic>{
-      'ColumnIndex': instance.columnIndex,
-      'Totals': instance.totals,
-      'Columns': instance.columns?.map((e) => e.toJson()).toList(),
-      'Rows': instance.rows,
-      'PageNo': instance.pageNo,
-      'PageSize': instance.pageSize,
-      'TotalPages': instance.totalPages,
-      'TotalRows': instance.totalRows,
-      'DateFields': instance.dateFields,
-      'ColumnNameByIndex': instance.columnNameByIndex,
-    };
+    FwStandardSqlServerFwJsonDataTable instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ColumnIndex', instance.columnIndex);
+  writeNotNull('Totals', instance.totals);
+  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
+  writeNotNull('Rows', instance.rows);
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalPages', instance.totalPages);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('DateFields', instance.dateFields);
+  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -302,14 +376,23 @@ FwStandardSqlServerFwJsonDataTableColumn
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-        FwStandardSqlServerFwJsonDataTableColumn instance) =>
-    <String, dynamic>{
-      'Name': instance.name,
-      'DataField': instance.dataField,
-      'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-      'IsUniqueId': instance.isUniqueId,
-      'IsVisible': instance.isVisible,
-    };
+    FwStandardSqlServerFwJsonDataTableColumn instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull('DataField', instance.dataField);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  writeNotNull('IsUniqueId', instance.isUniqueId);
+  writeNotNull('IsVisible', instance.isVisible);
+  return val;
+}
 
 WebApiLogicTSpStatusResponse _$WebApiLogicTSpStatusResponseFromJson(
     Map<String, dynamic> json) {
@@ -321,12 +404,20 @@ WebApiLogicTSpStatusResponse _$WebApiLogicTSpStatusResponseFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicTSpStatusResponseToJson(
-        WebApiLogicTSpStatusResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'success': instance.success,
-      'msg': instance.msg,
-    };
+    WebApiLogicTSpStatusResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesContainersContainerLookupContainerDescriptionResponse
     _$WebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
@@ -339,12 +430,20 @@ WebApiModulesContainersContainerLookupContainerDescriptionResponse
 
 Map<String, dynamic>
     _$WebApiModulesContainersContainerLookupContainerDescriptionResponseToJson(
-            WebApiModulesContainersContainerLookupContainerDescriptionResponse
-                instance) =>
-        <String, dynamic>{
-          'ContainerId': instance.containerId,
-          'Description': instance.description,
-        };
+        WebApiModulesContainersContainerLookupContainerDescriptionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContainerId', instance.containerId);
+  writeNotNull('Description', instance.description);
+  return val;
+}
 
 WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
     _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemFromJson(
@@ -381,24 +480,32 @@ WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
 
 Map<String, dynamic>
     _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemToJson(
-            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
-                instance) =>
-        <String, dynamic>{
-          'InventoryPurchaseItemId': instance.inventoryPurchaseItemId,
-          'SessionId': instance.sessionId,
-          'BarCode': instance.barCode,
-          'ManufactureDate': instance.manufactureDate,
-          'PrintQuantity': instance.printQuantity,
-          'SerialNumber': instance.serialNumber,
-          'RfId': instance.rfId,
-          'SerialNumberIsMixedCase': instance.serialNumberIsMixedCase,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryPurchaseItemId', instance.inventoryPurchaseItemId);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('BarCode', instance.barCode);
+  writeNotNull('ManufactureDate', instance.manufactureDate);
+  writeNotNull('PrintQuantity', instance.printQuantity);
+  writeNotNull('SerialNumber', instance.serialNumber);
+  writeNotNull('RfId', instance.rfId);
+  writeNotNull('SerialNumberIsMixedCase', instance.serialNumberIsMixedCase);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesInventoryRentalInventoryRentalInventory
     _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
@@ -683,258 +790,301 @@ WebApiModulesInventoryRentalInventoryRentalInventory
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
-        WebApiModulesInventoryRentalInventoryRentalInventory instance) =>
-    <String, dynamic>{
-      'ExcludeFromReturnOnAsset': instance.excludeFromReturnOnAsset,
-      'IsFixedAsset': instance.isFixedAsset,
-      'MultiAssignRFIDs': instance.multiAssignRFIDs,
-      'MinimumDaysPerWeek': instance.minimumDaysPerWeek,
-      'SetOpeningId': instance.setOpeningId,
-      'SetOpening': instance.setOpening,
-      'WallTypeId': instance.wallTypeId,
-      'WallType': instance.wallType,
-      'SetSurfaceId': instance.setSurfaceId,
-      'SetSurface': instance.setSurface,
-      'WallWidthFt': instance.wallWidthFt,
-      'WallWidthIn': instance.wallWidthIn,
-      'WallHeightFt': instance.wallHeightFt,
-      'WallHeightIn': instance.wallHeightIn,
-      'WallLengthFt': instance.wallLengthFt,
-      'WallLengthIn': instance.wallLengthIn,
-      'DailyRate': instance.dailyRate,
-      'WeeklyRate': instance.weeklyRate,
-      'Week2Rate': instance.week2Rate,
-      'Week3Rate': instance.week3Rate,
-      'Week4Rate': instance.week4Rate,
-      'MonthlyRate': instance.monthlyRate,
-      'UnitValue': instance.unitValue,
-      'ReplacementCost': instance.replacementCost,
-      'InventoryId': instance.inventoryId,
-      'InventoryTypeId': instance.inventoryTypeId,
-      'InventoryType': instance.inventoryType,
-      'AvailableFrom': instance.availableFrom,
-      'TrackedBy': instance.trackedBy,
-      'ConfirmTrackedBy': instance.confirmTrackedBy,
-      'Rank': instance.rank,
-      'ManufacturerPartNumber': instance.manufacturerPartNumber,
-      'ManufacturerId': instance.manufacturerId,
-      'Manufacturer': instance.manufacturer,
-      'ManufacturerUrl': instance.manufacturerUrl,
-      'ExcludeImageFromQuoteOrderPrint':
-          instance.excludeImageFromQuoteOrderPrint,
-      'NoAvailabilityCheck': instance.noAvailabilityCheck,
-      'AvailabilityManuallyResolveConflicts':
-          instance.availabilityManuallyResolveConflicts,
-      'SendAvailabilityAlert': instance.sendAvailabilityAlert,
-      'PrimaryDimensionUniqueId': instance.primaryDimensionUniqueId,
-      'DefaultImperialMetric': instance.defaultImperialMetric,
-      'PrimaryDimensionDescription': instance.primaryDimensionDescription,
-      'PrimaryDimensionShipWeightLbs': instance.primaryDimensionShipWeightLbs,
-      'PrimaryDimensionShipWeightOz': instance.primaryDimensionShipWeightOz,
-      'PrimaryDimensionWeightInCaseLbs':
-          instance.primaryDimensionWeightInCaseLbs,
-      'PrimaryDimensionWeightInCaseOz': instance.primaryDimensionWeightInCaseOz,
-      'PrimaryDimensionWidthFt': instance.primaryDimensionWidthFt,
-      'PrimaryDimensionWidthIn': instance.primaryDimensionWidthIn,
-      'PrimaryDimensionHeightFt': instance.primaryDimensionHeightFt,
-      'PrimaryDimensionHeightIn': instance.primaryDimensionHeightIn,
-      'PrimaryDimensionLengthFt': instance.primaryDimensionLengthFt,
-      'PrimaryDimensionLengthIn': instance.primaryDimensionLengthIn,
-      'PrimaryDimensionShipWeightKg': instance.primaryDimensionShipWeightKg,
-      'PrimaryDimensionShipWeightG': instance.primaryDimensionShipWeightG,
-      'PrimaryDimensionWeightInCaseKg': instance.primaryDimensionWeightInCaseKg,
-      'PrimaryDimensionWeightInCaseG': instance.primaryDimensionWeightInCaseG,
-      'PrimaryDimensionWidthM': instance.primaryDimensionWidthM,
-      'PrimaryDimensionWidthCm': instance.primaryDimensionWidthCm,
-      'PrimaryDimensionHeightM': instance.primaryDimensionHeightM,
-      'PrimaryDimensionHeightCm': instance.primaryDimensionHeightCm,
-      'PrimaryDimensionLengthM': instance.primaryDimensionLengthM,
-      'PrimaryDimensionLengthCm': instance.primaryDimensionLengthCm,
-      'HasSecondaryDimensions': instance.hasSecondaryDimensions,
-      'SecondaryDimensionUniqueId': instance.secondaryDimensionUniqueId,
-      'SecondaryDimensionDescription': instance.secondaryDimensionDescription,
-      'SecondaryDimensionShipWeightLbs':
-          instance.secondaryDimensionShipWeightLbs,
-      'SecondaryDimensionShipWeightOz': instance.secondaryDimensionShipWeightOz,
-      'SecondaryDimensionWeightInCaseLbs':
-          instance.secondaryDimensionWeightInCaseLbs,
-      'SecondaryDimensionWeightInCaseOz':
-          instance.secondaryDimensionWeightInCaseOz,
-      'SecondaryDimensionWidthFt': instance.secondaryDimensionWidthFt,
-      'SecondaryDimensionWidthIn': instance.secondaryDimensionWidthIn,
-      'SecondaryDimensionHeightFt': instance.secondaryDimensionHeightFt,
-      'SecondaryDimensionHeightIn': instance.secondaryDimensionHeightIn,
-      'SecondaryDimensionLengthFt': instance.secondaryDimensionLengthFt,
-      'SecondaryDimensionLengthIn': instance.secondaryDimensionLengthIn,
-      'SecondaryDimensionShipWeightKg': instance.secondaryDimensionShipWeightKg,
-      'SecondaryDimensionShipWeightG': instance.secondaryDimensionShipWeightG,
-      'SecondaryDimensionWeightInCaseKg':
-          instance.secondaryDimensionWeightInCaseKg,
-      'SecondaryDimensionWeightInCaseG':
-          instance.secondaryDimensionWeightInCaseG,
-      'SecondaryDimensionWidthM': instance.secondaryDimensionWidthM,
-      'SecondaryDimensionWidthCm': instance.secondaryDimensionWidthCm,
-      'SecondaryDimensionHeightM': instance.secondaryDimensionHeightM,
-      'SecondaryDimensionHeightCm': instance.secondaryDimensionHeightCm,
-      'SecondaryDimensionLengthM': instance.secondaryDimensionLengthM,
-      'SecondaryDimensionLengthCm': instance.secondaryDimensionLengthCm,
-      'CountryOfOriginId': instance.countryOfOriginId,
-      'CountryOfOrigin': instance.countryOfOrigin,
-      'DisplayInSummaryModeWhenRateIsZero':
-          instance.displayInSummaryModeWhenRateIsZero,
-      'QcRequired': instance.qcRequired,
-      'QcTime': instance.qcTime,
-      'CopyAttributesAsNote': instance.copyAttributesAsNote,
-      'TrackAssetUsage': instance.trackAssetUsage,
-      'TrackLampUsage': instance.trackLampUsage,
-      'TrackStrikes': instance.trackStrikes,
-      'TrackCandles': instance.trackCandles,
-      'LampCount': instance.lampCount,
-      'MinimumFootCandles': instance.minimumFootCandles,
-      'TrackSoftware': instance.trackSoftware,
-      'SoftwareVersion': instance.softwareVersion,
-      'SoftwareEffectiveDate': instance.softwareEffectiveDate,
-      'WarehouseSpecificPackage': instance.warehouseSpecificPackage,
-      'CompletePackagePrice': instance.completePackagePrice,
-      'KitPackagePrice': instance.kitPackagePrice,
-      'SeparatePackageOnQuoteOrder': instance.separatePackageOnQuoteOrder,
-      'ContainerId': instance.containerId,
-      'ContainerScannableInventoryId': instance.containerScannableInventoryId,
-      'ContainerScannableICode': instance.containerScannableICode,
-      'ContainerScannableDescription': instance.containerScannableDescription,
-      'AutomaticallyRebuildContainerAtCheckIn':
-          instance.automaticallyRebuildContainerAtCheckIn,
-      'AutomaticallyRebuildContainerAtTransferIn':
-          instance.automaticallyRebuildContainerAtTransferIn,
-      'ContainerStagingRule': instance.containerStagingRule,
-      'ExcludeContainedItemsFromAvailability':
-          instance.excludeContainedItemsFromAvailability,
-      'UseContainerNumber': instance.useContainerNumber,
-      'ContainerPackingListBehavior': instance.containerPackingListBehavior,
-      'InventoryTypeIsWardrobe': instance.inventoryTypeIsWardrobe,
-      'InventoryTypeIsSets': instance.inventoryTypeIsSets,
-      'PatternId': instance.patternId,
-      'Pattern': instance.pattern,
-      'PeriodId': instance.periodId,
-      'Period': instance.period,
-      'MaterialId': instance.materialId,
-      'Material': instance.material,
-      'GenderId': instance.genderId,
-      'Gender': instance.gender,
-      'LabelId': instance.labelId,
-      'Label': instance.label,
-      'WardrobeSize': instance.wardrobeSize,
-      'WardrobePieceCount': instance.wardrobePieceCount,
-      'Dyed': instance.dyed,
-      'WardrobeSourceId': instance.wardrobeSourceId,
-      'WardrobeSource': instance.wardrobeSource,
-      'WardrobeCareId': instance.wardrobeCareId,
-      'WardrobeCare': instance.wardrobeCare,
-      'CleaningFeeAmount': instance.cleaningFeeAmount,
-      'WardrobeDetailedDescription': instance.wardrobeDetailedDescription,
-      'WebDetailedDescription': instance.webDetailedDescription,
-      'OverrideSystemDefaultRevenueAllocationBehavior':
-          instance.overrideSystemDefaultRevenueAllocationBehavior,
-      'AllocateRevenueForAccessories': instance.allocateRevenueForAccessories,
-      'PackageRevenueCalculationFormula':
-          instance.packageRevenueCalculationFormula,
-      'IsHazardousMaterial': instance.isHazardousMaterial,
-      'DescriptionWithAkas': instance.descriptionWithAkas,
-      'CostCalculation': instance.costCalculation,
-      'Quantity': instance.quantity,
-      'AisleLocation': instance.aisleLocation,
-      'ShelfLocation': instance.shelfLocation,
-      'Taxable': instance.taxable,
-      'ICode': instance.iCode,
-      'Description': instance.description,
-      'AvailFor': instance.availFor,
-      'CategoryId': instance.categoryId,
-      'Category': instance.category,
-      'SubCategoryCount': instance.subCategoryCount,
-      'SubCategoryId': instance.subCategoryId,
-      'SubCategory': instance.subCategory,
-      'Classification': instance.classification,
-      'ClassificationDescription': instance.classificationDescription,
-      'ClassificationColor': instance.classificationColor,
-      'UnitId': instance.unitId,
-      'Unit': instance.unit,
-      'UnitType': instance.unitType,
-      'NonDiscountable': instance.nonDiscountable,
-      'OverrideProfitAndLossCategory': instance.overrideProfitAndLossCategory,
-      'ProfitAndLossCategoryId': instance.profitAndLossCategoryId,
-      'ProfitAndLossCategory': instance.profitAndLossCategory,
-      'AutoCopyNotesToQuoteOrder': instance.autoCopyNotesToQuoteOrder,
-      'Note': instance.note,
-      'PrintNoteOnInContract': instance.printNoteOnInContract,
-      'PrintNoteOnOutContract': instance.printNoteOnOutContract,
-      'PrintNoteOnReceiveContract': instance.printNoteOnReceiveContract,
-      'PrintNoteOnReturnContract': instance.printNoteOnReturnContract,
-      'PrintNoteOnInvoice': instance.printNoteOnInvoice,
-      'PrintNoteOnOrder': instance.printNoteOnOrder,
-      'PrintNoteOnPickList': instance.printNoteOnPickList,
-      'PrintNoteOnPO': instance.printNoteOnPO,
-      'PrintNoteOnQuote': instance.printNoteOnQuote,
-      'PrintNoteOnReturnList': instance.printNoteOnReturnList,
-      'PrintNoteOnPoReceiveList': instance.printNoteOnPoReceiveList,
-      'PrintNoteOnPoReturnList': instance.printNoteOnPoReturnList,
-      'AssetAccountId': instance.assetAccountId,
-      'AssetAccountNo': instance.assetAccountNo,
-      'AssetAccountDescription': instance.assetAccountDescription,
-      'IncomeAccountId': instance.incomeAccountId,
-      'IncomeAccountNo': instance.incomeAccountNo,
-      'IncomeAccountDescription': instance.incomeAccountDescription,
-      'SubIncomeAccountId': instance.subIncomeAccountId,
-      'SubIncomeAccountNo': instance.subIncomeAccountNo,
-      'SubIncomeAccountDescription': instance.subIncomeAccountDescription,
-      'ConsignmentIncomeAccountId': instance.consignmentIncomeAccountId,
-      'ConsignmentIncomeAccountNo': instance.consignmentIncomeAccountNo,
-      'ConsignmentIncomeAccountDescription':
-          instance.consignmentIncomeAccountDescription,
-      'LdIncomeAccountId': instance.ldIncomeAccountId,
-      'LdIncomeAccountNo': instance.ldIncomeAccountNo,
-      'LdIncomeAccountDescription': instance.ldIncomeAccountDescription,
-      'EquipmentSaleIncomeAccountId': instance.equipmentSaleIncomeAccountId,
-      'EquipmentSaleIncomeAccountNo': instance.equipmentSaleIncomeAccountNo,
-      'EquipmentSaleIncomeAccountDescription':
-          instance.equipmentSaleIncomeAccountDescription,
-      'ExpenseAccountId': instance.expenseAccountId,
-      'ExpenseAccountNo': instance.expenseAccountNo,
-      'ExpenseAccountDescription': instance.expenseAccountDescription,
-      'CostOfGoodsSoldExpenseAccountId':
-          instance.costOfGoodsSoldExpenseAccountId,
-      'CostOfGoodsSoldExpenseAccountNo':
-          instance.costOfGoodsSoldExpenseAccountNo,
-      'CostOfGoodsSoldExpenseAccountDescription':
-          instance.costOfGoodsSoldExpenseAccountDescription,
-      'CostOfGoodsRentedExpenseAccountId':
-          instance.costOfGoodsRentedExpenseAccountId,
-      'CostOfGoodsRentedExpenseAccountNo':
-          instance.costOfGoodsRentedExpenseAccountNo,
-      'CostOfGoodsRentedExpenseAccountDescription':
-          instance.costOfGoodsRentedExpenseAccountDescription,
-      'DepreciationExpenseAccountId': instance.depreciationExpenseAccountId,
-      'DepreciationExpenseAccountNo': instance.depreciationExpenseAccountNo,
-      'DepreciationExpenseAccountDescription':
-          instance.depreciationExpenseAccountDescription,
-      'AccumulatedDepreciationExpenseAccountId':
-          instance.accumulatedDepreciationExpenseAccountId,
-      'AccumulatedDepreciationExpenseAccountNo':
-          instance.accumulatedDepreciationExpenseAccountNo,
-      'AccumulatedDepreciationExpenseAccountDescription':
-          instance.accumulatedDepreciationExpenseAccountDescription,
-      'OriginalShowId': instance.originalShowId,
-      'Inactive': instance.inactive,
-      'DateStamp': instance.dateStamp,
-      'ManifestShippingContainer': instance.manifestShippingContainer,
-      'ManifestStandAloneItem': instance.manifestStandAloneItem,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic>
+    _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
+        WebApiModulesInventoryRentalInventoryRentalInventory instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ExcludeFromReturnOnAsset', instance.excludeFromReturnOnAsset);
+  writeNotNull('IsFixedAsset', instance.isFixedAsset);
+  writeNotNull('MultiAssignRFIDs', instance.multiAssignRFIDs);
+  writeNotNull('MinimumDaysPerWeek', instance.minimumDaysPerWeek);
+  writeNotNull('SetOpeningId', instance.setOpeningId);
+  writeNotNull('SetOpening', instance.setOpening);
+  writeNotNull('WallTypeId', instance.wallTypeId);
+  writeNotNull('WallType', instance.wallType);
+  writeNotNull('SetSurfaceId', instance.setSurfaceId);
+  writeNotNull('SetSurface', instance.setSurface);
+  writeNotNull('WallWidthFt', instance.wallWidthFt);
+  writeNotNull('WallWidthIn', instance.wallWidthIn);
+  writeNotNull('WallHeightFt', instance.wallHeightFt);
+  writeNotNull('WallHeightIn', instance.wallHeightIn);
+  writeNotNull('WallLengthFt', instance.wallLengthFt);
+  writeNotNull('WallLengthIn', instance.wallLengthIn);
+  writeNotNull('DailyRate', instance.dailyRate);
+  writeNotNull('WeeklyRate', instance.weeklyRate);
+  writeNotNull('Week2Rate', instance.week2Rate);
+  writeNotNull('Week3Rate', instance.week3Rate);
+  writeNotNull('Week4Rate', instance.week4Rate);
+  writeNotNull('MonthlyRate', instance.monthlyRate);
+  writeNotNull('UnitValue', instance.unitValue);
+  writeNotNull('ReplacementCost', instance.replacementCost);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
+  writeNotNull('InventoryType', instance.inventoryType);
+  writeNotNull('AvailableFrom', instance.availableFrom);
+  writeNotNull('TrackedBy', instance.trackedBy);
+  writeNotNull('ConfirmTrackedBy', instance.confirmTrackedBy);
+  writeNotNull('Rank', instance.rank);
+  writeNotNull('ManufacturerPartNumber', instance.manufacturerPartNumber);
+  writeNotNull('ManufacturerId', instance.manufacturerId);
+  writeNotNull('Manufacturer', instance.manufacturer);
+  writeNotNull('ManufacturerUrl', instance.manufacturerUrl);
+  writeNotNull('ExcludeImageFromQuoteOrderPrint',
+      instance.excludeImageFromQuoteOrderPrint);
+  writeNotNull('NoAvailabilityCheck', instance.noAvailabilityCheck);
+  writeNotNull('AvailabilityManuallyResolveConflicts',
+      instance.availabilityManuallyResolveConflicts);
+  writeNotNull('SendAvailabilityAlert', instance.sendAvailabilityAlert);
+  writeNotNull('PrimaryDimensionUniqueId', instance.primaryDimensionUniqueId);
+  writeNotNull('DefaultImperialMetric', instance.defaultImperialMetric);
+  writeNotNull(
+      'PrimaryDimensionDescription', instance.primaryDimensionDescription);
+  writeNotNull(
+      'PrimaryDimensionShipWeightLbs', instance.primaryDimensionShipWeightLbs);
+  writeNotNull(
+      'PrimaryDimensionShipWeightOz', instance.primaryDimensionShipWeightOz);
+  writeNotNull('PrimaryDimensionWeightInCaseLbs',
+      instance.primaryDimensionWeightInCaseLbs);
+  writeNotNull('PrimaryDimensionWeightInCaseOz',
+      instance.primaryDimensionWeightInCaseOz);
+  writeNotNull('PrimaryDimensionWidthFt', instance.primaryDimensionWidthFt);
+  writeNotNull('PrimaryDimensionWidthIn', instance.primaryDimensionWidthIn);
+  writeNotNull('PrimaryDimensionHeightFt', instance.primaryDimensionHeightFt);
+  writeNotNull('PrimaryDimensionHeightIn', instance.primaryDimensionHeightIn);
+  writeNotNull('PrimaryDimensionLengthFt', instance.primaryDimensionLengthFt);
+  writeNotNull('PrimaryDimensionLengthIn', instance.primaryDimensionLengthIn);
+  writeNotNull(
+      'PrimaryDimensionShipWeightKg', instance.primaryDimensionShipWeightKg);
+  writeNotNull(
+      'PrimaryDimensionShipWeightG', instance.primaryDimensionShipWeightG);
+  writeNotNull('PrimaryDimensionWeightInCaseKg',
+      instance.primaryDimensionWeightInCaseKg);
+  writeNotNull(
+      'PrimaryDimensionWeightInCaseG', instance.primaryDimensionWeightInCaseG);
+  writeNotNull('PrimaryDimensionWidthM', instance.primaryDimensionWidthM);
+  writeNotNull('PrimaryDimensionWidthCm', instance.primaryDimensionWidthCm);
+  writeNotNull('PrimaryDimensionHeightM', instance.primaryDimensionHeightM);
+  writeNotNull('PrimaryDimensionHeightCm', instance.primaryDimensionHeightCm);
+  writeNotNull('PrimaryDimensionLengthM', instance.primaryDimensionLengthM);
+  writeNotNull('PrimaryDimensionLengthCm', instance.primaryDimensionLengthCm);
+  writeNotNull('HasSecondaryDimensions', instance.hasSecondaryDimensions);
+  writeNotNull(
+      'SecondaryDimensionUniqueId', instance.secondaryDimensionUniqueId);
+  writeNotNull(
+      'SecondaryDimensionDescription', instance.secondaryDimensionDescription);
+  writeNotNull('SecondaryDimensionShipWeightLbs',
+      instance.secondaryDimensionShipWeightLbs);
+  writeNotNull('SecondaryDimensionShipWeightOz',
+      instance.secondaryDimensionShipWeightOz);
+  writeNotNull('SecondaryDimensionWeightInCaseLbs',
+      instance.secondaryDimensionWeightInCaseLbs);
+  writeNotNull('SecondaryDimensionWeightInCaseOz',
+      instance.secondaryDimensionWeightInCaseOz);
+  writeNotNull('SecondaryDimensionWidthFt', instance.secondaryDimensionWidthFt);
+  writeNotNull('SecondaryDimensionWidthIn', instance.secondaryDimensionWidthIn);
+  writeNotNull(
+      'SecondaryDimensionHeightFt', instance.secondaryDimensionHeightFt);
+  writeNotNull(
+      'SecondaryDimensionHeightIn', instance.secondaryDimensionHeightIn);
+  writeNotNull(
+      'SecondaryDimensionLengthFt', instance.secondaryDimensionLengthFt);
+  writeNotNull(
+      'SecondaryDimensionLengthIn', instance.secondaryDimensionLengthIn);
+  writeNotNull('SecondaryDimensionShipWeightKg',
+      instance.secondaryDimensionShipWeightKg);
+  writeNotNull(
+      'SecondaryDimensionShipWeightG', instance.secondaryDimensionShipWeightG);
+  writeNotNull('SecondaryDimensionWeightInCaseKg',
+      instance.secondaryDimensionWeightInCaseKg);
+  writeNotNull('SecondaryDimensionWeightInCaseG',
+      instance.secondaryDimensionWeightInCaseG);
+  writeNotNull('SecondaryDimensionWidthM', instance.secondaryDimensionWidthM);
+  writeNotNull('SecondaryDimensionWidthCm', instance.secondaryDimensionWidthCm);
+  writeNotNull('SecondaryDimensionHeightM', instance.secondaryDimensionHeightM);
+  writeNotNull(
+      'SecondaryDimensionHeightCm', instance.secondaryDimensionHeightCm);
+  writeNotNull('SecondaryDimensionLengthM', instance.secondaryDimensionLengthM);
+  writeNotNull(
+      'SecondaryDimensionLengthCm', instance.secondaryDimensionLengthCm);
+  writeNotNull('CountryOfOriginId', instance.countryOfOriginId);
+  writeNotNull('CountryOfOrigin', instance.countryOfOrigin);
+  writeNotNull('DisplayInSummaryModeWhenRateIsZero',
+      instance.displayInSummaryModeWhenRateIsZero);
+  writeNotNull('QcRequired', instance.qcRequired);
+  writeNotNull('QcTime', instance.qcTime);
+  writeNotNull('CopyAttributesAsNote', instance.copyAttributesAsNote);
+  writeNotNull('TrackAssetUsage', instance.trackAssetUsage);
+  writeNotNull('TrackLampUsage', instance.trackLampUsage);
+  writeNotNull('TrackStrikes', instance.trackStrikes);
+  writeNotNull('TrackCandles', instance.trackCandles);
+  writeNotNull('LampCount', instance.lampCount);
+  writeNotNull('MinimumFootCandles', instance.minimumFootCandles);
+  writeNotNull('TrackSoftware', instance.trackSoftware);
+  writeNotNull('SoftwareVersion', instance.softwareVersion);
+  writeNotNull('SoftwareEffectiveDate', instance.softwareEffectiveDate);
+  writeNotNull('WarehouseSpecificPackage', instance.warehouseSpecificPackage);
+  writeNotNull('CompletePackagePrice', instance.completePackagePrice);
+  writeNotNull('KitPackagePrice', instance.kitPackagePrice);
+  writeNotNull(
+      'SeparatePackageOnQuoteOrder', instance.separatePackageOnQuoteOrder);
+  writeNotNull('ContainerId', instance.containerId);
+  writeNotNull(
+      'ContainerScannableInventoryId', instance.containerScannableInventoryId);
+  writeNotNull('ContainerScannableICode', instance.containerScannableICode);
+  writeNotNull(
+      'ContainerScannableDescription', instance.containerScannableDescription);
+  writeNotNull('AutomaticallyRebuildContainerAtCheckIn',
+      instance.automaticallyRebuildContainerAtCheckIn);
+  writeNotNull('AutomaticallyRebuildContainerAtTransferIn',
+      instance.automaticallyRebuildContainerAtTransferIn);
+  writeNotNull('ContainerStagingRule', instance.containerStagingRule);
+  writeNotNull('ExcludeContainedItemsFromAvailability',
+      instance.excludeContainedItemsFromAvailability);
+  writeNotNull('UseContainerNumber', instance.useContainerNumber);
+  writeNotNull(
+      'ContainerPackingListBehavior', instance.containerPackingListBehavior);
+  writeNotNull('InventoryTypeIsWardrobe', instance.inventoryTypeIsWardrobe);
+  writeNotNull('InventoryTypeIsSets', instance.inventoryTypeIsSets);
+  writeNotNull('PatternId', instance.patternId);
+  writeNotNull('Pattern', instance.pattern);
+  writeNotNull('PeriodId', instance.periodId);
+  writeNotNull('Period', instance.period);
+  writeNotNull('MaterialId', instance.materialId);
+  writeNotNull('Material', instance.material);
+  writeNotNull('GenderId', instance.genderId);
+  writeNotNull('Gender', instance.gender);
+  writeNotNull('LabelId', instance.labelId);
+  writeNotNull('Label', instance.label);
+  writeNotNull('WardrobeSize', instance.wardrobeSize);
+  writeNotNull('WardrobePieceCount', instance.wardrobePieceCount);
+  writeNotNull('Dyed', instance.dyed);
+  writeNotNull('WardrobeSourceId', instance.wardrobeSourceId);
+  writeNotNull('WardrobeSource', instance.wardrobeSource);
+  writeNotNull('WardrobeCareId', instance.wardrobeCareId);
+  writeNotNull('WardrobeCare', instance.wardrobeCare);
+  writeNotNull('CleaningFeeAmount', instance.cleaningFeeAmount);
+  writeNotNull(
+      'WardrobeDetailedDescription', instance.wardrobeDetailedDescription);
+  writeNotNull('WebDetailedDescription', instance.webDetailedDescription);
+  writeNotNull('OverrideSystemDefaultRevenueAllocationBehavior',
+      instance.overrideSystemDefaultRevenueAllocationBehavior);
+  writeNotNull(
+      'AllocateRevenueForAccessories', instance.allocateRevenueForAccessories);
+  writeNotNull('PackageRevenueCalculationFormula',
+      instance.packageRevenueCalculationFormula);
+  writeNotNull('IsHazardousMaterial', instance.isHazardousMaterial);
+  writeNotNull('DescriptionWithAkas', instance.descriptionWithAkas);
+  writeNotNull('CostCalculation', instance.costCalculation);
+  writeNotNull('Quantity', instance.quantity);
+  writeNotNull('AisleLocation', instance.aisleLocation);
+  writeNotNull('ShelfLocation', instance.shelfLocation);
+  writeNotNull('Taxable', instance.taxable);
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('Description', instance.description);
+  writeNotNull('AvailFor', instance.availFor);
+  writeNotNull('CategoryId', instance.categoryId);
+  writeNotNull('Category', instance.category);
+  writeNotNull('SubCategoryCount', instance.subCategoryCount);
+  writeNotNull('SubCategoryId', instance.subCategoryId);
+  writeNotNull('SubCategory', instance.subCategory);
+  writeNotNull('Classification', instance.classification);
+  writeNotNull('ClassificationDescription', instance.classificationDescription);
+  writeNotNull('ClassificationColor', instance.classificationColor);
+  writeNotNull('UnitId', instance.unitId);
+  writeNotNull('Unit', instance.unit);
+  writeNotNull('UnitType', instance.unitType);
+  writeNotNull('NonDiscountable', instance.nonDiscountable);
+  writeNotNull(
+      'OverrideProfitAndLossCategory', instance.overrideProfitAndLossCategory);
+  writeNotNull('ProfitAndLossCategoryId', instance.profitAndLossCategoryId);
+  writeNotNull('ProfitAndLossCategory', instance.profitAndLossCategory);
+  writeNotNull('AutoCopyNotesToQuoteOrder', instance.autoCopyNotesToQuoteOrder);
+  writeNotNull('Note', instance.note);
+  writeNotNull('PrintNoteOnInContract', instance.printNoteOnInContract);
+  writeNotNull('PrintNoteOnOutContract', instance.printNoteOnOutContract);
+  writeNotNull(
+      'PrintNoteOnReceiveContract', instance.printNoteOnReceiveContract);
+  writeNotNull('PrintNoteOnReturnContract', instance.printNoteOnReturnContract);
+  writeNotNull('PrintNoteOnInvoice', instance.printNoteOnInvoice);
+  writeNotNull('PrintNoteOnOrder', instance.printNoteOnOrder);
+  writeNotNull('PrintNoteOnPickList', instance.printNoteOnPickList);
+  writeNotNull('PrintNoteOnPO', instance.printNoteOnPO);
+  writeNotNull('PrintNoteOnQuote', instance.printNoteOnQuote);
+  writeNotNull('PrintNoteOnReturnList', instance.printNoteOnReturnList);
+  writeNotNull('PrintNoteOnPoReceiveList', instance.printNoteOnPoReceiveList);
+  writeNotNull('PrintNoteOnPoReturnList', instance.printNoteOnPoReturnList);
+  writeNotNull('AssetAccountId', instance.assetAccountId);
+  writeNotNull('AssetAccountNo', instance.assetAccountNo);
+  writeNotNull('AssetAccountDescription', instance.assetAccountDescription);
+  writeNotNull('IncomeAccountId', instance.incomeAccountId);
+  writeNotNull('IncomeAccountNo', instance.incomeAccountNo);
+  writeNotNull('IncomeAccountDescription', instance.incomeAccountDescription);
+  writeNotNull('SubIncomeAccountId', instance.subIncomeAccountId);
+  writeNotNull('SubIncomeAccountNo', instance.subIncomeAccountNo);
+  writeNotNull(
+      'SubIncomeAccountDescription', instance.subIncomeAccountDescription);
+  writeNotNull(
+      'ConsignmentIncomeAccountId', instance.consignmentIncomeAccountId);
+  writeNotNull(
+      'ConsignmentIncomeAccountNo', instance.consignmentIncomeAccountNo);
+  writeNotNull('ConsignmentIncomeAccountDescription',
+      instance.consignmentIncomeAccountDescription);
+  writeNotNull('LdIncomeAccountId', instance.ldIncomeAccountId);
+  writeNotNull('LdIncomeAccountNo', instance.ldIncomeAccountNo);
+  writeNotNull(
+      'LdIncomeAccountDescription', instance.ldIncomeAccountDescription);
+  writeNotNull(
+      'EquipmentSaleIncomeAccountId', instance.equipmentSaleIncomeAccountId);
+  writeNotNull(
+      'EquipmentSaleIncomeAccountNo', instance.equipmentSaleIncomeAccountNo);
+  writeNotNull('EquipmentSaleIncomeAccountDescription',
+      instance.equipmentSaleIncomeAccountDescription);
+  writeNotNull('ExpenseAccountId', instance.expenseAccountId);
+  writeNotNull('ExpenseAccountNo', instance.expenseAccountNo);
+  writeNotNull('ExpenseAccountDescription', instance.expenseAccountDescription);
+  writeNotNull('CostOfGoodsSoldExpenseAccountId',
+      instance.costOfGoodsSoldExpenseAccountId);
+  writeNotNull('CostOfGoodsSoldExpenseAccountNo',
+      instance.costOfGoodsSoldExpenseAccountNo);
+  writeNotNull('CostOfGoodsSoldExpenseAccountDescription',
+      instance.costOfGoodsSoldExpenseAccountDescription);
+  writeNotNull('CostOfGoodsRentedExpenseAccountId',
+      instance.costOfGoodsRentedExpenseAccountId);
+  writeNotNull('CostOfGoodsRentedExpenseAccountNo',
+      instance.costOfGoodsRentedExpenseAccountNo);
+  writeNotNull('CostOfGoodsRentedExpenseAccountDescription',
+      instance.costOfGoodsRentedExpenseAccountDescription);
+  writeNotNull(
+      'DepreciationExpenseAccountId', instance.depreciationExpenseAccountId);
+  writeNotNull(
+      'DepreciationExpenseAccountNo', instance.depreciationExpenseAccountNo);
+  writeNotNull('DepreciationExpenseAccountDescription',
+      instance.depreciationExpenseAccountDescription);
+  writeNotNull('AccumulatedDepreciationExpenseAccountId',
+      instance.accumulatedDepreciationExpenseAccountId);
+  writeNotNull('AccumulatedDepreciationExpenseAccountNo',
+      instance.accumulatedDepreciationExpenseAccountNo);
+  writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
+      instance.accumulatedDepreciationExpenseAccountDescription);
+  writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
+  writeNotNull('ManifestStandAloneItem', instance.manifestStandAloneItem);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
     _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
@@ -947,12 +1097,20 @@ WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
 
 Map<String, dynamic>
     _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
-            WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-                instance) =>
-        <String, dynamic>{
-          'RetiredReasonId': instance.retiredReasonId,
-          'RetiredReason': instance.retiredReason,
-        };
+        WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RetiredReasonId', instance.retiredReasonId);
+  writeNotNull('RetiredReason', instance.retiredReason);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson(
@@ -964,11 +1122,18 @@ WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest
-                instance) =>
-        <String, dynamic>{
-          'AppImageId': instance.appImageId,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AppImageId', instance.appImageId);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson(
@@ -980,11 +1145,18 @@ WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest
-                instance) =>
-        <String, dynamic>{
-          'InventoryDepartmentId': instance.inventoryDepartmentId,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryDepartmentId', instance.inventoryDepartmentId);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson(
@@ -996,11 +1168,19 @@ WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
-                instance) =>
-        <String, dynamic>{
-          'CategoryId': instance.categoryId,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CategoryId', instance.categoryId);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
     _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseFromJson(
@@ -1015,14 +1195,22 @@ WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'appimageid': instance.appimageid,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('appimageid', instance.appimageid);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson(
@@ -1037,14 +1225,22 @@ WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
-                instance) =>
-        <String, dynamic>{
-          'InventoryId': instance.inventoryId,
-          'Image': instance.image,
-          'ImageDesc': instance.imageDesc,
-          'ImageNo': instance.imageNo,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Image', instance.image);
+  writeNotNull('ImageDesc', instance.imageDesc);
+  writeNotNull('ImageNo', instance.imageNo);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson(
@@ -1057,12 +1253,20 @@ WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
-                instance) =>
-        <String, dynamic>{
-          'SearchValue': instance.searchValue,
-          'WarehouseId': instance.warehouseId,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SearchValue', instance.searchValue);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  return val;
+}
 
 WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestFromJson(
@@ -1076,13 +1280,21 @@ WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest
 
 Map<String, dynamic>
     _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson(
-            WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest
-                instance) =>
-        <String, dynamic>{
-          'WarehouseId': instance.warehouseId,
-          'InventoryId': instance.inventoryId,
-          'UnitValue': instance.unitValue,
-        };
+        WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('UnitValue', instance.unitValue);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson(
@@ -1119,32 +1331,40 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRe
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'SessionId': instance.sessionId,
-          'InventoryId': instance.inventoryId,
-          'Quantity': instance.quantity,
-          'WarehouseId': instance.warehouseId,
-          'AisleLocation': instance.aisleLocation,
-          'ShelfLocation': instance.shelfLocation,
-          'ManufacturerVendorId': instance.manufacturerVendorId,
-          'ManufacturerModelNumber': instance.manufacturerModelNumber,
-          'ManufacturerPartNumber': instance.manufacturerPartNumber,
-          'CountryId': instance.countryId,
-          'WarrantyDays': instance.warrantyDays,
-          'WarrantyExpiration': instance.warrantyExpiration,
-          'PurchaseVendorId': instance.purchaseVendorId,
-          'OutsidePoNumber': instance.outsidePoNumber,
-          'PurchaseDate': instance.purchaseDate?.toIso8601String(),
-          'ReceiveDate': instance.receiveDate?.toIso8601String(),
-          'VendorPartNumber': instance.vendorPartNumber,
-          'CurrencyId': instance.currencyId,
-          'UnitCost': instance.unitCost,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Quantity', instance.quantity);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('AisleLocation', instance.aisleLocation);
+  writeNotNull('ShelfLocation', instance.shelfLocation);
+  writeNotNull('ManufacturerVendorId', instance.manufacturerVendorId);
+  writeNotNull('ManufacturerModelNumber', instance.manufacturerModelNumber);
+  writeNotNull('ManufacturerPartNumber', instance.manufacturerPartNumber);
+  writeNotNull('CountryId', instance.countryId);
+  writeNotNull('WarrantyDays', instance.warrantyDays);
+  writeNotNull('WarrantyExpiration', instance.warrantyExpiration);
+  writeNotNull('PurchaseVendorId', instance.purchaseVendorId);
+  writeNotNull('OutsidePoNumber', instance.outsidePoNumber);
+  writeNotNull('PurchaseDate', instance.purchaseDate?.toIso8601String());
+  writeNotNull('ReceiveDate', instance.receiveDate?.toIso8601String());
+  writeNotNull('VendorPartNumber', instance.vendorPartNumber);
+  writeNotNull('CurrencyId', instance.currencyId);
+  writeNotNull('UnitCost', instance.unitCost);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson(
@@ -1166,16 +1386,24 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRe
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'PurchaseId': instance.purchaseId,
-          'ItemId': instance.itemId,
-          'QuantityAdded': instance.quantityAdded,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('PurchaseId', instance.purchaseId);
+  writeNotNull('ItemId', instance.itemId);
+  writeNotNull('QuantityAdded', instance.quantityAdded);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson(
@@ -1188,12 +1416,20 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionReque
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
-                instance) =>
-        <String, dynamic>{
-          'InventoryId': instance.inventoryId,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson(
@@ -1205,11 +1441,19 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRespo
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson(
@@ -1223,13 +1467,21 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequ
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
-                instance) =>
-        <String, dynamic>{
-          'SessionId': instance.sessionId,
-          'InventoryId': instance.inventoryId,
-          'Quantity': instance.quantity,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
 
 WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson(
@@ -1243,13 +1495,21 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResp
 
 Map<String, dynamic>
     _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson(
-            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-        };
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesWarehouseContractCancelContractRequest
     _$WebApiModulesWarehouseContractCancelContractRequestFromJson(
@@ -1261,7 +1521,15 @@ WebApiModulesWarehouseContractCancelContractRequest
 
 Map<String, dynamic>
     _$WebApiModulesWarehouseContractCancelContractRequestToJson(
-            WebApiModulesWarehouseContractCancelContractRequest instance) =>
-        <String, dynamic>{
-          'ContractId': instance.contractId,
-        };
+        WebApiModulesWarehouseContractCancelContractRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  return val;
+}

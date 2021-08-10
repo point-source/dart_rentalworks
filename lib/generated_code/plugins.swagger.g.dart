@@ -26,12 +26,20 @@ FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-        FwStandardModelsFwApiException instance) =>
-    <String, dynamic>{
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-      'StackTrace': instance.stackTrace,
-    };
+    FwStandardModelsFwApiException instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  writeNotNull('StackTrace', instance.stackTrace);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens
     _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensFromJson(
@@ -43,10 +51,18 @@ WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensToJson(
-            WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens instance) =>
-        <String, dynamic>{
-          'message': instance.message,
-        };
+        WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('message', instance.message);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool
     _$WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolFromJson(
@@ -58,11 +74,19 @@ WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolToJson(
-            WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool
-                instance) =>
-        <String, dynamic>{
-          'hasRefreshToken': instance.hasRefreshToken,
-        };
+        WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('hasRefreshToken', instance.hasRefreshToken);
+  return val;
+}
 
 WebApiModulesPluginsAzureADAzureADGroup
     _$WebApiModulesPluginsAzureADAzureADGroupFromJson(
@@ -74,11 +98,19 @@ WebApiModulesPluginsAzureADAzureADGroup
 }
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADAzureADGroupToJson(
-        WebApiModulesPluginsAzureADAzureADGroup instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'displayName': instance.displayName,
-    };
+    WebApiModulesPluginsAzureADAzureADGroup instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('displayName', instance.displayName);
+  return val;
+}
 
 WebApiModulesPluginsAzureADGetAzureADGroupsRequest
     _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestFromJson(
@@ -89,10 +121,18 @@ WebApiModulesPluginsAzureADGetAzureADGroupsRequest
 }
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestToJson(
-        WebApiModulesPluginsAzureADGetAzureADGroupsRequest instance) =>
-    <String, dynamic>{
-      'GroupSearch': instance.groupSearch,
-    };
+    WebApiModulesPluginsAzureADGetAzureADGroupsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('GroupSearch', instance.groupSearch);
+  return val;
+}
 
 WebApiModulesPluginsAzureADGetAzureADGroupsResponse
     _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseFromJson(
@@ -111,13 +151,21 @@ WebApiModulesPluginsAzureADGetAzureADGroupsResponse
 
 Map<String, dynamic>
     _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseToJson(
-            WebApiModulesPluginsAzureADGetAzureADGroupsResponse instance) =>
-        <String, dynamic>{
-          'Groups': instance.groups?.map((e) => e.toJson()).toList(),
-          'TooManyResults': instance.tooManyResults,
-          'StatusCode': instance.statusCode,
-          'Message': instance.message,
-        };
+        WebApiModulesPluginsAzureADGetAzureADGroupsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Groups', instance.groups?.map((e) => e.toJson()).toList());
+  writeNotNull('TooManyResults', instance.tooManyResults);
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  return val;
+}
 
 WebApiModulesPluginsAzureADImportGroupRequest
     _$WebApiModulesPluginsAzureADImportGroupRequestFromJson(
@@ -129,11 +177,19 @@ WebApiModulesPluginsAzureADImportGroupRequest
 }
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupRequestToJson(
-        WebApiModulesPluginsAzureADImportGroupRequest instance) =>
-    <String, dynamic>{
-      'AzureADGroupId': instance.azureADGroupId,
-      'ContactTitleId': instance.contactTitleId,
-    };
+    WebApiModulesPluginsAzureADImportGroupRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AzureADGroupId', instance.azureADGroupId);
+  writeNotNull('ContactTitleId', instance.contactTitleId);
+  return val;
+}
 
 WebApiModulesPluginsAzureADImportGroupResponse
     _$WebApiModulesPluginsAzureADImportGroupResponseFromJson(
@@ -151,13 +207,21 @@ WebApiModulesPluginsAzureADImportGroupResponse
 }
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupResponseToJson(
-        WebApiModulesPluginsAzureADImportGroupResponse instance) =>
-    <String, dynamic>{
-      'LastImported': instance.lastImported,
-      'Users': instance.users?.map((e) => e.toJson()).toList(),
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-    };
+    WebApiModulesPluginsAzureADImportGroupResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('LastImported', instance.lastImported);
+  writeNotNull('Users', instance.users?.map((e) => e.toJson()).toList());
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  return val;
+}
 
 WebApiModulesPluginsAzureADUserData
     _$WebApiModulesPluginsAzureADUserDataFromJson(Map<String, dynamic> json) {
@@ -171,11 +235,19 @@ WebApiModulesPluginsAzureADUserData
 }
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADUserDataToJson(
-        WebApiModulesPluginsAzureADUserData instance) =>
-    <String, dynamic>{
-      'ContactId': instance.contactId,
-      'FirstName': instance.firstName,
-      'LastName': instance.lastName,
-      'Email': instance.email,
-      'SourceId': instance.sourceId,
-    };
+    WebApiModulesPluginsAzureADUserData instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContactId', instance.contactId);
+  writeNotNull('FirstName', instance.firstName);
+  writeNotNull('LastName', instance.lastName);
+  writeNotNull('Email', instance.email);
+  writeNotNull('SourceId', instance.sourceId);
+  return val;
+}

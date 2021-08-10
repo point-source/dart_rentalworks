@@ -614,10 +614,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
           Map<String, dynamic> json) =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
@@ -660,11 +661,11 @@ class FwStandardDataFwCustomValue {
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
       _$FwStandardDataFwCustomValueFromJson(json);
 
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'FieldValue')
+  @JsonKey(name: 'FieldValue', includeIfNull: false)
   final String? fieldValue;
-  @JsonKey(name: 'FieldType')
+  @JsonKey(name: 'FieldType', includeIfNull: false)
   final String? fieldType;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
@@ -708,11 +709,11 @@ class FwStandardDataFwDefaultAttribute {
           Map<String, dynamic> json) =>
       _$FwStandardDataFwDefaultAttributeFromJson(json);
 
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'AttributeName')
+  @JsonKey(name: 'AttributeName', includeIfNull: false)
   final String? attributeName;
-  @JsonKey(name: 'DefaultValue')
+  @JsonKey(name: 'DefaultValue', includeIfNull: false)
   final String? defaultValue;
   static const fromJsonFactory = _$FwStandardDataFwDefaultAttributeFromJson;
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
@@ -778,54 +779,66 @@ class FwStandardModelsBrowseRequest {
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsBrowseRequestFromJson(json);
 
-  @JsonKey(name: 'miscfields')
+  @JsonKey(name: 'miscfields', includeIfNull: false)
   final dynamic? miscfields;
-  @JsonKey(name: 'module')
+  @JsonKey(name: 'module', includeIfNull: false)
   final String? module;
-  @JsonKey(name: 'options')
+  @JsonKey(name: 'options', includeIfNull: false)
   final dynamic? options;
-  @JsonKey(name: 'orderby')
+  @JsonKey(name: 'orderby', includeIfNull: false)
   final String? orderby;
-  @JsonKey(name: 'orderbydirection')
+  @JsonKey(name: 'orderbydirection', includeIfNull: false)
   final String? orderbydirection;
-  @JsonKey(name: 'top')
+  @JsonKey(name: 'top', includeIfNull: false)
   final int? top;
-  @JsonKey(name: 'pageno')
+  @JsonKey(name: 'pageno', includeIfNull: false)
   final int? pageno;
-  @JsonKey(name: 'pagesize')
+  @JsonKey(name: 'pagesize', includeIfNull: false)
   final int? pagesize;
-  @JsonKey(name: 'searchfieldoperators', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldoperators',
+      includeIfNull: false,
+      defaultValue: <String>[])
   final List<String>? searchfieldoperators;
-  @JsonKey(name: 'searchfields', defaultValue: <String>[])
+  @JsonKey(name: 'searchfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfields;
-  @JsonKey(name: 'searchfieldvalues', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldvalues', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfieldvalues;
-  @JsonKey(name: 'searchfieldtypes', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldtypes', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfieldtypes;
-  @JsonKey(name: 'searchseparators', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchseparators', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchseparators;
-  @JsonKey(name: 'searchcondition', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchcondition', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchcondition;
-  @JsonKey(name: 'searchconjunctions', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchconjunctions',
+      includeIfNull: false,
+      defaultValue: <String>[])
   final List<String>? searchconjunctions;
-  @JsonKey(name: 'uniqueids')
+  @JsonKey(name: 'uniqueids', includeIfNull: false)
   final dynamic? uniqueids;
-  @JsonKey(name: 'boundids')
+  @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic? boundids;
-  @JsonKey(name: 'filterfields')
+  @JsonKey(name: 'filterfields', includeIfNull: false)
   final Object? filterfields;
-  @JsonKey(name: 'activeview')
+  @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
-  @JsonKey(name: 'emptyobject')
+  @JsonKey(name: 'emptyobject', includeIfNull: false)
   final bool? emptyobject;
-  @JsonKey(name: 'forexcel')
+  @JsonKey(name: 'forexcel', includeIfNull: false)
   final bool? forexcel;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
-  @JsonKey(name: 'totalfields', defaultValue: <String>[])
+  @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
-  @JsonKey(name: 'activeviewfields')
+  @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Object? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
@@ -972,11 +985,11 @@ class FwStandardModelsCheckBoxListItem {
           Map<String, dynamic> json) =>
       _$FwStandardModelsCheckBoxListItemFromJson(json);
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', includeIfNull: false)
   final String? value;
-  @JsonKey(name: 'text')
+  @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
-  @JsonKey(name: 'selected')
+  @JsonKey(name: 'selected', includeIfNull: false)
   final bool? selected;
   static const fromJsonFactory = _$FwStandardModelsCheckBoxListItemFromJson;
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
@@ -1019,11 +1032,11 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
-  @JsonKey(name: 'StackTrace')
+  @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
@@ -1071,18 +1084,18 @@ class FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainer
       _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesContainersContainerLookupContainerDescriptionResponse>[])
   final List<
           WebApiModulesContainersContainerLookupContainerDescriptionResponse>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson;
@@ -1145,17 +1158,17 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>[])
   final List<WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson;
@@ -1222,27 +1235,28 @@ class FwStandardSqlServerFwJsonDataTable {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
-  @JsonKey(name: 'ColumnIndex')
+  @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Object? columnIndex;
-  @JsonKey(name: 'Totals')
+  @JsonKey(name: 'Totals', includeIfNull: false)
   final Object? totals;
   @JsonKey(
       name: 'Columns',
+      includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
   final List<List<Object>>? rows;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalPages')
+  @JsonKey(name: 'TotalPages', includeIfNull: false)
   final int? totalPages;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: 'ColumnNameByIndex')
+  @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Object? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
@@ -1324,18 +1338,19 @@ class FwStandardSqlServerFwJsonDataTableColumn {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'DataField')
+  @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
-  @JsonKey(name: 'IsUniqueId')
+  @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
-  @JsonKey(name: 'IsVisible')
+  @JsonKey(name: 'IsVisible', includeIfNull: false)
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
@@ -1392,11 +1407,11 @@ class WebApiLogicTSpStatusResponse {
   factory WebApiLogicTSpStatusResponse.fromJson(Map<String, dynamic> json) =>
       _$WebApiLogicTSpStatusResponseFromJson(json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
   static const fromJsonFactory = _$WebApiLogicTSpStatusResponseFromJson;
   static const toJsonFactory = _$WebApiLogicTSpStatusResponseToJson;
@@ -1439,9 +1454,9 @@ class WebApiModulesContainersContainerLookupContainerDescriptionResponse {
       _$WebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
           json);
 
-  @JsonKey(name: 'ContainerId')
+  @JsonKey(name: 'ContainerId', includeIfNull: false)
   final String? containerId;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
   static const fromJsonFactory =
       _$WebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson;
@@ -1497,34 +1512,39 @@ class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
       _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemFromJson(
           json);
 
-  @JsonKey(name: 'InventoryPurchaseItemId')
+  @JsonKey(name: 'InventoryPurchaseItemId', includeIfNull: false)
   final int? inventoryPurchaseItemId;
-  @JsonKey(name: 'SessionId')
+  @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
-  @JsonKey(name: 'BarCode')
+  @JsonKey(name: 'BarCode', includeIfNull: false)
   final String? barCode;
-  @JsonKey(name: 'ManufactureDate')
+  @JsonKey(name: 'ManufactureDate', includeIfNull: false)
   final String? manufactureDate;
-  @JsonKey(name: 'PrintQuantity')
+  @JsonKey(name: 'PrintQuantity', includeIfNull: false)
   final int? printQuantity;
-  @JsonKey(name: 'SerialNumber')
+  @JsonKey(name: 'SerialNumber', includeIfNull: false)
   final String? serialNumber;
-  @JsonKey(name: 'RfId')
+  @JsonKey(name: 'RfId', includeIfNull: false)
   final String? rfId;
-  @JsonKey(name: 'SerialNumberIsMixedCase')
+  @JsonKey(name: 'SerialNumberIsMixedCase', includeIfNull: false)
   final bool? serialNumberIsMixedCase;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -1844,448 +1864,462 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
           Map<String, dynamic> json) =>
       _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(json);
 
-  @JsonKey(name: 'ExcludeFromReturnOnAsset')
+  @JsonKey(name: 'ExcludeFromReturnOnAsset', includeIfNull: false)
   final bool? excludeFromReturnOnAsset;
-  @JsonKey(name: 'IsFixedAsset')
+  @JsonKey(name: 'IsFixedAsset', includeIfNull: false)
   final bool? isFixedAsset;
-  @JsonKey(name: 'MultiAssignRFIDs')
+  @JsonKey(name: 'MultiAssignRFIDs', includeIfNull: false)
   final bool? multiAssignRFIDs;
-  @JsonKey(name: 'MinimumDaysPerWeek')
+  @JsonKey(name: 'MinimumDaysPerWeek', includeIfNull: false)
   final double? minimumDaysPerWeek;
-  @JsonKey(name: 'SetOpeningId')
+  @JsonKey(name: 'SetOpeningId', includeIfNull: false)
   final String? setOpeningId;
-  @JsonKey(name: 'SetOpening')
+  @JsonKey(name: 'SetOpening', includeIfNull: false)
   final String? setOpening;
-  @JsonKey(name: 'WallTypeId')
+  @JsonKey(name: 'WallTypeId', includeIfNull: false)
   final String? wallTypeId;
-  @JsonKey(name: 'WallType')
+  @JsonKey(name: 'WallType', includeIfNull: false)
   final String? wallType;
-  @JsonKey(name: 'SetSurfaceId')
+  @JsonKey(name: 'SetSurfaceId', includeIfNull: false)
   final String? setSurfaceId;
-  @JsonKey(name: 'SetSurface')
+  @JsonKey(name: 'SetSurface', includeIfNull: false)
   final String? setSurface;
-  @JsonKey(name: 'WallWidthFt')
+  @JsonKey(name: 'WallWidthFt', includeIfNull: false)
   final int? wallWidthFt;
-  @JsonKey(name: 'WallWidthIn')
+  @JsonKey(name: 'WallWidthIn', includeIfNull: false)
   final int? wallWidthIn;
-  @JsonKey(name: 'WallHeightFt')
+  @JsonKey(name: 'WallHeightFt', includeIfNull: false)
   final int? wallHeightFt;
-  @JsonKey(name: 'WallHeightIn')
+  @JsonKey(name: 'WallHeightIn', includeIfNull: false)
   final int? wallHeightIn;
-  @JsonKey(name: 'WallLengthFt')
+  @JsonKey(name: 'WallLengthFt', includeIfNull: false)
   final int? wallLengthFt;
-  @JsonKey(name: 'WallLengthIn')
+  @JsonKey(name: 'WallLengthIn', includeIfNull: false)
   final int? wallLengthIn;
-  @JsonKey(name: 'DailyRate')
+  @JsonKey(name: 'DailyRate', includeIfNull: false)
   final double? dailyRate;
-  @JsonKey(name: 'WeeklyRate')
+  @JsonKey(name: 'WeeklyRate', includeIfNull: false)
   final double? weeklyRate;
-  @JsonKey(name: 'Week2Rate')
+  @JsonKey(name: 'Week2Rate', includeIfNull: false)
   final double? week2Rate;
-  @JsonKey(name: 'Week3Rate')
+  @JsonKey(name: 'Week3Rate', includeIfNull: false)
   final double? week3Rate;
-  @JsonKey(name: 'Week4Rate')
+  @JsonKey(name: 'Week4Rate', includeIfNull: false)
   final double? week4Rate;
-  @JsonKey(name: 'MonthlyRate')
+  @JsonKey(name: 'MonthlyRate', includeIfNull: false)
   final double? monthlyRate;
-  @JsonKey(name: 'UnitValue')
+  @JsonKey(name: 'UnitValue', includeIfNull: false)
   final double? unitValue;
-  @JsonKey(name: 'ReplacementCost')
+  @JsonKey(name: 'ReplacementCost', includeIfNull: false)
   final double? replacementCost;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'InventoryType')
+  @JsonKey(name: 'InventoryType', includeIfNull: false)
   final String? inventoryType;
-  @JsonKey(name: 'AvailableFrom')
+  @JsonKey(name: 'AvailableFrom', includeIfNull: false)
   final String? availableFrom;
-  @JsonKey(name: 'TrackedBy')
+  @JsonKey(name: 'TrackedBy', includeIfNull: false)
   final String? trackedBy;
-  @JsonKey(name: 'ConfirmTrackedBy')
+  @JsonKey(name: 'ConfirmTrackedBy', includeIfNull: false)
   final String? confirmTrackedBy;
-  @JsonKey(name: 'Rank')
+  @JsonKey(name: 'Rank', includeIfNull: false)
   final String? rank;
-  @JsonKey(name: 'ManufacturerPartNumber')
+  @JsonKey(name: 'ManufacturerPartNumber', includeIfNull: false)
   final String? manufacturerPartNumber;
-  @JsonKey(name: 'ManufacturerId')
+  @JsonKey(name: 'ManufacturerId', includeIfNull: false)
   final String? manufacturerId;
-  @JsonKey(name: 'Manufacturer')
+  @JsonKey(name: 'Manufacturer', includeIfNull: false)
   final String? manufacturer;
-  @JsonKey(name: 'ManufacturerUrl')
+  @JsonKey(name: 'ManufacturerUrl', includeIfNull: false)
   final String? manufacturerUrl;
-  @JsonKey(name: 'ExcludeImageFromQuoteOrderPrint')
+  @JsonKey(name: 'ExcludeImageFromQuoteOrderPrint', includeIfNull: false)
   final bool? excludeImageFromQuoteOrderPrint;
-  @JsonKey(name: 'NoAvailabilityCheck')
+  @JsonKey(name: 'NoAvailabilityCheck', includeIfNull: false)
   final bool? noAvailabilityCheck;
-  @JsonKey(name: 'AvailabilityManuallyResolveConflicts')
+  @JsonKey(name: 'AvailabilityManuallyResolveConflicts', includeIfNull: false)
   final bool? availabilityManuallyResolveConflicts;
-  @JsonKey(name: 'SendAvailabilityAlert')
+  @JsonKey(name: 'SendAvailabilityAlert', includeIfNull: false)
   final bool? sendAvailabilityAlert;
-  @JsonKey(name: 'PrimaryDimensionUniqueId')
+  @JsonKey(name: 'PrimaryDimensionUniqueId', includeIfNull: false)
   final String? primaryDimensionUniqueId;
-  @JsonKey(name: 'DefaultImperialMetric')
+  @JsonKey(name: 'DefaultImperialMetric', includeIfNull: false)
   final String? defaultImperialMetric;
-  @JsonKey(name: 'PrimaryDimensionDescription')
+  @JsonKey(name: 'PrimaryDimensionDescription', includeIfNull: false)
   final String? primaryDimensionDescription;
-  @JsonKey(name: 'PrimaryDimensionShipWeightLbs')
+  @JsonKey(name: 'PrimaryDimensionShipWeightLbs', includeIfNull: false)
   final int? primaryDimensionShipWeightLbs;
-  @JsonKey(name: 'PrimaryDimensionShipWeightOz')
+  @JsonKey(name: 'PrimaryDimensionShipWeightOz', includeIfNull: false)
   final int? primaryDimensionShipWeightOz;
-  @JsonKey(name: 'PrimaryDimensionWeightInCaseLbs')
+  @JsonKey(name: 'PrimaryDimensionWeightInCaseLbs', includeIfNull: false)
   final int? primaryDimensionWeightInCaseLbs;
-  @JsonKey(name: 'PrimaryDimensionWeightInCaseOz')
+  @JsonKey(name: 'PrimaryDimensionWeightInCaseOz', includeIfNull: false)
   final int? primaryDimensionWeightInCaseOz;
-  @JsonKey(name: 'PrimaryDimensionWidthFt')
+  @JsonKey(name: 'PrimaryDimensionWidthFt', includeIfNull: false)
   final int? primaryDimensionWidthFt;
-  @JsonKey(name: 'PrimaryDimensionWidthIn')
+  @JsonKey(name: 'PrimaryDimensionWidthIn', includeIfNull: false)
   final int? primaryDimensionWidthIn;
-  @JsonKey(name: 'PrimaryDimensionHeightFt')
+  @JsonKey(name: 'PrimaryDimensionHeightFt', includeIfNull: false)
   final int? primaryDimensionHeightFt;
-  @JsonKey(name: 'PrimaryDimensionHeightIn')
+  @JsonKey(name: 'PrimaryDimensionHeightIn', includeIfNull: false)
   final int? primaryDimensionHeightIn;
-  @JsonKey(name: 'PrimaryDimensionLengthFt')
+  @JsonKey(name: 'PrimaryDimensionLengthFt', includeIfNull: false)
   final int? primaryDimensionLengthFt;
-  @JsonKey(name: 'PrimaryDimensionLengthIn')
+  @JsonKey(name: 'PrimaryDimensionLengthIn', includeIfNull: false)
   final int? primaryDimensionLengthIn;
-  @JsonKey(name: 'PrimaryDimensionShipWeightKg')
+  @JsonKey(name: 'PrimaryDimensionShipWeightKg', includeIfNull: false)
   final int? primaryDimensionShipWeightKg;
-  @JsonKey(name: 'PrimaryDimensionShipWeightG')
+  @JsonKey(name: 'PrimaryDimensionShipWeightG', includeIfNull: false)
   final int? primaryDimensionShipWeightG;
-  @JsonKey(name: 'PrimaryDimensionWeightInCaseKg')
+  @JsonKey(name: 'PrimaryDimensionWeightInCaseKg', includeIfNull: false)
   final int? primaryDimensionWeightInCaseKg;
-  @JsonKey(name: 'PrimaryDimensionWeightInCaseG')
+  @JsonKey(name: 'PrimaryDimensionWeightInCaseG', includeIfNull: false)
   final int? primaryDimensionWeightInCaseG;
-  @JsonKey(name: 'PrimaryDimensionWidthM')
+  @JsonKey(name: 'PrimaryDimensionWidthM', includeIfNull: false)
   final int? primaryDimensionWidthM;
-  @JsonKey(name: 'PrimaryDimensionWidthCm')
+  @JsonKey(name: 'PrimaryDimensionWidthCm', includeIfNull: false)
   final int? primaryDimensionWidthCm;
-  @JsonKey(name: 'PrimaryDimensionHeightM')
+  @JsonKey(name: 'PrimaryDimensionHeightM', includeIfNull: false)
   final int? primaryDimensionHeightM;
-  @JsonKey(name: 'PrimaryDimensionHeightCm')
+  @JsonKey(name: 'PrimaryDimensionHeightCm', includeIfNull: false)
   final int? primaryDimensionHeightCm;
-  @JsonKey(name: 'PrimaryDimensionLengthM')
+  @JsonKey(name: 'PrimaryDimensionLengthM', includeIfNull: false)
   final int? primaryDimensionLengthM;
-  @JsonKey(name: 'PrimaryDimensionLengthCm')
+  @JsonKey(name: 'PrimaryDimensionLengthCm', includeIfNull: false)
   final int? primaryDimensionLengthCm;
-  @JsonKey(name: 'HasSecondaryDimensions')
+  @JsonKey(name: 'HasSecondaryDimensions', includeIfNull: false)
   final bool? hasSecondaryDimensions;
-  @JsonKey(name: 'SecondaryDimensionUniqueId')
+  @JsonKey(name: 'SecondaryDimensionUniqueId', includeIfNull: false)
   final String? secondaryDimensionUniqueId;
-  @JsonKey(name: 'SecondaryDimensionDescription')
+  @JsonKey(name: 'SecondaryDimensionDescription', includeIfNull: false)
   final String? secondaryDimensionDescription;
-  @JsonKey(name: 'SecondaryDimensionShipWeightLbs')
+  @JsonKey(name: 'SecondaryDimensionShipWeightLbs', includeIfNull: false)
   final int? secondaryDimensionShipWeightLbs;
-  @JsonKey(name: 'SecondaryDimensionShipWeightOz')
+  @JsonKey(name: 'SecondaryDimensionShipWeightOz', includeIfNull: false)
   final int? secondaryDimensionShipWeightOz;
-  @JsonKey(name: 'SecondaryDimensionWeightInCaseLbs')
+  @JsonKey(name: 'SecondaryDimensionWeightInCaseLbs', includeIfNull: false)
   final int? secondaryDimensionWeightInCaseLbs;
-  @JsonKey(name: 'SecondaryDimensionWeightInCaseOz')
+  @JsonKey(name: 'SecondaryDimensionWeightInCaseOz', includeIfNull: false)
   final int? secondaryDimensionWeightInCaseOz;
-  @JsonKey(name: 'SecondaryDimensionWidthFt')
+  @JsonKey(name: 'SecondaryDimensionWidthFt', includeIfNull: false)
   final int? secondaryDimensionWidthFt;
-  @JsonKey(name: 'SecondaryDimensionWidthIn')
+  @JsonKey(name: 'SecondaryDimensionWidthIn', includeIfNull: false)
   final int? secondaryDimensionWidthIn;
-  @JsonKey(name: 'SecondaryDimensionHeightFt')
+  @JsonKey(name: 'SecondaryDimensionHeightFt', includeIfNull: false)
   final int? secondaryDimensionHeightFt;
-  @JsonKey(name: 'SecondaryDimensionHeightIn')
+  @JsonKey(name: 'SecondaryDimensionHeightIn', includeIfNull: false)
   final int? secondaryDimensionHeightIn;
-  @JsonKey(name: 'SecondaryDimensionLengthFt')
+  @JsonKey(name: 'SecondaryDimensionLengthFt', includeIfNull: false)
   final int? secondaryDimensionLengthFt;
-  @JsonKey(name: 'SecondaryDimensionLengthIn')
+  @JsonKey(name: 'SecondaryDimensionLengthIn', includeIfNull: false)
   final int? secondaryDimensionLengthIn;
-  @JsonKey(name: 'SecondaryDimensionShipWeightKg')
+  @JsonKey(name: 'SecondaryDimensionShipWeightKg', includeIfNull: false)
   final int? secondaryDimensionShipWeightKg;
-  @JsonKey(name: 'SecondaryDimensionShipWeightG')
+  @JsonKey(name: 'SecondaryDimensionShipWeightG', includeIfNull: false)
   final int? secondaryDimensionShipWeightG;
-  @JsonKey(name: 'SecondaryDimensionWeightInCaseKg')
+  @JsonKey(name: 'SecondaryDimensionWeightInCaseKg', includeIfNull: false)
   final int? secondaryDimensionWeightInCaseKg;
-  @JsonKey(name: 'SecondaryDimensionWeightInCaseG')
+  @JsonKey(name: 'SecondaryDimensionWeightInCaseG', includeIfNull: false)
   final int? secondaryDimensionWeightInCaseG;
-  @JsonKey(name: 'SecondaryDimensionWidthM')
+  @JsonKey(name: 'SecondaryDimensionWidthM', includeIfNull: false)
   final int? secondaryDimensionWidthM;
-  @JsonKey(name: 'SecondaryDimensionWidthCm')
+  @JsonKey(name: 'SecondaryDimensionWidthCm', includeIfNull: false)
   final int? secondaryDimensionWidthCm;
-  @JsonKey(name: 'SecondaryDimensionHeightM')
+  @JsonKey(name: 'SecondaryDimensionHeightM', includeIfNull: false)
   final int? secondaryDimensionHeightM;
-  @JsonKey(name: 'SecondaryDimensionHeightCm')
+  @JsonKey(name: 'SecondaryDimensionHeightCm', includeIfNull: false)
   final int? secondaryDimensionHeightCm;
-  @JsonKey(name: 'SecondaryDimensionLengthM')
+  @JsonKey(name: 'SecondaryDimensionLengthM', includeIfNull: false)
   final int? secondaryDimensionLengthM;
-  @JsonKey(name: 'SecondaryDimensionLengthCm')
+  @JsonKey(name: 'SecondaryDimensionLengthCm', includeIfNull: false)
   final int? secondaryDimensionLengthCm;
-  @JsonKey(name: 'CountryOfOriginId')
+  @JsonKey(name: 'CountryOfOriginId', includeIfNull: false)
   final String? countryOfOriginId;
-  @JsonKey(name: 'CountryOfOrigin')
+  @JsonKey(name: 'CountryOfOrigin', includeIfNull: false)
   final String? countryOfOrigin;
-  @JsonKey(name: 'DisplayInSummaryModeWhenRateIsZero')
+  @JsonKey(name: 'DisplayInSummaryModeWhenRateIsZero', includeIfNull: false)
   final bool? displayInSummaryModeWhenRateIsZero;
-  @JsonKey(name: 'QcRequired')
+  @JsonKey(name: 'QcRequired', includeIfNull: false)
   final bool? qcRequired;
-  @JsonKey(name: 'QcTime')
+  @JsonKey(name: 'QcTime', includeIfNull: false)
   final String? qcTime;
-  @JsonKey(name: 'CopyAttributesAsNote')
+  @JsonKey(name: 'CopyAttributesAsNote', includeIfNull: false)
   final bool? copyAttributesAsNote;
-  @JsonKey(name: 'TrackAssetUsage')
+  @JsonKey(name: 'TrackAssetUsage', includeIfNull: false)
   final bool? trackAssetUsage;
-  @JsonKey(name: 'TrackLampUsage')
+  @JsonKey(name: 'TrackLampUsage', includeIfNull: false)
   final bool? trackLampUsage;
-  @JsonKey(name: 'TrackStrikes')
+  @JsonKey(name: 'TrackStrikes', includeIfNull: false)
   final bool? trackStrikes;
-  @JsonKey(name: 'TrackCandles')
+  @JsonKey(name: 'TrackCandles', includeIfNull: false)
   final bool? trackCandles;
-  @JsonKey(name: 'LampCount')
+  @JsonKey(name: 'LampCount', includeIfNull: false)
   final int? lampCount;
-  @JsonKey(name: 'MinimumFootCandles')
+  @JsonKey(name: 'MinimumFootCandles', includeIfNull: false)
   final int? minimumFootCandles;
-  @JsonKey(name: 'TrackSoftware')
+  @JsonKey(name: 'TrackSoftware', includeIfNull: false)
   final bool? trackSoftware;
-  @JsonKey(name: 'SoftwareVersion')
+  @JsonKey(name: 'SoftwareVersion', includeIfNull: false)
   final String? softwareVersion;
-  @JsonKey(name: 'SoftwareEffectiveDate')
+  @JsonKey(name: 'SoftwareEffectiveDate', includeIfNull: false)
   final String? softwareEffectiveDate;
-  @JsonKey(name: 'WarehouseSpecificPackage')
+  @JsonKey(name: 'WarehouseSpecificPackage', includeIfNull: false)
   final bool? warehouseSpecificPackage;
-  @JsonKey(name: 'CompletePackagePrice')
+  @JsonKey(name: 'CompletePackagePrice', includeIfNull: false)
   final String? completePackagePrice;
-  @JsonKey(name: 'KitPackagePrice')
+  @JsonKey(name: 'KitPackagePrice', includeIfNull: false)
   final String? kitPackagePrice;
-  @JsonKey(name: 'SeparatePackageOnQuoteOrder')
+  @JsonKey(name: 'SeparatePackageOnQuoteOrder', includeIfNull: false)
   final bool? separatePackageOnQuoteOrder;
-  @JsonKey(name: 'ContainerId')
+  @JsonKey(name: 'ContainerId', includeIfNull: false)
   final String? containerId;
-  @JsonKey(name: 'ContainerScannableInventoryId')
+  @JsonKey(name: 'ContainerScannableInventoryId', includeIfNull: false)
   final String? containerScannableInventoryId;
-  @JsonKey(name: 'ContainerScannableICode')
+  @JsonKey(name: 'ContainerScannableICode', includeIfNull: false)
   final String? containerScannableICode;
-  @JsonKey(name: 'ContainerScannableDescription')
+  @JsonKey(name: 'ContainerScannableDescription', includeIfNull: false)
   final String? containerScannableDescription;
-  @JsonKey(name: 'AutomaticallyRebuildContainerAtCheckIn')
+  @JsonKey(name: 'AutomaticallyRebuildContainerAtCheckIn', includeIfNull: false)
   final bool? automaticallyRebuildContainerAtCheckIn;
-  @JsonKey(name: 'AutomaticallyRebuildContainerAtTransferIn')
+  @JsonKey(
+      name: 'AutomaticallyRebuildContainerAtTransferIn', includeIfNull: false)
   final bool? automaticallyRebuildContainerAtTransferIn;
-  @JsonKey(name: 'ContainerStagingRule')
+  @JsonKey(name: 'ContainerStagingRule', includeIfNull: false)
   final String? containerStagingRule;
-  @JsonKey(name: 'ExcludeContainedItemsFromAvailability')
+  @JsonKey(name: 'ExcludeContainedItemsFromAvailability', includeIfNull: false)
   final bool? excludeContainedItemsFromAvailability;
-  @JsonKey(name: 'UseContainerNumber')
+  @JsonKey(name: 'UseContainerNumber', includeIfNull: false)
   final bool? useContainerNumber;
-  @JsonKey(name: 'ContainerPackingListBehavior')
+  @JsonKey(name: 'ContainerPackingListBehavior', includeIfNull: false)
   final String? containerPackingListBehavior;
-  @JsonKey(name: 'InventoryTypeIsWardrobe')
+  @JsonKey(name: 'InventoryTypeIsWardrobe', includeIfNull: false)
   final bool? inventoryTypeIsWardrobe;
-  @JsonKey(name: 'InventoryTypeIsSets')
+  @JsonKey(name: 'InventoryTypeIsSets', includeIfNull: false)
   final bool? inventoryTypeIsSets;
-  @JsonKey(name: 'PatternId')
+  @JsonKey(name: 'PatternId', includeIfNull: false)
   final String? patternId;
-  @JsonKey(name: 'Pattern')
+  @JsonKey(name: 'Pattern', includeIfNull: false)
   final String? pattern;
-  @JsonKey(name: 'PeriodId')
+  @JsonKey(name: 'PeriodId', includeIfNull: false)
   final String? periodId;
-  @JsonKey(name: 'Period')
+  @JsonKey(name: 'Period', includeIfNull: false)
   final String? period;
-  @JsonKey(name: 'MaterialId')
+  @JsonKey(name: 'MaterialId', includeIfNull: false)
   final String? materialId;
-  @JsonKey(name: 'Material')
+  @JsonKey(name: 'Material', includeIfNull: false)
   final String? material;
-  @JsonKey(name: 'GenderId')
+  @JsonKey(name: 'GenderId', includeIfNull: false)
   final String? genderId;
-  @JsonKey(name: 'Gender')
+  @JsonKey(name: 'Gender', includeIfNull: false)
   final String? gender;
-  @JsonKey(name: 'LabelId')
+  @JsonKey(name: 'LabelId', includeIfNull: false)
   final String? labelId;
-  @JsonKey(name: 'Label')
+  @JsonKey(name: 'Label', includeIfNull: false)
   final String? label;
-  @JsonKey(name: 'WardrobeSize')
+  @JsonKey(name: 'WardrobeSize', includeIfNull: false)
   final String? wardrobeSize;
-  @JsonKey(name: 'WardrobePieceCount')
+  @JsonKey(name: 'WardrobePieceCount', includeIfNull: false)
   final int? wardrobePieceCount;
-  @JsonKey(name: 'Dyed')
+  @JsonKey(name: 'Dyed', includeIfNull: false)
   final bool? dyed;
-  @JsonKey(name: 'WardrobeSourceId')
+  @JsonKey(name: 'WardrobeSourceId', includeIfNull: false)
   final String? wardrobeSourceId;
-  @JsonKey(name: 'WardrobeSource')
+  @JsonKey(name: 'WardrobeSource', includeIfNull: false)
   final String? wardrobeSource;
-  @JsonKey(name: 'WardrobeCareId')
+  @JsonKey(name: 'WardrobeCareId', includeIfNull: false)
   final String? wardrobeCareId;
-  @JsonKey(name: 'WardrobeCare')
+  @JsonKey(name: 'WardrobeCare', includeIfNull: false)
   final String? wardrobeCare;
-  @JsonKey(name: 'CleaningFeeAmount')
+  @JsonKey(name: 'CleaningFeeAmount', includeIfNull: false)
   final double? cleaningFeeAmount;
-  @JsonKey(name: 'WardrobeDetailedDescription')
+  @JsonKey(name: 'WardrobeDetailedDescription', includeIfNull: false)
   final String? wardrobeDetailedDescription;
-  @JsonKey(name: 'WebDetailedDescription')
+  @JsonKey(name: 'WebDetailedDescription', includeIfNull: false)
   final String? webDetailedDescription;
-  @JsonKey(name: 'OverrideSystemDefaultRevenueAllocationBehavior')
+  @JsonKey(
+      name: 'OverrideSystemDefaultRevenueAllocationBehavior',
+      includeIfNull: false)
   final bool? overrideSystemDefaultRevenueAllocationBehavior;
-  @JsonKey(name: 'AllocateRevenueForAccessories')
+  @JsonKey(name: 'AllocateRevenueForAccessories', includeIfNull: false)
   final bool? allocateRevenueForAccessories;
-  @JsonKey(name: 'PackageRevenueCalculationFormula')
+  @JsonKey(name: 'PackageRevenueCalculationFormula', includeIfNull: false)
   final String? packageRevenueCalculationFormula;
-  @JsonKey(name: 'IsHazardousMaterial')
+  @JsonKey(name: 'IsHazardousMaterial', includeIfNull: false)
   final bool? isHazardousMaterial;
-  @JsonKey(name: 'DescriptionWithAkas')
+  @JsonKey(name: 'DescriptionWithAkas', includeIfNull: false)
   final String? descriptionWithAkas;
-  @JsonKey(name: 'CostCalculation')
+  @JsonKey(name: 'CostCalculation', includeIfNull: false)
   final String? costCalculation;
-  @JsonKey(name: 'Quantity')
+  @JsonKey(name: 'Quantity', includeIfNull: false)
   final double? quantity;
-  @JsonKey(name: 'AisleLocation')
+  @JsonKey(name: 'AisleLocation', includeIfNull: false)
   final String? aisleLocation;
-  @JsonKey(name: 'ShelfLocation')
+  @JsonKey(name: 'ShelfLocation', includeIfNull: false)
   final String? shelfLocation;
-  @JsonKey(name: 'Taxable')
+  @JsonKey(name: 'Taxable', includeIfNull: false)
   final bool? taxable;
-  @JsonKey(name: 'ICode')
+  @JsonKey(name: 'ICode', includeIfNull: false)
   final String? iCode;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'AvailFor')
+  @JsonKey(name: 'AvailFor', includeIfNull: false)
   final String? availFor;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'Category')
+  @JsonKey(name: 'Category', includeIfNull: false)
   final String? category;
-  @JsonKey(name: 'SubCategoryCount')
+  @JsonKey(name: 'SubCategoryCount', includeIfNull: false)
   final int? subCategoryCount;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'SubCategory')
+  @JsonKey(name: 'SubCategory', includeIfNull: false)
   final String? subCategory;
-  @JsonKey(name: 'Classification')
+  @JsonKey(name: 'Classification', includeIfNull: false)
   final String? classification;
-  @JsonKey(name: 'ClassificationDescription')
+  @JsonKey(name: 'ClassificationDescription', includeIfNull: false)
   final String? classificationDescription;
-  @JsonKey(name: 'ClassificationColor')
+  @JsonKey(name: 'ClassificationColor', includeIfNull: false)
   final String? classificationColor;
-  @JsonKey(name: 'UnitId')
+  @JsonKey(name: 'UnitId', includeIfNull: false)
   final String? unitId;
-  @JsonKey(name: 'Unit')
+  @JsonKey(name: 'Unit', includeIfNull: false)
   final String? unit;
-  @JsonKey(name: 'UnitType')
+  @JsonKey(name: 'UnitType', includeIfNull: false)
   final String? unitType;
-  @JsonKey(name: 'NonDiscountable')
+  @JsonKey(name: 'NonDiscountable', includeIfNull: false)
   final bool? nonDiscountable;
-  @JsonKey(name: 'OverrideProfitAndLossCategory')
+  @JsonKey(name: 'OverrideProfitAndLossCategory', includeIfNull: false)
   final bool? overrideProfitAndLossCategory;
-  @JsonKey(name: 'ProfitAndLossCategoryId')
+  @JsonKey(name: 'ProfitAndLossCategoryId', includeIfNull: false)
   final String? profitAndLossCategoryId;
-  @JsonKey(name: 'ProfitAndLossCategory')
+  @JsonKey(name: 'ProfitAndLossCategory', includeIfNull: false)
   final String? profitAndLossCategory;
-  @JsonKey(name: 'AutoCopyNotesToQuoteOrder')
+  @JsonKey(name: 'AutoCopyNotesToQuoteOrder', includeIfNull: false)
   final bool? autoCopyNotesToQuoteOrder;
-  @JsonKey(name: 'Note')
+  @JsonKey(name: 'Note', includeIfNull: false)
   final String? note;
-  @JsonKey(name: 'PrintNoteOnInContract')
+  @JsonKey(name: 'PrintNoteOnInContract', includeIfNull: false)
   final bool? printNoteOnInContract;
-  @JsonKey(name: 'PrintNoteOnOutContract')
+  @JsonKey(name: 'PrintNoteOnOutContract', includeIfNull: false)
   final bool? printNoteOnOutContract;
-  @JsonKey(name: 'PrintNoteOnReceiveContract')
+  @JsonKey(name: 'PrintNoteOnReceiveContract', includeIfNull: false)
   final bool? printNoteOnReceiveContract;
-  @JsonKey(name: 'PrintNoteOnReturnContract')
+  @JsonKey(name: 'PrintNoteOnReturnContract', includeIfNull: false)
   final bool? printNoteOnReturnContract;
-  @JsonKey(name: 'PrintNoteOnInvoice')
+  @JsonKey(name: 'PrintNoteOnInvoice', includeIfNull: false)
   final bool? printNoteOnInvoice;
-  @JsonKey(name: 'PrintNoteOnOrder')
+  @JsonKey(name: 'PrintNoteOnOrder', includeIfNull: false)
   final bool? printNoteOnOrder;
-  @JsonKey(name: 'PrintNoteOnPickList')
+  @JsonKey(name: 'PrintNoteOnPickList', includeIfNull: false)
   final bool? printNoteOnPickList;
-  @JsonKey(name: 'PrintNoteOnPO')
+  @JsonKey(name: 'PrintNoteOnPO', includeIfNull: false)
   final bool? printNoteOnPO;
-  @JsonKey(name: 'PrintNoteOnQuote')
+  @JsonKey(name: 'PrintNoteOnQuote', includeIfNull: false)
   final bool? printNoteOnQuote;
-  @JsonKey(name: 'PrintNoteOnReturnList')
+  @JsonKey(name: 'PrintNoteOnReturnList', includeIfNull: false)
   final bool? printNoteOnReturnList;
-  @JsonKey(name: 'PrintNoteOnPoReceiveList')
+  @JsonKey(name: 'PrintNoteOnPoReceiveList', includeIfNull: false)
   final bool? printNoteOnPoReceiveList;
-  @JsonKey(name: 'PrintNoteOnPoReturnList')
+  @JsonKey(name: 'PrintNoteOnPoReturnList', includeIfNull: false)
   final bool? printNoteOnPoReturnList;
-  @JsonKey(name: 'AssetAccountId')
+  @JsonKey(name: 'AssetAccountId', includeIfNull: false)
   final String? assetAccountId;
-  @JsonKey(name: 'AssetAccountNo')
+  @JsonKey(name: 'AssetAccountNo', includeIfNull: false)
   final String? assetAccountNo;
-  @JsonKey(name: 'AssetAccountDescription')
+  @JsonKey(name: 'AssetAccountDescription', includeIfNull: false)
   final String? assetAccountDescription;
-  @JsonKey(name: 'IncomeAccountId')
+  @JsonKey(name: 'IncomeAccountId', includeIfNull: false)
   final String? incomeAccountId;
-  @JsonKey(name: 'IncomeAccountNo')
+  @JsonKey(name: 'IncomeAccountNo', includeIfNull: false)
   final String? incomeAccountNo;
-  @JsonKey(name: 'IncomeAccountDescription')
+  @JsonKey(name: 'IncomeAccountDescription', includeIfNull: false)
   final String? incomeAccountDescription;
-  @JsonKey(name: 'SubIncomeAccountId')
+  @JsonKey(name: 'SubIncomeAccountId', includeIfNull: false)
   final String? subIncomeAccountId;
-  @JsonKey(name: 'SubIncomeAccountNo')
+  @JsonKey(name: 'SubIncomeAccountNo', includeIfNull: false)
   final String? subIncomeAccountNo;
-  @JsonKey(name: 'SubIncomeAccountDescription')
+  @JsonKey(name: 'SubIncomeAccountDescription', includeIfNull: false)
   final String? subIncomeAccountDescription;
-  @JsonKey(name: 'ConsignmentIncomeAccountId')
+  @JsonKey(name: 'ConsignmentIncomeAccountId', includeIfNull: false)
   final String? consignmentIncomeAccountId;
-  @JsonKey(name: 'ConsignmentIncomeAccountNo')
+  @JsonKey(name: 'ConsignmentIncomeAccountNo', includeIfNull: false)
   final String? consignmentIncomeAccountNo;
-  @JsonKey(name: 'ConsignmentIncomeAccountDescription')
+  @JsonKey(name: 'ConsignmentIncomeAccountDescription', includeIfNull: false)
   final String? consignmentIncomeAccountDescription;
-  @JsonKey(name: 'LdIncomeAccountId')
+  @JsonKey(name: 'LdIncomeAccountId', includeIfNull: false)
   final String? ldIncomeAccountId;
-  @JsonKey(name: 'LdIncomeAccountNo')
+  @JsonKey(name: 'LdIncomeAccountNo', includeIfNull: false)
   final String? ldIncomeAccountNo;
-  @JsonKey(name: 'LdIncomeAccountDescription')
+  @JsonKey(name: 'LdIncomeAccountDescription', includeIfNull: false)
   final String? ldIncomeAccountDescription;
-  @JsonKey(name: 'EquipmentSaleIncomeAccountId')
+  @JsonKey(name: 'EquipmentSaleIncomeAccountId', includeIfNull: false)
   final String? equipmentSaleIncomeAccountId;
-  @JsonKey(name: 'EquipmentSaleIncomeAccountNo')
+  @JsonKey(name: 'EquipmentSaleIncomeAccountNo', includeIfNull: false)
   final String? equipmentSaleIncomeAccountNo;
-  @JsonKey(name: 'EquipmentSaleIncomeAccountDescription')
+  @JsonKey(name: 'EquipmentSaleIncomeAccountDescription', includeIfNull: false)
   final String? equipmentSaleIncomeAccountDescription;
-  @JsonKey(name: 'ExpenseAccountId')
+  @JsonKey(name: 'ExpenseAccountId', includeIfNull: false)
   final String? expenseAccountId;
-  @JsonKey(name: 'ExpenseAccountNo')
+  @JsonKey(name: 'ExpenseAccountNo', includeIfNull: false)
   final String? expenseAccountNo;
-  @JsonKey(name: 'ExpenseAccountDescription')
+  @JsonKey(name: 'ExpenseAccountDescription', includeIfNull: false)
   final String? expenseAccountDescription;
-  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountId')
+  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountId', includeIfNull: false)
   final String? costOfGoodsSoldExpenseAccountId;
-  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountNo')
+  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountNo', includeIfNull: false)
   final String? costOfGoodsSoldExpenseAccountNo;
-  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountDescription')
+  @JsonKey(
+      name: 'CostOfGoodsSoldExpenseAccountDescription', includeIfNull: false)
   final String? costOfGoodsSoldExpenseAccountDescription;
-  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountId')
+  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountId', includeIfNull: false)
   final String? costOfGoodsRentedExpenseAccountId;
-  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountNo')
+  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountNo', includeIfNull: false)
   final String? costOfGoodsRentedExpenseAccountNo;
-  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountDescription')
+  @JsonKey(
+      name: 'CostOfGoodsRentedExpenseAccountDescription', includeIfNull: false)
   final String? costOfGoodsRentedExpenseAccountDescription;
-  @JsonKey(name: 'DepreciationExpenseAccountId')
+  @JsonKey(name: 'DepreciationExpenseAccountId', includeIfNull: false)
   final String? depreciationExpenseAccountId;
-  @JsonKey(name: 'DepreciationExpenseAccountNo')
+  @JsonKey(name: 'DepreciationExpenseAccountNo', includeIfNull: false)
   final String? depreciationExpenseAccountNo;
-  @JsonKey(name: 'DepreciationExpenseAccountDescription')
+  @JsonKey(name: 'DepreciationExpenseAccountDescription', includeIfNull: false)
   final String? depreciationExpenseAccountDescription;
-  @JsonKey(name: 'AccumulatedDepreciationExpenseAccountId')
+  @JsonKey(
+      name: 'AccumulatedDepreciationExpenseAccountId', includeIfNull: false)
   final String? accumulatedDepreciationExpenseAccountId;
-  @JsonKey(name: 'AccumulatedDepreciationExpenseAccountNo')
+  @JsonKey(
+      name: 'AccumulatedDepreciationExpenseAccountNo', includeIfNull: false)
   final String? accumulatedDepreciationExpenseAccountNo;
-  @JsonKey(name: 'AccumulatedDepreciationExpenseAccountDescription')
+  @JsonKey(
+      name: 'AccumulatedDepreciationExpenseAccountDescription',
+      includeIfNull: false)
   final String? accumulatedDepreciationExpenseAccountDescription;
-  @JsonKey(name: 'OriginalShowId')
+  @JsonKey(name: 'OriginalShowId', includeIfNull: false)
   final String? originalShowId;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'ManifestShippingContainer')
+  @JsonKey(name: 'ManifestShippingContainer', includeIfNull: false)
   final bool? manifestShippingContainer;
-  @JsonKey(name: 'ManifestStandAloneItem')
+  @JsonKey(name: 'ManifestStandAloneItem', includeIfNull: false)
   final bool? manifestStandAloneItem;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -3074,9 +3108,9 @@ class WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
       _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
           json);
 
-  @JsonKey(name: 'RetiredReasonId')
+  @JsonKey(name: 'RetiredReasonId', includeIfNull: false)
   final String? retiredReasonId;
-  @JsonKey(name: 'RetiredReason')
+  @JsonKey(name: 'RetiredReason', includeIfNull: false)
   final String? retiredReason;
   static const fromJsonFactory =
       _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson;
@@ -3120,7 +3154,7 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson(
           json);
 
-  @JsonKey(name: 'AppImageId')
+  @JsonKey(name: 'AppImageId', includeIfNull: false)
   final String? appImageId;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson;
@@ -3159,7 +3193,7 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson(
           json);
 
-  @JsonKey(name: 'InventoryDepartmentId')
+  @JsonKey(name: 'InventoryDepartmentId', includeIfNull: false)
   final String? inventoryDepartmentId;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson;
@@ -3199,7 +3233,7 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson(
           json);
 
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson;
@@ -3242,13 +3276,13 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
-  @JsonKey(name: 'appimageid')
+  @JsonKey(name: 'appimageid', includeIfNull: false)
   final String? appimageid;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseFromJson;
@@ -3301,13 +3335,13 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson(
           json);
 
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'Image')
+  @JsonKey(name: 'Image', includeIfNull: false)
   final String? image;
-  @JsonKey(name: 'ImageDesc')
+  @JsonKey(name: 'ImageDesc', includeIfNull: false)
   final String? imageDesc;
-  @JsonKey(name: 'ImageNo')
+  @JsonKey(name: 'ImageNo', includeIfNull: false)
   final String? imageNo;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson;
@@ -3362,9 +3396,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson(
           json);
 
-  @JsonKey(name: 'SearchValue')
+  @JsonKey(name: 'SearchValue', includeIfNull: false)
   final String? searchValue;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson;
@@ -3410,11 +3444,11 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestFromJson(
           json);
 
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'UnitValue')
+  @JsonKey(name: 'UnitValue', includeIfNull: false)
   final double? unitValue;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestFromJson;
@@ -3483,49 +3517,49 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
-  @JsonKey(name: 'SessionId')
+  @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'Quantity')
+  @JsonKey(name: 'Quantity', includeIfNull: false)
   final int? quantity;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'AisleLocation')
+  @JsonKey(name: 'AisleLocation', includeIfNull: false)
   final String? aisleLocation;
-  @JsonKey(name: 'ShelfLocation')
+  @JsonKey(name: 'ShelfLocation', includeIfNull: false)
   final String? shelfLocation;
-  @JsonKey(name: 'ManufacturerVendorId')
+  @JsonKey(name: 'ManufacturerVendorId', includeIfNull: false)
   final String? manufacturerVendorId;
-  @JsonKey(name: 'ManufacturerModelNumber')
+  @JsonKey(name: 'ManufacturerModelNumber', includeIfNull: false)
   final String? manufacturerModelNumber;
-  @JsonKey(name: 'ManufacturerPartNumber')
+  @JsonKey(name: 'ManufacturerPartNumber', includeIfNull: false)
   final String? manufacturerPartNumber;
-  @JsonKey(name: 'CountryId')
+  @JsonKey(name: 'CountryId', includeIfNull: false)
   final String? countryId;
-  @JsonKey(name: 'WarrantyDays')
+  @JsonKey(name: 'WarrantyDays', includeIfNull: false)
   final int? warrantyDays;
-  @JsonKey(name: 'WarrantyExpiration')
+  @JsonKey(name: 'WarrantyExpiration', includeIfNull: false)
   final String? warrantyExpiration;
-  @JsonKey(name: 'PurchaseVendorId')
+  @JsonKey(name: 'PurchaseVendorId', includeIfNull: false)
   final String? purchaseVendorId;
-  @JsonKey(name: 'OutsidePoNumber')
+  @JsonKey(name: 'OutsidePoNumber', includeIfNull: false)
   final String? outsidePoNumber;
-  @JsonKey(name: 'PurchaseDate')
+  @JsonKey(name: 'PurchaseDate', includeIfNull: false)
   final DateTime? purchaseDate;
-  @JsonKey(name: 'ReceiveDate')
+  @JsonKey(name: 'ReceiveDate', includeIfNull: false)
   final DateTime? receiveDate;
-  @JsonKey(name: 'VendorPartNumber')
+  @JsonKey(name: 'VendorPartNumber', includeIfNull: false)
   final String? vendorPartNumber;
-  @JsonKey(name: 'CurrencyId')
+  @JsonKey(name: 'CurrencyId', includeIfNull: false)
   final String? currencyId;
-  @JsonKey(name: 'UnitCost')
+  @JsonKey(name: 'UnitCost', includeIfNull: false)
   final double? unitCost;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson;
@@ -3663,17 +3697,17 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
-  @JsonKey(name: 'PurchaseId', defaultValue: <String>[])
+  @JsonKey(name: 'PurchaseId', includeIfNull: false, defaultValue: <String>[])
   final List<String>? purchaseId;
-  @JsonKey(name: 'ItemId', defaultValue: <String>[])
+  @JsonKey(name: 'ItemId', includeIfNull: false, defaultValue: <String>[])
   final List<String>? itemId;
-  @JsonKey(name: 'QuantityAdded')
+  @JsonKey(name: 'QuantityAdded', includeIfNull: false)
   final int? quantityAdded;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson;
@@ -3737,9 +3771,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson(
           json);
 
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'Quantity')
+  @JsonKey(name: 'Quantity', includeIfNull: false)
   final int? quantity;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson;
@@ -3783,7 +3817,7 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson(
           json);
 
-  @JsonKey(name: 'SessionId')
+  @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson;
@@ -3825,11 +3859,11 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson(
           json);
 
-  @JsonKey(name: 'SessionId')
+  @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'Quantity')
+  @JsonKey(name: 'Quantity', includeIfNull: false)
   final int? quantity;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson;
@@ -3879,11 +3913,11 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson;
@@ -3928,7 +3962,7 @@ class WebApiModulesWarehouseContractCancelContractRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesWarehouseContractCancelContractRequestFromJson(json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
   static const fromJsonFactory =
       _$WebApiModulesWarehouseContractCancelContractRequestFromJson;

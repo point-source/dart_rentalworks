@@ -26,11 +26,19 @@ FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
 
 Map<String, dynamic>
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-                instance) =>
-        <String, dynamic>{
-          'downloadUrl': instance.downloadUrl,
-        };
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 FwCoreModulesAdministratorGroupCopySecurityNodeRequest
     _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestFromJson(
@@ -44,12 +52,20 @@ FwCoreModulesAdministratorGroupCopySecurityNodeRequest
 
 Map<String, dynamic>
     _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson(
-            FwCoreModulesAdministratorGroupCopySecurityNodeRequest instance) =>
-        <String, dynamic>{
-          'FromGroupId': instance.fromGroupId,
-          'ToGroupIds': instance.toGroupIds,
-          'SecurityId': instance.securityId,
-        };
+        FwCoreModulesAdministratorGroupCopySecurityNodeRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromGroupId', instance.fromGroupId);
+  writeNotNull('ToGroupIds', instance.toGroupIds);
+  writeNotNull('SecurityId', instance.securityId);
+  return val;
+}
 
 FwCoreModulesAdministratorGroupLookupGroupResponse
     _$FwCoreModulesAdministratorGroupLookupGroupResponseFromJson(
@@ -61,11 +77,19 @@ FwCoreModulesAdministratorGroupLookupGroupResponse
 }
 
 Map<String, dynamic> _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson(
-        FwCoreModulesAdministratorGroupLookupGroupResponse instance) =>
-    <String, dynamic>{
-      'GroupId': instance.groupId,
-      'Name': instance.name,
-    };
+    FwCoreModulesAdministratorGroupLookupGroupResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('GroupId', instance.groupId);
+  writeNotNull('Name', instance.name);
+  return val;
+}
 
 FwStandardAppManagerFwAmSecurityTreeNode
     _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(
@@ -84,14 +108,22 @@ FwStandardAppManagerFwAmSecurityTreeNode
 }
 
 Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
-        FwStandardAppManagerFwAmSecurityTreeNode instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'caption': instance.caption,
-      'nodetype': instance.nodetype,
-      'properties': instance.properties,
-      'children': instance.children?.map((e) => e.toJson()).toList(),
-    };
+    FwStandardAppManagerFwAmSecurityTreeNode instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('caption', instance.caption);
+  writeNotNull('nodetype', instance.nodetype);
+  writeNotNull('properties', instance.properties);
+  writeNotNull('children', instance.children?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardBusinessLogicFwBusinessLogicFieldDefinition
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
@@ -105,11 +137,20 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
 
 Map<String, dynamic>
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
-            FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) =>
-        <String, dynamic>{
-          'Name': instance.name,
-          'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-        };
+        FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  return val;
+}
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
     Map<String, dynamic> json) {
@@ -121,12 +162,20 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
 }
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
-        FwStandardDataFwCustomValue instance) =>
-    <String, dynamic>{
-      'FieldName': instance.fieldName,
-      'FieldValue': instance.fieldValue,
-      'FieldType': instance.fieldType,
-    };
+    FwStandardDataFwCustomValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('FieldValue', instance.fieldValue);
+  writeNotNull('FieldType', instance.fieldType);
+  return val;
+}
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
     Map<String, dynamic> json) {
@@ -138,12 +187,20 @@ FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
 }
 
 Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
-        FwStandardDataFwDefaultAttribute instance) =>
-    <String, dynamic>{
-      'FieldName': instance.fieldName,
-      'AttributeName': instance.attributeName,
-      'DefaultValue': instance.defaultValue,
-    };
+    FwStandardDataFwDefaultAttribute instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('AttributeName', instance.attributeName);
+  writeNotNull('DefaultValue', instance.defaultValue);
+  return val;
+}
 
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
     Map<String, dynamic> json) {
@@ -204,33 +261,42 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
-        FwStandardModelsBrowseRequest instance) =>
-    <String, dynamic>{
-      'miscfields': instance.miscfields,
-      'module': instance.module,
-      'options': instance.options,
-      'orderby': instance.orderby,
-      'orderbydirection': instance.orderbydirection,
-      'top': instance.top,
-      'pageno': instance.pageno,
-      'pagesize': instance.pagesize,
-      'searchfieldoperators': instance.searchfieldoperators,
-      'searchfields': instance.searchfields,
-      'searchfieldvalues': instance.searchfieldvalues,
-      'searchfieldtypes': instance.searchfieldtypes,
-      'searchseparators': instance.searchseparators,
-      'searchcondition': instance.searchcondition,
-      'searchconjunctions': instance.searchconjunctions,
-      'uniqueids': instance.uniqueids,
-      'boundids': instance.boundids,
-      'filterfields': instance.filterfields,
-      'activeview': instance.activeview,
-      'emptyobject': instance.emptyobject,
-      'forexcel': instance.forexcel,
-      'excelfields': instance.excelfields?.map((e) => e.toJson()).toList(),
-      'totalfields': instance.totalfields,
-      'activeviewfields': instance.activeviewfields,
-    };
+    FwStandardModelsBrowseRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('miscfields', instance.miscfields);
+  writeNotNull('module', instance.module);
+  writeNotNull('options', instance.options);
+  writeNotNull('orderby', instance.orderby);
+  writeNotNull('orderbydirection', instance.orderbydirection);
+  writeNotNull('top', instance.top);
+  writeNotNull('pageno', instance.pageno);
+  writeNotNull('pagesize', instance.pagesize);
+  writeNotNull('searchfieldoperators', instance.searchfieldoperators);
+  writeNotNull('searchfields', instance.searchfields);
+  writeNotNull('searchfieldvalues', instance.searchfieldvalues);
+  writeNotNull('searchfieldtypes', instance.searchfieldtypes);
+  writeNotNull('searchseparators', instance.searchseparators);
+  writeNotNull('searchcondition', instance.searchcondition);
+  writeNotNull('searchconjunctions', instance.searchconjunctions);
+  writeNotNull('uniqueids', instance.uniqueids);
+  writeNotNull('boundids', instance.boundids);
+  writeNotNull('filterfields', instance.filterfields);
+  writeNotNull('activeview', instance.activeview);
+  writeNotNull('emptyobject', instance.emptyobject);
+  writeNotNull('forexcel', instance.forexcel);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  writeNotNull('totalfields', instance.totalfields);
+  writeNotNull('activeviewfields', instance.activeviewfields);
+  return val;
+}
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
     Map<String, dynamic> json) {
@@ -242,12 +308,20 @@ FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
-        FwStandardModelsCheckBoxListItem instance) =>
-    <String, dynamic>{
-      'value': instance.value,
-      'text': instance.text,
-      'selected': instance.selected,
-    };
+    FwStandardModelsCheckBoxListItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('value', instance.value);
+  writeNotNull('text', instance.text);
+  writeNotNull('selected', instance.selected);
+  return val;
+}
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
     Map<String, dynamic> json) {
@@ -259,12 +333,20 @@ FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-        FwStandardModelsFwApiException instance) =>
-    <String, dynamic>{
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-      'StackTrace': instance.stackTrace,
-    };
+    FwStandardModelsFwApiException instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  writeNotNull('StackTrace', instance.stackTrace);
+  return val;
+}
 
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
     Map<String, dynamic> json) {
@@ -276,12 +358,20 @@ FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
-        FwStandardModelsFwQueryFilter instance) =>
-    <String, dynamic>{
-      'Field': instance.field,
-      'Op': instance.op,
-      'Value': instance.value,
-    };
+    FwStandardModelsFwQueryFilter instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Field', instance.field);
+  writeNotNull('Op', instance.op);
+  writeNotNull('Value', instance.value);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicFromJson(
@@ -301,15 +391,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson(
@@ -330,15 +428,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlert
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson(
@@ -359,15 +465,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertW
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson(
@@ -388,15 +502,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutC
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson(
@@ -417,15 +539,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson(
@@ -446,15 +576,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailT
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(
@@ -475,15 +613,23 @@ FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlert
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(
-            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogicFromJson(
@@ -504,15 +650,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldL
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicFromJson(
@@ -533,15 +687,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLog
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogicFromJson(
@@ -562,15 +724,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLog
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicFromJson(
@@ -591,15 +761,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistor
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogicFromJson(
@@ -619,15 +797,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicFromJson(
@@ -647,15 +833,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogicFromJson(
@@ -675,15 +869,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicFromJson(
@@ -704,15 +906,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySyst
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicFromJson(
@@ -733,15 +943,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogS
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicFromJson(
@@ -761,15 +979,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicFromJson(
@@ -790,15 +1016,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroup
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicFromJson(
@@ -819,15 +1053,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserC
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicFromJson(
@@ -848,15 +1090,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCus
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicFromJson(
@@ -877,15 +1127,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLay
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicFromJson(
@@ -906,15 +1164,23 @@ FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFi
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogicFromJson(
@@ -934,15 +1200,23 @@ FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogicFromJson(
@@ -962,15 +1236,23 @@ FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicFromJson(
@@ -991,15 +1273,23 @@ FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUser
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicToJson(
-            FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalItems': instance.totalItems,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
     _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseFromJson(
@@ -1020,15 +1310,23 @@ FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
 
 Map<String, dynamic>
     _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseToJson(
-            FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
-                instance) =>
-        <String, dynamic>{
-          'Items': instance.items?.map((e) => e.toJson()).toList(),
-          'PageNo': instance.pageNo,
-          'PageSize': instance.pageSize,
-          'TotalRows': instance.totalRows,
-          'Sort': instance.sort,
-        };
+        FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
 
 FwStandardModulesAdministratorAlertAlertCondition
     _$FwStandardModulesAdministratorAlertAlertConditionFromJson(
@@ -1044,15 +1342,23 @@ FwStandardModulesAdministratorAlertAlertCondition
 }
 
 Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertConditionToJson(
-        FwStandardModulesAdministratorAlertAlertCondition instance) =>
-    <String, dynamic>{
-      'AlertConditionId': instance.alertConditionId,
-      'AlertId': instance.alertId,
-      'FieldName1': instance.fieldName1,
-      'FieldName2': instance.fieldName2,
-      'Condition': instance.condition,
-      'Value': instance.value,
-    };
+    FwStandardModulesAdministratorAlertAlertCondition instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AlertConditionId', instance.alertConditionId);
+  writeNotNull('AlertId', instance.alertId);
+  writeNotNull('FieldName1', instance.fieldName1);
+  writeNotNull('FieldName2', instance.fieldName2);
+  writeNotNull('Condition', instance.condition);
+  writeNotNull('Value', instance.value);
+  return val;
+}
 
 FwStandardModulesAdministratorAlertAlertLogic
     _$FwStandardModulesAdministratorAlertAlertLogicFromJson(
@@ -1095,26 +1401,34 @@ FwStandardModulesAdministratorAlertAlertLogic
 }
 
 Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertLogicToJson(
-        FwStandardModulesAdministratorAlertAlertLogic instance) =>
-    <String, dynamic>{
-      'AlertId': instance.alertId,
-      'AlertName': instance.alertName,
-      'ModuleName': instance.moduleName,
-      'ActionNew': instance.actionNew,
-      'ActionEdit': instance.actionEdit,
-      'ActionDelete': instance.actionDelete,
-      'AlertSubject': instance.alertSubject,
-      'AlertBody': instance.alertBody,
-      'Inactive': instance.inactive,
-      'AlertConditionList':
-          instance.alertConditionList?.map((e) => e.toJson()).toList(),
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    FwStandardModulesAdministratorAlertAlertLogic instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AlertId', instance.alertId);
+  writeNotNull('AlertName', instance.alertName);
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('ActionNew', instance.actionNew);
+  writeNotNull('ActionEdit', instance.actionEdit);
+  writeNotNull('ActionDelete', instance.actionDelete);
+  writeNotNull('AlertSubject', instance.alertSubject);
+  writeNotNull('AlertBody', instance.alertBody);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AlertConditionList',
+      instance.alertConditionList?.map((e) => e.toJson()).toList());
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorAlertConditionAlertConditionLogic
     _$FwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson(
@@ -1149,22 +1463,30 @@ FwStandardModulesAdministratorAlertConditionAlertConditionLogic
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorAlertConditionAlertConditionLogicToJson(
-            FwStandardModulesAdministratorAlertConditionAlertConditionLogic
-                instance) =>
-        <String, dynamic>{
-          'AlertId': instance.alertId,
-          'AlertConditionId': instance.alertConditionId,
-          'FieldName1': instance.fieldName1,
-          'Condition': instance.condition,
-          'FieldName2': instance.fieldName2,
-          'Value': instance.value,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        FwStandardModulesAdministratorAlertConditionAlertConditionLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AlertId', instance.alertId);
+  writeNotNull('AlertConditionId', instance.alertConditionId);
+  writeNotNull('FieldName1', instance.fieldName1);
+  writeNotNull('Condition', instance.condition);
+  writeNotNull('FieldName2', instance.fieldName2);
+  writeNotNull('Value', instance.value);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
     _$FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson(
@@ -1200,23 +1522,31 @@ FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicToJson(
-            FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
-                instance) =>
-        <String, dynamic>{
-          'AlertWebUserId': instance.alertWebUserId,
-          'AlertId': instance.alertId,
-          'Description': instance.description,
-          'WebUserId': instance.webUserId,
-          'UserId': instance.userId,
-          'UserName': instance.userName,
-          'Email': instance.email,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AlertWebUserId', instance.alertWebUserId);
+  writeNotNull('AlertId', instance.alertId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserId', instance.userId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('Email', instance.email);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
     _$FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson(
@@ -1255,26 +1585,34 @@ FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicToJson(
-            FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
-                instance) =>
-        <String, dynamic>{
-          'CustomReportLayoutId': instance.customReportLayoutId,
-          'WebUserId': instance.webUserId,
-          'UserName': instance.userName,
-          'BaseReport': instance.baseReport,
-          'Description': instance.description,
-          'Category': instance.category,
-          'Html': instance.html,
-          'Active': instance.active,
-          'Inactive': instance.inactive,
-          'AssignTo': instance.assignTo,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('BaseReport', instance.baseReport);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Category', instance.category);
+  writeNotNull('Html', instance.html);
+  writeNotNull('Active', instance.active);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AssignTo', instance.assignTo);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
     _$FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson(
@@ -1312,25 +1650,33 @@ FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicToJson(
-            FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
-                instance) =>
-        <String, dynamic>{
-          'DuplicateRuleId': instance.duplicateRuleId,
-          'ModuleName': instance.moduleName,
-          'RuleName': instance.ruleName,
-          'CaseSensitive': instance.caseSensitive,
-          'SystemRule': instance.systemRule,
-          'Fields': instance.fields,
-          'FieldTypes': instance.fieldTypes,
-          'RuleNameColor': instance.ruleNameColor,
-          'ConsiderBlanks': instance.considerBlanks,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.$fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DuplicateRuleId', instance.duplicateRuleId);
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('RuleName', instance.ruleName);
+  writeNotNull('CaseSensitive', instance.caseSensitive);
+  writeNotNull('SystemRule', instance.systemRule);
+  writeNotNull('Fields', instance.fields);
+  writeNotNull('FieldTypes', instance.fieldTypes);
+  writeNotNull('RuleNameColor', instance.ruleNameColor);
+  writeNotNull('ConsiderBlanks', instance.considerBlanks);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.$fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson(
@@ -1367,24 +1713,32 @@ FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicToJson(
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
-                instance) =>
-        <String, dynamic>{
-          'AppEmailId': instance.appEmailId,
-          'Description': instance.description,
-          'FilterId': instance.filterId,
-          'Subject': instance.subject,
-          'EmailText': instance.emailText,
-          'Category': instance.category,
-          'BodyFormat': instance.bodyFormat,
-          'EmailType': instance.emailType,
-          'Inactive': instance.inactive,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AppEmailId', instance.appEmailId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('FilterId', instance.filterId);
+  writeNotNull('Subject', instance.subject);
+  writeNotNull('EmailText', instance.emailText);
+  writeNotNull('Category', instance.category);
+  writeNotNull('BodyFormat', instance.bodyFormat);
+  writeNotNull('EmailType', instance.emailType);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestFromJson(
@@ -1396,11 +1750,19 @@ FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRe
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestToJson(
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest
-                instance) =>
-        <String, dynamic>{
-          'category': instance.category,
-        };
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('category', instance.category);
+  return val;
+}
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseFromJson(
@@ -1415,11 +1777,19 @@ FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesR
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseToJson(
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
-                instance) =>
-        <String, dynamic>{
-          'categories': instance.categories,
-        };
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('categories', instance.categories);
+  return val;
+}
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseFromJson(
@@ -1433,11 +1803,19 @@ FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsRespo
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseToJson(
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
-                instance) =>
-        <String, dynamic>{
-          'fields': instance.fields,
-        };
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('fields', instance.fields);
+  return val;
+}
 
 FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
     _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(
@@ -1475,26 +1853,34 @@ FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
   );
 }
 
-Map<String,
-    dynamic> _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(
-        FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic instance) =>
-    <String, dynamic>{
-      'WebAlertLogId': instance.webAlertLogId,
-      'AlertId': instance.alertId,
-      'CreateDateTime': instance.createDateTime?.toIso8601String(),
-      'AlertSubject': instance.alertSubject,
-      'AlertBody': instance.alertBody,
-      'AlertFrom': instance.alertFrom,
-      'AlertTo': instance.alertTo,
-      'Status': instance.status,
-      'ErrorMessage': instance.errorMessage,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic>
+    _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(
+        FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WebAlertLogId', instance.webAlertLogId);
+  writeNotNull('AlertId', instance.alertId);
+  writeNotNull('CreateDateTime', instance.createDateTime?.toIso8601String());
+  writeNotNull('AlertSubject', instance.alertSubject);
+  writeNotNull('AlertBody', instance.alertBody);
+  writeNotNull('AlertFrom', instance.alertFrom);
+  writeNotNull('AlertTo', instance.alertTo);
+  writeNotNull('Status', instance.status);
+  writeNotNull('ErrorMessage', instance.errorMessage);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
     _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicFromJson(
@@ -1532,25 +1918,32 @@ FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicToJson(
-            FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
-                instance) =>
-        <String, dynamic>{
-          'WebAuditId': instance.webAuditId,
-          'ModuleName': instance.moduleName,
-          'Title': instance.title,
-          'UniqueId1': instance.uniqueId1,
-          'UniqueId2': instance.uniqueId2,
-          'UniqueId3': instance.uniqueId3,
-          'WebUserId': instance.webUserId,
-          'UserName': instance.userName,
-          'Json': instance.json,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WebAuditId', instance.webAuditId);
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('Title', instance.title);
+  writeNotNull('UniqueId1', instance.uniqueId1);
+  writeNotNull('UniqueId2', instance.uniqueId2);
+  writeNotNull('UniqueId3', instance.uniqueId3);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('Json', instance.json);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     Map<String, dynamic> json) {
@@ -1579,19 +1972,27 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-        FwStandardSqlServerFwJsonDataTable instance) =>
-    <String, dynamic>{
-      'ColumnIndex': instance.columnIndex,
-      'Totals': instance.totals,
-      'Columns': instance.columns?.map((e) => e.toJson()).toList(),
-      'Rows': instance.rows,
-      'PageNo': instance.pageNo,
-      'PageSize': instance.pageSize,
-      'TotalPages': instance.totalPages,
-      'TotalRows': instance.totalRows,
-      'DateFields': instance.dateFields,
-      'ColumnNameByIndex': instance.columnNameByIndex,
-    };
+    FwStandardSqlServerFwJsonDataTable instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ColumnIndex', instance.columnIndex);
+  writeNotNull('Totals', instance.totals);
+  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
+  writeNotNull('Rows', instance.rows);
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalPages', instance.totalPages);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('DateFields', instance.dateFields);
+  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -1607,14 +2008,23 @@ FwStandardSqlServerFwJsonDataTableColumn
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-        FwStandardSqlServerFwJsonDataTableColumn instance) =>
-    <String, dynamic>{
-      'Name': instance.name,
-      'DataField': instance.dataField,
-      'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-      'IsUniqueId': instance.isUniqueId,
-      'IsVisible': instance.isVisible,
-    };
+    FwStandardSqlServerFwJsonDataTableColumn instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull('DataField', instance.dataField);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  writeNotNull('IsUniqueId', instance.isUniqueId);
+  writeNotNull('IsVisible', instance.isVisible);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest
     _$WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestFromJson(
@@ -1626,11 +2036,18 @@ WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestToJson(
-            WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest
-                instance) =>
-        <String, dynamic>{
-          'accessToken': instance.accessToken,
-        };
+        WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('accessToken', instance.accessToken);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest
     _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestFromJson(
@@ -1640,12 +2057,20 @@ WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestToJson(
-        WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest instance) =>
-    <String, dynamic>{
-      'authorizationCode': instance.authorizationCode,
-    };
+Map<String, dynamic>
+    _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestToJson(
+        WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('authorizationCode', instance.authorizationCode);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotGetWriteTokensResponse
     _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseFromJson(
@@ -1655,12 +2080,20 @@ WebApiModulesAccountServicesHubSpotGetWriteTokensResponse
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseToJson(
-        WebApiModulesAccountServicesHubSpotGetWriteTokensResponse instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-    };
+Map<String, dynamic>
+    _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseToJson(
+        WebApiModulesAccountServicesHubSpotGetWriteTokensResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('message', instance.message);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest
     _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestFromJson(
@@ -1675,14 +2108,21 @@ WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestToJson(
-            WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest
-                instance) =>
-        <String, dynamic>{
-          'accessToken': instance.accessToken,
-          'email': instance.email,
-          'firstname': instance.firstname,
-          'lastname': instance.lastname,
-        };
+        WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('accessToken', instance.accessToken);
+  writeNotNull('email', instance.email);
+  writeNotNull('firstname', instance.firstname);
+  writeNotNull('lastname', instance.lastname);
+  return val;
+}
 
 WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
     _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestFromJson(
@@ -1696,13 +2136,21 @@ WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestToJson(
-            WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
-                instance) =>
-        <String, dynamic>{
-          'webusersid': instance.webusersid,
-          'accessToken': instance.accessToken,
-          'lastSyncEpoch': instance.lastSyncEpoch,
-        };
+        WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('webusersid', instance.webusersid);
+  writeNotNull('accessToken', instance.accessToken);
+  writeNotNull('lastSyncEpoch', instance.lastSyncEpoch);
+  return val;
+}
 
 WebApiModulesAdministratorCustomFieldCustomField
     _$WebApiModulesAdministratorCustomFieldCustomFieldFromJson(
@@ -1739,24 +2187,32 @@ WebApiModulesAdministratorCustomFieldCustomField
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(
-        WebApiModulesAdministratorCustomFieldCustomField instance) =>
-    <String, dynamic>{
-      'CustomFieldId': instance.customFieldId,
-      'ModuleName': instance.moduleName,
-      'FieldName': instance.fieldName,
-      'CustomTableName': instance.customTableName,
-      'CustomFieldName': instance.customFieldName,
-      'FieldType': instance.fieldType,
-      'ControlType': instance.controlType,
-      'StringLength': instance.stringLength,
-      'FloatDecimalDigits': instance.floatDecimalDigits,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorCustomFieldCustomField instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomFieldId', instance.customFieldId);
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('CustomTableName', instance.customTableName);
+  writeNotNull('CustomFieldName', instance.customFieldName);
+  writeNotNull('FieldType', instance.fieldType);
+  writeNotNull('ControlType', instance.controlType);
+  writeNotNull('StringLength', instance.stringLength);
+  writeNotNull('FloatDecimalDigits', instance.floatDecimalDigits);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorCustomFormCustomForm
     _$WebApiModulesAdministratorCustomFormCustomFormFromJson(
@@ -1794,25 +2250,33 @@ WebApiModulesAdministratorCustomFormCustomForm
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorCustomFormCustomFormToJson(
-        WebApiModulesAdministratorCustomFormCustomForm instance) =>
-    <String, dynamic>{
-      'CustomFormId': instance.customFormId,
-      'WebUserId': instance.webUserId,
-      'UserName': instance.userName,
-      'BaseForm': instance.baseForm,
-      'Description': instance.description,
-      'Html': instance.html,
-      'Active': instance.active,
-      'Inactive': instance.inactive,
-      'AssignTo': instance.assignTo,
-      'SelfAssign': instance.selfAssign,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorCustomFormCustomForm instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomFormId', instance.customFormId);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('BaseForm', instance.baseForm);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Html', instance.html);
+  writeNotNull('Active', instance.active);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AssignTo', instance.assignTo);
+  writeNotNull('SelfAssign', instance.selfAssign);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
     _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseFromJson(
@@ -1824,11 +2288,19 @@ WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomRe
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseToJson(
-            WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
-                instance) =>
-        <String, dynamic>{
-          'ReportTemplate': instance.reportTemplate,
-        };
+        WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ReportTemplate', instance.reportTemplate);
+  return val;
+}
 
 WebApiModulesAdministratorDataHealthDataHealth
     _$WebApiModulesAdministratorDataHealthDataHealthFromJson(
@@ -1865,24 +2337,32 @@ WebApiModulesAdministratorDataHealthDataHealth
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorDataHealthDataHealthToJson(
-        WebApiModulesAdministratorDataHealthDataHealth instance) =>
-    <String, dynamic>{
-      'DataHealthId': instance.dataHealthId,
-      'DataHealthType': instance.dataHealthType,
-      'CaptureDateTime': instance.captureDateTime,
-      'CaptureDate': instance.captureDate,
-      'Json': instance.json,
-      'Severity': instance.severity,
-      'SeverityColor': instance.severityColor,
-      'Notes': instance.notes,
-      'Resolved': instance.resolved,
-      'Inactive': instance.inactive,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorDataHealthDataHealth instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DataHealthId', instance.dataHealthId);
+  writeNotNull('DataHealthType', instance.dataHealthType);
+  writeNotNull('CaptureDateTime', instance.captureDateTime);
+  writeNotNull('CaptureDate', instance.captureDate);
+  writeNotNull('Json', instance.json);
+  writeNotNull('Severity', instance.severity);
+  writeNotNull('SeverityColor', instance.severityColor);
+  writeNotNull('Notes', instance.notes);
+  writeNotNull('Resolved', instance.resolved);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorEmailHistoryEmailHistory
     _$WebApiModulesAdministratorEmailHistoryEmailHistoryFromJson(
@@ -1923,28 +2403,36 @@ WebApiModulesAdministratorEmailHistoryEmailHistory
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(
-        WebApiModulesAdministratorEmailHistoryEmailHistory instance) =>
-    <String, dynamic>{
-      'EmailHistoryId': instance.emailHistoryId,
-      'ReportId': instance.reportId,
-      'FromUserId': instance.fromUserId,
-      'FromWebUserId': instance.fromWebUserId,
-      'FromUser': instance.fromUser,
-      'EmailDate': instance.emailDate,
-      'Status': instance.status,
-      'EmailText': instance.emailText,
-      'EmailTo': instance.emailTo,
-      'EmailSubject': instance.emailSubject,
-      'EmailCC': instance.emailCC,
-      'Title': instance.title,
-      'RelatedToId': instance.relatedToId,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorEmailHistoryEmailHistory instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('EmailHistoryId', instance.emailHistoryId);
+  writeNotNull('ReportId', instance.reportId);
+  writeNotNull('FromUserId', instance.fromUserId);
+  writeNotNull('FromWebUserId', instance.fromWebUserId);
+  writeNotNull('FromUser', instance.fromUser);
+  writeNotNull('EmailDate', instance.emailDate);
+  writeNotNull('Status', instance.status);
+  writeNotNull('EmailText', instance.emailText);
+  writeNotNull('EmailTo', instance.emailTo);
+  writeNotNull('EmailSubject', instance.emailSubject);
+  writeNotNull('EmailCC', instance.emailCC);
+  writeNotNull('Title', instance.title);
+  writeNotNull('RelatedToId', instance.relatedToId);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorGroupGroup
     _$WebApiModulesAdministratorGroupGroupFromJson(Map<String, dynamic> json) {
@@ -1978,22 +2466,31 @@ WebApiModulesAdministratorGroupGroup
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorGroupGroupToJson(
-        WebApiModulesAdministratorGroupGroup instance) =>
-    <String, dynamic>{
-      'GroupId': instance.groupId,
-      'Name': instance.name,
-      'Memo': instance.memo,
-      'Security': instance.security,
-      'HideNewMenuOptionsByDefault': instance.hideNewMenuOptionsByDefault,
-      'IsMyGroup': instance.isMyGroup,
-      'GroupColor': instance.groupColor,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorGroupGroup instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('GroupId', instance.groupId);
+  writeNotNull('Name', instance.name);
+  writeNotNull('Memo', instance.memo);
+  writeNotNull('Security', instance.security);
+  writeNotNull(
+      'HideNewMenuOptionsByDefault', instance.hideNewMenuOptionsByDefault);
+  writeNotNull('IsMyGroup', instance.isMyGroup);
+  writeNotNull('GroupColor', instance.groupColor);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorHotfixHotfix
     _$WebApiModulesAdministratorHotfixHotfixFromJson(
@@ -2026,20 +2523,28 @@ WebApiModulesAdministratorHotfixHotfix
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorHotfixHotfixToJson(
-        WebApiModulesAdministratorHotfixHotfix instance) =>
-    <String, dynamic>{
-      'HotfixId': instance.hotfixId,
-      'FileName': instance.fileName,
-      'Description': instance.description,
-      'HotfixBegin': instance.hotfixBegin,
-      'HotfixEnd': instance.hotfixEnd,
-      'HotfixSeconds': instance.hotfixSeconds,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorHotfixHotfix instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('HotfixId', instance.hotfixId);
+  writeNotNull('FileName', instance.fileName);
+  writeNotNull('Description', instance.description);
+  writeNotNull('HotfixBegin', instance.hotfixBegin);
+  writeNotNull('HotfixEnd', instance.hotfixEnd);
+  writeNotNull('HotfixSeconds', instance.hotfixSeconds);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorPluginPlugin
     _$WebApiModulesAdministratorPluginPluginFromJson(
@@ -2071,19 +2576,27 @@ WebApiModulesAdministratorPluginPlugin
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorPluginPluginToJson(
-        WebApiModulesAdministratorPluginPlugin instance) =>
-    <String, dynamic>{
-      'PluginId': instance.pluginId,
-      'Category': instance.category,
-      'Description': instance.description,
-      'Settings': instance.settings,
-      'Inactive': instance.inactive,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorPluginPlugin instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('PluginId', instance.pluginId);
+  writeNotNull('Category', instance.category);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Settings', instance.settings);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateApplyUpdateRequest
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestFromJson(
@@ -2094,13 +2607,21 @@ WebApiModulesAdministratorSystemUpdateApplyUpdateRequest
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestToJson(
-        WebApiModulesAdministratorSystemUpdateApplyUpdateRequest instance) =>
-    <String, dynamic>{
-      'CurrentVersion': instance.currentVersion,
-      'ToVersion': instance.toVersion,
-    };
+Map<String, dynamic>
+    _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestToJson(
+        WebApiModulesAdministratorSystemUpdateApplyUpdateRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CurrentVersion', instance.currentVersion);
+  writeNotNull('ToVersion', instance.toVersion);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateApplyUpdateResponse
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseFromJson(
@@ -2112,14 +2633,22 @@ WebApiModulesAdministratorSystemUpdateApplyUpdateResponse
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseToJson(
-        WebApiModulesAdministratorSystemUpdateApplyUpdateResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'success': instance.success,
-      'msg': instance.msg,
-    };
+Map<String, dynamic>
+    _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseToJson(
+        WebApiModulesAdministratorSystemUpdateApplyUpdateResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateAvailableVersion
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionFromJson(
@@ -2136,13 +2665,21 @@ WebApiModulesAdministratorSystemUpdateAvailableVersion
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionToJson(
-            WebApiModulesAdministratorSystemUpdateAvailableVersion instance) =>
-        <String, dynamic>{
-          'value': instance.value,
-          'text': instance.text,
-          'Version': instance.version,
-          'VersionDate': instance.versionDate?.toIso8601String(),
-        };
+        WebApiModulesAdministratorSystemUpdateAvailableVersion instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('value', instance.value);
+  writeNotNull('text', instance.text);
+  writeNotNull('Version', instance.version);
+  writeNotNull('VersionDate', instance.versionDate?.toIso8601String());
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestFromJson(
@@ -2155,12 +2692,20 @@ WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestToJson(
-            WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
-                instance) =>
-        <String, dynamic>{
-          'CurrentVersion': instance.currentVersion,
-          'OnlyIncludeNewerVersions': instance.onlyIncludeNewerVersions,
-        };
+        WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CurrentVersion', instance.currentVersion);
+  writeNotNull('OnlyIncludeNewerVersions', instance.onlyIncludeNewerVersions);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseFromJson(
@@ -2180,14 +2725,22 @@ WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseToJson(
-            WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'Versions': instance.versions?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('Versions', instance.versions?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateBuildDocument
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentFromJson(
@@ -2202,11 +2755,19 @@ WebApiModulesAdministratorSystemUpdateBuildDocument
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentToJson(
-            WebApiModulesAdministratorSystemUpdateBuildDocument instance) =>
-        <String, dynamic>{
-          'BuildNumber': instance.buildNumber,
-          'BuildDate': instance.buildDate?.toIso8601String(),
-        };
+        WebApiModulesAdministratorSystemUpdateBuildDocument instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BuildNumber', instance.buildNumber);
+  writeNotNull('BuildDate', instance.buildDate?.toIso8601String());
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestFromJson(
@@ -2219,12 +2780,19 @@ WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestToJson(
-            WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest
-                instance) =>
-        <String, dynamic>{
-          'CurrentVersion': instance.currentVersion,
-          'OnlyIncludeNewerVersions': instance.onlyIncludeNewerVersions,
-        };
+        WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CurrentVersion', instance.currentVersion);
+  writeNotNull('OnlyIncludeNewerVersions', instance.onlyIncludeNewerVersions);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseFromJson(
@@ -2248,15 +2816,23 @@ WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseToJson(
-            WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'DocumentsList': instance.documentsList,
-          'Documents': instance.documents?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('DocumentsList', instance.documentsList);
+  writeNotNull(
+      'Documents', instance.documents?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestFromJson(
@@ -2268,11 +2844,19 @@ WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestToJson(
-            WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
-                instance) =>
-        <String, dynamic>{
-          'Version': instance.version,
-        };
+        WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Version', instance.version);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseFromJson(
@@ -2287,14 +2871,22 @@ WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseToJson(
-            WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'downloadUrl': instance.downloadUrl,
-        };
+        WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestFromJson(
@@ -2306,11 +2898,19 @@ WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestToJson(
-            WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest
-                instance) =>
-        <String, dynamic>{
-          'Version': instance.version,
-        };
+        WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Version', instance.version);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseFromJson(
@@ -2325,14 +2925,22 @@ WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseToJson(
-            WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
-                instance) =>
-        <String, dynamic>{
-          'status': instance.status,
-          'success': instance.success,
-          'msg': instance.msg,
-          'Hotfix': instance.hotfix,
-        };
+        WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('Hotfix', instance.hotfix);
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
     _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryFromJson(
@@ -2370,23 +2978,31 @@ WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryToJson(
-            WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
-                instance) =>
-        <String, dynamic>{
-          'SystemUpdateHistoryId': instance.systemUpdateHistoryId,
-          'UsersId': instance.usersId,
-          'UserName': instance.userName,
-          'UpdateDateTime': instance.updateDateTime?.toIso8601String(),
-          'FromVersion': instance.fromVersion,
-          'ToVersion': instance.toVersion,
-          'ErrorMessage': instance.errorMessage,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SystemUpdateHistoryId', instance.systemUpdateHistoryId);
+  writeNotNull('UsersId', instance.usersId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('UpdateDateTime', instance.updateDateTime?.toIso8601String());
+  writeNotNull('FromVersion', instance.fromVersion);
+  writeNotNull('ToVersion', instance.toVersion);
+  writeNotNull('ErrorMessage', instance.errorMessage);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
     _$WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogFromJson(
@@ -2418,19 +3034,27 @@ WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogToJson(
-            WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
-                instance) =>
-        <String, dynamic>{
-          'SystemUpdateHistoryLogId': instance.systemUpdateHistoryLogId,
-          'SystemUpdateHistoryId': instance.systemUpdateHistoryId,
-          'Messsage': instance.messsage,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SystemUpdateHistoryLogId', instance.systemUpdateHistoryLogId);
+  writeNotNull('SystemUpdateHistoryId', instance.systemUpdateHistoryId);
+  writeNotNull('Messsage', instance.messsage);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
     Map<String, dynamic> json) {
@@ -2605,159 +3229,174 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
-        WebApiModulesAdministratorUserUser instance) =>
-    <String, dynamic>{
-      'UserId': instance.userId,
-      'Name': instance.name,
-      'LoginName': instance.loginName,
-      'FullName': instance.fullName,
-      'FirstName': instance.firstName,
-      'MiddleInitial': instance.middleInitial,
-      'LastName': instance.lastName,
-      'Password': instance.password,
-      'PasswordChanged': instance.passwordChanged,
-      'BarCode': instance.barCode,
-      'GroupId': instance.groupId,
-      'GroupName': instance.groupName,
-      'ScheduleColor': instance.scheduleColor,
-      'UserTitleId': instance.userTitleId,
-      'UserTitle': instance.userTitle,
-      'Email': instance.email,
-      'OfficeLocationId': instance.officeLocationId,
-      'OfficeLocation': instance.officeLocation,
-      'WarehouseId': instance.warehouseId,
-      'Warehouse': instance.warehouse,
-      'Address1': instance.address1,
-      'Address2': instance.address2,
-      'City': instance.city,
-      'State': instance.state,
-      'ZipCode': instance.zipCode,
-      'CountryId': instance.countryId,
-      'Country': instance.country,
-      'OfficePhone': instance.officePhone,
-      'OfficeExtension': instance.officeExtension,
-      'Fax': instance.fax,
-      'DirectPhone': instance.directPhone,
-      'Pager': instance.pager,
-      'PagerPin': instance.pagerPin,
-      'Cellular': instance.cellular,
-      'HomePhone': instance.homePhone,
-      'DefaultDepartmentType': instance.defaultDepartmentType,
-      'PrimaryDepartmentId': instance.primaryDepartmentId,
-      'PrimaryDepartment': instance.primaryDepartment,
-      'RentalDepartmentId': instance.rentalDepartmentId,
-      'RentalDepartment': instance.rentalDepartment,
-      'SalesDepartmentId': instance.salesDepartmentId,
-      'SalesDepartment': instance.salesDepartment,
-      'PartsDepartmentId': instance.partsDepartmentId,
-      'PartsDepartment': instance.partsDepartment,
-      'MiscDepartmentId': instance.miscDepartmentId,
-      'MiscDepartment': instance.miscDepartment,
-      'LaborDepartmentId': instance.laborDepartmentId,
-      'LaborDepartment': instance.laborDepartment,
-      'FacilityDepartmentId': instance.facilityDepartmentId,
-      'FacilityDepartment': instance.facilityDepartment,
-      'TransportationDepartmentId': instance.transportationDepartmentId,
-      'TransportationDepartment': instance.transportationDepartment,
-      'RentalInventoryTypeId': instance.rentalInventoryTypeId,
-      'RentalInventoryType': instance.rentalInventoryType,
-      'SalesInventoryTypeId': instance.salesInventoryTypeId,
-      'SalesInventoryType': instance.salesInventoryType,
-      'PartsInventoryTypeId': instance.partsInventoryTypeId,
-      'PartsInventoryType': instance.partsInventoryType,
-      'MiscTypeId': instance.miscTypeId,
-      'MiscType': instance.miscType,
-      'LaborTypeId': instance.laborTypeId,
-      'LaborType': instance.laborType,
-      'FacilityTypeId': instance.facilityTypeId,
-      'FacilityType': instance.facilityType,
-      'TransportationTypeId': instance.transportationTypeId,
-      'TransportationType': instance.transportationType,
-      'NoMiscellaneousOnQuotes': instance.noMiscellaneousOnQuotes,
-      'NoMiscellaneousOnOrders': instance.noMiscellaneousOnOrders,
-      'NoMiscellaneousOnPurchaseOrders':
-          instance.noMiscellaneousOnPurchaseOrders,
-      'LimitDaysPerWeek': instance.limitDaysPerWeek,
-      'MinimumDaysPerWeek': instance.minimumDaysPerWeek,
-      'AllowCreditLimitOverride': instance.allowCreditLimitOverride,
-      'LimitDiscount': instance.limitDiscount,
-      'MaximumDiscount': instance.maximumDiscount,
-      'LimitSubDiscount': instance.limitSubDiscount,
-      'MaximumSubDiscount': instance.maximumSubDiscount,
-      'DiscountRule': instance.discountRule,
-      'StagingAllowIncreaseDecreaseOrderQuantity':
-          instance.stagingAllowIncreaseDecreaseOrderQuantity,
-      'AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes':
-          instance.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
-      'AllowContractIfDealRequiresPOAndOrderHasPendingPO':
-          instance.allowContractIfDealRequiresPOAndOrderHasPendingPO,
-      'AllowContractIfPendingItemsExist':
-          instance.allowContractIfPendingItemsExist,
-      'AllowContractIfCustomerDealDoesNotHaveApprovedCredit':
-          instance.allowContractIfCustomerDealDoesNotHaveApprovedCredit,
-      'AllowContractIfCustomerDealIsOverTheirCreditLimit':
-          instance.allowContractIfCustomerDealIsOverTheirCreditLimit,
-      'AllowContractIfCustomerDealInsuranceCoverageIsLess':
-          instance.allowContractIfCustomerDealInsuranceCoverageIsLess,
-      'AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate':
-          instance
-              .allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
-      'AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate':
-          instance.allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
-      'AllowReceiveSubsWhenPositiveConflictExists':
-          instance.allowReceiveSubsWhenPositiveConflictExists,
-      'AllowStagingOfUnreservedConsignedItems':
-          instance.allowStagingOfUnreservedConsignedItems,
-      'AllowStagingOfUnapprovedItems': instance.allowStagingOfUnapprovedItems,
-      'AllowSubstitutesAtStaging': instance.allowSubstitutesAtStaging,
-      'DeleteOriginalOnSubstitution': instance.deleteOriginalOnSubstitution,
-      'QuikActivityAllowPrintDollarAmounts':
-          instance.quikActivityAllowPrintDollarAmounts,
-      'QuikScanAllowCreateContract': instance.quikScanAllowCreateContract,
-      'QuikScanAllowApplyAll': instance.quikScanAllowApplyAll,
-      'AllowCrossICodeExchange': instance.allowCrossICodeExchange,
-      'AllowCrossICodePendingExchange': instance.allowCrossICodePendingExchange,
-      'AllowChangeAvailabilityPriority':
-          instance.allowChangeAvailabilityPriority,
-      'UserMustChangePassword': instance.userMustChangePassword,
-      'PasswordExpires': instance.passwordExpires,
-      'PasswordExpireDays': instance.passwordExpireDays,
-      'PasswordUpdatedDateTime': instance.passwordUpdatedDateTime,
-      'AccountLocked': instance.accountLocked,
-      'Memo': instance.memo,
-      'AllowCrossLocationEditAndDelete':
-          instance.allowCrossLocationEditAndDelete,
-      'LastLoggedOn': instance.lastLoggedOn,
-      'Inactive': instance.inactive,
-      'DateStamp': instance.dateStamp,
-      'WebUserId': instance.webUserId,
-      'WebAccess': instance.webAccess,
-      'WebAdministrator': instance.webAdministrator,
-      'BrowseDefaultRows': instance.browseDefaultRows,
-      'ApplicationTheme': instance.applicationTheme,
-      'HomeMenuGuid': instance.homeMenuGuid,
-      'HomeMenuPath': instance.homeMenuPath,
-      'SuccessSoundId': instance.successSoundId,
-      'SuccessSound': instance.successSound,
-      'SuccessBase64Sound': instance.successBase64Sound,
-      'ErrorSoundId': instance.errorSoundId,
-      'ErrorSound': instance.errorSound,
-      'ErrorBase64Sound': instance.errorBase64Sound,
-      'NotificationSoundId': instance.notificationSoundId,
-      'NotificationSound': instance.notificationSound,
-      'NotificationBase64Sound': instance.notificationBase64Sound,
-      'FirstDayOfWeek': instance.firstDayOfWeek,
-      'SettingsNavigationMenuVisible': instance.settingsNavigationMenuVisible,
-      'ReportsNavigationMenuVisible': instance.reportsNavigationMenuVisible,
-      'WebQuoteRequest': instance.webQuoteRequest,
-      'EmailSignature': instance.emailSignature,
-      'Locale': instance.locale,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesAdministratorUserUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('UserId', instance.userId);
+  writeNotNull('Name', instance.name);
+  writeNotNull('LoginName', instance.loginName);
+  writeNotNull('FullName', instance.fullName);
+  writeNotNull('FirstName', instance.firstName);
+  writeNotNull('MiddleInitial', instance.middleInitial);
+  writeNotNull('LastName', instance.lastName);
+  writeNotNull('Password', instance.password);
+  writeNotNull('PasswordChanged', instance.passwordChanged);
+  writeNotNull('BarCode', instance.barCode);
+  writeNotNull('GroupId', instance.groupId);
+  writeNotNull('GroupName', instance.groupName);
+  writeNotNull('ScheduleColor', instance.scheduleColor);
+  writeNotNull('UserTitleId', instance.userTitleId);
+  writeNotNull('UserTitle', instance.userTitle);
+  writeNotNull('Email', instance.email);
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('OfficeLocation', instance.officeLocation);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('Address1', instance.address1);
+  writeNotNull('Address2', instance.address2);
+  writeNotNull('City', instance.city);
+  writeNotNull('State', instance.state);
+  writeNotNull('ZipCode', instance.zipCode);
+  writeNotNull('CountryId', instance.countryId);
+  writeNotNull('Country', instance.country);
+  writeNotNull('OfficePhone', instance.officePhone);
+  writeNotNull('OfficeExtension', instance.officeExtension);
+  writeNotNull('Fax', instance.fax);
+  writeNotNull('DirectPhone', instance.directPhone);
+  writeNotNull('Pager', instance.pager);
+  writeNotNull('PagerPin', instance.pagerPin);
+  writeNotNull('Cellular', instance.cellular);
+  writeNotNull('HomePhone', instance.homePhone);
+  writeNotNull('DefaultDepartmentType', instance.defaultDepartmentType);
+  writeNotNull('PrimaryDepartmentId', instance.primaryDepartmentId);
+  writeNotNull('PrimaryDepartment', instance.primaryDepartment);
+  writeNotNull('RentalDepartmentId', instance.rentalDepartmentId);
+  writeNotNull('RentalDepartment', instance.rentalDepartment);
+  writeNotNull('SalesDepartmentId', instance.salesDepartmentId);
+  writeNotNull('SalesDepartment', instance.salesDepartment);
+  writeNotNull('PartsDepartmentId', instance.partsDepartmentId);
+  writeNotNull('PartsDepartment', instance.partsDepartment);
+  writeNotNull('MiscDepartmentId', instance.miscDepartmentId);
+  writeNotNull('MiscDepartment', instance.miscDepartment);
+  writeNotNull('LaborDepartmentId', instance.laborDepartmentId);
+  writeNotNull('LaborDepartment', instance.laborDepartment);
+  writeNotNull('FacilityDepartmentId', instance.facilityDepartmentId);
+  writeNotNull('FacilityDepartment', instance.facilityDepartment);
+  writeNotNull(
+      'TransportationDepartmentId', instance.transportationDepartmentId);
+  writeNotNull('TransportationDepartment', instance.transportationDepartment);
+  writeNotNull('RentalInventoryTypeId', instance.rentalInventoryTypeId);
+  writeNotNull('RentalInventoryType', instance.rentalInventoryType);
+  writeNotNull('SalesInventoryTypeId', instance.salesInventoryTypeId);
+  writeNotNull('SalesInventoryType', instance.salesInventoryType);
+  writeNotNull('PartsInventoryTypeId', instance.partsInventoryTypeId);
+  writeNotNull('PartsInventoryType', instance.partsInventoryType);
+  writeNotNull('MiscTypeId', instance.miscTypeId);
+  writeNotNull('MiscType', instance.miscType);
+  writeNotNull('LaborTypeId', instance.laborTypeId);
+  writeNotNull('LaborType', instance.laborType);
+  writeNotNull('FacilityTypeId', instance.facilityTypeId);
+  writeNotNull('FacilityType', instance.facilityType);
+  writeNotNull('TransportationTypeId', instance.transportationTypeId);
+  writeNotNull('TransportationType', instance.transportationType);
+  writeNotNull('NoMiscellaneousOnQuotes', instance.noMiscellaneousOnQuotes);
+  writeNotNull('NoMiscellaneousOnOrders', instance.noMiscellaneousOnOrders);
+  writeNotNull('NoMiscellaneousOnPurchaseOrders',
+      instance.noMiscellaneousOnPurchaseOrders);
+  writeNotNull('LimitDaysPerWeek', instance.limitDaysPerWeek);
+  writeNotNull('MinimumDaysPerWeek', instance.minimumDaysPerWeek);
+  writeNotNull('AllowCreditLimitOverride', instance.allowCreditLimitOverride);
+  writeNotNull('LimitDiscount', instance.limitDiscount);
+  writeNotNull('MaximumDiscount', instance.maximumDiscount);
+  writeNotNull('LimitSubDiscount', instance.limitSubDiscount);
+  writeNotNull('MaximumSubDiscount', instance.maximumSubDiscount);
+  writeNotNull('DiscountRule', instance.discountRule);
+  writeNotNull('StagingAllowIncreaseDecreaseOrderQuantity',
+      instance.stagingAllowIncreaseDecreaseOrderQuantity);
+  writeNotNull('AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes',
+      instance.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes);
+  writeNotNull('AllowContractIfDealRequiresPOAndOrderHasPendingPO',
+      instance.allowContractIfDealRequiresPOAndOrderHasPendingPO);
+  writeNotNull('AllowContractIfPendingItemsExist',
+      instance.allowContractIfPendingItemsExist);
+  writeNotNull('AllowContractIfCustomerDealDoesNotHaveApprovedCredit',
+      instance.allowContractIfCustomerDealDoesNotHaveApprovedCredit);
+  writeNotNull('AllowContractIfCustomerDealIsOverTheirCreditLimit',
+      instance.allowContractIfCustomerDealIsOverTheirCreditLimit);
+  writeNotNull('AllowContractIfCustomerDealInsuranceCoverageIsLess',
+      instance.allowContractIfCustomerDealInsuranceCoverageIsLess);
+  writeNotNull(
+      'AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate',
+      instance.allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate);
+  writeNotNull('AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate',
+      instance.allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate);
+  writeNotNull('AllowReceiveSubsWhenPositiveConflictExists',
+      instance.allowReceiveSubsWhenPositiveConflictExists);
+  writeNotNull('AllowStagingOfUnreservedConsignedItems',
+      instance.allowStagingOfUnreservedConsignedItems);
+  writeNotNull(
+      'AllowStagingOfUnapprovedItems', instance.allowStagingOfUnapprovedItems);
+  writeNotNull('AllowSubstitutesAtStaging', instance.allowSubstitutesAtStaging);
+  writeNotNull(
+      'DeleteOriginalOnSubstitution', instance.deleteOriginalOnSubstitution);
+  writeNotNull('QuikActivityAllowPrintDollarAmounts',
+      instance.quikActivityAllowPrintDollarAmounts);
+  writeNotNull(
+      'QuikScanAllowCreateContract', instance.quikScanAllowCreateContract);
+  writeNotNull('QuikScanAllowApplyAll', instance.quikScanAllowApplyAll);
+  writeNotNull('AllowCrossICodeExchange', instance.allowCrossICodeExchange);
+  writeNotNull('AllowCrossICodePendingExchange',
+      instance.allowCrossICodePendingExchange);
+  writeNotNull('AllowChangeAvailabilityPriority',
+      instance.allowChangeAvailabilityPriority);
+  writeNotNull('UserMustChangePassword', instance.userMustChangePassword);
+  writeNotNull('PasswordExpires', instance.passwordExpires);
+  writeNotNull('PasswordExpireDays', instance.passwordExpireDays);
+  writeNotNull('PasswordUpdatedDateTime', instance.passwordUpdatedDateTime);
+  writeNotNull('AccountLocked', instance.accountLocked);
+  writeNotNull('Memo', instance.memo);
+  writeNotNull('AllowCrossLocationEditAndDelete',
+      instance.allowCrossLocationEditAndDelete);
+  writeNotNull('LastLoggedOn', instance.lastLoggedOn);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('WebAccess', instance.webAccess);
+  writeNotNull('WebAdministrator', instance.webAdministrator);
+  writeNotNull('BrowseDefaultRows', instance.browseDefaultRows);
+  writeNotNull('ApplicationTheme', instance.applicationTheme);
+  writeNotNull('HomeMenuGuid', instance.homeMenuGuid);
+  writeNotNull('HomeMenuPath', instance.homeMenuPath);
+  writeNotNull('SuccessSoundId', instance.successSoundId);
+  writeNotNull('SuccessSound', instance.successSound);
+  writeNotNull('SuccessBase64Sound', instance.successBase64Sound);
+  writeNotNull('ErrorSoundId', instance.errorSoundId);
+  writeNotNull('ErrorSound', instance.errorSound);
+  writeNotNull('ErrorBase64Sound', instance.errorBase64Sound);
+  writeNotNull('NotificationSoundId', instance.notificationSoundId);
+  writeNotNull('NotificationSound', instance.notificationSound);
+  writeNotNull('NotificationBase64Sound', instance.notificationBase64Sound);
+  writeNotNull('FirstDayOfWeek', instance.firstDayOfWeek);
+  writeNotNull(
+      'SettingsNavigationMenuVisible', instance.settingsNavigationMenuVisible);
+  writeNotNull(
+      'ReportsNavigationMenuVisible', instance.reportsNavigationMenuVisible);
+  writeNotNull('WebQuoteRequest', instance.webQuoteRequest);
+  writeNotNull('EmailSignature', instance.emailSignature);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorUserUserCountResponse
     _$WebApiModulesAdministratorUserUserCountResponseFromJson(
@@ -2769,11 +3408,19 @@ WebApiModulesAdministratorUserUserCountResponse
 }
 
 Map<String, dynamic> _$WebApiModulesAdministratorUserUserCountResponseToJson(
-        WebApiModulesAdministratorUserUserCountResponse instance) =>
-    <String, dynamic>{
-      'MaxConnections': instance.maxConnections,
-      'UserCount': instance.userCount,
-    };
+    WebApiModulesAdministratorUserUserCountResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('MaxConnections', instance.maxConnections);
+  writeNotNull('UserCount', instance.userCount);
+  return val;
+}
 
 WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
     _$WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupFromJson(
@@ -2807,21 +3454,29 @@ WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupToJson(
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
-                instance) =>
-        <String, dynamic>{
-          'CustomFormGroupId': instance.customFormGroupId,
-          'CustomFormId': instance.customFormId,
-          'CustomFormDescription': instance.customFormDescription,
-          'GroupId': instance.groupId,
-          'GroupName': instance.groupName,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomFormGroupId', instance.customFormGroupId);
+  writeNotNull('CustomFormId', instance.customFormId);
+  writeNotNull('CustomFormDescription', instance.customFormDescription);
+  writeNotNull('GroupId', instance.groupId);
+  writeNotNull('GroupName', instance.groupName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
     _$WebApiModulesAdministratorControlsCustomFormUserCustomFormUserFromJson(
@@ -2856,22 +3511,30 @@ WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomFormUserCustomFormUserToJson(
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
-                instance) =>
-        <String, dynamic>{
-          'CustomFormUserId': instance.customFormUserId,
-          'CustomFormId': instance.customFormId,
-          'CustomFormDescription': instance.customFormDescription,
-          'WebUserId': instance.webUserId,
-          'UserId': instance.userId,
-          'UserName': instance.userName,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomFormUserId', instance.customFormUserId);
+  writeNotNull('CustomFormId', instance.customFormId);
+  writeNotNull('CustomFormDescription', instance.customFormDescription);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserId', instance.userId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorControlsCustomModuleCustomModule
     _$WebApiModulesAdministratorControlsCustomModuleCustomModuleFromJson(
@@ -2898,17 +3561,25 @@ WebApiModulesAdministratorControlsCustomModuleCustomModule
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAdministratorControlsCustomModuleCustomModuleToJson(
-        WebApiModulesAdministratorControlsCustomModuleCustomModule instance) =>
-    <String, dynamic>{
-      'ModuleName': instance.moduleName,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic>
+    _$WebApiModulesAdministratorControlsCustomModuleCustomModuleToJson(
+        WebApiModulesAdministratorControlsCustomModuleCustomModule instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
     _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupFromJson(
@@ -2943,22 +3614,30 @@ WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupToJson(
-            WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
-                instance) =>
-        <String, dynamic>{
-          'CustomReportLayoutGroupId': instance.customReportLayoutGroupId,
-          'CustomReportLayoutId': instance.customReportLayoutId,
-          'CustomReportLayoutDescription':
-              instance.customReportLayoutDescription,
-          'GroupId': instance.groupId,
-          'GroupName': instance.groupName,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomReportLayoutGroupId', instance.customReportLayoutGroupId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull(
+      'CustomReportLayoutDescription', instance.customReportLayoutDescription);
+  writeNotNull('GroupId', instance.groupId);
+  writeNotNull('GroupName', instance.groupName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
     _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldFromJson(
@@ -2990,19 +3669,27 @@ WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldToJson(
-            WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-                instance) =>
-        <String, dynamic>{
-          'DuplicateRuleFieldId': instance.duplicateRuleFieldId,
-          'DuplicateRuleId': instance.duplicateRuleId,
-          'FieldName': instance.fieldName,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DuplicateRuleFieldId', instance.duplicateRuleFieldId);
+  writeNotNull('DuplicateRuleId', instance.duplicateRuleId);
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSettingsWidgetGroupWidgetGroup
     _$WebApiModulesSettingsWidgetGroupWidgetGroupFromJson(
@@ -3035,20 +3722,28 @@ WebApiModulesSettingsWidgetGroupWidgetGroup
 }
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(
-        WebApiModulesSettingsWidgetGroupWidgetGroup instance) =>
-    <String, dynamic>{
-      'WidgetGroupId': instance.widgetGroupId,
-      'WidgetId': instance.widgetId,
-      'WidgetDescription': instance.widgetDescription,
-      'GroupId': instance.groupId,
-      'GroupName': instance.groupName,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesSettingsWidgetGroupWidgetGroup instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WidgetGroupId', instance.widgetGroupId);
+  writeNotNull('WidgetId', instance.widgetId);
+  writeNotNull('WidgetDescription', instance.widgetDescription);
+  writeNotNull('GroupId', instance.groupId);
+  writeNotNull('GroupName', instance.groupName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSettingsWidgetUserWidgetUser
     _$WebApiModulesSettingsWidgetUserWidgetUserFromJson(
@@ -3082,21 +3777,29 @@ WebApiModulesSettingsWidgetUserWidgetUser
 }
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetUserWidgetUserToJson(
-        WebApiModulesSettingsWidgetUserWidgetUser instance) =>
-    <String, dynamic>{
-      'WidgetUserId': instance.widgetUserId,
-      'WidgetId': instance.widgetId,
-      'WidgetDescription': instance.widgetDescription,
-      'WebUserId': instance.webUserId,
-      'UserId': instance.userId,
-      'UserName': instance.userName,
-      'DateStamp': instance.dateStamp,
-      'RecordTitle': instance.recordTitle,
-      '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-      '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-      '_DefaultFieldAttributes':
-          instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-    };
+    WebApiModulesSettingsWidgetUserWidgetUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WidgetUserId', instance.widgetUserId);
+  writeNotNull('WidgetId', instance.widgetId);
+  writeNotNull('WidgetDescription', instance.widgetDescription);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserId', instance.userId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
     _$WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserFromJson(
@@ -3132,20 +3835,28 @@ WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
 
 Map<String, dynamic>
     _$WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserToJson(
-            WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
-                instance) =>
-        <String, dynamic>{
-          'CustomReportLayoutUserId': instance.customReportLayoutUserId,
-          'CustomReportLayoutId': instance.customReportLayoutId,
-          'CustomReportLayoutDescription':
-              instance.customReportLayoutDescription,
-          'WebUserId': instance.webUserId,
-          'UserId': instance.userId,
-          'UserName': instance.userName,
-          'DateStamp': instance.dateStamp,
-          'RecordTitle': instance.recordTitle,
-          '_Fields': instance.fields?.map((e) => e.toJson()).toList(),
-          '_Custom': instance.custom?.map((e) => e.toJson()).toList(),
-          '_DefaultFieldAttributes':
-              instance.defaultFieldAttributes?.map((e) => e.toJson()).toList(),
-        };
+        WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomReportLayoutUserId', instance.customReportLayoutUserId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull(
+      'CustomReportLayoutDescription', instance.customReportLayoutDescription);
+  writeNotNull('WebUserId', instance.webUserId);
+  writeNotNull('UserId', instance.userId);
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}

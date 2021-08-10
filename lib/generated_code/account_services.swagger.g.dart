@@ -29,14 +29,22 @@ FwCoreControllersFwJwtControllerJwtResponseModel
 }
 
 Map<String, dynamic> _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(
-        FwCoreControllersFwJwtControllerJwtResponseModel instance) =>
-    <String, dynamic>{
-      'statuscode': instance.statuscode,
-      'statusmessage': instance.statusmessage,
-      'access_token': instance.accessToken,
-      'expires_in': instance.expiresIn,
-      'resetpassword': instance.resetpassword,
-    };
+    FwCoreControllersFwJwtControllerJwtResponseModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('statuscode', instance.statuscode);
+  writeNotNull('statusmessage', instance.statusmessage);
+  writeNotNull('access_token', instance.accessToken);
+  writeNotNull('expires_in', instance.expiresIn);
+  writeNotNull('resetpassword', instance.resetpassword);
+  return val;
+}
 
 FwStandardAppManagerFwAmSecurityTreeNode
     _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(
@@ -55,14 +63,22 @@ FwStandardAppManagerFwAmSecurityTreeNode
 }
 
 Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
-        FwStandardAppManagerFwAmSecurityTreeNode instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'caption': instance.caption,
-      'nodetype': instance.nodetype,
-      'properties': instance.properties,
-      'children': instance.children?.map((e) => e.toJson()).toList(),
-    };
+    FwStandardAppManagerFwAmSecurityTreeNode instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('caption', instance.caption);
+  writeNotNull('nodetype', instance.nodetype);
+  writeNotNull('properties', instance.properties);
+  writeNotNull('children', instance.children?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
     Map<String, dynamic> json) {
@@ -74,12 +90,20 @@ FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-        FwStandardModelsFwApiException instance) =>
-    <String, dynamic>{
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-      'StackTrace': instance.stackTrace,
-    };
+    FwStandardModelsFwApiException instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  writeNotNull('StackTrace', instance.stackTrace);
+  return val;
+}
 
 FwStandardModelsFwApplicationUser _$FwStandardModelsFwApplicationUserFromJson(
     Map<String, dynamic> json) {
@@ -90,11 +114,19 @@ FwStandardModelsFwApplicationUser _$FwStandardModelsFwApplicationUserFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
-        FwStandardModelsFwApplicationUser instance) =>
-    <String, dynamic>{
-      'UserName': instance.userName,
-      'Password': instance.password,
-    };
+    FwStandardModelsFwApplicationUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('UserName', instance.userName);
+  writeNotNull('Password', instance.password);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     Map<String, dynamic> json) {
@@ -123,19 +155,27 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-        FwStandardSqlServerFwJsonDataTable instance) =>
-    <String, dynamic>{
-      'ColumnIndex': instance.columnIndex,
-      'Totals': instance.totals,
-      'Columns': instance.columns?.map((e) => e.toJson()).toList(),
-      'Rows': instance.rows,
-      'PageNo': instance.pageNo,
-      'PageSize': instance.pageSize,
-      'TotalPages': instance.totalPages,
-      'TotalRows': instance.totalRows,
-      'DateFields': instance.dateFields,
-      'ColumnNameByIndex': instance.columnNameByIndex,
-    };
+    FwStandardSqlServerFwJsonDataTable instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ColumnIndex', instance.columnIndex);
+  writeNotNull('Totals', instance.totals);
+  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
+  writeNotNull('Rows', instance.rows);
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalPages', instance.totalPages);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('DateFields', instance.dateFields);
+  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -151,14 +191,23 @@ FwStandardSqlServerFwJsonDataTableColumn
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-        FwStandardSqlServerFwJsonDataTableColumn instance) =>
-    <String, dynamic>{
-      'Name': instance.name,
-      'DataField': instance.dataField,
-      'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-      'IsUniqueId': instance.isUniqueId,
-      'IsVisible': instance.isVisible,
-    };
+    FwStandardSqlServerFwJsonDataTableColumn instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull('DataField', instance.dataField);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  writeNotNull('IsUniqueId', instance.isUniqueId);
+  writeNotNull('IsVisible', instance.isVisible);
+  return val;
+}
 
 WebApiLogicAppFuncCustomFieldsResponse
     _$WebApiLogicAppFuncCustomFieldsResponseFromJson(
@@ -172,10 +221,18 @@ WebApiLogicAppFuncCustomFieldsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFieldsResponseToJson(
-        WebApiLogicAppFuncCustomFieldsResponse instance) =>
-    <String, dynamic>{
-      'ModuleNames': instance.moduleNames,
-    };
+    WebApiLogicAppFuncCustomFieldsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ModuleNames', instance.moduleNames);
+  return val;
+}
 
 WebApiLogicAppFuncCustomFormModel _$WebApiLogicAppFuncCustomFormModelFromJson(
     Map<String, dynamic> json) {
@@ -190,15 +247,23 @@ WebApiLogicAppFuncCustomFormModel _$WebApiLogicAppFuncCustomFormModelFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormModelToJson(
-        WebApiLogicAppFuncCustomFormModel instance) =>
-    <String, dynamic>{
-      'BaseForm': instance.baseForm,
-      'CustomFormId': instance.customFormId,
-      'Description': instance.description,
-      'ThisUserOnly': instance.thisUserOnly,
-      'Html': instance.html,
-      'AssignTo': instance.assignTo,
-    };
+    WebApiLogicAppFuncCustomFormModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BaseForm', instance.baseForm);
+  writeNotNull('CustomFormId', instance.customFormId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('ThisUserOnly', instance.thisUserOnly);
+  writeNotNull('Html', instance.html);
+  writeNotNull('AssignTo', instance.assignTo);
+  return val;
+}
 
 WebApiLogicAppFuncCustomFormsResponse
     _$WebApiLogicAppFuncCustomFormsResponseFromJson(Map<String, dynamic> json) {
@@ -212,10 +277,19 @@ WebApiLogicAppFuncCustomFormsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormsResponseToJson(
-        WebApiLogicAppFuncCustomFormsResponse instance) =>
-    <String, dynamic>{
-      'customForms': instance.customForms?.map((e) => e.toJson()).toList(),
-    };
+    WebApiLogicAppFuncCustomFormsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'customForms', instance.customForms?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiLogicAppFuncDefaultSettingsResponse
     _$WebApiLogicAppFuncDefaultSettingsResponseFromJson(
@@ -246,29 +320,39 @@ WebApiLogicAppFuncDefaultSettingsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
-        WebApiLogicAppFuncDefaultSettingsResponse instance) =>
-    <String, dynamic>{
-      'DefaultUnitId': instance.defaultUnitId,
-      'DefaultUnit': instance.defaultUnit,
-      'DefaultDealStatusId': instance.defaultDealStatusId,
-      'DefaultDealStatus': instance.defaultDealStatus,
-      'DefaultDealPoRequired': instance.defaultDealPoRequired,
-      'DefaultDealPoType': instance.defaultDealPoType,
-      'DefaultCustomerStatusId': instance.defaultCustomerStatusId,
-      'DefaultCustomerStatus': instance.defaultCustomerStatus,
-      'DefaultDealBillingCycleId': instance.defaultDealBillingCycleId,
-      'DefaultDealBillingCycle': instance.defaultDealBillingCycle,
-      'DefaultNonRecurringBillingCycleId':
-          instance.defaultNonRecurringBillingCycleId,
-      'DefaultNonRecurringBillingCycle':
-          instance.defaultNonRecurringBillingCycle,
-      'DefaultCustomerPaymentTermsId': instance.defaultCustomerPaymentTermsId,
-      'DefaultCustomerPaymentTerms': instance.defaultCustomerPaymentTerms,
-      'DefaultRank': instance.defaultRank,
-      'DefaultCreditStatusId': instance.defaultCreditStatusId,
-      'DefaultCreditStatus': instance.defaultCreditStatus,
-      'ContactShowAllDeals': instance.contactShowAllDeals,
-    };
+    WebApiLogicAppFuncDefaultSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DefaultUnitId', instance.defaultUnitId);
+  writeNotNull('DefaultUnit', instance.defaultUnit);
+  writeNotNull('DefaultDealStatusId', instance.defaultDealStatusId);
+  writeNotNull('DefaultDealStatus', instance.defaultDealStatus);
+  writeNotNull('DefaultDealPoRequired', instance.defaultDealPoRequired);
+  writeNotNull('DefaultDealPoType', instance.defaultDealPoType);
+  writeNotNull('DefaultCustomerStatusId', instance.defaultCustomerStatusId);
+  writeNotNull('DefaultCustomerStatus', instance.defaultCustomerStatus);
+  writeNotNull('DefaultDealBillingCycleId', instance.defaultDealBillingCycleId);
+  writeNotNull('DefaultDealBillingCycle', instance.defaultDealBillingCycle);
+  writeNotNull('DefaultNonRecurringBillingCycleId',
+      instance.defaultNonRecurringBillingCycleId);
+  writeNotNull('DefaultNonRecurringBillingCycle',
+      instance.defaultNonRecurringBillingCycle);
+  writeNotNull(
+      'DefaultCustomerPaymentTermsId', instance.defaultCustomerPaymentTermsId);
+  writeNotNull(
+      'DefaultCustomerPaymentTerms', instance.defaultCustomerPaymentTerms);
+  writeNotNull('DefaultRank', instance.defaultRank);
+  writeNotNull('DefaultCreditStatusId', instance.defaultCreditStatusId);
+  writeNotNull('DefaultCreditStatus', instance.defaultCreditStatus);
+  writeNotNull('ContactShowAllDeals', instance.contactShowAllDeals);
+  return val;
+}
 
 WebApiLogicAppFuncDepartmentActivitiesResponse
     _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson(
@@ -286,16 +370,26 @@ WebApiLogicAppFuncDepartmentActivitiesResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(
-        WebApiLogicAppFuncDepartmentActivitiesResponse instance) =>
-    <String, dynamic>{
-      'DefaultActivityFacilities': instance.defaultActivityFacilities,
-      'DefaultActivityLabor': instance.defaultActivityLabor,
-      'DefaultActivityMiscellaneous': instance.defaultActivityMiscellaneous,
-      'DefaultActivityRental': instance.defaultActivityRental,
-      'DefaultActivitySales': instance.defaultActivitySales,
-      'DefaultActivityTransportation': instance.defaultActivityTransportation,
-      'DefaultActivityRentalSale': instance.defaultActivityRentalSale,
-    };
+    WebApiLogicAppFuncDepartmentActivitiesResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DefaultActivityFacilities', instance.defaultActivityFacilities);
+  writeNotNull('DefaultActivityLabor', instance.defaultActivityLabor);
+  writeNotNull(
+      'DefaultActivityMiscellaneous', instance.defaultActivityMiscellaneous);
+  writeNotNull('DefaultActivityRental', instance.defaultActivityRental);
+  writeNotNull('DefaultActivitySales', instance.defaultActivitySales);
+  writeNotNull(
+      'DefaultActivityTransportation', instance.defaultActivityTransportation);
+  writeNotNull('DefaultActivityRentalSale', instance.defaultActivityRentalSale);
+  return val;
+}
 
 WebApiLogicAppFuncDocumentBarcodeSettingsResponse
     _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson(
@@ -306,10 +400,18 @@ WebApiLogicAppFuncDocumentBarcodeSettingsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(
-        WebApiLogicAppFuncDocumentBarcodeSettingsResponse instance) =>
-    <String, dynamic>{
-      'DocumentBarCodeStyle': instance.documentBarCodeStyle,
-    };
+    WebApiLogicAppFuncDocumentBarcodeSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DocumentBarCodeStyle', instance.documentBarCodeStyle);
+  return val;
+}
 
 WebApiLogicAppFuncGetSettingsResponse
     _$WebApiLogicAppFuncGetSettingsResponseFromJson(Map<String, dynamic> json) {
@@ -359,20 +461,29 @@ WebApiLogicAppFuncGetSettingsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
-        WebApiLogicAppFuncGetSettingsResponse instance) =>
-    <String, dynamic>{
-      'userSettings': instance.userSettings?.toJson(),
-      'customFields': instance.customFields?.toJson(),
-      'customForms': instance.customForms?.toJson(),
-      'defaultSettings': instance.defaultSettings?.toJson(),
-      'inventorySettings': instance.inventorySettings?.toJson(),
-      'systemSettings': instance.systemSettings?.toJson(),
-      'department': instance.department?.toJson(),
-      'documentBarcodeSettings': instance.documentBarcodeSettings?.toJson(),
-      'systemNumbers': instance.systemNumbers?.toJson(),
-      'warehouses': instance.warehouses?.toJson(),
-      'isTraining': instance.isTraining,
-    };
+    WebApiLogicAppFuncGetSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('userSettings', instance.userSettings?.toJson());
+  writeNotNull('customFields', instance.customFields?.toJson());
+  writeNotNull('customForms', instance.customForms?.toJson());
+  writeNotNull('defaultSettings', instance.defaultSettings?.toJson());
+  writeNotNull('inventorySettings', instance.inventorySettings?.toJson());
+  writeNotNull('systemSettings', instance.systemSettings?.toJson());
+  writeNotNull('department', instance.department?.toJson());
+  writeNotNull(
+      'documentBarcodeSettings', instance.documentBarcodeSettings?.toJson());
+  writeNotNull('systemNumbers', instance.systemNumbers?.toJson());
+  writeNotNull('warehouses', instance.warehouses?.toJson());
+  writeNotNull('isTraining', instance.isTraining);
+  return val;
+}
 
 WebApiLogicAppFuncInventorySettingsResponse
     _$WebApiLogicAppFuncInventorySettingsResponseFromJson(
@@ -397,23 +508,32 @@ WebApiLogicAppFuncInventorySettingsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
-        WebApiLogicAppFuncInventorySettingsResponse instance) =>
-    <String, dynamic>{
-      'ICodeMask': instance.iCodeMask,
-      'UserAssignedICodes': instance.userAssignedICodes,
-      'Enable3WeekPricing': instance.enable3WeekPricing,
-      'AutoUpdateInventoryMetricImperialDimensions':
-          instance.autoUpdateInventoryMetricImperialDimensions,
-      'EnableConsignment': instance.enableConsignment,
-      'EnableLease': instance.enableLease,
-      'DefaultRentalSaleRetiredReasonId':
-          instance.defaultRentalSaleRetiredReasonId,
-      'DefaultRentalSaleRetiredReason': instance.defaultRentalSaleRetiredReason,
-      'DefaultLossAndDamageRetiredReasonId':
-          instance.defaultLossAndDamageRetiredReasonId,
-      'DefaultLossAndDamageRetiredReason':
-          instance.defaultLossAndDamageRetiredReason,
-    };
+    WebApiLogicAppFuncInventorySettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ICodeMask', instance.iCodeMask);
+  writeNotNull('UserAssignedICodes', instance.userAssignedICodes);
+  writeNotNull('Enable3WeekPricing', instance.enable3WeekPricing);
+  writeNotNull('AutoUpdateInventoryMetricImperialDimensions',
+      instance.autoUpdateInventoryMetricImperialDimensions);
+  writeNotNull('EnableConsignment', instance.enableConsignment);
+  writeNotNull('EnableLease', instance.enableLease);
+  writeNotNull('DefaultRentalSaleRetiredReasonId',
+      instance.defaultRentalSaleRetiredReasonId);
+  writeNotNull('DefaultRentalSaleRetiredReason',
+      instance.defaultRentalSaleRetiredReason);
+  writeNotNull('DefaultLossAndDamageRetiredReasonId',
+      instance.defaultLossAndDamageRetiredReasonId);
+  writeNotNull('DefaultLossAndDamageRetiredReason',
+      instance.defaultLossAndDamageRetiredReason);
+  return val;
+}
 
 WebApiLogicAppFuncSessionDeal _$WebApiLogicAppFuncSessionDealFromJson(
     Map<String, dynamic> json) {
@@ -424,11 +544,19 @@ WebApiLogicAppFuncSessionDeal _$WebApiLogicAppFuncSessionDealFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionDealToJson(
-        WebApiLogicAppFuncSessionDeal instance) =>
-    <String, dynamic>{
-      'dealid': instance.dealid,
-      'deal': instance.deal,
-    };
+    WebApiLogicAppFuncSessionDeal instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('dealid', instance.dealid);
+  writeNotNull('deal', instance.deal);
+  return val;
+}
 
 WebApiLogicAppFuncSessionDepartment
     _$WebApiLogicAppFuncSessionDepartmentFromJson(Map<String, dynamic> json) {
@@ -439,11 +567,19 @@ WebApiLogicAppFuncSessionDepartment
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionDepartmentToJson(
-        WebApiLogicAppFuncSessionDepartment instance) =>
-    <String, dynamic>{
-      'departmentid': instance.departmentid,
-      'department': instance.department,
-    };
+    WebApiLogicAppFuncSessionDepartment instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('departmentid', instance.departmentid);
+  writeNotNull('department', instance.department);
+  return val;
+}
 
 WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
     Map<String, dynamic> json) {
@@ -467,24 +603,32 @@ WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
-        WebApiLogicAppFuncSessionLocation instance) =>
-    <String, dynamic>{
-      'locationid': instance.locationid,
-      'location': instance.location,
-      'locationcode': instance.locationcode,
-      'companyname': instance.companyname,
-      'locationcolor': instance.locationcolor,
-      'ratetype': instance.ratetype,
-      'ratetypedisplay': instance.ratetypedisplay,
-      'defaultcurrency': instance.defaultcurrency,
-      'defaultcurrencyid': instance.defaultcurrencyid,
-      'defaultcurrencycode': instance.defaultcurrencycode,
-      'defaultcurrencysymbol': instance.defaultcurrencysymbol,
-      'countryid': instance.countryid,
-      'country': instance.country,
-      'phone': instance.phone,
-      'useorderlocationbydefault': instance.useorderlocationbydefault,
-    };
+    WebApiLogicAppFuncSessionLocation instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('locationid', instance.locationid);
+  writeNotNull('location', instance.location);
+  writeNotNull('locationcode', instance.locationcode);
+  writeNotNull('companyname', instance.companyname);
+  writeNotNull('locationcolor', instance.locationcolor);
+  writeNotNull('ratetype', instance.ratetype);
+  writeNotNull('ratetypedisplay', instance.ratetypedisplay);
+  writeNotNull('defaultcurrency', instance.defaultcurrency);
+  writeNotNull('defaultcurrencyid', instance.defaultcurrencyid);
+  writeNotNull('defaultcurrencycode', instance.defaultcurrencycode);
+  writeNotNull('defaultcurrencysymbol', instance.defaultcurrencysymbol);
+  writeNotNull('countryid', instance.countryid);
+  writeNotNull('country', instance.country);
+  writeNotNull('phone', instance.phone);
+  writeNotNull('useorderlocationbydefault', instance.useorderlocationbydefault);
+  return val;
+}
 
 WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
     Map<String, dynamic> json) {
@@ -529,44 +673,60 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
-        WebApiLogicAppFuncSessionUser instance) =>
-    <String, dynamic>{
-      'webusersid': instance.webusersid,
-      'usersid': instance.usersid,
-      'contactid': instance.contactid,
-      'usertype': instance.usertype,
-      'email': instance.email,
-      'fullname': instance.fullname,
-      'name': instance.name,
-      'browsedefaultrows': instance.browsedefaultrows,
-      'applicationtheme': instance.applicationtheme,
-      'locationid': instance.locationid,
-      'location': instance.location,
-      'warehouseid': instance.warehouseid,
-      'warehouse': instance.warehouse,
-      'departmentid': instance.departmentid,
-      'department': instance.department,
-      'webadministrator': instance.webadministrator,
-      'firstdayofweek': instance.firstdayofweek,
-      'rentalinventorydepartmentid': instance.rentalinventorydepartmentid,
-      'rentalinventorydepartment': instance.rentalinventorydepartment,
-      'salesinventorydepartmentid': instance.salesinventorydepartmentid,
-      'salesinventorydepartment': instance.salesinventorydepartment,
-      'partsinventorydepartmentid': instance.partsinventorydepartmentid,
-      'partsinventorydepartment': instance.partsinventorydepartment,
-      'transportationinvdepartmentid': instance.transportationinvdepartmentid,
-      'transportationinvdepartment': instance.transportationinvdepartment,
-      'laborinventorydepartmentid': instance.laborinventorydepartmentid,
-      'laborinventorydepartment': instance.laborinventorydepartment,
-      'miscinventorydepartmentid': instance.miscinventorydepartmentid,
-      'miscinventorydepartment': instance.miscinventorydepartment,
-      'spaceinventorydepartmentid': instance.spaceinventorydepartmentid,
-      'spaceinventorydepartment': instance.spaceinventorydepartment,
-      'iscrew': instance.iscrew,
-      'enablecreatecontract': instance.enablecreatecontract,
-      'qsallowapplyallqtyitems': instance.qsallowapplyallqtyitems,
-      'allowcontractwithexceptions': instance.allowcontractwithexceptions,
-    };
+    WebApiLogicAppFuncSessionUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('webusersid', instance.webusersid);
+  writeNotNull('usersid', instance.usersid);
+  writeNotNull('contactid', instance.contactid);
+  writeNotNull('usertype', instance.usertype);
+  writeNotNull('email', instance.email);
+  writeNotNull('fullname', instance.fullname);
+  writeNotNull('name', instance.name);
+  writeNotNull('browsedefaultrows', instance.browsedefaultrows);
+  writeNotNull('applicationtheme', instance.applicationtheme);
+  writeNotNull('locationid', instance.locationid);
+  writeNotNull('location', instance.location);
+  writeNotNull('warehouseid', instance.warehouseid);
+  writeNotNull('warehouse', instance.warehouse);
+  writeNotNull('departmentid', instance.departmentid);
+  writeNotNull('department', instance.department);
+  writeNotNull('webadministrator', instance.webadministrator);
+  writeNotNull('firstdayofweek', instance.firstdayofweek);
+  writeNotNull(
+      'rentalinventorydepartmentid', instance.rentalinventorydepartmentid);
+  writeNotNull('rentalinventorydepartment', instance.rentalinventorydepartment);
+  writeNotNull(
+      'salesinventorydepartmentid', instance.salesinventorydepartmentid);
+  writeNotNull('salesinventorydepartment', instance.salesinventorydepartment);
+  writeNotNull(
+      'partsinventorydepartmentid', instance.partsinventorydepartmentid);
+  writeNotNull('partsinventorydepartment', instance.partsinventorydepartment);
+  writeNotNull(
+      'transportationinvdepartmentid', instance.transportationinvdepartmentid);
+  writeNotNull(
+      'transportationinvdepartment', instance.transportationinvdepartment);
+  writeNotNull(
+      'laborinventorydepartmentid', instance.laborinventorydepartmentid);
+  writeNotNull('laborinventorydepartment', instance.laborinventorydepartment);
+  writeNotNull('miscinventorydepartmentid', instance.miscinventorydepartmentid);
+  writeNotNull('miscinventorydepartment', instance.miscinventorydepartment);
+  writeNotNull(
+      'spaceinventorydepartmentid', instance.spaceinventorydepartmentid);
+  writeNotNull('spaceinventorydepartment', instance.spaceinventorydepartment);
+  writeNotNull('iscrew', instance.iscrew);
+  writeNotNull('enablecreatecontract', instance.enablecreatecontract);
+  writeNotNull('qsallowapplyallqtyitems', instance.qsallowapplyallqtyitems);
+  writeNotNull(
+      'allowcontractwithexceptions', instance.allowcontractwithexceptions);
+  return val;
+}
 
 WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
     Map<String, dynamic> json) {
@@ -585,17 +745,29 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
-        WebApiLogicAppFuncSessionWarehouse instance) =>
-    <String, dynamic>{
-      'warehouseid': instance.warehouseid,
-      'warehouse': instance.warehouse,
-      'warehousecode': instance.warehousecode,
-      'promptforcheckoutexceptions': instance.promptforcheckoutexceptions,
-      'promptforcheckinexceptions': instance.promptforcheckinexceptions,
-      'storagecontainerstagingenable': instance.storagecontainerstagingenable,
-      'storagecontainerrescanrequired': instance.storagecontainerrescanrequired,
-      'quikreceiptenable': instance.quikreceiptenable,
-    };
+    WebApiLogicAppFuncSessionWarehouse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('warehouseid', instance.warehouseid);
+  writeNotNull('warehouse', instance.warehouse);
+  writeNotNull('warehousecode', instance.warehousecode);
+  writeNotNull(
+      'promptforcheckoutexceptions', instance.promptforcheckoutexceptions);
+  writeNotNull(
+      'promptforcheckinexceptions', instance.promptforcheckinexceptions);
+  writeNotNull(
+      'storagecontainerstagingenable', instance.storagecontainerstagingenable);
+  writeNotNull('storagecontainerrescanrequired',
+      instance.storagecontainerrescanrequired);
+  writeNotNull('quikreceiptenable', instance.quikreceiptenable);
+  return val;
+}
 
 WebApiLogicAppFuncSystemNumbersModel
     _$WebApiLogicAppFuncSystemNumbersModelFromJson(Map<String, dynamic> json) {
@@ -606,11 +778,19 @@ WebApiLogicAppFuncSystemNumbersModel
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersModelToJson(
-        WebApiLogicAppFuncSystemNumbersModel instance) =>
-    <String, dynamic>{
-      'Module': instance.module,
-      'IsAssignedByUser': instance.isAssignedByUser,
-    };
+    WebApiLogicAppFuncSystemNumbersModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Module', instance.module);
+  writeNotNull('IsAssignedByUser', instance.isAssignedByUser);
+  return val;
+}
 
 WebApiLogicAppFuncSystemNumbersResponse
     _$WebApiLogicAppFuncSystemNumbersResponseFromJson(
@@ -625,10 +805,19 @@ WebApiLogicAppFuncSystemNumbersResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersResponseToJson(
-        WebApiLogicAppFuncSystemNumbersResponse instance) =>
-    <String, dynamic>{
-      'SystemNumbers': instance.systemNumbers?.map((e) => e.toJson()).toList(),
-    };
+    WebApiLogicAppFuncSystemNumbersResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'SystemNumbers', instance.systemNumbers?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 WebApiLogicAppFuncSystemSettingsResponse
     _$WebApiLogicAppFuncSystemSettingsResponseFromJson(
@@ -647,18 +836,27 @@ WebApiLogicAppFuncSystemSettingsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
-        WebApiLogicAppFuncSystemSettingsResponse instance) =>
-    <String, dynamic>{
-      'AllowDeleteInvoices': instance.allowDeleteInvoices,
-      'AllowInvoiceDateChange': instance.allowInvoiceDateChange,
-      'EnableReceipts': instance.enableReceipts,
-      'EnablePayments': instance.enablePayments,
-      'ShareDealsAcrossOfficeLocations':
-          instance.shareDealsAcrossOfficeLocations,
-      'SystemName': instance.systemName,
-      'CompanyName': instance.companyName,
-      'IsVendorNumberAssignedByUser': instance.isVendorNumberAssignedByUser,
-    };
+    WebApiLogicAppFuncSystemSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AllowDeleteInvoices', instance.allowDeleteInvoices);
+  writeNotNull('AllowInvoiceDateChange', instance.allowInvoiceDateChange);
+  writeNotNull('EnableReceipts', instance.enableReceipts);
+  writeNotNull('EnablePayments', instance.enablePayments);
+  writeNotNull('ShareDealsAcrossOfficeLocations',
+      instance.shareDealsAcrossOfficeLocations);
+  writeNotNull('SystemName', instance.systemName);
+  writeNotNull('CompanyName', instance.companyName);
+  writeNotNull(
+      'IsVendorNumberAssignedByUser', instance.isVendorNumberAssignedByUser);
+  return val;
+}
 
 WebApiLogicAppFuncUserSettingsResponse
     _$WebApiLogicAppFuncUserSettingsResponseFromJson(
@@ -681,21 +879,31 @@ WebApiLogicAppFuncUserSettingsResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncUserSettingsResponseToJson(
-        WebApiLogicAppFuncUserSettingsResponse instance) =>
-    <String, dynamic>{
-      'SuccessBase64Sound': instance.successBase64Sound,
-      'ErrorBase64Sound': instance.errorBase64Sound,
-      'NotificationBase64Sound': instance.notificationBase64Sound,
-      'WebAdministrator': instance.webAdministrator,
-      'HomeMenuGuid': instance.homeMenuGuid,
-      'HomeMenuPath': instance.homeMenuPath,
-      'ReportsNavigationMenuVisible': instance.reportsNavigationMenuVisible,
-      'SettingsNavigationMenuVisible': instance.settingsNavigationMenuVisible,
-      'MainMenuPinned': instance.mainMenuPinned,
-      'QuikActivitySetting': instance.quikActivitySetting,
-      'FavoritesJson': instance.favoritesJson,
-      'EmailSignature': instance.emailSignature,
-    };
+    WebApiLogicAppFuncUserSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SuccessBase64Sound', instance.successBase64Sound);
+  writeNotNull('ErrorBase64Sound', instance.errorBase64Sound);
+  writeNotNull('NotificationBase64Sound', instance.notificationBase64Sound);
+  writeNotNull('WebAdministrator', instance.webAdministrator);
+  writeNotNull('HomeMenuGuid', instance.homeMenuGuid);
+  writeNotNull('HomeMenuPath', instance.homeMenuPath);
+  writeNotNull(
+      'ReportsNavigationMenuVisible', instance.reportsNavigationMenuVisible);
+  writeNotNull(
+      'SettingsNavigationMenuVisible', instance.settingsNavigationMenuVisible);
+  writeNotNull('MainMenuPinned', instance.mainMenuPinned);
+  writeNotNull('QuikActivitySetting', instance.quikActivitySetting);
+  writeNotNull('FavoritesJson', instance.favoritesJson);
+  writeNotNull('EmailSignature', instance.emailSignature);
+  return val;
+}
 
 WebApiLogicAppFuncWarehouseResponse
     _$WebApiLogicAppFuncWarehouseResponseFromJson(Map<String, dynamic> json) {
@@ -705,10 +913,18 @@ WebApiLogicAppFuncWarehouseResponse
 }
 
 Map<String, dynamic> _$WebApiLogicAppFuncWarehouseResponseToJson(
-        WebApiLogicAppFuncWarehouseResponse instance) =>
-    <String, dynamic>{
-      'MultiWarehouse': instance.multiWarehouse,
-    };
+    WebApiLogicAppFuncWarehouseResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('MultiWarehouse', instance.multiWarehouse);
+  return val;
+}
 
 WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
     _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson(
@@ -731,13 +947,21 @@ WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
-            WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
-                instance) =>
-        <String, dynamic>{
-          'location': instance.location?.toJson(),
-          'warehouse': instance.warehouse?.toJson(),
-          'department': instance.department?.toJson(),
-        };
+        WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('location', instance.location?.toJson());
+  writeNotNull('warehouse', instance.warehouse?.toJson());
+  writeNotNull('department', instance.department?.toJson());
+  return val;
+}
 
 WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
     _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson(
@@ -780,21 +1004,29 @@ WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
-            WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
-                instance) =>
-        <String, dynamic>{
-          'location': instance.location?.toJson(),
-          'warehouse': instance.warehouse?.toJson(),
-          'department': instance.department?.toJson(),
-          'webUser': instance.webUser?.toJson(),
-          'deal': instance.deal?.toJson(),
-          'applicationtree': instance.applicationtree?.toJson(),
-          'applicationOptions': instance.applicationOptions,
-          'clientcode': instance.clientcode,
-          'serverVersion': instance.serverVersion,
-          'systemSettings': instance.systemSettings?.toJson(),
-          'plugins': instance.plugins,
-        };
+        WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('location', instance.location?.toJson());
+  writeNotNull('warehouse', instance.warehouse?.toJson());
+  writeNotNull('department', instance.department?.toJson());
+  writeNotNull('webUser', instance.webUser?.toJson());
+  writeNotNull('deal', instance.deal?.toJson());
+  writeNotNull('applicationtree', instance.applicationtree?.toJson());
+  writeNotNull('applicationOptions', instance.applicationOptions);
+  writeNotNull('clientcode', instance.clientcode);
+  writeNotNull('serverVersion', instance.serverVersion);
+  writeNotNull('systemSettings', instance.systemSettings?.toJson());
+  writeNotNull('plugins', instance.plugins);
+  return val;
+}
 
 WebApiModulesAccountServicesAccountGetSettingsRequest
     _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson(
@@ -808,12 +1040,20 @@ WebApiModulesAccountServicesAccountGetSettingsRequest
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(
-            WebApiModulesAccountServicesAccountGetSettingsRequest instance) =>
-        <String, dynamic>{
-          'WebUsersId': instance.webUsersId,
-          'DepartmentId': instance.departmentId,
-          'LocationId': instance.locationId,
-        };
+        WebApiModulesAccountServicesAccountGetSettingsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WebUsersId', instance.webUsersId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('LocationId', instance.locationId);
+  return val;
+}
 
 WebApiModulesAccountServicesAccountResetPasswordRequest
     _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(
@@ -825,10 +1065,18 @@ WebApiModulesAccountServicesAccountResetPasswordRequest
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson(
-            WebApiModulesAccountServicesAccountResetPasswordRequest instance) =>
-        <String, dynamic>{
-          'Password': instance.password,
-        };
+        WebApiModulesAccountServicesAccountResetPasswordRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Password', instance.password);
+  return val;
+}
 
 WebApiModulesAccountServicesAccountResetPasswordResponse
     _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(
@@ -839,13 +1087,21 @@ WebApiModulesAccountServicesAccountResetPasswordResponse
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(
-        WebApiModulesAccountServicesAccountResetPasswordResponse instance) =>
-    <String, dynamic>{
-      'Status': instance.status,
-      'Message': instance.message,
-    };
+Map<String, dynamic>
+    _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(
+        WebApiModulesAccountServicesAccountResetPasswordResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  return val;
+}
 
 WebApiModulesAccountServicesAccountSystemSettingsResponse
     _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(
@@ -863,17 +1119,25 @@ WebApiModulesAccountServicesAccountSystemSettingsResponse
   );
 }
 
-Map<String,
-    dynamic> _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(
-        WebApiModulesAccountServicesAccountSystemSettingsResponse instance) =>
-    <String, dynamic>{
-      'DefaultUnitId': instance.defaultUnitId,
-      'DefaultRank': instance.defaultRank,
-      'RequireOriginalShow': instance.requireOriginalShow,
-      'UserAssignedICodes': instance.userAssignedICodes,
-      'QuikScanStageBySession': instance.quikScanStageBySession,
-      'BarcodeSkipPrefixes': instance.barcodeSkipPrefixes?.toJson(),
-    };
+Map<String, dynamic>
+    _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(
+        WebApiModulesAccountServicesAccountSystemSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DefaultUnitId', instance.defaultUnitId);
+  writeNotNull('DefaultRank', instance.defaultRank);
+  writeNotNull('RequireOriginalShow', instance.requireOriginalShow);
+  writeNotNull('UserAssignedICodes', instance.userAssignedICodes);
+  writeNotNull('QuikScanStageBySession', instance.quikScanStageBySession);
+  writeNotNull('BarcodeSkipPrefixes', instance.barcodeSkipPrefixes?.toJson());
+  return val;
+}
 
 WebApiModulesAccountServicesJwtOktaRequest
     _$WebApiModulesAccountServicesJwtOktaRequestFromJson(
@@ -885,11 +1149,19 @@ WebApiModulesAccountServicesJwtOktaRequest
 }
 
 Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaRequestToJson(
-        WebApiModulesAccountServicesJwtOktaRequest instance) =>
-    <String, dynamic>{
-      'Email': instance.email,
-      'Token': instance.token,
-    };
+    WebApiModulesAccountServicesJwtOktaRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Email', instance.email);
+  writeNotNull('Token', instance.token);
+  return val;
+}
 
 WebApiModulesAccountServicesJwtOktaSessionRequest
     _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson(
@@ -901,11 +1173,19 @@ WebApiModulesAccountServicesJwtOktaSessionRequest
 }
 
 Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(
-        WebApiModulesAccountServicesJwtOktaSessionRequest instance) =>
-    <String, dynamic>{
-      'Token': instance.token,
-      'Apiurl': instance.apiurl,
-    };
+    WebApiModulesAccountServicesJwtOktaSessionRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Token', instance.token);
+  writeNotNull('Apiurl', instance.apiurl);
+  return val;
+}
 
 WebApiModulesAccountServicesJwtOktaSessionResponseModel
     _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson(
@@ -917,7 +1197,15 @@ WebApiModulesAccountServicesJwtOktaSessionResponseModel
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson(
-            WebApiModulesAccountServicesJwtOktaSessionResponseModel instance) =>
-        <String, dynamic>{
-          'Status': instance.status,
-        };
+        WebApiModulesAccountServicesJwtOktaSessionResponseModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Status', instance.status);
+  return val;
+}

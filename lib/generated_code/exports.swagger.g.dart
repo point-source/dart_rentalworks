@@ -26,12 +26,20 @@ FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
 }
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-        FwStandardModelsFwApiException instance) =>
-    <String, dynamic>{
-      'StatusCode': instance.statusCode,
-      'Message': instance.message,
-      'StackTrace': instance.stackTrace,
-    };
+    FwStandardModelsFwApiException instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  writeNotNull('StackTrace', instance.stackTrace);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     Map<String, dynamic> json) {
@@ -60,19 +68,27 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-        FwStandardSqlServerFwJsonDataTable instance) =>
-    <String, dynamic>{
-      'ColumnIndex': instance.columnIndex,
-      'Totals': instance.totals,
-      'Columns': instance.columns?.map((e) => e.toJson()).toList(),
-      'Rows': instance.rows,
-      'PageNo': instance.pageNo,
-      'PageSize': instance.pageSize,
-      'TotalPages': instance.totalPages,
-      'TotalRows': instance.totalRows,
-      'DateFields': instance.dateFields,
-      'ColumnNameByIndex': instance.columnNameByIndex,
-    };
+    FwStandardSqlServerFwJsonDataTable instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ColumnIndex', instance.columnIndex);
+  writeNotNull('Totals', instance.totals);
+  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
+  writeNotNull('Rows', instance.rows);
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalPages', instance.totalPages);
+  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('DateFields', instance.dateFields);
+  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  return val;
+}
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -88,14 +104,23 @@ FwStandardSqlServerFwJsonDataTableColumn
 }
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-        FwStandardSqlServerFwJsonDataTableColumn instance) =>
-    <String, dynamic>{
-      'Name': instance.name,
-      'DataField': instance.dataField,
-      'DataType': fwStandardSqlServerFwDataTypesToJson(instance.dataType),
-      'IsUniqueId': instance.isUniqueId,
-      'IsVisible': instance.isVisible,
-    };
+    FwStandardSqlServerFwJsonDataTableColumn instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Name', instance.name);
+  writeNotNull('DataField', instance.dataField);
+  writeNotNull(
+      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
+  writeNotNull('IsUniqueId', instance.isUniqueId);
+  writeNotNull('IsVisible', instance.isVisible);
+  return val;
+}
 
 WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson(
@@ -108,12 +133,20 @@ WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
 
 Map<String, dynamic>
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestToJson(
-            WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'DataExportFormatId': instance.dataExportFormatId,
-        };
+        WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  return val;
+}
 
 WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseFromJson(
@@ -127,13 +160,21 @@ WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
 
 Map<String, dynamic>
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson(
-            WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'BatchNumber': instance.batchNumber,
-          'downloadUrl': instance.downloadUrl,
-        };
+        WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson(
@@ -146,12 +187,20 @@ WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
 
 Map<String, dynamic>
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestToJson(
-            WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'DataExportFormatId': instance.dataExportFormatId,
-        };
+        WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  return val;
+}
 
 WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseFromJson(
@@ -165,13 +214,21 @@ WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
 
 Map<String, dynamic>
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson(
-            WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'BatchNumber': instance.batchNumber,
-          'downloadUrl': instance.downloadUrl,
-        };
+        WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}
 
 WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson(
@@ -184,12 +241,20 @@ WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
 
 Map<String, dynamic>
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestToJson(
-            WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'DataExportFormatId': instance.dataExportFormatId,
-        };
+        WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  return val;
+}
 
 WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseFromJson(
@@ -203,10 +268,18 @@ WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
 
 Map<String, dynamic>
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseToJson(
-            WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
-                instance) =>
-        <String, dynamic>{
-          'BatchId': instance.batchId,
-          'BatchNumber': instance.batchNumber,
-          'downloadUrl': instance.downloadUrl,
-        };
+        WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('BatchId', instance.batchId);
+  writeNotNull('BatchNumber', instance.batchNumber);
+  writeNotNull('downloadUrl', instance.downloadUrl);
+  return val;
+}

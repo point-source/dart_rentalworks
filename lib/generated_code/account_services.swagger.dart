@@ -190,15 +190,15 @@ class FwCoreControllersFwJwtControllerJwtResponseModel {
           Map<String, dynamic> json) =>
       _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson(json);
 
-  @JsonKey(name: 'statuscode')
+  @JsonKey(name: 'statuscode', includeIfNull: false)
   final int? statuscode;
-  @JsonKey(name: 'statusmessage')
+  @JsonKey(name: 'statusmessage', includeIfNull: false)
   final String? statusmessage;
-  @JsonKey(name: 'access_token')
+  @JsonKey(name: 'access_token', includeIfNull: false)
   final String? accessToken;
-  @JsonKey(name: 'expires_in')
+  @JsonKey(name: 'expires_in', includeIfNull: false)
   final int? expiresIn;
-  @JsonKey(name: 'resetpassword')
+  @JsonKey(name: 'resetpassword', includeIfNull: false)
   final bool? resetpassword;
   static const fromJsonFactory =
       _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson;
@@ -260,16 +260,17 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
           Map<String, dynamic> json) =>
       _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(json);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', includeIfNull: false)
   final String? id;
-  @JsonKey(name: 'caption')
+  @JsonKey(name: 'caption', includeIfNull: false)
   final String? caption;
-  @JsonKey(name: 'nodetype')
+  @JsonKey(name: 'nodetype', includeIfNull: false)
   final String? nodetype;
-  @JsonKey(name: 'properties')
+  @JsonKey(name: 'properties', includeIfNull: false)
   final Object? properties;
   @JsonKey(
       name: 'children',
+      includeIfNull: false,
       defaultValue: <FwStandardAppManagerFwAmSecurityTreeNode>[])
   final List<FwStandardAppManagerFwAmSecurityTreeNode>? children;
   static const fromJsonFactory =
@@ -327,11 +328,11 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
-  @JsonKey(name: 'StackTrace')
+  @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
@@ -375,9 +376,9 @@ class FwStandardModelsFwApplicationUser {
           Map<String, dynamic> json) =>
       _$FwStandardModelsFwApplicationUserFromJson(json);
 
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'Password')
+  @JsonKey(name: 'Password', includeIfNull: false)
   final String? password;
   static const fromJsonFactory = _$FwStandardModelsFwApplicationUserFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApplicationUserToJson;
@@ -426,27 +427,28 @@ class FwStandardSqlServerFwJsonDataTable {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
-  @JsonKey(name: 'ColumnIndex')
+  @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Object? columnIndex;
-  @JsonKey(name: 'Totals')
+  @JsonKey(name: 'Totals', includeIfNull: false)
   final Object? totals;
   @JsonKey(
       name: 'Columns',
+      includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
   final List<List<Object>>? rows;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalPages')
+  @JsonKey(name: 'TotalPages', includeIfNull: false)
   final int? totalPages;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: 'ColumnNameByIndex')
+  @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Object? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
@@ -528,18 +530,19 @@ class FwStandardSqlServerFwJsonDataTableColumn {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'DataField')
+  @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
-  @JsonKey(name: 'IsUniqueId')
+  @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
-  @JsonKey(name: 'IsVisible')
+  @JsonKey(name: 'IsVisible', includeIfNull: false)
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
@@ -595,7 +598,7 @@ class WebApiLogicAppFuncCustomFieldsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncCustomFieldsResponseFromJson(json);
 
-  @JsonKey(name: 'ModuleNames', defaultValue: <String>[])
+  @JsonKey(name: 'ModuleNames', includeIfNull: false, defaultValue: <String>[])
   final List<String>? moduleNames;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncCustomFieldsResponseFromJson;
@@ -636,17 +639,17 @@ class WebApiLogicAppFuncCustomFormModel {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncCustomFormModelFromJson(json);
 
-  @JsonKey(name: 'BaseForm')
+  @JsonKey(name: 'BaseForm', includeIfNull: false)
   final String? baseForm;
-  @JsonKey(name: 'CustomFormId')
+  @JsonKey(name: 'CustomFormId', includeIfNull: false)
   final String? customFormId;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'ThisUserOnly')
+  @JsonKey(name: 'ThisUserOnly', includeIfNull: false)
   final bool? thisUserOnly;
-  @JsonKey(name: 'Html')
+  @JsonKey(name: 'Html', includeIfNull: false)
   final String? html;
-  @JsonKey(name: 'AssignTo')
+  @JsonKey(name: 'AssignTo', includeIfNull: false)
   final String? assignTo;
   static const fromJsonFactory = _$WebApiLogicAppFuncCustomFormModelFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncCustomFormModelToJson;
@@ -707,7 +710,9 @@ class WebApiLogicAppFuncCustomFormsResponse {
       _$WebApiLogicAppFuncCustomFormsResponseFromJson(json);
 
   @JsonKey(
-      name: 'customForms', defaultValue: <WebApiLogicAppFuncCustomFormModel>[])
+      name: 'customForms',
+      includeIfNull: false,
+      defaultValue: <WebApiLogicAppFuncCustomFormModel>[])
   final List<WebApiLogicAppFuncCustomFormModel>? customForms;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncCustomFormsResponseFromJson;
@@ -761,41 +766,41 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncDefaultSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'DefaultUnitId')
+  @JsonKey(name: 'DefaultUnitId', includeIfNull: false)
   final String? defaultUnitId;
-  @JsonKey(name: 'DefaultUnit')
+  @JsonKey(name: 'DefaultUnit', includeIfNull: false)
   final String? defaultUnit;
-  @JsonKey(name: 'DefaultDealStatusId')
+  @JsonKey(name: 'DefaultDealStatusId', includeIfNull: false)
   final String? defaultDealStatusId;
-  @JsonKey(name: 'DefaultDealStatus')
+  @JsonKey(name: 'DefaultDealStatus', includeIfNull: false)
   final String? defaultDealStatus;
-  @JsonKey(name: 'DefaultDealPoRequired')
+  @JsonKey(name: 'DefaultDealPoRequired', includeIfNull: false)
   final bool? defaultDealPoRequired;
-  @JsonKey(name: 'DefaultDealPoType')
+  @JsonKey(name: 'DefaultDealPoType', includeIfNull: false)
   final String? defaultDealPoType;
-  @JsonKey(name: 'DefaultCustomerStatusId')
+  @JsonKey(name: 'DefaultCustomerStatusId', includeIfNull: false)
   final String? defaultCustomerStatusId;
-  @JsonKey(name: 'DefaultCustomerStatus')
+  @JsonKey(name: 'DefaultCustomerStatus', includeIfNull: false)
   final String? defaultCustomerStatus;
-  @JsonKey(name: 'DefaultDealBillingCycleId')
+  @JsonKey(name: 'DefaultDealBillingCycleId', includeIfNull: false)
   final String? defaultDealBillingCycleId;
-  @JsonKey(name: 'DefaultDealBillingCycle')
+  @JsonKey(name: 'DefaultDealBillingCycle', includeIfNull: false)
   final String? defaultDealBillingCycle;
-  @JsonKey(name: 'DefaultNonRecurringBillingCycleId')
+  @JsonKey(name: 'DefaultNonRecurringBillingCycleId', includeIfNull: false)
   final String? defaultNonRecurringBillingCycleId;
-  @JsonKey(name: 'DefaultNonRecurringBillingCycle')
+  @JsonKey(name: 'DefaultNonRecurringBillingCycle', includeIfNull: false)
   final String? defaultNonRecurringBillingCycle;
-  @JsonKey(name: 'DefaultCustomerPaymentTermsId')
+  @JsonKey(name: 'DefaultCustomerPaymentTermsId', includeIfNull: false)
   final String? defaultCustomerPaymentTermsId;
-  @JsonKey(name: 'DefaultCustomerPaymentTerms')
+  @JsonKey(name: 'DefaultCustomerPaymentTerms', includeIfNull: false)
   final String? defaultCustomerPaymentTerms;
-  @JsonKey(name: 'DefaultRank')
+  @JsonKey(name: 'DefaultRank', includeIfNull: false)
   final String? defaultRank;
-  @JsonKey(name: 'DefaultCreditStatusId')
+  @JsonKey(name: 'DefaultCreditStatusId', includeIfNull: false)
   final String? defaultCreditStatusId;
-  @JsonKey(name: 'DefaultCreditStatus')
+  @JsonKey(name: 'DefaultCreditStatus', includeIfNull: false)
   final String? defaultCreditStatus;
-  @JsonKey(name: 'ContactShowAllDeals')
+  @JsonKey(name: 'ContactShowAllDeals', includeIfNull: false)
   final bool? contactShowAllDeals;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncDefaultSettingsResponseFromJson;
@@ -928,19 +933,19 @@ class WebApiLogicAppFuncDepartmentActivitiesResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson(json);
 
-  @JsonKey(name: 'DefaultActivityFacilities')
+  @JsonKey(name: 'DefaultActivityFacilities', includeIfNull: false)
   final bool? defaultActivityFacilities;
-  @JsonKey(name: 'DefaultActivityLabor')
+  @JsonKey(name: 'DefaultActivityLabor', includeIfNull: false)
   final bool? defaultActivityLabor;
-  @JsonKey(name: 'DefaultActivityMiscellaneous')
+  @JsonKey(name: 'DefaultActivityMiscellaneous', includeIfNull: false)
   final bool? defaultActivityMiscellaneous;
-  @JsonKey(name: 'DefaultActivityRental')
+  @JsonKey(name: 'DefaultActivityRental', includeIfNull: false)
   final bool? defaultActivityRental;
-  @JsonKey(name: 'DefaultActivitySales')
+  @JsonKey(name: 'DefaultActivitySales', includeIfNull: false)
   final bool? defaultActivitySales;
-  @JsonKey(name: 'DefaultActivityTransportation')
+  @JsonKey(name: 'DefaultActivityTransportation', includeIfNull: false)
   final bool? defaultActivityTransportation;
-  @JsonKey(name: 'DefaultActivityRentalSale')
+  @JsonKey(name: 'DefaultActivityRentalSale', includeIfNull: false)
   final bool? defaultActivityRentalSale;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson;
@@ -1020,7 +1025,7 @@ class WebApiLogicAppFuncDocumentBarcodeSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'DocumentBarCodeStyle')
+  @JsonKey(name: 'DocumentBarCodeStyle', includeIfNull: false)
   final String? documentBarCodeStyle;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson;
@@ -1069,28 +1074,28 @@ class WebApiLogicAppFuncGetSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncGetSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'userSettings')
+  @JsonKey(name: 'userSettings', includeIfNull: false)
   final WebApiLogicAppFuncUserSettingsResponse? userSettings;
-  @JsonKey(name: 'customFields')
+  @JsonKey(name: 'customFields', includeIfNull: false)
   final WebApiLogicAppFuncCustomFieldsResponse? customFields;
-  @JsonKey(name: 'customForms')
+  @JsonKey(name: 'customForms', includeIfNull: false)
   final WebApiLogicAppFuncCustomFormsResponse? customForms;
-  @JsonKey(name: 'defaultSettings')
+  @JsonKey(name: 'defaultSettings', includeIfNull: false)
   final WebApiLogicAppFuncDefaultSettingsResponse? defaultSettings;
-  @JsonKey(name: 'inventorySettings')
+  @JsonKey(name: 'inventorySettings', includeIfNull: false)
   final WebApiLogicAppFuncInventorySettingsResponse? inventorySettings;
-  @JsonKey(name: 'systemSettings')
+  @JsonKey(name: 'systemSettings', includeIfNull: false)
   final WebApiLogicAppFuncSystemSettingsResponse? systemSettings;
-  @JsonKey(name: 'department')
+  @JsonKey(name: 'department', includeIfNull: false)
   final WebApiLogicAppFuncDepartmentActivitiesResponse? department;
-  @JsonKey(name: 'documentBarcodeSettings')
+  @JsonKey(name: 'documentBarcodeSettings', includeIfNull: false)
   final WebApiLogicAppFuncDocumentBarcodeSettingsResponse?
       documentBarcodeSettings;
-  @JsonKey(name: 'systemNumbers')
+  @JsonKey(name: 'systemNumbers', includeIfNull: false)
   final WebApiLogicAppFuncSystemNumbersResponse? systemNumbers;
-  @JsonKey(name: 'warehouses')
+  @JsonKey(name: 'warehouses', includeIfNull: false)
   final WebApiLogicAppFuncWarehouseResponse? warehouses;
-  @JsonKey(name: 'isTraining')
+  @JsonKey(name: 'isTraining', includeIfNull: false)
   final bool? isTraining;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncGetSettingsResponseFromJson;
@@ -1189,25 +1194,26 @@ class WebApiLogicAppFuncInventorySettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncInventorySettingsResponseFromJson(json);
 
-  @JsonKey(name: 'ICodeMask')
+  @JsonKey(name: 'ICodeMask', includeIfNull: false)
   final String? iCodeMask;
-  @JsonKey(name: 'UserAssignedICodes')
+  @JsonKey(name: 'UserAssignedICodes', includeIfNull: false)
   final bool? userAssignedICodes;
-  @JsonKey(name: 'Enable3WeekPricing')
+  @JsonKey(name: 'Enable3WeekPricing', includeIfNull: false)
   final bool? enable3WeekPricing;
-  @JsonKey(name: 'AutoUpdateInventoryMetricImperialDimensions')
+  @JsonKey(
+      name: 'AutoUpdateInventoryMetricImperialDimensions', includeIfNull: false)
   final bool? autoUpdateInventoryMetricImperialDimensions;
-  @JsonKey(name: 'EnableConsignment')
+  @JsonKey(name: 'EnableConsignment', includeIfNull: false)
   final bool? enableConsignment;
-  @JsonKey(name: 'EnableLease')
+  @JsonKey(name: 'EnableLease', includeIfNull: false)
   final bool? enableLease;
-  @JsonKey(name: 'DefaultRentalSaleRetiredReasonId')
+  @JsonKey(name: 'DefaultRentalSaleRetiredReasonId', includeIfNull: false)
   final String? defaultRentalSaleRetiredReasonId;
-  @JsonKey(name: 'DefaultRentalSaleRetiredReason')
+  @JsonKey(name: 'DefaultRentalSaleRetiredReason', includeIfNull: false)
   final String? defaultRentalSaleRetiredReason;
-  @JsonKey(name: 'DefaultLossAndDamageRetiredReasonId')
+  @JsonKey(name: 'DefaultLossAndDamageRetiredReasonId', includeIfNull: false)
   final String? defaultLossAndDamageRetiredReasonId;
-  @JsonKey(name: 'DefaultLossAndDamageRetiredReason')
+  @JsonKey(name: 'DefaultLossAndDamageRetiredReason', includeIfNull: false)
   final String? defaultLossAndDamageRetiredReason;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncInventorySettingsResponseFromJson;
@@ -1303,9 +1309,9 @@ class WebApiLogicAppFuncSessionDeal {
   factory WebApiLogicAppFuncSessionDeal.fromJson(Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionDealFromJson(json);
 
-  @JsonKey(name: 'dealid')
+  @JsonKey(name: 'dealid', includeIfNull: false)
   final String? dealid;
-  @JsonKey(name: 'deal')
+  @JsonKey(name: 'deal', includeIfNull: false)
   final String? deal;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionDealFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionDealToJson;
@@ -1341,9 +1347,9 @@ class WebApiLogicAppFuncSessionDepartment {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionDepartmentFromJson(json);
 
-  @JsonKey(name: 'departmentid')
+  @JsonKey(name: 'departmentid', includeIfNull: false)
   final String? departmentid;
-  @JsonKey(name: 'department')
+  @JsonKey(name: 'department', includeIfNull: false)
   final String? department;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionDepartmentFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionDepartmentToJson;
@@ -1397,35 +1403,35 @@ class WebApiLogicAppFuncSessionLocation {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionLocationFromJson(json);
 
-  @JsonKey(name: 'locationid')
+  @JsonKey(name: 'locationid', includeIfNull: false)
   final String? locationid;
-  @JsonKey(name: 'location')
+  @JsonKey(name: 'location', includeIfNull: false)
   final String? location;
-  @JsonKey(name: 'locationcode')
+  @JsonKey(name: 'locationcode', includeIfNull: false)
   final String? locationcode;
-  @JsonKey(name: 'companyname')
+  @JsonKey(name: 'companyname', includeIfNull: false)
   final String? companyname;
-  @JsonKey(name: 'locationcolor')
+  @JsonKey(name: 'locationcolor', includeIfNull: false)
   final String? locationcolor;
-  @JsonKey(name: 'ratetype')
+  @JsonKey(name: 'ratetype', includeIfNull: false)
   final String? ratetype;
-  @JsonKey(name: 'ratetypedisplay')
+  @JsonKey(name: 'ratetypedisplay', includeIfNull: false)
   final String? ratetypedisplay;
-  @JsonKey(name: 'defaultcurrency')
+  @JsonKey(name: 'defaultcurrency', includeIfNull: false)
   final String? defaultcurrency;
-  @JsonKey(name: 'defaultcurrencyid')
+  @JsonKey(name: 'defaultcurrencyid', includeIfNull: false)
   final String? defaultcurrencyid;
-  @JsonKey(name: 'defaultcurrencycode')
+  @JsonKey(name: 'defaultcurrencycode', includeIfNull: false)
   final String? defaultcurrencycode;
-  @JsonKey(name: 'defaultcurrencysymbol')
+  @JsonKey(name: 'defaultcurrencysymbol', includeIfNull: false)
   final String? defaultcurrencysymbol;
-  @JsonKey(name: 'countryid')
+  @JsonKey(name: 'countryid', includeIfNull: false)
   final String? countryid;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', includeIfNull: false)
   final String? country;
-  @JsonKey(name: 'phone')
+  @JsonKey(name: 'phone', includeIfNull: false)
   final String? phone;
-  @JsonKey(name: 'useorderlocationbydefault')
+  @JsonKey(name: 'useorderlocationbydefault', includeIfNull: false)
   final bool? useorderlocationbydefault;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionLocationFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionLocationToJson;
@@ -1567,75 +1573,75 @@ class WebApiLogicAppFuncSessionUser {
   factory WebApiLogicAppFuncSessionUser.fromJson(Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionUserFromJson(json);
 
-  @JsonKey(name: 'webusersid')
+  @JsonKey(name: 'webusersid', includeIfNull: false)
   final String? webusersid;
-  @JsonKey(name: 'usersid')
+  @JsonKey(name: 'usersid', includeIfNull: false)
   final String? usersid;
-  @JsonKey(name: 'contactid')
+  @JsonKey(name: 'contactid', includeIfNull: false)
   final String? contactid;
-  @JsonKey(name: 'usertype')
+  @JsonKey(name: 'usertype', includeIfNull: false)
   final String? usertype;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', includeIfNull: false)
   final String? email;
-  @JsonKey(name: 'fullname')
+  @JsonKey(name: 'fullname', includeIfNull: false)
   final String? fullname;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'browsedefaultrows')
+  @JsonKey(name: 'browsedefaultrows', includeIfNull: false)
   final int? browsedefaultrows;
-  @JsonKey(name: 'applicationtheme')
+  @JsonKey(name: 'applicationtheme', includeIfNull: false)
   final String? applicationtheme;
-  @JsonKey(name: 'locationid')
+  @JsonKey(name: 'locationid', includeIfNull: false)
   final String? locationid;
-  @JsonKey(name: 'location')
+  @JsonKey(name: 'location', includeIfNull: false)
   final String? location;
-  @JsonKey(name: 'warehouseid')
+  @JsonKey(name: 'warehouseid', includeIfNull: false)
   final String? warehouseid;
-  @JsonKey(name: 'warehouse')
+  @JsonKey(name: 'warehouse', includeIfNull: false)
   final String? warehouse;
-  @JsonKey(name: 'departmentid')
+  @JsonKey(name: 'departmentid', includeIfNull: false)
   final String? departmentid;
-  @JsonKey(name: 'department')
+  @JsonKey(name: 'department', includeIfNull: false)
   final String? department;
-  @JsonKey(name: 'webadministrator')
+  @JsonKey(name: 'webadministrator', includeIfNull: false)
   final bool? webadministrator;
-  @JsonKey(name: 'firstdayofweek')
+  @JsonKey(name: 'firstdayofweek', includeIfNull: false)
   final int? firstdayofweek;
-  @JsonKey(name: 'rentalinventorydepartmentid')
+  @JsonKey(name: 'rentalinventorydepartmentid', includeIfNull: false)
   final String? rentalinventorydepartmentid;
-  @JsonKey(name: 'rentalinventorydepartment')
+  @JsonKey(name: 'rentalinventorydepartment', includeIfNull: false)
   final String? rentalinventorydepartment;
-  @JsonKey(name: 'salesinventorydepartmentid')
+  @JsonKey(name: 'salesinventorydepartmentid', includeIfNull: false)
   final String? salesinventorydepartmentid;
-  @JsonKey(name: 'salesinventorydepartment')
+  @JsonKey(name: 'salesinventorydepartment', includeIfNull: false)
   final String? salesinventorydepartment;
-  @JsonKey(name: 'partsinventorydepartmentid')
+  @JsonKey(name: 'partsinventorydepartmentid', includeIfNull: false)
   final String? partsinventorydepartmentid;
-  @JsonKey(name: 'partsinventorydepartment')
+  @JsonKey(name: 'partsinventorydepartment', includeIfNull: false)
   final String? partsinventorydepartment;
-  @JsonKey(name: 'transportationinvdepartmentid')
+  @JsonKey(name: 'transportationinvdepartmentid', includeIfNull: false)
   final String? transportationinvdepartmentid;
-  @JsonKey(name: 'transportationinvdepartment')
+  @JsonKey(name: 'transportationinvdepartment', includeIfNull: false)
   final String? transportationinvdepartment;
-  @JsonKey(name: 'laborinventorydepartmentid')
+  @JsonKey(name: 'laborinventorydepartmentid', includeIfNull: false)
   final String? laborinventorydepartmentid;
-  @JsonKey(name: 'laborinventorydepartment')
+  @JsonKey(name: 'laborinventorydepartment', includeIfNull: false)
   final String? laborinventorydepartment;
-  @JsonKey(name: 'miscinventorydepartmentid')
+  @JsonKey(name: 'miscinventorydepartmentid', includeIfNull: false)
   final String? miscinventorydepartmentid;
-  @JsonKey(name: 'miscinventorydepartment')
+  @JsonKey(name: 'miscinventorydepartment', includeIfNull: false)
   final String? miscinventorydepartment;
-  @JsonKey(name: 'spaceinventorydepartmentid')
+  @JsonKey(name: 'spaceinventorydepartmentid', includeIfNull: false)
   final String? spaceinventorydepartmentid;
-  @JsonKey(name: 'spaceinventorydepartment')
+  @JsonKey(name: 'spaceinventorydepartment', includeIfNull: false)
   final String? spaceinventorydepartment;
-  @JsonKey(name: 'iscrew')
+  @JsonKey(name: 'iscrew', includeIfNull: false)
   final bool? iscrew;
-  @JsonKey(name: 'enablecreatecontract')
+  @JsonKey(name: 'enablecreatecontract', includeIfNull: false)
   final bool? enablecreatecontract;
-  @JsonKey(name: 'qsallowapplyallqtyitems')
+  @JsonKey(name: 'qsallowapplyallqtyitems', includeIfNull: false)
   final bool? qsallowapplyallqtyitems;
-  @JsonKey(name: 'allowcontractwithexceptions')
+  @JsonKey(name: 'allowcontractwithexceptions', includeIfNull: false)
   final bool? allowcontractwithexceptions;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionUserFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionUserToJson;
@@ -1834,21 +1840,21 @@ class WebApiLogicAppFuncSessionWarehouse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionWarehouseFromJson(json);
 
-  @JsonKey(name: 'warehouseid')
+  @JsonKey(name: 'warehouseid', includeIfNull: false)
   final String? warehouseid;
-  @JsonKey(name: 'warehouse')
+  @JsonKey(name: 'warehouse', includeIfNull: false)
   final String? warehouse;
-  @JsonKey(name: 'warehousecode')
+  @JsonKey(name: 'warehousecode', includeIfNull: false)
   final String? warehousecode;
-  @JsonKey(name: 'promptforcheckoutexceptions')
+  @JsonKey(name: 'promptforcheckoutexceptions', includeIfNull: false)
   final bool? promptforcheckoutexceptions;
-  @JsonKey(name: 'promptforcheckinexceptions')
+  @JsonKey(name: 'promptforcheckinexceptions', includeIfNull: false)
   final bool? promptforcheckinexceptions;
-  @JsonKey(name: 'storagecontainerstagingenable')
+  @JsonKey(name: 'storagecontainerstagingenable', includeIfNull: false)
   final bool? storagecontainerstagingenable;
-  @JsonKey(name: 'storagecontainerrescanrequired')
+  @JsonKey(name: 'storagecontainerrescanrequired', includeIfNull: false)
   final bool? storagecontainerrescanrequired;
-  @JsonKey(name: 'quikreceiptenable')
+  @JsonKey(name: 'quikreceiptenable', includeIfNull: false)
   final bool? quikreceiptenable;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionWarehouseFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionWarehouseToJson;
@@ -1931,9 +1937,9 @@ class WebApiLogicAppFuncSystemNumbersModel {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSystemNumbersModelFromJson(json);
 
-  @JsonKey(name: 'Module')
+  @JsonKey(name: 'Module', includeIfNull: false)
   final String? module;
-  @JsonKey(name: 'IsAssignedByUser')
+  @JsonKey(name: 'IsAssignedByUser', includeIfNull: false)
   final bool? isAssignedByUser;
   static const fromJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelToJson;
@@ -1974,6 +1980,7 @@ class WebApiLogicAppFuncSystemNumbersResponse {
 
   @JsonKey(
       name: 'SystemNumbers',
+      includeIfNull: false,
       defaultValue: <WebApiLogicAppFuncSystemNumbersModel>[])
   final List<WebApiLogicAppFuncSystemNumbersModel>? systemNumbers;
   static const fromJsonFactory =
@@ -2018,21 +2025,21 @@ class WebApiLogicAppFuncSystemSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSystemSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'AllowDeleteInvoices')
+  @JsonKey(name: 'AllowDeleteInvoices', includeIfNull: false)
   final bool? allowDeleteInvoices;
-  @JsonKey(name: 'AllowInvoiceDateChange')
+  @JsonKey(name: 'AllowInvoiceDateChange', includeIfNull: false)
   final bool? allowInvoiceDateChange;
-  @JsonKey(name: 'EnableReceipts')
+  @JsonKey(name: 'EnableReceipts', includeIfNull: false)
   final bool? enableReceipts;
-  @JsonKey(name: 'EnablePayments')
+  @JsonKey(name: 'EnablePayments', includeIfNull: false)
   final bool? enablePayments;
-  @JsonKey(name: 'ShareDealsAcrossOfficeLocations')
+  @JsonKey(name: 'ShareDealsAcrossOfficeLocations', includeIfNull: false)
   final bool? shareDealsAcrossOfficeLocations;
-  @JsonKey(name: 'SystemName')
+  @JsonKey(name: 'SystemName', includeIfNull: false)
   final String? systemName;
-  @JsonKey(name: 'CompanyName')
+  @JsonKey(name: 'CompanyName', includeIfNull: false)
   final String? companyName;
-  @JsonKey(name: 'IsVendorNumberAssignedByUser')
+  @JsonKey(name: 'IsVendorNumberAssignedByUser', includeIfNull: false)
   final bool? isVendorNumberAssignedByUser;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncSystemSettingsResponseFromJson;
@@ -2122,29 +2129,29 @@ class WebApiLogicAppFuncUserSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncUserSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'SuccessBase64Sound')
+  @JsonKey(name: 'SuccessBase64Sound', includeIfNull: false)
   final String? successBase64Sound;
-  @JsonKey(name: 'ErrorBase64Sound')
+  @JsonKey(name: 'ErrorBase64Sound', includeIfNull: false)
   final String? errorBase64Sound;
-  @JsonKey(name: 'NotificationBase64Sound')
+  @JsonKey(name: 'NotificationBase64Sound', includeIfNull: false)
   final String? notificationBase64Sound;
-  @JsonKey(name: 'WebAdministrator')
+  @JsonKey(name: 'WebAdministrator', includeIfNull: false)
   final bool? webAdministrator;
-  @JsonKey(name: 'HomeMenuGuid')
+  @JsonKey(name: 'HomeMenuGuid', includeIfNull: false)
   final String? homeMenuGuid;
-  @JsonKey(name: 'HomeMenuPath')
+  @JsonKey(name: 'HomeMenuPath', includeIfNull: false)
   final String? homeMenuPath;
-  @JsonKey(name: 'ReportsNavigationMenuVisible')
+  @JsonKey(name: 'ReportsNavigationMenuVisible', includeIfNull: false)
   final bool? reportsNavigationMenuVisible;
-  @JsonKey(name: 'SettingsNavigationMenuVisible')
+  @JsonKey(name: 'SettingsNavigationMenuVisible', includeIfNull: false)
   final bool? settingsNavigationMenuVisible;
-  @JsonKey(name: 'MainMenuPinned')
+  @JsonKey(name: 'MainMenuPinned', includeIfNull: false)
   final bool? mainMenuPinned;
-  @JsonKey(name: 'QuikActivitySetting')
+  @JsonKey(name: 'QuikActivitySetting', includeIfNull: false)
   final String? quikActivitySetting;
-  @JsonKey(name: 'FavoritesJson')
+  @JsonKey(name: 'FavoritesJson', includeIfNull: false)
   final String? favoritesJson;
-  @JsonKey(name: 'EmailSignature')
+  @JsonKey(name: 'EmailSignature', includeIfNull: false)
   final String? emailSignature;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncUserSettingsResponseFromJson;
@@ -2242,7 +2249,7 @@ class WebApiLogicAppFuncWarehouseResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncWarehouseResponseFromJson(json);
 
-  @JsonKey(name: 'MultiWarehouse')
+  @JsonKey(name: 'MultiWarehouse', includeIfNull: false)
   final bool? multiWarehouse;
   static const fromJsonFactory = _$WebApiLogicAppFuncWarehouseResponseFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncWarehouseResponseToJson;
@@ -2280,11 +2287,11 @@ class WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationRespo
       _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson(
           json);
 
-  @JsonKey(name: 'location')
+  @JsonKey(name: 'location', includeIfNull: false)
   final WebApiLogicAppFuncSessionLocation? location;
-  @JsonKey(name: 'warehouse')
+  @JsonKey(name: 'warehouse', includeIfNull: false)
   final WebApiLogicAppFuncSessionWarehouse? warehouse;
-  @JsonKey(name: 'department')
+  @JsonKey(name: 'department', includeIfNull: false)
   final WebApiLogicAppFuncSessionDepartment? department;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson;
@@ -2345,28 +2352,28 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
       _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson(
           json);
 
-  @JsonKey(name: 'location')
+  @JsonKey(name: 'location', includeIfNull: false)
   final WebApiLogicAppFuncSessionLocation? location;
-  @JsonKey(name: 'warehouse')
+  @JsonKey(name: 'warehouse', includeIfNull: false)
   final WebApiLogicAppFuncSessionWarehouse? warehouse;
-  @JsonKey(name: 'department')
+  @JsonKey(name: 'department', includeIfNull: false)
   final WebApiLogicAppFuncSessionDepartment? department;
-  @JsonKey(name: 'webUser')
+  @JsonKey(name: 'webUser', includeIfNull: false)
   final WebApiLogicAppFuncSessionUser? webUser;
-  @JsonKey(name: 'deal')
+  @JsonKey(name: 'deal', includeIfNull: false)
   final WebApiLogicAppFuncSessionDeal? deal;
-  @JsonKey(name: 'applicationtree')
+  @JsonKey(name: 'applicationtree', includeIfNull: false)
   final FwStandardAppManagerFwAmSecurityTreeNode? applicationtree;
-  @JsonKey(name: 'applicationOptions')
+  @JsonKey(name: 'applicationOptions', includeIfNull: false)
   final dynamic? applicationOptions;
-  @JsonKey(name: 'clientcode')
+  @JsonKey(name: 'clientcode', includeIfNull: false)
   final String? clientcode;
-  @JsonKey(name: 'serverVersion')
+  @JsonKey(name: 'serverVersion', includeIfNull: false)
   final String? serverVersion;
-  @JsonKey(name: 'systemSettings')
+  @JsonKey(name: 'systemSettings', includeIfNull: false)
   final WebApiModulesAccountServicesAccountSystemSettingsResponse?
       systemSettings;
-  @JsonKey(name: 'plugins')
+  @JsonKey(name: 'plugins', includeIfNull: false)
   final dynamic? plugins;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson;
@@ -2457,11 +2464,11 @@ class WebApiModulesAccountServicesAccountGetSettingsRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson(json);
 
-  @JsonKey(name: 'WebUsersId')
+  @JsonKey(name: 'WebUsersId', includeIfNull: false)
   final String? webUsersId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'LocationId')
+  @JsonKey(name: 'LocationId', includeIfNull: false)
   final String? locationId;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson;
@@ -2507,7 +2514,7 @@ class WebApiModulesAccountServicesAccountResetPasswordRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(json);
 
-  @JsonKey(name: 'Password')
+  @JsonKey(name: 'Password', includeIfNull: false)
   final String? password;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson;
@@ -2546,9 +2553,9 @@ class WebApiModulesAccountServicesAccountResetPasswordResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(json);
 
-  @JsonKey(name: 'Status')
+  @JsonKey(name: 'Status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson;
@@ -2592,17 +2599,17 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'DefaultUnitId')
+  @JsonKey(name: 'DefaultUnitId', includeIfNull: false)
   final String? defaultUnitId;
-  @JsonKey(name: 'DefaultRank')
+  @JsonKey(name: 'DefaultRank', includeIfNull: false)
   final String? defaultRank;
-  @JsonKey(name: 'RequireOriginalShow')
+  @JsonKey(name: 'RequireOriginalShow', includeIfNull: false)
   final bool? requireOriginalShow;
-  @JsonKey(name: 'UserAssignedICodes')
+  @JsonKey(name: 'UserAssignedICodes', includeIfNull: false)
   final bool? userAssignedICodes;
-  @JsonKey(name: 'QuikScanStageBySession')
+  @JsonKey(name: 'QuikScanStageBySession', includeIfNull: false)
   final bool? quikScanStageBySession;
-  @JsonKey(name: 'BarcodeSkipPrefixes')
+  @JsonKey(name: 'BarcodeSkipPrefixes', includeIfNull: false)
   final FwStandardSqlServerFwJsonDataTable? barcodeSkipPrefixes;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson;
@@ -2667,9 +2674,9 @@ class WebApiModulesAccountServicesJwtOktaRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesJwtOktaRequestFromJson(json);
 
-  @JsonKey(name: 'Email')
+  @JsonKey(name: 'Email', includeIfNull: false)
   final String? email;
-  @JsonKey(name: 'Token')
+  @JsonKey(name: 'Token', includeIfNull: false)
   final String? token;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesJwtOktaRequestFromJson;
@@ -2709,9 +2716,9 @@ class WebApiModulesAccountServicesJwtOktaSessionRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson(json);
 
-  @JsonKey(name: 'Token')
+  @JsonKey(name: 'Token', includeIfNull: false)
   final String? token;
-  @JsonKey(name: 'Apiurl')
+  @JsonKey(name: 'Apiurl', includeIfNull: false)
   final String? apiurl;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson;
@@ -2750,7 +2757,7 @@ class WebApiModulesAccountServicesJwtOktaSessionResponseModel {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson(json);
 
-  @JsonKey(name: 'Status')
+  @JsonKey(name: 'Status', includeIfNull: false)
   final String? status;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson;

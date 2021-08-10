@@ -2402,7 +2402,7 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
           json);
 
-  @JsonKey(name: 'downloadUrl')
+  @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
   static const fromJsonFactory =
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson;
@@ -2443,11 +2443,11 @@ class FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
           Map<String, dynamic> json) =>
       _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestFromJson(json);
 
-  @JsonKey(name: 'FromGroupId')
+  @JsonKey(name: 'FromGroupId', includeIfNull: false)
   final String? fromGroupId;
-  @JsonKey(name: 'ToGroupIds')
+  @JsonKey(name: 'ToGroupIds', includeIfNull: false)
   final String? toGroupIds;
-  @JsonKey(name: 'SecurityId')
+  @JsonKey(name: 'SecurityId', includeIfNull: false)
   final String? securityId;
   static const fromJsonFactory =
       _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestFromJson;
@@ -2494,9 +2494,9 @@ class FwCoreModulesAdministratorGroupLookupGroupResponse {
           Map<String, dynamic> json) =>
       _$FwCoreModulesAdministratorGroupLookupGroupResponseFromJson(json);
 
-  @JsonKey(name: 'GroupId')
+  @JsonKey(name: 'GroupId', includeIfNull: false)
   final String? groupId;
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   static const fromJsonFactory =
       _$FwCoreModulesAdministratorGroupLookupGroupResponseFromJson;
@@ -2540,16 +2540,17 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
           Map<String, dynamic> json) =>
       _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(json);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', includeIfNull: false)
   final String? id;
-  @JsonKey(name: 'caption')
+  @JsonKey(name: 'caption', includeIfNull: false)
   final String? caption;
-  @JsonKey(name: 'nodetype')
+  @JsonKey(name: 'nodetype', includeIfNull: false)
   final String? nodetype;
-  @JsonKey(name: 'properties')
+  @JsonKey(name: 'properties', includeIfNull: false)
   final Object? properties;
   @JsonKey(
       name: 'children',
+      includeIfNull: false,
       defaultValue: <FwStandardAppManagerFwAmSecurityTreeNode>[])
   final List<FwStandardAppManagerFwAmSecurityTreeNode>? children;
   static const fromJsonFactory =
@@ -2607,10 +2608,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
           Map<String, dynamic> json) =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
@@ -2653,11 +2655,11 @@ class FwStandardDataFwCustomValue {
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
       _$FwStandardDataFwCustomValueFromJson(json);
 
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'FieldValue')
+  @JsonKey(name: 'FieldValue', includeIfNull: false)
   final String? fieldValue;
-  @JsonKey(name: 'FieldType')
+  @JsonKey(name: 'FieldType', includeIfNull: false)
   final String? fieldType;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
@@ -2701,11 +2703,11 @@ class FwStandardDataFwDefaultAttribute {
           Map<String, dynamic> json) =>
       _$FwStandardDataFwDefaultAttributeFromJson(json);
 
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'AttributeName')
+  @JsonKey(name: 'AttributeName', includeIfNull: false)
   final String? attributeName;
-  @JsonKey(name: 'DefaultValue')
+  @JsonKey(name: 'DefaultValue', includeIfNull: false)
   final String? defaultValue;
   static const fromJsonFactory = _$FwStandardDataFwDefaultAttributeFromJson;
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
@@ -2771,54 +2773,66 @@ class FwStandardModelsBrowseRequest {
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsBrowseRequestFromJson(json);
 
-  @JsonKey(name: 'miscfields')
+  @JsonKey(name: 'miscfields', includeIfNull: false)
   final dynamic? miscfields;
-  @JsonKey(name: 'module')
+  @JsonKey(name: 'module', includeIfNull: false)
   final String? module;
-  @JsonKey(name: 'options')
+  @JsonKey(name: 'options', includeIfNull: false)
   final dynamic? options;
-  @JsonKey(name: 'orderby')
+  @JsonKey(name: 'orderby', includeIfNull: false)
   final String? orderby;
-  @JsonKey(name: 'orderbydirection')
+  @JsonKey(name: 'orderbydirection', includeIfNull: false)
   final String? orderbydirection;
-  @JsonKey(name: 'top')
+  @JsonKey(name: 'top', includeIfNull: false)
   final int? top;
-  @JsonKey(name: 'pageno')
+  @JsonKey(name: 'pageno', includeIfNull: false)
   final int? pageno;
-  @JsonKey(name: 'pagesize')
+  @JsonKey(name: 'pagesize', includeIfNull: false)
   final int? pagesize;
-  @JsonKey(name: 'searchfieldoperators', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldoperators',
+      includeIfNull: false,
+      defaultValue: <String>[])
   final List<String>? searchfieldoperators;
-  @JsonKey(name: 'searchfields', defaultValue: <String>[])
+  @JsonKey(name: 'searchfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfields;
-  @JsonKey(name: 'searchfieldvalues', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldvalues', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfieldvalues;
-  @JsonKey(name: 'searchfieldtypes', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldtypes', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfieldtypes;
-  @JsonKey(name: 'searchseparators', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchseparators', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchseparators;
-  @JsonKey(name: 'searchcondition', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchcondition', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchcondition;
-  @JsonKey(name: 'searchconjunctions', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchconjunctions',
+      includeIfNull: false,
+      defaultValue: <String>[])
   final List<String>? searchconjunctions;
-  @JsonKey(name: 'uniqueids')
+  @JsonKey(name: 'uniqueids', includeIfNull: false)
   final dynamic? uniqueids;
-  @JsonKey(name: 'boundids')
+  @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic? boundids;
-  @JsonKey(name: 'filterfields')
+  @JsonKey(name: 'filterfields', includeIfNull: false)
   final Object? filterfields;
-  @JsonKey(name: 'activeview')
+  @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
-  @JsonKey(name: 'emptyobject')
+  @JsonKey(name: 'emptyobject', includeIfNull: false)
   final bool? emptyobject;
-  @JsonKey(name: 'forexcel')
+  @JsonKey(name: 'forexcel', includeIfNull: false)
   final bool? forexcel;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
-  @JsonKey(name: 'totalfields', defaultValue: <String>[])
+  @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
-  @JsonKey(name: 'activeviewfields')
+  @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Object? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
@@ -2965,11 +2979,11 @@ class FwStandardModelsCheckBoxListItem {
           Map<String, dynamic> json) =>
       _$FwStandardModelsCheckBoxListItemFromJson(json);
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', includeIfNull: false)
   final String? value;
-  @JsonKey(name: 'text')
+  @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
-  @JsonKey(name: 'selected')
+  @JsonKey(name: 'selected', includeIfNull: false)
   final bool? selected;
   static const fromJsonFactory = _$FwStandardModelsCheckBoxListItemFromJson;
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
@@ -3012,11 +3026,11 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
-  @JsonKey(name: 'StackTrace')
+  @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
@@ -3060,11 +3074,11 @@ class FwStandardModelsFwQueryFilter {
   factory FwStandardModelsFwQueryFilter.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwQueryFilterFromJson(json);
 
-  @JsonKey(name: 'Field')
+  @JsonKey(name: 'Field', includeIfNull: false)
   final String? field;
-  @JsonKey(name: 'Op')
+  @JsonKey(name: 'Op', includeIfNull: false)
   final String? op;
-  @JsonKey(name: 'Value')
+  @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
@@ -3111,15 +3125,16 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLog
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <FwStandardModulesAdministratorAlertAlertLogic>[])
   final List<FwStandardModulesAdministratorAlertAlertLogic>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicFromJson;
@@ -3181,17 +3196,17 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditio
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       FwStandardModulesAdministratorAlertConditionAlertConditionLogic>[])
   final List<FwStandardModulesAdministratorAlertConditionAlertConditionLogic>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson;
@@ -3254,17 +3269,17 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsers
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>[])
   final List<FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson;
@@ -3327,18 +3342,18 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportL
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>[])
   final List<
           FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson;
@@ -3401,17 +3416,17 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRule
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>[])
   final List<FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson;
@@ -3474,17 +3489,17 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplate
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>[])
   final List<FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson;
@@ -3547,16 +3562,16 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWe
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>[])
   final List<FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson;
@@ -3621,15 +3636,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustom
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesAdministratorCustomFieldCustomField>[])
   final List<WebApiModulesAdministratorCustomFieldCustomField>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogicFromJson;
@@ -3693,15 +3709,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomF
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesAdministratorCustomFormCustomForm>[])
   final List<WebApiModulesAdministratorCustomFormCustomForm>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicFromJson;
@@ -3765,15 +3782,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHea
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesAdministratorDataHealthDataHealth>[])
   final List<WebApiModulesAdministratorDataHealthDataHealth>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogicFromJson;
@@ -3837,15 +3855,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmail
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesAdministratorEmailHistoryEmailHistory>[])
   final List<WebApiModulesAdministratorEmailHistoryEmailHistory>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicFromJson;
@@ -3908,15 +3927,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic {
           json);
 
   @JsonKey(
-      name: 'Items', defaultValue: <WebApiModulesAdministratorGroupGroup>[])
+      name: 'Items',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesAdministratorGroupGroup>[])
   final List<WebApiModulesAdministratorGroupGroup>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogicFromJson;
@@ -3979,15 +4000,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
           json);
 
   @JsonKey(
-      name: 'Items', defaultValue: <WebApiModulesAdministratorHotfixHotfix>[])
+      name: 'Items',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesAdministratorHotfixHotfix>[])
   final List<WebApiModulesAdministratorHotfixHotfix>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicFromJson;
@@ -4050,15 +4073,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
           json);
 
   @JsonKey(
-      name: 'Items', defaultValue: <WebApiModulesAdministratorPluginPlugin>[])
+      name: 'Items',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesAdministratorPluginPlugin>[])
   final List<WebApiModulesAdministratorPluginPlugin>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogicFromJson;
@@ -4120,17 +4145,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>[])
   final List<WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicFromJson;
@@ -4193,18 +4218,18 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog>[])
   final List<
           WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicFromJson;
@@ -4267,15 +4292,18 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <WebApiModulesAdministratorUserUser>[])
+  @JsonKey(
+      name: 'Items',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesAdministratorUserUser>[])
   final List<WebApiModulesAdministratorUserUser>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicFromJson;
@@ -4337,17 +4365,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>[])
   final List<WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicFromJson;
@@ -4410,17 +4438,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>[])
   final List<WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicFromJson;
@@ -4483,16 +4511,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomMod
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorControlsCustomModuleCustomModule>[])
   final List<WebApiModulesAdministratorControlsCustomModuleCustomModule>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicFromJson;
@@ -4555,18 +4583,18 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomRep
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>[])
   final List<
           WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicFromJson;
@@ -4629,18 +4657,18 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicate
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>[])
   final List<
           WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicFromJson;
@@ -4705,15 +4733,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroup
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesSettingsWidgetGroupWidgetGroup>[])
   final List<WebApiModulesSettingsWidgetGroupWidgetGroup>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogicFromJson;
@@ -4777,15 +4806,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLo
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesSettingsWidgetUserWidgetUser>[])
   final List<WebApiModulesSettingsWidgetUserWidgetUser>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogicFromJson;
@@ -4847,18 +4877,18 @@ class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayo
       _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicFromJson(
           json);
 
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>[])
   final List<
           WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>?
       items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicFromJson;
@@ -4923,15 +4953,16 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <FwCoreModulesAdministratorGroupLookupGroupResponse>[])
   final List<FwCoreModulesAdministratorGroupLookupGroupResponse>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseFromJson;
@@ -4993,17 +5024,17 @@ class FwStandardModulesAdministratorAlertAlertCondition {
           Map<String, dynamic> json) =>
       _$FwStandardModulesAdministratorAlertAlertConditionFromJson(json);
 
-  @JsonKey(name: 'AlertConditionId')
+  @JsonKey(name: 'AlertConditionId', includeIfNull: false)
   final String? alertConditionId;
-  @JsonKey(name: 'AlertId')
+  @JsonKey(name: 'AlertId', includeIfNull: false)
   final String? alertId;
-  @JsonKey(name: 'FieldName1')
+  @JsonKey(name: 'FieldName1', includeIfNull: false)
   final String? fieldName1;
-  @JsonKey(name: 'FieldName2')
+  @JsonKey(name: 'FieldName2', includeIfNull: false)
   final String? fieldName2;
-  @JsonKey(name: 'Condition')
+  @JsonKey(name: 'Condition', includeIfNull: false)
   final String? condition;
-  @JsonKey(name: 'Value')
+  @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory =
       _$FwStandardModulesAdministratorAlertAlertConditionFromJson;
@@ -5079,41 +5110,47 @@ class FwStandardModulesAdministratorAlertAlertLogic {
           Map<String, dynamic> json) =>
       _$FwStandardModulesAdministratorAlertAlertLogicFromJson(json);
 
-  @JsonKey(name: 'AlertId')
+  @JsonKey(name: 'AlertId', includeIfNull: false)
   final String? alertId;
-  @JsonKey(name: 'AlertName')
+  @JsonKey(name: 'AlertName', includeIfNull: false)
   final String? alertName;
-  @JsonKey(name: 'ModuleName')
+  @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
-  @JsonKey(name: 'ActionNew')
+  @JsonKey(name: 'ActionNew', includeIfNull: false)
   final bool? actionNew;
-  @JsonKey(name: 'ActionEdit')
+  @JsonKey(name: 'ActionEdit', includeIfNull: false)
   final bool? actionEdit;
-  @JsonKey(name: 'ActionDelete')
+  @JsonKey(name: 'ActionDelete', includeIfNull: false)
   final bool? actionDelete;
-  @JsonKey(name: 'AlertSubject')
+  @JsonKey(name: 'AlertSubject', includeIfNull: false)
   final String? alertSubject;
-  @JsonKey(name: 'AlertBody')
+  @JsonKey(name: 'AlertBody', includeIfNull: false)
   final String? alertBody;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(
       name: 'AlertConditionList',
+      includeIfNull: false,
       defaultValue: <FwStandardModulesAdministratorAlertAlertCondition>[])
   final List<FwStandardModulesAdministratorAlertAlertCondition>?
       alertConditionList;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -5233,30 +5270,35 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
       _$FwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson(
           json);
 
-  @JsonKey(name: 'AlertId')
+  @JsonKey(name: 'AlertId', includeIfNull: false)
   final String? alertId;
-  @JsonKey(name: 'AlertConditionId')
+  @JsonKey(name: 'AlertConditionId', includeIfNull: false)
   final String? alertConditionId;
-  @JsonKey(name: 'FieldName1')
+  @JsonKey(name: 'FieldName1', includeIfNull: false)
   final String? fieldName1;
-  @JsonKey(name: 'Condition')
+  @JsonKey(name: 'Condition', includeIfNull: false)
   final String? condition;
-  @JsonKey(name: 'FieldName2')
+  @JsonKey(name: 'FieldName2', includeIfNull: false)
   final String? fieldName2;
-  @JsonKey(name: 'Value')
+  @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -5356,32 +5398,37 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
       _$FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson(
           json);
 
-  @JsonKey(name: 'AlertWebUserId')
+  @JsonKey(name: 'AlertWebUserId', includeIfNull: false)
   final String? alertWebUserId;
-  @JsonKey(name: 'AlertId')
+  @JsonKey(name: 'AlertId', includeIfNull: false)
   final String? alertId;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'Email')
+  @JsonKey(name: 'Email', includeIfNull: false)
   final String? email;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -5488,38 +5535,43 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
       _$FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson(
           json);
 
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'BaseReport')
+  @JsonKey(name: 'BaseReport', includeIfNull: false)
   final String? baseReport;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'Category')
+  @JsonKey(name: 'Category', includeIfNull: false)
   final String? category;
-  @JsonKey(name: 'Html')
+  @JsonKey(name: 'Html', includeIfNull: false)
   final String? html;
-  @JsonKey(name: 'Active')
+  @JsonKey(name: 'Active', includeIfNull: false)
   final bool? active;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'AssignTo')
+  @JsonKey(name: 'AssignTo', includeIfNull: false)
   final String? assignTo;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -5641,36 +5693,41 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
       _$FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson(
           json);
 
-  @JsonKey(name: 'DuplicateRuleId')
+  @JsonKey(name: 'DuplicateRuleId', includeIfNull: false)
   final String? duplicateRuleId;
-  @JsonKey(name: 'ModuleName')
+  @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
-  @JsonKey(name: 'RuleName')
+  @JsonKey(name: 'RuleName', includeIfNull: false)
   final String? ruleName;
-  @JsonKey(name: 'CaseSensitive')
+  @JsonKey(name: 'CaseSensitive', includeIfNull: false)
   final bool? caseSensitive;
-  @JsonKey(name: 'SystemRule')
+  @JsonKey(name: 'SystemRule', includeIfNull: false)
   final bool? systemRule;
-  @JsonKey(name: 'Fields')
+  @JsonKey(name: 'Fields', includeIfNull: false)
   final String? fields;
-  @JsonKey(name: 'FieldTypes')
+  @JsonKey(name: 'FieldTypes', includeIfNull: false)
   final String? fieldTypes;
-  @JsonKey(name: 'RuleNameColor')
+  @JsonKey(name: 'RuleNameColor', includeIfNull: false)
   final String? ruleNameColor;
-  @JsonKey(name: 'ConsiderBlanks')
+  @JsonKey(name: 'ConsiderBlanks', includeIfNull: false)
   final bool? considerBlanks;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? $fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -5787,34 +5844,39 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson(
           json);
 
-  @JsonKey(name: 'AppEmailId')
+  @JsonKey(name: 'AppEmailId', includeIfNull: false)
   final String? appEmailId;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'FilterId')
+  @JsonKey(name: 'FilterId', includeIfNull: false)
   final String? filterId;
-  @JsonKey(name: 'Subject')
+  @JsonKey(name: 'Subject', includeIfNull: false)
   final String? subject;
-  @JsonKey(name: 'EmailText')
+  @JsonKey(name: 'EmailText', includeIfNull: false)
   final String? emailText;
-  @JsonKey(name: 'Category')
+  @JsonKey(name: 'Category', includeIfNull: false)
   final String? category;
-  @JsonKey(name: 'BodyFormat')
+  @JsonKey(name: 'BodyFormat', includeIfNull: false)
   final String? bodyFormat;
-  @JsonKey(name: 'EmailType')
+  @JsonKey(name: 'EmailType', includeIfNull: false)
   final String? emailType;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -5914,7 +5976,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFi
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestFromJson(
           json);
 
-  @JsonKey(name: 'category')
+  @JsonKey(name: 'category', includeIfNull: false)
   final String? category;
   static const fromJsonFactory =
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestFromJson;
@@ -5954,7 +6016,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCateg
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseFromJson(
           json);
 
-  @JsonKey(name: 'categories', defaultValue: <String>[])
+  @JsonKey(name: 'categories', includeIfNull: false, defaultValue: <String>[])
   final List<String>? categories;
   static const fromJsonFactory =
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseFromJson;
@@ -5994,7 +6056,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateField
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseFromJson(
           json);
 
-  @JsonKey(name: 'fields', defaultValue: <String>[])
+  @JsonKey(name: 'fields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? fields;
   static const fromJsonFactory =
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseFromJson;
@@ -6045,36 +6107,41 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
           Map<String, dynamic> json) =>
       _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(json);
 
-  @JsonKey(name: 'WebAlertLogId')
+  @JsonKey(name: 'WebAlertLogId', includeIfNull: false)
   final int? webAlertLogId;
-  @JsonKey(name: 'AlertId')
+  @JsonKey(name: 'AlertId', includeIfNull: false)
   final String? alertId;
-  @JsonKey(name: 'CreateDateTime')
+  @JsonKey(name: 'CreateDateTime', includeIfNull: false)
   final DateTime? createDateTime;
-  @JsonKey(name: 'AlertSubject')
+  @JsonKey(name: 'AlertSubject', includeIfNull: false)
   final String? alertSubject;
-  @JsonKey(name: 'AlertBody')
+  @JsonKey(name: 'AlertBody', includeIfNull: false)
   final String? alertBody;
-  @JsonKey(name: 'AlertFrom')
+  @JsonKey(name: 'AlertFrom', includeIfNull: false)
   final String? alertFrom;
-  @JsonKey(name: 'AlertTo')
+  @JsonKey(name: 'AlertTo', includeIfNull: false)
   final String? alertTo;
-  @JsonKey(name: 'Status')
+  @JsonKey(name: 'Status', includeIfNull: false)
   final String? status;
-  @JsonKey(name: 'ErrorMessage')
+  @JsonKey(name: 'ErrorMessage', includeIfNull: false)
   final String? errorMessage;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -6190,36 +6257,41 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
       _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicFromJson(
           json);
 
-  @JsonKey(name: 'WebAuditId')
+  @JsonKey(name: 'WebAuditId', includeIfNull: false)
   final int? webAuditId;
-  @JsonKey(name: 'ModuleName')
+  @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
-  @JsonKey(name: 'Title')
+  @JsonKey(name: 'Title', includeIfNull: false)
   final String? title;
-  @JsonKey(name: 'UniqueId1')
+  @JsonKey(name: 'UniqueId1', includeIfNull: false)
   final String? uniqueId1;
-  @JsonKey(name: 'UniqueId2')
+  @JsonKey(name: 'UniqueId2', includeIfNull: false)
   final String? uniqueId2;
-  @JsonKey(name: 'UniqueId3')
+  @JsonKey(name: 'UniqueId3', includeIfNull: false)
   final String? uniqueId3;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'Json')
+  @JsonKey(name: 'Json', includeIfNull: false)
   final String? json;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -6329,27 +6401,28 @@ class FwStandardSqlServerFwJsonDataTable {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
-  @JsonKey(name: 'ColumnIndex')
+  @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Object? columnIndex;
-  @JsonKey(name: 'Totals')
+  @JsonKey(name: 'Totals', includeIfNull: false)
   final Object? totals;
   @JsonKey(
       name: 'Columns',
+      includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
   final List<List<Object>>? rows;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalPages')
+  @JsonKey(name: 'TotalPages', includeIfNull: false)
   final int? totalPages;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: 'ColumnNameByIndex')
+  @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Object? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
@@ -6431,18 +6504,19 @@ class FwStandardSqlServerFwJsonDataTableColumn {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'DataField')
+  @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
-  @JsonKey(name: 'IsUniqueId')
+  @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
-  @JsonKey(name: 'IsVisible')
+  @JsonKey(name: 'IsVisible', includeIfNull: false)
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
@@ -6499,7 +6573,7 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest {
       _$WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestFromJson(
           json);
 
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', includeIfNull: false)
   final String? accessToken;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestFromJson;
@@ -6539,7 +6613,7 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest {
       _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestFromJson(
           json);
 
-  @JsonKey(name: 'authorizationCode')
+  @JsonKey(name: 'authorizationCode', includeIfNull: false)
   final String? authorizationCode;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestFromJson;
@@ -6577,7 +6651,7 @@ class WebApiModulesAccountServicesHubSpotGetWriteTokensResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseFromJson(json);
 
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', includeIfNull: false)
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseFromJson;
@@ -6618,13 +6692,13 @@ class WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest {
       _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestFromJson(
           json);
 
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', includeIfNull: false)
   final String? accessToken;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', includeIfNull: false)
   final String? email;
-  @JsonKey(name: 'firstname')
+  @JsonKey(name: 'firstname', includeIfNull: false)
   final String? firstname;
-  @JsonKey(name: 'lastname')
+  @JsonKey(name: 'lastname', includeIfNull: false)
   final String? lastname;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestFromJson;
@@ -6680,11 +6754,11 @@ class WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodReques
       _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestFromJson(
           json);
 
-  @JsonKey(name: 'webusersid')
+  @JsonKey(name: 'webusersid', includeIfNull: false)
   final String? webusersid;
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', includeIfNull: false)
   final String? accessToken;
-  @JsonKey(name: 'lastSyncEpoch')
+  @JsonKey(name: 'lastSyncEpoch', includeIfNull: false)
   final int? lastSyncEpoch;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestFromJson;
@@ -6744,36 +6818,41 @@ class WebApiModulesAdministratorCustomFieldCustomField {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorCustomFieldCustomFieldFromJson(json);
 
-  @JsonKey(name: 'CustomFieldId')
+  @JsonKey(name: 'CustomFieldId', includeIfNull: false)
   final String? customFieldId;
-  @JsonKey(name: 'ModuleName')
+  @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'CustomTableName')
+  @JsonKey(name: 'CustomTableName', includeIfNull: false)
   final String? customTableName;
-  @JsonKey(name: 'CustomFieldName')
+  @JsonKey(name: 'CustomFieldName', includeIfNull: false)
   final String? customFieldName;
-  @JsonKey(name: 'FieldType')
+  @JsonKey(name: 'FieldType', includeIfNull: false)
   final String? fieldType;
-  @JsonKey(name: 'ControlType')
+  @JsonKey(name: 'ControlType', includeIfNull: false)
   final String? controlType;
-  @JsonKey(name: 'StringLength')
+  @JsonKey(name: 'StringLength', includeIfNull: false)
   final int? stringLength;
-  @JsonKey(name: 'FloatDecimalDigits')
+  @JsonKey(name: 'FloatDecimalDigits', includeIfNull: false)
   final int? floatDecimalDigits;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -6890,38 +6969,43 @@ class WebApiModulesAdministratorCustomFormCustomForm {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorCustomFormCustomFormFromJson(json);
 
-  @JsonKey(name: 'CustomFormId')
+  @JsonKey(name: 'CustomFormId', includeIfNull: false)
   final String? customFormId;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'BaseForm')
+  @JsonKey(name: 'BaseForm', includeIfNull: false)
   final String? baseForm;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'Html')
+  @JsonKey(name: 'Html', includeIfNull: false)
   final String? html;
-  @JsonKey(name: 'Active')
+  @JsonKey(name: 'Active', includeIfNull: false)
   final bool? active;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'AssignTo')
+  @JsonKey(name: 'AssignTo', includeIfNull: false)
   final String? assignTo;
-  @JsonKey(name: 'SelfAssign')
+  @JsonKey(name: 'SelfAssign', includeIfNull: false)
   final bool? selfAssign;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -7028,7 +7112,7 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
       _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseFromJson(
           json);
 
-  @JsonKey(name: 'ReportTemplate')
+  @JsonKey(name: 'ReportTemplate', includeIfNull: false)
   final String? reportTemplate;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseFromJson;
@@ -7080,36 +7164,41 @@ class WebApiModulesAdministratorDataHealthDataHealth {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorDataHealthDataHealthFromJson(json);
 
-  @JsonKey(name: 'DataHealthId')
+  @JsonKey(name: 'DataHealthId', includeIfNull: false)
   final int? dataHealthId;
-  @JsonKey(name: 'DataHealthType')
+  @JsonKey(name: 'DataHealthType', includeIfNull: false)
   final String? dataHealthType;
-  @JsonKey(name: 'CaptureDateTime')
+  @JsonKey(name: 'CaptureDateTime', includeIfNull: false)
   final String? captureDateTime;
-  @JsonKey(name: 'CaptureDate')
+  @JsonKey(name: 'CaptureDate', includeIfNull: false)
   final String? captureDate;
-  @JsonKey(name: 'Json')
+  @JsonKey(name: 'Json', includeIfNull: false)
   final String? json;
-  @JsonKey(name: 'Severity')
+  @JsonKey(name: 'Severity', includeIfNull: false)
   final String? severity;
-  @JsonKey(name: 'SeverityColor')
+  @JsonKey(name: 'SeverityColor', includeIfNull: false)
   final String? severityColor;
-  @JsonKey(name: 'Notes')
+  @JsonKey(name: 'Notes', includeIfNull: false)
   final String? notes;
-  @JsonKey(name: 'Resolved')
+  @JsonKey(name: 'Resolved', includeIfNull: false)
   final bool? resolved;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -7227,44 +7316,49 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorEmailHistoryEmailHistoryFromJson(json);
 
-  @JsonKey(name: 'EmailHistoryId')
+  @JsonKey(name: 'EmailHistoryId', includeIfNull: false)
   final String? emailHistoryId;
-  @JsonKey(name: 'ReportId')
+  @JsonKey(name: 'ReportId', includeIfNull: false)
   final String? reportId;
-  @JsonKey(name: 'FromUserId')
+  @JsonKey(name: 'FromUserId', includeIfNull: false)
   final String? fromUserId;
-  @JsonKey(name: 'FromWebUserId')
+  @JsonKey(name: 'FromWebUserId', includeIfNull: false)
   final String? fromWebUserId;
-  @JsonKey(name: 'FromUser')
+  @JsonKey(name: 'FromUser', includeIfNull: false)
   final String? fromUser;
-  @JsonKey(name: 'EmailDate')
+  @JsonKey(name: 'EmailDate', includeIfNull: false)
   final String? emailDate;
-  @JsonKey(name: 'Status')
+  @JsonKey(name: 'Status', includeIfNull: false)
   final String? status;
-  @JsonKey(name: 'EmailText')
+  @JsonKey(name: 'EmailText', includeIfNull: false)
   final String? emailText;
-  @JsonKey(name: 'EmailTo')
+  @JsonKey(name: 'EmailTo', includeIfNull: false)
   final String? emailTo;
-  @JsonKey(name: 'EmailSubject')
+  @JsonKey(name: 'EmailSubject', includeIfNull: false)
   final String? emailSubject;
-  @JsonKey(name: 'EmailCC')
+  @JsonKey(name: 'EmailCC', includeIfNull: false)
   final String? emailCC;
-  @JsonKey(name: 'Title')
+  @JsonKey(name: 'Title', includeIfNull: false)
   final String? title;
-  @JsonKey(name: 'RelatedToId')
+  @JsonKey(name: 'RelatedToId', includeIfNull: false)
   final String? relatedToId;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -7396,32 +7490,37 @@ class WebApiModulesAdministratorGroupGroup {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorGroupGroupFromJson(json);
 
-  @JsonKey(name: 'GroupId')
+  @JsonKey(name: 'GroupId', includeIfNull: false)
   final String? groupId;
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'Memo')
+  @JsonKey(name: 'Memo', includeIfNull: false)
   final String? memo;
-  @JsonKey(name: 'Security')
+  @JsonKey(name: 'Security', includeIfNull: false)
   final String? security;
-  @JsonKey(name: 'HideNewMenuOptionsByDefault')
+  @JsonKey(name: 'HideNewMenuOptionsByDefault', includeIfNull: false)
   final bool? hideNewMenuOptionsByDefault;
-  @JsonKey(name: 'IsMyGroup')
+  @JsonKey(name: 'IsMyGroup', includeIfNull: false)
   final bool? isMyGroup;
-  @JsonKey(name: 'GroupColor')
+  @JsonKey(name: 'GroupColor', includeIfNull: false)
   final String? groupColor;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory = _$WebApiModulesAdministratorGroupGroupFromJson;
@@ -7522,28 +7621,33 @@ class WebApiModulesAdministratorHotfixHotfix {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorHotfixHotfixFromJson(json);
 
-  @JsonKey(name: 'HotfixId')
+  @JsonKey(name: 'HotfixId', includeIfNull: false)
   final String? hotfixId;
-  @JsonKey(name: 'FileName')
+  @JsonKey(name: 'FileName', includeIfNull: false)
   final String? fileName;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'HotfixBegin')
+  @JsonKey(name: 'HotfixBegin', includeIfNull: false)
   final String? hotfixBegin;
-  @JsonKey(name: 'HotfixEnd')
+  @JsonKey(name: 'HotfixEnd', includeIfNull: false)
   final String? hotfixEnd;
-  @JsonKey(name: 'HotfixSeconds')
+  @JsonKey(name: 'HotfixSeconds', includeIfNull: false)
   final double? hotfixSeconds;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -7633,26 +7737,31 @@ class WebApiModulesAdministratorPluginPlugin {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorPluginPluginFromJson(json);
 
-  @JsonKey(name: 'PluginId')
+  @JsonKey(name: 'PluginId', includeIfNull: false)
   final int? pluginId;
-  @JsonKey(name: 'Category')
+  @JsonKey(name: 'Category', includeIfNull: false)
   final String? category;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'Settings')
+  @JsonKey(name: 'Settings', includeIfNull: false)
   final String? settings;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -7730,9 +7839,9 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestFromJson(json);
 
-  @JsonKey(name: 'CurrentVersion')
+  @JsonKey(name: 'CurrentVersion', includeIfNull: false)
   final String? currentVersion;
-  @JsonKey(name: 'ToVersion')
+  @JsonKey(name: 'ToVersion', includeIfNull: false)
   final String? toVersion;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestFromJson;
@@ -7776,11 +7885,11 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseFromJson(json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseFromJson;
@@ -7827,13 +7936,13 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersion {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionFromJson(json);
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', includeIfNull: false)
   final String? value;
-  @JsonKey(name: 'text')
+  @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
-  @JsonKey(name: 'Version')
+  @JsonKey(name: 'Version', includeIfNull: false)
   final String? version;
-  @JsonKey(name: 'VersionDate')
+  @JsonKey(name: 'VersionDate', includeIfNull: false)
   final DateTime? versionDate;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionFromJson;
@@ -7883,9 +7992,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest {
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestFromJson(
           json);
 
-  @JsonKey(name: 'CurrentVersion')
+  @JsonKey(name: 'CurrentVersion', includeIfNull: false)
   final String? currentVersion;
-  @JsonKey(name: 'OnlyIncludeNewerVersions')
+  @JsonKey(name: 'OnlyIncludeNewerVersions', includeIfNull: false)
   final bool? onlyIncludeNewerVersions;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestFromJson;
@@ -7934,14 +8043,15 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse {
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
   @JsonKey(
       name: 'Versions',
+      includeIfNull: false,
       defaultValue: <WebApiModulesAdministratorSystemUpdateAvailableVersion>[])
   final List<WebApiModulesAdministratorSystemUpdateAvailableVersion>? versions;
   static const fromJsonFactory =
@@ -7995,9 +8105,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocument {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentFromJson(json);
 
-  @JsonKey(name: 'BuildNumber')
+  @JsonKey(name: 'BuildNumber', includeIfNull: false)
   final String? buildNumber;
-  @JsonKey(name: 'BuildDate')
+  @JsonKey(name: 'BuildDate', includeIfNull: false)
   final DateTime? buildDate;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentFromJson;
@@ -8041,9 +8151,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest {
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestFromJson(
           json);
 
-  @JsonKey(name: 'CurrentVersion')
+  @JsonKey(name: 'CurrentVersion', includeIfNull: false)
   final String? currentVersion;
-  @JsonKey(name: 'OnlyIncludeNewerVersions')
+  @JsonKey(name: 'OnlyIncludeNewerVersions', includeIfNull: false)
   final bool? onlyIncludeNewerVersions;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestFromJson;
@@ -8092,16 +8202,18 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse {
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
-  @JsonKey(name: 'DocumentsList', defaultValue: <String>[])
+  @JsonKey(
+      name: 'DocumentsList', includeIfNull: false, defaultValue: <String>[])
   final List<String>? documentsList;
   @JsonKey(
       name: 'Documents',
+      includeIfNull: false,
       defaultValue: <WebApiModulesAdministratorSystemUpdateBuildDocument>[])
   final List<WebApiModulesAdministratorSystemUpdateBuildDocument>? documents;
   static const fromJsonFactory =
@@ -8160,7 +8272,7 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest {
       _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestFromJson(
           json);
 
-  @JsonKey(name: 'Version')
+  @JsonKey(name: 'Version', includeIfNull: false)
   final String? version;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestFromJson;
@@ -8202,13 +8314,13 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse {
       _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
-  @JsonKey(name: 'downloadUrl')
+  @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseFromJson;
@@ -8258,7 +8370,7 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest {
       _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestFromJson(
           json);
 
-  @JsonKey(name: 'Version')
+  @JsonKey(name: 'Version', includeIfNull: false)
   final String? version;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestFromJson;
@@ -8300,13 +8412,13 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse {
       _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseFromJson(
           json);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', includeIfNull: false)
   final bool? success;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
-  @JsonKey(name: 'Hotfix')
+  @JsonKey(name: 'Hotfix', includeIfNull: false)
   final String? hotfix;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseFromJson;
@@ -8366,32 +8478,37 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
       _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryFromJson(
           json);
 
-  @JsonKey(name: 'SystemUpdateHistoryId')
+  @JsonKey(name: 'SystemUpdateHistoryId', includeIfNull: false)
   final int? systemUpdateHistoryId;
-  @JsonKey(name: 'UsersId')
+  @JsonKey(name: 'UsersId', includeIfNull: false)
   final String? usersId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'UpdateDateTime')
+  @JsonKey(name: 'UpdateDateTime', includeIfNull: false)
   final DateTime? updateDateTime;
-  @JsonKey(name: 'FromVersion')
+  @JsonKey(name: 'FromVersion', includeIfNull: false)
   final String? fromVersion;
-  @JsonKey(name: 'ToVersion')
+  @JsonKey(name: 'ToVersion', includeIfNull: false)
   final String? toVersion;
-  @JsonKey(name: 'ErrorMessage')
+  @JsonKey(name: 'ErrorMessage', includeIfNull: false)
   final String? errorMessage;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -8494,24 +8611,29 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
       _$WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogFromJson(
           json);
 
-  @JsonKey(name: 'SystemUpdateHistoryLogId')
+  @JsonKey(name: 'SystemUpdateHistoryLogId', includeIfNull: false)
   final int? systemUpdateHistoryLogId;
-  @JsonKey(name: 'SystemUpdateHistoryId')
+  @JsonKey(name: 'SystemUpdateHistoryId', includeIfNull: false)
   final int? systemUpdateHistoryId;
-  @JsonKey(name: 'Messsage')
+  @JsonKey(name: 'Messsage', includeIfNull: false)
   final String? messsage;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -8722,275 +8844,295 @@ class WebApiModulesAdministratorUserUser {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorUserUserFromJson(json);
 
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'LoginName')
+  @JsonKey(name: 'LoginName', includeIfNull: false)
   final String? loginName;
-  @JsonKey(name: 'FullName')
+  @JsonKey(name: 'FullName', includeIfNull: false)
   final String? fullName;
-  @JsonKey(name: 'FirstName')
+  @JsonKey(name: 'FirstName', includeIfNull: false)
   final String? firstName;
-  @JsonKey(name: 'MiddleInitial')
+  @JsonKey(name: 'MiddleInitial', includeIfNull: false)
   final String? middleInitial;
-  @JsonKey(name: 'LastName')
+  @JsonKey(name: 'LastName', includeIfNull: false)
   final String? lastName;
-  @JsonKey(name: 'Password')
+  @JsonKey(name: 'Password', includeIfNull: false)
   final String? password;
-  @JsonKey(name: 'PasswordChanged')
+  @JsonKey(name: 'PasswordChanged', includeIfNull: false)
   final bool? passwordChanged;
-  @JsonKey(name: 'BarCode')
+  @JsonKey(name: 'BarCode', includeIfNull: false)
   final String? barCode;
-  @JsonKey(name: 'GroupId')
+  @JsonKey(name: 'GroupId', includeIfNull: false)
   final String? groupId;
-  @JsonKey(name: 'GroupName')
+  @JsonKey(name: 'GroupName', includeIfNull: false)
   final String? groupName;
-  @JsonKey(name: 'ScheduleColor')
+  @JsonKey(name: 'ScheduleColor', includeIfNull: false)
   final String? scheduleColor;
-  @JsonKey(name: 'UserTitleId')
+  @JsonKey(name: 'UserTitleId', includeIfNull: false)
   final String? userTitleId;
-  @JsonKey(name: 'UserTitle')
+  @JsonKey(name: 'UserTitle', includeIfNull: false)
   final String? userTitle;
-  @JsonKey(name: 'Email')
+  @JsonKey(name: 'Email', includeIfNull: false)
   final String? email;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'OfficeLocation')
+  @JsonKey(name: 'OfficeLocation', includeIfNull: false)
   final String? officeLocation;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'Warehouse')
+  @JsonKey(name: 'Warehouse', includeIfNull: false)
   final String? warehouse;
-  @JsonKey(name: 'Address1')
+  @JsonKey(name: 'Address1', includeIfNull: false)
   final String? address1;
-  @JsonKey(name: 'Address2')
+  @JsonKey(name: 'Address2', includeIfNull: false)
   final String? address2;
-  @JsonKey(name: 'City')
+  @JsonKey(name: 'City', includeIfNull: false)
   final String? city;
-  @JsonKey(name: 'State')
+  @JsonKey(name: 'State', includeIfNull: false)
   final String? state;
-  @JsonKey(name: 'ZipCode')
+  @JsonKey(name: 'ZipCode', includeIfNull: false)
   final String? zipCode;
-  @JsonKey(name: 'CountryId')
+  @JsonKey(name: 'CountryId', includeIfNull: false)
   final String? countryId;
-  @JsonKey(name: 'Country')
+  @JsonKey(name: 'Country', includeIfNull: false)
   final String? country;
-  @JsonKey(name: 'OfficePhone')
+  @JsonKey(name: 'OfficePhone', includeIfNull: false)
   final String? officePhone;
-  @JsonKey(name: 'OfficeExtension')
+  @JsonKey(name: 'OfficeExtension', includeIfNull: false)
   final String? officeExtension;
-  @JsonKey(name: 'Fax')
+  @JsonKey(name: 'Fax', includeIfNull: false)
   final String? fax;
-  @JsonKey(name: 'DirectPhone')
+  @JsonKey(name: 'DirectPhone', includeIfNull: false)
   final String? directPhone;
-  @JsonKey(name: 'Pager')
+  @JsonKey(name: 'Pager', includeIfNull: false)
   final String? pager;
-  @JsonKey(name: 'PagerPin')
+  @JsonKey(name: 'PagerPin', includeIfNull: false)
   final String? pagerPin;
-  @JsonKey(name: 'Cellular')
+  @JsonKey(name: 'Cellular', includeIfNull: false)
   final String? cellular;
-  @JsonKey(name: 'HomePhone')
+  @JsonKey(name: 'HomePhone', includeIfNull: false)
   final String? homePhone;
-  @JsonKey(name: 'DefaultDepartmentType')
+  @JsonKey(name: 'DefaultDepartmentType', includeIfNull: false)
   final String? defaultDepartmentType;
-  @JsonKey(name: 'PrimaryDepartmentId')
+  @JsonKey(name: 'PrimaryDepartmentId', includeIfNull: false)
   final String? primaryDepartmentId;
-  @JsonKey(name: 'PrimaryDepartment')
+  @JsonKey(name: 'PrimaryDepartment', includeIfNull: false)
   final String? primaryDepartment;
-  @JsonKey(name: 'RentalDepartmentId')
+  @JsonKey(name: 'RentalDepartmentId', includeIfNull: false)
   final String? rentalDepartmentId;
-  @JsonKey(name: 'RentalDepartment')
+  @JsonKey(name: 'RentalDepartment', includeIfNull: false)
   final String? rentalDepartment;
-  @JsonKey(name: 'SalesDepartmentId')
+  @JsonKey(name: 'SalesDepartmentId', includeIfNull: false)
   final String? salesDepartmentId;
-  @JsonKey(name: 'SalesDepartment')
+  @JsonKey(name: 'SalesDepartment', includeIfNull: false)
   final String? salesDepartment;
-  @JsonKey(name: 'PartsDepartmentId')
+  @JsonKey(name: 'PartsDepartmentId', includeIfNull: false)
   final String? partsDepartmentId;
-  @JsonKey(name: 'PartsDepartment')
+  @JsonKey(name: 'PartsDepartment', includeIfNull: false)
   final String? partsDepartment;
-  @JsonKey(name: 'MiscDepartmentId')
+  @JsonKey(name: 'MiscDepartmentId', includeIfNull: false)
   final String? miscDepartmentId;
-  @JsonKey(name: 'MiscDepartment')
+  @JsonKey(name: 'MiscDepartment', includeIfNull: false)
   final String? miscDepartment;
-  @JsonKey(name: 'LaborDepartmentId')
+  @JsonKey(name: 'LaborDepartmentId', includeIfNull: false)
   final String? laborDepartmentId;
-  @JsonKey(name: 'LaborDepartment')
+  @JsonKey(name: 'LaborDepartment', includeIfNull: false)
   final String? laborDepartment;
-  @JsonKey(name: 'FacilityDepartmentId')
+  @JsonKey(name: 'FacilityDepartmentId', includeIfNull: false)
   final String? facilityDepartmentId;
-  @JsonKey(name: 'FacilityDepartment')
+  @JsonKey(name: 'FacilityDepartment', includeIfNull: false)
   final String? facilityDepartment;
-  @JsonKey(name: 'TransportationDepartmentId')
+  @JsonKey(name: 'TransportationDepartmentId', includeIfNull: false)
   final String? transportationDepartmentId;
-  @JsonKey(name: 'TransportationDepartment')
+  @JsonKey(name: 'TransportationDepartment', includeIfNull: false)
   final String? transportationDepartment;
-  @JsonKey(name: 'RentalInventoryTypeId')
+  @JsonKey(name: 'RentalInventoryTypeId', includeIfNull: false)
   final String? rentalInventoryTypeId;
-  @JsonKey(name: 'RentalInventoryType')
+  @JsonKey(name: 'RentalInventoryType', includeIfNull: false)
   final String? rentalInventoryType;
-  @JsonKey(name: 'SalesInventoryTypeId')
+  @JsonKey(name: 'SalesInventoryTypeId', includeIfNull: false)
   final String? salesInventoryTypeId;
-  @JsonKey(name: 'SalesInventoryType')
+  @JsonKey(name: 'SalesInventoryType', includeIfNull: false)
   final String? salesInventoryType;
-  @JsonKey(name: 'PartsInventoryTypeId')
+  @JsonKey(name: 'PartsInventoryTypeId', includeIfNull: false)
   final String? partsInventoryTypeId;
-  @JsonKey(name: 'PartsInventoryType')
+  @JsonKey(name: 'PartsInventoryType', includeIfNull: false)
   final String? partsInventoryType;
-  @JsonKey(name: 'MiscTypeId')
+  @JsonKey(name: 'MiscTypeId', includeIfNull: false)
   final String? miscTypeId;
-  @JsonKey(name: 'MiscType')
+  @JsonKey(name: 'MiscType', includeIfNull: false)
   final String? miscType;
-  @JsonKey(name: 'LaborTypeId')
+  @JsonKey(name: 'LaborTypeId', includeIfNull: false)
   final String? laborTypeId;
-  @JsonKey(name: 'LaborType')
+  @JsonKey(name: 'LaborType', includeIfNull: false)
   final String? laborType;
-  @JsonKey(name: 'FacilityTypeId')
+  @JsonKey(name: 'FacilityTypeId', includeIfNull: false)
   final String? facilityTypeId;
-  @JsonKey(name: 'FacilityType')
+  @JsonKey(name: 'FacilityType', includeIfNull: false)
   final String? facilityType;
-  @JsonKey(name: 'TransportationTypeId')
+  @JsonKey(name: 'TransportationTypeId', includeIfNull: false)
   final String? transportationTypeId;
-  @JsonKey(name: 'TransportationType')
+  @JsonKey(name: 'TransportationType', includeIfNull: false)
   final String? transportationType;
-  @JsonKey(name: 'NoMiscellaneousOnQuotes')
+  @JsonKey(name: 'NoMiscellaneousOnQuotes', includeIfNull: false)
   final bool? noMiscellaneousOnQuotes;
-  @JsonKey(name: 'NoMiscellaneousOnOrders')
+  @JsonKey(name: 'NoMiscellaneousOnOrders', includeIfNull: false)
   final bool? noMiscellaneousOnOrders;
-  @JsonKey(name: 'NoMiscellaneousOnPurchaseOrders')
+  @JsonKey(name: 'NoMiscellaneousOnPurchaseOrders', includeIfNull: false)
   final bool? noMiscellaneousOnPurchaseOrders;
-  @JsonKey(name: 'LimitDaysPerWeek')
+  @JsonKey(name: 'LimitDaysPerWeek', includeIfNull: false)
   final bool? limitDaysPerWeek;
-  @JsonKey(name: 'MinimumDaysPerWeek')
+  @JsonKey(name: 'MinimumDaysPerWeek', includeIfNull: false)
   final double? minimumDaysPerWeek;
-  @JsonKey(name: 'AllowCreditLimitOverride')
+  @JsonKey(name: 'AllowCreditLimitOverride', includeIfNull: false)
   final bool? allowCreditLimitOverride;
-  @JsonKey(name: 'LimitDiscount')
+  @JsonKey(name: 'LimitDiscount', includeIfNull: false)
   final bool? limitDiscount;
-  @JsonKey(name: 'MaximumDiscount')
+  @JsonKey(name: 'MaximumDiscount', includeIfNull: false)
   final double? maximumDiscount;
-  @JsonKey(name: 'LimitSubDiscount')
+  @JsonKey(name: 'LimitSubDiscount', includeIfNull: false)
   final bool? limitSubDiscount;
-  @JsonKey(name: 'MaximumSubDiscount')
+  @JsonKey(name: 'MaximumSubDiscount', includeIfNull: false)
   final double? maximumSubDiscount;
-  @JsonKey(name: 'DiscountRule')
+  @JsonKey(name: 'DiscountRule', includeIfNull: false)
   final String? discountRule;
-  @JsonKey(name: 'StagingAllowIncreaseDecreaseOrderQuantity')
+  @JsonKey(
+      name: 'StagingAllowIncreaseDecreaseOrderQuantity', includeIfNull: false)
   final bool? stagingAllowIncreaseDecreaseOrderQuantity;
-  @JsonKey(name: 'AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes')
+  @JsonKey(
+      name: 'AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes',
+      includeIfNull: false)
   final bool? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes;
-  @JsonKey(name: 'AllowContractIfDealRequiresPOAndOrderHasPendingPO')
+  @JsonKey(
+      name: 'AllowContractIfDealRequiresPOAndOrderHasPendingPO',
+      includeIfNull: false)
   final bool? allowContractIfDealRequiresPOAndOrderHasPendingPO;
-  @JsonKey(name: 'AllowContractIfPendingItemsExist')
+  @JsonKey(name: 'AllowContractIfPendingItemsExist', includeIfNull: false)
   final bool? allowContractIfPendingItemsExist;
-  @JsonKey(name: 'AllowContractIfCustomerDealDoesNotHaveApprovedCredit')
+  @JsonKey(
+      name: 'AllowContractIfCustomerDealDoesNotHaveApprovedCredit',
+      includeIfNull: false)
   final bool? allowContractIfCustomerDealDoesNotHaveApprovedCredit;
-  @JsonKey(name: 'AllowContractIfCustomerDealIsOverTheirCreditLimit')
+  @JsonKey(
+      name: 'AllowContractIfCustomerDealIsOverTheirCreditLimit',
+      includeIfNull: false)
   final bool? allowContractIfCustomerDealIsOverTheirCreditLimit;
-  @JsonKey(name: 'AllowContractIfCustomerDealInsuranceCoverageIsLess')
+  @JsonKey(
+      name: 'AllowContractIfCustomerDealInsuranceCoverageIsLess',
+      includeIfNull: false)
   final bool? allowContractIfCustomerDealInsuranceCoverageIsLess;
   @JsonKey(
-      name: 'AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate')
+      name: 'AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate',
+      includeIfNull: false)
   final bool? allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate;
-  @JsonKey(name: 'AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate')
+  @JsonKey(
+      name: 'AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate',
+      includeIfNull: false)
   final bool? allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate;
-  @JsonKey(name: 'AllowReceiveSubsWhenPositiveConflictExists')
+  @JsonKey(
+      name: 'AllowReceiveSubsWhenPositiveConflictExists', includeIfNull: false)
   final bool? allowReceiveSubsWhenPositiveConflictExists;
-  @JsonKey(name: 'AllowStagingOfUnreservedConsignedItems')
+  @JsonKey(name: 'AllowStagingOfUnreservedConsignedItems', includeIfNull: false)
   final bool? allowStagingOfUnreservedConsignedItems;
-  @JsonKey(name: 'AllowStagingOfUnapprovedItems')
+  @JsonKey(name: 'AllowStagingOfUnapprovedItems', includeIfNull: false)
   final bool? allowStagingOfUnapprovedItems;
-  @JsonKey(name: 'AllowSubstitutesAtStaging')
+  @JsonKey(name: 'AllowSubstitutesAtStaging', includeIfNull: false)
   final bool? allowSubstitutesAtStaging;
-  @JsonKey(name: 'DeleteOriginalOnSubstitution')
+  @JsonKey(name: 'DeleteOriginalOnSubstitution', includeIfNull: false)
   final bool? deleteOriginalOnSubstitution;
-  @JsonKey(name: 'QuikActivityAllowPrintDollarAmounts')
+  @JsonKey(name: 'QuikActivityAllowPrintDollarAmounts', includeIfNull: false)
   final bool? quikActivityAllowPrintDollarAmounts;
-  @JsonKey(name: 'QuikScanAllowCreateContract')
+  @JsonKey(name: 'QuikScanAllowCreateContract', includeIfNull: false)
   final bool? quikScanAllowCreateContract;
-  @JsonKey(name: 'QuikScanAllowApplyAll')
+  @JsonKey(name: 'QuikScanAllowApplyAll', includeIfNull: false)
   final bool? quikScanAllowApplyAll;
-  @JsonKey(name: 'AllowCrossICodeExchange')
+  @JsonKey(name: 'AllowCrossICodeExchange', includeIfNull: false)
   final bool? allowCrossICodeExchange;
-  @JsonKey(name: 'AllowCrossICodePendingExchange')
+  @JsonKey(name: 'AllowCrossICodePendingExchange', includeIfNull: false)
   final bool? allowCrossICodePendingExchange;
-  @JsonKey(name: 'AllowChangeAvailabilityPriority')
+  @JsonKey(name: 'AllowChangeAvailabilityPriority', includeIfNull: false)
   final bool? allowChangeAvailabilityPriority;
-  @JsonKey(name: 'UserMustChangePassword')
+  @JsonKey(name: 'UserMustChangePassword', includeIfNull: false)
   final bool? userMustChangePassword;
-  @JsonKey(name: 'PasswordExpires')
+  @JsonKey(name: 'PasswordExpires', includeIfNull: false)
   final bool? passwordExpires;
-  @JsonKey(name: 'PasswordExpireDays')
+  @JsonKey(name: 'PasswordExpireDays', includeIfNull: false)
   final int? passwordExpireDays;
-  @JsonKey(name: 'PasswordUpdatedDateTime')
+  @JsonKey(name: 'PasswordUpdatedDateTime', includeIfNull: false)
   final String? passwordUpdatedDateTime;
-  @JsonKey(name: 'AccountLocked')
+  @JsonKey(name: 'AccountLocked', includeIfNull: false)
   final bool? accountLocked;
-  @JsonKey(name: 'Memo')
+  @JsonKey(name: 'Memo', includeIfNull: false)
   final String? memo;
-  @JsonKey(name: 'AllowCrossLocationEditAndDelete')
+  @JsonKey(name: 'AllowCrossLocationEditAndDelete', includeIfNull: false)
   final bool? allowCrossLocationEditAndDelete;
-  @JsonKey(name: 'LastLoggedOn')
+  @JsonKey(name: 'LastLoggedOn', includeIfNull: false)
   final String? lastLoggedOn;
-  @JsonKey(name: 'Inactive')
+  @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'WebAccess')
+  @JsonKey(name: 'WebAccess', includeIfNull: false)
   final bool? webAccess;
-  @JsonKey(name: 'WebAdministrator')
+  @JsonKey(name: 'WebAdministrator', includeIfNull: false)
   final bool? webAdministrator;
-  @JsonKey(name: 'BrowseDefaultRows')
+  @JsonKey(name: 'BrowseDefaultRows', includeIfNull: false)
   final int? browseDefaultRows;
-  @JsonKey(name: 'ApplicationTheme')
+  @JsonKey(name: 'ApplicationTheme', includeIfNull: false)
   final String? applicationTheme;
-  @JsonKey(name: 'HomeMenuGuid')
+  @JsonKey(name: 'HomeMenuGuid', includeIfNull: false)
   final String? homeMenuGuid;
-  @JsonKey(name: 'HomeMenuPath')
+  @JsonKey(name: 'HomeMenuPath', includeIfNull: false)
   final String? homeMenuPath;
-  @JsonKey(name: 'SuccessSoundId')
+  @JsonKey(name: 'SuccessSoundId', includeIfNull: false)
   final String? successSoundId;
-  @JsonKey(name: 'SuccessSound')
+  @JsonKey(name: 'SuccessSound', includeIfNull: false)
   final String? successSound;
-  @JsonKey(name: 'SuccessBase64Sound')
+  @JsonKey(name: 'SuccessBase64Sound', includeIfNull: false)
   final String? successBase64Sound;
-  @JsonKey(name: 'ErrorSoundId')
+  @JsonKey(name: 'ErrorSoundId', includeIfNull: false)
   final String? errorSoundId;
-  @JsonKey(name: 'ErrorSound')
+  @JsonKey(name: 'ErrorSound', includeIfNull: false)
   final String? errorSound;
-  @JsonKey(name: 'ErrorBase64Sound')
+  @JsonKey(name: 'ErrorBase64Sound', includeIfNull: false)
   final String? errorBase64Sound;
-  @JsonKey(name: 'NotificationSoundId')
+  @JsonKey(name: 'NotificationSoundId', includeIfNull: false)
   final String? notificationSoundId;
-  @JsonKey(name: 'NotificationSound')
+  @JsonKey(name: 'NotificationSound', includeIfNull: false)
   final String? notificationSound;
-  @JsonKey(name: 'NotificationBase64Sound')
+  @JsonKey(name: 'NotificationBase64Sound', includeIfNull: false)
   final String? notificationBase64Sound;
-  @JsonKey(name: 'FirstDayOfWeek')
+  @JsonKey(name: 'FirstDayOfWeek', includeIfNull: false)
   final int? firstDayOfWeek;
-  @JsonKey(name: 'SettingsNavigationMenuVisible')
+  @JsonKey(name: 'SettingsNavigationMenuVisible', includeIfNull: false)
   final bool? settingsNavigationMenuVisible;
-  @JsonKey(name: 'ReportsNavigationMenuVisible')
+  @JsonKey(name: 'ReportsNavigationMenuVisible', includeIfNull: false)
   final bool? reportsNavigationMenuVisible;
-  @JsonKey(name: 'WebQuoteRequest')
+  @JsonKey(name: 'WebQuoteRequest', includeIfNull: false)
   final bool? webQuoteRequest;
-  @JsonKey(name: 'EmailSignature')
+  @JsonKey(name: 'EmailSignature', includeIfNull: false)
   final String? emailSignature;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory = _$WebApiModulesAdministratorUserUserFromJson;
@@ -9491,9 +9633,9 @@ class WebApiModulesAdministratorUserUserCountResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesAdministratorUserUserCountResponseFromJson(json);
 
-  @JsonKey(name: 'MaxConnections')
+  @JsonKey(name: 'MaxConnections', includeIfNull: false)
   final int? maxConnections;
-  @JsonKey(name: 'UserCount')
+  @JsonKey(name: 'UserCount', includeIfNull: false)
   final int? userCount;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorUserUserCountResponseFromJson;
@@ -9545,28 +9687,33 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
       _$WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupFromJson(
           json);
 
-  @JsonKey(name: 'CustomFormGroupId')
+  @JsonKey(name: 'CustomFormGroupId', includeIfNull: false)
   final String? customFormGroupId;
-  @JsonKey(name: 'CustomFormId')
+  @JsonKey(name: 'CustomFormId', includeIfNull: false)
   final String? customFormId;
-  @JsonKey(name: 'CustomFormDescription')
+  @JsonKey(name: 'CustomFormDescription', includeIfNull: false)
   final String? customFormDescription;
-  @JsonKey(name: 'GroupId')
+  @JsonKey(name: 'GroupId', includeIfNull: false)
   final String? groupId;
-  @JsonKey(name: 'GroupName')
+  @JsonKey(name: 'GroupName', includeIfNull: false)
   final String? groupName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -9662,30 +9809,35 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
       _$WebApiModulesAdministratorControlsCustomFormUserCustomFormUserFromJson(
           json);
 
-  @JsonKey(name: 'CustomFormUserId')
+  @JsonKey(name: 'CustomFormUserId', includeIfNull: false)
   final String? customFormUserId;
-  @JsonKey(name: 'CustomFormId')
+  @JsonKey(name: 'CustomFormId', includeIfNull: false)
   final String? customFormId;
-  @JsonKey(name: 'CustomFormDescription')
+  @JsonKey(name: 'CustomFormDescription', includeIfNull: false)
   final String? customFormDescription;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -9779,18 +9931,23 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
       _$WebApiModulesAdministratorControlsCustomModuleCustomModuleFromJson(
           json);
 
-  @JsonKey(name: 'ModuleName')
+  @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -9858,28 +10015,33 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
       _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupFromJson(
           json);
 
-  @JsonKey(name: 'CustomReportLayoutGroupId')
+  @JsonKey(name: 'CustomReportLayoutGroupId', includeIfNull: false)
   final String? customReportLayoutGroupId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'CustomReportLayoutDescription')
+  @JsonKey(name: 'CustomReportLayoutDescription', includeIfNull: false)
   final String? customReportLayoutDescription;
-  @JsonKey(name: 'GroupId')
+  @JsonKey(name: 'GroupId', includeIfNull: false)
   final String? groupId;
-  @JsonKey(name: 'GroupName')
+  @JsonKey(name: 'GroupName', includeIfNull: false)
   final String? groupName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -9977,24 +10139,29 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
       _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldFromJson(
           json);
 
-  @JsonKey(name: 'DuplicateRuleFieldId')
+  @JsonKey(name: 'DuplicateRuleFieldId', includeIfNull: false)
   final String? duplicateRuleFieldId;
-  @JsonKey(name: 'DuplicateRuleId')
+  @JsonKey(name: 'DuplicateRuleId', includeIfNull: false)
   final String? duplicateRuleId;
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -10078,28 +10245,33 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
           Map<String, dynamic> json) =>
       _$WebApiModulesSettingsWidgetGroupWidgetGroupFromJson(json);
 
-  @JsonKey(name: 'WidgetGroupId')
+  @JsonKey(name: 'WidgetGroupId', includeIfNull: false)
   final String? widgetGroupId;
-  @JsonKey(name: 'WidgetId')
+  @JsonKey(name: 'WidgetId', includeIfNull: false)
   final String? widgetId;
-  @JsonKey(name: 'WidgetDescription')
+  @JsonKey(name: 'WidgetDescription', includeIfNull: false)
   final String? widgetDescription;
-  @JsonKey(name: 'GroupId')
+  @JsonKey(name: 'GroupId', includeIfNull: false)
   final String? groupId;
-  @JsonKey(name: 'GroupName')
+  @JsonKey(name: 'GroupName', includeIfNull: false)
   final String? groupName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -10192,30 +10364,35 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
           Map<String, dynamic> json) =>
       _$WebApiModulesSettingsWidgetUserWidgetUserFromJson(json);
 
-  @JsonKey(name: 'WidgetUserId')
+  @JsonKey(name: 'WidgetUserId', includeIfNull: false)
   final String? widgetUserId;
-  @JsonKey(name: 'WidgetId')
+  @JsonKey(name: 'WidgetId', includeIfNull: false)
   final String? widgetId;
-  @JsonKey(name: 'WidgetDescription')
+  @JsonKey(name: 'WidgetDescription', includeIfNull: false)
   final String? widgetDescription;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -10313,30 +10490,35 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
       _$WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserFromJson(
           json);
 
-  @JsonKey(name: 'CustomReportLayoutUserId')
+  @JsonKey(name: 'CustomReportLayoutUserId', includeIfNull: false)
   final String? customReportLayoutUserId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'CustomReportLayoutDescription')
+  @JsonKey(name: 'CustomReportLayoutDescription', includeIfNull: false)
   final String? customReportLayoutDescription;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'UserName')
+  @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =

@@ -130,11 +130,11 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
-  @JsonKey(name: 'StackTrace')
+  @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
@@ -186,27 +186,28 @@ class FwStandardSqlServerFwJsonDataTable {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
-  @JsonKey(name: 'ColumnIndex')
+  @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Object? columnIndex;
-  @JsonKey(name: 'Totals')
+  @JsonKey(name: 'Totals', includeIfNull: false)
   final Object? totals;
   @JsonKey(
       name: 'Columns',
+      includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
   final List<List<Object>>? rows;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalPages')
+  @JsonKey(name: 'TotalPages', includeIfNull: false)
   final int? totalPages;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: 'ColumnNameByIndex')
+  @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Object? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
@@ -288,18 +289,19 @@ class FwStandardSqlServerFwJsonDataTableColumn {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'DataField')
+  @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
-  @JsonKey(name: 'IsUniqueId')
+  @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
-  @JsonKey(name: 'IsVisible')
+  @JsonKey(name: 'IsVisible', includeIfNull: false)
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
@@ -357,9 +359,9 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'DataExportFormatId')
+  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
   final String? dataExportFormatId;
   static const fromJsonFactory =
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson;
@@ -405,11 +407,11 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'BatchNumber')
+  @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
-  @JsonKey(name: 'downloadUrl')
+  @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
   static const fromJsonFactory =
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseFromJson;
@@ -458,9 +460,9 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'DataExportFormatId')
+  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
   final String? dataExportFormatId;
   static const fromJsonFactory =
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson;
@@ -506,11 +508,11 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'BatchNumber')
+  @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
-  @JsonKey(name: 'downloadUrl')
+  @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
   static const fromJsonFactory =
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseFromJson;
@@ -559,9 +561,9 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'DataExportFormatId')
+  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
   final String? dataExportFormatId;
   static const fromJsonFactory =
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson;
@@ -607,11 +609,11 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'BatchNumber')
+  @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
-  @JsonKey(name: 'downloadUrl')
+  @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
   static const fromJsonFactory =
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseFromJson;

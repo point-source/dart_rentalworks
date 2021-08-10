@@ -7623,7 +7623,7 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
           json);
 
-  @JsonKey(name: 'downloadUrl')
+  @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
   static const fromJsonFactory =
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson;
@@ -7663,10 +7663,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
           Map<String, dynamic> json) =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
@@ -7709,11 +7710,11 @@ class FwStandardDataFwCustomValue {
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
       _$FwStandardDataFwCustomValueFromJson(json);
 
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'FieldValue')
+  @JsonKey(name: 'FieldValue', includeIfNull: false)
   final String? fieldValue;
-  @JsonKey(name: 'FieldType')
+  @JsonKey(name: 'FieldType', includeIfNull: false)
   final String? fieldType;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
@@ -7757,11 +7758,11 @@ class FwStandardDataFwDefaultAttribute {
           Map<String, dynamic> json) =>
       _$FwStandardDataFwDefaultAttributeFromJson(json);
 
-  @JsonKey(name: 'FieldName')
+  @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
-  @JsonKey(name: 'AttributeName')
+  @JsonKey(name: 'AttributeName', includeIfNull: false)
   final String? attributeName;
-  @JsonKey(name: 'DefaultValue')
+  @JsonKey(name: 'DefaultValue', includeIfNull: false)
   final String? defaultValue;
   static const fromJsonFactory = _$FwStandardDataFwDefaultAttributeFromJson;
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
@@ -7809,18 +7810,22 @@ class FwStandardDataFwReportLoader {
   factory FwStandardDataFwReportLoader.fromJson(Map<String, dynamic> json) =>
       _$FwStandardDataFwReportLoaderFromJson(json);
 
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory = _$FwStandardDataFwReportLoaderFromJson;
@@ -7903,54 +7908,66 @@ class FwStandardModelsBrowseRequest {
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsBrowseRequestFromJson(json);
 
-  @JsonKey(name: 'miscfields')
+  @JsonKey(name: 'miscfields', includeIfNull: false)
   final dynamic? miscfields;
-  @JsonKey(name: 'module')
+  @JsonKey(name: 'module', includeIfNull: false)
   final String? module;
-  @JsonKey(name: 'options')
+  @JsonKey(name: 'options', includeIfNull: false)
   final dynamic? options;
-  @JsonKey(name: 'orderby')
+  @JsonKey(name: 'orderby', includeIfNull: false)
   final String? orderby;
-  @JsonKey(name: 'orderbydirection')
+  @JsonKey(name: 'orderbydirection', includeIfNull: false)
   final String? orderbydirection;
-  @JsonKey(name: 'top')
+  @JsonKey(name: 'top', includeIfNull: false)
   final int? top;
-  @JsonKey(name: 'pageno')
+  @JsonKey(name: 'pageno', includeIfNull: false)
   final int? pageno;
-  @JsonKey(name: 'pagesize')
+  @JsonKey(name: 'pagesize', includeIfNull: false)
   final int? pagesize;
-  @JsonKey(name: 'searchfieldoperators', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldoperators',
+      includeIfNull: false,
+      defaultValue: <String>[])
   final List<String>? searchfieldoperators;
-  @JsonKey(name: 'searchfields', defaultValue: <String>[])
+  @JsonKey(name: 'searchfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfields;
-  @JsonKey(name: 'searchfieldvalues', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldvalues', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfieldvalues;
-  @JsonKey(name: 'searchfieldtypes', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchfieldtypes', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfieldtypes;
-  @JsonKey(name: 'searchseparators', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchseparators', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchseparators;
-  @JsonKey(name: 'searchcondition', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchcondition', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchcondition;
-  @JsonKey(name: 'searchconjunctions', defaultValue: <String>[])
+  @JsonKey(
+      name: 'searchconjunctions',
+      includeIfNull: false,
+      defaultValue: <String>[])
   final List<String>? searchconjunctions;
-  @JsonKey(name: 'uniqueids')
+  @JsonKey(name: 'uniqueids', includeIfNull: false)
   final dynamic? uniqueids;
-  @JsonKey(name: 'boundids')
+  @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic? boundids;
-  @JsonKey(name: 'filterfields')
+  @JsonKey(name: 'filterfields', includeIfNull: false)
   final Object? filterfields;
-  @JsonKey(name: 'activeview')
+  @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
-  @JsonKey(name: 'emptyobject')
+  @JsonKey(name: 'emptyobject', includeIfNull: false)
   final bool? emptyobject;
-  @JsonKey(name: 'forexcel')
+  @JsonKey(name: 'forexcel', includeIfNull: false)
   final bool? forexcel;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
-  @JsonKey(name: 'totalfields', defaultValue: <String>[])
+  @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
-  @JsonKey(name: 'activeviewfields')
+  @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Object? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
@@ -8097,11 +8114,11 @@ class FwStandardModelsCheckBoxListItem {
           Map<String, dynamic> json) =>
       _$FwStandardModelsCheckBoxListItemFromJson(json);
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', includeIfNull: false)
   final String? value;
-  @JsonKey(name: 'text')
+  @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
-  @JsonKey(name: 'selected')
+  @JsonKey(name: 'selected', includeIfNull: false)
   final bool? selected;
   static const fromJsonFactory = _$FwStandardModelsCheckBoxListItemFromJson;
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
@@ -8144,11 +8161,11 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
-  @JsonKey(name: 'StackTrace')
+  @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
@@ -8192,11 +8209,11 @@ class FwStandardModelsFwQueryFilter {
   factory FwStandardModelsFwQueryFilter.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwQueryFilterFromJson(json);
 
-  @JsonKey(name: 'Field')
+  @JsonKey(name: 'Field', includeIfNull: false)
   final String? field;
-  @JsonKey(name: 'Op')
+  @JsonKey(name: 'Op', includeIfNull: false)
   final String? op;
-  @JsonKey(name: 'Value')
+  @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
@@ -8243,15 +8260,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsRep
 
   @JsonKey(
       name: 'Items',
+      includeIfNull: false,
       defaultValue: <WebApiModulesReportsSharedReportSettingsReportSettings>[])
   final List<WebApiModulesReportsSharedReportSettingsReportSettings>? items;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalItems')
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
   final int? totalItems;
-  @JsonKey(name: 'Sort')
+  @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogicFromJson;
@@ -8308,7 +8326,7 @@ class FwStandardModelsSelectedCheckBoxListItem {
           Map<String, dynamic> json) =>
       _$FwStandardModelsSelectedCheckBoxListItemFromJson(json);
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory =
       _$FwStandardModelsSelectedCheckBoxListItemFromJson;
@@ -8346,15 +8364,15 @@ class FwStandardReportingFwReportEmailInfo {
           Map<String, dynamic> json) =>
       _$FwStandardReportingFwReportEmailInfoFromJson(json);
 
-  @JsonKey(name: 'from')
+  @JsonKey(name: 'from', includeIfNull: false)
   final String? from;
-  @JsonKey(name: 'to')
+  @JsonKey(name: 'to', includeIfNull: false)
   final String? to;
-  @JsonKey(name: 'cc')
+  @JsonKey(name: 'cc', includeIfNull: false)
   final String? cc;
-  @JsonKey(name: 'subject')
+  @JsonKey(name: 'subject', includeIfNull: false)
   final String? subject;
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'body', includeIfNull: false)
   final String? body;
   static const fromJsonFactory = _$FwStandardReportingFwReportEmailInfoFromJson;
   static const toJsonFactory = _$FwStandardReportingFwReportEmailInfoToJson;
@@ -8406,15 +8424,15 @@ class FwStandardReportingFwReportRenderRequest {
           Map<String, dynamic> json) =>
       _$FwStandardReportingFwReportRenderRequestFromJson(json);
 
-  @JsonKey(name: 'renderMode')
+  @JsonKey(name: 'renderMode', includeIfNull: false)
   final String? renderMode;
-  @JsonKey(name: 'parameters')
+  @JsonKey(name: 'parameters', includeIfNull: false)
   final Object? parameters;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', includeIfNull: false)
   final FwStandardReportingFwReportEmailInfo? email;
-  @JsonKey(name: 'downloadPdfAsAttachment')
+  @JsonKey(name: 'downloadPdfAsAttachment', includeIfNull: false)
   final bool? downloadPdfAsAttachment;
-  @JsonKey(name: 'emailImageOptions')
+  @JsonKey(name: 'emailImageOptions', includeIfNull: false)
   final FwStandardReportingFwReportRenderRequestEmailImageOptions?
       emailImageOptions;
   static const fromJsonFactory =
@@ -8475,9 +8493,9 @@ class FwStandardReportingFwReportRenderRequestEmailImageOptions {
           Map<String, dynamic> json) =>
       _$FwStandardReportingFwReportRenderRequestEmailImageOptionsFromJson(json);
 
-  @JsonKey(name: 'Width')
+  @JsonKey(name: 'Width', includeIfNull: false)
   final int? width;
-  @JsonKey(name: 'Height')
+  @JsonKey(name: 'Height', includeIfNull: false)
   final int? height;
   static const fromJsonFactory =
       _$FwStandardReportingFwReportRenderRequestEmailImageOptionsFromJson;
@@ -8519,13 +8537,13 @@ class FwStandardReportingFwReportRenderResponse {
           Map<String, dynamic> json) =>
       _$FwStandardReportingFwReportRenderResponseFromJson(json);
 
-  @JsonKey(name: 'renderMode')
+  @JsonKey(name: 'renderMode', includeIfNull: false)
   final String? renderMode;
-  @JsonKey(name: 'htmlReportUrl')
+  @JsonKey(name: 'htmlReportUrl', includeIfNull: false)
   final String? htmlReportUrl;
-  @JsonKey(name: 'pdfReportUrl')
+  @JsonKey(name: 'pdfReportUrl', includeIfNull: false)
   final String? pdfReportUrl;
-  @JsonKey(name: 'consoleOutput')
+  @JsonKey(name: 'consoleOutput', includeIfNull: false)
   final String? consoleOutput;
   static const fromJsonFactory =
       _$FwStandardReportingFwReportRenderResponseFromJson;
@@ -8577,7 +8595,7 @@ class FwStandardSqlServerFwDateTime {
   factory FwStandardSqlServerFwDateTime.fromJson(Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwDateTimeFromJson(json);
 
-  @JsonKey(name: 'Val')
+  @JsonKey(name: 'Val', includeIfNull: false)
   final String? val;
   static const fromJsonFactory = _$FwStandardSqlServerFwDateTimeFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwDateTimeToJson;
@@ -8618,27 +8636,28 @@ class FwStandardSqlServerFwJsonDataTable {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
-  @JsonKey(name: 'ColumnIndex')
+  @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Object? columnIndex;
-  @JsonKey(name: 'Totals')
+  @JsonKey(name: 'Totals', includeIfNull: false)
   final Object? totals;
   @JsonKey(
       name: 'Columns',
+      includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
   final List<List<Object>>? rows;
-  @JsonKey(name: 'PageNo')
+  @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
-  @JsonKey(name: 'PageSize')
+  @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalPages')
+  @JsonKey(name: 'TotalPages', includeIfNull: false)
   final int? totalPages;
-  @JsonKey(name: 'TotalRows')
+  @JsonKey(name: 'TotalRows', includeIfNull: false)
   final int? totalRows;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: 'ColumnNameByIndex')
+  @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Object? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
@@ -8720,18 +8739,19 @@ class FwStandardSqlServerFwJsonDataTableColumn {
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
 
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
-  @JsonKey(name: 'DataField')
+  @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
       name: 'DataType',
+      includeIfNull: false,
       toJson: fwStandardSqlServerFwDataTypesToJson,
       fromJson: fwStandardSqlServerFwDataTypesFromJson)
   final enums.FwStandardSqlServerFwDataTypes? dataType;
-  @JsonKey(name: 'IsUniqueId')
+  @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
-  @JsonKey(name: 'IsVisible')
+  @JsonKey(name: 'IsVisible', includeIfNull: false)
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
@@ -8791,17 +8811,17 @@ class WebApiDataAppReportResponse {
   factory WebApiDataAppReportResponse.fromJson(Map<String, dynamic> json) =>
       _$WebApiDataAppReportResponseFromJson(json);
 
-  @JsonKey(name: 'DataTable')
+  @JsonKey(name: 'DataTable', includeIfNull: false)
   final FwStandardSqlServerFwJsonDataTable? dataTable;
-  @JsonKey(name: 'DataObject')
+  @JsonKey(name: 'DataObject', includeIfNull: false)
   final FwStandardDataFwReportLoader? dataObject;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'CustomReportTemplate')
+  @JsonKey(name: 'CustomReportTemplate', includeIfNull: false)
   final String? customReportTemplate;
   static const fromJsonFactory = _$WebApiDataAppReportResponseFromJson;
   static const toJsonFactory = _$WebApiDataAppReportResponseToJson;
@@ -8873,30 +8893,32 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
       _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'AsOfDate')
+  @JsonKey(name: 'AsOfDate', includeIfNull: false)
   final DateTime? asOfDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealCsrId')
+  @JsonKey(name: 'DealCsrId', includeIfNull: false)
   final String? dealCsrId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestFromJson;
@@ -9005,32 +9027,37 @@ class WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsRepor
       _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'PaymentTypeId')
+  @JsonKey(name: 'PaymentTypeId', includeIfNull: false)
   final String? paymentTypeId;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestFromJson;
@@ -9143,34 +9170,36 @@ class WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionRep
       _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'GlAccountId')
+  @JsonKey(name: 'GlAccountId', includeIfNull: false)
   final String? glAccountId;
-  @JsonKey(name: 'ExcludeGlAccountId')
+  @JsonKey(name: 'ExcludeGlAccountId', includeIfNull: false)
   final String? excludeGlAccountId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'IsSomeDetail')
+  @JsonKey(name: 'IsSomeDetail', includeIfNull: false)
   final bool? isSomeDetail;
-  @JsonKey(name: 'IsFullDetail')
+  @JsonKey(name: 'IsFullDetail', includeIfNull: false)
   final bool? isFullDetail;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestFromJson;
@@ -9290,36 +9319,38 @@ class WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest {
       _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestFromJson;
@@ -9449,52 +9480,57 @@ class WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportReque
       _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'ProjectId')
+  @JsonKey(name: 'ProjectId', includeIfNull: false)
   final String? projectId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
   @JsonKey(
       name: 'Status',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? status;
   @JsonKey(
       name: 'IncludeFilter',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? includeFilter;
   @JsonKey(
       name: 'IncludeTaxFilter',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? includeTaxFilter;
-  @JsonKey(name: 'ExcludeOrdersBilledInTotal')
+  @JsonKey(name: 'ExcludeOrdersBilledInTotal', includeIfNull: false)
   final bool? excludeOrdersBilledInTotal;
-  @JsonKey(name: 'IncludeProjectStatus')
+  @JsonKey(name: 'IncludeProjectStatus', includeIfNull: false)
   final bool? includeProjectStatus;
-  @JsonKey(name: 'IncludeCreditsInvoiced')
+  @JsonKey(name: 'IncludeCreditsInvoiced', includeIfNull: false)
   final bool? includeCreditsInvoiced;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestFromJson;
@@ -9638,42 +9674,45 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
       _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'AsOfDate')
+  @JsonKey(name: 'AsOfDate', includeIfNull: false)
   final DateTime? asOfDate;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'IncludeCredits')
+  @JsonKey(name: 'IncludeCredits', includeIfNull: false)
   final bool? includeCredits;
-  @JsonKey(name: 'ExcludeBilled100')
+  @JsonKey(name: 'ExcludeBilled100', includeIfNull: false)
   final bool? excludeBilled100;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'DealCsrId')
+  @JsonKey(name: 'DealCsrId', includeIfNull: false)
   final String? dealCsrId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestFromJson;
@@ -9808,40 +9847,42 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
       _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
-  @JsonKey(name: 'IncludePaidInvoices')
+  @JsonKey(name: 'IncludePaidInvoices', includeIfNull: false)
   final bool? includePaidInvoices;
-  @JsonKey(name: 'IncludeZeroBalance')
+  @JsonKey(name: 'IncludeZeroBalance', includeIfNull: false)
   final bool? includeZeroBalance;
-  @JsonKey(name: 'PaymentsThroughToday')
+  @JsonKey(name: 'PaymentsThroughToday', includeIfNull: false)
   final bool? paymentsThroughToday;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DealStatusId')
+  @JsonKey(name: 'DealStatusId', includeIfNull: false)
   final String? dealStatusId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestFromJson;
@@ -9966,22 +10007,24 @@ class WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessR
       _$WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'InvoiceCreationBatchId')
+  @JsonKey(name: 'InvoiceCreationBatchId', includeIfNull: false)
   final String? invoiceCreationBatchId;
-  @JsonKey(name: 'ExceptionsOnly')
+  @JsonKey(name: 'ExceptionsOnly', includeIfNull: false)
   final bool? exceptionsOnly;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestFromJson;
@@ -10074,36 +10117,38 @@ class WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportReque
       _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'DiscountPercent')
+  @JsonKey(name: 'DiscountPercent', includeIfNull: false)
   final int? discountPercent;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'DiscountReasonId')
+  @JsonKey(name: 'DiscountReasonId', includeIfNull: false)
   final String? discountReasonId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestFromJson;
@@ -10220,20 +10265,22 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
       _$WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'InvoiceId')
+  @JsonKey(name: 'InvoiceId', includeIfNull: false)
   final String? invoiceId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestFromJson;
@@ -10319,38 +10366,41 @@ class WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
       _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestFromJson;
@@ -10476,40 +10526,43 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
       _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateField')
+  @JsonKey(name: 'DateField', includeIfNull: false)
   final String? dateField;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestFromJson;
@@ -10637,36 +10690,38 @@ class WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillin
       _$WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'ProjectManagerId')
+  @JsonKey(name: 'ProjectManagerId', includeIfNull: false)
   final String? projectManagerId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestFromJson;
@@ -10788,30 +10843,32 @@ class WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportR
       _$WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateField')
+  @JsonKey(name: 'DateField', includeIfNull: false)
   final String? dateField;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestFromJson;
@@ -10921,36 +10978,38 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
       _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'SalesRepresentativeId')
+  @JsonKey(name: 'SalesRepresentativeId', includeIfNull: false)
   final String? salesRepresentativeId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestFromJson;
@@ -11072,28 +11131,30 @@ class WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRe
       _$WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'ModuleName')
+  @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
-  @JsonKey(name: 'WebUsersId')
+  @JsonKey(name: 'WebUsersId', includeIfNull: false)
   final String? webUsersId;
-  @JsonKey(name: 'Keyword')
+  @JsonKey(name: 'Keyword', includeIfNull: false)
   final String? keyword;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestFromJson;
@@ -11193,24 +11254,26 @@ class WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoi
       _$WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'BatchNumber')
+  @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
-  @JsonKey(name: 'BatchDate')
+  @JsonKey(name: 'BatchDate', includeIfNull: false)
   final DateTime? batchDate;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestFromJson;
@@ -11301,24 +11364,26 @@ class WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchR
       _$WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'BatchNumber')
+  @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
-  @JsonKey(name: 'BatchDate')
+  @JsonKey(name: 'BatchDate', includeIfNull: false)
   final DateTime? batchDate;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestFromJson;
@@ -11409,24 +11474,26 @@ class WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorI
       _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId')
+  @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
-  @JsonKey(name: 'BatchNumber')
+  @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
-  @JsonKey(name: 'BatchDate')
+  @JsonKey(name: 'BatchDate', includeIfNull: false)
   final DateTime? batchDate;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestFromJson;
@@ -11523,38 +11590,41 @@ class WebApiModulesReportsContractReportsContractRevisionReportContractRevisionR
       _$WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'FilterDates')
+  @JsonKey(name: 'FilterDates', includeIfNull: false)
   final bool? filterDates;
-  @JsonKey(name: 'DaysChanged')
+  @JsonKey(name: 'DaysChanged', includeIfNull: false)
   final int? daysChanged;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
   @JsonKey(
       name: 'RevisionTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? revisionTypes;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestFromJson;
@@ -11670,20 +11740,22 @@ class WebApiModulesReportsContractReportsExchangeContractReportExchangeContractR
       _$WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestFromJson;
@@ -11763,22 +11835,24 @@ class WebApiModulesReportsContractReportsInContractReportInContractReportRequest
       _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestFromJson;
@@ -11863,22 +11937,24 @@ class WebApiModulesReportsContractReportsLostContractReportLostContractReportReq
       _$WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestFromJson;
@@ -11963,22 +12039,24 @@ class WebApiModulesReportsContractReportsOutContractReportOutContractReportReque
       _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestFromJson;
@@ -12063,22 +12141,24 @@ class WebApiModulesReportsContractReportsReceiveContractReportReceiveContractRep
       _$WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestFromJson;
@@ -12163,22 +12243,24 @@ class WebApiModulesReportsContractReportsReturnContractReportReturnContractRepor
       _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestFromJson;
@@ -12277,50 +12359,52 @@ class WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
       _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'SortBy')
+  @JsonKey(name: 'SortBy', includeIfNull: false)
   final String? sortBy;
-  @JsonKey(name: 'IncludeSales')
+  @JsonKey(name: 'IncludeSales', includeIfNull: false)
   final bool? includeSales;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'OrderIds')
+  @JsonKey(name: 'OrderIds', includeIfNull: false)
   final String? orderIds;
-  @JsonKey(name: 'IncludeTrackedByBarcode')
+  @JsonKey(name: 'IncludeTrackedByBarcode', includeIfNull: false)
   final bool? includeTrackedByBarcode;
-  @JsonKey(name: 'PrintBarcodes')
+  @JsonKey(name: 'PrintBarcodes', includeIfNull: false)
   final bool? printBarcodes;
-  @JsonKey(name: 'PaginateByInventoryType')
+  @JsonKey(name: 'PaginateByInventoryType', includeIfNull: false)
   final bool? paginateByInventoryType;
-  @JsonKey(name: 'AddBoxforMeterReading')
+  @JsonKey(name: 'AddBoxforMeterReading', includeIfNull: false)
   final bool? addBoxforMeterReading;
-  @JsonKey(name: 'PrintICodeColumn')
+  @JsonKey(name: 'PrintICodeColumn', includeIfNull: false)
   final bool? printICodeColumn;
-  @JsonKey(name: 'PrintAisleShelf')
+  @JsonKey(name: 'PrintAisleShelf', includeIfNull: false)
   final bool? printAisleShelf;
-  @JsonKey(name: 'PrintOut')
+  @JsonKey(name: 'PrintOut', includeIfNull: false)
   final bool? printOut;
-  @JsonKey(name: 'PrintIn')
+  @JsonKey(name: 'PrintIn', includeIfNull: false)
   final bool? printIn;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestFromJson;
@@ -12461,22 +12545,24 @@ class WebApiModulesReportsContractReportsTransferManifestReportTransferManifestR
       _$WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestFromJson;
@@ -12561,22 +12647,24 @@ class WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptRep
       _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestFromJson;
@@ -12666,32 +12754,34 @@ class WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest {
       _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestFromJson;
@@ -12801,26 +12891,28 @@ class WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountRepor
       _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OnlyRemaining')
+  @JsonKey(name: 'OnlyRemaining', includeIfNull: false)
   final bool? onlyRemaining;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestFromJson;
@@ -12922,40 +13014,43 @@ class WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenue
       _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerTypeId')
+  @JsonKey(name: 'CustomerTypeId', includeIfNull: false)
   final String? customerTypeId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
   @JsonKey(
       name: 'RevenueTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? revenueTypes;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestFromJson;
@@ -13084,36 +13179,38 @@ class WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueB
       _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderTypeId')
+  @JsonKey(name: 'OrderTypeId', includeIfNull: false)
   final String? orderTypeId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestFromJson;
@@ -13242,46 +13339,49 @@ class WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailRep
       _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
-  @JsonKey(name: 'DeductVendorItemCost')
+  @JsonKey(name: 'DeductVendorItemCost', includeIfNull: false)
   final bool? deductVendorItemCost;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'NoCharge')
+  @JsonKey(name: 'NoCharge', includeIfNull: false)
   final String? noCharge;
-  @JsonKey(name: 'BilledHiatus')
+  @JsonKey(name: 'BilledHiatus', includeIfNull: false)
   final String? billedHiatus;
-  @JsonKey(name: 'BillableFlat')
+  @JsonKey(name: 'BillableFlat', includeIfNull: false)
   final String? billableFlat;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestFromJson;
@@ -13431,60 +13531,62 @@ class WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingIt
       _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeValueCost')
+  @JsonKey(name: 'IncludeValueCost', includeIfNull: false)
   final String? includeValueCost;
-  @JsonKey(name: 'FilterDates')
+  @JsonKey(name: 'FilterDates', includeIfNull: false)
   final bool? filterDates;
-  @JsonKey(name: 'IncludeFullImages')
+  @JsonKey(name: 'IncludeFullImages', includeIfNull: false)
   final bool? includeFullImages;
-  @JsonKey(name: 'IncludeThumbnailImages')
+  @JsonKey(name: 'IncludeThumbnailImages', includeIfNull: false)
   final bool? includeThumbnailImages;
-  @JsonKey(name: 'ExcludePendingExchanges')
+  @JsonKey(name: 'ExcludePendingExchanges', includeIfNull: false)
   final bool? excludePendingExchanges;
-  @JsonKey(name: 'IncludeContainersOnly')
+  @JsonKey(name: 'IncludeContainersOnly', includeIfNull: false)
   final bool? includeContainersOnly;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderUnitId')
+  @JsonKey(name: 'OrderUnitId', includeIfNull: false)
   final String? orderUnitId;
-  @JsonKey(name: 'OrderTypeId')
+  @JsonKey(name: 'OrderTypeId', includeIfNull: false)
   final String? orderTypeId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestFromJson;
@@ -13661,68 +13763,73 @@ class WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
       _$WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FilterDatesOrderCreate')
+  @JsonKey(name: 'FilterDatesOrderCreate', includeIfNull: false)
   final bool? filterDatesOrderCreate;
-  @JsonKey(name: 'OrderCreateFromDate')
+  @JsonKey(name: 'OrderCreateFromDate', includeIfNull: false)
   final DateTime? orderCreateFromDate;
-  @JsonKey(name: 'OrderCreateToDate')
+  @JsonKey(name: 'OrderCreateToDate', includeIfNull: false)
   final DateTime? orderCreateToDate;
-  @JsonKey(name: 'FilterDatesOrderStart')
+  @JsonKey(name: 'FilterDatesOrderStart', includeIfNull: false)
   final bool? filterDatesOrderStart;
-  @JsonKey(name: 'OrderStartFromDate')
+  @JsonKey(name: 'OrderStartFromDate', includeIfNull: false)
   final DateTime? orderStartFromDate;
-  @JsonKey(name: 'OrderStartToDate')
+  @JsonKey(name: 'OrderStartToDate', includeIfNull: false)
   final DateTime? orderStartToDate;
-  @JsonKey(name: 'FilterDatesDealCredit')
+  @JsonKey(name: 'FilterDatesDealCredit', includeIfNull: false)
   final bool? filterDatesDealCredit;
-  @JsonKey(name: 'DealCreditFromDate')
+  @JsonKey(name: 'DealCreditFromDate', includeIfNull: false)
   final DateTime? dealCreditFromDate;
-  @JsonKey(name: 'DealCreditToDate')
+  @JsonKey(name: 'DealCreditToDate', includeIfNull: false)
   final DateTime? dealCreditToDate;
-  @JsonKey(name: 'FilterDatesDealInsurance')
+  @JsonKey(name: 'FilterDatesDealInsurance', includeIfNull: false)
   final bool? filterDatesDealInsurance;
-  @JsonKey(name: 'DealInsuranceFromDate')
+  @JsonKey(name: 'DealInsuranceFromDate', includeIfNull: false)
   final DateTime? dealInsuranceFromDate;
-  @JsonKey(name: 'DealInsuranceToDate')
+  @JsonKey(name: 'DealInsuranceToDate', includeIfNull: false)
   final DateTime? dealInsuranceToDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealStatusId')
+  @JsonKey(name: 'DealStatusId', includeIfNull: false)
   final String? dealStatusId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'NoCharge')
+  @JsonKey(name: 'NoCharge', includeIfNull: false)
   final String? noCharge;
   @JsonKey(
       name: 'OrderType',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderType;
   @JsonKey(
       name: 'QuoteStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? quoteStatus;
   @JsonKey(
       name: 'OrderStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderStatus;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestFromJson;
@@ -13891,36 +13998,38 @@ class WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportReque
       _$WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OnlyIncludeItemsStillUnassigned')
+  @JsonKey(name: 'OnlyIncludeItemsStillUnassigned', includeIfNull: false)
   final bool? onlyIncludeItemsStillUnassigned;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestFromJson;
@@ -14042,39 +14151,44 @@ class WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest {
       _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestFromJson(
           json);
 
-  @JsonKey(name: 'AsOfDate')
+  @JsonKey(name: 'AsOfDate', includeIfNull: false)
   final DateTime? asOfDate;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'ExcludeFullyDepreciated')
+  @JsonKey(name: 'ExcludeFullyDepreciated', includeIfNull: false)
   final bool? excludeFullyDepreciated;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestFromJson;
@@ -14196,39 +14310,44 @@ class WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationRepo
       _$WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestFromJson;
@@ -14345,20 +14464,22 @@ class WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructio
       _$WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestFromJson(
           json);
 
-  @JsonKey(name: 'InDeliveryId')
+  @JsonKey(name: 'InDeliveryId', includeIfNull: false)
   final String? inDeliveryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestFromJson;
@@ -14447,46 +14568,52 @@ class WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest {
       _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'TransactionType')
+  @JsonKey(name: 'TransactionType', includeIfNull: false)
   final String? transactionType;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestFromJson;
@@ -14621,48 +14748,55 @@ class WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryRepo
       _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
       name: 'OnwershipTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? onwershipTypes;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestFromJson;
@@ -14798,44 +14932,47 @@ class WebApiModulesReportsMultiLocationReportsTransferReportTransferReportReques
       _$WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'FromWarehouseId')
+  @JsonKey(name: 'FromWarehouseId', includeIfNull: false)
   final String? fromWarehouseId;
-  @JsonKey(name: 'ToWarehouseId')
+  @JsonKey(name: 'ToWarehouseId', includeIfNull: false)
   final String? toWarehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'TransferId')
+  @JsonKey(name: 'TransferId', includeIfNull: false)
   final String? transferId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestFromJson;
@@ -14967,28 +15104,32 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealLFromJson(
           json);
 
-  @JsonKey(name: 'ReceiptId')
+  @JsonKey(name: 'ReceiptId', includeIfNull: false)
   final String? receiptId;
-  @JsonKey(name: 'RowType')
+  @JsonKey(name: 'RowType', includeIfNull: false)
   final String? rowType;
-  @JsonKey(name: 'DealNumber')
+  @JsonKey(name: 'DealNumber', includeIfNull: false)
   final String? dealNumber;
-  @JsonKey(name: 'DealDescription')
+  @JsonKey(name: 'DealDescription', includeIfNull: false)
   final String? dealDescription;
-  @JsonKey(name: 'DepositAmount')
+  @JsonKey(name: 'DepositAmount', includeIfNull: false)
   final String? depositAmount;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -15094,36 +15235,40 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceLFromJson(
           json);
 
-  @JsonKey(name: 'RowType')
+  @JsonKey(name: 'RowType', includeIfNull: false)
   final String? rowType;
-  @JsonKey(name: 'ArId')
+  @JsonKey(name: 'ArId', includeIfNull: false)
   final String? arId;
-  @JsonKey(name: 'InvoiceId')
+  @JsonKey(name: 'InvoiceId', includeIfNull: false)
   final String? invoiceId;
-  @JsonKey(name: 'InvoiceNumber')
+  @JsonKey(name: 'InvoiceNumber', includeIfNull: false)
   final String? invoiceNumber;
-  @JsonKey(name: 'InvoiceDate')
+  @JsonKey(name: 'InvoiceDate', includeIfNull: false)
   final String? invoiceDate;
-  @JsonKey(name: 'OrderNumber')
+  @JsonKey(name: 'OrderNumber', includeIfNull: false)
   final String? orderNumber;
-  @JsonKey(name: 'OrderDescription')
+  @JsonKey(name: 'OrderDescription', includeIfNull: false)
   final String? orderDescription;
-  @JsonKey(name: 'InvoiceTotal')
+  @JsonKey(name: 'InvoiceTotal', includeIfNull: false)
   final String? invoiceTotal;
-  @JsonKey(name: 'Applied')
+  @JsonKey(name: 'Applied', includeIfNull: false)
   final String? applied;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -15247,34 +15392,38 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderLFromJson(
           json);
 
-  @JsonKey(name: 'ReceiptId')
+  @JsonKey(name: 'ReceiptId', includeIfNull: false)
   final String? receiptId;
-  @JsonKey(name: 'RowType')
+  @JsonKey(name: 'RowType', includeIfNull: false)
   final String? rowType;
-  @JsonKey(name: 'ReceiptDate')
+  @JsonKey(name: 'ReceiptDate', includeIfNull: false)
   final String? receiptDate;
-  @JsonKey(name: 'OrderNumber')
+  @JsonKey(name: 'OrderNumber', includeIfNull: false)
   final String? orderNumber;
-  @JsonKey(name: 'OrderDescription')
+  @JsonKey(name: 'OrderDescription', includeIfNull: false)
   final String? orderDescription;
-  @JsonKey(name: 'PeriodTotal')
+  @JsonKey(name: 'PeriodTotal', includeIfNull: false)
   final String? periodTotal;
-  @JsonKey(name: 'ReplacementCost')
+  @JsonKey(name: 'ReplacementCost', includeIfNull: false)
   final String? replacementCost;
-  @JsonKey(name: 'DepositAmount')
+  @JsonKey(name: 'DepositAmount', includeIfNull: false)
   final String? depositAmount;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -15426,107 +15575,111 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL {
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportLFromJson(
           json);
 
-  @JsonKey(name: 'ReceiptId')
+  @JsonKey(name: 'ReceiptId', includeIfNull: false)
   final String? receiptId;
-  @JsonKey(name: 'ReceiptDate')
+  @JsonKey(name: 'ReceiptDate', includeIfNull: false)
   final String? receiptDate;
-  @JsonKey(name: 'LocationId')
+  @JsonKey(name: 'LocationId', includeIfNull: false)
   final String? locationId;
-  @JsonKey(name: 'LocationCode')
+  @JsonKey(name: 'LocationCode', includeIfNull: false)
   final String? locationCode;
-  @JsonKey(name: 'Location')
+  @JsonKey(name: 'Location', includeIfNull: false)
   final String? location;
-  @JsonKey(name: 'Department')
+  @JsonKey(name: 'Department', includeIfNull: false)
   final String? department;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'Customer')
+  @JsonKey(name: 'Customer', includeIfNull: false)
   final String? customer;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'Deal')
+  @JsonKey(name: 'Deal', includeIfNull: false)
   final String? deal;
-  @JsonKey(name: 'PaymentBy')
+  @JsonKey(name: 'PaymentBy', includeIfNull: false)
   final String? paymentBy;
-  @JsonKey(name: 'PayTypeId')
+  @JsonKey(name: 'PayTypeId', includeIfNull: false)
   final String? payTypeId;
-  @JsonKey(name: 'PayType')
+  @JsonKey(name: 'PayType', includeIfNull: false)
   final String? payType;
-  @JsonKey(name: 'PaymentType')
+  @JsonKey(name: 'PaymentType', includeIfNull: false)
   final String? paymentType;
-  @JsonKey(name: 'PayTypeExportPaymentMethod')
+  @JsonKey(name: 'PayTypeExportPaymentMethod', includeIfNull: false)
   final String? payTypeExportPaymentMethod;
-  @JsonKey(name: 'CheckNumber')
+  @JsonKey(name: 'CheckNumber', includeIfNull: false)
   final String? checkNumber;
-  @JsonKey(name: 'PaymentAmount')
+  @JsonKey(name: 'PaymentAmount', includeIfNull: false)
   final String? paymentAmount;
-  @JsonKey(name: 'AppliedById')
+  @JsonKey(name: 'AppliedById', includeIfNull: false)
   final String? appliedById;
-  @JsonKey(name: 'PaymentMemo')
+  @JsonKey(name: 'PaymentMemo', includeIfNull: false)
   final String? paymentMemo;
-  @JsonKey(name: 'RecType')
+  @JsonKey(name: 'RecType', includeIfNull: false)
   final bool? recType;
-  @JsonKey(name: 'RecTypeDisplay')
+  @JsonKey(name: 'RecTypeDisplay', includeIfNull: false)
   final String? recTypeDisplay;
-  @JsonKey(name: 'CurrencyId')
+  @JsonKey(name: 'CurrencyId', includeIfNull: false)
   final String? currencyId;
-  @JsonKey(name: 'CurrencyCode')
+  @JsonKey(name: 'CurrencyCode', includeIfNull: false)
   final String? currencyCode;
-  @JsonKey(name: 'CurrencySymbol')
+  @JsonKey(name: 'CurrencySymbol', includeIfNull: false)
   final bool? currencySymbol;
-  @JsonKey(name: 'LocationDefaultCurrencyId')
+  @JsonKey(name: 'LocationDefaultCurrencyId', includeIfNull: false)
   final String? locationDefaultCurrencyId;
-  @JsonKey(name: 'OverPaymentId')
+  @JsonKey(name: 'OverPaymentId', includeIfNull: false)
   final String? overPaymentId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'AuthorizationCode')
+  @JsonKey(name: 'AuthorizationCode', includeIfNull: false)
   final String? authorizationCode;
-  @JsonKey(name: 'Address1')
+  @JsonKey(name: 'Address1', includeIfNull: false)
   final String? address1;
-  @JsonKey(name: 'Address2')
+  @JsonKey(name: 'Address2', includeIfNull: false)
   final String? address2;
-  @JsonKey(name: 'City')
+  @JsonKey(name: 'City', includeIfNull: false)
   final String? city;
-  @JsonKey(name: 'State')
+  @JsonKey(name: 'State', includeIfNull: false)
   final String? state;
-  @JsonKey(name: 'Phone')
+  @JsonKey(name: 'Phone', includeIfNull: false)
   final String? phone;
-  @JsonKey(name: 'Zip')
+  @JsonKey(name: 'Zip', includeIfNull: false)
   final String? zip;
-  @JsonKey(name: 'OrderNo')
+  @JsonKey(name: 'OrderNo', includeIfNull: false)
   final String? orderNo;
-  @JsonKey(name: 'OrderDescription')
+  @JsonKey(name: 'OrderDescription', includeIfNull: false)
   final String? orderDescription;
-  @JsonKey(name: 'ReportType')
+  @JsonKey(name: 'ReportType', includeIfNull: false)
   final String? reportType;
-  @JsonKey(name: 'Orders', defaultValue: <
+  @JsonKey(name: 'Orders', includeIfNull: false, defaultValue: <
       WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL>[])
   final List<
           WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL>?
       orders;
-  @JsonKey(name: 'Deals', defaultValue: <
+  @JsonKey(name: 'Deals', includeIfNull: false, defaultValue: <
       WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL>[])
   final List<
           WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL>?
       deals;
-  @JsonKey(name: 'Invoices', defaultValue: <
+  @JsonKey(name: 'Invoices', includeIfNull: false, defaultValue: <
       WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL>[])
   final List<
           WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL>?
       invoices;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -15743,20 +15896,22 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ReceiptId')
+  @JsonKey(name: 'ReceiptId', includeIfNull: false)
   final String? receiptId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequestFromJson;
@@ -15835,20 +15990,22 @@ class WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabel
       _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestFromJson;
@@ -15936,38 +16093,40 @@ class WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest 
       _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ReportType')
+  @JsonKey(name: 'ReportType', includeIfNull: false)
   final String? reportType;
-  @JsonKey(name: 'Days')
+  @JsonKey(name: 'Days', includeIfNull: false)
   final int? days;
-  @JsonKey(name: 'DueBackDate')
+  @JsonKey(name: 'DueBackDate', includeIfNull: false)
   final DateTime? dueBackDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'OrderedByContactId')
+  @JsonKey(name: 'OrderedByContactId', includeIfNull: false)
   final String? orderedByContactId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestFromJson;
@@ -16102,53 +16261,59 @@ class WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequ
       _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'AvailableFor')
+  @JsonKey(name: 'AvailableFor', includeIfNull: false)
   final String? availableFor;
-  @JsonKey(name: 'ConflictType')
+  @JsonKey(name: 'ConflictType', includeIfNull: false)
   final String? conflictType;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'Classifications',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? classifications;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestFromJson;
@@ -16300,55 +16465,58 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
       _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
   @JsonKey(
       name: 'ReportView',
+      includeIfNull: false,
       toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
       fromJson:
           webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
-  @JsonKey(name: 'PrintInventoryType')
+  @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
   final bool? printInventoryType;
-  @JsonKey(name: 'PrintCategory')
+  @JsonKey(name: 'PrintCategory', includeIfNull: false)
   final bool? printCategory;
-  @JsonKey(name: 'PrintTotalReplacementCost')
+  @JsonKey(name: 'PrintTotalReplacementCost', includeIfNull: false)
   final bool? printTotalReplacementCost;
-  @JsonKey(name: 'PrintInventoryTypeSubTotal')
+  @JsonKey(name: 'PrintInventoryTypeSubTotal', includeIfNull: false)
   final bool? printInventoryTypeSubTotal;
-  @JsonKey(name: 'PrintCategorySubTotal')
+  @JsonKey(name: 'PrintCategorySubTotal', includeIfNull: false)
   final bool? printCategorySubTotal;
-  @JsonKey(name: 'PrintZeroExtended')
+  @JsonKey(name: 'PrintZeroExtended', includeIfNull: false)
   final bool? printZeroExtended;
-  @JsonKey(name: 'PrintLineItemNotes')
+  @JsonKey(name: 'PrintLineItemNotes', includeIfNull: false)
   final bool? printLineItemNotes;
-  @JsonKey(name: 'PrintGrandTotal')
+  @JsonKey(name: 'PrintGrandTotal', includeIfNull: false)
   final bool? printGrandTotal;
-  @JsonKey(name: 'PrintGrossTotal')
+  @JsonKey(name: 'PrintGrossTotal', includeIfNull: false)
   final bool? printGrossTotal;
-  @JsonKey(name: 'PrintGrandDiscount')
+  @JsonKey(name: 'PrintGrandDiscount', includeIfNull: false)
   final bool? printGrandDiscount;
-  @JsonKey(name: 'PrintGrandWeekly')
+  @JsonKey(name: 'PrintGrandWeekly', includeIfNull: false)
   final bool? printGrandWeekly;
-  @JsonKey(name: 'PrintGrandPeriod')
+  @JsonKey(name: 'PrintGrandPeriod', includeIfNull: false)
   final bool? printGrandPeriod;
-  @JsonKey(name: 'PrintActivityWeekly')
+  @JsonKey(name: 'PrintActivityWeekly', includeIfNull: false)
   final bool? printActivityWeekly;
-  @JsonKey(name: 'PrintActivityPeriod')
+  @JsonKey(name: 'PrintActivityPeriod', includeIfNull: false)
   final bool? printActivityPeriod;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestFromJson;
@@ -16485,20 +16653,22 @@ class WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailRe
       _$WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestFromJson;
@@ -16577,20 +16747,22 @@ class WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummary
       _$WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestFromJson;
@@ -16669,20 +16841,22 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
       _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestFromJson;
@@ -16769,36 +16943,38 @@ class WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRe
       _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'OnlyIncludeICodesWithQuantityAvail')
+  @JsonKey(name: 'OnlyIncludeICodesWithQuantityAvail', includeIfNull: false)
   final bool? onlyIncludeICodesWithQuantityAvail;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestFromJson;
@@ -16917,20 +17093,22 @@ class WebApiModulesReportsOrderReportsPickListReportPickListReportRequest {
       _$WebApiModulesReportsOrderReportsPickListReportPickListReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PickListId')
+  @JsonKey(name: 'PickListId', includeIfNull: false)
   final String? pickListId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsPickListReportPickListReportRequestFromJson;
@@ -17015,36 +17193,39 @@ class WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportReques
       _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
   @JsonKey(
       name: 'OrderType',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderType;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'ActivityTypeId')
+  @JsonKey(name: 'ActivityTypeId', includeIfNull: false)
   final String? activityTypeId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestFromJson;
@@ -17171,54 +17352,62 @@ class WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterRepo
       _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'FilterDates')
+  @JsonKey(name: 'FilterDates', includeIfNull: false)
   final bool? filterDates;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealTypeId')
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
   final String? dealTypeId;
-  @JsonKey(name: 'DealStatusId')
+  @JsonKey(name: 'DealStatusId', includeIfNull: false)
   final String? dealStatusId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
   @JsonKey(
       name: 'OrderType',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderType;
   @JsonKey(
       name: 'QuoteStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? quoteStatus;
   @JsonKey(
       name: 'OrderStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderStatus;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestFromJson;
@@ -17370,55 +17559,58 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
       _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'QuoteId')
+  @JsonKey(name: 'QuoteId', includeIfNull: false)
   final String? quoteId;
   @JsonKey(
       name: 'ReportView',
+      includeIfNull: false,
       toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
       fromJson:
           webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
-  @JsonKey(name: 'PrintInventoryType')
+  @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
   final bool? printInventoryType;
-  @JsonKey(name: 'PrintCategory')
+  @JsonKey(name: 'PrintCategory', includeIfNull: false)
   final bool? printCategory;
-  @JsonKey(name: 'PrintTotalReplacementCost')
+  @JsonKey(name: 'PrintTotalReplacementCost', includeIfNull: false)
   final bool? printTotalReplacementCost;
-  @JsonKey(name: 'PrintInventoryTypeSubTotal')
+  @JsonKey(name: 'PrintInventoryTypeSubTotal', includeIfNull: false)
   final bool? printInventoryTypeSubTotal;
-  @JsonKey(name: 'PrintCategorySubTotal')
+  @JsonKey(name: 'PrintCategorySubTotal', includeIfNull: false)
   final bool? printCategorySubTotal;
-  @JsonKey(name: 'PrintZeroExtended')
+  @JsonKey(name: 'PrintZeroExtended', includeIfNull: false)
   final bool? printZeroExtended;
-  @JsonKey(name: 'PrintLineItemNotes')
+  @JsonKey(name: 'PrintLineItemNotes', includeIfNull: false)
   final bool? printLineItemNotes;
-  @JsonKey(name: 'PrintGrandTotal')
+  @JsonKey(name: 'PrintGrandTotal', includeIfNull: false)
   final bool? printGrandTotal;
-  @JsonKey(name: 'PrintGrossTotal')
+  @JsonKey(name: 'PrintGrossTotal', includeIfNull: false)
   final bool? printGrossTotal;
-  @JsonKey(name: 'PrintGrandDiscount')
+  @JsonKey(name: 'PrintGrandDiscount', includeIfNull: false)
   final bool? printGrandDiscount;
-  @JsonKey(name: 'PrintGrandWeekly')
+  @JsonKey(name: 'PrintGrandWeekly', includeIfNull: false)
   final bool? printGrandWeekly;
-  @JsonKey(name: 'PrintGrandPeriod')
+  @JsonKey(name: 'PrintGrandPeriod', includeIfNull: false)
   final bool? printGrandPeriod;
-  @JsonKey(name: 'PrintActivityWeekly')
+  @JsonKey(name: 'PrintActivityWeekly', includeIfNull: false)
   final bool? printActivityWeekly;
-  @JsonKey(name: 'PrintActivityPeriod')
+  @JsonKey(name: 'PrintActivityPeriod', includeIfNull: false)
   final bool? printActivityPeriod;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestFromJson;
@@ -17570,53 +17762,58 @@ class WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedIte
       _$WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'IncludeNoCharge')
+  @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestFromJson;
@@ -17757,22 +17954,24 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
       _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'RentalValue')
+  @JsonKey(name: 'RentalValue', includeIfNull: false)
   final String? rentalValue;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestFromJson;
@@ -17856,20 +18055,22 @@ class WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructio
       _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestFromJson(
           json);
 
-  @JsonKey(name: 'OutDeliveryId')
+  @JsonKey(name: 'OutDeliveryId', includeIfNull: false)
   final String? outDeliveryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestFromJson;
@@ -17954,32 +18155,34 @@ class WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsI
       _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ReorderPointMode')
+  @JsonKey(name: 'ReorderPointMode', includeIfNull: false)
   final String? reorderPointMode;
-  @JsonKey(name: 'IncludeZeroReorderPoint')
+  @JsonKey(name: 'IncludeZeroReorderPoint', includeIfNull: false)
   final bool? includeZeroReorderPoint;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestFromJson;
@@ -18100,45 +18303,52 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetRep
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
-  @JsonKey(name: 'IsSpace')
+  @JsonKey(name: 'IsSpace', includeIfNull: false)
   final bool? isSpace;
-  @JsonKey(name: 'isRecount')
+  @JsonKey(name: 'isRecount', includeIfNull: false)
   final bool? isRecount;
-  @JsonKey(name: 'IncludeCompleteKits')
+  @JsonKey(name: 'IncludeCompleteKits', includeIfNull: false)
   final bool? includeCompleteKits;
-  @JsonKey(name: 'IncludeCompleteKitReferences')
+  @JsonKey(name: 'IncludeCompleteKitReferences', includeIfNull: false)
   final bool? includeCompleteKitReferences;
-  @JsonKey(name: 'ExcludeOptionalAccessories')
+  @JsonKey(name: 'ExcludeOptionalAccessories', includeIfNull: false)
   final bool? excludeOptionalAccessories;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestFromJson;
@@ -18281,41 +18491,48 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyRe
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'ConsignorIds')
+  @JsonKey(name: 'ConsignorIds', includeIfNull: false)
   final String? consignorIds;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
-  @JsonKey(name: 'IncludeIcodesThatAreNotDiscrepancies')
+  @JsonKey(name: 'IncludeIcodesThatAreNotDiscrepancies', includeIfNull: false)
   final bool? includeIcodesThatAreNotDiscrepancies;
-  @JsonKey(name: 'PrintBarcodeSerialNotCounted')
+  @JsonKey(name: 'PrintBarcodeSerialNotCounted', includeIfNull: false)
   final bool? printBarcodeSerialNotCounted;
-  @JsonKey(name: 'IsSpace')
+  @JsonKey(name: 'IsSpace', includeIfNull: false)
   final bool? isSpace;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestFromJson;
@@ -18445,35 +18662,42 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionRepo
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
-  @JsonKey(name: 'IncludeZeroOwned')
+  @JsonKey(name: 'IncludeZeroOwned', includeIfNull: false)
   final bool? includeZeroOwned;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestFromJson;
@@ -18594,35 +18818,42 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgre
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestFromJson;
@@ -18752,53 +18983,60 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliatio
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final FwStandardSqlServerFwDateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final FwStandardSqlServerFwDateTime? toDate;
-  @JsonKey(name: 'AvailableFor')
+  @JsonKey(name: 'AvailableFor', includeIfNull: false)
   final String? availableFor;
-  @JsonKey(name: 'ItemsCounted')
+  @JsonKey(name: 'ItemsCounted', includeIfNull: false)
   final bool? itemsCounted;
-  @JsonKey(name: 'IncludeOrders')
+  @JsonKey(name: 'IncludeOrders', includeIfNull: false)
   final bool? includeOrders;
-  @JsonKey(name: 'IncludeOrderBarcodes')
+  @JsonKey(name: 'IncludeOrderBarcodes', includeIfNull: false)
   final bool? includeOrderBarcodes;
-  @JsonKey(name: 'IncludeCountedBarcodes')
+  @JsonKey(name: 'IncludeCountedBarcodes', includeIfNull: false)
   final bool? includeCountedBarcodes;
-  @JsonKey(name: 'ExcludeZeroCostExtended')
+  @JsonKey(name: 'ExcludeZeroCostExtended', includeIfNull: false)
   final bool? excludeZeroCostExtended;
-  @JsonKey(name: 'OnlyChangedItems')
+  @JsonKey(name: 'OnlyChangedItems', includeIfNull: false)
   final bool? onlyChangedItems;
-  @JsonKey(name: 'TrackedbyIds')
+  @JsonKey(name: 'TrackedbyIds', includeIfNull: false)
   final String? trackedbyIds;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestFromJson;
@@ -18949,35 +19187,42 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalys
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'IncludeIdenticalCounts')
+  @JsonKey(name: 'IncludeIdenticalCounts', includeIfNull: false)
   final bool? includeIdenticalCounts;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestFromJson;
@@ -19100,37 +19345,44 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReport
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PhysicalInventoryId')
+  @JsonKey(name: 'PhysicalInventoryId', includeIfNull: false)
   final String? physicalInventoryId;
-  @JsonKey(name: 'IncludeNoChangeItems')
+  @JsonKey(name: 'IncludeNoChangeItems', includeIfNull: false)
   final bool? includeNoChangeItems;
-  @JsonKey(name: 'ShowRetiredBarcodes')
+  @JsonKey(name: 'ShowRetiredBarcodes', includeIfNull: false)
   final bool? showRetiredBarcodes;
   @JsonKey(
-      name: 'TrackedBys', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'TrackedBys',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'SpaceIds')
+  @JsonKey(name: 'SpaceIds', includeIfNull: false)
   final String? spaceIds;
-  @JsonKey(name: 'InventoryDepartmentIds')
+  @JsonKey(name: 'InventoryDepartmentIds', includeIfNull: false)
   final String? inventoryDepartmentIds;
-  @JsonKey(name: 'CategoryIds')
+  @JsonKey(name: 'CategoryIds', includeIfNull: false)
   final String? categoryIds;
-  @JsonKey(name: 'MasterIds')
+  @JsonKey(name: 'MasterIds', includeIfNull: false)
   final String? masterIds;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestFromJson;
@@ -19249,22 +19501,24 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
       _$WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestFromJson(
           json);
 
-  @JsonKey(name: 'PurchaseOrderId')
+  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
   final String? purchaseOrderId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestFromJson;
@@ -19349,22 +19603,24 @@ class WebApiModulesReportsRateUpdateReportRateUpdateReportRequest {
       _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PendingModificationsOnly')
+  @JsonKey(name: 'PendingModificationsOnly', includeIfNull: false)
   final bool? pendingModificationsOnly;
-  @JsonKey(name: 'RateUpdateBatchId')
+  @JsonKey(name: 'RateUpdateBatchId', includeIfNull: false)
   final String? rateUpdateBatchId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestFromJson;
@@ -19459,48 +19715,55 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateRep
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
       name: 'OwnershipTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ownershipTypes;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestFromJson;
@@ -19639,56 +19902,63 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityRepor
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'IsDetail')
+  @JsonKey(name: 'IsDetail', includeIfNull: false)
   final bool? isDetail;
-  @JsonKey(name: 'IncludeZeroQuantity')
+  @JsonKey(name: 'IncludeZeroQuantity', includeIfNull: false)
   final bool? includeZeroQuantity;
-  @JsonKey(name: 'OnlyIncludeLowAndNegative')
+  @JsonKey(name: 'OnlyIncludeLowAndNegative', includeIfNull: false)
   final bool? onlyIncludeLowAndNegative;
-  @JsonKey(name: 'OnlyIncludeNegative')
+  @JsonKey(name: 'OnlyIncludeNegative', includeIfNull: false)
   final bool? onlyIncludeNegative;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'Classifications',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? classifications;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestFromJson;
@@ -19831,46 +20101,53 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRenta
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
       name: 'OwnershipTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ownershipTypes;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
-  @JsonKey(name: 'IncludeRetiredSerializedItems')
+  @JsonKey(name: 'IncludeRetiredSerializedItems', includeIfNull: false)
   final bool? includeRetiredSerializedItems;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestFromJson;
@@ -20001,43 +20278,48 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRen
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'IncludeZeroOwned')
+  @JsonKey(name: 'IncludeZeroOwned', includeIfNull: false)
   final bool? includeZeroOwned;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'Value')
+  @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestFromJson;
@@ -20166,28 +20448,30 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportR
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestFromJson;
@@ -20300,51 +20584,56 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueR
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'IncludePeriodRevenue')
+  @JsonKey(name: 'IncludePeriodRevenue', includeIfNull: false)
   final bool? includePeriodRevenue;
-  @JsonKey(name: 'RevenueFromDate')
+  @JsonKey(name: 'RevenueFromDate', includeIfNull: false)
   final DateTime? revenueFromDate;
-  @JsonKey(name: 'RevenueToDate')
+  @JsonKey(name: 'RevenueToDate', includeIfNull: false)
   final DateTime? revenueToDate;
-  @JsonKey(name: 'RevenueFilterMode')
+  @JsonKey(name: 'RevenueFilterMode', includeIfNull: false)
   final String? revenueFilterMode;
-  @JsonKey(name: 'RevenueFilterAmount')
+  @JsonKey(name: 'RevenueFilterAmount', includeIfNull: false)
   final double? revenueFilterAmount;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'IncludeNotRentedSince')
+  @JsonKey(name: 'IncludeNotRentedSince', includeIfNull: false)
   final bool? includeNotRentedSince;
-  @JsonKey(name: 'NotRentedSinceDate')
+  @JsonKey(name: 'NotRentedSinceDate', includeIfNull: false)
   final DateTime? notRentedSinceDate;
-  @JsonKey(name: 'IncludeZeroOwned')
+  @JsonKey(name: 'IncludeZeroOwned', includeIfNull: false)
   final bool? includeZeroOwned;
-  @JsonKey(name: 'ShowStagedAndOut')
+  @JsonKey(name: 'ShowStagedAndOut', includeIfNull: false)
   final bool? showStagedAndOut;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestFromJson;
@@ -20492,42 +20781,45 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReport
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'AsOfDate')
+  @JsonKey(name: 'AsOfDate', includeIfNull: false)
   final DateTime? asOfDate;
-  @JsonKey(name: 'IncludeZeroQuantity')
+  @JsonKey(name: 'IncludeZeroQuantity', includeIfNull: false)
   final bool? includeZeroQuantity;
-  @JsonKey(name: 'DaysUnused')
+  @JsonKey(name: 'DaysUnused', includeIfNull: false)
   final int? daysUnused;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestFromJson;
@@ -20664,47 +20956,54 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRental
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'UtilizationFilterMode')
+  @JsonKey(name: 'UtilizationFilterMode', includeIfNull: false)
   final String? utilizationFilterMode;
-  @JsonKey(name: 'UtilizationFilterAmount')
+  @JsonKey(name: 'UtilizationFilterAmount', includeIfNull: false)
   final double? utilizationFilterAmount;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'ExcludeZeroOwned')
+  @JsonKey(name: 'ExcludeZeroOwned', includeIfNull: false)
   final bool? excludeZeroOwned;
-  @JsonKey(name: 'FilterDatesByUtilizationPercent')
+  @JsonKey(name: 'FilterDatesByUtilizationPercent', includeIfNull: false)
   final bool? filterDatesByUtilizationPercent;
-  @JsonKey(name: 'OnlyIncludeItemsThatAreTheMainItemOfAComplete')
+  @JsonKey(
+      name: 'OnlyIncludeItemsThatAreTheMainItemOfAComplete',
+      includeIfNull: false)
   final bool? onlyIncludeItemsThatAreTheMainItemOfAComplete;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestFromJson;
@@ -20850,53 +21149,58 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRental
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'IncludeOwned')
+  @JsonKey(name: 'IncludeOwned', includeIfNull: false)
   final bool? includeOwned;
-  @JsonKey(name: 'IncludeConsigned')
+  @JsonKey(name: 'IncludeConsigned', includeIfNull: false)
   final bool? includeConsigned;
-  @JsonKey(name: 'IncludeZeroQuantity')
+  @JsonKey(name: 'IncludeZeroQuantity', includeIfNull: false)
   final bool? includeZeroQuantity;
-  @JsonKey(name: 'GroupByICode')
+  @JsonKey(name: 'GroupByICode', includeIfNull: false)
   final bool? groupByICode;
-  @JsonKey(name: 'QuantityValueBasedOn')
+  @JsonKey(name: 'QuantityValueBasedOn', includeIfNull: false)
   final String? quantityValueBasedOn;
-  @JsonKey(name: 'SerializedValueBasedOn')
+  @JsonKey(name: 'SerializedValueBasedOn', includeIfNull: false)
   final String? serializedValueBasedOn;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'Summary')
+  @JsonKey(name: 'Summary', includeIfNull: false)
   final bool? summary;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestFromJson;
@@ -21048,42 +21352,44 @@ class WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHisto
       _$WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'ExcludeRetiredItems')
+  @JsonKey(name: 'ExcludeRetiredItems', includeIfNull: false)
   final bool? excludeRetiredItems;
-  @JsonKey(name: 'ExcludeUnretiredItems')
+  @JsonKey(name: 'ExcludeUnretiredItems', includeIfNull: false)
   final bool? excludeUnretiredItems;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'RetiredReasonId')
+  @JsonKey(name: 'RetiredReasonId', includeIfNull: false)
   final String? retiredReasonId;
-  @JsonKey(name: 'UnretiredReasonId')
+  @JsonKey(name: 'UnretiredReasonId', includeIfNull: false)
   final String? unretiredReasonId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestFromJson;
@@ -21222,43 +21528,47 @@ class WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportReti
       _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'IncludeUnretired')
+  @JsonKey(name: 'IncludeUnretired', includeIfNull: false)
   final bool? includeUnretired;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'RetiredReasonId')
+  @JsonKey(name: 'RetiredReasonId', includeIfNull: false)
   final String? retiredReasonId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestFromJson;
@@ -21394,36 +21704,38 @@ class WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturne
       _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'UserId')
+  @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestFromJson;
@@ -21553,51 +21865,56 @@ class WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAsset
       _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'UsePeriodSelector')
+  @JsonKey(name: 'UsePeriodSelector', includeIfNull: false)
   final bool? usePeriodSelector;
-  @JsonKey(name: 'ReportYear')
+  @JsonKey(name: 'ReportYear', includeIfNull: false)
   final String? reportYear;
-  @JsonKey(name: 'ReportPeriod')
+  @JsonKey(name: 'ReportPeriod', includeIfNull: false)
   final String? reportPeriod;
-  @JsonKey(name: 'UseDateRange')
+  @JsonKey(name: 'UseDateRange', includeIfNull: false)
   final bool? useDateRange;
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
-  @JsonKey(name: 'IncludeZeroCurrentOwned')
+  @JsonKey(name: 'IncludeZeroCurrentOwned', includeIfNull: false)
   final bool? includeZeroCurrentOwned;
-  @JsonKey(name: 'IncludeZeroAverageOwned')
+  @JsonKey(name: 'IncludeZeroAverageOwned', includeIfNull: false)
   final bool? includeZeroAverageOwned;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestFromJson;
@@ -21742,34 +22059,36 @@ class WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUn
       _$WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'UnretiredReasonId')
+  @JsonKey(name: 'UnretiredReasonId', includeIfNull: false)
   final String? unretiredReasonId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestFromJson;
@@ -21891,46 +22210,53 @@ class WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportV
       _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'AsOfDate')
+  @JsonKey(name: 'AsOfDate', includeIfNull: false)
   final DateTime? asOfDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'OwnershipTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ownershipTypes;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestFromJson;
@@ -22072,58 +22398,62 @@ class WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderSt
 
   @JsonKey(
       name: 'RepairOrderStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? repairOrderStatus;
   @JsonKey(
       name: 'Priority',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? priority;
-  @JsonKey(name: 'Billable')
+  @JsonKey(name: 'Billable', includeIfNull: false)
   final bool? billable;
-  @JsonKey(name: 'Billed')
+  @JsonKey(name: 'Billed', includeIfNull: false)
   final bool? billed;
-  @JsonKey(name: 'Owned')
+  @JsonKey(name: 'Owned', includeIfNull: false)
   final bool? owned;
-  @JsonKey(name: 'DaysInRepair')
+  @JsonKey(name: 'DaysInRepair', includeIfNull: false)
   final int? daysInRepair;
-  @JsonKey(name: 'DaysInRepairFilterMode')
+  @JsonKey(name: 'DaysInRepairFilterMode', includeIfNull: false)
   final String? daysInRepairFilterMode;
-  @JsonKey(name: 'IncludeOutsideRepairsOnly')
+  @JsonKey(name: 'IncludeOutsideRepairsOnly', includeIfNull: false)
   final bool? includeOutsideRepairsOnly;
-  @JsonKey(name: 'IncludeDamageNotes')
+  @JsonKey(name: 'IncludeDamageNotes', includeIfNull: false)
   final bool? includeDamageNotes;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'RepairItemStatusId')
+  @JsonKey(name: 'RepairItemStatusId', includeIfNull: false)
   final String? repairItemStatusId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'VendorRepairItemStatusId')
+  @JsonKey(name: 'VendorRepairItemStatusId', includeIfNull: false)
   final String? vendorRepairItemStatusId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequestFromJson;
@@ -22273,20 +22603,22 @@ class WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest {
       _$WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestFromJson(
           json);
 
-  @JsonKey(name: 'RepairId')
+  @JsonKey(name: 'RepairId', includeIfNull: false)
   final String? repairId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestFromJson;
@@ -22364,20 +22696,22 @@ class WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
       _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'RepairId')
+  @JsonKey(name: 'RepairId', includeIfNull: false)
   final String? repairId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestFromJson;
@@ -22460,28 +22794,30 @@ class WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorde
       _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestFromJson;
@@ -22591,46 +22927,49 @@ class WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryRep
       _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'Summary')
+  @JsonKey(name: 'Summary', includeIfNull: false)
   final bool? summary;
-  @JsonKey(name: 'IncludeSalesTax')
+  @JsonKey(name: 'IncludeSalesTax', includeIfNull: false)
   final bool? includeSalesTax;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestFromJson;
@@ -22771,41 +23110,45 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesIn
       _$WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'IncludePeriodRevenue')
+  @JsonKey(name: 'IncludePeriodRevenue', includeIfNull: false)
   final bool? includePeriodRevenue;
-  @JsonKey(name: 'RevenueFromDate')
+  @JsonKey(name: 'RevenueFromDate', includeIfNull: false)
   final DateTime? revenueFromDate;
-  @JsonKey(name: 'RevenueToDate')
+  @JsonKey(name: 'RevenueToDate', includeIfNull: false)
   final DateTime? revenueToDate;
-  @JsonKey(name: 'RevenueFilterMode')
+  @JsonKey(name: 'RevenueFilterMode', includeIfNull: false)
   final String? revenueFilterMode;
-  @JsonKey(name: 'RevenueFilterAmount')
+  @JsonKey(name: 'RevenueFilterAmount', includeIfNull: false)
   final double? revenueFilterAmount;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
-  @JsonKey(name: 'ExcludeZeroOwned')
+  @JsonKey(name: 'ExcludeZeroOwned', includeIfNull: false)
   final bool? excludeZeroOwned;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestFromJson;
@@ -22935,32 +23278,34 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesI
       _$WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ReorderPointMode')
+  @JsonKey(name: 'ReorderPointMode', includeIfNull: false)
   final String? reorderPointMode;
-  @JsonKey(name: 'IncludeZeroReorderPoint')
+  @JsonKey(name: 'IncludeZeroReorderPoint', includeIfNull: false)
   final bool? includeZeroReorderPoint;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestFromJson;
@@ -23076,38 +23421,46 @@ class WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesRepo
       _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'AttributeId')
+  @JsonKey(name: 'AttributeId', includeIfNull: false)
   final String? attributeId;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestFromJson;
@@ -23231,46 +23584,53 @@ class WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequ
 
   @JsonKey(
       name: 'Classifications',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? classifications;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
       name: 'FixedAsset',
+      includeIfNull: false,
       toJson: webApiIncludeExcludeAllToJson,
       fromJson: webApiIncludeExcludeAllFromJson)
   final enums.WebApiIncludeExcludeAll? fixedAsset;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'WarehouseCatalogId')
+  @JsonKey(name: 'WarehouseCatalogId', includeIfNull: false)
   final String? warehouseCatalogId;
-  @JsonKey(name: 'IncludeZeroQuantity')
+  @JsonKey(name: 'IncludeZeroQuantity', includeIfNull: false)
   final bool? includeZeroQuantity;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestFromJson;
@@ -23405,43 +23765,48 @@ class WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseH
       _$WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PurchasedFromDate')
+  @JsonKey(name: 'PurchasedFromDate', includeIfNull: false)
   final DateTime? purchasedFromDate;
-  @JsonKey(name: 'PurchasedToDate')
+  @JsonKey(name: 'PurchasedToDate', includeIfNull: false)
   final DateTime? purchasedToDate;
-  @JsonKey(name: 'ReceivedFromDate')
+  @JsonKey(name: 'ReceivedFromDate', includeIfNull: false)
   final DateTime? receivedFromDate;
-  @JsonKey(name: 'ReceivedToDate')
+  @JsonKey(name: 'ReceivedToDate', includeIfNull: false)
   final DateTime? receivedToDate;
   @JsonKey(
       name: 'TrackedBys',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
-      name: 'Ranks', defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
+      name: 'Ranks',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestFromJson;
@@ -23573,36 +23938,39 @@ class WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionRe
       _$WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
   @JsonKey(
       name: 'TransactionTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? transactionTypes;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'InventoryTypeId')
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId')
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
-  @JsonKey(name: 'SubCategoryId')
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
   final String? subCategoryId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestFromJson;
@@ -23718,30 +24086,35 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
           Map<String, dynamic> json) =>
       _$WebApiModulesReportsSharedReportSettingsReportSettingsFromJson(json);
 
-  @JsonKey(name: 'Id')
+  @JsonKey(name: 'Id', includeIfNull: false)
   final int? id;
-  @JsonKey(name: 'WebUserId')
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
   final String? webUserId;
-  @JsonKey(name: 'ReportName')
+  @JsonKey(name: 'ReportName', includeIfNull: false)
   final String? reportName;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'Settings')
+  @JsonKey(name: 'Settings', includeIfNull: false)
   final String? settings;
-  @JsonKey(name: 'ExcelSettings')
+  @JsonKey(name: 'ExcelSettings', includeIfNull: false)
   final String? excelSettings;
-  @JsonKey(name: 'DateStamp')
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
-  @JsonKey(name: 'RecordTitle')
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
       name: '_Fields',
+      includeIfNull: false,
       defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -23840,32 +24213,35 @@ class WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest {
       _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestFromJson;
@@ -23973,36 +24349,40 @@ class WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMas
       _$WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
   @JsonKey(
       name: 'Activities',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? activities;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestFromJson;
@@ -24111,22 +24491,24 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderRece
       _$WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestFromJson(
           json);
 
-  @JsonKey(name: 'PurchaseOrderId')
+  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
   final String? purchaseOrderId;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestFromJson;
@@ -24211,27 +24593,30 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportReq
       _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'PurchaseOrderId')
+  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
   final String? purchaseOrderId;
   @JsonKey(
       name: 'ReportView',
+      includeIfNull: false,
       toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
       fromJson:
           webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestFromJson;
@@ -24323,36 +24708,39 @@ class WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSu
       _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'ProjectId')
+  @JsonKey(name: 'ProjectId', includeIfNull: false)
   final String? projectId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'PoApprovalStatusId')
+  @JsonKey(name: 'PoApprovalStatusId', includeIfNull: false)
   final String? poApprovalStatusId;
   @JsonKey(
       name: 'Status',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? status;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestFromJson;
@@ -24474,44 +24862,48 @@ class WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportReq
       _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'PoClassificationId')
+  @JsonKey(name: 'PoClassificationId', includeIfNull: false)
   final String? poClassificationId;
   @JsonKey(
       name: 'RecType',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? recType;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestFromJson;
@@ -24645,42 +25037,46 @@ class WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityRep
       _$WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'CustomerId')
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'PoClassificationId')
+  @JsonKey(name: 'PoClassificationId', includeIfNull: false)
   final String? poClassificationId;
   @JsonKey(
       name: 'RecType',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? recType;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestFromJson;
@@ -24812,46 +25208,50 @@ class WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBi
       _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'PoClassificationId')
+  @JsonKey(name: 'PoClassificationId', includeIfNull: false)
   final String? poClassificationId;
-  @JsonKey(name: 'PurchaseOrderId')
+  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
   final String? purchaseOrderId;
-  @JsonKey(name: 'InventoryId')
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
       name: 'InvoiceStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? invoiceStatus;
   @JsonKey(
       name: 'PurchaseOrderStatus',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? purchaseOrderStatus;
-  @JsonKey(name: 'IncludeVendorTax')
+  @JsonKey(name: 'IncludeVendorTax', includeIfNull: false)
   final bool? includeVendorTax;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestFromJson;
@@ -24991,46 +25391,49 @@ class WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSu
       _$WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'DateType')
+  @JsonKey(name: 'DateType', includeIfNull: false)
   final String? dateType;
   @JsonKey(
       name: 'Statuses',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? statuses;
-  @JsonKey(name: 'IncludeAccruals')
+  @JsonKey(name: 'IncludeAccruals', includeIfNull: false)
   final bool? includeAccruals;
-  @JsonKey(name: 'AccrualFromDate')
+  @JsonKey(name: 'AccrualFromDate', includeIfNull: false)
   final DateTime? accrualFromDate;
-  @JsonKey(name: 'AccrualToDate')
+  @JsonKey(name: 'AccrualToDate', includeIfNull: false)
   final DateTime? accrualToDate;
-  @JsonKey(name: 'AccrualsOnly')
+  @JsonKey(name: 'AccrualsOnly', includeIfNull: false)
   final bool? accrualsOnly;
-  @JsonKey(name: 'OfficeLocationId')
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'VendorId')
+  @JsonKey(name: 'VendorId', includeIfNull: false)
   final String? vendorId;
-  @JsonKey(name: 'PurchaseOrderId')
+  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
   final String? purchaseOrderId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestFromJson;
@@ -25162,22 +25565,24 @@ class WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingLi
       _$WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContainerItemId')
+  @JsonKey(name: 'ContainerItemId', includeIfNull: false)
   final String? containerItemId;
-  @JsonKey(name: 'AppLanguageId')
+  @JsonKey(name: 'AppLanguageId', includeIfNull: false)
   final String? appLanguageId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestFromJson;
@@ -25259,15 +25664,15 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData {
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataFromJson(
           json);
 
-  @JsonKey(name: 'PersonSignature')
+  @JsonKey(name: 'PersonSignature', includeIfNull: false)
   final String? personSignature;
-  @JsonKey(name: 'QuikReceiptId')
+  @JsonKey(name: 'QuikReceiptId', includeIfNull: false)
   final String? quikReceiptId;
-  @JsonKey(name: 'QuikReceiptTermsConditionsHtml')
+  @JsonKey(name: 'QuikReceiptTermsConditionsHtml', includeIfNull: false)
   final String? quikReceiptTermsConditionsHtml;
-  @JsonKey(name: 'PersonPrintedName')
+  @JsonKey(name: 'PersonPrintedName', includeIfNull: false)
   final String? personPrintedName;
-  @JsonKey(name: 'Note')
+  @JsonKey(name: 'Note', includeIfNull: false)
   final String? note;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataFromJson;
@@ -25338,24 +25743,28 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLFromJson(
           json);
 
-  @JsonKey(name: 'RowType')
+  @JsonKey(name: 'RowType', includeIfNull: false)
   final String? rowType;
-  @JsonKey(name: 'Description')
+  @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
-  @JsonKey(name: 'Quantity')
+  @JsonKey(name: 'Quantity', includeIfNull: false)
   final String? quantity;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -25520,178 +25929,182 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLFromJson(
           json);
 
-  @JsonKey(name: 'SessionNo')
+  @JsonKey(name: 'SessionNo', includeIfNull: false)
   final int? sessionNo;
-  @JsonKey(name: 'Customer')
+  @JsonKey(name: 'Customer', includeIfNull: false)
   final String? customer;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'EstRentFrom')
+  @JsonKey(name: 'EstRentFrom', includeIfNull: false)
   final String? estRentFrom;
-  @JsonKey(name: 'EstRentTo')
+  @JsonKey(name: 'EstRentTo', includeIfNull: false)
   final String? estRentTo;
-  @JsonKey(name: 'QuikReceiptTermsConditionsId')
+  @JsonKey(name: 'QuikReceiptTermsConditionsId', includeIfNull: false)
   final String? quikReceiptTermsConditionsId;
-  @JsonKey(name: 'Items', defaultValue: <
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
       WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL>[])
   final List<
           WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL>?
       items;
-  @JsonKey(name: 'MetaData')
+  @JsonKey(name: 'MetaData', includeIfNull: false)
   final WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData?
       metaData;
-  @JsonKey(name: 'DealId')
+  @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
-  @JsonKey(name: 'Deal')
+  @JsonKey(name: 'Deal', includeIfNull: false)
   final String? deal;
-  @JsonKey(name: 'DealNumber')
+  @JsonKey(name: 'DealNumber', includeIfNull: false)
   final String? dealNumber;
-  @JsonKey(name: 'DealNumberAndDeal')
+  @JsonKey(name: 'DealNumberAndDeal', includeIfNull: false)
   final String? dealNumberAndDeal;
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'OrderNumber')
+  @JsonKey(name: 'OrderNumber', includeIfNull: false)
   final String? orderNumber;
-  @JsonKey(name: 'OrderDate')
+  @JsonKey(name: 'OrderDate', includeIfNull: false)
   final String? orderDate;
-  @JsonKey(name: 'OrderPoNumber')
+  @JsonKey(name: 'OrderPoNumber', includeIfNull: false)
   final String? orderPoNumber;
-  @JsonKey(name: 'OrderType')
+  @JsonKey(name: 'OrderType', includeIfNull: false)
   final String? orderType;
-  @JsonKey(name: 'OrderDescription')
+  @JsonKey(name: 'OrderDescription', includeIfNull: false)
   final String? orderDescription;
-  @JsonKey(name: 'OrderNumberAndDescription')
+  @JsonKey(name: 'OrderNumberAndDescription', includeIfNull: false)
   final String? orderNumberAndDescription;
-  @JsonKey(name: 'OrderLocation')
+  @JsonKey(name: 'OrderLocation', includeIfNull: false)
   final String? orderLocation;
-  @JsonKey(name: 'RowType')
+  @JsonKey(name: 'RowType', includeIfNull: false)
   final String? rowType;
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'ContractNumber')
+  @JsonKey(name: 'ContractNumber', includeIfNull: false)
   final String? contractNumber;
-  @JsonKey(name: 'ContractDate')
+  @JsonKey(name: 'ContractDate', includeIfNull: false)
   final String? contractDate;
-  @JsonKey(name: 'ContractTime')
+  @JsonKey(name: 'ContractTime', includeIfNull: false)
   final String? contractTime;
-  @JsonKey(name: 'ContractDateAndTime')
+  @JsonKey(name: 'ContractDateAndTime', includeIfNull: false)
   final String? contractDateAndTime;
-  @JsonKey(name: 'ContractType')
+  @JsonKey(name: 'ContractType', includeIfNull: false)
   final String? contractType;
-  @JsonKey(name: 'HasPendingExchange')
+  @JsonKey(name: 'HasPendingExchange', includeIfNull: false)
   final bool? hasPendingExchange;
-  @JsonKey(name: 'HasRental')
+  @JsonKey(name: 'HasRental', includeIfNull: false)
   final bool? hasRental;
-  @JsonKey(name: 'HasSales')
+  @JsonKey(name: 'HasSales', includeIfNull: false)
   final bool? hasSales;
-  @JsonKey(name: 'InputByUserId')
+  @JsonKey(name: 'InputByUserId', includeIfNull: false)
   final String? inputByUserId;
-  @JsonKey(name: 'BillingDate')
+  @JsonKey(name: 'BillingDate', includeIfNull: false)
   final String? billingDate;
-  @JsonKey(name: 'OfficeLocation')
+  @JsonKey(name: 'OfficeLocation', includeIfNull: false)
   final String? officeLocation;
-  @JsonKey(name: 'OfficeLocationCompany')
+  @JsonKey(name: 'OfficeLocationCompany', includeIfNull: false)
   final String? officeLocationCompany;
-  @JsonKey(name: 'OfficeLocationAddress1')
+  @JsonKey(name: 'OfficeLocationAddress1', includeIfNull: false)
   final String? officeLocationAddress1;
-  @JsonKey(name: 'OfficeLocationAddress2')
+  @JsonKey(name: 'OfficeLocationAddress2', includeIfNull: false)
   final String? officeLocationAddress2;
-  @JsonKey(name: 'OfficeLocationCityStateZipCode')
+  @JsonKey(name: 'OfficeLocationCityStateZipCode', includeIfNull: false)
   final String? officeLocationCityStateZipCode;
-  @JsonKey(name: 'OfficeLocationCityStateZipCodeCountry')
+  @JsonKey(name: 'OfficeLocationCityStateZipCodeCountry', includeIfNull: false)
   final String? officeLocationCityStateZipCodeCountry;
-  @JsonKey(name: 'OfficeLocationPhone')
+  @JsonKey(name: 'OfficeLocationPhone', includeIfNull: false)
   final String? officeLocationPhone;
-  @JsonKey(name: 'OfficeLocationFax')
+  @JsonKey(name: 'OfficeLocationFax', includeIfNull: false)
   final String? officeLocationFax;
-  @JsonKey(name: 'Warehouse')
+  @JsonKey(name: 'Warehouse', includeIfNull: false)
   final String? warehouse;
-  @JsonKey(name: 'WarehouseAddress1')
+  @JsonKey(name: 'WarehouseAddress1', includeIfNull: false)
   final String? warehouseAddress1;
-  @JsonKey(name: 'WarehouseAddress2')
+  @JsonKey(name: 'WarehouseAddress2', includeIfNull: false)
   final String? warehouseAddress2;
-  @JsonKey(name: 'WarehouseCityStateZipCode')
+  @JsonKey(name: 'WarehouseCityStateZipCode', includeIfNull: false)
   final String? warehouseCityStateZipCode;
-  @JsonKey(name: 'WarehouseCityStateZipCodeCountry')
+  @JsonKey(name: 'WarehouseCityStateZipCodeCountry', includeIfNull: false)
   final String? warehouseCityStateZipCodeCountry;
-  @JsonKey(name: 'WarehousePhone')
+  @JsonKey(name: 'WarehousePhone', includeIfNull: false)
   final String? warehousePhone;
-  @JsonKey(name: 'WarehouseFax')
+  @JsonKey(name: 'WarehouseFax', includeIfNull: false)
   final String? warehouseFax;
-  @JsonKey(name: 'IssuedToCompany')
+  @JsonKey(name: 'IssuedToCompany', includeIfNull: false)
   final String? issuedToCompany;
-  @JsonKey(name: 'IssuedToAttentionTo1')
+  @JsonKey(name: 'IssuedToAttentionTo1', includeIfNull: false)
   final String? issuedToAttentionTo1;
-  @JsonKey(name: 'IssuedToAttentionTo2')
+  @JsonKey(name: 'IssuedToAttentionTo2', includeIfNull: false)
   final String? issuedToAttentionTo2;
-  @JsonKey(name: 'IssuedToAddress1')
+  @JsonKey(name: 'IssuedToAddress1', includeIfNull: false)
   final String? issuedToAddress1;
-  @JsonKey(name: 'IssuedToAddress2')
+  @JsonKey(name: 'IssuedToAddress2', includeIfNull: false)
   final String? issuedToAddress2;
-  @JsonKey(name: 'IssuedToCity')
+  @JsonKey(name: 'IssuedToCity', includeIfNull: false)
   final String? issuedToCity;
-  @JsonKey(name: 'IssuedToState')
+  @JsonKey(name: 'IssuedToState', includeIfNull: false)
   final String? issuedToState;
-  @JsonKey(name: 'IssuedToZipCode')
+  @JsonKey(name: 'IssuedToZipCode', includeIfNull: false)
   final String? issuedToZipCode;
-  @JsonKey(name: 'IssuedToCountry')
+  @JsonKey(name: 'IssuedToCountry', includeIfNull: false)
   final String? issuedToCountry;
-  @JsonKey(name: 'IssuedToPhone')
+  @JsonKey(name: 'IssuedToPhone', includeIfNull: false)
   final String? issuedToPhone;
-  @JsonKey(name: 'IssuedToFax')
+  @JsonKey(name: 'IssuedToFax', includeIfNull: false)
   final String? issuedToFax;
-  @JsonKey(name: 'UsageDates')
+  @JsonKey(name: 'UsageDates', includeIfNull: false)
   final String? usageDates;
-  @JsonKey(name: 'BillingCycle')
+  @JsonKey(name: 'BillingCycle', includeIfNull: false)
   final String? billingCycle;
-  @JsonKey(name: 'PaymentTerms')
+  @JsonKey(name: 'PaymentTerms', includeIfNull: false)
   final String? paymentTerms;
-  @JsonKey(name: 'Agent')
+  @JsonKey(name: 'Agent', includeIfNull: false)
   final String? agent;
-  @JsonKey(name: 'AgentEmail')
+  @JsonKey(name: 'AgentEmail', includeIfNull: false)
   final String? agentEmail;
-  @JsonKey(name: 'AgentPhoneAndExtension')
+  @JsonKey(name: 'AgentPhoneAndExtension', includeIfNull: false)
   final String? agentPhoneAndExtension;
-  @JsonKey(name: 'AgentFax')
+  @JsonKey(name: 'AgentFax', includeIfNull: false)
   final String? agentFax;
-  @JsonKey(name: 'Department')
+  @JsonKey(name: 'Department', includeIfNull: false)
   final String? department;
-  @JsonKey(name: 'DeliveryContact')
+  @JsonKey(name: 'DeliveryContact', includeIfNull: false)
   final String? deliveryContact;
-  @JsonKey(name: 'DeliveryLocation')
+  @JsonKey(name: 'DeliveryLocation', includeIfNull: false)
   final String? deliveryLocation;
-  @JsonKey(name: 'DeliveryAddress1')
+  @JsonKey(name: 'DeliveryAddress1', includeIfNull: false)
   final String? deliveryAddress1;
-  @JsonKey(name: 'DeliveryAddress2')
+  @JsonKey(name: 'DeliveryAddress2', includeIfNull: false)
   final String? deliveryAddress2;
-  @JsonKey(name: 'DeliveryCityStateZipCode')
+  @JsonKey(name: 'DeliveryCityStateZipCode', includeIfNull: false)
   final String? deliveryCityStateZipCode;
-  @JsonKey(name: 'DeliveryCountry')
+  @JsonKey(name: 'DeliveryCountry', includeIfNull: false)
   final String? deliveryCountry;
-  @JsonKey(name: 'DeliveryContactPhone')
+  @JsonKey(name: 'DeliveryContactPhone', includeIfNull: false)
   final String? deliveryContactPhone;
-  @JsonKey(name: 'TermsAndConditionsId')
+  @JsonKey(name: 'TermsAndConditionsId', includeIfNull: false)
   final String? termsAndConditionsId;
-  @JsonKey(name: 'TermsAndConditionsHtml')
+  @JsonKey(name: 'TermsAndConditionsHtml', includeIfNull: false)
   final String? termsAndConditionsHtml;
-  @JsonKey(name: 'TermsAndConditionsNewPage')
+  @JsonKey(name: 'TermsAndConditionsNewPage', includeIfNull: false)
   final bool? termsAndConditionsNewPage;
-  @JsonKey(name: 'PersonPrintName')
+  @JsonKey(name: 'PersonPrintName', includeIfNull: false)
   final String? personPrintName;
-  @JsonKey(name: 'PersonSignature')
+  @JsonKey(name: 'PersonSignature', includeIfNull: false)
   final String? personSignature;
-  @JsonKey(name: 'PrintDate')
+  @JsonKey(name: 'PrintDate', includeIfNull: false)
   final String? printDate;
-  @JsonKey(name: 'PrintTime')
+  @JsonKey(name: 'PrintTime', includeIfNull: false)
   final String? printTime;
-  @JsonKey(name: 'PrintDateTime')
+  @JsonKey(name: 'PrintDateTime', includeIfNull: false)
   final String? printDateTime;
-  @JsonKey(name: 'DateFields', defaultValue: <String>[])
+  @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
-  @JsonKey(name: '_Custom', defaultValue: <FwStandardDataFwCustomValue>[])
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
       name: '_DefaultFieldAttributes',
+      includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
@@ -26031,22 +26444,24 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequ
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'ContractId')
+  @JsonKey(name: 'ContractId', includeIfNull: false)
   final String? contractId;
-  @JsonKey(name: 'QuikReceiptId')
+  @JsonKey(name: 'QuikReceiptId', includeIfNull: false)
   final String? quikReceiptId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestFromJson;
@@ -26132,24 +26547,26 @@ class WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerL
       _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestFromJson(
           json);
 
-  @JsonKey(name: 'OrderId')
+  @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'PrintedByUsersId')
+  @JsonKey(name: 'PrintedByUsersId', includeIfNull: false)
   final String? printedByUsersId;
-  @JsonKey(name: 'StorageContainerItemId')
+  @JsonKey(name: 'StorageContainerItemId', includeIfNull: false)
   final String? storageContainerItemId;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestFromJson;
@@ -26240,27 +26657,30 @@ class WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReport
       _$WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'TransferId')
+  @JsonKey(name: 'TransferId', includeIfNull: false)
   final String? transferId;
   @JsonKey(
       name: 'ReportView',
+      includeIfNull: false,
       toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
       fromJson:
           webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestFromJson;
@@ -26352,36 +26772,42 @@ class WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispat
       _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'ActivityTypeId')
+  @JsonKey(name: 'ActivityTypeId', includeIfNull: false)
   final String? activityTypeId;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
   @JsonKey(
       name: 'OrderTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderTypes;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestFromJson;
@@ -26500,36 +26926,42 @@ class WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInbound
       _$WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'ActivityTypeId')
+  @JsonKey(name: 'ActivityTypeId', includeIfNull: false)
   final String? activityTypeId;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
   @JsonKey(
       name: 'OrderTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderTypes;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestFromJson;
@@ -26648,36 +27080,42 @@ class WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutbou
       _$WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestFromJson(
           json);
 
-  @JsonKey(name: 'FromDate')
+  @JsonKey(name: 'FromDate', includeIfNull: false)
   final DateTime? fromDate;
-  @JsonKey(name: 'ToDate')
+  @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'WarehouseId')
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
-  @JsonKey(name: 'DepartmentId')
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'AgentId')
+  @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
-  @JsonKey(name: 'ActivityTypeId')
+  @JsonKey(name: 'ActivityTypeId', includeIfNull: false)
   final String? activityTypeId;
-  @JsonKey(name: 'SortBy', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+  @JsonKey(
+      name: 'SortBy',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? sortBy;
   @JsonKey(
       name: 'OrderTypes',
+      includeIfNull: false,
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? orderTypes;
-  @JsonKey(name: 'CustomReportLayoutId')
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
-  @JsonKey(name: 'IsSummary')
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
   final bool? isSummary;
-  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals')
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
   final bool? includeSubHeadingsAndSubTotals;
-  @JsonKey(name: 'IncludeIdColumns')
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
   final bool? includeIdColumns;
-  @JsonKey(name: 'Locale')
+  @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
   @JsonKey(
-      name: 'excelfields', defaultValue: <FwStandardModelsCheckBoxListItem>[])
+      name: 'excelfields',
+      includeIfNull: false,
+      defaultValue: <FwStandardModelsCheckBoxListItem>[])
   final List<FwStandardModelsCheckBoxListItem>? excelfields;
   static const fromJsonFactory =
       _$WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestFromJson;

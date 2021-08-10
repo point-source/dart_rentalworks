@@ -131,11 +131,11 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
-  @JsonKey(name: 'StackTrace')
+  @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
@@ -178,7 +178,7 @@ class WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensFromJson(json);
 
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', includeIfNull: false)
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensFromJson;
@@ -216,7 +216,7 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool {
       _$WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolFromJson(
           json);
 
-  @JsonKey(name: 'hasRefreshToken')
+  @JsonKey(name: 'hasRefreshToken', includeIfNull: false)
   final bool? hasRefreshToken;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolFromJson;
@@ -256,9 +256,9 @@ class WebApiModulesPluginsAzureADAzureADGroup {
           Map<String, dynamic> json) =>
       _$WebApiModulesPluginsAzureADAzureADGroupFromJson(json);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', includeIfNull: false)
   final String? id;
-  @JsonKey(name: 'displayName')
+  @JsonKey(name: 'displayName', includeIfNull: false)
   final String? displayName;
   static const fromJsonFactory =
       _$WebApiModulesPluginsAzureADAzureADGroupFromJson;
@@ -297,7 +297,7 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestFromJson(json);
 
-  @JsonKey(name: 'GroupSearch')
+  @JsonKey(name: 'GroupSearch', includeIfNull: false)
   final String? groupSearch;
   static const fromJsonFactory =
       _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestFromJson;
@@ -339,13 +339,15 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsResponse {
       _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseFromJson(json);
 
   @JsonKey(
-      name: 'Groups', defaultValue: <WebApiModulesPluginsAzureADAzureADGroup>[])
+      name: 'Groups',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesPluginsAzureADAzureADGroup>[])
   final List<WebApiModulesPluginsAzureADAzureADGroup>? groups;
-  @JsonKey(name: 'TooManyResults')
+  @JsonKey(name: 'TooManyResults', includeIfNull: false)
   final bool? tooManyResults;
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseFromJson;
@@ -397,9 +399,9 @@ class WebApiModulesPluginsAzureADImportGroupRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesPluginsAzureADImportGroupRequestFromJson(json);
 
-  @JsonKey(name: 'AzureADGroupId')
+  @JsonKey(name: 'AzureADGroupId', includeIfNull: false)
   final String? azureADGroupId;
-  @JsonKey(name: 'ContactTitleId')
+  @JsonKey(name: 'ContactTitleId', includeIfNull: false)
   final String? contactTitleId;
   static const fromJsonFactory =
       _$WebApiModulesPluginsAzureADImportGroupRequestFromJson;
@@ -444,13 +446,16 @@ class WebApiModulesPluginsAzureADImportGroupResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesPluginsAzureADImportGroupResponseFromJson(json);
 
-  @JsonKey(name: 'LastImported')
+  @JsonKey(name: 'LastImported', includeIfNull: false)
   final String? lastImported;
-  @JsonKey(name: 'Users', defaultValue: <WebApiModulesPluginsAzureADUserData>[])
+  @JsonKey(
+      name: 'Users',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesPluginsAzureADUserData>[])
   final List<WebApiModulesPluginsAzureADUserData>? users;
-  @JsonKey(name: 'StatusCode')
+  @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
-  @JsonKey(name: 'Message')
+  @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesPluginsAzureADImportGroupResponseFromJson;
@@ -505,15 +510,15 @@ class WebApiModulesPluginsAzureADUserData {
           Map<String, dynamic> json) =>
       _$WebApiModulesPluginsAzureADUserDataFromJson(json);
 
-  @JsonKey(name: 'ContactId')
+  @JsonKey(name: 'ContactId', includeIfNull: false)
   final String? contactId;
-  @JsonKey(name: 'FirstName')
+  @JsonKey(name: 'FirstName', includeIfNull: false)
   final String? firstName;
-  @JsonKey(name: 'LastName')
+  @JsonKey(name: 'LastName', includeIfNull: false)
   final String? lastName;
-  @JsonKey(name: 'Email')
+  @JsonKey(name: 'Email', includeIfNull: false)
   final String? email;
-  @JsonKey(name: 'SourceId')
+  @JsonKey(name: 'SourceId', includeIfNull: false)
   final String? sourceId;
   static const fromJsonFactory = _$WebApiModulesPluginsAzureADUserDataFromJson;
   static const toJsonFactory = _$WebApiModulesPluginsAzureADUserDataToJson;
