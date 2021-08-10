@@ -1,6 +1,6 @@
 name: rentalworks
 description: A RentalWorks (inventory control) API library for Dart developers.
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/point-source/dart_rentalworks
 
 environment:

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:chopper/chopper.dart';
 import 'package:rentalworks/generated_code/account_services.swagger.dart'
     show FwStandardModelsFwApplicationUser;
@@ -42,6 +44,33 @@ class RentalWorks {
             override: false);
       };
 
+  Request Function(Request) get _paramConverterInterceptor =>
+      (Request request) =>
+          request.copyWith(parameters: _convertParams(request.parameters));
+
+  dynamic _convertParams(dynamic value) {
+    switch (value.runtimeType) {
+      case String:
+      case int:
+      case Null:
+      case double:
+        return value;
+      default:
+        if (value is Iterable) {
+          return value.map(_convertParams);
+        }
+        if (value is Map<String, dynamic>) {
+          return value
+              .map((key, value) => MapEntry(key, _convertParams(value)));
+        }
+        final json = value?.toJson();
+        if (json is Map) {
+          return jsonEncode(_convertParams(json));
+        }
+        return value;
+    }
+  }
+
   ChopperClient? _client;
 
   ChopperClient get client => _client ??= ChopperClient(
@@ -52,7 +81,8 @@ class RentalWorks {
             Home.create()
           ],
           interceptors: [
-            _jwtInterceptor
+            _jwtInterceptor,
+            _paramConverterInterceptor
           ],
           converter: JsonSerializableConverter(generatedMapping),
           baseUrl: baseUrl);
