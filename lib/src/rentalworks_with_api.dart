@@ -33,7 +33,10 @@ class RentalWorks {
       final jwt = response.body?.accessToken;
       if (jwt != null) return jwt;
     }
-    throw Exception('${response.statusCode}: ${response.base.reasonPhrase}');
+    final statusCode = response.body?.statuscode ?? response.statusCode;
+    final message = response.body?.statusmessage ?? response.base.reasonPhrase;
+    throw Exception(
+        'Could not fetch jwt. Server reported $statusCode: $message');
   }
 
   Future<Request> Function(Request) get _jwtInterceptor =>

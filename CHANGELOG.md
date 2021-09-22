@@ -1,3 +1,7 @@
+## 1.2.1
+
+- Correctly report invalid user or password when attempting to fetch jwt
+
 ## 1.2.0
 
 - Fix /quote/browse request (null cast to Object failure)
