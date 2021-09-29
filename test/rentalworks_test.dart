@@ -68,4 +68,10 @@ void main(List<String> arguments) {
       expect(quotes.isSuccessful, isTrue);
     }, skip: urlSkip ?? authSkip);
   });
+
+  test('/ordersummary', () async {
+    var summary = await rw!.home.ordersummaryIdGet(id: '304949~P');
+    print(summary.base.reasonPhrase);
+    expect(summary.isSuccessful, isTrue);
+  }, skip: urlSkip ?? authSkip);
 }
