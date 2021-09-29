@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
@@ -23,7 +22,7 @@ abstract class Exports extends ChopperService {
 
     final newClient = ChopperClient(
       services: [_$Exports()],
-      converter: JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Exports(newClient);
   }
@@ -117,6 +116,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -154,6 +156,13 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(stackTrace) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApiExceptionExtension
@@ -246,6 +255,20 @@ class FwStandardSqlServerFwJsonDataTable {
                 const DeepCollectionEquality()
                     .equals(other.columnNameByIndex, columnNameByIndex)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(columnIndex) ^
+      const DeepCollectionEquality().hash(totals) ^
+      const DeepCollectionEquality().hash(columns) ^
+      const DeepCollectionEquality().hash(rows) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalPages) ^
+      const DeepCollectionEquality().hash(totalRows) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(columnNameByIndex) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableExtension
@@ -328,6 +351,15 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(dataField) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      const DeepCollectionEquality().hash(isUniqueId) ^
+      const DeepCollectionEquality().hash(isVisible) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableColumnExtension
@@ -382,6 +414,12 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
                 const DeepCollectionEquality()
                     .equals(other.dataExportFormatId, dataExportFormatId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(dataExportFormatId) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestExtension
@@ -435,6 +473,13 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(batchNumber) ^
+      const DeepCollectionEquality().hash(downloadUrl) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseExtension
@@ -483,6 +528,12 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
                 const DeepCollectionEquality()
                     .equals(other.dataExportFormatId, dataExportFormatId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(dataExportFormatId) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestExtension
@@ -536,6 +587,13 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(batchNumber) ^
+      const DeepCollectionEquality().hash(downloadUrl) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseExtension
@@ -584,6 +642,12 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
                 const DeepCollectionEquality()
                     .equals(other.dataExportFormatId, dataExportFormatId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(dataExportFormatId) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestExtension
@@ -637,6 +701,13 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(batchNumber) ^
+      const DeepCollectionEquality().hash(downloadUrl) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseExtension
@@ -696,12 +767,12 @@ List<enums.FwStandardSqlServerFwDataTypes>
       .toList();
 }
 
-typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
+typedef $JsonFactory<T> = T Function(Map<String, dynamic> json);
 
-class CustomJsonDecoder {
-  CustomJsonDecoder(this.factories);
+class $CustomJsonDecoder {
+  $CustomJsonDecoder(this.factories);
 
-  final Map<Type, JsonFactory> factories;
+  final Map<Type, $JsonFactory> factories;
 
   dynamic decode<T>(dynamic entity) {
     if (entity is Iterable) {
@@ -721,7 +792,7 @@ class CustomJsonDecoder {
 
   T _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
-    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+    if (jsonFactory == null || jsonFactory is! $JsonFactory<T>) {
       return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
     }
 
@@ -732,7 +803,7 @@ class CustomJsonDecoder {
       values.where((v) => v != null).map<T>((v) => decode<T>(v) as T).toList();
 }
 
-class JsonSerializableConverter extends chopper.JsonConverter {
+class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
   chopper.Response<ResultType> convertResponse<ResultType, Item>(
       chopper.Response response) {
@@ -744,11 +815,11 @@ class JsonSerializableConverter extends chopper.JsonConverter {
 
     final jsonRes = super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
-        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+        body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
 }
 
-final jsonDecoder = CustomJsonDecoder(ExportsJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(ExportsJsonDecoderMappings);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
@@ -21,7 +20,7 @@ abstract class Plugins extends ChopperService {
 
     final newClient = ChopperClient(
       services: [_$Plugins()],
-      converter: JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Plugins(newClient);
   }
@@ -118,6 +117,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -155,6 +157,13 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(stackTrace) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApiExceptionExtension
@@ -194,6 +203,10 @@ class WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(message) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensExtension
@@ -234,6 +247,11 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool {
                 const DeepCollectionEquality()
                     .equals(other.hasRefreshToken, hasRefreshToken)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(hasRefreshToken) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolExtension
@@ -276,6 +294,12 @@ class WebApiModulesPluginsAzureADAzureADGroup {
                 const DeepCollectionEquality()
                     .equals(other.displayName, displayName)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(displayName) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesPluginsAzureADAzureADGroupExtension
@@ -314,6 +338,10 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsRequest {
                 const DeepCollectionEquality()
                     .equals(other.groupSearch, groupSearch)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(groupSearch) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesPluginsAzureADGetAzureADGroupsRequestExtension
@@ -371,6 +399,14 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsResponse {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(groups) ^
+      const DeepCollectionEquality().hash(tooManyResults) ^
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesPluginsAzureADGetAzureADGroupsResponseExtension
@@ -421,6 +457,12 @@ class WebApiModulesPluginsAzureADImportGroupRequest {
                 const DeepCollectionEquality()
                     .equals(other.contactTitleId, contactTitleId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(azureADGroupId) ^
+      const DeepCollectionEquality().hash(contactTitleId) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesPluginsAzureADImportGroupRequestExtension
@@ -479,6 +521,14 @@ class WebApiModulesPluginsAzureADImportGroupResponse {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(lastImported) ^
+      const DeepCollectionEquality().hash(users) ^
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesPluginsAzureADImportGroupResponseExtension
@@ -544,6 +594,15 @@ class WebApiModulesPluginsAzureADUserData {
                 const DeepCollectionEquality()
                     .equals(other.sourceId, sourceId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contactId) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(sourceId) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesPluginsAzureADUserDataExtension
@@ -563,12 +622,12 @@ extension $WebApiModulesPluginsAzureADUserDataExtension
   }
 }
 
-typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
+typedef $JsonFactory<T> = T Function(Map<String, dynamic> json);
 
-class CustomJsonDecoder {
-  CustomJsonDecoder(this.factories);
+class $CustomJsonDecoder {
+  $CustomJsonDecoder(this.factories);
 
-  final Map<Type, JsonFactory> factories;
+  final Map<Type, $JsonFactory> factories;
 
   dynamic decode<T>(dynamic entity) {
     if (entity is Iterable) {
@@ -588,7 +647,7 @@ class CustomJsonDecoder {
 
   T _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
-    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+    if (jsonFactory == null || jsonFactory is! $JsonFactory<T>) {
       return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
     }
 
@@ -599,7 +658,7 @@ class CustomJsonDecoder {
       values.where((v) => v != null).map<T>((v) => decode<T>(v) as T).toList();
 }
 
-class JsonSerializableConverter extends chopper.JsonConverter {
+class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
   chopper.Response<ResultType> convertResponse<ResultType, Item>(
       chopper.Response response) {
@@ -611,11 +670,11 @@ class JsonSerializableConverter extends chopper.JsonConverter {
 
     final jsonRes = super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
-        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+        body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
 }
 
-final jsonDecoder = CustomJsonDecoder(PluginsJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(PluginsJsonDecoderMappings);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

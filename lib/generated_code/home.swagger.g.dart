@@ -18636,7 +18636,7 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailability
         ? null
         : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
             .fromJson(json['Total'] as Map<String, dynamic>),
-    $in: json['In'] == null
+    $In: json['In'] == null
         ? null
         : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
             .fromJson(json['In'] as Map<String, dynamic>),
@@ -18715,7 +18715,7 @@ Map<String, dynamic>
   }
 
   writeNotNull('Total', instance.total?.toJson());
-  writeNotNull('In', instance.$in?.toJson());
+  writeNotNull('In', instance.$In?.toJson());
   writeNotNull('Staged', instance.staged?.toJson());
   writeNotNull('Out', instance.out?.toJson());
   writeNotNull('InRepair', instance.inRepair?.toJson());

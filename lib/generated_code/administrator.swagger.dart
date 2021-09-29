@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
@@ -23,7 +22,7 @@ abstract class Administrator extends ChopperService {
 
     final newClient = ChopperClient(
       services: [_$Administrator()],
-      converter: JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Administrator(newClient);
   }
@@ -2389,6 +2388,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -2420,6 +2422,10 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(downloadUrl) ^ runtimeType.hashCode;
 }
 
 extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultExtension
@@ -2470,6 +2476,13 @@ class FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
                 const DeepCollectionEquality()
                     .equals(other.securityId, securityId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromGroupId) ^
+      const DeepCollectionEquality().hash(toGroupIds) ^
+      const DeepCollectionEquality().hash(securityId) ^
+      runtimeType.hashCode;
 }
 
 extension $FwCoreModulesAdministratorGroupCopySecurityNodeRequestExtension
@@ -2515,6 +2528,12 @@ class FwCoreModulesAdministratorGroupLookupGroupResponse {
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(name) ^
+      runtimeType.hashCode;
 }
 
 extension $FwCoreModulesAdministratorGroupLookupGroupResponseExtension
@@ -2578,6 +2597,15 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
                 const DeepCollectionEquality()
                     .equals(other.children, children)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(caption) ^
+      const DeepCollectionEquality().hash(nodetype) ^
+      const DeepCollectionEquality().hash(properties) ^
+      const DeepCollectionEquality().hash(children) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
@@ -2633,6 +2661,12 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality()
                     .equals(other.dataType, dataType)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
@@ -2679,6 +2713,13 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality()
                     .equals(other.fieldType, fieldType)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(fieldValue) ^
+      const DeepCollectionEquality().hash(fieldType) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
@@ -2728,6 +2769,13 @@ class FwStandardDataFwDefaultAttribute {
                 const DeepCollectionEquality()
                     .equals(other.defaultValue, defaultValue)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(attributeName) ^
+      const DeepCollectionEquality().hash(defaultValue) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardDataFwDefaultAttributeExtension
@@ -2774,11 +2822,11 @@ class FwStandardModelsBrowseRequest {
       _$FwStandardModelsBrowseRequestFromJson(json);
 
   @JsonKey(name: 'miscfields', includeIfNull: false)
-  final dynamic? miscfields;
+  final dynamic miscfields;
   @JsonKey(name: 'module', includeIfNull: false)
   final String? module;
   @JsonKey(name: 'options', includeIfNull: false)
-  final dynamic? options;
+  final dynamic options;
   @JsonKey(name: 'orderby', includeIfNull: false)
   final String? orderby;
   @JsonKey(name: 'orderbydirection', includeIfNull: false)
@@ -2814,9 +2862,9 @@ class FwStandardModelsBrowseRequest {
       defaultValue: <String>[])
   final List<String>? searchconjunctions;
   @JsonKey(name: 'uniqueids', includeIfNull: false)
-  final dynamic? uniqueids;
+  final dynamic uniqueids;
   @JsonKey(name: 'boundids', includeIfNull: false)
-  final dynamic? boundids;
+  final dynamic boundids;
   @JsonKey(name: 'filterfields', includeIfNull: false)
   final Object? filterfields;
   @JsonKey(name: 'activeview', includeIfNull: false)
@@ -2910,6 +2958,34 @@ class FwStandardModelsBrowseRequest {
                     .equals(other.totalfields, totalfields)) &&
             (identical(other.activeviewfields, activeviewfields) || const DeepCollectionEquality().equals(other.activeviewfields, activeviewfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(miscfields) ^
+      const DeepCollectionEquality().hash(module) ^
+      const DeepCollectionEquality().hash(options) ^
+      const DeepCollectionEquality().hash(orderby) ^
+      const DeepCollectionEquality().hash(orderbydirection) ^
+      const DeepCollectionEquality().hash(top) ^
+      const DeepCollectionEquality().hash(pageno) ^
+      const DeepCollectionEquality().hash(pagesize) ^
+      const DeepCollectionEquality().hash(searchfieldoperators) ^
+      const DeepCollectionEquality().hash(searchfields) ^
+      const DeepCollectionEquality().hash(searchfieldvalues) ^
+      const DeepCollectionEquality().hash(searchfieldtypes) ^
+      const DeepCollectionEquality().hash(searchseparators) ^
+      const DeepCollectionEquality().hash(searchcondition) ^
+      const DeepCollectionEquality().hash(searchconjunctions) ^
+      const DeepCollectionEquality().hash(uniqueids) ^
+      const DeepCollectionEquality().hash(boundids) ^
+      const DeepCollectionEquality().hash(filterfields) ^
+      const DeepCollectionEquality().hash(activeview) ^
+      const DeepCollectionEquality().hash(emptyobject) ^
+      const DeepCollectionEquality().hash(forexcel) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(totalfields) ^
+      const DeepCollectionEquality().hash(activeviewfields) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsBrowseRequestExtension
@@ -3002,6 +3078,13 @@ class FwStandardModelsCheckBoxListItem {
                 const DeepCollectionEquality()
                     .equals(other.selected, selected)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(text) ^
+      const DeepCollectionEquality().hash(selected) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsCheckBoxListItemExtension
@@ -3050,6 +3133,13 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(stackTrace) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApiExceptionExtension
@@ -3095,6 +3185,13 @@ class FwStandardModelsFwQueryFilter {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(op) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryFilterExtension
@@ -3161,6 +3258,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLog
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicExtension
@@ -3233,6 +3339,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditio
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicExtension
@@ -3306,6 +3421,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsers
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtension
@@ -3380,6 +3504,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportL
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicExtension
@@ -3453,6 +3586,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRule
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtension
@@ -3526,6 +3668,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplate
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtension
@@ -3598,6 +3749,15 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWe
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
@@ -3672,6 +3832,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustom
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogicExtension
@@ -3745,6 +3914,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomF
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicExtension
@@ -3818,6 +3996,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHea
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogicExtension
@@ -3891,6 +4078,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmail
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicExtension
@@ -3964,6 +4160,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic {
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogicExtension
@@ -4037,6 +4242,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicExtension
@@ -4110,6 +4324,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogicExtension
@@ -4182,6 +4405,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicExtension
@@ -4256,6 +4488,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicExtension
@@ -4330,6 +4571,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicExtension
@@ -4402,6 +4652,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicExtension
@@ -4475,6 +4734,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicExtension
@@ -4547,6 +4815,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomMod
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicExtension
@@ -4621,6 +4898,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomRep
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicExtension
@@ -4695,6 +4981,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicate
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicExtension
@@ -4769,6 +5064,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroup
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogicExtension
@@ -4842,6 +5146,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLo
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogicExtension
@@ -4915,6 +5228,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayo
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicExtension
@@ -4989,6 +5311,15 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalRows) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseExtension
@@ -5065,6 +5396,16 @@ class FwStandardModulesAdministratorAlertAlertCondition {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(alertConditionId) ^
+      const DeepCollectionEquality().hash(alertId) ^
+      const DeepCollectionEquality().hash(fieldName1) ^
+      const DeepCollectionEquality().hash(fieldName2) ^
+      const DeepCollectionEquality().hash(condition) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorAlertAlertConditionExtension
@@ -5208,6 +5549,25 @@ class FwStandardModulesAdministratorAlertAlertLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(alertId) ^
+      const DeepCollectionEquality().hash(alertName) ^
+      const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(actionNew) ^
+      const DeepCollectionEquality().hash(actionEdit) ^
+      const DeepCollectionEquality().hash(actionDelete) ^
+      const DeepCollectionEquality().hash(alertSubject) ^
+      const DeepCollectionEquality().hash(alertBody) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(alertConditionList) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorAlertAlertLogicExtension
@@ -5344,6 +5704,21 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(alertId) ^
+      const DeepCollectionEquality().hash(alertConditionId) ^
+      const DeepCollectionEquality().hash(fieldName1) ^
+      const DeepCollectionEquality().hash(condition) ^
+      const DeepCollectionEquality().hash(fieldName2) ^
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtension
@@ -5476,6 +5851,22 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(alertWebUserId) ^
+      const DeepCollectionEquality().hash(alertId) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtension
@@ -5628,6 +6019,25 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(baseReport) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(category) ^
+      const DeepCollectionEquality().hash(html) ^
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(assignTo) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicExtension
@@ -5783,6 +6193,24 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(duplicateRuleId) ^
+      const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(ruleName) ^
+      const DeepCollectionEquality().hash(caseSensitive) ^
+      const DeepCollectionEquality().hash(systemRule) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(fieldTypes) ^
+      const DeepCollectionEquality().hash(ruleNameColor) ^
+      const DeepCollectionEquality().hash(considerBlanks) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash($fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtension
@@ -5929,6 +6357,23 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(appEmailId) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(filterId) ^
+      const DeepCollectionEquality().hash(subject) ^
+      const DeepCollectionEquality().hash(emailText) ^
+      const DeepCollectionEquality().hash(category) ^
+      const DeepCollectionEquality().hash(bodyFormat) ^
+      const DeepCollectionEquality().hash(emailType) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtension
@@ -5994,6 +6439,10 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFi
                 const DeepCollectionEquality()
                     .equals(other.category, category)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(category) ^ runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestExtension
@@ -6034,6 +6483,10 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCateg
                 const DeepCollectionEquality()
                     .equals(other.categories, categories)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(categories) ^ runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseExtension
@@ -6073,6 +6526,10 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateField
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fields) ^ runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseExtension
@@ -6195,6 +6652,24 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(webAlertLogId) ^
+      const DeepCollectionEquality().hash(alertId) ^
+      const DeepCollectionEquality().hash(createDateTime) ^
+      const DeepCollectionEquality().hash(alertSubject) ^
+      const DeepCollectionEquality().hash(alertBody) ^
+      const DeepCollectionEquality().hash(alertFrom) ^
+      const DeepCollectionEquality().hash(alertTo) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(errorMessage) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
@@ -6344,6 +6819,24 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(webAuditId) ^
+      const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(uniqueId1) ^
+      const DeepCollectionEquality().hash(uniqueId2) ^
+      const DeepCollectionEquality().hash(uniqueId3) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(json) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
@@ -6461,6 +6954,20 @@ class FwStandardSqlServerFwJsonDataTable {
                 const DeepCollectionEquality()
                     .equals(other.columnNameByIndex, columnNameByIndex)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(columnIndex) ^
+      const DeepCollectionEquality().hash(totals) ^
+      const DeepCollectionEquality().hash(columns) ^
+      const DeepCollectionEquality().hash(rows) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalPages) ^
+      const DeepCollectionEquality().hash(totalRows) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(columnNameByIndex) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableExtension
@@ -6543,6 +7050,15 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(dataField) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      const DeepCollectionEquality().hash(isUniqueId) ^
+      const DeepCollectionEquality().hash(isVisible) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableColumnExtension
@@ -6591,6 +7107,10 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest {
                 const DeepCollectionEquality()
                     .equals(other.accessToken, accessToken)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(accessToken) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestExtension
@@ -6630,6 +7150,11 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest {
                 const DeepCollectionEquality()
                     .equals(other.authorizationCode, authorizationCode)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(authorizationCode) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestExtension
@@ -6667,6 +7192,10 @@ class WebApiModulesAccountServicesHubSpotGetWriteTokensResponse {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(message) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotGetWriteTokensResponseExtension
@@ -6724,6 +7253,14 @@ class WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest {
                 const DeepCollectionEquality()
                     .equals(other.lastname, lastname)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(accessToken) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(firstname) ^
+      const DeepCollectionEquality().hash(lastname) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestExtension
@@ -6782,6 +7319,13 @@ class WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodReques
                 const DeepCollectionEquality()
                     .equals(other.lastSyncEpoch, lastSyncEpoch)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(webusersid) ^
+      const DeepCollectionEquality().hash(accessToken) ^
+      const DeepCollectionEquality().hash(lastSyncEpoch) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestExtension
@@ -6907,6 +7451,24 @@ class WebApiModulesAdministratorCustomFieldCustomField {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customFieldId) ^
+      const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(customTableName) ^
+      const DeepCollectionEquality().hash(customFieldName) ^
+      const DeepCollectionEquality().hash(fieldType) ^
+      const DeepCollectionEquality().hash(controlType) ^
+      const DeepCollectionEquality().hash(stringLength) ^
+      const DeepCollectionEquality().hash(floatDecimalDigits) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
@@ -7061,6 +7623,25 @@ class WebApiModulesAdministratorCustomFormCustomForm {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customFormId) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(baseForm) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(html) ^
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(assignTo) ^
+      const DeepCollectionEquality().hash(selfAssign) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorCustomFormCustomFormExtension
@@ -7130,6 +7711,11 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
                 const DeepCollectionEquality()
                     .equals(other.reportTemplate, reportTemplate)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(reportTemplate) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseExtension
@@ -7251,6 +7837,24 @@ class WebApiModulesAdministratorDataHealthDataHealth {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(dataHealthId) ^
+      const DeepCollectionEquality().hash(dataHealthType) ^
+      const DeepCollectionEquality().hash(captureDateTime) ^
+      const DeepCollectionEquality().hash(captureDate) ^
+      const DeepCollectionEquality().hash(json) ^
+      const DeepCollectionEquality().hash(severity) ^
+      const DeepCollectionEquality().hash(severityColor) ^
+      const DeepCollectionEquality().hash(notes) ^
+      const DeepCollectionEquality().hash(resolved) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorDataHealthDataHealthExtension
@@ -7423,6 +8027,28 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(emailHistoryId) ^
+      const DeepCollectionEquality().hash(reportId) ^
+      const DeepCollectionEquality().hash(fromUserId) ^
+      const DeepCollectionEquality().hash(fromWebUserId) ^
+      const DeepCollectionEquality().hash(fromUser) ^
+      const DeepCollectionEquality().hash(emailDate) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(emailText) ^
+      const DeepCollectionEquality().hash(emailTo) ^
+      const DeepCollectionEquality().hash(emailSubject) ^
+      const DeepCollectionEquality().hash(emailCC) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(relatedToId) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
@@ -7567,6 +8193,22 @@ class WebApiModulesAdministratorGroupGroup {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(memo) ^
+      const DeepCollectionEquality().hash(security) ^
+      const DeepCollectionEquality().hash(hideNewMenuOptionsByDefault) ^
+      const DeepCollectionEquality().hash(isMyGroup) ^
+      const DeepCollectionEquality().hash(groupColor) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorGroupGroupExtension
@@ -7689,6 +8331,20 @@ class WebApiModulesAdministratorHotfixHotfix {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(hotfixId) ^
+      const DeepCollectionEquality().hash(fileName) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(hotfixBegin) ^
+      const DeepCollectionEquality().hash(hotfixEnd) ^
+      const DeepCollectionEquality().hash(hotfixSeconds) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorHotfixHotfixExtension
@@ -7800,6 +8456,19 @@ class WebApiModulesAdministratorPluginPlugin {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(pluginId) ^
+      const DeepCollectionEquality().hash(category) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(settings) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorPluginPluginExtension
@@ -7861,6 +8530,12 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateRequest {
                 const DeepCollectionEquality()
                     .equals(other.toVersion, toVersion)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(currentVersion) ^
+      const DeepCollectionEquality().hash(toVersion) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateApplyUpdateRequestExtension
@@ -7910,6 +8585,13 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateResponse {
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateApplyUpdateResponseExtension
@@ -7966,6 +8648,14 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersion {
                 const DeepCollectionEquality()
                     .equals(other.versionDate, versionDate)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(text) ^
+      const DeepCollectionEquality().hash(version) ^
+      const DeepCollectionEquality().hash(versionDate) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateAvailableVersionExtension
@@ -8016,6 +8706,12 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest {
                 const DeepCollectionEquality().equals(
                     other.onlyIncludeNewerVersions, onlyIncludeNewerVersions)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(currentVersion) ^
+      const DeepCollectionEquality().hash(onlyIncludeNewerVersions) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestExtension
@@ -8077,6 +8773,14 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse {
                 const DeepCollectionEquality()
                     .equals(other.versions, versions)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      const DeepCollectionEquality().hash(versions) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseExtension
@@ -8127,6 +8831,12 @@ class WebApiModulesAdministratorSystemUpdateBuildDocument {
                 const DeepCollectionEquality()
                     .equals(other.buildDate, buildDate)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(buildNumber) ^
+      const DeepCollectionEquality().hash(buildDate) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateBuildDocumentExtension
@@ -8174,6 +8884,12 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest {
                 const DeepCollectionEquality().equals(
                     other.onlyIncludeNewerVersions, onlyIncludeNewerVersions)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(currentVersion) ^
+      const DeepCollectionEquality().hash(onlyIncludeNewerVersions) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestExtension
@@ -8242,6 +8958,15 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse {
                 const DeepCollectionEquality()
                     .equals(other.documents, documents)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      const DeepCollectionEquality().hash(documentsList) ^
+      const DeepCollectionEquality().hash(documents) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseExtension
@@ -8289,6 +9014,10 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest {
             (identical(other.version, version) ||
                 const DeepCollectionEquality().equals(other.version, version)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(version) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestExtension
@@ -8345,6 +9074,14 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      const DeepCollectionEquality().hash(downloadUrl) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseExtension
@@ -8387,6 +9124,10 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest {
             (identical(other.version, version) ||
                 const DeepCollectionEquality().equals(other.version, version)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(version) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestExtension
@@ -8442,6 +9183,14 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse {
             (identical(other.hotfix, hotfix) ||
                 const DeepCollectionEquality().equals(other.hotfix, hotfix)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      const DeepCollectionEquality().hash(hotfix) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseExtension
@@ -8558,6 +9307,22 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(systemUpdateHistoryId) ^
+      const DeepCollectionEquality().hash(usersId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(updateDateTime) ^
+      const DeepCollectionEquality().hash(fromVersion) ^
+      const DeepCollectionEquality().hash(toVersion) ^
+      const DeepCollectionEquality().hash(errorMessage) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExtension
@@ -8673,6 +9438,18 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(systemUpdateHistoryLogId) ^
+      const DeepCollectionEquality().hash(systemUpdateHistoryId) ^
+      const DeepCollectionEquality().hash(messsage) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogExtension
@@ -9321,6 +10098,153 @@ class WebApiModulesAdministratorUserUser {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(loginName) ^
+      const DeepCollectionEquality().hash(fullName) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(middleInitial) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(passwordChanged) ^
+      const DeepCollectionEquality().hash(barCode) ^
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(groupName) ^
+      const DeepCollectionEquality().hash(scheduleColor) ^
+      const DeepCollectionEquality().hash(userTitleId) ^
+      const DeepCollectionEquality().hash(userTitle) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(officeLocation) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(address1) ^
+      const DeepCollectionEquality().hash(address2) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(countryId) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(officePhone) ^
+      const DeepCollectionEquality().hash(officeExtension) ^
+      const DeepCollectionEquality().hash(fax) ^
+      const DeepCollectionEquality().hash(directPhone) ^
+      const DeepCollectionEquality().hash(pager) ^
+      const DeepCollectionEquality().hash(pagerPin) ^
+      const DeepCollectionEquality().hash(cellular) ^
+      const DeepCollectionEquality().hash(homePhone) ^
+      const DeepCollectionEquality().hash(defaultDepartmentType) ^
+      const DeepCollectionEquality().hash(primaryDepartmentId) ^
+      const DeepCollectionEquality().hash(primaryDepartment) ^
+      const DeepCollectionEquality().hash(rentalDepartmentId) ^
+      const DeepCollectionEquality().hash(rentalDepartment) ^
+      const DeepCollectionEquality().hash(salesDepartmentId) ^
+      const DeepCollectionEquality().hash(salesDepartment) ^
+      const DeepCollectionEquality().hash(partsDepartmentId) ^
+      const DeepCollectionEquality().hash(partsDepartment) ^
+      const DeepCollectionEquality().hash(miscDepartmentId) ^
+      const DeepCollectionEquality().hash(miscDepartment) ^
+      const DeepCollectionEquality().hash(laborDepartmentId) ^
+      const DeepCollectionEquality().hash(laborDepartment) ^
+      const DeepCollectionEquality().hash(facilityDepartmentId) ^
+      const DeepCollectionEquality().hash(facilityDepartment) ^
+      const DeepCollectionEquality().hash(transportationDepartmentId) ^
+      const DeepCollectionEquality().hash(transportationDepartment) ^
+      const DeepCollectionEquality().hash(rentalInventoryTypeId) ^
+      const DeepCollectionEquality().hash(rentalInventoryType) ^
+      const DeepCollectionEquality().hash(salesInventoryTypeId) ^
+      const DeepCollectionEquality().hash(salesInventoryType) ^
+      const DeepCollectionEquality().hash(partsInventoryTypeId) ^
+      const DeepCollectionEquality().hash(partsInventoryType) ^
+      const DeepCollectionEquality().hash(miscTypeId) ^
+      const DeepCollectionEquality().hash(miscType) ^
+      const DeepCollectionEquality().hash(laborTypeId) ^
+      const DeepCollectionEquality().hash(laborType) ^
+      const DeepCollectionEquality().hash(facilityTypeId) ^
+      const DeepCollectionEquality().hash(facilityType) ^
+      const DeepCollectionEquality().hash(transportationTypeId) ^
+      const DeepCollectionEquality().hash(transportationType) ^
+      const DeepCollectionEquality().hash(noMiscellaneousOnQuotes) ^
+      const DeepCollectionEquality().hash(noMiscellaneousOnOrders) ^
+      const DeepCollectionEquality().hash(noMiscellaneousOnPurchaseOrders) ^
+      const DeepCollectionEquality().hash(limitDaysPerWeek) ^
+      const DeepCollectionEquality().hash(minimumDaysPerWeek) ^
+      const DeepCollectionEquality().hash(allowCreditLimitOverride) ^
+      const DeepCollectionEquality().hash(limitDiscount) ^
+      const DeepCollectionEquality().hash(maximumDiscount) ^
+      const DeepCollectionEquality().hash(limitSubDiscount) ^
+      const DeepCollectionEquality().hash(maximumSubDiscount) ^
+      const DeepCollectionEquality().hash(discountRule) ^
+      const DeepCollectionEquality()
+          .hash(stagingAllowIncreaseDecreaseOrderQuantity) ^
+      const DeepCollectionEquality()
+          .hash(allowStagingOfItemsWhenReservedOnOtherOrdersQuotes) ^
+      const DeepCollectionEquality()
+          .hash(allowContractIfDealRequiresPOAndOrderHasPendingPO) ^
+      const DeepCollectionEquality().hash(allowContractIfPendingItemsExist) ^
+      const DeepCollectionEquality()
+          .hash(allowContractIfCustomerDealDoesNotHaveApprovedCredit) ^
+      const DeepCollectionEquality()
+          .hash(allowContractIfCustomerDealIsOverTheirCreditLimit) ^
+      const DeepCollectionEquality()
+          .hash(allowContractIfCustomerDealInsuranceCoverageIsLess) ^
+      const DeepCollectionEquality().hash(
+          allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate) ^
+      const DeepCollectionEquality()
+          .hash(allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate) ^
+      const DeepCollectionEquality()
+          .hash(allowReceiveSubsWhenPositiveConflictExists) ^
+      const DeepCollectionEquality()
+          .hash(allowStagingOfUnreservedConsignedItems) ^
+      const DeepCollectionEquality().hash(allowStagingOfUnapprovedItems) ^
+      const DeepCollectionEquality().hash(allowSubstitutesAtStaging) ^
+      const DeepCollectionEquality().hash(deleteOriginalOnSubstitution) ^
+      const DeepCollectionEquality().hash(quikActivityAllowPrintDollarAmounts) ^
+      const DeepCollectionEquality().hash(quikScanAllowCreateContract) ^
+      const DeepCollectionEquality().hash(quikScanAllowApplyAll) ^
+      const DeepCollectionEquality().hash(allowCrossICodeExchange) ^
+      const DeepCollectionEquality().hash(allowCrossICodePendingExchange) ^
+      const DeepCollectionEquality().hash(allowChangeAvailabilityPriority) ^
+      const DeepCollectionEquality().hash(userMustChangePassword) ^
+      const DeepCollectionEquality().hash(passwordExpires) ^
+      const DeepCollectionEquality().hash(passwordExpireDays) ^
+      const DeepCollectionEquality().hash(passwordUpdatedDateTime) ^
+      const DeepCollectionEquality().hash(accountLocked) ^
+      const DeepCollectionEquality().hash(memo) ^
+      const DeepCollectionEquality().hash(allowCrossLocationEditAndDelete) ^
+      const DeepCollectionEquality().hash(lastLoggedOn) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(webAccess) ^
+      const DeepCollectionEquality().hash(webAdministrator) ^
+      const DeepCollectionEquality().hash(browseDefaultRows) ^
+      const DeepCollectionEquality().hash(applicationTheme) ^
+      const DeepCollectionEquality().hash(homeMenuGuid) ^
+      const DeepCollectionEquality().hash(homeMenuPath) ^
+      const DeepCollectionEquality().hash(successSoundId) ^
+      const DeepCollectionEquality().hash(successSound) ^
+      const DeepCollectionEquality().hash(successBase64Sound) ^
+      const DeepCollectionEquality().hash(errorSoundId) ^
+      const DeepCollectionEquality().hash(errorSound) ^
+      const DeepCollectionEquality().hash(errorBase64Sound) ^
+      const DeepCollectionEquality().hash(notificationSoundId) ^
+      const DeepCollectionEquality().hash(notificationSound) ^
+      const DeepCollectionEquality().hash(notificationBase64Sound) ^
+      const DeepCollectionEquality().hash(firstDayOfWeek) ^
+      const DeepCollectionEquality().hash(settingsNavigationMenuVisible) ^
+      const DeepCollectionEquality().hash(reportsNavigationMenuVisible) ^
+      const DeepCollectionEquality().hash(webQuoteRequest) ^
+      const DeepCollectionEquality().hash(emailSignature) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorUserUserExtension
@@ -9655,6 +10579,12 @@ class WebApiModulesAdministratorUserUserCountResponse {
                 const DeepCollectionEquality()
                     .equals(other.userCount, userCount)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(maxConnections) ^
+      const DeepCollectionEquality().hash(userCount) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorUserUserCountResponseExtension
@@ -9757,6 +10687,20 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customFormGroupId) ^
+      const DeepCollectionEquality().hash(customFormId) ^
+      const DeepCollectionEquality().hash(customFormDescription) ^
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(groupName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupExtension
@@ -9883,6 +10827,21 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customFormUserId) ^
+      const DeepCollectionEquality().hash(customFormId) ^
+      const DeepCollectionEquality().hash(customFormDescription) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorControlsCustomFormUserCustomFormUserExtension
@@ -9975,6 +10934,15 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
@@ -10088,6 +11056,20 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customReportLayoutGroupId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(customReportLayoutDescription) ^
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(groupName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupExtension
@@ -10199,6 +11181,18 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(duplicateRuleFieldId) ^
+      const DeepCollectionEquality().hash(duplicateRuleId) ^
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldExtension
@@ -10314,6 +11308,20 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(widgetGroupId) ^
+      const DeepCollectionEquality().hash(widgetId) ^
+      const DeepCollectionEquality().hash(widgetDescription) ^
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(groupName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesSettingsWidgetGroupWidgetGroupExtension
@@ -10437,6 +11445,21 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(widgetUserId) ^
+      const DeepCollectionEquality().hash(widgetId) ^
+      const DeepCollectionEquality().hash(widgetDescription) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesSettingsWidgetUserWidgetUserExtension
@@ -10566,6 +11589,21 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customReportLayoutUserId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(customReportLayoutDescription) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserExtension
@@ -10647,12 +11685,12 @@ List<enums.FwStandardSqlServerFwDataTypes>
       .toList();
 }
 
-typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
+typedef $JsonFactory<T> = T Function(Map<String, dynamic> json);
 
-class CustomJsonDecoder {
-  CustomJsonDecoder(this.factories);
+class $CustomJsonDecoder {
+  $CustomJsonDecoder(this.factories);
 
-  final Map<Type, JsonFactory> factories;
+  final Map<Type, $JsonFactory> factories;
 
   dynamic decode<T>(dynamic entity) {
     if (entity is Iterable) {
@@ -10672,7 +11710,7 @@ class CustomJsonDecoder {
 
   T _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
-    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+    if (jsonFactory == null || jsonFactory is! $JsonFactory<T>) {
       return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
     }
 
@@ -10683,7 +11721,7 @@ class CustomJsonDecoder {
       values.where((v) => v != null).map<T>((v) => decode<T>(v) as T).toList();
 }
 
-class JsonSerializableConverter extends chopper.JsonConverter {
+class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
   chopper.Response<ResultType> convertResponse<ResultType, Item>(
       chopper.Response response) {
@@ -10695,11 +11733,11 @@ class JsonSerializableConverter extends chopper.JsonConverter {
 
     final jsonRes = super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
-        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+        body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
 }
 
-final jsonDecoder = CustomJsonDecoder(AdministratorJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(AdministratorJsonDecoderMappings);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

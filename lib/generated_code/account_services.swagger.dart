@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
@@ -23,7 +22,7 @@ abstract class AccountServices extends ChopperService {
 
     final newClient = ChopperClient(
       services: [_$AccountServices()],
-      converter: JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
     );
     return _$AccountServices(newClient);
   }
@@ -174,6 +173,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -227,6 +229,15 @@ class FwCoreControllersFwJwtControllerJwtResponseModel {
                 const DeepCollectionEquality()
                     .equals(other.resetpassword, resetpassword)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(statuscode) ^
+      const DeepCollectionEquality().hash(statusmessage) ^
+      const DeepCollectionEquality().hash(accessToken) ^
+      const DeepCollectionEquality().hash(expiresIn) ^
+      const DeepCollectionEquality().hash(resetpassword) ^
+      runtimeType.hashCode;
 }
 
 extension $FwCoreControllersFwJwtControllerJwtResponseModelExtension
@@ -298,6 +309,15 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
                 const DeepCollectionEquality()
                     .equals(other.children, children)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(caption) ^
+      const DeepCollectionEquality().hash(nodetype) ^
+      const DeepCollectionEquality().hash(properties) ^
+      const DeepCollectionEquality().hash(children) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
@@ -352,6 +372,13 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(stackTrace) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApiExceptionExtension
@@ -396,6 +423,12 @@ class FwStandardModelsFwApplicationUser {
                 const DeepCollectionEquality()
                     .equals(other.password, password)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(password) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApplicationUserExtension
@@ -487,6 +520,20 @@ class FwStandardSqlServerFwJsonDataTable {
                 const DeepCollectionEquality()
                     .equals(other.columnNameByIndex, columnNameByIndex)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(columnIndex) ^
+      const DeepCollectionEquality().hash(totals) ^
+      const DeepCollectionEquality().hash(columns) ^
+      const DeepCollectionEquality().hash(rows) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalPages) ^
+      const DeepCollectionEquality().hash(totalRows) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(columnNameByIndex) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableExtension
@@ -569,6 +616,15 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(dataField) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      const DeepCollectionEquality().hash(isUniqueId) ^
+      const DeepCollectionEquality().hash(isVisible) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableColumnExtension
@@ -614,6 +670,10 @@ class WebApiLogicAppFuncCustomFieldsResponse {
                 const DeepCollectionEquality()
                     .equals(other.moduleNames, moduleNames)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(moduleNames) ^ runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncCustomFieldsResponseExtension
@@ -678,6 +738,16 @@ class WebApiLogicAppFuncCustomFormModel {
                 const DeepCollectionEquality()
                     .equals(other.assignTo, assignTo)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(baseForm) ^
+      const DeepCollectionEquality().hash(customFormId) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(thisUserOnly) ^
+      const DeepCollectionEquality().hash(html) ^
+      const DeepCollectionEquality().hash(assignTo) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncCustomFormModelExtension
@@ -728,6 +798,10 @@ class WebApiLogicAppFuncCustomFormsResponse {
                 const DeepCollectionEquality()
                     .equals(other.customForms, customForms)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customForms) ^ runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncCustomFormsResponseExtension
@@ -862,6 +936,28 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
             (identical(other.defaultCreditStatus, defaultCreditStatus) || const DeepCollectionEquality().equals(other.defaultCreditStatus, defaultCreditStatus)) &&
             (identical(other.contactShowAllDeals, contactShowAllDeals) || const DeepCollectionEquality().equals(other.contactShowAllDeals, contactShowAllDeals)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(defaultUnitId) ^
+      const DeepCollectionEquality().hash(defaultUnit) ^
+      const DeepCollectionEquality().hash(defaultDealStatusId) ^
+      const DeepCollectionEquality().hash(defaultDealStatus) ^
+      const DeepCollectionEquality().hash(defaultDealPoRequired) ^
+      const DeepCollectionEquality().hash(defaultDealPoType) ^
+      const DeepCollectionEquality().hash(defaultCustomerStatusId) ^
+      const DeepCollectionEquality().hash(defaultCustomerStatus) ^
+      const DeepCollectionEquality().hash(defaultDealBillingCycleId) ^
+      const DeepCollectionEquality().hash(defaultDealBillingCycle) ^
+      const DeepCollectionEquality().hash(defaultNonRecurringBillingCycleId) ^
+      const DeepCollectionEquality().hash(defaultNonRecurringBillingCycle) ^
+      const DeepCollectionEquality().hash(defaultCustomerPaymentTermsId) ^
+      const DeepCollectionEquality().hash(defaultCustomerPaymentTerms) ^
+      const DeepCollectionEquality().hash(defaultRank) ^
+      const DeepCollectionEquality().hash(defaultCreditStatusId) ^
+      const DeepCollectionEquality().hash(defaultCreditStatus) ^
+      const DeepCollectionEquality().hash(contactShowAllDeals) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
@@ -987,6 +1083,17 @@ class WebApiLogicAppFuncDepartmentActivitiesResponse {
                 const DeepCollectionEquality().equals(
                     other.defaultActivityRentalSale, defaultActivityRentalSale)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(defaultActivityFacilities) ^
+      const DeepCollectionEquality().hash(defaultActivityLabor) ^
+      const DeepCollectionEquality().hash(defaultActivityMiscellaneous) ^
+      const DeepCollectionEquality().hash(defaultActivityRental) ^
+      const DeepCollectionEquality().hash(defaultActivitySales) ^
+      const DeepCollectionEquality().hash(defaultActivityTransportation) ^
+      const DeepCollectionEquality().hash(defaultActivityRentalSale) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncDepartmentActivitiesResponseExtension
@@ -1042,6 +1149,11 @@ class WebApiLogicAppFuncDocumentBarcodeSettingsResponse {
                 const DeepCollectionEquality()
                     .equals(other.documentBarCodeStyle, documentBarCodeStyle)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(documentBarCodeStyle) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncDocumentBarcodeSettingsResponseExtension
@@ -1142,6 +1254,21 @@ class WebApiLogicAppFuncGetSettingsResponse {
                 const DeepCollectionEquality()
                     .equals(other.isTraining, isTraining)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(userSettings) ^
+      const DeepCollectionEquality().hash(customFields) ^
+      const DeepCollectionEquality().hash(customForms) ^
+      const DeepCollectionEquality().hash(defaultSettings) ^
+      const DeepCollectionEquality().hash(inventorySettings) ^
+      const DeepCollectionEquality().hash(systemSettings) ^
+      const DeepCollectionEquality().hash(department) ^
+      const DeepCollectionEquality().hash(documentBarcodeSettings) ^
+      const DeepCollectionEquality().hash(systemNumbers) ^
+      const DeepCollectionEquality().hash(warehouses) ^
+      const DeepCollectionEquality().hash(isTraining) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncGetSettingsResponseExtension
@@ -1263,6 +1390,21 @@ class WebApiLogicAppFuncInventorySettingsResponse {
                 const DeepCollectionEquality().equals(
                     other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(iCodeMask) ^
+      const DeepCollectionEquality().hash(userAssignedICodes) ^
+      const DeepCollectionEquality().hash(enable3WeekPricing) ^
+      const DeepCollectionEquality()
+          .hash(autoUpdateInventoryMetricImperialDimensions) ^
+      const DeepCollectionEquality().hash(enableConsignment) ^
+      const DeepCollectionEquality().hash(enableLease) ^
+      const DeepCollectionEquality().hash(defaultRentalSaleRetiredReasonId) ^
+      const DeepCollectionEquality().hash(defaultRentalSaleRetiredReason) ^
+      const DeepCollectionEquality().hash(defaultLossAndDamageRetiredReasonId) ^
+      const DeepCollectionEquality().hash(defaultLossAndDamageRetiredReason) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncInventorySettingsResponseExtension
@@ -1326,6 +1468,12 @@ class WebApiLogicAppFuncSessionDeal {
             (identical(other.deal, deal) ||
                 const DeepCollectionEquality().equals(other.deal, deal)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(dealid) ^
+      const DeepCollectionEquality().hash(deal) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSessionDealExtension
@@ -1367,6 +1515,12 @@ class WebApiLogicAppFuncSessionDepartment {
                 const DeepCollectionEquality()
                     .equals(other.department, department)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(departmentid) ^
+      const DeepCollectionEquality().hash(department) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSessionDepartmentExtension
@@ -1489,6 +1643,25 @@ class WebApiLogicAppFuncSessionLocation {
                     other.useorderlocationbydefault,
                     useorderlocationbydefault)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(locationid) ^
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(locationcode) ^
+      const DeepCollectionEquality().hash(companyname) ^
+      const DeepCollectionEquality().hash(locationcolor) ^
+      const DeepCollectionEquality().hash(ratetype) ^
+      const DeepCollectionEquality().hash(ratetypedisplay) ^
+      const DeepCollectionEquality().hash(defaultcurrency) ^
+      const DeepCollectionEquality().hash(defaultcurrencyid) ^
+      const DeepCollectionEquality().hash(defaultcurrencycode) ^
+      const DeepCollectionEquality().hash(defaultcurrencysymbol) ^
+      const DeepCollectionEquality().hash(countryid) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(phone) ^
+      const DeepCollectionEquality().hash(useorderlocationbydefault) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSessionLocationExtension
@@ -1728,6 +1901,45 @@ class WebApiLogicAppFuncSessionUser {
             (identical(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems) || const DeepCollectionEquality().equals(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems)) &&
             (identical(other.allowcontractwithexceptions, allowcontractwithexceptions) || const DeepCollectionEquality().equals(other.allowcontractwithexceptions, allowcontractwithexceptions)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(webusersid) ^
+      const DeepCollectionEquality().hash(usersid) ^
+      const DeepCollectionEquality().hash(contactid) ^
+      const DeepCollectionEquality().hash(usertype) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(fullname) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(browsedefaultrows) ^
+      const DeepCollectionEquality().hash(applicationtheme) ^
+      const DeepCollectionEquality().hash(locationid) ^
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(warehouseid) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(departmentid) ^
+      const DeepCollectionEquality().hash(department) ^
+      const DeepCollectionEquality().hash(webadministrator) ^
+      const DeepCollectionEquality().hash(firstdayofweek) ^
+      const DeepCollectionEquality().hash(rentalinventorydepartmentid) ^
+      const DeepCollectionEquality().hash(rentalinventorydepartment) ^
+      const DeepCollectionEquality().hash(salesinventorydepartmentid) ^
+      const DeepCollectionEquality().hash(salesinventorydepartment) ^
+      const DeepCollectionEquality().hash(partsinventorydepartmentid) ^
+      const DeepCollectionEquality().hash(partsinventorydepartment) ^
+      const DeepCollectionEquality().hash(transportationinvdepartmentid) ^
+      const DeepCollectionEquality().hash(transportationinvdepartment) ^
+      const DeepCollectionEquality().hash(laborinventorydepartmentid) ^
+      const DeepCollectionEquality().hash(laborinventorydepartment) ^
+      const DeepCollectionEquality().hash(miscinventorydepartmentid) ^
+      const DeepCollectionEquality().hash(miscinventorydepartment) ^
+      const DeepCollectionEquality().hash(spaceinventorydepartmentid) ^
+      const DeepCollectionEquality().hash(spaceinventorydepartment) ^
+      const DeepCollectionEquality().hash(iscrew) ^
+      const DeepCollectionEquality().hash(enablecreatecontract) ^
+      const DeepCollectionEquality().hash(qsallowapplyallqtyitems) ^
+      const DeepCollectionEquality().hash(allowcontractwithexceptions) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSessionUserExtension
@@ -1897,6 +2109,18 @@ class WebApiLogicAppFuncSessionWarehouse {
                 const DeepCollectionEquality()
                     .equals(other.quikreceiptenable, quikreceiptenable)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warehouseid) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(warehousecode) ^
+      const DeepCollectionEquality().hash(promptforcheckoutexceptions) ^
+      const DeepCollectionEquality().hash(promptforcheckinexceptions) ^
+      const DeepCollectionEquality().hash(storagecontainerstagingenable) ^
+      const DeepCollectionEquality().hash(storagecontainerrescanrequired) ^
+      const DeepCollectionEquality().hash(quikreceiptenable) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSessionWarehouseExtension
@@ -1956,6 +2180,12 @@ class WebApiLogicAppFuncSystemNumbersModel {
                 const DeepCollectionEquality()
                     .equals(other.isAssignedByUser, isAssignedByUser)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(module) ^
+      const DeepCollectionEquality().hash(isAssignedByUser) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSystemNumbersModelExtension
@@ -1997,6 +2227,10 @@ class WebApiLogicAppFuncSystemNumbersResponse {
                 const DeepCollectionEquality()
                     .equals(other.systemNumbers, systemNumbers)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(systemNumbers) ^ runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSystemNumbersResponseExtension
@@ -2080,6 +2314,18 @@ class WebApiLogicAppFuncSystemSettingsResponse {
                     other.isVendorNumberAssignedByUser,
                     isVendorNumberAssignedByUser)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(allowDeleteInvoices) ^
+      const DeepCollectionEquality().hash(allowInvoiceDateChange) ^
+      const DeepCollectionEquality().hash(enableReceipts) ^
+      const DeepCollectionEquality().hash(enablePayments) ^
+      const DeepCollectionEquality().hash(shareDealsAcrossOfficeLocations) ^
+      const DeepCollectionEquality().hash(systemName) ^
+      const DeepCollectionEquality().hash(companyName) ^
+      const DeepCollectionEquality().hash(isVendorNumberAssignedByUser) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncSystemSettingsResponseExtension
@@ -2203,6 +2449,22 @@ class WebApiLogicAppFuncUserSettingsResponse {
                 const DeepCollectionEquality()
                     .equals(other.emailSignature, emailSignature)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(successBase64Sound) ^
+      const DeepCollectionEquality().hash(errorBase64Sound) ^
+      const DeepCollectionEquality().hash(notificationBase64Sound) ^
+      const DeepCollectionEquality().hash(webAdministrator) ^
+      const DeepCollectionEquality().hash(homeMenuGuid) ^
+      const DeepCollectionEquality().hash(homeMenuPath) ^
+      const DeepCollectionEquality().hash(reportsNavigationMenuVisible) ^
+      const DeepCollectionEquality().hash(settingsNavigationMenuVisible) ^
+      const DeepCollectionEquality().hash(mainMenuPinned) ^
+      const DeepCollectionEquality().hash(quikActivitySetting) ^
+      const DeepCollectionEquality().hash(favoritesJson) ^
+      const DeepCollectionEquality().hash(emailSignature) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncUserSettingsResponseExtension
@@ -2264,6 +2526,11 @@ class WebApiLogicAppFuncWarehouseResponse {
                 const DeepCollectionEquality()
                     .equals(other.multiWarehouse, multiWarehouse)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(multiWarehouse) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiLogicAppFuncWarehouseResponseExtension
@@ -2315,6 +2582,13 @@ class WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationRespo
                 const DeepCollectionEquality()
                     .equals(other.department, department)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(department) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseExtension
@@ -2365,7 +2639,7 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
   @JsonKey(name: 'applicationtree', includeIfNull: false)
   final FwStandardAppManagerFwAmSecurityTreeNode? applicationtree;
   @JsonKey(name: 'applicationOptions', includeIfNull: false)
-  final dynamic? applicationOptions;
+  final dynamic applicationOptions;
   @JsonKey(name: 'clientcode', includeIfNull: false)
   final String? clientcode;
   @JsonKey(name: 'serverVersion', includeIfNull: false)
@@ -2374,7 +2648,7 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
   final WebApiModulesAccountServicesAccountSystemSettingsResponse?
       systemSettings;
   @JsonKey(name: 'plugins', includeIfNull: false)
-  final dynamic? plugins;
+  final dynamic plugins;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson;
   static const toJsonFactory =
@@ -2419,6 +2693,21 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
             (identical(other.plugins, plugins) ||
                 const DeepCollectionEquality().equals(other.plugins, plugins)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(department) ^
+      const DeepCollectionEquality().hash(webUser) ^
+      const DeepCollectionEquality().hash(deal) ^
+      const DeepCollectionEquality().hash(applicationtree) ^
+      const DeepCollectionEquality().hash(applicationOptions) ^
+      const DeepCollectionEquality().hash(clientcode) ^
+      const DeepCollectionEquality().hash(serverVersion) ^
+      const DeepCollectionEquality().hash(systemSettings) ^
+      const DeepCollectionEquality().hash(plugins) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseExtension
@@ -2491,6 +2780,13 @@ class WebApiModulesAccountServicesAccountGetSettingsRequest {
                 const DeepCollectionEquality()
                     .equals(other.locationId, locationId)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(webUsersId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(locationId) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesAccountGetSettingsRequestExtension
@@ -2531,6 +2827,10 @@ class WebApiModulesAccountServicesAccountResetPasswordRequest {
                 const DeepCollectionEquality()
                     .equals(other.password, password)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(password) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesAccountResetPasswordRequestExtension
@@ -2573,6 +2873,12 @@ class WebApiModulesAccountServicesAccountResetPasswordResponse {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(message) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesAccountResetPasswordResponseExtension
@@ -2641,6 +2947,16 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
                 const DeepCollectionEquality()
                     .equals(other.barcodeSkipPrefixes, barcodeSkipPrefixes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(defaultUnitId) ^
+      const DeepCollectionEquality().hash(defaultRank) ^
+      const DeepCollectionEquality().hash(requireOriginalShow) ^
+      const DeepCollectionEquality().hash(userAssignedICodes) ^
+      const DeepCollectionEquality().hash(quikScanStageBySession) ^
+      const DeepCollectionEquality().hash(barcodeSkipPrefixes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesAccountSystemSettingsResponseExtension
@@ -2694,6 +3010,12 @@ class WebApiModulesAccountServicesJwtOktaRequest {
             (identical(other.token, token) ||
                 const DeepCollectionEquality().equals(other.token, token)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(token) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesJwtOktaRequestExtension
@@ -2736,6 +3058,12 @@ class WebApiModulesAccountServicesJwtOktaSessionRequest {
             (identical(other.apiurl, apiurl) ||
                 const DeepCollectionEquality().equals(other.apiurl, apiurl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(apiurl) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesJwtOktaSessionRequestExtension
@@ -2773,6 +3101,10 @@ class WebApiModulesAccountServicesJwtOktaSessionResponseModel {
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^ runtimeType.hashCode;
 }
 
 extension $WebApiModulesAccountServicesJwtOktaSessionResponseModelExtension
@@ -2830,12 +3162,12 @@ List<enums.FwStandardSqlServerFwDataTypes>
       .toList();
 }
 
-typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
+typedef $JsonFactory<T> = T Function(Map<String, dynamic> json);
 
-class CustomJsonDecoder {
-  CustomJsonDecoder(this.factories);
+class $CustomJsonDecoder {
+  $CustomJsonDecoder(this.factories);
 
-  final Map<Type, JsonFactory> factories;
+  final Map<Type, $JsonFactory> factories;
 
   dynamic decode<T>(dynamic entity) {
     if (entity is Iterable) {
@@ -2855,7 +3187,7 @@ class CustomJsonDecoder {
 
   T _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
-    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+    if (jsonFactory == null || jsonFactory is! $JsonFactory<T>) {
       return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
     }
 
@@ -2866,7 +3198,7 @@ class CustomJsonDecoder {
       values.where((v) => v != null).map<T>((v) => decode<T>(v) as T).toList();
 }
 
-class JsonSerializableConverter extends chopper.JsonConverter {
+class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
   chopper.Response<ResultType> convertResponse<ResultType, Item>(
       chopper.Response response) {
@@ -2878,11 +3210,11 @@ class JsonSerializableConverter extends chopper.JsonConverter {
 
     final jsonRes = super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
-        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+        body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
 }
 
-final jsonDecoder = CustomJsonDecoder(AccountServicesJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(AccountServicesJsonDecoderMappings);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
@@ -23,7 +22,7 @@ abstract class Reports extends ChopperService {
 
     final newClient = ChopperClient(
       services: [_$Reports()],
-      converter: JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Reports(newClient);
   }
@@ -7610,6 +7609,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -7641,6 +7643,10 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(downloadUrl) ^ runtimeType.hashCode;
 }
 
 extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultExtension
@@ -7688,6 +7694,12 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality()
                     .equals(other.dataType, dataType)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
@@ -7734,6 +7746,13 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality()
                     .equals(other.fieldType, fieldType)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(fieldValue) ^
+      const DeepCollectionEquality().hash(fieldType) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
@@ -7783,6 +7802,13 @@ class FwStandardDataFwDefaultAttribute {
                 const DeepCollectionEquality()
                     .equals(other.defaultValue, defaultValue)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(attributeName) ^
+      const DeepCollectionEquality().hash(defaultValue) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardDataFwDefaultAttributeExtension
@@ -7854,6 +7880,16 @@ class FwStandardDataFwReportLoader {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardDataFwReportLoaderExtension
@@ -7909,11 +7945,11 @@ class FwStandardModelsBrowseRequest {
       _$FwStandardModelsBrowseRequestFromJson(json);
 
   @JsonKey(name: 'miscfields', includeIfNull: false)
-  final dynamic? miscfields;
+  final dynamic miscfields;
   @JsonKey(name: 'module', includeIfNull: false)
   final String? module;
   @JsonKey(name: 'options', includeIfNull: false)
-  final dynamic? options;
+  final dynamic options;
   @JsonKey(name: 'orderby', includeIfNull: false)
   final String? orderby;
   @JsonKey(name: 'orderbydirection', includeIfNull: false)
@@ -7949,9 +7985,9 @@ class FwStandardModelsBrowseRequest {
       defaultValue: <String>[])
   final List<String>? searchconjunctions;
   @JsonKey(name: 'uniqueids', includeIfNull: false)
-  final dynamic? uniqueids;
+  final dynamic uniqueids;
   @JsonKey(name: 'boundids', includeIfNull: false)
-  final dynamic? boundids;
+  final dynamic boundids;
   @JsonKey(name: 'filterfields', includeIfNull: false)
   final Object? filterfields;
   @JsonKey(name: 'activeview', includeIfNull: false)
@@ -8045,6 +8081,34 @@ class FwStandardModelsBrowseRequest {
                     .equals(other.totalfields, totalfields)) &&
             (identical(other.activeviewfields, activeviewfields) || const DeepCollectionEquality().equals(other.activeviewfields, activeviewfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(miscfields) ^
+      const DeepCollectionEquality().hash(module) ^
+      const DeepCollectionEquality().hash(options) ^
+      const DeepCollectionEquality().hash(orderby) ^
+      const DeepCollectionEquality().hash(orderbydirection) ^
+      const DeepCollectionEquality().hash(top) ^
+      const DeepCollectionEquality().hash(pageno) ^
+      const DeepCollectionEquality().hash(pagesize) ^
+      const DeepCollectionEquality().hash(searchfieldoperators) ^
+      const DeepCollectionEquality().hash(searchfields) ^
+      const DeepCollectionEquality().hash(searchfieldvalues) ^
+      const DeepCollectionEquality().hash(searchfieldtypes) ^
+      const DeepCollectionEquality().hash(searchseparators) ^
+      const DeepCollectionEquality().hash(searchcondition) ^
+      const DeepCollectionEquality().hash(searchconjunctions) ^
+      const DeepCollectionEquality().hash(uniqueids) ^
+      const DeepCollectionEquality().hash(boundids) ^
+      const DeepCollectionEquality().hash(filterfields) ^
+      const DeepCollectionEquality().hash(activeview) ^
+      const DeepCollectionEquality().hash(emptyobject) ^
+      const DeepCollectionEquality().hash(forexcel) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(totalfields) ^
+      const DeepCollectionEquality().hash(activeviewfields) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsBrowseRequestExtension
@@ -8137,6 +8201,13 @@ class FwStandardModelsCheckBoxListItem {
                 const DeepCollectionEquality()
                     .equals(other.selected, selected)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(text) ^
+      const DeepCollectionEquality().hash(selected) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsCheckBoxListItemExtension
@@ -8185,6 +8256,13 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(statusCode) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(stackTrace) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApiExceptionExtension
@@ -8230,6 +8308,13 @@ class FwStandardModelsFwQueryFilter {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(op) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryFilterExtension
@@ -8296,6 +8381,15 @@ class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsRep
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogicExtension
@@ -8341,6 +8435,10 @@ class FwStandardModelsSelectedCheckBoxListItem {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(value) ^ runtimeType.hashCode;
 }
 
 extension $FwStandardModelsSelectedCheckBoxListItemExtension
@@ -8395,6 +8493,15 @@ class FwStandardReportingFwReportEmailInfo {
             (identical(other.body, body) ||
                 const DeepCollectionEquality().equals(other.body, body)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(from) ^
+      const DeepCollectionEquality().hash(to) ^
+      const DeepCollectionEquality().hash(cc) ^
+      const DeepCollectionEquality().hash(subject) ^
+      const DeepCollectionEquality().hash(body) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardReportingFwReportEmailInfoExtension
@@ -8461,6 +8568,15 @@ class FwStandardReportingFwReportRenderRequest {
                 const DeepCollectionEquality()
                     .equals(other.emailImageOptions, emailImageOptions)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(renderMode) ^
+      const DeepCollectionEquality().hash(parameters) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(downloadPdfAsAttachment) ^
+      const DeepCollectionEquality().hash(emailImageOptions) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardReportingFwReportRenderRequestExtension
@@ -8513,6 +8629,12 @@ class FwStandardReportingFwReportRenderRequestEmailImageOptions {
             (identical(other.height, height) ||
                 const DeepCollectionEquality().equals(other.height, height)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(width) ^
+      const DeepCollectionEquality().hash(height) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardReportingFwReportRenderRequestEmailImageOptionsExtension
@@ -8569,6 +8691,14 @@ class FwStandardReportingFwReportRenderResponse {
                 const DeepCollectionEquality()
                     .equals(other.consoleOutput, consoleOutput)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(renderMode) ^
+      const DeepCollectionEquality().hash(htmlReportUrl) ^
+      const DeepCollectionEquality().hash(pdfReportUrl) ^
+      const DeepCollectionEquality().hash(consoleOutput) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardReportingFwReportRenderResponseExtension
@@ -8608,6 +8738,10 @@ class FwStandardSqlServerFwDateTime {
             (identical(other.val, val) ||
                 const DeepCollectionEquality().equals(other.val, val)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(val) ^ runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwDateTimeExtension
@@ -8696,6 +8830,20 @@ class FwStandardSqlServerFwJsonDataTable {
                 const DeepCollectionEquality()
                     .equals(other.columnNameByIndex, columnNameByIndex)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(columnIndex) ^
+      const DeepCollectionEquality().hash(totals) ^
+      const DeepCollectionEquality().hash(columns) ^
+      const DeepCollectionEquality().hash(rows) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalPages) ^
+      const DeepCollectionEquality().hash(totalRows) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(columnNameByIndex) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableExtension
@@ -8778,6 +8926,15 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(dataField) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      const DeepCollectionEquality().hash(isUniqueId) ^
+      const DeepCollectionEquality().hash(isVisible) ^
+      runtimeType.hashCode;
 }
 
 extension $FwStandardSqlServerFwJsonDataTableColumnExtension
@@ -8850,6 +9007,16 @@ class WebApiDataAppReportResponse {
                 const DeepCollectionEquality()
                     .equals(other.customReportTemplate, customReportTemplate)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(dataTable) ^
+      const DeepCollectionEquality().hash(dataObject) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(customReportTemplate) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiDataAppReportResponseExtension on WebApiDataAppReportResponse {
@@ -8969,6 +9136,22 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(asOfDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealCsrId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestExtension
@@ -9109,6 +9292,23 @@ class WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsRepor
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(paymentTypeId) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestExtension
@@ -9255,6 +9455,24 @@ class WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(glAccountId) ^
+      const DeepCollectionEquality().hash(excludeGlAccountId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(isSomeDetail) ^
+      const DeepCollectionEquality().hash(isFullDetail) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestExtension
@@ -9409,6 +9627,25 @@ class WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestExtension
@@ -9594,6 +9831,30 @@ class WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportReque
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(projectId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(includeFilter) ^
+      const DeepCollectionEquality().hash(includeTaxFilter) ^
+      const DeepCollectionEquality().hash(excludeOrdersBilledInTotal) ^
+      const DeepCollectionEquality().hash(includeProjectStatus) ^
+      const DeepCollectionEquality().hash(includeCreditsInvoiced) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestExtension
@@ -9775,6 +10036,27 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(asOfDate) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(includeCredits) ^
+      const DeepCollectionEquality().hash(excludeBilled100) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(dealCsrId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestExtension
@@ -9944,6 +10226,27 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(includePaidInvoices) ^
+      const DeepCollectionEquality().hash(includeZeroBalance) ^
+      const DeepCollectionEquality().hash(paymentsThroughToday) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(dealStatusId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestExtension
@@ -10064,6 +10367,18 @@ class WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(invoiceCreationBatchId) ^
+      const DeepCollectionEquality().hash(exceptionsOnly) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestExtension
@@ -10207,6 +10522,25 @@ class WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportReque
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(discountPercent) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(discountReasonId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestExtension
@@ -10317,6 +10651,17 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(invoiceId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
@@ -10459,6 +10804,25 @@ class WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestExtension
@@ -10623,6 +10987,26 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateField) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestExtension
@@ -10780,6 +11164,25 @@ class WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillin
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(projectManagerId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestExtension
@@ -10918,6 +11321,22 @@ class WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateField) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestExtension
@@ -11068,6 +11487,25 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(salesRepresentativeId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestExtension
@@ -11202,6 +11640,21 @@ class WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(webUsersId) ^
+      const DeepCollectionEquality().hash(keyword) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestExtension
@@ -11316,6 +11769,19 @@ class WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoi
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(batchNumber) ^
+      const DeepCollectionEquality().hash(batchDate) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestExtension
@@ -11426,6 +11892,19 @@ class WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(batchNumber) ^
+      const DeepCollectionEquality().hash(batchDate) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestExtension
@@ -11536,6 +12015,19 @@ class WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorI
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(batchNumber) ^
+      const DeepCollectionEquality().hash(batchDate) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestExtension
@@ -11682,6 +12174,25 @@ class WebApiModulesReportsContractReportsContractRevisionReportContractRevisionR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(filterDates) ^
+      const DeepCollectionEquality().hash(daysChanged) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(revisionTypes) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestExtension
@@ -11792,6 +12303,17 @@ class WebApiModulesReportsContractReportsExchangeContractReportExchangeContractR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestExtension
@@ -11892,6 +12414,18 @@ class WebApiModulesReportsContractReportsInContractReportInContractReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsInContractReportInContractReportRequestExtension
@@ -11994,6 +12528,18 @@ class WebApiModulesReportsContractReportsLostContractReportLostContractReportReq
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestExtension
@@ -12096,6 +12642,18 @@ class WebApiModulesReportsContractReportsOutContractReportOutContractReportReque
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestExtension
@@ -12198,6 +12756,18 @@ class WebApiModulesReportsContractReportsReceiveContractReportReceiveContractRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestExtension
@@ -12300,6 +12870,18 @@ class WebApiModulesReportsContractReportsReturnContractReportReturnContractRepor
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestExtension
@@ -12469,6 +13051,32 @@ class WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(includeSales) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(orderIds) ^
+      const DeepCollectionEquality().hash(includeTrackedByBarcode) ^
+      const DeepCollectionEquality().hash(printBarcodes) ^
+      const DeepCollectionEquality().hash(paginateByInventoryType) ^
+      const DeepCollectionEquality().hash(addBoxforMeterReading) ^
+      const DeepCollectionEquality().hash(printICodeColumn) ^
+      const DeepCollectionEquality().hash(printAisleShelf) ^
+      const DeepCollectionEquality().hash(printOut) ^
+      const DeepCollectionEquality().hash(printIn) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestExtension
@@ -12602,6 +13210,18 @@ class WebApiModulesReportsContractReportsTransferManifestReportTransferManifestR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestExtension
@@ -12704,6 +13324,18 @@ class WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestExtension
@@ -12834,6 +13466,23 @@ class WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestExtension
@@ -12957,6 +13606,20 @@ class WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountRepor
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(onlyRemaining) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestExtension
@@ -13111,6 +13774,26 @@ class WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenue
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerTypeId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(revenueTypes) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestExtension
@@ -13269,6 +13952,25 @@ class WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueB
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderTypeId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestExtension
@@ -13445,6 +14147,29 @@ class WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailRep
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(deductVendorItemCost) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(noCharge) ^
+      const DeepCollectionEquality().hash(billedHiatus) ^
+      const DeepCollectionEquality().hash(billableFlat) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestExtension
@@ -13657,6 +14382,37 @@ class WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingIt
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeValueCost) ^
+      const DeepCollectionEquality().hash(filterDates) ^
+      const DeepCollectionEquality().hash(includeFullImages) ^
+      const DeepCollectionEquality().hash(includeThumbnailImages) ^
+      const DeepCollectionEquality().hash(excludePendingExchanges) ^
+      const DeepCollectionEquality().hash(includeContainersOnly) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderUnitId) ^
+      const DeepCollectionEquality().hash(orderTypeId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestExtension
@@ -13901,6 +14657,38 @@ class WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(filterDatesOrderCreate) ^
+      const DeepCollectionEquality().hash(orderCreateFromDate) ^
+      const DeepCollectionEquality().hash(orderCreateToDate) ^
+      const DeepCollectionEquality().hash(filterDatesOrderStart) ^
+      const DeepCollectionEquality().hash(orderStartFromDate) ^
+      const DeepCollectionEquality().hash(orderStartToDate) ^
+      const DeepCollectionEquality().hash(filterDatesDealCredit) ^
+      const DeepCollectionEquality().hash(dealCreditFromDate) ^
+      const DeepCollectionEquality().hash(dealCreditToDate) ^
+      const DeepCollectionEquality().hash(filterDatesDealInsurance) ^
+      const DeepCollectionEquality().hash(dealInsuranceFromDate) ^
+      const DeepCollectionEquality().hash(dealInsuranceToDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealStatusId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(noCharge) ^
+      const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(quoteStatus) ^
+      const DeepCollectionEquality().hash(orderStatus) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestExtension
@@ -14084,6 +14872,25 @@ class WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportReque
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(onlyIncludeItemsStillUnassigned) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestExtension
@@ -14244,6 +15051,25 @@ class WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest {
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(asOfDate) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(excludeFullyDepreciated) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestExtension
@@ -14406,6 +15232,25 @@ class WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationRepo
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestExtension
@@ -14516,6 +15361,17 @@ class WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructio
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(inDeliveryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestExtension
@@ -14676,6 +15532,27 @@ class WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest {
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(transactionType) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestExtension
@@ -14859,6 +15736,27 @@ class WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryRepo
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(onwershipTypes) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestExtension
@@ -15036,6 +15934,28 @@ class WebApiModulesReportsMultiLocationReportsTransferReportTransferReportReques
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(fromWarehouseId) ^
+      const DeepCollectionEquality().hash(toWarehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(transferId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestExtension
@@ -15177,6 +16097,21 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(receiptId) ^
+      const DeepCollectionEquality().hash(rowType) ^
+      const DeepCollectionEquality().hash(dealNumber) ^
+      const DeepCollectionEquality().hash(dealDescription) ^
+      const DeepCollectionEquality().hash(depositAmount) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealLExtension
@@ -15327,6 +16262,25 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(rowType) ^
+      const DeepCollectionEquality().hash(arId) ^
+      const DeepCollectionEquality().hash(invoiceId) ^
+      const DeepCollectionEquality().hash(invoiceNumber) ^
+      const DeepCollectionEquality().hash(invoiceDate) ^
+      const DeepCollectionEquality().hash(orderNumber) ^
+      const DeepCollectionEquality().hash(orderDescription) ^
+      const DeepCollectionEquality().hash(invoiceTotal) ^
+      const DeepCollectionEquality().hash(applied) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceLExtension
@@ -15480,6 +16434,24 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(receiptId) ^
+      const DeepCollectionEquality().hash(rowType) ^
+      const DeepCollectionEquality().hash(receiptDate) ^
+      const DeepCollectionEquality().hash(orderNumber) ^
+      const DeepCollectionEquality().hash(orderDescription) ^
+      const DeepCollectionEquality().hash(periodTotal) ^
+      const DeepCollectionEquality().hash(replacementCost) ^
+      const DeepCollectionEquality().hash(depositAmount) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderLExtension
@@ -15772,6 +16744,56 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(receiptId) ^
+      const DeepCollectionEquality().hash(receiptDate) ^
+      const DeepCollectionEquality().hash(locationId) ^
+      const DeepCollectionEquality().hash(locationCode) ^
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(department) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(customer) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(deal) ^
+      const DeepCollectionEquality().hash(paymentBy) ^
+      const DeepCollectionEquality().hash(payTypeId) ^
+      const DeepCollectionEquality().hash(payType) ^
+      const DeepCollectionEquality().hash(paymentType) ^
+      const DeepCollectionEquality().hash(payTypeExportPaymentMethod) ^
+      const DeepCollectionEquality().hash(checkNumber) ^
+      const DeepCollectionEquality().hash(paymentAmount) ^
+      const DeepCollectionEquality().hash(appliedById) ^
+      const DeepCollectionEquality().hash(paymentMemo) ^
+      const DeepCollectionEquality().hash(recType) ^
+      const DeepCollectionEquality().hash(recTypeDisplay) ^
+      const DeepCollectionEquality().hash(currencyId) ^
+      const DeepCollectionEquality().hash(currencyCode) ^
+      const DeepCollectionEquality().hash(currencySymbol) ^
+      const DeepCollectionEquality().hash(locationDefaultCurrencyId) ^
+      const DeepCollectionEquality().hash(overPaymentId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(authorizationCode) ^
+      const DeepCollectionEquality().hash(address1) ^
+      const DeepCollectionEquality().hash(address2) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(phone) ^
+      const DeepCollectionEquality().hash(zip) ^
+      const DeepCollectionEquality().hash(orderNo) ^
+      const DeepCollectionEquality().hash(orderDescription) ^
+      const DeepCollectionEquality().hash(reportType) ^
+      const DeepCollectionEquality().hash(orders) ^
+      const DeepCollectionEquality().hash(deals) ^
+      const DeepCollectionEquality().hash(invoices) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportLExtension
@@ -15948,6 +16970,17 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(receiptId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequestExtension
@@ -16042,6 +17075,17 @@ class WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabel
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestExtension
@@ -16187,6 +17231,26 @@ class WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest 
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(reportType) ^
+      const DeepCollectionEquality().hash(days) ^
+      const DeepCollectionEquality().hash(dueBackDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(orderedByContactId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestExtension
@@ -16380,6 +17444,31 @@ class WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequ
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(availableFor) ^
+      const DeepCollectionEquality().hash(conflictType) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(classifications) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestExtension
@@ -16578,6 +17667,32 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(reportView) ^
+      const DeepCollectionEquality().hash(printInventoryType) ^
+      const DeepCollectionEquality().hash(printCategory) ^
+      const DeepCollectionEquality().hash(printTotalReplacementCost) ^
+      const DeepCollectionEquality().hash(printInventoryTypeSubTotal) ^
+      const DeepCollectionEquality().hash(printCategorySubTotal) ^
+      const DeepCollectionEquality().hash(printZeroExtended) ^
+      const DeepCollectionEquality().hash(printLineItemNotes) ^
+      const DeepCollectionEquality().hash(printGrandTotal) ^
+      const DeepCollectionEquality().hash(printGrossTotal) ^
+      const DeepCollectionEquality().hash(printGrandDiscount) ^
+      const DeepCollectionEquality().hash(printGrandWeekly) ^
+      const DeepCollectionEquality().hash(printGrandPeriod) ^
+      const DeepCollectionEquality().hash(printActivityWeekly) ^
+      const DeepCollectionEquality().hash(printActivityPeriod) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtension
@@ -16705,6 +17820,17 @@ class WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestExtension
@@ -16799,6 +17925,17 @@ class WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummary
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestExtension
@@ -16893,6 +18030,17 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestExtension
@@ -17033,6 +18181,25 @@ class WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRe
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(onlyIncludeICodesWithQuantityAvail) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestExtension
@@ -17145,6 +18312,17 @@ class WebApiModulesReportsOrderReportsPickListReportPickListReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(pickListId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsPickListReportPickListReportRequestExtension
@@ -17282,6 +18460,24 @@ class WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportReques
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(activityTypeId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestExtension
@@ -17474,6 +18670,31 @@ class WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterRepo
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(filterDates) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealStatusId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(quoteStatus) ^
+      const DeepCollectionEquality().hash(orderStatus) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestExtension
@@ -17672,6 +18893,32 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(quoteId) ^
+      const DeepCollectionEquality().hash(reportView) ^
+      const DeepCollectionEquality().hash(printInventoryType) ^
+      const DeepCollectionEquality().hash(printCategory) ^
+      const DeepCollectionEquality().hash(printTotalReplacementCost) ^
+      const DeepCollectionEquality().hash(printInventoryTypeSubTotal) ^
+      const DeepCollectionEquality().hash(printCategorySubTotal) ^
+      const DeepCollectionEquality().hash(printZeroExtended) ^
+      const DeepCollectionEquality().hash(printLineItemNotes) ^
+      const DeepCollectionEquality().hash(printGrandTotal) ^
+      const DeepCollectionEquality().hash(printGrossTotal) ^
+      const DeepCollectionEquality().hash(printGrandDiscount) ^
+      const DeepCollectionEquality().hash(printGrandWeekly) ^
+      const DeepCollectionEquality().hash(printGrandPeriod) ^
+      const DeepCollectionEquality().hash(printActivityWeekly) ^
+      const DeepCollectionEquality().hash(printActivityPeriod) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtension
@@ -17881,6 +19128,32 @@ class WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedIte
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestExtension
@@ -18011,6 +19284,18 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(rentalValue) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestExtension
@@ -18107,6 +19392,17 @@ class WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructio
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(outDeliveryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestExtension
@@ -18236,6 +19532,23 @@ class WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsI
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(reorderPointMode) ^
+      const DeepCollectionEquality().hash(includeZeroReorderPoint) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestExtension
@@ -18412,6 +19725,29 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetRep
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality().hash(isSpace) ^
+      const DeepCollectionEquality().hash(isRecount) ^
+      const DeepCollectionEquality().hash(includeCompleteKits) ^
+      const DeepCollectionEquality().hash(includeCompleteKitReferences) ^
+      const DeepCollectionEquality().hash(excludeOptionalAccessories) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestExtension
@@ -18589,6 +19925,28 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyRe
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(consignorIds) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality()
+          .hash(includeIcodesThatAreNotDiscrepancies) ^
+      const DeepCollectionEquality().hash(printBarcodeSerialNotCounted) ^
+      const DeepCollectionEquality().hash(isSpace) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestExtension
@@ -18754,6 +20112,24 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionRepo
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality().hash(includeZeroOwned) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestExtension
@@ -18910,6 +20286,24 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgre
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestExtension
@@ -19103,6 +20497,33 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliatio
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(availableFor) ^
+      const DeepCollectionEquality().hash(itemsCounted) ^
+      const DeepCollectionEquality().hash(includeOrders) ^
+      const DeepCollectionEquality().hash(includeOrderBarcodes) ^
+      const DeepCollectionEquality().hash(includeCountedBarcodes) ^
+      const DeepCollectionEquality().hash(excludeZeroCostExtended) ^
+      const DeepCollectionEquality().hash(onlyChangedItems) ^
+      const DeepCollectionEquality().hash(trackedbyIds) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestExtension
@@ -19279,6 +20700,24 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalys
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(includeIdenticalCounts) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestExtension
@@ -19441,6 +20880,25 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReport
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(physicalInventoryId) ^
+      const DeepCollectionEquality().hash(includeNoChangeItems) ^
+      const DeepCollectionEquality().hash(showRetiredBarcodes) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(spaceIds) ^
+      const DeepCollectionEquality().hash(inventoryDepartmentIds) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(masterIds) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestExtension
@@ -19558,6 +21016,18 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(purchaseOrderId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestExtension
@@ -19661,6 +21131,18 @@ class WebApiModulesReportsRateUpdateReportRateUpdateReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(pendingModificationsOnly) ^
+      const DeepCollectionEquality().hash(rateUpdateBatchId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRateUpdateReportRateUpdateReportRequestExtension
@@ -19826,6 +21308,27 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateRep
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(ownershipTypes) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestExtension
@@ -20021,6 +21524,31 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityRepor
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(isDetail) ^
+      const DeepCollectionEquality().hash(includeZeroQuantity) ^
+      const DeepCollectionEquality().hash(onlyIncludeLowAndNegative) ^
+      const DeepCollectionEquality().hash(onlyIncludeNegative) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(classifications) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestExtension
@@ -20207,6 +21735,26 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRenta
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(ownershipTypes) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(includeRetiredSerializedItems) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestExtension
@@ -20382,6 +21930,27 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRen
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(includeZeroOwned) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestExtension
@@ -20520,6 +22089,21 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestExtension
@@ -20700,6 +22284,31 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueR
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(includePeriodRevenue) ^
+      const DeepCollectionEquality().hash(revenueFromDate) ^
+      const DeepCollectionEquality().hash(revenueToDate) ^
+      const DeepCollectionEquality().hash(revenueFilterMode) ^
+      const DeepCollectionEquality().hash(revenueFilterAmount) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(includeNotRentedSince) ^
+      const DeepCollectionEquality().hash(notRentedSinceDate) ^
+      const DeepCollectionEquality().hash(includeZeroOwned) ^
+      const DeepCollectionEquality().hash(showStagedAndOut) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestExtension
@@ -20882,6 +22491,27 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReport
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(asOfDate) ^
+      const DeepCollectionEquality().hash(includeZeroQuantity) ^
+      const DeepCollectionEquality().hash(daysUnused) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestExtension
@@ -21063,6 +22693,30 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRental
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(utilizationFilterMode) ^
+      const DeepCollectionEquality().hash(utilizationFilterAmount) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(excludeZeroOwned) ^
+      const DeepCollectionEquality().hash(filterDatesByUtilizationPercent) ^
+      const DeepCollectionEquality()
+          .hash(onlyIncludeItemsThatAreTheMainItemOfAComplete) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestExtension
@@ -21268,6 +22922,32 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRental
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(includeOwned) ^
+      const DeepCollectionEquality().hash(includeConsigned) ^
+      const DeepCollectionEquality().hash(includeZeroQuantity) ^
+      const DeepCollectionEquality().hash(groupByICode) ^
+      const DeepCollectionEquality().hash(quantityValueBasedOn) ^
+      const DeepCollectionEquality().hash(serializedValueBasedOn) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(summary) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestExtension
@@ -21452,6 +23132,28 @@ class WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHisto
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(excludeRetiredItems) ^
+      const DeepCollectionEquality().hash(excludeUnretiredItems) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(retiredReasonId) ^
+      const DeepCollectionEquality().hash(unretiredReasonId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestExtension
@@ -21632,6 +23334,28 @@ class WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportReti
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(includeUnretired) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(retiredReasonId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestExtension
@@ -21793,6 +23517,25 @@ class WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturne
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestExtension
@@ -21980,6 +23723,31 @@ class WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAsset
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(usePeriodSelector) ^
+      const DeepCollectionEquality().hash(reportYear) ^
+      const DeepCollectionEquality().hash(reportPeriod) ^
+      const DeepCollectionEquality().hash(useDateRange) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(includeZeroCurrentOwned) ^
+      const DeepCollectionEquality().hash(includeZeroAverageOwned) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestExtension
@@ -22145,6 +23913,24 @@ class WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUn
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(unretiredReasonId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestExtension
@@ -22318,6 +24104,26 @@ class WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportV
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(asOfDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ownershipTypes) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestExtension
@@ -22522,6 +24328,35 @@ class WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderSt
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(repairOrderStatus) ^
+      const DeepCollectionEquality().hash(priority) ^
+      const DeepCollectionEquality().hash(billable) ^
+      const DeepCollectionEquality().hash(billed) ^
+      const DeepCollectionEquality().hash(owned) ^
+      const DeepCollectionEquality().hash(daysInRepair) ^
+      const DeepCollectionEquality().hash(daysInRepairFilterMode) ^
+      const DeepCollectionEquality().hash(includeOutsideRepairsOnly) ^
+      const DeepCollectionEquality().hash(includeDamageNotes) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(repairItemStatusId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(vendorRepairItemStatusId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequestExtension
@@ -22655,6 +24490,17 @@ class WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(repairId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestExtension
@@ -22748,6 +24594,17 @@ class WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(repairId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestExtension
@@ -22865,6 +24722,21 @@ class WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorde
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestExtension
@@ -23034,6 +24906,29 @@ class WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryRep
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(summary) ^
+      const DeepCollectionEquality().hash(includeSalesTax) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestExtension
@@ -23210,6 +25105,27 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesIn
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(includePeriodRevenue) ^
+      const DeepCollectionEquality().hash(revenueFromDate) ^
+      const DeepCollectionEquality().hash(revenueToDate) ^
+      const DeepCollectionEquality().hash(revenueFilterMode) ^
+      const DeepCollectionEquality().hash(revenueFilterAmount) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(excludeZeroOwned) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestExtension
@@ -23359,6 +25275,23 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesI
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(reorderPointMode) ^
+      const DeepCollectionEquality().hash(includeZeroReorderPoint) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestExtension
@@ -23516,6 +25449,24 @@ class WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesRepo
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(attributeId) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestExtension
@@ -23693,6 +25644,27 @@ class WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequ
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(classifications) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(fixedAsset) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(warehouseCatalogId) ^
+      const DeepCollectionEquality().hash(includeZeroQuantity) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestExtension
@@ -23869,6 +25841,27 @@ class WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseH
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(purchasedFromDate) ^
+      const DeepCollectionEquality().hash(purchasedToDate) ^
+      const DeepCollectionEquality().hash(receivedFromDate) ^
+      const DeepCollectionEquality().hash(receivedToDate) ^
+      const DeepCollectionEquality().hash(trackedBys) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestExtension
@@ -24027,6 +26020,24 @@ class WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(transactionTypes) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestExtension
@@ -24159,6 +26170,21 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(settings) ^
+      const DeepCollectionEquality().hash(excelSettings) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSharedReportSettingsReportSettingsExtension
@@ -24292,6 +26318,22 @@ class WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestExtension
@@ -24436,6 +26478,23 @@ class WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMas
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(activities) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestExtension
@@ -24548,6 +26607,18 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderRece
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(purchaseOrderId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestExtension
@@ -24656,6 +26727,18 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportReq
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(purchaseOrderId) ^
+      const DeepCollectionEquality().hash(reportView) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestExtension
@@ -24796,6 +26879,24 @@ class WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSu
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(projectId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(poApprovalStatusId) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestExtension
@@ -24966,6 +27067,27 @@ class WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportReq
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(poClassificationId) ^
+      const DeepCollectionEquality().hash(recType) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestExtension
@@ -25137,6 +27259,26 @@ class WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(poClassificationId) ^
+      const DeepCollectionEquality().hash(recType) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestExtension
@@ -25315,6 +27457,28 @@ class WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBi
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(poClassificationId) ^
+      const DeepCollectionEquality().hash(purchaseOrderId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(invoiceStatus) ^
+      const DeepCollectionEquality().hash(purchaseOrderStatus) ^
+      const DeepCollectionEquality().hash(includeVendorTax) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestExtension
@@ -25498,6 +27662,29 @@ class WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSu
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(dateType) ^
+      const DeepCollectionEquality().hash(statuses) ^
+      const DeepCollectionEquality().hash(includeAccruals) ^
+      const DeepCollectionEquality().hash(accrualFromDate) ^
+      const DeepCollectionEquality().hash(accrualToDate) ^
+      const DeepCollectionEquality().hash(accrualsOnly) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(purchaseOrderId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestExtension
@@ -25622,6 +27809,18 @@ class WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingLi
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(containerItemId) ^
+      const DeepCollectionEquality().hash(appLanguageId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestExtension
@@ -25703,6 +27902,15 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData {
             (identical(other.note, note) ||
                 const DeepCollectionEquality().equals(other.note, note)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(personSignature) ^
+      const DeepCollectionEquality().hash(quikReceiptId) ^
+      const DeepCollectionEquality().hash(quikReceiptTermsConditionsHtml) ^
+      const DeepCollectionEquality().hash(personPrintedName) ^
+      const DeepCollectionEquality().hash(note) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataExtension
@@ -25806,6 +28014,19 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(rowType) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLExtension
@@ -26232,6 +28453,95 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(sessionNo) ^
+      const DeepCollectionEquality().hash(customer) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(estRentFrom) ^
+      const DeepCollectionEquality().hash(estRentTo) ^
+      const DeepCollectionEquality().hash(quikReceiptTermsConditionsId) ^
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(metaData) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(deal) ^
+      const DeepCollectionEquality().hash(dealNumber) ^
+      const DeepCollectionEquality().hash(dealNumberAndDeal) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(orderNumber) ^
+      const DeepCollectionEquality().hash(orderDate) ^
+      const DeepCollectionEquality().hash(orderPoNumber) ^
+      const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(orderDescription) ^
+      const DeepCollectionEquality().hash(orderNumberAndDescription) ^
+      const DeepCollectionEquality().hash(orderLocation) ^
+      const DeepCollectionEquality().hash(rowType) ^
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(contractNumber) ^
+      const DeepCollectionEquality().hash(contractDate) ^
+      const DeepCollectionEquality().hash(contractTime) ^
+      const DeepCollectionEquality().hash(contractDateAndTime) ^
+      const DeepCollectionEquality().hash(contractType) ^
+      const DeepCollectionEquality().hash(hasPendingExchange) ^
+      const DeepCollectionEquality().hash(hasRental) ^
+      const DeepCollectionEquality().hash(hasSales) ^
+      const DeepCollectionEquality().hash(inputByUserId) ^
+      const DeepCollectionEquality().hash(billingDate) ^
+      const DeepCollectionEquality().hash(officeLocation) ^
+      const DeepCollectionEquality().hash(officeLocationCompany) ^
+      const DeepCollectionEquality().hash(officeLocationAddress1) ^
+      const DeepCollectionEquality().hash(officeLocationAddress2) ^
+      const DeepCollectionEquality().hash(officeLocationCityStateZipCode) ^
+      const DeepCollectionEquality()
+          .hash(officeLocationCityStateZipCodeCountry) ^
+      const DeepCollectionEquality().hash(officeLocationPhone) ^
+      const DeepCollectionEquality().hash(officeLocationFax) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(warehouseAddress1) ^
+      const DeepCollectionEquality().hash(warehouseAddress2) ^
+      const DeepCollectionEquality().hash(warehouseCityStateZipCode) ^
+      const DeepCollectionEquality().hash(warehouseCityStateZipCodeCountry) ^
+      const DeepCollectionEquality().hash(warehousePhone) ^
+      const DeepCollectionEquality().hash(warehouseFax) ^
+      const DeepCollectionEquality().hash(issuedToCompany) ^
+      const DeepCollectionEquality().hash(issuedToAttentionTo1) ^
+      const DeepCollectionEquality().hash(issuedToAttentionTo2) ^
+      const DeepCollectionEquality().hash(issuedToAddress1) ^
+      const DeepCollectionEquality().hash(issuedToAddress2) ^
+      const DeepCollectionEquality().hash(issuedToCity) ^
+      const DeepCollectionEquality().hash(issuedToState) ^
+      const DeepCollectionEquality().hash(issuedToZipCode) ^
+      const DeepCollectionEquality().hash(issuedToCountry) ^
+      const DeepCollectionEquality().hash(issuedToPhone) ^
+      const DeepCollectionEquality().hash(issuedToFax) ^
+      const DeepCollectionEquality().hash(usageDates) ^
+      const DeepCollectionEquality().hash(billingCycle) ^
+      const DeepCollectionEquality().hash(paymentTerms) ^
+      const DeepCollectionEquality().hash(agent) ^
+      const DeepCollectionEquality().hash(agentEmail) ^
+      const DeepCollectionEquality().hash(agentPhoneAndExtension) ^
+      const DeepCollectionEquality().hash(agentFax) ^
+      const DeepCollectionEquality().hash(department) ^
+      const DeepCollectionEquality().hash(deliveryContact) ^
+      const DeepCollectionEquality().hash(deliveryLocation) ^
+      const DeepCollectionEquality().hash(deliveryAddress1) ^
+      const DeepCollectionEquality().hash(deliveryAddress2) ^
+      const DeepCollectionEquality().hash(deliveryCityStateZipCode) ^
+      const DeepCollectionEquality().hash(deliveryCountry) ^
+      const DeepCollectionEquality().hash(deliveryContactPhone) ^
+      const DeepCollectionEquality().hash(termsAndConditionsId) ^
+      const DeepCollectionEquality().hash(termsAndConditionsHtml) ^
+      const DeepCollectionEquality().hash(termsAndConditionsNewPage) ^
+      const DeepCollectionEquality().hash(personPrintName) ^
+      const DeepCollectionEquality().hash(personSignature) ^
+      const DeepCollectionEquality().hash(printDate) ^
+      const DeepCollectionEquality().hash(printTime) ^
+      const DeepCollectionEquality().hash(printDateTime) ^
+      const DeepCollectionEquality().hash(dateFields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLExtension
@@ -26501,6 +28811,18 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequ
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(quikReceiptId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestExtension
@@ -26609,6 +28931,19 @@ class WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerL
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(printedByUsersId) ^
+      const DeepCollectionEquality().hash(storageContainerItemId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestExtension
@@ -26720,6 +29055,18 @@ class WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReport
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(transferId) ^
+      const DeepCollectionEquality().hash(reportView) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestExtension
@@ -26863,6 +29210,24 @@ class WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispat
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(activityTypeId) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(orderTypes) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestExtension
@@ -27017,6 +29382,24 @@ class WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInbound
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(activityTypeId) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(orderTypes) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestExtension
@@ -27171,6 +29554,24 @@ class WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutbou
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(activityTypeId) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(orderTypes) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestExtension
@@ -27356,12 +29757,12 @@ List<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType>
       .toList();
 }
 
-typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
+typedef $JsonFactory<T> = T Function(Map<String, dynamic> json);
 
-class CustomJsonDecoder {
-  CustomJsonDecoder(this.factories);
+class $CustomJsonDecoder {
+  $CustomJsonDecoder(this.factories);
 
-  final Map<Type, JsonFactory> factories;
+  final Map<Type, $JsonFactory> factories;
 
   dynamic decode<T>(dynamic entity) {
     if (entity is Iterable) {
@@ -27381,7 +29782,7 @@ class CustomJsonDecoder {
 
   T _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
-    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+    if (jsonFactory == null || jsonFactory is! $JsonFactory<T>) {
       return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
     }
 
@@ -27392,7 +29793,7 @@ class CustomJsonDecoder {
       values.where((v) => v != null).map<T>((v) => decode<T>(v) as T).toList();
 }
 
-class JsonSerializableConverter extends chopper.JsonConverter {
+class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
   chopper.Response<ResultType> convertResponse<ResultType, Item>(
       chopper.Response response) {
@@ -27404,11 +29805,11 @@ class JsonSerializableConverter extends chopper.JsonConverter {
 
     final jsonRes = super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
-        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+        body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
 }
 
-final jsonDecoder = CustomJsonDecoder(ReportsJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(ReportsJsonDecoderMappings);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {
