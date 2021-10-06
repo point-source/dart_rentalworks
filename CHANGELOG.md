@@ -1,3 +1,8 @@
+## 1.3.1
+
+- Enable all rentalworks services
+- Enable overriding chopper error converter
+
 ## 1.2.1
 
 - Correctly report invalid user or password when attempting to fetch jwt
