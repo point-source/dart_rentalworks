@@ -79,9 +79,14 @@ class RentalWorks {
   ChopperClient get client => _client ??= ChopperClient(
           services: [
             AccountServices.create(),
+            Administrator.create(),
             Exports.create(),
+            Home.create(),
+            Mobile.create(),
             Plugins.create(),
-            Home.create()
+            Reports.create(),
+            Settings.create(),
+            Utilities.create()
           ],
           interceptors: [
             _jwtInterceptor,
