@@ -7,14 +7,17 @@ import 'package:rentalworks/rentalworks.dart';
 import 'package:rentalworks/src/json_serializable_converter.dart';
 
 class RentalWorks {
-  RentalWorks.withJWT(this.baseUrl, this._jwt);
+  RentalWorks.withJWT(this.baseUrl, this._jwt, {this.errorConverter});
 
-  RentalWorks.withCredentials(this.baseUrl, this._username, this._password);
+  RentalWorks.withCredentials(this.baseUrl, this._username, this._password,
+      {this.errorConverter});
 
   String baseUrl;
   String? _jwt;
   String? _username;
   String? _password;
+
+  ErrorConverter? errorConverter;
 
   Future<String> get jwt async =>
       _jwt ??= await _fetchJWT(_username, _password);
@@ -93,6 +96,7 @@ class RentalWorks {
             _paramConverterInterceptor
           ],
           converter: JsonSerializableConverter(generatedMapping),
+          errorConverter: errorConverter,
           baseUrl: baseUrl);
 
   AccountServices get accountServices => client.getService<AccountServices>();
