@@ -8,9 +8,8 @@ part of 'administrator.swagger.dart';
 
 FwCoreApiSwashbuckleBadRequestResponse
     _$FwCoreApiSwashbuckleBadRequestResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreApiSwashbuckleBadRequestResponse();
-}
+            Map<String, dynamic> json) =>
+        FwCoreApiSwashbuckleBadRequestResponse();
 
 Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
@@ -18,11 +17,10 @@ Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
 
 FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-    downloadUrl: json['downloadUrl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
+          downloadUrl: json['downloadUrl'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
@@ -42,13 +40,12 @@ Map<String, dynamic>
 
 FwCoreModulesAdministratorGroupCopySecurityNodeRequest
     _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreModulesAdministratorGroupCopySecurityNodeRequest(
-    fromGroupId: json['FromGroupId'] as String?,
-    toGroupIds: json['ToGroupIds'] as String?,
-    securityId: json['SecurityId'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwCoreModulesAdministratorGroupCopySecurityNodeRequest(
+          fromGroupId: json['FromGroupId'] as String?,
+          toGroupIds: json['ToGroupIds'] as String?,
+          securityId: json['SecurityId'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson(
@@ -69,12 +66,11 @@ Map<String, dynamic>
 
 FwCoreModulesAdministratorGroupLookupGroupResponse
     _$FwCoreModulesAdministratorGroupLookupGroupResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreModulesAdministratorGroupLookupGroupResponse(
-    groupId: json['GroupId'] as String?,
-    name: json['Name'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwCoreModulesAdministratorGroupLookupGroupResponse(
+          groupId: json['GroupId'] as String?,
+          name: json['Name'] as String?,
+        );
 
 Map<String, dynamic> _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson(
     FwCoreModulesAdministratorGroupLookupGroupResponse instance) {
@@ -93,19 +89,19 @@ Map<String, dynamic> _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson(
 
 FwStandardAppManagerFwAmSecurityTreeNode
     _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardAppManagerFwAmSecurityTreeNode(
-    id: json['id'] as String?,
-    caption: json['caption'] as String?,
-    nodetype: json['nodetype'] as String?,
-    properties: json['properties'],
-    children: (json['children'] as List<dynamic>?)
-            ?.map((e) => FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardAppManagerFwAmSecurityTreeNode(
+          id: json['id'] as String?,
+          caption: json['caption'] as String?,
+          nodetype: json['nodetype'] as String?,
+          properties: json['properties'],
+          children: (json['children'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
     FwStandardAppManagerFwAmSecurityTreeNode instance) {
@@ -127,13 +123,12 @@ Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
 
 FwStandardBusinessLogicFwBusinessLogicFieldDefinition
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
-    name: json['Name'] as String?,
-    dataType:
-        fwStandardSqlServerFwDataTypesFromJson(json['DataType'] as String?),
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
+          name: json['Name'] as String?,
+          dataType: fwStandardSqlServerFwDataTypesFromJson(
+              json['DataType'] as String?),
+        );
 
 Map<String, dynamic>
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
@@ -153,13 +148,12 @@ Map<String, dynamic>
 }
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardDataFwCustomValue(
-    fieldName: json['FieldName'] as String?,
-    fieldValue: json['FieldValue'] as String?,
-    fieldType: json['FieldType'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardDataFwCustomValue(
+      fieldName: json['FieldName'] as String?,
+      fieldValue: json['FieldValue'] as String?,
+      fieldType: json['FieldType'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
     FwStandardDataFwCustomValue instance) {
@@ -178,13 +172,12 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
 }
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardDataFwDefaultAttribute(
-    fieldName: json['FieldName'] as String?,
-    attributeName: json['AttributeName'] as String?,
-    defaultValue: json['DefaultValue'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardDataFwDefaultAttribute(
+      fieldName: json['FieldName'] as String?,
+      attributeName: json['AttributeName'] as String?,
+      defaultValue: json['DefaultValue'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
     FwStandardDataFwDefaultAttribute instance) {
@@ -203,62 +196,61 @@ Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
 }
 
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsBrowseRequest(
-    miscfields: json['miscfields'],
-    module: json['module'] as String?,
-    options: json['options'],
-    orderby: json['orderby'] as String?,
-    orderbydirection: json['orderbydirection'] as String?,
-    top: json['top'] as int?,
-    pageno: json['pageno'] as int?,
-    pagesize: json['pagesize'] as int?,
-    searchfieldoperators: (json['searchfieldoperators'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchfields: (json['searchfields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchfieldvalues: (json['searchfieldvalues'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchfieldtypes: (json['searchfieldtypes'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchseparators: (json['searchseparators'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchcondition: (json['searchcondition'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchconjunctions: (json['searchconjunctions'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    uniqueids: json['uniqueids'],
-    boundids: json['boundids'],
-    filterfields: json['filterfields'],
-    activeview: json['activeview'] as String?,
-    emptyobject: json['emptyobject'] as bool?,
-    forexcel: json['forexcel'] as bool?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    totalfields: (json['totalfields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    activeviewfields: json['activeviewfields'],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsBrowseRequest(
+      miscfields: json['miscfields'],
+      module: json['module'] as String?,
+      options: json['options'],
+      orderby: json['orderby'] as String?,
+      orderbydirection: json['orderbydirection'] as String?,
+      top: json['top'] as int?,
+      pageno: json['pageno'] as int?,
+      pagesize: json['pagesize'] as int?,
+      searchfieldoperators: (json['searchfieldoperators'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfields: (json['searchfields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfieldvalues: (json['searchfieldvalues'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfieldtypes: (json['searchfieldtypes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchseparators: (json['searchseparators'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchcondition: (json['searchcondition'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchconjunctions: (json['searchconjunctions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      uniqueids: json['uniqueids'],
+      boundids: json['boundids'],
+      filterfields: json['filterfields'],
+      activeview: json['activeview'] as String?,
+      emptyobject: json['emptyobject'] as bool?,
+      forexcel: json['forexcel'] as bool?,
+      excelfields: (json['excelfields'] as List<dynamic>?)
+              ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      totalfields: (json['totalfields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      activeviewfields: json['activeviewfields'],
+    );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
     FwStandardModelsBrowseRequest instance) {
@@ -299,13 +291,12 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
 }
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsCheckBoxListItem(
-    value: json['value'] as String?,
-    text: json['text'] as String?,
-    selected: json['selected'] as bool?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsCheckBoxListItem(
+      value: json['value'] as String?,
+      text: json['text'] as String?,
+      selected: json['selected'] as bool?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
     FwStandardModelsCheckBoxListItem instance) {
@@ -324,13 +315,12 @@ Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
 }
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwApiException(
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-    stackTrace: json['StackTrace'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwApiException(
+      statusCode: json['StatusCode'] as int?,
+      message: json['Message'] as String?,
+      stackTrace: json['StackTrace'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
     FwStandardModelsFwApiException instance) {
@@ -349,13 +339,12 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 }
 
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryFilter(
-    field: json['Field'] as String?,
-    op: json['Op'] as String?,
-    value: json['Value'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwQueryFilter(
+      field: json['Field'] as String?,
+      op: json['Op'] as String?,
+      value: json['Value'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     FwStandardModelsFwQueryFilter instance) {
@@ -375,19 +364,19 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => FwStandardModulesAdministratorAlertAlertLogic.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorAlertAlertLogic.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicToJson(
@@ -411,20 +400,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorAlertConditionAlertConditionLogic
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorAlertConditionAlertConditionLogic
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogicToJson(
@@ -448,20 +436,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicToJson(
@@ -485,20 +472,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicToJson(
@@ -522,20 +508,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicToJson(
@@ -559,20 +544,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogicToJson(
@@ -596,20 +580,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(
@@ -633,20 +616,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorCustomFieldCustomField.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorCustomFieldCustomField.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogicToJson(
@@ -670,20 +652,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorCustomFormCustomForm.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorCustomFormCustomForm.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicToJson(
@@ -707,20 +688,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorDataHealthDataHealth.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorDataHealthDataHealth.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogicToJson(
@@ -744,20 +724,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorEmailHistoryEmailHistory.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorEmailHistoryEmailHistory
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicToJson(
@@ -781,19 +760,18 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesAdministratorGroupGroup.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesAdministratorGroupGroup.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogicToJson(
@@ -817,19 +795,18 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesAdministratorHotfixHotfix.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesAdministratorHotfixHotfix.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicToJson(
@@ -853,19 +830,18 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesAdministratorPluginPlugin.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesAdministratorPluginPlugin.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogicToJson(
@@ -889,20 +865,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicToJson(
@@ -926,20 +901,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogicToJson(
@@ -963,19 +937,18 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesAdministratorUserUser.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesAdministratorUserUser.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicToJson(
@@ -999,20 +972,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicToJson(
@@ -1036,20 +1008,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogicToJson(
@@ -1073,20 +1044,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorControlsCustomModuleCustomModule
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorControlsCustomModuleCustomModule
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicToJson(
@@ -1110,20 +1080,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogicToJson(
@@ -1147,20 +1116,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicToJson(
@@ -1184,19 +1152,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesSettingsWidgetGroupWidgetGroup.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesSettingsWidgetGroupWidgetGroup.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogicToJson(
@@ -1220,19 +1188,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesSettingsWidgetUserWidgetUser.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesSettingsWidgetUserWidgetUser.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogicToJson(
@@ -1256,20 +1224,19 @@ Map<String, dynamic>
 
 FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicToJson(
@@ -1293,20 +1260,19 @@ Map<String, dynamic>
 
 FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
     _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                FwCoreModulesAdministratorGroupLookupGroupResponse.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalRows: json['TotalRows'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwCoreModulesAdministratorGroupLookupGroupResponse
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalRows: json['TotalRows'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseToJson(
@@ -1330,16 +1296,15 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorAlertAlertCondition
     _$FwStandardModulesAdministratorAlertAlertConditionFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorAlertAlertCondition(
-    alertConditionId: json['AlertConditionId'] as String?,
-    alertId: json['AlertId'] as String?,
-    fieldName1: json['FieldName1'] as String?,
-    fieldName2: json['FieldName2'] as String?,
-    condition: json['Condition'] as String?,
-    value: json['Value'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorAlertAlertCondition(
+          alertConditionId: json['AlertConditionId'] as String?,
+          alertId: json['AlertId'] as String?,
+          fieldName1: json['FieldName1'] as String?,
+          fieldName2: json['FieldName2'] as String?,
+          condition: json['Condition'] as String?,
+          value: json['Value'] as String?,
+        );
 
 Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertConditionToJson(
     FwStandardModulesAdministratorAlertAlertCondition instance) {
@@ -1362,43 +1327,42 @@ Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertConditionToJson(
 
 FwStandardModulesAdministratorAlertAlertLogic
     _$FwStandardModulesAdministratorAlertAlertLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorAlertAlertLogic(
-    alertId: json['AlertId'] as String?,
-    alertName: json['AlertName'] as String?,
-    moduleName: json['ModuleName'] as String?,
-    actionNew: json['ActionNew'] as bool?,
-    actionEdit: json['ActionEdit'] as bool?,
-    actionDelete: json['ActionDelete'] as bool?,
-    alertSubject: json['AlertSubject'] as String?,
-    alertBody: json['AlertBody'] as String?,
-    inactive: json['Inactive'] as bool?,
-    alertConditionList: (json['AlertConditionList'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardModulesAdministratorAlertAlertCondition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorAlertAlertLogic(
+          alertId: json['AlertId'] as String?,
+          alertName: json['AlertName'] as String?,
+          moduleName: json['ModuleName'] as String?,
+          actionNew: json['ActionNew'] as bool?,
+          actionEdit: json['ActionEdit'] as bool?,
+          actionDelete: json['ActionDelete'] as bool?,
+          alertSubject: json['AlertSubject'] as String?,
+          alertBody: json['AlertBody'] as String?,
+          inactive: json['Inactive'] as bool?,
+          alertConditionList: (json['AlertConditionList'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModulesAdministratorAlertAlertCondition
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertLogicToJson(
     FwStandardModulesAdministratorAlertAlertLogic instance) {
@@ -1432,34 +1396,34 @@ Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertLogicToJson(
 
 FwStandardModulesAdministratorAlertConditionAlertConditionLogic
     _$FwStandardModulesAdministratorAlertConditionAlertConditionLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorAlertConditionAlertConditionLogic(
-    alertId: json['AlertId'] as String?,
-    alertConditionId: json['AlertConditionId'] as String?,
-    fieldName1: json['FieldName1'] as String?,
-    condition: json['Condition'] as String?,
-    fieldName2: json['FieldName2'] as String?,
-    value: json['Value'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorAlertConditionAlertConditionLogic(
+          alertId: json['AlertId'] as String?,
+          alertConditionId: json['AlertConditionId'] as String?,
+          fieldName1: json['FieldName1'] as String?,
+          condition: json['Condition'] as String?,
+          fieldName2: json['FieldName2'] as String?,
+          value: json['Value'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorAlertConditionAlertConditionLogicToJson(
@@ -1490,35 +1454,35 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
     _$FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic(
-    alertWebUserId: json['AlertWebUserId'] as String?,
-    alertId: json['AlertId'] as String?,
-    description: json['Description'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userId: json['UserId'] as String?,
-    userName: json['UserName'] as String?,
-    email: json['Email'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic(
+          alertWebUserId: json['AlertWebUserId'] as String?,
+          alertId: json['AlertId'] as String?,
+          description: json['Description'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userId: json['UserId'] as String?,
+          userName: json['UserName'] as String?,
+          email: json['Email'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicToJson(
@@ -1550,38 +1514,38 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
     _$FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic(
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userName: json['UserName'] as String?,
-    baseReport: json['BaseReport'] as String?,
-    description: json['Description'] as String?,
-    category: json['Category'] as String?,
-    html: json['Html'] as String?,
-    active: json['Active'] as bool?,
-    inactive: json['Inactive'] as bool?,
-    assignTo: json['AssignTo'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic(
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userName: json['UserName'] as String?,
+          baseReport: json['BaseReport'] as String?,
+          description: json['Description'] as String?,
+          category: json['Category'] as String?,
+          html: json['Html'] as String?,
+          active: json['Active'] as bool?,
+          inactive: json['Inactive'] as bool?,
+          assignTo: json['AssignTo'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicToJson(
@@ -1616,37 +1580,37 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
     _$FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic(
-    duplicateRuleId: json['DuplicateRuleId'] as String?,
-    moduleName: json['ModuleName'] as String?,
-    ruleName: json['RuleName'] as String?,
-    caseSensitive: json['CaseSensitive'] as bool?,
-    systemRule: json['SystemRule'] as bool?,
-    fields: json['Fields'] as String?,
-    fieldTypes: json['FieldTypes'] as String?,
-    ruleNameColor: json['RuleNameColor'] as String?,
-    considerBlanks: json['ConsiderBlanks'] as bool?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    $fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic(
+          duplicateRuleId: json['DuplicateRuleId'] as String?,
+          moduleName: json['ModuleName'] as String?,
+          ruleName: json['RuleName'] as String?,
+          caseSensitive: json['CaseSensitive'] as bool?,
+          systemRule: json['SystemRule'] as bool?,
+          fields: json['Fields'] as String?,
+          fieldTypes: json['FieldTypes'] as String?,
+          ruleNameColor: json['RuleNameColor'] as String?,
+          considerBlanks: json['ConsiderBlanks'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          $fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicToJson(
@@ -1680,36 +1644,36 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic(
-    appEmailId: json['AppEmailId'] as String?,
-    description: json['Description'] as String?,
-    filterId: json['FilterId'] as String?,
-    subject: json['Subject'] as String?,
-    emailText: json['EmailText'] as String?,
-    category: json['Category'] as String?,
-    bodyFormat: json['BodyFormat'] as String?,
-    emailType: json['EmailType'] as String?,
-    inactive: json['Inactive'] as bool?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic(
+          appEmailId: json['AppEmailId'] as String?,
+          description: json['Description'] as String?,
+          filterId: json['FilterId'] as String?,
+          subject: json['Subject'] as String?,
+          emailText: json['EmailText'] as String?,
+          category: json['Category'] as String?,
+          bodyFormat: json['BodyFormat'] as String?,
+          emailType: json['EmailType'] as String?,
+          inactive: json['Inactive'] as bool?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicToJson(
@@ -1742,11 +1706,10 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest(
-    category: json['category'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest(
+          category: json['category'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequestToJson(
@@ -1766,14 +1729,13 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse(
-    categories: (json['categories'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse(
+          categories: (json['categories'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponseToJson(
@@ -1793,13 +1755,13 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse(
-    fields:
-        (json['fields'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-            [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse(
+          fields: (json['fields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseToJson(
@@ -1819,39 +1781,39 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
     _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic(
-    webAlertLogId: json['WebAlertLogId'] as int?,
-    alertId: json['AlertId'] as String?,
-    createDateTime: json['CreateDateTime'] == null
-        ? null
-        : DateTime.parse(json['CreateDateTime'] as String),
-    alertSubject: json['AlertSubject'] as String?,
-    alertBody: json['AlertBody'] as String?,
-    alertFrom: json['AlertFrom'] as String?,
-    alertTo: json['AlertTo'] as String?,
-    status: json['Status'] as String?,
-    errorMessage: json['ErrorMessage'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic(
+          webAlertLogId: json['WebAlertLogId'] as int?,
+          alertId: json['AlertId'] as String?,
+          createDateTime: json['CreateDateTime'] == null
+              ? null
+              : DateTime.parse(json['CreateDateTime'] as String),
+          alertSubject: json['AlertSubject'] as String?,
+          alertBody: json['AlertBody'] as String?,
+          alertFrom: json['AlertFrom'] as String?,
+          alertTo: json['AlertTo'] as String?,
+          status: json['Status'] as String?,
+          errorMessage: json['ErrorMessage'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(
@@ -1884,37 +1846,37 @@ Map<String, dynamic>
 
 FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
     _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic(
-    webAuditId: json['WebAuditId'] as int?,
-    moduleName: json['ModuleName'] as String?,
-    title: json['Title'] as String?,
-    uniqueId1: json['UniqueId1'] as String?,
-    uniqueId2: json['UniqueId2'] as String?,
-    uniqueId3: json['UniqueId3'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userName: json['UserName'] as String?,
-    json: json['Json'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic(
+          webAuditId: json['WebAuditId'] as int?,
+          moduleName: json['ModuleName'] as String?,
+          title: json['Title'] as String?,
+          uniqueId1: json['UniqueId1'] as String?,
+          uniqueId2: json['UniqueId2'] as String?,
+          uniqueId3: json['UniqueId3'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userName: json['UserName'] as String?,
+          json: json['Json'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicToJson(
@@ -1946,30 +1908,30 @@ Map<String, dynamic>
 }
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTable(
-    columnIndex: json['ColumnIndex'],
-    totals: json['Totals'],
-    columns: (json['Columns'] as List<dynamic>?)
-            ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    rows: (json['Rows'] as List<dynamic>?)
-            ?.map((e) => (e as List<dynamic>).map((e) => e as Object).toList())
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalPages: json['TotalPages'] as int?,
-    totalRows: json['TotalRows'] as int?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    columnNameByIndex: json['ColumnNameByIndex'],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardSqlServerFwJsonDataTable(
+      columnIndex: json['ColumnIndex'],
+      totals: json['Totals'],
+      columns: (json['Columns'] as List<dynamic>?)
+              ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      rows: (json['Rows'] as List<dynamic>?)
+              ?.map(
+                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+              .toList() ??
+          [],
+      pageNo: json['PageNo'] as int?,
+      pageSize: json['PageSize'] as int?,
+      totalPages: json['TotalPages'] as int?,
+      totalRows: json['TotalRows'] as int?,
+      dateFields: (json['DateFields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      columnNameByIndex: json['ColumnNameByIndex'],
+    );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
     FwStandardSqlServerFwJsonDataTable instance) {
@@ -1996,16 +1958,15 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTableColumn(
-    name: json['Name'] as String?,
-    dataField: json['DataField'] as String?,
-    dataType:
-        fwStandardSqlServerFwDataTypesFromJson(json['DataType'] as String?),
-    isUniqueId: json['IsUniqueId'] as bool?,
-    isVisible: json['IsVisible'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardSqlServerFwJsonDataTableColumn(
+          name: json['Name'] as String?,
+          dataField: json['DataField'] as String?,
+          dataType: fwStandardSqlServerFwDataTypesFromJson(
+              json['DataType'] as String?),
+          isUniqueId: json['IsUniqueId'] as bool?,
+          isVisible: json['IsVisible'] as bool?,
+        );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
     FwStandardSqlServerFwJsonDataTableColumn instance) {
@@ -2028,11 +1989,10 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
 
 WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest
     _$WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest(
-    accessToken: json['accessToken'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest(
+          accessToken: json['accessToken'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestToJson(
@@ -2051,11 +2011,10 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest
     _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest(
-    authorizationCode: json['authorizationCode'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest(
+          authorizationCode: json['authorizationCode'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestToJson(
@@ -2074,11 +2033,10 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesHubSpotGetWriteTokensResponse
     _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotGetWriteTokensResponse(
-    message: json['message'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotGetWriteTokensResponse(
+          message: json['message'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseToJson(
@@ -2097,14 +2055,13 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest
     _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest(
-    accessToken: json['accessToken'] as String?,
-    email: json['email'] as String?,
-    firstname: json['firstname'] as String?,
-    lastname: json['lastname'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest(
+          accessToken: json['accessToken'] as String?,
+          email: json['email'] as String?,
+          firstname: json['firstname'] as String?,
+          lastname: json['lastname'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestToJson(
@@ -2126,13 +2083,12 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
     _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest(
-    webusersid: json['webusersid'] as String?,
-    accessToken: json['accessToken'] as String?,
-    lastSyncEpoch: json['lastSyncEpoch'] as int?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest(
+          webusersid: json['webusersid'] as String?,
+          accessToken: json['accessToken'] as String?,
+          lastSyncEpoch: json['lastSyncEpoch'] as int?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestToJson(
@@ -2154,37 +2110,37 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorCustomFieldCustomField
     _$WebApiModulesAdministratorCustomFieldCustomFieldFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorCustomFieldCustomField(
-    customFieldId: json['CustomFieldId'] as String?,
-    moduleName: json['ModuleName'] as String?,
-    fieldName: json['FieldName'] as String?,
-    customTableName: json['CustomTableName'] as String?,
-    customFieldName: json['CustomFieldName'] as String?,
-    fieldType: json['FieldType'] as String?,
-    controlType: json['ControlType'] as String?,
-    stringLength: json['StringLength'] as int?,
-    floatDecimalDigits: json['FloatDecimalDigits'] as int?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorCustomFieldCustomField(
+          customFieldId: json['CustomFieldId'] as String?,
+          moduleName: json['ModuleName'] as String?,
+          fieldName: json['FieldName'] as String?,
+          customTableName: json['CustomTableName'] as String?,
+          customFieldName: json['CustomFieldName'] as String?,
+          fieldType: json['FieldType'] as String?,
+          controlType: json['ControlType'] as String?,
+          stringLength: json['StringLength'] as int?,
+          floatDecimalDigits: json['FloatDecimalDigits'] as int?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(
     WebApiModulesAdministratorCustomFieldCustomField instance) {
@@ -2216,38 +2172,38 @@ Map<String, dynamic> _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(
 
 WebApiModulesAdministratorCustomFormCustomForm
     _$WebApiModulesAdministratorCustomFormCustomFormFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorCustomFormCustomForm(
-    customFormId: json['CustomFormId'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userName: json['UserName'] as String?,
-    baseForm: json['BaseForm'] as String?,
-    description: json['Description'] as String?,
-    html: json['Html'] as String?,
-    active: json['Active'] as bool?,
-    inactive: json['Inactive'] as bool?,
-    assignTo: json['AssignTo'] as String?,
-    selfAssign: json['SelfAssign'] as bool?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorCustomFormCustomForm(
+          customFormId: json['CustomFormId'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userName: json['UserName'] as String?,
+          baseForm: json['BaseForm'] as String?,
+          description: json['Description'] as String?,
+          html: json['Html'] as String?,
+          active: json['Active'] as bool?,
+          inactive: json['Inactive'] as bool?,
+          assignTo: json['AssignTo'] as String?,
+          selfAssign: json['SelfAssign'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorCustomFormCustomFormToJson(
     WebApiModulesAdministratorCustomFormCustomForm instance) {
@@ -2280,11 +2236,10 @@ Map<String, dynamic> _$WebApiModulesAdministratorCustomFormCustomFormToJson(
 
 WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
     _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse(
-    reportTemplate: json['ReportTemplate'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse(
+          reportTemplate: json['ReportTemplate'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseToJson(
@@ -2304,37 +2259,37 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorDataHealthDataHealth
     _$WebApiModulesAdministratorDataHealthDataHealthFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorDataHealthDataHealth(
-    dataHealthId: json['DataHealthId'] as int?,
-    dataHealthType: json['DataHealthType'] as String?,
-    captureDateTime: json['CaptureDateTime'] as String?,
-    captureDate: json['CaptureDate'] as String?,
-    json: json['Json'] as String?,
-    severity: json['Severity'] as String?,
-    severityColor: json['SeverityColor'] as String?,
-    notes: json['Notes'] as String?,
-    resolved: json['Resolved'] as bool?,
-    inactive: json['Inactive'] as bool?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorDataHealthDataHealth(
+          dataHealthId: json['DataHealthId'] as int?,
+          dataHealthType: json['DataHealthType'] as String?,
+          captureDateTime: json['CaptureDateTime'] as String?,
+          captureDate: json['CaptureDate'] as String?,
+          json: json['Json'] as String?,
+          severity: json['Severity'] as String?,
+          severityColor: json['SeverityColor'] as String?,
+          notes: json['Notes'] as String?,
+          resolved: json['Resolved'] as bool?,
+          inactive: json['Inactive'] as bool?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorDataHealthDataHealthToJson(
     WebApiModulesAdministratorDataHealthDataHealth instance) {
@@ -2366,41 +2321,41 @@ Map<String, dynamic> _$WebApiModulesAdministratorDataHealthDataHealthToJson(
 
 WebApiModulesAdministratorEmailHistoryEmailHistory
     _$WebApiModulesAdministratorEmailHistoryEmailHistoryFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorEmailHistoryEmailHistory(
-    emailHistoryId: json['EmailHistoryId'] as String?,
-    reportId: json['ReportId'] as String?,
-    fromUserId: json['FromUserId'] as String?,
-    fromWebUserId: json['FromWebUserId'] as String?,
-    fromUser: json['FromUser'] as String?,
-    emailDate: json['EmailDate'] as String?,
-    status: json['Status'] as String?,
-    emailText: json['EmailText'] as String?,
-    emailTo: json['EmailTo'] as String?,
-    emailSubject: json['EmailSubject'] as String?,
-    emailCC: json['EmailCC'] as String?,
-    title: json['Title'] as String?,
-    relatedToId: json['RelatedToId'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorEmailHistoryEmailHistory(
+          emailHistoryId: json['EmailHistoryId'] as String?,
+          reportId: json['ReportId'] as String?,
+          fromUserId: json['FromUserId'] as String?,
+          fromWebUserId: json['FromWebUserId'] as String?,
+          fromUser: json['FromUser'] as String?,
+          emailDate: json['EmailDate'] as String?,
+          status: json['Status'] as String?,
+          emailText: json['EmailText'] as String?,
+          emailTo: json['EmailTo'] as String?,
+          emailSubject: json['EmailSubject'] as String?,
+          emailCC: json['EmailCC'] as String?,
+          title: json['Title'] as String?,
+          relatedToId: json['RelatedToId'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(
     WebApiModulesAdministratorEmailHistoryEmailHistory instance) {
@@ -2435,35 +2390,36 @@ Map<String, dynamic> _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(
 }
 
 WebApiModulesAdministratorGroupGroup
-    _$WebApiModulesAdministratorGroupGroupFromJson(Map<String, dynamic> json) {
-  return WebApiModulesAdministratorGroupGroup(
-    groupId: json['GroupId'] as String?,
-    name: json['Name'] as String?,
-    memo: json['Memo'] as String?,
-    security: json['Security'] as String?,
-    hideNewMenuOptionsByDefault: json['HideNewMenuOptionsByDefault'] as bool?,
-    isMyGroup: json['IsMyGroup'] as bool?,
-    groupColor: json['GroupColor'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+    _$WebApiModulesAdministratorGroupGroupFromJson(Map<String, dynamic> json) =>
+        WebApiModulesAdministratorGroupGroup(
+          groupId: json['GroupId'] as String?,
+          name: json['Name'] as String?,
+          memo: json['Memo'] as String?,
+          security: json['Security'] as String?,
+          hideNewMenuOptionsByDefault:
+              json['HideNewMenuOptionsByDefault'] as bool?,
+          isMyGroup: json['IsMyGroup'] as bool?,
+          groupColor: json['GroupColor'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorGroupGroupToJson(
     WebApiModulesAdministratorGroupGroup instance) {
@@ -2494,33 +2450,33 @@ Map<String, dynamic> _$WebApiModulesAdministratorGroupGroupToJson(
 
 WebApiModulesAdministratorHotfixHotfix
     _$WebApiModulesAdministratorHotfixHotfixFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorHotfixHotfix(
-    hotfixId: json['HotfixId'] as String?,
-    fileName: json['FileName'] as String?,
-    description: json['Description'] as String?,
-    hotfixBegin: json['HotfixBegin'] as String?,
-    hotfixEnd: json['HotfixEnd'] as String?,
-    hotfixSeconds: (json['HotfixSeconds'] as num?)?.toDouble(),
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorHotfixHotfix(
+          hotfixId: json['HotfixId'] as String?,
+          fileName: json['FileName'] as String?,
+          description: json['Description'] as String?,
+          hotfixBegin: json['HotfixBegin'] as String?,
+          hotfixEnd: json['HotfixEnd'] as String?,
+          hotfixSeconds: (json['HotfixSeconds'] as num?)?.toDouble(),
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorHotfixHotfixToJson(
     WebApiModulesAdministratorHotfixHotfix instance) {
@@ -2548,32 +2504,32 @@ Map<String, dynamic> _$WebApiModulesAdministratorHotfixHotfixToJson(
 
 WebApiModulesAdministratorPluginPlugin
     _$WebApiModulesAdministratorPluginPluginFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorPluginPlugin(
-    pluginId: json['PluginId'] as int?,
-    category: json['Category'] as String?,
-    description: json['Description'] as String?,
-    settings: json['Settings'] as String?,
-    inactive: json['Inactive'] as bool?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorPluginPlugin(
+          pluginId: json['PluginId'] as int?,
+          category: json['Category'] as String?,
+          description: json['Description'] as String?,
+          settings: json['Settings'] as String?,
+          inactive: json['Inactive'] as bool?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorPluginPluginToJson(
     WebApiModulesAdministratorPluginPlugin instance) {
@@ -2600,12 +2556,11 @@ Map<String, dynamic> _$WebApiModulesAdministratorPluginPluginToJson(
 
 WebApiModulesAdministratorSystemUpdateApplyUpdateRequest
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateApplyUpdateRequest(
-    currentVersion: json['CurrentVersion'] as String?,
-    toVersion: json['ToVersion'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateApplyUpdateRequest(
+          currentVersion: json['CurrentVersion'] as String?,
+          toVersion: json['ToVersion'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestToJson(
@@ -2625,13 +2580,12 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateApplyUpdateResponse
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateApplyUpdateResponse(
-    status: json['status'] as int?,
-    success: json['success'] as bool?,
-    msg: json['msg'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateApplyUpdateResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseToJson(
@@ -2652,16 +2606,15 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateAvailableVersion
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateAvailableVersion(
-    value: json['value'] as String?,
-    text: json['text'] as String?,
-    version: json['Version'] as String?,
-    versionDate: json['VersionDate'] == null
-        ? null
-        : DateTime.parse(json['VersionDate'] as String),
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateAvailableVersion(
+          value: json['value'] as String?,
+          text: json['text'] as String?,
+          version: json['Version'] as String?,
+          versionDate: json['VersionDate'] == null
+              ? null
+              : DateTime.parse(json['VersionDate'] as String),
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionToJson(
@@ -2683,12 +2636,11 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest(
-    currentVersion: json['CurrentVersion'] as String?,
-    onlyIncludeNewerVersions: json['OnlyIncludeNewerVersions'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest(
+          currentVersion: json['CurrentVersion'] as String?,
+          onlyIncludeNewerVersions: json['OnlyIncludeNewerVersions'] as bool?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestToJson(
@@ -2709,19 +2661,18 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse(
-    status: json['status'] as int?,
-    success: json['success'] as bool?,
-    msg: json['msg'] as String?,
-    versions: (json['Versions'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorSystemUpdateAvailableVersion.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          versions: (json['Versions'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorSystemUpdateAvailableVersion
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseToJson(
@@ -2744,14 +2695,13 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateBuildDocument
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateBuildDocument(
-    buildNumber: json['BuildNumber'] as String?,
-    buildDate: json['BuildDate'] == null
-        ? null
-        : DateTime.parse(json['BuildDate'] as String),
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateBuildDocument(
+          buildNumber: json['BuildNumber'] as String?,
+          buildDate: json['BuildDate'] == null
+              ? null
+              : DateTime.parse(json['BuildDate'] as String),
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentToJson(
@@ -2771,12 +2721,11 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest(
-    currentVersion: json['CurrentVersion'] as String?,
-    onlyIncludeNewerVersions: json['OnlyIncludeNewerVersions'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest(
+          currentVersion: json['CurrentVersion'] as String?,
+          onlyIncludeNewerVersions: json['OnlyIncludeNewerVersions'] as bool?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestToJson(
@@ -2796,23 +2745,22 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse(
-    status: json['status'] as int?,
-    success: json['success'] as bool?,
-    msg: json['msg'] as String?,
-    documentsList: (json['DocumentsList'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    documents: (json['Documents'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesAdministratorSystemUpdateBuildDocument.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          documentsList: (json['DocumentsList'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          documents: (json['Documents'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorSystemUpdateBuildDocument
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseToJson(
@@ -2836,11 +2784,10 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest(
-    version: json['Version'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest(
+          version: json['Version'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestToJson(
@@ -2860,14 +2807,13 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse(
-    status: json['status'] as int?,
-    success: json['success'] as bool?,
-    msg: json['msg'] as String?,
-    downloadUrl: json['downloadUrl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          downloadUrl: json['downloadUrl'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseToJson(
@@ -2890,11 +2836,10 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest(
-    version: json['Version'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest(
+          version: json['Version'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestToJson(
@@ -2914,14 +2859,13 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse(
-    status: json['status'] as int?,
-    success: json['success'] as bool?,
-    msg: json['msg'] as String?,
-    hotfix: json['Hotfix'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          hotfix: json['Hotfix'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseToJson(
@@ -2944,37 +2888,37 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
     _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory(
-    systemUpdateHistoryId: json['SystemUpdateHistoryId'] as int?,
-    usersId: json['UsersId'] as String?,
-    userName: json['UserName'] as String?,
-    updateDateTime: json['UpdateDateTime'] == null
-        ? null
-        : DateTime.parse(json['UpdateDateTime'] as String),
-    fromVersion: json['FromVersion'] as String?,
-    toVersion: json['ToVersion'] as String?,
-    errorMessage: json['ErrorMessage'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory(
+          systemUpdateHistoryId: json['SystemUpdateHistoryId'] as int?,
+          usersId: json['UsersId'] as String?,
+          userName: json['UserName'] as String?,
+          updateDateTime: json['UpdateDateTime'] == null
+              ? null
+              : DateTime.parse(json['UpdateDateTime'] as String),
+          fromVersion: json['FromVersion'] as String?,
+          toVersion: json['ToVersion'] as String?,
+          errorMessage: json['ErrorMessage'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryToJson(
@@ -3006,31 +2950,31 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
     _$WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog(
-    systemUpdateHistoryLogId: json['SystemUpdateHistoryLogId'] as int?,
-    systemUpdateHistoryId: json['SystemUpdateHistoryId'] as int?,
-    messsage: json['Messsage'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog(
+          systemUpdateHistoryLogId: json['SystemUpdateHistoryLogId'] as int?,
+          systemUpdateHistoryId: json['SystemUpdateHistoryId'] as int?,
+          messsage: json['Messsage'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogToJson(
@@ -3057,176 +3001,177 @@ Map<String, dynamic>
 }
 
 WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
-    Map<String, dynamic> json) {
-  return WebApiModulesAdministratorUserUser(
-    userId: json['UserId'] as String?,
-    name: json['Name'] as String?,
-    loginName: json['LoginName'] as String?,
-    fullName: json['FullName'] as String?,
-    firstName: json['FirstName'] as String?,
-    middleInitial: json['MiddleInitial'] as String?,
-    lastName: json['LastName'] as String?,
-    password: json['Password'] as String?,
-    passwordChanged: json['PasswordChanged'] as bool?,
-    barCode: json['BarCode'] as String?,
-    groupId: json['GroupId'] as String?,
-    groupName: json['GroupName'] as String?,
-    scheduleColor: json['ScheduleColor'] as String?,
-    userTitleId: json['UserTitleId'] as String?,
-    userTitle: json['UserTitle'] as String?,
-    email: json['Email'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    officeLocation: json['OfficeLocation'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    warehouse: json['Warehouse'] as String?,
-    address1: json['Address1'] as String?,
-    address2: json['Address2'] as String?,
-    city: json['City'] as String?,
-    state: json['State'] as String?,
-    zipCode: json['ZipCode'] as String?,
-    countryId: json['CountryId'] as String?,
-    country: json['Country'] as String?,
-    officePhone: json['OfficePhone'] as String?,
-    officeExtension: json['OfficeExtension'] as String?,
-    fax: json['Fax'] as String?,
-    directPhone: json['DirectPhone'] as String?,
-    pager: json['Pager'] as String?,
-    pagerPin: json['PagerPin'] as String?,
-    cellular: json['Cellular'] as String?,
-    homePhone: json['HomePhone'] as String?,
-    defaultDepartmentType: json['DefaultDepartmentType'] as String?,
-    primaryDepartmentId: json['PrimaryDepartmentId'] as String?,
-    primaryDepartment: json['PrimaryDepartment'] as String?,
-    rentalDepartmentId: json['RentalDepartmentId'] as String?,
-    rentalDepartment: json['RentalDepartment'] as String?,
-    salesDepartmentId: json['SalesDepartmentId'] as String?,
-    salesDepartment: json['SalesDepartment'] as String?,
-    partsDepartmentId: json['PartsDepartmentId'] as String?,
-    partsDepartment: json['PartsDepartment'] as String?,
-    miscDepartmentId: json['MiscDepartmentId'] as String?,
-    miscDepartment: json['MiscDepartment'] as String?,
-    laborDepartmentId: json['LaborDepartmentId'] as String?,
-    laborDepartment: json['LaborDepartment'] as String?,
-    facilityDepartmentId: json['FacilityDepartmentId'] as String?,
-    facilityDepartment: json['FacilityDepartment'] as String?,
-    transportationDepartmentId: json['TransportationDepartmentId'] as String?,
-    transportationDepartment: json['TransportationDepartment'] as String?,
-    rentalInventoryTypeId: json['RentalInventoryTypeId'] as String?,
-    rentalInventoryType: json['RentalInventoryType'] as String?,
-    salesInventoryTypeId: json['SalesInventoryTypeId'] as String?,
-    salesInventoryType: json['SalesInventoryType'] as String?,
-    partsInventoryTypeId: json['PartsInventoryTypeId'] as String?,
-    partsInventoryType: json['PartsInventoryType'] as String?,
-    miscTypeId: json['MiscTypeId'] as String?,
-    miscType: json['MiscType'] as String?,
-    laborTypeId: json['LaborTypeId'] as String?,
-    laborType: json['LaborType'] as String?,
-    facilityTypeId: json['FacilityTypeId'] as String?,
-    facilityType: json['FacilityType'] as String?,
-    transportationTypeId: json['TransportationTypeId'] as String?,
-    transportationType: json['TransportationType'] as String?,
-    noMiscellaneousOnQuotes: json['NoMiscellaneousOnQuotes'] as bool?,
-    noMiscellaneousOnOrders: json['NoMiscellaneousOnOrders'] as bool?,
-    noMiscellaneousOnPurchaseOrders:
-        json['NoMiscellaneousOnPurchaseOrders'] as bool?,
-    limitDaysPerWeek: json['LimitDaysPerWeek'] as bool?,
-    minimumDaysPerWeek: (json['MinimumDaysPerWeek'] as num?)?.toDouble(),
-    allowCreditLimitOverride: json['AllowCreditLimitOverride'] as bool?,
-    limitDiscount: json['LimitDiscount'] as bool?,
-    maximumDiscount: (json['MaximumDiscount'] as num?)?.toDouble(),
-    limitSubDiscount: json['LimitSubDiscount'] as bool?,
-    maximumSubDiscount: (json['MaximumSubDiscount'] as num?)?.toDouble(),
-    discountRule: json['DiscountRule'] as String?,
-    stagingAllowIncreaseDecreaseOrderQuantity:
-        json['StagingAllowIncreaseDecreaseOrderQuantity'] as bool?,
-    allowStagingOfItemsWhenReservedOnOtherOrdersQuotes:
-        json['AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes'] as bool?,
-    allowContractIfDealRequiresPOAndOrderHasPendingPO:
-        json['AllowContractIfDealRequiresPOAndOrderHasPendingPO'] as bool?,
-    allowContractIfPendingItemsExist:
-        json['AllowContractIfPendingItemsExist'] as bool?,
-    allowContractIfCustomerDealDoesNotHaveApprovedCredit:
-        json['AllowContractIfCustomerDealDoesNotHaveApprovedCredit'] as bool?,
-    allowContractIfCustomerDealIsOverTheirCreditLimit:
-        json['AllowContractIfCustomerDealIsOverTheirCreditLimit'] as bool?,
-    allowContractIfCustomerDealInsuranceCoverageIsLess:
-        json['AllowContractIfCustomerDealInsuranceCoverageIsLess'] as bool?,
-    allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate:
-        json['AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate']
-            as bool?,
-    allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate:
-        json['AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate']
-            as bool?,
-    allowReceiveSubsWhenPositiveConflictExists:
-        json['AllowReceiveSubsWhenPositiveConflictExists'] as bool?,
-    allowStagingOfUnreservedConsignedItems:
-        json['AllowStagingOfUnreservedConsignedItems'] as bool?,
-    allowStagingOfUnapprovedItems:
-        json['AllowStagingOfUnapprovedItems'] as bool?,
-    allowSubstitutesAtStaging: json['AllowSubstitutesAtStaging'] as bool?,
-    deleteOriginalOnSubstitution: json['DeleteOriginalOnSubstitution'] as bool?,
-    quikActivityAllowPrintDollarAmounts:
-        json['QuikActivityAllowPrintDollarAmounts'] as bool?,
-    quikScanAllowCreateContract: json['QuikScanAllowCreateContract'] as bool?,
-    quikScanAllowApplyAll: json['QuikScanAllowApplyAll'] as bool?,
-    allowCrossICodeExchange: json['AllowCrossICodeExchange'] as bool?,
-    allowCrossICodePendingExchange:
-        json['AllowCrossICodePendingExchange'] as bool?,
-    allowChangeAvailabilityPriority:
-        json['AllowChangeAvailabilityPriority'] as bool?,
-    userMustChangePassword: json['UserMustChangePassword'] as bool?,
-    passwordExpires: json['PasswordExpires'] as bool?,
-    passwordExpireDays: json['PasswordExpireDays'] as int?,
-    passwordUpdatedDateTime: json['PasswordUpdatedDateTime'] as String?,
-    accountLocked: json['AccountLocked'] as bool?,
-    memo: json['Memo'] as String?,
-    allowCrossLocationEditAndDelete:
-        json['AllowCrossLocationEditAndDelete'] as bool?,
-    lastLoggedOn: json['LastLoggedOn'] as String?,
-    inactive: json['Inactive'] as bool?,
-    dateStamp: json['DateStamp'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    webAccess: json['WebAccess'] as bool?,
-    webAdministrator: json['WebAdministrator'] as bool?,
-    browseDefaultRows: json['BrowseDefaultRows'] as int?,
-    applicationTheme: json['ApplicationTheme'] as String?,
-    homeMenuGuid: json['HomeMenuGuid'] as String?,
-    homeMenuPath: json['HomeMenuPath'] as String?,
-    successSoundId: json['SuccessSoundId'] as String?,
-    successSound: json['SuccessSound'] as String?,
-    successBase64Sound: json['SuccessBase64Sound'] as String?,
-    errorSoundId: json['ErrorSoundId'] as String?,
-    errorSound: json['ErrorSound'] as String?,
-    errorBase64Sound: json['ErrorBase64Sound'] as String?,
-    notificationSoundId: json['NotificationSoundId'] as String?,
-    notificationSound: json['NotificationSound'] as String?,
-    notificationBase64Sound: json['NotificationBase64Sound'] as String?,
-    firstDayOfWeek: json['FirstDayOfWeek'] as int?,
-    settingsNavigationMenuVisible:
-        json['SettingsNavigationMenuVisible'] as bool?,
-    reportsNavigationMenuVisible: json['ReportsNavigationMenuVisible'] as bool?,
-    webQuoteRequest: json['WebQuoteRequest'] as bool?,
-    emailSignature: json['EmailSignature'] as String?,
-    locale: json['Locale'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiModulesAdministratorUserUser(
+      userId: json['UserId'] as String?,
+      name: json['Name'] as String?,
+      loginName: json['LoginName'] as String?,
+      fullName: json['FullName'] as String?,
+      firstName: json['FirstName'] as String?,
+      middleInitial: json['MiddleInitial'] as String?,
+      lastName: json['LastName'] as String?,
+      password: json['Password'] as String?,
+      passwordChanged: json['PasswordChanged'] as bool?,
+      barCode: json['BarCode'] as String?,
+      groupId: json['GroupId'] as String?,
+      groupName: json['GroupName'] as String?,
+      scheduleColor: json['ScheduleColor'] as String?,
+      userTitleId: json['UserTitleId'] as String?,
+      userTitle: json['UserTitle'] as String?,
+      email: json['Email'] as String?,
+      officeLocationId: json['OfficeLocationId'] as String?,
+      officeLocation: json['OfficeLocation'] as String?,
+      warehouseId: json['WarehouseId'] as String?,
+      warehouse: json['Warehouse'] as String?,
+      address1: json['Address1'] as String?,
+      address2: json['Address2'] as String?,
+      city: json['City'] as String?,
+      state: json['State'] as String?,
+      zipCode: json['ZipCode'] as String?,
+      countryId: json['CountryId'] as String?,
+      country: json['Country'] as String?,
+      officePhone: json['OfficePhone'] as String?,
+      officeExtension: json['OfficeExtension'] as String?,
+      fax: json['Fax'] as String?,
+      directPhone: json['DirectPhone'] as String?,
+      pager: json['Pager'] as String?,
+      pagerPin: json['PagerPin'] as String?,
+      cellular: json['Cellular'] as String?,
+      homePhone: json['HomePhone'] as String?,
+      defaultDepartmentType: json['DefaultDepartmentType'] as String?,
+      primaryDepartmentId: json['PrimaryDepartmentId'] as String?,
+      primaryDepartment: json['PrimaryDepartment'] as String?,
+      rentalDepartmentId: json['RentalDepartmentId'] as String?,
+      rentalDepartment: json['RentalDepartment'] as String?,
+      salesDepartmentId: json['SalesDepartmentId'] as String?,
+      salesDepartment: json['SalesDepartment'] as String?,
+      partsDepartmentId: json['PartsDepartmentId'] as String?,
+      partsDepartment: json['PartsDepartment'] as String?,
+      miscDepartmentId: json['MiscDepartmentId'] as String?,
+      miscDepartment: json['MiscDepartment'] as String?,
+      laborDepartmentId: json['LaborDepartmentId'] as String?,
+      laborDepartment: json['LaborDepartment'] as String?,
+      facilityDepartmentId: json['FacilityDepartmentId'] as String?,
+      facilityDepartment: json['FacilityDepartment'] as String?,
+      transportationDepartmentId: json['TransportationDepartmentId'] as String?,
+      transportationDepartment: json['TransportationDepartment'] as String?,
+      rentalInventoryTypeId: json['RentalInventoryTypeId'] as String?,
+      rentalInventoryType: json['RentalInventoryType'] as String?,
+      salesInventoryTypeId: json['SalesInventoryTypeId'] as String?,
+      salesInventoryType: json['SalesInventoryType'] as String?,
+      partsInventoryTypeId: json['PartsInventoryTypeId'] as String?,
+      partsInventoryType: json['PartsInventoryType'] as String?,
+      miscTypeId: json['MiscTypeId'] as String?,
+      miscType: json['MiscType'] as String?,
+      laborTypeId: json['LaborTypeId'] as String?,
+      laborType: json['LaborType'] as String?,
+      facilityTypeId: json['FacilityTypeId'] as String?,
+      facilityType: json['FacilityType'] as String?,
+      transportationTypeId: json['TransportationTypeId'] as String?,
+      transportationType: json['TransportationType'] as String?,
+      noMiscellaneousOnQuotes: json['NoMiscellaneousOnQuotes'] as bool?,
+      noMiscellaneousOnOrders: json['NoMiscellaneousOnOrders'] as bool?,
+      noMiscellaneousOnPurchaseOrders:
+          json['NoMiscellaneousOnPurchaseOrders'] as bool?,
+      limitDaysPerWeek: json['LimitDaysPerWeek'] as bool?,
+      minimumDaysPerWeek: (json['MinimumDaysPerWeek'] as num?)?.toDouble(),
+      allowCreditLimitOverride: json['AllowCreditLimitOverride'] as bool?,
+      limitDiscount: json['LimitDiscount'] as bool?,
+      maximumDiscount: (json['MaximumDiscount'] as num?)?.toDouble(),
+      limitSubDiscount: json['LimitSubDiscount'] as bool?,
+      maximumSubDiscount: (json['MaximumSubDiscount'] as num?)?.toDouble(),
+      discountRule: json['DiscountRule'] as String?,
+      stagingAllowIncreaseDecreaseOrderQuantity:
+          json['StagingAllowIncreaseDecreaseOrderQuantity'] as bool?,
+      allowStagingOfItemsWhenReservedOnOtherOrdersQuotes:
+          json['AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes'] as bool?,
+      allowContractIfDealRequiresPOAndOrderHasPendingPO:
+          json['AllowContractIfDealRequiresPOAndOrderHasPendingPO'] as bool?,
+      allowContractIfPendingItemsExist:
+          json['AllowContractIfPendingItemsExist'] as bool?,
+      allowContractIfCustomerDealDoesNotHaveApprovedCredit:
+          json['AllowContractIfCustomerDealDoesNotHaveApprovedCredit'] as bool?,
+      allowContractIfCustomerDealIsOverTheirCreditLimit:
+          json['AllowContractIfCustomerDealIsOverTheirCreditLimit'] as bool?,
+      allowContractIfCustomerDealInsuranceCoverageIsLess:
+          json['AllowContractIfCustomerDealInsuranceCoverageIsLess'] as bool?,
+      allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate: json[
+              'AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate']
+          as bool?,
+      allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate:
+          json['AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate']
+              as bool?,
+      allowReceiveSubsWhenPositiveConflictExists:
+          json['AllowReceiveSubsWhenPositiveConflictExists'] as bool?,
+      allowStagingOfUnreservedConsignedItems:
+          json['AllowStagingOfUnreservedConsignedItems'] as bool?,
+      allowStagingOfUnapprovedItems:
+          json['AllowStagingOfUnapprovedItems'] as bool?,
+      allowSubstitutesAtStaging: json['AllowSubstitutesAtStaging'] as bool?,
+      deleteOriginalOnSubstitution:
+          json['DeleteOriginalOnSubstitution'] as bool?,
+      quikActivityAllowPrintDollarAmounts:
+          json['QuikActivityAllowPrintDollarAmounts'] as bool?,
+      quikScanAllowCreateContract: json['QuikScanAllowCreateContract'] as bool?,
+      quikScanAllowApplyAll: json['QuikScanAllowApplyAll'] as bool?,
+      allowCrossICodeExchange: json['AllowCrossICodeExchange'] as bool?,
+      allowCrossICodePendingExchange:
+          json['AllowCrossICodePendingExchange'] as bool?,
+      allowChangeAvailabilityPriority:
+          json['AllowChangeAvailabilityPriority'] as bool?,
+      userMustChangePassword: json['UserMustChangePassword'] as bool?,
+      passwordExpires: json['PasswordExpires'] as bool?,
+      passwordExpireDays: json['PasswordExpireDays'] as int?,
+      passwordUpdatedDateTime: json['PasswordUpdatedDateTime'] as String?,
+      accountLocked: json['AccountLocked'] as bool?,
+      memo: json['Memo'] as String?,
+      allowCrossLocationEditAndDelete:
+          json['AllowCrossLocationEditAndDelete'] as bool?,
+      lastLoggedOn: json['LastLoggedOn'] as String?,
+      inactive: json['Inactive'] as bool?,
+      dateStamp: json['DateStamp'] as String?,
+      webUserId: json['WebUserId'] as String?,
+      webAccess: json['WebAccess'] as bool?,
+      webAdministrator: json['WebAdministrator'] as bool?,
+      browseDefaultRows: json['BrowseDefaultRows'] as int?,
+      applicationTheme: json['ApplicationTheme'] as String?,
+      homeMenuGuid: json['HomeMenuGuid'] as String?,
+      homeMenuPath: json['HomeMenuPath'] as String?,
+      successSoundId: json['SuccessSoundId'] as String?,
+      successSound: json['SuccessSound'] as String?,
+      successBase64Sound: json['SuccessBase64Sound'] as String?,
+      errorSoundId: json['ErrorSoundId'] as String?,
+      errorSound: json['ErrorSound'] as String?,
+      errorBase64Sound: json['ErrorBase64Sound'] as String?,
+      notificationSoundId: json['NotificationSoundId'] as String?,
+      notificationSound: json['NotificationSound'] as String?,
+      notificationBase64Sound: json['NotificationBase64Sound'] as String?,
+      firstDayOfWeek: json['FirstDayOfWeek'] as int?,
+      settingsNavigationMenuVisible:
+          json['SettingsNavigationMenuVisible'] as bool?,
+      reportsNavigationMenuVisible:
+          json['ReportsNavigationMenuVisible'] as bool?,
+      webQuoteRequest: json['WebQuoteRequest'] as bool?,
+      emailSignature: json['EmailSignature'] as String?,
+      locale: json['Locale'] as String?,
+      recordTitle: json['RecordTitle'] as String?,
+      fields: (json['_Fields'] as List<dynamic>?)
+              ?.map((e) => FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                  .fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      custom: (json['_Custom'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      defaultFieldAttributes:
+          (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+    );
 
 Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
     WebApiModulesAdministratorUserUser instance) {
@@ -3400,12 +3345,11 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
 
 WebApiModulesAdministratorUserUserCountResponse
     _$WebApiModulesAdministratorUserUserCountResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorUserUserCountResponse(
-    maxConnections: json['MaxConnections'] as int?,
-    userCount: json['UserCount'] as int?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorUserUserCountResponse(
+          maxConnections: json['MaxConnections'] as int?,
+          userCount: json['UserCount'] as int?,
+        );
 
 Map<String, dynamic> _$WebApiModulesAdministratorUserUserCountResponseToJson(
     WebApiModulesAdministratorUserUserCountResponse instance) {
@@ -3424,33 +3368,33 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserCountResponseToJson(
 
 WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
     _$WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup(
-    customFormGroupId: json['CustomFormGroupId'] as String?,
-    customFormId: json['CustomFormId'] as String?,
-    customFormDescription: json['CustomFormDescription'] as String?,
-    groupId: json['GroupId'] as String?,
-    groupName: json['GroupName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup(
+          customFormGroupId: json['CustomFormGroupId'] as String?,
+          customFormId: json['CustomFormId'] as String?,
+          customFormDescription: json['CustomFormDescription'] as String?,
+          groupId: json['GroupId'] as String?,
+          groupName: json['GroupName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupToJson(
@@ -3480,34 +3424,34 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
     _$WebApiModulesAdministratorControlsCustomFormUserCustomFormUserFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorControlsCustomFormUserCustomFormUser(
-    customFormUserId: json['CustomFormUserId'] as String?,
-    customFormId: json['CustomFormId'] as String?,
-    customFormDescription: json['CustomFormDescription'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userId: json['UserId'] as String?,
-    userName: json['UserName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorControlsCustomFormUserCustomFormUser(
+          customFormUserId: json['CustomFormUserId'] as String?,
+          customFormId: json['CustomFormId'] as String?,
+          customFormDescription: json['CustomFormDescription'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userId: json['UserId'] as String?,
+          userName: json['UserName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomFormUserCustomFormUserToJson(
@@ -3538,28 +3482,28 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorControlsCustomModuleCustomModule
     _$WebApiModulesAdministratorControlsCustomModuleCustomModuleFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorControlsCustomModuleCustomModule(
-    moduleName: json['ModuleName'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorControlsCustomModuleCustomModule(
+          moduleName: json['ModuleName'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomModuleCustomModuleToJson(
@@ -3583,34 +3527,35 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
     _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup(
-    customReportLayoutGroupId: json['CustomReportLayoutGroupId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    customReportLayoutDescription:
-        json['CustomReportLayoutDescription'] as String?,
-    groupId: json['GroupId'] as String?,
-    groupName: json['GroupName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup(
+          customReportLayoutGroupId:
+              json['CustomReportLayoutGroupId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          customReportLayoutDescription:
+              json['CustomReportLayoutDescription'] as String?,
+          groupId: json['GroupId'] as String?,
+          groupName: json['GroupName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupToJson(
@@ -3641,31 +3586,31 @@ Map<String, dynamic>
 
 WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
     _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField(
-    duplicateRuleFieldId: json['DuplicateRuleFieldId'] as String?,
-    duplicateRuleId: json['DuplicateRuleId'] as String?,
-    fieldName: json['FieldName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField(
+          duplicateRuleFieldId: json['DuplicateRuleFieldId'] as String?,
+          duplicateRuleId: json['DuplicateRuleId'] as String?,
+          fieldName: json['FieldName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldToJson(
@@ -3693,33 +3638,33 @@ Map<String, dynamic>
 
 WebApiModulesSettingsWidgetGroupWidgetGroup
     _$WebApiModulesSettingsWidgetGroupWidgetGroupFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesSettingsWidgetGroupWidgetGroup(
-    widgetGroupId: json['WidgetGroupId'] as String?,
-    widgetId: json['WidgetId'] as String?,
-    widgetDescription: json['WidgetDescription'] as String?,
-    groupId: json['GroupId'] as String?,
-    groupName: json['GroupName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesSettingsWidgetGroupWidgetGroup(
+          widgetGroupId: json['WidgetGroupId'] as String?,
+          widgetId: json['WidgetId'] as String?,
+          widgetDescription: json['WidgetDescription'] as String?,
+          groupId: json['GroupId'] as String?,
+          groupName: json['GroupName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(
     WebApiModulesSettingsWidgetGroupWidgetGroup instance) {
@@ -3747,34 +3692,34 @@ Map<String, dynamic> _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(
 
 WebApiModulesSettingsWidgetUserWidgetUser
     _$WebApiModulesSettingsWidgetUserWidgetUserFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesSettingsWidgetUserWidgetUser(
-    widgetUserId: json['WidgetUserId'] as String?,
-    widgetId: json['WidgetId'] as String?,
-    widgetDescription: json['WidgetDescription'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userId: json['UserId'] as String?,
-    userName: json['UserName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesSettingsWidgetUserWidgetUser(
+          widgetUserId: json['WidgetUserId'] as String?,
+          widgetId: json['WidgetId'] as String?,
+          widgetDescription: json['WidgetDescription'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userId: json['UserId'] as String?,
+          userName: json['UserName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetUserWidgetUserToJson(
     WebApiModulesSettingsWidgetUserWidgetUser instance) {
@@ -3803,35 +3748,35 @@ Map<String, dynamic> _$WebApiModulesSettingsWidgetUserWidgetUserToJson(
 
 WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
     _$WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser(
-    customReportLayoutUserId: json['CustomReportLayoutUserId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    customReportLayoutDescription:
-        json['CustomReportLayoutDescription'] as String?,
-    webUserId: json['WebUserId'] as String?,
-    userId: json['UserId'] as String?,
-    userName: json['UserName'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser(
+          customReportLayoutUserId: json['CustomReportLayoutUserId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          customReportLayoutDescription:
+              json['CustomReportLayoutDescription'] as String?,
+          webUserId: json['WebUserId'] as String?,
+          userId: json['UserId'] as String?,
+          userName: json['UserName'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserToJson(

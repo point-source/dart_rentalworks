@@ -8,9 +8,8 @@ part of 'account_services.swagger.dart';
 
 FwCoreApiSwashbuckleBadRequestResponse
     _$FwCoreApiSwashbuckleBadRequestResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreApiSwashbuckleBadRequestResponse();
-}
+            Map<String, dynamic> json) =>
+        FwCoreApiSwashbuckleBadRequestResponse();
 
 Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
@@ -18,15 +17,14 @@ Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
 
 FwCoreControllersFwJwtControllerJwtResponseModel
     _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreControllersFwJwtControllerJwtResponseModel(
-    statuscode: json['statuscode'] as int?,
-    statusmessage: json['statusmessage'] as String?,
-    accessToken: json['access_token'] as String?,
-    expiresIn: json['expires_in'] as int?,
-    resetpassword: json['resetpassword'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwCoreControllersFwJwtControllerJwtResponseModel(
+          statuscode: json['statuscode'] as int?,
+          statusmessage: json['statusmessage'] as String?,
+          accessToken: json['access_token'] as String?,
+          expiresIn: json['expires_in'] as int?,
+          resetpassword: json['resetpassword'] as bool?,
+        );
 
 Map<String, dynamic> _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(
     FwCoreControllersFwJwtControllerJwtResponseModel instance) {
@@ -48,19 +46,19 @@ Map<String, dynamic> _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(
 
 FwStandardAppManagerFwAmSecurityTreeNode
     _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardAppManagerFwAmSecurityTreeNode(
-    id: json['id'] as String?,
-    caption: json['caption'] as String?,
-    nodetype: json['nodetype'] as String?,
-    properties: json['properties'],
-    children: (json['children'] as List<dynamic>?)
-            ?.map((e) => FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardAppManagerFwAmSecurityTreeNode(
+          id: json['id'] as String?,
+          caption: json['caption'] as String?,
+          nodetype: json['nodetype'] as String?,
+          properties: json['properties'],
+          children: (json['children'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
     FwStandardAppManagerFwAmSecurityTreeNode instance) {
@@ -81,13 +79,12 @@ Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
 }
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwApiException(
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-    stackTrace: json['StackTrace'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwApiException(
+      statusCode: json['StatusCode'] as int?,
+      message: json['Message'] as String?,
+      stackTrace: json['StackTrace'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
     FwStandardModelsFwApiException instance) {
@@ -106,12 +103,11 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 }
 
 FwStandardModelsFwApplicationUser _$FwStandardModelsFwApplicationUserFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwApplicationUser(
-    userName: json['UserName'] as String?,
-    password: json['Password'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwApplicationUser(
+      userName: json['UserName'] as String?,
+      password: json['Password'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
     FwStandardModelsFwApplicationUser instance) {
@@ -129,30 +125,30 @@ Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
 }
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTable(
-    columnIndex: json['ColumnIndex'],
-    totals: json['Totals'],
-    columns: (json['Columns'] as List<dynamic>?)
-            ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    rows: (json['Rows'] as List<dynamic>?)
-            ?.map((e) => (e as List<dynamic>).map((e) => e as Object).toList())
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalPages: json['TotalPages'] as int?,
-    totalRows: json['TotalRows'] as int?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    columnNameByIndex: json['ColumnNameByIndex'],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardSqlServerFwJsonDataTable(
+      columnIndex: json['ColumnIndex'],
+      totals: json['Totals'],
+      columns: (json['Columns'] as List<dynamic>?)
+              ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      rows: (json['Rows'] as List<dynamic>?)
+              ?.map(
+                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+              .toList() ??
+          [],
+      pageNo: json['PageNo'] as int?,
+      pageSize: json['PageSize'] as int?,
+      totalPages: json['TotalPages'] as int?,
+      totalRows: json['TotalRows'] as int?,
+      dateFields: (json['DateFields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      columnNameByIndex: json['ColumnNameByIndex'],
+    );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
     FwStandardSqlServerFwJsonDataTable instance) {
@@ -179,16 +175,15 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTableColumn(
-    name: json['Name'] as String?,
-    dataField: json['DataField'] as String?,
-    dataType:
-        fwStandardSqlServerFwDataTypesFromJson(json['DataType'] as String?),
-    isUniqueId: json['IsUniqueId'] as bool?,
-    isVisible: json['IsVisible'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardSqlServerFwJsonDataTableColumn(
+          name: json['Name'] as String?,
+          dataField: json['DataField'] as String?,
+          dataType: fwStandardSqlServerFwDataTypesFromJson(
+              json['DataType'] as String?),
+          isUniqueId: json['IsUniqueId'] as bool?,
+          isVisible: json['IsVisible'] as bool?,
+        );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
     FwStandardSqlServerFwJsonDataTableColumn instance) {
@@ -211,14 +206,13 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
 
 WebApiLogicAppFuncCustomFieldsResponse
     _$WebApiLogicAppFuncCustomFieldsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncCustomFieldsResponse(
-    moduleNames: (json['ModuleNames'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncCustomFieldsResponse(
+          moduleNames: (json['ModuleNames'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFieldsResponseToJson(
     WebApiLogicAppFuncCustomFieldsResponse instance) {
@@ -235,16 +229,15 @@ Map<String, dynamic> _$WebApiLogicAppFuncCustomFieldsResponseToJson(
 }
 
 WebApiLogicAppFuncCustomFormModel _$WebApiLogicAppFuncCustomFormModelFromJson(
-    Map<String, dynamic> json) {
-  return WebApiLogicAppFuncCustomFormModel(
-    baseForm: json['BaseForm'] as String?,
-    customFormId: json['CustomFormId'] as String?,
-    description: json['Description'] as String?,
-    thisUserOnly: json['ThisUserOnly'] as bool?,
-    html: json['Html'] as String?,
-    assignTo: json['AssignTo'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiLogicAppFuncCustomFormModel(
+      baseForm: json['BaseForm'] as String?,
+      customFormId: json['CustomFormId'] as String?,
+      description: json['Description'] as String?,
+      thisUserOnly: json['ThisUserOnly'] as bool?,
+      html: json['Html'] as String?,
+      assignTo: json['AssignTo'] as String?,
+    );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormModelToJson(
     WebApiLogicAppFuncCustomFormModel instance) {
@@ -266,15 +259,15 @@ Map<String, dynamic> _$WebApiLogicAppFuncCustomFormModelToJson(
 }
 
 WebApiLogicAppFuncCustomFormsResponse
-    _$WebApiLogicAppFuncCustomFormsResponseFromJson(Map<String, dynamic> json) {
-  return WebApiLogicAppFuncCustomFormsResponse(
-    customForms: (json['customForms'] as List<dynamic>?)
-            ?.map((e) => WebApiLogicAppFuncCustomFormModel.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+    _$WebApiLogicAppFuncCustomFormsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncCustomFormsResponse(
+          customForms: (json['customForms'] as List<dynamic>?)
+                  ?.map((e) => WebApiLogicAppFuncCustomFormModel.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormsResponseToJson(
     WebApiLogicAppFuncCustomFormsResponse instance) {
@@ -293,31 +286,32 @@ Map<String, dynamic> _$WebApiLogicAppFuncCustomFormsResponseToJson(
 
 WebApiLogicAppFuncDefaultSettingsResponse
     _$WebApiLogicAppFuncDefaultSettingsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncDefaultSettingsResponse(
-    defaultUnitId: json['DefaultUnitId'] as String?,
-    defaultUnit: json['DefaultUnit'] as String?,
-    defaultDealStatusId: json['DefaultDealStatusId'] as String?,
-    defaultDealStatus: json['DefaultDealStatus'] as String?,
-    defaultDealPoRequired: json['DefaultDealPoRequired'] as bool?,
-    defaultDealPoType: json['DefaultDealPoType'] as String?,
-    defaultCustomerStatusId: json['DefaultCustomerStatusId'] as String?,
-    defaultCustomerStatus: json['DefaultCustomerStatus'] as String?,
-    defaultDealBillingCycleId: json['DefaultDealBillingCycleId'] as String?,
-    defaultDealBillingCycle: json['DefaultDealBillingCycle'] as String?,
-    defaultNonRecurringBillingCycleId:
-        json['DefaultNonRecurringBillingCycleId'] as String?,
-    defaultNonRecurringBillingCycle:
-        json['DefaultNonRecurringBillingCycle'] as String?,
-    defaultCustomerPaymentTermsId:
-        json['DefaultCustomerPaymentTermsId'] as String?,
-    defaultCustomerPaymentTerms: json['DefaultCustomerPaymentTerms'] as String?,
-    defaultRank: json['DefaultRank'] as String?,
-    defaultCreditStatusId: json['DefaultCreditStatusId'] as String?,
-    defaultCreditStatus: json['DefaultCreditStatus'] as String?,
-    contactShowAllDeals: json['ContactShowAllDeals'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncDefaultSettingsResponse(
+          defaultUnitId: json['DefaultUnitId'] as String?,
+          defaultUnit: json['DefaultUnit'] as String?,
+          defaultDealStatusId: json['DefaultDealStatusId'] as String?,
+          defaultDealStatus: json['DefaultDealStatus'] as String?,
+          defaultDealPoRequired: json['DefaultDealPoRequired'] as bool?,
+          defaultDealPoType: json['DefaultDealPoType'] as String?,
+          defaultCustomerStatusId: json['DefaultCustomerStatusId'] as String?,
+          defaultCustomerStatus: json['DefaultCustomerStatus'] as String?,
+          defaultDealBillingCycleId:
+              json['DefaultDealBillingCycleId'] as String?,
+          defaultDealBillingCycle: json['DefaultDealBillingCycle'] as String?,
+          defaultNonRecurringBillingCycleId:
+              json['DefaultNonRecurringBillingCycleId'] as String?,
+          defaultNonRecurringBillingCycle:
+              json['DefaultNonRecurringBillingCycle'] as String?,
+          defaultCustomerPaymentTermsId:
+              json['DefaultCustomerPaymentTermsId'] as String?,
+          defaultCustomerPaymentTerms:
+              json['DefaultCustomerPaymentTerms'] as String?,
+          defaultRank: json['DefaultRank'] as String?,
+          defaultCreditStatusId: json['DefaultCreditStatusId'] as String?,
+          defaultCreditStatus: json['DefaultCreditStatus'] as String?,
+          contactShowAllDeals: json['ContactShowAllDeals'] as bool?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
     WebApiLogicAppFuncDefaultSettingsResponse instance) {
@@ -356,18 +350,18 @@ Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
 
 WebApiLogicAppFuncDepartmentActivitiesResponse
     _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncDepartmentActivitiesResponse(
-    defaultActivityFacilities: json['DefaultActivityFacilities'] as bool?,
-    defaultActivityLabor: json['DefaultActivityLabor'] as bool?,
-    defaultActivityMiscellaneous: json['DefaultActivityMiscellaneous'] as bool?,
-    defaultActivityRental: json['DefaultActivityRental'] as bool?,
-    defaultActivitySales: json['DefaultActivitySales'] as bool?,
-    defaultActivityTransportation:
-        json['DefaultActivityTransportation'] as bool?,
-    defaultActivityRentalSale: json['DefaultActivityRentalSale'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncDepartmentActivitiesResponse(
+          defaultActivityFacilities: json['DefaultActivityFacilities'] as bool?,
+          defaultActivityLabor: json['DefaultActivityLabor'] as bool?,
+          defaultActivityMiscellaneous:
+              json['DefaultActivityMiscellaneous'] as bool?,
+          defaultActivityRental: json['DefaultActivityRental'] as bool?,
+          defaultActivitySales: json['DefaultActivitySales'] as bool?,
+          defaultActivityTransportation:
+              json['DefaultActivityTransportation'] as bool?,
+          defaultActivityRentalSale: json['DefaultActivityRentalSale'] as bool?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(
     WebApiLogicAppFuncDepartmentActivitiesResponse instance) {
@@ -393,11 +387,10 @@ Map<String, dynamic> _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(
 
 WebApiLogicAppFuncDocumentBarcodeSettingsResponse
     _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncDocumentBarcodeSettingsResponse(
-    documentBarCodeStyle: json['DocumentBarCodeStyle'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncDocumentBarcodeSettingsResponse(
+          documentBarCodeStyle: json['DocumentBarCodeStyle'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(
     WebApiLogicAppFuncDocumentBarcodeSettingsResponse instance) {
@@ -414,51 +407,51 @@ Map<String, dynamic> _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(
 }
 
 WebApiLogicAppFuncGetSettingsResponse
-    _$WebApiLogicAppFuncGetSettingsResponseFromJson(Map<String, dynamic> json) {
-  return WebApiLogicAppFuncGetSettingsResponse(
-    userSettings: json['userSettings'] == null
-        ? null
-        : WebApiLogicAppFuncUserSettingsResponse.fromJson(
-            json['userSettings'] as Map<String, dynamic>),
-    customFields: json['customFields'] == null
-        ? null
-        : WebApiLogicAppFuncCustomFieldsResponse.fromJson(
-            json['customFields'] as Map<String, dynamic>),
-    customForms: json['customForms'] == null
-        ? null
-        : WebApiLogicAppFuncCustomFormsResponse.fromJson(
-            json['customForms'] as Map<String, dynamic>),
-    defaultSettings: json['defaultSettings'] == null
-        ? null
-        : WebApiLogicAppFuncDefaultSettingsResponse.fromJson(
-            json['defaultSettings'] as Map<String, dynamic>),
-    inventorySettings: json['inventorySettings'] == null
-        ? null
-        : WebApiLogicAppFuncInventorySettingsResponse.fromJson(
-            json['inventorySettings'] as Map<String, dynamic>),
-    systemSettings: json['systemSettings'] == null
-        ? null
-        : WebApiLogicAppFuncSystemSettingsResponse.fromJson(
-            json['systemSettings'] as Map<String, dynamic>),
-    department: json['department'] == null
-        ? null
-        : WebApiLogicAppFuncDepartmentActivitiesResponse.fromJson(
-            json['department'] as Map<String, dynamic>),
-    documentBarcodeSettings: json['documentBarcodeSettings'] == null
-        ? null
-        : WebApiLogicAppFuncDocumentBarcodeSettingsResponse.fromJson(
-            json['documentBarcodeSettings'] as Map<String, dynamic>),
-    systemNumbers: json['systemNumbers'] == null
-        ? null
-        : WebApiLogicAppFuncSystemNumbersResponse.fromJson(
-            json['systemNumbers'] as Map<String, dynamic>),
-    warehouses: json['warehouses'] == null
-        ? null
-        : WebApiLogicAppFuncWarehouseResponse.fromJson(
-            json['warehouses'] as Map<String, dynamic>),
-    isTraining: json['isTraining'] as bool?,
-  );
-}
+    _$WebApiLogicAppFuncGetSettingsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncGetSettingsResponse(
+          userSettings: json['userSettings'] == null
+              ? null
+              : WebApiLogicAppFuncUserSettingsResponse.fromJson(
+                  json['userSettings'] as Map<String, dynamic>),
+          customFields: json['customFields'] == null
+              ? null
+              : WebApiLogicAppFuncCustomFieldsResponse.fromJson(
+                  json['customFields'] as Map<String, dynamic>),
+          customForms: json['customForms'] == null
+              ? null
+              : WebApiLogicAppFuncCustomFormsResponse.fromJson(
+                  json['customForms'] as Map<String, dynamic>),
+          defaultSettings: json['defaultSettings'] == null
+              ? null
+              : WebApiLogicAppFuncDefaultSettingsResponse.fromJson(
+                  json['defaultSettings'] as Map<String, dynamic>),
+          inventorySettings: json['inventorySettings'] == null
+              ? null
+              : WebApiLogicAppFuncInventorySettingsResponse.fromJson(
+                  json['inventorySettings'] as Map<String, dynamic>),
+          systemSettings: json['systemSettings'] == null
+              ? null
+              : WebApiLogicAppFuncSystemSettingsResponse.fromJson(
+                  json['systemSettings'] as Map<String, dynamic>),
+          department: json['department'] == null
+              ? null
+              : WebApiLogicAppFuncDepartmentActivitiesResponse.fromJson(
+                  json['department'] as Map<String, dynamic>),
+          documentBarcodeSettings: json['documentBarcodeSettings'] == null
+              ? null
+              : WebApiLogicAppFuncDocumentBarcodeSettingsResponse.fromJson(
+                  json['documentBarcodeSettings'] as Map<String, dynamic>),
+          systemNumbers: json['systemNumbers'] == null
+              ? null
+              : WebApiLogicAppFuncSystemNumbersResponse.fromJson(
+                  json['systemNumbers'] as Map<String, dynamic>),
+          warehouses: json['warehouses'] == null
+              ? null
+              : WebApiLogicAppFuncWarehouseResponse.fromJson(
+                  json['warehouses'] as Map<String, dynamic>),
+          isTraining: json['isTraining'] as bool?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
     WebApiLogicAppFuncGetSettingsResponse instance) {
@@ -487,25 +480,24 @@ Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
 
 WebApiLogicAppFuncInventorySettingsResponse
     _$WebApiLogicAppFuncInventorySettingsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncInventorySettingsResponse(
-    iCodeMask: json['ICodeMask'] as String?,
-    userAssignedICodes: json['UserAssignedICodes'] as bool?,
-    enable3WeekPricing: json['Enable3WeekPricing'] as bool?,
-    autoUpdateInventoryMetricImperialDimensions:
-        json['AutoUpdateInventoryMetricImperialDimensions'] as bool?,
-    enableConsignment: json['EnableConsignment'] as bool?,
-    enableLease: json['EnableLease'] as bool?,
-    defaultRentalSaleRetiredReasonId:
-        json['DefaultRentalSaleRetiredReasonId'] as String?,
-    defaultRentalSaleRetiredReason:
-        json['DefaultRentalSaleRetiredReason'] as String?,
-    defaultLossAndDamageRetiredReasonId:
-        json['DefaultLossAndDamageRetiredReasonId'] as String?,
-    defaultLossAndDamageRetiredReason:
-        json['DefaultLossAndDamageRetiredReason'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncInventorySettingsResponse(
+          iCodeMask: json['ICodeMask'] as String?,
+          userAssignedICodes: json['UserAssignedICodes'] as bool?,
+          enable3WeekPricing: json['Enable3WeekPricing'] as bool?,
+          autoUpdateInventoryMetricImperialDimensions:
+              json['AutoUpdateInventoryMetricImperialDimensions'] as bool?,
+          enableConsignment: json['EnableConsignment'] as bool?,
+          enableLease: json['EnableLease'] as bool?,
+          defaultRentalSaleRetiredReasonId:
+              json['DefaultRentalSaleRetiredReasonId'] as String?,
+          defaultRentalSaleRetiredReason:
+              json['DefaultRentalSaleRetiredReason'] as String?,
+          defaultLossAndDamageRetiredReasonId:
+              json['DefaultLossAndDamageRetiredReasonId'] as String?,
+          defaultLossAndDamageRetiredReason:
+              json['DefaultLossAndDamageRetiredReason'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
     WebApiLogicAppFuncInventorySettingsResponse instance) {
@@ -536,12 +528,11 @@ Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
 }
 
 WebApiLogicAppFuncSessionDeal _$WebApiLogicAppFuncSessionDealFromJson(
-    Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSessionDeal(
-    dealid: json['dealid'] as String?,
-    deal: json['deal'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiLogicAppFuncSessionDeal(
+      dealid: json['dealid'] as String?,
+      deal: json['deal'] as String?,
+    );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionDealToJson(
     WebApiLogicAppFuncSessionDeal instance) {
@@ -559,12 +550,11 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionDealToJson(
 }
 
 WebApiLogicAppFuncSessionDepartment
-    _$WebApiLogicAppFuncSessionDepartmentFromJson(Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSessionDepartment(
-    departmentid: json['departmentid'] as String?,
-    department: json['department'] as String?,
-  );
-}
+    _$WebApiLogicAppFuncSessionDepartmentFromJson(Map<String, dynamic> json) =>
+        WebApiLogicAppFuncSessionDepartment(
+          departmentid: json['departmentid'] as String?,
+          department: json['department'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionDepartmentToJson(
     WebApiLogicAppFuncSessionDepartment instance) {
@@ -582,25 +572,24 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionDepartmentToJson(
 }
 
 WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
-    Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSessionLocation(
-    locationid: json['locationid'] as String?,
-    location: json['location'] as String?,
-    locationcode: json['locationcode'] as String?,
-    companyname: json['companyname'] as String?,
-    locationcolor: json['locationcolor'] as String?,
-    ratetype: json['ratetype'] as String?,
-    ratetypedisplay: json['ratetypedisplay'] as String?,
-    defaultcurrency: json['defaultcurrency'] as String?,
-    defaultcurrencyid: json['defaultcurrencyid'] as String?,
-    defaultcurrencycode: json['defaultcurrencycode'] as String?,
-    defaultcurrencysymbol: json['defaultcurrencysymbol'] as String?,
-    countryid: json['countryid'] as String?,
-    country: json['country'] as String?,
-    phone: json['phone'] as String?,
-    useorderlocationbydefault: json['useorderlocationbydefault'] as bool?,
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiLogicAppFuncSessionLocation(
+      locationid: json['locationid'] as String?,
+      location: json['location'] as String?,
+      locationcode: json['locationcode'] as String?,
+      companyname: json['companyname'] as String?,
+      locationcolor: json['locationcolor'] as String?,
+      ratetype: json['ratetype'] as String?,
+      ratetypedisplay: json['ratetypedisplay'] as String?,
+      defaultcurrency: json['defaultcurrency'] as String?,
+      defaultcurrencyid: json['defaultcurrencyid'] as String?,
+      defaultcurrencycode: json['defaultcurrencycode'] as String?,
+      defaultcurrencysymbol: json['defaultcurrencysymbol'] as String?,
+      countryid: json['countryid'] as String?,
+      country: json['country'] as String?,
+      phone: json['phone'] as String?,
+      useorderlocationbydefault: json['useorderlocationbydefault'] as bool?,
+    );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
     WebApiLogicAppFuncSessionLocation instance) {
@@ -631,46 +620,47 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
 }
 
 WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
-    Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSessionUser(
-    webusersid: json['webusersid'] as String?,
-    usersid: json['usersid'] as String?,
-    contactid: json['contactid'] as String?,
-    usertype: json['usertype'] as String?,
-    email: json['email'] as String?,
-    fullname: json['fullname'] as String?,
-    name: json['name'] as String?,
-    browsedefaultrows: json['browsedefaultrows'] as int?,
-    applicationtheme: json['applicationtheme'] as String?,
-    locationid: json['locationid'] as String?,
-    location: json['location'] as String?,
-    warehouseid: json['warehouseid'] as String?,
-    warehouse: json['warehouse'] as String?,
-    departmentid: json['departmentid'] as String?,
-    department: json['department'] as String?,
-    webadministrator: json['webadministrator'] as bool?,
-    firstdayofweek: json['firstdayofweek'] as int?,
-    rentalinventorydepartmentid: json['rentalinventorydepartmentid'] as String?,
-    rentalinventorydepartment: json['rentalinventorydepartment'] as String?,
-    salesinventorydepartmentid: json['salesinventorydepartmentid'] as String?,
-    salesinventorydepartment: json['salesinventorydepartment'] as String?,
-    partsinventorydepartmentid: json['partsinventorydepartmentid'] as String?,
-    partsinventorydepartment: json['partsinventorydepartment'] as String?,
-    transportationinvdepartmentid:
-        json['transportationinvdepartmentid'] as String?,
-    transportationinvdepartment: json['transportationinvdepartment'] as String?,
-    laborinventorydepartmentid: json['laborinventorydepartmentid'] as String?,
-    laborinventorydepartment: json['laborinventorydepartment'] as String?,
-    miscinventorydepartmentid: json['miscinventorydepartmentid'] as String?,
-    miscinventorydepartment: json['miscinventorydepartment'] as String?,
-    spaceinventorydepartmentid: json['spaceinventorydepartmentid'] as String?,
-    spaceinventorydepartment: json['spaceinventorydepartment'] as String?,
-    iscrew: json['iscrew'] as bool?,
-    enablecreatecontract: json['enablecreatecontract'] as bool?,
-    qsallowapplyallqtyitems: json['qsallowapplyallqtyitems'] as bool?,
-    allowcontractwithexceptions: json['allowcontractwithexceptions'] as bool?,
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiLogicAppFuncSessionUser(
+      webusersid: json['webusersid'] as String?,
+      usersid: json['usersid'] as String?,
+      contactid: json['contactid'] as String?,
+      usertype: json['usertype'] as String?,
+      email: json['email'] as String?,
+      fullname: json['fullname'] as String?,
+      name: json['name'] as String?,
+      browsedefaultrows: json['browsedefaultrows'] as int?,
+      applicationtheme: json['applicationtheme'] as String?,
+      locationid: json['locationid'] as String?,
+      location: json['location'] as String?,
+      warehouseid: json['warehouseid'] as String?,
+      warehouse: json['warehouse'] as String?,
+      departmentid: json['departmentid'] as String?,
+      department: json['department'] as String?,
+      webadministrator: json['webadministrator'] as bool?,
+      firstdayofweek: json['firstdayofweek'] as int?,
+      rentalinventorydepartmentid:
+          json['rentalinventorydepartmentid'] as String?,
+      rentalinventorydepartment: json['rentalinventorydepartment'] as String?,
+      salesinventorydepartmentid: json['salesinventorydepartmentid'] as String?,
+      salesinventorydepartment: json['salesinventorydepartment'] as String?,
+      partsinventorydepartmentid: json['partsinventorydepartmentid'] as String?,
+      partsinventorydepartment: json['partsinventorydepartment'] as String?,
+      transportationinvdepartmentid:
+          json['transportationinvdepartmentid'] as String?,
+      transportationinvdepartment:
+          json['transportationinvdepartment'] as String?,
+      laborinventorydepartmentid: json['laborinventorydepartmentid'] as String?,
+      laborinventorydepartment: json['laborinventorydepartment'] as String?,
+      miscinventorydepartmentid: json['miscinventorydepartmentid'] as String?,
+      miscinventorydepartment: json['miscinventorydepartment'] as String?,
+      spaceinventorydepartmentid: json['spaceinventorydepartmentid'] as String?,
+      spaceinventorydepartment: json['spaceinventorydepartment'] as String?,
+      iscrew: json['iscrew'] as bool?,
+      enablecreatecontract: json['enablecreatecontract'] as bool?,
+      qsallowapplyallqtyitems: json['qsallowapplyallqtyitems'] as bool?,
+      allowcontractwithexceptions: json['allowcontractwithexceptions'] as bool?,
+    );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
     WebApiLogicAppFuncSessionUser instance) {
@@ -729,20 +719,19 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
 }
 
 WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
-    Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSessionWarehouse(
-    warehouseid: json['warehouseid'] as String?,
-    warehouse: json['warehouse'] as String?,
-    warehousecode: json['warehousecode'] as String?,
-    promptforcheckoutexceptions: json['promptforcheckoutexceptions'] as bool?,
-    promptforcheckinexceptions: json['promptforcheckinexceptions'] as bool?,
-    storagecontainerstagingenable:
-        json['storagecontainerstagingenable'] as bool?,
-    storagecontainerrescanrequired:
-        json['storagecontainerrescanrequired'] as bool?,
-    quikreceiptenable: json['quikreceiptenable'] as bool?,
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiLogicAppFuncSessionWarehouse(
+      warehouseid: json['warehouseid'] as String?,
+      warehouse: json['warehouse'] as String?,
+      warehousecode: json['warehousecode'] as String?,
+      promptforcheckoutexceptions: json['promptforcheckoutexceptions'] as bool?,
+      promptforcheckinexceptions: json['promptforcheckinexceptions'] as bool?,
+      storagecontainerstagingenable:
+          json['storagecontainerstagingenable'] as bool?,
+      storagecontainerrescanrequired:
+          json['storagecontainerrescanrequired'] as bool?,
+      quikreceiptenable: json['quikreceiptenable'] as bool?,
+    );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
     WebApiLogicAppFuncSessionWarehouse instance) {
@@ -770,12 +759,11 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
 }
 
 WebApiLogicAppFuncSystemNumbersModel
-    _$WebApiLogicAppFuncSystemNumbersModelFromJson(Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSystemNumbersModel(
-    module: json['Module'] as String?,
-    isAssignedByUser: json['IsAssignedByUser'] as bool?,
-  );
-}
+    _$WebApiLogicAppFuncSystemNumbersModelFromJson(Map<String, dynamic> json) =>
+        WebApiLogicAppFuncSystemNumbersModel(
+          module: json['Module'] as String?,
+          isAssignedByUser: json['IsAssignedByUser'] as bool?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersModelToJson(
     WebApiLogicAppFuncSystemNumbersModel instance) {
@@ -794,15 +782,14 @@ Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersModelToJson(
 
 WebApiLogicAppFuncSystemNumbersResponse
     _$WebApiLogicAppFuncSystemNumbersResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSystemNumbersResponse(
-    systemNumbers: (json['SystemNumbers'] as List<dynamic>?)
-            ?.map((e) => WebApiLogicAppFuncSystemNumbersModel.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncSystemNumbersResponse(
+          systemNumbers: (json['SystemNumbers'] as List<dynamic>?)
+                  ?.map((e) => WebApiLogicAppFuncSystemNumbersModel.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersResponseToJson(
     WebApiLogicAppFuncSystemNumbersResponse instance) {
@@ -821,19 +808,19 @@ Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersResponseToJson(
 
 WebApiLogicAppFuncSystemSettingsResponse
     _$WebApiLogicAppFuncSystemSettingsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncSystemSettingsResponse(
-    allowDeleteInvoices: json['AllowDeleteInvoices'] as bool?,
-    allowInvoiceDateChange: json['AllowInvoiceDateChange'] as bool?,
-    enableReceipts: json['EnableReceipts'] as bool?,
-    enablePayments: json['EnablePayments'] as bool?,
-    shareDealsAcrossOfficeLocations:
-        json['ShareDealsAcrossOfficeLocations'] as bool?,
-    systemName: json['SystemName'] as String?,
-    companyName: json['CompanyName'] as String?,
-    isVendorNumberAssignedByUser: json['IsVendorNumberAssignedByUser'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncSystemSettingsResponse(
+          allowDeleteInvoices: json['AllowDeleteInvoices'] as bool?,
+          allowInvoiceDateChange: json['AllowInvoiceDateChange'] as bool?,
+          enableReceipts: json['EnableReceipts'] as bool?,
+          enablePayments: json['EnablePayments'] as bool?,
+          shareDealsAcrossOfficeLocations:
+              json['ShareDealsAcrossOfficeLocations'] as bool?,
+          systemName: json['SystemName'] as String?,
+          companyName: json['CompanyName'] as String?,
+          isVendorNumberAssignedByUser:
+              json['IsVendorNumberAssignedByUser'] as bool?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
     WebApiLogicAppFuncSystemSettingsResponse instance) {
@@ -860,23 +847,23 @@ Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
 
 WebApiLogicAppFuncUserSettingsResponse
     _$WebApiLogicAppFuncUserSettingsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiLogicAppFuncUserSettingsResponse(
-    successBase64Sound: json['SuccessBase64Sound'] as String?,
-    errorBase64Sound: json['ErrorBase64Sound'] as String?,
-    notificationBase64Sound: json['NotificationBase64Sound'] as String?,
-    webAdministrator: json['WebAdministrator'] as bool?,
-    homeMenuGuid: json['HomeMenuGuid'] as String?,
-    homeMenuPath: json['HomeMenuPath'] as String?,
-    reportsNavigationMenuVisible: json['ReportsNavigationMenuVisible'] as bool?,
-    settingsNavigationMenuVisible:
-        json['SettingsNavigationMenuVisible'] as bool?,
-    mainMenuPinned: json['MainMenuPinned'] as bool?,
-    quikActivitySetting: json['QuikActivitySetting'] as String?,
-    favoritesJson: json['FavoritesJson'] as String?,
-    emailSignature: json['EmailSignature'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncUserSettingsResponse(
+          successBase64Sound: json['SuccessBase64Sound'] as String?,
+          errorBase64Sound: json['ErrorBase64Sound'] as String?,
+          notificationBase64Sound: json['NotificationBase64Sound'] as String?,
+          webAdministrator: json['WebAdministrator'] as bool?,
+          homeMenuGuid: json['HomeMenuGuid'] as String?,
+          homeMenuPath: json['HomeMenuPath'] as String?,
+          reportsNavigationMenuVisible:
+              json['ReportsNavigationMenuVisible'] as bool?,
+          settingsNavigationMenuVisible:
+              json['SettingsNavigationMenuVisible'] as bool?,
+          mainMenuPinned: json['MainMenuPinned'] as bool?,
+          quikActivitySetting: json['QuikActivitySetting'] as String?,
+          favoritesJson: json['FavoritesJson'] as String?,
+          emailSignature: json['EmailSignature'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncUserSettingsResponseToJson(
     WebApiLogicAppFuncUserSettingsResponse instance) {
@@ -906,11 +893,10 @@ Map<String, dynamic> _$WebApiLogicAppFuncUserSettingsResponseToJson(
 }
 
 WebApiLogicAppFuncWarehouseResponse
-    _$WebApiLogicAppFuncWarehouseResponseFromJson(Map<String, dynamic> json) {
-  return WebApiLogicAppFuncWarehouseResponse(
-    multiWarehouse: json['MultiWarehouse'] as bool?,
-  );
-}
+    _$WebApiLogicAppFuncWarehouseResponseFromJson(Map<String, dynamic> json) =>
+        WebApiLogicAppFuncWarehouseResponse(
+          multiWarehouse: json['MultiWarehouse'] as bool?,
+        );
 
 Map<String, dynamic> _$WebApiLogicAppFuncWarehouseResponseToJson(
     WebApiLogicAppFuncWarehouseResponse instance) {
@@ -928,22 +914,21 @@ Map<String, dynamic> _$WebApiLogicAppFuncWarehouseResponseToJson(
 
 WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
     _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse(
-    location: json['location'] == null
-        ? null
-        : WebApiLogicAppFuncSessionLocation.fromJson(
-            json['location'] as Map<String, dynamic>),
-    warehouse: json['warehouse'] == null
-        ? null
-        : WebApiLogicAppFuncSessionWarehouse.fromJson(
-            json['warehouse'] as Map<String, dynamic>),
-    department: json['department'] == null
-        ? null
-        : WebApiLogicAppFuncSessionDepartment.fromJson(
-            json['department'] as Map<String, dynamic>),
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse(
+          location: json['location'] == null
+              ? null
+              : WebApiLogicAppFuncSessionLocation.fromJson(
+                  json['location'] as Map<String, dynamic>),
+          warehouse: json['warehouse'] == null
+              ? null
+              : WebApiLogicAppFuncSessionWarehouse.fromJson(
+                  json['warehouse'] as Map<String, dynamic>),
+          department: json['department'] == null
+              ? null
+              : WebApiLogicAppFuncSessionDepartment.fromJson(
+                  json['department'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
@@ -965,42 +950,41 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
     _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse(
-    location: json['location'] == null
-        ? null
-        : WebApiLogicAppFuncSessionLocation.fromJson(
-            json['location'] as Map<String, dynamic>),
-    warehouse: json['warehouse'] == null
-        ? null
-        : WebApiLogicAppFuncSessionWarehouse.fromJson(
-            json['warehouse'] as Map<String, dynamic>),
-    department: json['department'] == null
-        ? null
-        : WebApiLogicAppFuncSessionDepartment.fromJson(
-            json['department'] as Map<String, dynamic>),
-    webUser: json['webUser'] == null
-        ? null
-        : WebApiLogicAppFuncSessionUser.fromJson(
-            json['webUser'] as Map<String, dynamic>),
-    deal: json['deal'] == null
-        ? null
-        : WebApiLogicAppFuncSessionDeal.fromJson(
-            json['deal'] as Map<String, dynamic>),
-    applicationtree: json['applicationtree'] == null
-        ? null
-        : FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
-            json['applicationtree'] as Map<String, dynamic>),
-    applicationOptions: json['applicationOptions'],
-    clientcode: json['clientcode'] as String?,
-    serverVersion: json['serverVersion'] as String?,
-    systemSettings: json['systemSettings'] == null
-        ? null
-        : WebApiModulesAccountServicesAccountSystemSettingsResponse.fromJson(
-            json['systemSettings'] as Map<String, dynamic>),
-    plugins: json['plugins'],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse(
+          location: json['location'] == null
+              ? null
+              : WebApiLogicAppFuncSessionLocation.fromJson(
+                  json['location'] as Map<String, dynamic>),
+          warehouse: json['warehouse'] == null
+              ? null
+              : WebApiLogicAppFuncSessionWarehouse.fromJson(
+                  json['warehouse'] as Map<String, dynamic>),
+          department: json['department'] == null
+              ? null
+              : WebApiLogicAppFuncSessionDepartment.fromJson(
+                  json['department'] as Map<String, dynamic>),
+          webUser: json['webUser'] == null
+              ? null
+              : WebApiLogicAppFuncSessionUser.fromJson(
+                  json['webUser'] as Map<String, dynamic>),
+          deal: json['deal'] == null
+              ? null
+              : WebApiLogicAppFuncSessionDeal.fromJson(
+                  json['deal'] as Map<String, dynamic>),
+          applicationtree: json['applicationtree'] == null
+              ? null
+              : FwStandardAppManagerFwAmSecurityTreeNode.fromJson(
+                  json['applicationtree'] as Map<String, dynamic>),
+          applicationOptions: json['applicationOptions'],
+          clientcode: json['clientcode'] as String?,
+          serverVersion: json['serverVersion'] as String?,
+          systemSettings: json['systemSettings'] == null
+              ? null
+              : WebApiModulesAccountServicesAccountSystemSettingsResponse
+                  .fromJson(json['systemSettings'] as Map<String, dynamic>),
+          plugins: json['plugins'],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
@@ -1030,13 +1014,12 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesAccountGetSettingsRequest
     _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesAccountGetSettingsRequest(
-    webUsersId: json['WebUsersId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    locationId: json['LocationId'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountGetSettingsRequest(
+          webUsersId: json['WebUsersId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          locationId: json['LocationId'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(
@@ -1057,11 +1040,10 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesAccountResetPasswordRequest
     _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesAccountResetPasswordRequest(
-    password: json['Password'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountResetPasswordRequest(
+          password: json['Password'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson(
@@ -1080,12 +1062,11 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesAccountResetPasswordResponse
     _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesAccountResetPasswordResponse(
-    status: json['Status'] as int?,
-    message: json['Message'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountResetPasswordResponse(
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(
@@ -1105,19 +1086,18 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesAccountSystemSettingsResponse
     _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesAccountSystemSettingsResponse(
-    defaultUnitId: json['DefaultUnitId'] as String?,
-    defaultRank: json['DefaultRank'] as String?,
-    requireOriginalShow: json['RequireOriginalShow'] as bool?,
-    userAssignedICodes: json['UserAssignedICodes'] as bool?,
-    quikScanStageBySession: json['QuikScanStageBySession'] as bool?,
-    barcodeSkipPrefixes: json['BarcodeSkipPrefixes'] == null
-        ? null
-        : FwStandardSqlServerFwJsonDataTable.fromJson(
-            json['BarcodeSkipPrefixes'] as Map<String, dynamic>),
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountSystemSettingsResponse(
+          defaultUnitId: json['DefaultUnitId'] as String?,
+          defaultRank: json['DefaultRank'] as String?,
+          requireOriginalShow: json['RequireOriginalShow'] as bool?,
+          userAssignedICodes: json['UserAssignedICodes'] as bool?,
+          quikScanStageBySession: json['QuikScanStageBySession'] as bool?,
+          barcodeSkipPrefixes: json['BarcodeSkipPrefixes'] == null
+              ? null
+              : FwStandardSqlServerFwJsonDataTable.fromJson(
+                  json['BarcodeSkipPrefixes'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(
@@ -1141,12 +1121,11 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesJwtOktaRequest
     _$WebApiModulesAccountServicesJwtOktaRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesJwtOktaRequest(
-    email: json['Email'] as String?,
-    token: json['Token'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesJwtOktaRequest(
+          email: json['Email'] as String?,
+          token: json['Token'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaRequestToJson(
     WebApiModulesAccountServicesJwtOktaRequest instance) {
@@ -1165,12 +1144,11 @@ Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaRequestToJson(
 
 WebApiModulesAccountServicesJwtOktaSessionRequest
     _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesJwtOktaSessionRequest(
-    token: json['Token'] as String?,
-    apiurl: json['Apiurl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesJwtOktaSessionRequest(
+          token: json['Token'] as String?,
+          apiurl: json['Apiurl'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(
     WebApiModulesAccountServicesJwtOktaSessionRequest instance) {
@@ -1189,11 +1167,10 @@ Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(
 
 WebApiModulesAccountServicesJwtOktaSessionResponseModel
     _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesJwtOktaSessionResponseModel(
-    status: json['Status'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesJwtOktaSessionResponseModel(
+          status: json['Status'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson(

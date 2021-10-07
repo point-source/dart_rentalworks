@@ -9,13 +9,13 @@ import 'settings.swagger.dart';
 import 'utilities.swagger.dart';
 
 final Map<Type, Object Function(Map<String, dynamic>)> generatedMapping = {
-  ...HomeJsonDecoderMappings,
-  ...MobileJsonDecoderMappings,
   ...ExportsJsonDecoderMappings,
-  ...AccountServicesJsonDecoderMappings,
+  ...MobileJsonDecoderMappings,
   ...ReportsJsonDecoderMappings,
-  ...SettingsJsonDecoderMappings,
-  ...PluginsJsonDecoderMappings,
-  ...AdministratorJsonDecoderMappings,
   ...UtilitiesJsonDecoderMappings,
+  ...PluginsJsonDecoderMappings,
+  ...SettingsJsonDecoderMappings,
+  ...HomeJsonDecoderMappings,
+  ...AccountServicesJsonDecoderMappings,
+  ...AdministratorJsonDecoderMappings,
 };

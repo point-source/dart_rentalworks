@@ -8,22 +8,20 @@ part of 'plugins.swagger.dart';
 
 FwCoreApiSwashbuckleBadRequestResponse
     _$FwCoreApiSwashbuckleBadRequestResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreApiSwashbuckleBadRequestResponse();
-}
+            Map<String, dynamic> json) =>
+        FwCoreApiSwashbuckleBadRequestResponse();
 
 Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
     <String, dynamic>{};
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwApiException(
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-    stackTrace: json['StackTrace'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwApiException(
+      statusCode: json['StatusCode'] as int?,
+      message: json['Message'] as String?,
+      stackTrace: json['StackTrace'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
     FwStandardModelsFwApiException instance) {
@@ -43,11 +41,10 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 
 WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens
     _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens(
-    message: json['message'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens(
+          message: json['message'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensToJson(
@@ -66,11 +63,10 @@ Map<String, dynamic>
 
 WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool
     _$WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool(
-    hasRefreshToken: json['hasRefreshToken'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool(
+          hasRefreshToken: json['hasRefreshToken'] as bool?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolToJson(
@@ -90,12 +86,11 @@ Map<String, dynamic>
 
 WebApiModulesPluginsAzureADAzureADGroup
     _$WebApiModulesPluginsAzureADAzureADGroupFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesPluginsAzureADAzureADGroup(
-    id: json['id'] as String?,
-    displayName: json['displayName'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADAzureADGroup(
+          id: json['id'] as String?,
+          displayName: json['displayName'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADAzureADGroupToJson(
     WebApiModulesPluginsAzureADAzureADGroup instance) {
@@ -114,11 +109,10 @@ Map<String, dynamic> _$WebApiModulesPluginsAzureADAzureADGroupToJson(
 
 WebApiModulesPluginsAzureADGetAzureADGroupsRequest
     _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesPluginsAzureADGetAzureADGroupsRequest(
-    groupSearch: json['GroupSearch'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADGetAzureADGroupsRequest(
+          groupSearch: json['GroupSearch'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestToJson(
     WebApiModulesPluginsAzureADGetAzureADGroupsRequest instance) {
@@ -136,18 +130,17 @@ Map<String, dynamic> _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestToJson(
 
 WebApiModulesPluginsAzureADGetAzureADGroupsResponse
     _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesPluginsAzureADGetAzureADGroupsResponse(
-    groups: (json['Groups'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesPluginsAzureADAzureADGroup.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    tooManyResults: json['TooManyResults'] as bool?,
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADGetAzureADGroupsResponse(
+          groups: (json['Groups'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesPluginsAzureADAzureADGroup.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          tooManyResults: json['TooManyResults'] as bool?,
+          statusCode: json['StatusCode'] as int?,
+          message: json['Message'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseToJson(
@@ -169,12 +162,11 @@ Map<String, dynamic>
 
 WebApiModulesPluginsAzureADImportGroupRequest
     _$WebApiModulesPluginsAzureADImportGroupRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesPluginsAzureADImportGroupRequest(
-    azureADGroupId: json['AzureADGroupId'] as String?,
-    contactTitleId: json['ContactTitleId'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADImportGroupRequest(
+          azureADGroupId: json['AzureADGroupId'] as String?,
+          contactTitleId: json['ContactTitleId'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupRequestToJson(
     WebApiModulesPluginsAzureADImportGroupRequest instance) {
@@ -193,18 +185,17 @@ Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupRequestToJson(
 
 WebApiModulesPluginsAzureADImportGroupResponse
     _$WebApiModulesPluginsAzureADImportGroupResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesPluginsAzureADImportGroupResponse(
-    lastImported: json['LastImported'] as String?,
-    users: (json['Users'] as List<dynamic>?)
-            ?.map((e) => WebApiModulesPluginsAzureADUserData.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADImportGroupResponse(
+          lastImported: json['LastImported'] as String?,
+          users: (json['Users'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesPluginsAzureADUserData.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          statusCode: json['StatusCode'] as int?,
+          message: json['Message'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupResponseToJson(
     WebApiModulesPluginsAzureADImportGroupResponse instance) {
@@ -224,15 +215,14 @@ Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupResponseToJson(
 }
 
 WebApiModulesPluginsAzureADUserData
-    _$WebApiModulesPluginsAzureADUserDataFromJson(Map<String, dynamic> json) {
-  return WebApiModulesPluginsAzureADUserData(
-    contactId: json['ContactId'] as String?,
-    firstName: json['FirstName'] as String?,
-    lastName: json['LastName'] as String?,
-    email: json['Email'] as String?,
-    sourceId: json['SourceId'] as String?,
-  );
-}
+    _$WebApiModulesPluginsAzureADUserDataFromJson(Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADUserData(
+          contactId: json['ContactId'] as String?,
+          firstName: json['FirstName'] as String?,
+          lastName: json['LastName'] as String?,
+          email: json['Email'] as String?,
+          sourceId: json['SourceId'] as String?,
+        );
 
 Map<String, dynamic> _$WebApiModulesPluginsAzureADUserDataToJson(
     WebApiModulesPluginsAzureADUserData instance) {

@@ -8,22 +8,20 @@ part of 'exports.swagger.dart';
 
 FwCoreApiSwashbuckleBadRequestResponse
     _$FwCoreApiSwashbuckleBadRequestResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreApiSwashbuckleBadRequestResponse();
-}
+            Map<String, dynamic> json) =>
+        FwCoreApiSwashbuckleBadRequestResponse();
 
 Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
     <String, dynamic>{};
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwApiException(
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-    stackTrace: json['StackTrace'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwApiException(
+      statusCode: json['StatusCode'] as int?,
+      message: json['Message'] as String?,
+      stackTrace: json['StackTrace'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
     FwStandardModelsFwApiException instance) {
@@ -42,30 +40,30 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 }
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTable(
-    columnIndex: json['ColumnIndex'],
-    totals: json['Totals'],
-    columns: (json['Columns'] as List<dynamic>?)
-            ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    rows: (json['Rows'] as List<dynamic>?)
-            ?.map((e) => (e as List<dynamic>).map((e) => e as Object).toList())
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalPages: json['TotalPages'] as int?,
-    totalRows: json['TotalRows'] as int?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    columnNameByIndex: json['ColumnNameByIndex'],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardSqlServerFwJsonDataTable(
+      columnIndex: json['ColumnIndex'],
+      totals: json['Totals'],
+      columns: (json['Columns'] as List<dynamic>?)
+              ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      rows: (json['Rows'] as List<dynamic>?)
+              ?.map(
+                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+              .toList() ??
+          [],
+      pageNo: json['PageNo'] as int?,
+      pageSize: json['PageSize'] as int?,
+      totalPages: json['TotalPages'] as int?,
+      totalRows: json['TotalRows'] as int?,
+      dateFields: (json['DateFields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      columnNameByIndex: json['ColumnNameByIndex'],
+    );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
     FwStandardSqlServerFwJsonDataTable instance) {
@@ -92,16 +90,15 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTableColumn(
-    name: json['Name'] as String?,
-    dataField: json['DataField'] as String?,
-    dataType:
-        fwStandardSqlServerFwDataTypesFromJson(json['DataType'] as String?),
-    isUniqueId: json['IsUniqueId'] as bool?,
-    isVisible: json['IsVisible'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardSqlServerFwJsonDataTableColumn(
+          name: json['Name'] as String?,
+          dataField: json['DataField'] as String?,
+          dataType: fwStandardSqlServerFwDataTypesFromJson(
+              json['DataType'] as String?),
+          isUniqueId: json['IsUniqueId'] as bool?,
+          isVisible: json['IsVisible'] as bool?,
+        );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
     FwStandardSqlServerFwJsonDataTableColumn instance) {
@@ -124,12 +121,11 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
 
 WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest(
-    batchId: json['BatchId'] as String?,
-    dataExportFormatId: json['DataExportFormatId'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest(
+          batchId: json['BatchId'] as String?,
+          dataExportFormatId: json['DataExportFormatId'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestToJson(
@@ -150,13 +146,12 @@ Map<String, dynamic>
 
 WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse(
-    batchId: json['BatchId'] as String?,
-    batchNumber: json['BatchNumber'] as String?,
-    downloadUrl: json['downloadUrl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse(
+          batchId: json['BatchId'] as String?,
+          batchNumber: json['BatchNumber'] as String?,
+          downloadUrl: json['downloadUrl'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson(
@@ -178,12 +173,11 @@ Map<String, dynamic>
 
 WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest(
-    batchId: json['BatchId'] as String?,
-    dataExportFormatId: json['DataExportFormatId'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest(
+          batchId: json['BatchId'] as String?,
+          dataExportFormatId: json['DataExportFormatId'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestToJson(
@@ -204,13 +198,12 @@ Map<String, dynamic>
 
 WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse(
-    batchId: json['BatchId'] as String?,
-    batchNumber: json['BatchNumber'] as String?,
-    downloadUrl: json['downloadUrl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse(
+          batchId: json['BatchId'] as String?,
+          batchNumber: json['BatchNumber'] as String?,
+          downloadUrl: json['downloadUrl'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson(
@@ -232,12 +225,11 @@ Map<String, dynamic>
 
 WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest(
-    batchId: json['BatchId'] as String?,
-    dataExportFormatId: json['DataExportFormatId'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest(
+          batchId: json['BatchId'] as String?,
+          dataExportFormatId: json['DataExportFormatId'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestToJson(
@@ -258,13 +250,12 @@ Map<String, dynamic>
 
 WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse(
-    batchId: json['BatchId'] as String?,
-    batchNumber: json['BatchNumber'] as String?,
-    downloadUrl: json['downloadUrl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse(
+          batchId: json['BatchId'] as String?,
+          batchNumber: json['BatchNumber'] as String?,
+          downloadUrl: json['downloadUrl'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseToJson(

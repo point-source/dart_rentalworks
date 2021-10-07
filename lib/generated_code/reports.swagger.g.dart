@@ -8,9 +8,8 @@ part of 'reports.swagger.dart';
 
 FwCoreApiSwashbuckleBadRequestResponse
     _$FwCoreApiSwashbuckleBadRequestResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreApiSwashbuckleBadRequestResponse();
-}
+            Map<String, dynamic> json) =>
+        FwCoreApiSwashbuckleBadRequestResponse();
 
 Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
@@ -18,11 +17,10 @@ Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
 
 FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
-        Map<String, dynamic> json) {
-  return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-    downloadUrl: json['downloadUrl'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
+          downloadUrl: json['downloadUrl'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
@@ -42,13 +40,12 @@ Map<String, dynamic>
 
 FwStandardBusinessLogicFwBusinessLogicFieldDefinition
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
-    name: json['Name'] as String?,
-    dataType:
-        fwStandardSqlServerFwDataTypesFromJson(json['DataType'] as String?),
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
+          name: json['Name'] as String?,
+          dataType: fwStandardSqlServerFwDataTypesFromJson(
+              json['DataType'] as String?),
+        );
 
 Map<String, dynamic>
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
@@ -68,13 +65,12 @@ Map<String, dynamic>
 }
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardDataFwCustomValue(
-    fieldName: json['FieldName'] as String?,
-    fieldValue: json['FieldValue'] as String?,
-    fieldType: json['FieldType'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardDataFwCustomValue(
+      fieldName: json['FieldName'] as String?,
+      fieldValue: json['FieldValue'] as String?,
+      fieldType: json['FieldType'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
     FwStandardDataFwCustomValue instance) {
@@ -93,13 +89,12 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
 }
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardDataFwDefaultAttribute(
-    fieldName: json['FieldName'] as String?,
-    attributeName: json['AttributeName'] as String?,
-    defaultValue: json['DefaultValue'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardDataFwDefaultAttribute(
+      fieldName: json['FieldName'] as String?,
+      attributeName: json['AttributeName'] as String?,
+      defaultValue: json['DefaultValue'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
     FwStandardDataFwDefaultAttribute instance) {
@@ -118,27 +113,27 @@ Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
 }
 
 FwStandardDataFwReportLoader _$FwStandardDataFwReportLoaderFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardDataFwReportLoader(
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardDataFwReportLoader(
+      printDate: json['PrintDate'] as String?,
+      printTime: json['PrintTime'] as String?,
+      printDateTime: json['PrintDateTime'] as String?,
+      dateFields: (json['DateFields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      custom: (json['_Custom'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      defaultFieldAttributes:
+          (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+    );
 
 Map<String, dynamic> _$FwStandardDataFwReportLoaderToJson(
     FwStandardDataFwReportLoader instance) {
@@ -161,62 +156,61 @@ Map<String, dynamic> _$FwStandardDataFwReportLoaderToJson(
 }
 
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsBrowseRequest(
-    miscfields: json['miscfields'],
-    module: json['module'] as String?,
-    options: json['options'],
-    orderby: json['orderby'] as String?,
-    orderbydirection: json['orderbydirection'] as String?,
-    top: json['top'] as int?,
-    pageno: json['pageno'] as int?,
-    pagesize: json['pagesize'] as int?,
-    searchfieldoperators: (json['searchfieldoperators'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchfields: (json['searchfields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchfieldvalues: (json['searchfieldvalues'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchfieldtypes: (json['searchfieldtypes'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchseparators: (json['searchseparators'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchcondition: (json['searchcondition'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    searchconjunctions: (json['searchconjunctions'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    uniqueids: json['uniqueids'],
-    boundids: json['boundids'],
-    filterfields: json['filterfields'],
-    activeview: json['activeview'] as String?,
-    emptyobject: json['emptyobject'] as bool?,
-    forexcel: json['forexcel'] as bool?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    totalfields: (json['totalfields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    activeviewfields: json['activeviewfields'],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsBrowseRequest(
+      miscfields: json['miscfields'],
+      module: json['module'] as String?,
+      options: json['options'],
+      orderby: json['orderby'] as String?,
+      orderbydirection: json['orderbydirection'] as String?,
+      top: json['top'] as int?,
+      pageno: json['pageno'] as int?,
+      pagesize: json['pagesize'] as int?,
+      searchfieldoperators: (json['searchfieldoperators'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfields: (json['searchfields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfieldvalues: (json['searchfieldvalues'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfieldtypes: (json['searchfieldtypes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchseparators: (json['searchseparators'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchcondition: (json['searchcondition'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchconjunctions: (json['searchconjunctions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      uniqueids: json['uniqueids'],
+      boundids: json['boundids'],
+      filterfields: json['filterfields'],
+      activeview: json['activeview'] as String?,
+      emptyobject: json['emptyobject'] as bool?,
+      forexcel: json['forexcel'] as bool?,
+      excelfields: (json['excelfields'] as List<dynamic>?)
+              ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      totalfields: (json['totalfields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      activeviewfields: json['activeviewfields'],
+    );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
     FwStandardModelsBrowseRequest instance) {
@@ -257,13 +251,12 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
 }
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsCheckBoxListItem(
-    value: json['value'] as String?,
-    text: json['text'] as String?,
-    selected: json['selected'] as bool?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsCheckBoxListItem(
+      value: json['value'] as String?,
+      text: json['text'] as String?,
+      selected: json['selected'] as bool?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
     FwStandardModelsCheckBoxListItem instance) {
@@ -282,13 +275,12 @@ Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
 }
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwApiException(
-    statusCode: json['StatusCode'] as int?,
-    message: json['Message'] as String?,
-    stackTrace: json['StackTrace'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwApiException(
+      statusCode: json['StatusCode'] as int?,
+      message: json['Message'] as String?,
+      stackTrace: json['StackTrace'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
     FwStandardModelsFwApiException instance) {
@@ -307,13 +299,12 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 }
 
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryFilter(
-    field: json['Field'] as String?,
-    op: json['Op'] as String?,
-    value: json['Value'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwQueryFilter(
+      field: json['Field'] as String?,
+      op: json['Op'] as String?,
+      value: json['Value'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     FwStandardModelsFwQueryFilter instance) {
@@ -333,20 +324,19 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
 
 FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogicFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic(
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesReportsSharedReportSettingsReportSettings.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalItems: json['TotalItems'] as int?,
-    sort: json['Sort'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesReportsSharedReportSettingsReportSettings
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogicToJson(
@@ -370,11 +360,10 @@ Map<String, dynamic>
 
 FwStandardModelsSelectedCheckBoxListItem
     _$FwStandardModelsSelectedCheckBoxListItemFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardModelsSelectedCheckBoxListItem(
-    value: json['value'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardModelsSelectedCheckBoxListItem(
+          value: json['value'] as String?,
+        );
 
 Map<String, dynamic> _$FwStandardModelsSelectedCheckBoxListItemToJson(
     FwStandardModelsSelectedCheckBoxListItem instance) {
@@ -391,15 +380,14 @@ Map<String, dynamic> _$FwStandardModelsSelectedCheckBoxListItemToJson(
 }
 
 FwStandardReportingFwReportEmailInfo
-    _$FwStandardReportingFwReportEmailInfoFromJson(Map<String, dynamic> json) {
-  return FwStandardReportingFwReportEmailInfo(
-    from: json['from'] as String?,
-    to: json['to'] as String?,
-    cc: json['cc'] as String?,
-    subject: json['subject'] as String?,
-    body: json['body'] as String?,
-  );
-}
+    _$FwStandardReportingFwReportEmailInfoFromJson(Map<String, dynamic> json) =>
+        FwStandardReportingFwReportEmailInfo(
+          from: json['from'] as String?,
+          to: json['to'] as String?,
+          cc: json['cc'] as String?,
+          subject: json['subject'] as String?,
+          body: json['body'] as String?,
+        );
 
 Map<String, dynamic> _$FwStandardReportingFwReportEmailInfoToJson(
     FwStandardReportingFwReportEmailInfo instance) {
@@ -421,21 +409,20 @@ Map<String, dynamic> _$FwStandardReportingFwReportEmailInfoToJson(
 
 FwStandardReportingFwReportRenderRequest
     _$FwStandardReportingFwReportRenderRequestFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardReportingFwReportRenderRequest(
-    renderMode: json['renderMode'] as String?,
-    parameters: json['parameters'],
-    email: json['email'] == null
-        ? null
-        : FwStandardReportingFwReportEmailInfo.fromJson(
-            json['email'] as Map<String, dynamic>),
-    downloadPdfAsAttachment: json['downloadPdfAsAttachment'] as bool?,
-    emailImageOptions: json['emailImageOptions'] == null
-        ? null
-        : FwStandardReportingFwReportRenderRequestEmailImageOptions.fromJson(
-            json['emailImageOptions'] as Map<String, dynamic>),
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardReportingFwReportRenderRequest(
+          renderMode: json['renderMode'] as String?,
+          parameters: json['parameters'],
+          email: json['email'] == null
+              ? null
+              : FwStandardReportingFwReportEmailInfo.fromJson(
+                  json['email'] as Map<String, dynamic>),
+          downloadPdfAsAttachment: json['downloadPdfAsAttachment'] as bool?,
+          emailImageOptions: json['emailImageOptions'] == null
+              ? null
+              : FwStandardReportingFwReportRenderRequestEmailImageOptions
+                  .fromJson(json['emailImageOptions'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$FwStandardReportingFwReportRenderRequestToJson(
     FwStandardReportingFwReportRenderRequest instance) {
@@ -457,12 +444,11 @@ Map<String, dynamic> _$FwStandardReportingFwReportRenderRequestToJson(
 
 FwStandardReportingFwReportRenderRequestEmailImageOptions
     _$FwStandardReportingFwReportRenderRequestEmailImageOptionsFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardReportingFwReportRenderRequestEmailImageOptions(
-    width: json['Width'] as int?,
-    height: json['Height'] as int?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardReportingFwReportRenderRequestEmailImageOptions(
+          width: json['Width'] as int?,
+          height: json['Height'] as int?,
+        );
 
 Map<String, dynamic>
     _$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson(
@@ -482,14 +468,13 @@ Map<String, dynamic>
 
 FwStandardReportingFwReportRenderResponse
     _$FwStandardReportingFwReportRenderResponseFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardReportingFwReportRenderResponse(
-    renderMode: json['renderMode'] as String?,
-    htmlReportUrl: json['htmlReportUrl'] as String?,
-    pdfReportUrl: json['pdfReportUrl'] as String?,
-    consoleOutput: json['consoleOutput'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardReportingFwReportRenderResponse(
+          renderMode: json['renderMode'] as String?,
+          htmlReportUrl: json['htmlReportUrl'] as String?,
+          pdfReportUrl: json['pdfReportUrl'] as String?,
+          consoleOutput: json['consoleOutput'] as String?,
+        );
 
 Map<String, dynamic> _$FwStandardReportingFwReportRenderResponseToJson(
     FwStandardReportingFwReportRenderResponse instance) {
@@ -509,11 +494,10 @@ Map<String, dynamic> _$FwStandardReportingFwReportRenderResponseToJson(
 }
 
 FwStandardSqlServerFwDateTime _$FwStandardSqlServerFwDateTimeFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardSqlServerFwDateTime(
-    val: json['Val'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardSqlServerFwDateTime(
+      val: json['Val'] as String?,
+    );
 
 Map<String, dynamic> _$FwStandardSqlServerFwDateTimeToJson(
     FwStandardSqlServerFwDateTime instance) {
@@ -530,30 +514,30 @@ Map<String, dynamic> _$FwStandardSqlServerFwDateTimeToJson(
 }
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
-    Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTable(
-    columnIndex: json['ColumnIndex'],
-    totals: json['Totals'],
-    columns: (json['Columns'] as List<dynamic>?)
-            ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    rows: (json['Rows'] as List<dynamic>?)
-            ?.map((e) => (e as List<dynamic>).map((e) => e as Object).toList())
-            .toList() ??
-        [],
-    pageNo: json['PageNo'] as int?,
-    pageSize: json['PageSize'] as int?,
-    totalPages: json['TotalPages'] as int?,
-    totalRows: json['TotalRows'] as int?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    columnNameByIndex: json['ColumnNameByIndex'],
-  );
-}
+        Map<String, dynamic> json) =>
+    FwStandardSqlServerFwJsonDataTable(
+      columnIndex: json['ColumnIndex'],
+      totals: json['Totals'],
+      columns: (json['Columns'] as List<dynamic>?)
+              ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      rows: (json['Rows'] as List<dynamic>?)
+              ?.map(
+                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+              .toList() ??
+          [],
+      pageNo: json['PageNo'] as int?,
+      pageSize: json['PageSize'] as int?,
+      totalPages: json['TotalPages'] as int?,
+      totalRows: json['TotalRows'] as int?,
+      dateFields: (json['DateFields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      columnNameByIndex: json['ColumnNameByIndex'],
+    );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
     FwStandardSqlServerFwJsonDataTable instance) {
@@ -580,16 +564,15 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
-        Map<String, dynamic> json) {
-  return FwStandardSqlServerFwJsonDataTableColumn(
-    name: json['Name'] as String?,
-    dataField: json['DataField'] as String?,
-    dataType:
-        fwStandardSqlServerFwDataTypesFromJson(json['DataType'] as String?),
-    isUniqueId: json['IsUniqueId'] as bool?,
-    isVisible: json['IsVisible'] as bool?,
-  );
-}
+            Map<String, dynamic> json) =>
+        FwStandardSqlServerFwJsonDataTableColumn(
+          name: json['Name'] as String?,
+          dataField: json['DataField'] as String?,
+          dataType: fwStandardSqlServerFwDataTypesFromJson(
+              json['DataType'] as String?),
+          isUniqueId: json['IsUniqueId'] as bool?,
+          isVisible: json['IsVisible'] as bool?,
+        );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
     FwStandardSqlServerFwJsonDataTableColumn instance) {
@@ -611,22 +594,21 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
 }
 
 WebApiDataAppReportResponse _$WebApiDataAppReportResponseFromJson(
-    Map<String, dynamic> json) {
-  return WebApiDataAppReportResponse(
-    dataTable: json['DataTable'] == null
-        ? null
-        : FwStandardSqlServerFwJsonDataTable.fromJson(
-            json['DataTable'] as Map<String, dynamic>),
-    dataObject: json['DataObject'] == null
-        ? null
-        : FwStandardDataFwReportLoader.fromJson(
-            json['DataObject'] as Map<String, dynamic>),
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    customReportTemplate: json['CustomReportTemplate'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    WebApiDataAppReportResponse(
+      dataTable: json['DataTable'] == null
+          ? null
+          : FwStandardSqlServerFwJsonDataTable.fromJson(
+              json['DataTable'] as Map<String, dynamic>),
+      dataObject: json['DataObject'] == null
+          ? null
+          : FwStandardDataFwReportLoader.fromJson(
+              json['DataObject'] as Map<String, dynamic>),
+      printDate: json['PrintDate'] as String?,
+      printTime: json['PrintTime'] as String?,
+      printDateTime: json['PrintDateTime'] as String?,
+      customReportTemplate: json['CustomReportTemplate'] as String?,
+    );
 
 Map<String, dynamic> _$WebApiDataAppReportResponseToJson(
     WebApiDataAppReportResponse instance) {
@@ -649,29 +631,28 @@ Map<String, dynamic> _$WebApiDataAppReportResponseToJson(
 
 WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
     _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest(
-    asOfDate: json['AsOfDate'] == null
-        ? null
-        : DateTime.parse(json['AsOfDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealCsrId: json['DealCsrId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest(
+          asOfDate: json['AsOfDate'] == null
+              ? null
+              : DateTime.parse(json['AsOfDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealCsrId: json['DealCsrId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestToJson(
@@ -704,36 +685,35 @@ Map<String, dynamic>
 
 WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest
     _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    paymentTypeId: json['PaymentTypeId'] as String?,
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          paymentTypeId: json['PaymentTypeId'] as String?,
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestToJson(
@@ -767,33 +747,32 @@ Map<String, dynamic>
 
 WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest
     _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    glAccountId: json['GlAccountId'] as String?,
-    excludeGlAccountId: json['ExcludeGlAccountId'] as String?,
-    dealId: json['DealId'] as String?,
-    isSomeDetail: json['IsSomeDetail'] as bool?,
-    isFullDetail: json['IsFullDetail'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          glAccountId: json['GlAccountId'] as String?,
+          excludeGlAccountId: json['ExcludeGlAccountId'] as String?,
+          dealId: json['DealId'] as String?,
+          isSomeDetail: json['IsSomeDetail'] as bool?,
+          isFullDetail: json['IsFullDetail'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestToJson(
@@ -828,34 +807,33 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
     _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    agentId: json['AgentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          agentId: json['AgentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestToJson(
@@ -891,51 +869,54 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
     _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    projectId: json['ProjectId'] as String?,
-    agentId: json['AgentId'] as String?,
-    status: (json['Status'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeFilter: (json['IncludeFilter'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeTaxFilter: (json['IncludeTaxFilter'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    excludeOrdersBilledInTotal: json['ExcludeOrdersBilledInTotal'] as bool?,
-    includeProjectStatus: json['IncludeProjectStatus'] as bool?,
-    includeCreditsInvoiced: json['IncludeCreditsInvoiced'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          projectId: json['ProjectId'] as String?,
+          agentId: json['AgentId'] as String?,
+          status: (json['Status'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeFilter: (json['IncludeFilter'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeTaxFilter: (json['IncludeTaxFilter'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          excludeOrdersBilledInTotal:
+              json['ExcludeOrdersBilledInTotal'] as bool?,
+          includeProjectStatus: json['IncludeProjectStatus'] as bool?,
+          includeCreditsInvoiced: json['IncludeCreditsInvoiced'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestToJson(
@@ -979,38 +960,38 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
     _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest(
-    asOfDate: json['AsOfDate'] == null
-        ? null
-        : DateTime.parse(json['AsOfDate'] as String),
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeCredits: json['IncludeCredits'] as bool?,
-    excludeBilled100: json['ExcludeBilled100'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    dealCsrId: json['DealCsrId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealId: json['DealId'] as String?,
-    agentId: json['AgentId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest(
+          asOfDate: json['AsOfDate'] == null
+              ? null
+              : DateTime.parse(json['AsOfDate'] as String),
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeCredits: json['IncludeCredits'] as bool?,
+          excludeBilled100: json['ExcludeBilled100'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          dealCsrId: json['DealCsrId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealId: json['DealId'] as String?,
+          agentId: json['AgentId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestToJson(
@@ -1048,36 +1029,35 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
     _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    includePaidInvoices: json['IncludePaidInvoices'] as bool?,
-    includeZeroBalance: json['IncludeZeroBalance'] as bool?,
-    paymentsThroughToday: json['PaymentsThroughToday'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    dealStatusId: json['DealStatusId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          includePaidInvoices: json['IncludePaidInvoices'] as bool?,
+          includeZeroBalance: json['IncludeZeroBalance'] as bool?,
+          paymentsThroughToday: json['PaymentsThroughToday'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          dealStatusId: json['DealStatusId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestToJson(
@@ -1115,23 +1095,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest
     _$WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest(
-    invoiceCreationBatchId: json['InvoiceCreationBatchId'] as String?,
-    exceptionsOnly: json['ExceptionsOnly'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest(
+          invoiceCreationBatchId: json['InvoiceCreationBatchId'] as String?,
+          exceptionsOnly: json['ExceptionsOnly'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestToJson(
@@ -1160,34 +1139,33 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
     _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    discountPercent: json['DiscountPercent'] as int?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    discountReasonId: json['DiscountReasonId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          discountPercent: json['DiscountPercent'] as int?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          discountReasonId: json['DiscountReasonId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestToJson(
@@ -1223,22 +1201,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest
     _$WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest(
-    invoiceId: json['InvoiceId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest(
+          invoiceId: json['InvoiceId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestToJson(
@@ -1265,38 +1242,38 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
     _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestToJson(
@@ -1332,39 +1309,39 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
     _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateField: json['DateField'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    agentId: json['AgentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderId: json['OrderId'] as String?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateField: json['DateField'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          agentId: json['AgentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderId: json['OrderId'] as String?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestToJson(
@@ -1401,34 +1378,33 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest
     _$WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    projectManagerId: json['ProjectManagerId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          projectManagerId: json['ProjectManagerId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestToJson(
@@ -1464,31 +1440,30 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
     _$WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateField: json['DateField'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    agentId: json['AgentId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateField: json['DateField'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          agentId: json['AgentId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestToJson(
@@ -1521,34 +1496,33 @@ Map<String, dynamic>
 
 WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest
     _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    salesRepresentativeId: json['SalesRepresentativeId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          salesRepresentativeId: json['SalesRepresentativeId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestToJson(
@@ -1584,30 +1558,29 @@ Map<String, dynamic>
 
 WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
     _$WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    moduleName: json['ModuleName'] as String?,
-    webUsersId: json['WebUsersId'] as String?,
-    keyword: json['Keyword'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          moduleName: json['ModuleName'] as String?,
+          webUsersId: json['WebUsersId'] as String?,
+          keyword: json['Keyword'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestToJson(
@@ -1639,26 +1612,25 @@ Map<String, dynamic>
 
 WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest
     _$WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest(
-    batchId: json['BatchId'] as String?,
-    batchNumber: json['BatchNumber'] as String?,
-    batchDate: json['BatchDate'] == null
-        ? null
-        : DateTime.parse(json['BatchDate'] as String),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest(
+          batchId: json['BatchId'] as String?,
+          batchNumber: json['BatchNumber'] as String?,
+          batchDate: json['BatchDate'] == null
+              ? null
+              : DateTime.parse(json['BatchDate'] as String),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestToJson(
@@ -1688,26 +1660,25 @@ Map<String, dynamic>
 
 WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest
     _$WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest(
-    batchId: json['BatchId'] as String?,
-    batchNumber: json['BatchNumber'] as String?,
-    batchDate: json['BatchDate'] == null
-        ? null
-        : DateTime.parse(json['BatchDate'] as String),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest(
+          batchId: json['BatchId'] as String?,
+          batchNumber: json['BatchNumber'] as String?,
+          batchDate: json['BatchDate'] == null
+              ? null
+              : DateTime.parse(json['BatchDate'] as String),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestToJson(
@@ -1737,26 +1708,25 @@ Map<String, dynamic>
 
 WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest
     _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest(
-    batchId: json['BatchId'] as String?,
-    batchNumber: json['BatchNumber'] as String?,
-    batchDate: json['BatchDate'] == null
-        ? null
-        : DateTime.parse(json['BatchDate'] as String),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest(
+          batchId: json['BatchId'] as String?,
+          batchNumber: json['BatchNumber'] as String?,
+          batchDate: json['BatchDate'] == null
+              ? null
+              : DateTime.parse(json['BatchDate'] as String),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestToJson(
@@ -1786,38 +1756,38 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest
     _$WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    filterDates: json['FilterDates'] as bool?,
-    daysChanged: json['DaysChanged'] as int?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    userId: json['UserId'] as String?,
-    dealId: json['DealId'] as String?,
-    revisionTypes: (json['RevisionTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          filterDates: json['FilterDates'] as bool?,
+          daysChanged: json['DaysChanged'] as int?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          userId: json['UserId'] as String?,
+          dealId: json['DealId'] as String?,
+          revisionTypes: (json['RevisionTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestToJson(
@@ -1854,22 +1824,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest
     _$WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest(
-    contractId: json['ContractId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest(
+          contractId: json['ContractId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestToJson(
@@ -1897,23 +1866,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsInContractReportInContractReportRequest
     _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsInContractReportInContractReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsInContractReportInContractReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestToJson(
@@ -1942,23 +1910,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
     _$WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestToJson(
@@ -1987,23 +1954,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
     _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestToJson(
@@ -2032,23 +1998,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest
     _$WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestToJson(
@@ -2077,23 +2042,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest
     _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestToJson(
@@ -2122,37 +2086,36 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
     _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest(
-    dealId: json['DealId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    orderId: json['OrderId'] as String?,
-    sortBy: json['SortBy'] as String?,
-    includeSales: json['IncludeSales'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    contractId: json['ContractId'] as String?,
-    orderIds: json['OrderIds'] as String?,
-    includeTrackedByBarcode: json['IncludeTrackedByBarcode'] as bool?,
-    printBarcodes: json['PrintBarcodes'] as bool?,
-    paginateByInventoryType: json['PaginateByInventoryType'] as bool?,
-    addBoxforMeterReading: json['AddBoxforMeterReading'] as bool?,
-    printICodeColumn: json['PrintICodeColumn'] as bool?,
-    printAisleShelf: json['PrintAisleShelf'] as bool?,
-    printOut: json['PrintOut'] as bool?,
-    printIn: json['PrintIn'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest(
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          orderId: json['OrderId'] as String?,
+          sortBy: json['SortBy'] as String?,
+          includeSales: json['IncludeSales'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          contractId: json['ContractId'] as String?,
+          orderIds: json['OrderIds'] as String?,
+          includeTrackedByBarcode: json['IncludeTrackedByBarcode'] as bool?,
+          printBarcodes: json['PrintBarcodes'] as bool?,
+          paginateByInventoryType: json['PaginateByInventoryType'] as bool?,
+          addBoxforMeterReading: json['AddBoxforMeterReading'] as bool?,
+          printICodeColumn: json['PrintICodeColumn'] as bool?,
+          printAisleShelf: json['PrintAisleShelf'] as bool?,
+          printOut: json['PrintOut'] as bool?,
+          printIn: json['PrintIn'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestToJson(
@@ -2195,23 +2158,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest
     _$WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestToJson(
@@ -2240,23 +2202,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest
     _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest(
-    contractId: json['ContractId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest(
+          contractId: json['ContractId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestToJson(
@@ -2285,32 +2246,31 @@ Map<String, dynamic>
 
 WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
     _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderId: json['OrderId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderId: json['OrderId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestToJson(
@@ -2344,25 +2304,24 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest
     _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest(
-    officeLocationId: json['OfficeLocationId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    onlyRemaining: json['OnlyRemaining'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest(
+          officeLocationId: json['OfficeLocationId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          onlyRemaining: json['OnlyRemaining'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestToJson(
@@ -2393,39 +2352,39 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest
     _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerTypeId: json['CustomerTypeId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealId: json['DealId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    revenueTypes: (json['RevenueTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerTypeId: json['CustomerTypeId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealId: json['DealId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          revenueTypes: (json['RevenueTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestToJson(
@@ -2463,34 +2422,33 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest
     _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderTypeId: json['OrderTypeId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderTypeId: json['OrderTypeId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestToJson(
@@ -2526,42 +2484,42 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest
     _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    deductVendorItemCost: json['DeductVendorItemCost'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    noCharge: json['NoCharge'] as String?,
-    billedHiatus: json['BilledHiatus'] as String?,
-    billableFlat: json['BillableFlat'] as String?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          deductVendorItemCost: json['DeductVendorItemCost'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          noCharge: json['NoCharge'] as String?,
+          billedHiatus: json['BilledHiatus'] as String?,
+          billableFlat: json['BillableFlat'] as String?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestToJson(
@@ -2601,46 +2559,45 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest
     _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeValueCost: json['IncludeValueCost'] as String?,
-    filterDates: json['FilterDates'] as bool?,
-    includeFullImages: json['IncludeFullImages'] as bool?,
-    includeThumbnailImages: json['IncludeThumbnailImages'] as bool?,
-    excludePendingExchanges: json['ExcludePendingExchanges'] as bool?,
-    includeContainersOnly: json['IncludeContainersOnly'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderUnitId: json['OrderUnitId'] as String?,
-    orderTypeId: json['OrderTypeId'] as String?,
-    orderId: json['OrderId'] as String?,
-    contractId: json['ContractId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeValueCost: json['IncludeValueCost'] as String?,
+          filterDates: json['FilterDates'] as bool?,
+          includeFullImages: json['IncludeFullImages'] as bool?,
+          includeThumbnailImages: json['IncludeThumbnailImages'] as bool?,
+          excludePendingExchanges: json['ExcludePendingExchanges'] as bool?,
+          includeContainersOnly: json['IncludeContainersOnly'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderUnitId: json['OrderUnitId'] as String?,
+          orderTypeId: json['OrderTypeId'] as String?,
+          orderId: json['OrderId'] as String?,
+          contractId: json['ContractId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestToJson(
@@ -2688,71 +2645,73 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
     _$WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest(
-    filterDatesOrderCreate: json['FilterDatesOrderCreate'] as bool?,
-    orderCreateFromDate: json['OrderCreateFromDate'] == null
-        ? null
-        : DateTime.parse(json['OrderCreateFromDate'] as String),
-    orderCreateToDate: json['OrderCreateToDate'] == null
-        ? null
-        : DateTime.parse(json['OrderCreateToDate'] as String),
-    filterDatesOrderStart: json['FilterDatesOrderStart'] as bool?,
-    orderStartFromDate: json['OrderStartFromDate'] == null
-        ? null
-        : DateTime.parse(json['OrderStartFromDate'] as String),
-    orderStartToDate: json['OrderStartToDate'] == null
-        ? null
-        : DateTime.parse(json['OrderStartToDate'] as String),
-    filterDatesDealCredit: json['FilterDatesDealCredit'] as bool?,
-    dealCreditFromDate: json['DealCreditFromDate'] == null
-        ? null
-        : DateTime.parse(json['DealCreditFromDate'] as String),
-    dealCreditToDate: json['DealCreditToDate'] == null
-        ? null
-        : DateTime.parse(json['DealCreditToDate'] as String),
-    filterDatesDealInsurance: json['FilterDatesDealInsurance'] as bool?,
-    dealInsuranceFromDate: json['DealInsuranceFromDate'] == null
-        ? null
-        : DateTime.parse(json['DealInsuranceFromDate'] as String),
-    dealInsuranceToDate: json['DealInsuranceToDate'] == null
-        ? null
-        : DateTime.parse(json['DealInsuranceToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealStatusId: json['DealStatusId'] as String?,
-    dealId: json['DealId'] as String?,
-    noCharge: json['NoCharge'] as String?,
-    orderType: (json['OrderType'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    quoteStatus: (json['QuoteStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    orderStatus: (json['OrderStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest(
+          filterDatesOrderCreate: json['FilterDatesOrderCreate'] as bool?,
+          orderCreateFromDate: json['OrderCreateFromDate'] == null
+              ? null
+              : DateTime.parse(json['OrderCreateFromDate'] as String),
+          orderCreateToDate: json['OrderCreateToDate'] == null
+              ? null
+              : DateTime.parse(json['OrderCreateToDate'] as String),
+          filterDatesOrderStart: json['FilterDatesOrderStart'] as bool?,
+          orderStartFromDate: json['OrderStartFromDate'] == null
+              ? null
+              : DateTime.parse(json['OrderStartFromDate'] as String),
+          orderStartToDate: json['OrderStartToDate'] == null
+              ? null
+              : DateTime.parse(json['OrderStartToDate'] as String),
+          filterDatesDealCredit: json['FilterDatesDealCredit'] as bool?,
+          dealCreditFromDate: json['DealCreditFromDate'] == null
+              ? null
+              : DateTime.parse(json['DealCreditFromDate'] as String),
+          dealCreditToDate: json['DealCreditToDate'] == null
+              ? null
+              : DateTime.parse(json['DealCreditToDate'] as String),
+          filterDatesDealInsurance: json['FilterDatesDealInsurance'] as bool?,
+          dealInsuranceFromDate: json['DealInsuranceFromDate'] == null
+              ? null
+              : DateTime.parse(json['DealInsuranceFromDate'] as String),
+          dealInsuranceToDate: json['DealInsuranceToDate'] == null
+              ? null
+              : DateTime.parse(json['DealInsuranceToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealStatusId: json['DealStatusId'] as String?,
+          dealId: json['DealId'] as String?,
+          noCharge: json['NoCharge'] as String?,
+          orderType: (json['OrderType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          quoteStatus: (json['QuoteStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          orderStatus: (json['OrderStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestToJson(
@@ -2812,35 +2771,34 @@ Map<String, dynamic>
 
 WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
     _$WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    onlyIncludeItemsStillUnassigned:
-        json['OnlyIncludeItemsStillUnassigned'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          onlyIncludeItemsStillUnassigned:
+              json['OnlyIncludeItemsStillUnassigned'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestToJson(
@@ -2877,40 +2835,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
     _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest(
-    asOfDate: json['AsOfDate'] == null
-        ? null
-        : DateTime.parse(json['AsOfDate'] as String),
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    excludeFullyDepreciated: json['ExcludeFullyDepreciated'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest(
+          asOfDate: json['AsOfDate'] == null
+              ? null
+              : DateTime.parse(json['AsOfDate'] as String),
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          excludeFullyDepreciated: json['ExcludeFullyDepreciated'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestToJson(
@@ -2947,42 +2906,43 @@ Map<String, dynamic>
 
 WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest
     _$WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestToJson(
@@ -3019,22 +2979,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest
     _$WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest(
-    inDeliveryId: json['InDeliveryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest(
+          inDeliveryId: json['InDeliveryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestToJson(
@@ -3062,44 +3021,46 @@ Map<String, dynamic>
 
 WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
     _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    transactionType: json['TransactionType'] as String?,
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          transactionType: json['TransactionType'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestToJson(
@@ -3139,48 +3100,51 @@ Map<String, dynamic>
 
 WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest
     _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    onwershipTypes: (json['OnwershipTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          onwershipTypes: (json['OnwershipTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestToJson(
@@ -3221,41 +3185,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
     _$WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    fromWarehouseId: json['FromWarehouseId'] as String?,
-    toWarehouseId: json['ToWarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    transferId: json['TransferId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          fromWarehouseId: json['FromWarehouseId'] as String?,
+          toWarehouseId: json['ToWarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          transferId: json['TransferId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestToJson(
@@ -3294,32 +3258,32 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealLFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL(
-    receiptId: json['ReceiptId'] as String?,
-    rowType: json['RowType'] as String?,
-    dealNumber: json['DealNumber'] as String?,
-    dealDescription: json['DealDescription'] as String?,
-    depositAmount: json['DepositAmount'] as String?,
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL(
+          receiptId: json['ReceiptId'] as String?,
+          rowType: json['RowType'] as String?,
+          dealNumber: json['DealNumber'] as String?,
+          dealDescription: json['DealDescription'] as String?,
+          depositAmount: json['DepositAmount'] as String?,
+          printDate: json['PrintDate'] as String?,
+          printTime: json['PrintTime'] as String?,
+          printDateTime: json['PrintDateTime'] as String?,
+          dateFields: (json['DateFields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealLToJson(
@@ -3350,36 +3314,36 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceLFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL(
-    rowType: json['RowType'] as String?,
-    arId: json['ArId'] as String?,
-    invoiceId: json['InvoiceId'] as String?,
-    invoiceNumber: json['InvoiceNumber'] as String?,
-    invoiceDate: json['InvoiceDate'] as String?,
-    orderNumber: json['OrderNumber'] as String?,
-    orderDescription: json['OrderDescription'] as String?,
-    invoiceTotal: json['InvoiceTotal'] as String?,
-    applied: json['Applied'] as String?,
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL(
+          rowType: json['RowType'] as String?,
+          arId: json['ArId'] as String?,
+          invoiceId: json['InvoiceId'] as String?,
+          invoiceNumber: json['InvoiceNumber'] as String?,
+          invoiceDate: json['InvoiceDate'] as String?,
+          orderNumber: json['OrderNumber'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          invoiceTotal: json['InvoiceTotal'] as String?,
+          applied: json['Applied'] as String?,
+          printDate: json['PrintDate'] as String?,
+          printTime: json['PrintTime'] as String?,
+          printDateTime: json['PrintDateTime'] as String?,
+          dateFields: (json['DateFields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceLToJson(
@@ -3414,35 +3378,35 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderLFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL(
-    receiptId: json['ReceiptId'] as String?,
-    rowType: json['RowType'] as String?,
-    receiptDate: json['ReceiptDate'] as String?,
-    orderNumber: json['OrderNumber'] as String?,
-    orderDescription: json['OrderDescription'] as String?,
-    periodTotal: json['PeriodTotal'] as String?,
-    replacementCost: json['ReplacementCost'] as String?,
-    depositAmount: json['DepositAmount'] as String?,
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL(
+          receiptId: json['ReceiptId'] as String?,
+          rowType: json['RowType'] as String?,
+          receiptDate: json['ReceiptDate'] as String?,
+          orderNumber: json['OrderNumber'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          periodTotal: json['PeriodTotal'] as String?,
+          replacementCost: json['ReplacementCost'] as String?,
+          depositAmount: json['DepositAmount'] as String?,
+          printDate: json['PrintDate'] as String?,
+          printTime: json['PrintTime'] as String?,
+          printDateTime: json['PrintDateTime'] as String?,
+          dateFields: (json['DateFields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderLToJson(
@@ -3476,82 +3440,84 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportLFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL(
-    receiptId: json['ReceiptId'] as String?,
-    receiptDate: json['ReceiptDate'] as String?,
-    locationId: json['LocationId'] as String?,
-    locationCode: json['LocationCode'] as String?,
-    location: json['Location'] as String?,
-    department: json['Department'] as String?,
-    customerId: json['CustomerId'] as String?,
-    customer: json['Customer'] as String?,
-    dealId: json['DealId'] as String?,
-    deal: json['Deal'] as String?,
-    paymentBy: json['PaymentBy'] as String?,
-    payTypeId: json['PayTypeId'] as String?,
-    payType: json['PayType'] as String?,
-    paymentType: json['PaymentType'] as String?,
-    payTypeExportPaymentMethod: json['PayTypeExportPaymentMethod'] as String?,
-    checkNumber: json['CheckNumber'] as String?,
-    paymentAmount: json['PaymentAmount'] as String?,
-    appliedById: json['AppliedById'] as String?,
-    paymentMemo: json['PaymentMemo'] as String?,
-    recType: json['RecType'] as bool?,
-    recTypeDisplay: json['RecTypeDisplay'] as String?,
-    currencyId: json['CurrencyId'] as String?,
-    currencyCode: json['CurrencyCode'] as String?,
-    currencySymbol: json['CurrencySymbol'] as bool?,
-    locationDefaultCurrencyId: json['LocationDefaultCurrencyId'] as String?,
-    overPaymentId: json['OverPaymentId'] as String?,
-    orderId: json['OrderId'] as String?,
-    authorizationCode: json['AuthorizationCode'] as String?,
-    address1: json['Address1'] as String?,
-    address2: json['Address2'] as String?,
-    city: json['City'] as String?,
-    state: json['State'] as String?,
-    phone: json['Phone'] as String?,
-    zip: json['Zip'] as String?,
-    orderNo: json['OrderNo'] as String?,
-    orderDescription: json['OrderDescription'] as String?,
-    reportType: json['ReportType'] as String?,
-    orders: (json['Orders'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    deals: (json['Deals'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    invoices: (json['Invoices'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL(
+          receiptId: json['ReceiptId'] as String?,
+          receiptDate: json['ReceiptDate'] as String?,
+          locationId: json['LocationId'] as String?,
+          locationCode: json['LocationCode'] as String?,
+          location: json['Location'] as String?,
+          department: json['Department'] as String?,
+          customerId: json['CustomerId'] as String?,
+          customer: json['Customer'] as String?,
+          dealId: json['DealId'] as String?,
+          deal: json['Deal'] as String?,
+          paymentBy: json['PaymentBy'] as String?,
+          payTypeId: json['PayTypeId'] as String?,
+          payType: json['PayType'] as String?,
+          paymentType: json['PaymentType'] as String?,
+          payTypeExportPaymentMethod:
+              json['PayTypeExportPaymentMethod'] as String?,
+          checkNumber: json['CheckNumber'] as String?,
+          paymentAmount: json['PaymentAmount'] as String?,
+          appliedById: json['AppliedById'] as String?,
+          paymentMemo: json['PaymentMemo'] as String?,
+          recType: json['RecType'] as bool?,
+          recTypeDisplay: json['RecTypeDisplay'] as String?,
+          currencyId: json['CurrencyId'] as String?,
+          currencyCode: json['CurrencyCode'] as String?,
+          currencySymbol: json['CurrencySymbol'] as bool?,
+          locationDefaultCurrencyId:
+              json['LocationDefaultCurrencyId'] as String?,
+          overPaymentId: json['OverPaymentId'] as String?,
+          orderId: json['OrderId'] as String?,
+          authorizationCode: json['AuthorizationCode'] as String?,
+          address1: json['Address1'] as String?,
+          address2: json['Address2'] as String?,
+          city: json['City'] as String?,
+          state: json['State'] as String?,
+          phone: json['Phone'] as String?,
+          zip: json['Zip'] as String?,
+          orderNo: json['OrderNo'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          reportType: json['ReportType'] as String?,
+          orders: (json['Orders'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          deals: (json['Deals'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          invoices: (json['Invoices'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          printDate: json['PrintDate'] as String?,
+          printTime: json['PrintTime'] as String?,
+          printDateTime: json['PrintDateTime'] as String?,
+          dateFields: (json['DateFields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportLToJson(
@@ -3618,22 +3584,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest(
-    receiptId: json['ReceiptId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest(
+          receiptId: json['ReceiptId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequestToJson(
@@ -3661,22 +3626,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest
     _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest(
-    orderId: json['OrderId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest(
+          orderId: json['OrderId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestToJson(
@@ -3704,33 +3668,32 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
     _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest(
-    reportType: json['ReportType'] as String?,
-    days: json['Days'] as int?,
-    dueBackDate: json['DueBackDate'] == null
-        ? null
-        : DateTime.parse(json['DueBackDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    orderedByContactId: json['OrderedByContactId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest(
+          reportType: json['ReportType'] as String?,
+          days: json['Days'] as int?,
+          dueBackDate: json['DueBackDate'] == null
+              ? null
+              : DateTime.parse(json['DueBackDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          orderedByContactId: json['OrderedByContactId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestToJson(
@@ -3767,52 +3730,54 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
     _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    availableFor: json['AvailableFor'] as String?,
-    conflictType: json['ConflictType'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderId: json['OrderId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    classifications: (json['Classifications'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          availableFor: json['AvailableFor'] as String?,
+          conflictType: json['ConflictType'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderId: json['OrderId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          classifications: (json['Classifications'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestToJson(
@@ -3856,39 +3821,39 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
     _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsOrderReportOrderReportRequest(
-    orderId: json['OrderId'] as String?,
-    reportView:
-        webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-            json['ReportView'] as String?),
-    printInventoryType: json['PrintInventoryType'] as bool?,
-    printCategory: json['PrintCategory'] as bool?,
-    printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
-    printInventoryTypeSubTotal: json['PrintInventoryTypeSubTotal'] as bool?,
-    printCategorySubTotal: json['PrintCategorySubTotal'] as bool?,
-    printZeroExtended: json['PrintZeroExtended'] as bool?,
-    printLineItemNotes: json['PrintLineItemNotes'] as bool?,
-    printGrandTotal: json['PrintGrandTotal'] as bool?,
-    printGrossTotal: json['PrintGrossTotal'] as bool?,
-    printGrandDiscount: json['PrintGrandDiscount'] as bool?,
-    printGrandWeekly: json['PrintGrandWeekly'] as bool?,
-    printGrandPeriod: json['PrintGrandPeriod'] as bool?,
-    printActivityWeekly: json['PrintActivityWeekly'] as bool?,
-    printActivityPeriod: json['PrintActivityPeriod'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOrderReportOrderReportRequest(
+          orderId: json['OrderId'] as String?,
+          reportView:
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+                  json['ReportView'] as String?),
+          printInventoryType: json['PrintInventoryType'] as bool?,
+          printCategory: json['PrintCategory'] as bool?,
+          printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
+          printInventoryTypeSubTotal:
+              json['PrintInventoryTypeSubTotal'] as bool?,
+          printCategorySubTotal: json['PrintCategorySubTotal'] as bool?,
+          printZeroExtended: json['PrintZeroExtended'] as bool?,
+          printLineItemNotes: json['PrintLineItemNotes'] as bool?,
+          printGrandTotal: json['PrintGrandTotal'] as bool?,
+          printGrossTotal: json['PrintGrossTotal'] as bool?,
+          printGrandDiscount: json['PrintGrandDiscount'] as bool?,
+          printGrandWeekly: json['PrintGrandWeekly'] as bool?,
+          printGrandPeriod: json['PrintGrandPeriod'] as bool?,
+          printActivityWeekly: json['PrintActivityWeekly'] as bool?,
+          printActivityPeriod: json['PrintActivityPeriod'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestToJson(
@@ -3935,22 +3900,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest
     _$WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest(
-    orderId: json['OrderId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest(
+          orderId: json['OrderId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestToJson(
@@ -3978,22 +3942,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest
     _$WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest(
-    orderId: json['OrderId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest(
+          orderId: json['OrderId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestToJson(
@@ -4021,22 +3984,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
     _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
-    orderId: json['OrderId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
+          orderId: json['OrderId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestToJson(
@@ -4064,31 +4026,30 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest
     _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest(
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealId: json['DealId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    onlyIncludeICodesWithQuantityAvail:
-        json['OnlyIncludeICodesWithQuantityAvail'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealId: json['DealId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          onlyIncludeICodesWithQuantityAvail:
+              json['OnlyIncludeICodesWithQuantityAvail'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestToJson(
@@ -4125,22 +4086,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
     _$WebApiModulesReportsOrderReportsPickListReportPickListReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsPickListReportPickListReportRequest(
-    pickListId: json['PickListId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsPickListReportPickListReportRequest(
+          pickListId: json['PickListId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsPickListReportPickListReportRequestToJson(
@@ -4168,37 +4128,37 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
     _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    orderType: (json['OrderType'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    activityTypeId: json['ActivityTypeId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    agentId: json['AgentId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          orderType: (json['OrderType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          activityTypeId: json['ActivityTypeId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          agentId: json['AgentId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestToJson(
@@ -4234,56 +4194,58 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest
     _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    filterDates: json['FilterDates'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealTypeId: json['DealTypeId'] as String?,
-    dealStatusId: json['DealStatusId'] as String?,
-    dealId: json['DealId'] as String?,
-    agentId: json['AgentId'] as String?,
-    orderType: (json['OrderType'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    quoteStatus: (json['QuoteStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    orderStatus: (json['OrderStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          filterDates: json['FilterDates'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealTypeId: json['DealTypeId'] as String?,
+          dealStatusId: json['DealStatusId'] as String?,
+          dealId: json['DealId'] as String?,
+          agentId: json['AgentId'] as String?,
+          orderType: (json['OrderType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          quoteStatus: (json['QuoteStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          orderStatus: (json['OrderStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestToJson(
@@ -4328,39 +4290,39 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
     _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest(
-    quoteId: json['QuoteId'] as String?,
-    reportView:
-        webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-            json['ReportView'] as String?),
-    printInventoryType: json['PrintInventoryType'] as bool?,
-    printCategory: json['PrintCategory'] as bool?,
-    printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
-    printInventoryTypeSubTotal: json['PrintInventoryTypeSubTotal'] as bool?,
-    printCategorySubTotal: json['PrintCategorySubTotal'] as bool?,
-    printZeroExtended: json['PrintZeroExtended'] as bool?,
-    printLineItemNotes: json['PrintLineItemNotes'] as bool?,
-    printGrandTotal: json['PrintGrandTotal'] as bool?,
-    printGrossTotal: json['PrintGrossTotal'] as bool?,
-    printGrandDiscount: json['PrintGrandDiscount'] as bool?,
-    printGrandWeekly: json['PrintGrandWeekly'] as bool?,
-    printGrandPeriod: json['PrintGrandPeriod'] as bool?,
-    printActivityWeekly: json['PrintActivityWeekly'] as bool?,
-    printActivityPeriod: json['PrintActivityPeriod'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest(
+          quoteId: json['QuoteId'] as String?,
+          reportView:
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+                  json['ReportView'] as String?),
+          printInventoryType: json['PrintInventoryType'] as bool?,
+          printCategory: json['PrintCategory'] as bool?,
+          printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
+          printInventoryTypeSubTotal:
+              json['PrintInventoryTypeSubTotal'] as bool?,
+          printCategorySubTotal: json['PrintCategorySubTotal'] as bool?,
+          printZeroExtended: json['PrintZeroExtended'] as bool?,
+          printLineItemNotes: json['PrintLineItemNotes'] as bool?,
+          printGrandTotal: json['PrintGrandTotal'] as bool?,
+          printGrossTotal: json['PrintGrossTotal'] as bool?,
+          printGrandDiscount: json['PrintGrandDiscount'] as bool?,
+          printGrandWeekly: json['PrintGrandWeekly'] as bool?,
+          printGrandPeriod: json['PrintGrandPeriod'] as bool?,
+          printActivityWeekly: json['PrintActivityWeekly'] as bool?,
+          printActivityPeriod: json['PrintActivityPeriod'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestToJson(
@@ -4407,49 +4369,50 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest
     _$WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    includeNoCharge: json['IncludeNoCharge'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    agentId: json['AgentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          includeNoCharge: json['IncludeNoCharge'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          agentId: json['AgentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestToJson(
@@ -4493,23 +4456,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
     _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest(
-    orderId: json['OrderId'] as String?,
-    rentalValue: json['RentalValue'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest(
+          orderId: json['OrderId'] as String?,
+          rentalValue: json['RentalValue'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestToJson(
@@ -4538,22 +4500,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest
     _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest(
-    outDeliveryId: json['OutDeliveryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest(
+          outDeliveryId: json['OutDeliveryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestToJson(
@@ -4581,28 +4542,27 @@ Map<String, dynamic>
 
 WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest
     _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest(
-    reorderPointMode: json['ReorderPointMode'] as String?,
-    includeZeroReorderPoint: json['IncludeZeroReorderPoint'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest(
+          reorderPointMode: json['ReorderPointMode'] as String?,
+          includeZeroReorderPoint: json['IncludeZeroReorderPoint'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestToJson(
@@ -4636,42 +4596,43 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    spaceIds: json['SpaceIds'] as String?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    isSpace: json['IsSpace'] as bool?,
-    isRecount: json['isRecount'] as bool?,
-    includeCompleteKits: json['IncludeCompleteKits'] as bool?,
-    includeCompleteKitReferences: json['IncludeCompleteKitReferences'] as bool?,
-    excludeOptionalAccessories: json['ExcludeOptionalAccessories'] as bool?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          spaceIds: json['SpaceIds'] as String?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          isSpace: json['IsSpace'] as bool?,
+          isRecount: json['isRecount'] as bool?,
+          includeCompleteKits: json['IncludeCompleteKits'] as bool?,
+          includeCompleteKitReferences:
+              json['IncludeCompleteKitReferences'] as bool?,
+          excludeOptionalAccessories:
+              json['ExcludeOptionalAccessories'] as bool?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestToJson(
@@ -4714,41 +4675,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    consignorIds: json['ConsignorIds'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    includeIcodesThatAreNotDiscrepancies:
-        json['IncludeIcodesThatAreNotDiscrepancies'] as bool?,
-    printBarcodeSerialNotCounted: json['PrintBarcodeSerialNotCounted'] as bool?,
-    isSpace: json['IsSpace'] as bool?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    spaceIds: json['SpaceIds'] as String?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          consignorIds: json['ConsignorIds'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          includeIcodesThatAreNotDiscrepancies:
+              json['IncludeIcodesThatAreNotDiscrepancies'] as bool?,
+          printBarcodeSerialNotCounted:
+              json['PrintBarcodeSerialNotCounted'] as bool?,
+          isSpace: json['IsSpace'] as bool?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          spaceIds: json['SpaceIds'] as String?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestToJson(
@@ -4789,37 +4750,36 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    spaceIds: json['SpaceIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    includeZeroOwned: json['IncludeZeroOwned'] as bool?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          spaceIds: json['SpaceIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          includeZeroOwned: json['IncludeZeroOwned'] as bool?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestToJson(
@@ -4855,37 +4815,36 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    spaceIds: json['SpaceIds'] as String?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          spaceIds: json['SpaceIds'] as String?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestToJson(
@@ -4921,52 +4880,51 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    fromDate: json['FromDate'] == null
-        ? null
-        : FwStandardSqlServerFwDateTime.fromJson(
-            json['FromDate'] as Map<String, dynamic>),
-    toDate: json['ToDate'] == null
-        ? null
-        : FwStandardSqlServerFwDateTime.fromJson(
-            json['ToDate'] as Map<String, dynamic>),
-    availableFor: json['AvailableFor'] as String?,
-    itemsCounted: json['ItemsCounted'] as bool?,
-    includeOrders: json['IncludeOrders'] as bool?,
-    includeOrderBarcodes: json['IncludeOrderBarcodes'] as bool?,
-    includeCountedBarcodes: json['IncludeCountedBarcodes'] as bool?,
-    excludeZeroCostExtended: json['ExcludeZeroCostExtended'] as bool?,
-    onlyChangedItems: json['OnlyChangedItems'] as bool?,
-    trackedbyIds: json['TrackedbyIds'] as String?,
-    spaceIds: json['SpaceIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : FwStandardSqlServerFwDateTime.fromJson(
+                  json['FromDate'] as Map<String, dynamic>),
+          toDate: json['ToDate'] == null
+              ? null
+              : FwStandardSqlServerFwDateTime.fromJson(
+                  json['ToDate'] as Map<String, dynamic>),
+          availableFor: json['AvailableFor'] as String?,
+          itemsCounted: json['ItemsCounted'] as bool?,
+          includeOrders: json['IncludeOrders'] as bool?,
+          includeOrderBarcodes: json['IncludeOrderBarcodes'] as bool?,
+          includeCountedBarcodes: json['IncludeCountedBarcodes'] as bool?,
+          excludeZeroCostExtended: json['ExcludeZeroCostExtended'] as bool?,
+          onlyChangedItems: json['OnlyChangedItems'] as bool?,
+          trackedbyIds: json['TrackedbyIds'] as String?,
+          spaceIds: json['SpaceIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestToJson(
@@ -5011,37 +4969,36 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    spaceIds: json['SpaceIds'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    includeIdenticalCounts: json['IncludeIdenticalCounts'] as bool?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          spaceIds: json['SpaceIds'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          includeIdenticalCounts: json['IncludeIdenticalCounts'] as bool?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestToJson(
@@ -5077,38 +5034,37 @@ Map<String, dynamic>
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest(
-    physicalInventoryId: json['PhysicalInventoryId'] as String?,
-    includeNoChangeItems: json['IncludeNoChangeItems'] as bool?,
-    showRetiredBarcodes: json['ShowRetiredBarcodes'] as bool?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    spaceIds: json['SpaceIds'] as String?,
-    inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
-    categoryIds: json['CategoryIds'] as String?,
-    masterIds: json['MasterIds'] as String?,
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest(
+          physicalInventoryId: json['PhysicalInventoryId'] as String?,
+          includeNoChangeItems: json['IncludeNoChangeItems'] as bool?,
+          showRetiredBarcodes: json['ShowRetiredBarcodes'] as bool?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          spaceIds: json['SpaceIds'] as String?,
+          inventoryDepartmentIds: json['InventoryDepartmentIds'] as String?,
+          categoryIds: json['CategoryIds'] as String?,
+          masterIds: json['MasterIds'] as String?,
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestToJson(
@@ -5145,23 +5101,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest
     _$WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest(
-    purchaseOrderId: json['PurchaseOrderId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest(
+          purchaseOrderId: json['PurchaseOrderId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestToJson(
@@ -5190,23 +5145,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsRateUpdateReportRateUpdateReportRequest
     _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRateUpdateReportRateUpdateReportRequest(
-    pendingModificationsOnly: json['PendingModificationsOnly'] as bool?,
-    rateUpdateBatchId: json['RateUpdateBatchId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRateUpdateReportRateUpdateReportRequest(
+          pendingModificationsOnly: json['PendingModificationsOnly'] as bool?,
+          rateUpdateBatchId: json['RateUpdateBatchId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestToJson(
@@ -5234,48 +5188,51 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestToJson(
@@ -5316,52 +5273,55 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    isDetail: json['IsDetail'] as bool?,
-    includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
-    onlyIncludeLowAndNegative: json['OnlyIncludeLowAndNegative'] as bool?,
-    onlyIncludeNegative: json['OnlyIncludeNegative'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    classifications: (json['Classifications'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          isDetail: json['IsDetail'] as bool?,
+          includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
+          onlyIncludeLowAndNegative: json['OnlyIncludeLowAndNegative'] as bool?,
+          onlyIncludeNegative: json['OnlyIncludeNegative'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          classifications: (json['Classifications'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestToJson(
@@ -5406,44 +5366,47 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest(
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    includeRetiredSerializedItems:
-        json['IncludeRetiredSerializedItems'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          includeRetiredSerializedItems:
+              json['IncludeRetiredSerializedItems'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestToJson(
@@ -5484,44 +5447,45 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    includeZeroOwned: json['IncludeZeroOwned'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    value: json['Value'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          includeZeroOwned: json['IncludeZeroOwned'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          value: json['Value'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestToJson(
@@ -5560,26 +5524,25 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest(
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestToJson(
@@ -5611,50 +5574,52 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest(
-    includePeriodRevenue: json['IncludePeriodRevenue'] as bool?,
-    revenueFromDate: json['RevenueFromDate'] == null
-        ? null
-        : DateTime.parse(json['RevenueFromDate'] as String),
-    revenueToDate: json['RevenueToDate'] == null
-        ? null
-        : DateTime.parse(json['RevenueToDate'] as String),
-    revenueFilterMode: json['RevenueFilterMode'] as String?,
-    revenueFilterAmount: (json['RevenueFilterAmount'] as num?)?.toDouble(),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeNotRentedSince: json['IncludeNotRentedSince'] as bool?,
-    notRentedSinceDate: json['NotRentedSinceDate'] == null
-        ? null
-        : DateTime.parse(json['NotRentedSinceDate'] as String),
-    includeZeroOwned: json['IncludeZeroOwned'] as bool?,
-    showStagedAndOut: json['ShowStagedAndOut'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest(
+          includePeriodRevenue: json['IncludePeriodRevenue'] as bool?,
+          revenueFromDate: json['RevenueFromDate'] == null
+              ? null
+              : DateTime.parse(json['RevenueFromDate'] as String),
+          revenueToDate: json['RevenueToDate'] == null
+              ? null
+              : DateTime.parse(json['RevenueToDate'] as String),
+          revenueFilterMode: json['RevenueFilterMode'] as String?,
+          revenueFilterAmount:
+              (json['RevenueFilterAmount'] as num?)?.toDouble(),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeNotRentedSince: json['IncludeNotRentedSince'] as bool?,
+          notRentedSinceDate: json['NotRentedSinceDate'] == null
+              ? null
+              : DateTime.parse(json['NotRentedSinceDate'] as String),
+          includeZeroOwned: json['IncludeZeroOwned'] as bool?,
+          showStagedAndOut: json['ShowStagedAndOut'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestToJson(
@@ -5698,38 +5663,38 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest(
-    asOfDate: json['AsOfDate'] == null
-        ? null
-        : DateTime.parse(json['AsOfDate'] as String),
-    includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
-    daysUnused: json['DaysUnused'] as int?,
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    dealId: json['DealId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest(
+          asOfDate: json['AsOfDate'] == null
+              ? null
+              : DateTime.parse(json['AsOfDate'] as String),
+          includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
+          daysUnused: json['DaysUnused'] as int?,
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          dealId: json['DealId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestToJson(
@@ -5768,49 +5733,50 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    utilizationFilterMode: json['UtilizationFilterMode'] as String?,
-    utilizationFilterAmount:
-        (json['UtilizationFilterAmount'] as num?)?.toDouble(),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    excludeZeroOwned: json['ExcludeZeroOwned'] as bool?,
-    filterDatesByUtilizationPercent:
-        json['FilterDatesByUtilizationPercent'] as bool?,
-    onlyIncludeItemsThatAreTheMainItemOfAComplete:
-        json['OnlyIncludeItemsThatAreTheMainItemOfAComplete'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          utilizationFilterMode: json['UtilizationFilterMode'] as String?,
+          utilizationFilterAmount:
+              (json['UtilizationFilterAmount'] as num?)?.toDouble(),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          excludeZeroOwned: json['ExcludeZeroOwned'] as bool?,
+          filterDatesByUtilizationPercent:
+              json['FilterDatesByUtilizationPercent'] as bool?,
+          onlyIncludeItemsThatAreTheMainItemOfAComplete:
+              json['OnlyIncludeItemsThatAreTheMainItemOfAComplete'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestToJson(
@@ -5853,49 +5819,50 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    includeOwned: json['IncludeOwned'] as bool?,
-    includeConsigned: json['IncludeConsigned'] as bool?,
-    includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
-    groupByICode: json['GroupByICode'] as bool?,
-    quantityValueBasedOn: json['QuantityValueBasedOn'] as String?,
-    serializedValueBasedOn: json['SerializedValueBasedOn'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    summary: json['Summary'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          includeOwned: json['IncludeOwned'] as bool?,
+          includeConsigned: json['IncludeConsigned'] as bool?,
+          includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
+          groupByICode: json['GroupByICode'] as bool?,
+          quantityValueBasedOn: json['QuantityValueBasedOn'] as String?,
+          serializedValueBasedOn: json['SerializedValueBasedOn'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          summary: json['Summary'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestToJson(
@@ -5939,37 +5906,36 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    excludeRetiredItems: json['ExcludeRetiredItems'] as bool?,
-    excludeUnretiredItems: json['ExcludeUnretiredItems'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    retiredReasonId: json['RetiredReasonId'] as String?,
-    unretiredReasonId: json['UnretiredReasonId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          excludeRetiredItems: json['ExcludeRetiredItems'] as bool?,
+          excludeUnretiredItems: json['ExcludeUnretiredItems'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          retiredReasonId: json['RetiredReasonId'] as String?,
+          unretiredReasonId: json['UnretiredReasonId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestToJson(
@@ -6008,41 +5974,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    includeUnretired: json['IncludeUnretired'] as bool?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    retiredReasonId: json['RetiredReasonId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          includeUnretired: json['IncludeUnretired'] as bool?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          retiredReasonId: json['RetiredReasonId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestToJson(
@@ -6081,34 +6047,33 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    dealId: json['DealId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    userId: json['UserId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          dealId: json['DealId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          userId: json['UserId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestToJson(
@@ -6144,48 +6109,49 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
     _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest(
-    usePeriodSelector: json['UsePeriodSelector'] as bool?,
-    reportYear: json['ReportYear'] as String?,
-    reportPeriod: json['ReportPeriod'] as String?,
-    useDateRange: json['UseDateRange'] as bool?,
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeZeroCurrentOwned: json['IncludeZeroCurrentOwned'] as bool?,
-    includeZeroAverageOwned: json['IncludeZeroAverageOwned'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest(
+          usePeriodSelector: json['UsePeriodSelector'] as bool?,
+          reportYear: json['ReportYear'] as String?,
+          reportPeriod: json['ReportPeriod'] as String?,
+          useDateRange: json['UseDateRange'] as bool?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeZeroCurrentOwned: json['IncludeZeroCurrentOwned'] as bool?,
+          includeZeroAverageOwned: json['IncludeZeroAverageOwned'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestToJson(
@@ -6228,33 +6194,32 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    unretiredReasonId: json['UnretiredReasonId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          unretiredReasonId: json['UnretiredReasonId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestToJson(
@@ -6289,45 +6254,48 @@ Map<String, dynamic>
 
 WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest(
-    asOfDate: json['AsOfDate'] == null
-        ? null
-        : DateTime.parse(json['AsOfDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest(
+          asOfDate: json['AsOfDate'] == null
+              ? null
+              : DateTime.parse(json['AsOfDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestToJson(
@@ -6367,48 +6335,49 @@ Map<String, dynamic>
 
 WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest
     _$WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest(
-    repairOrderStatus: (json['RepairOrderStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    priority: (json['Priority'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    billable: json['Billable'] as bool?,
-    billed: json['Billed'] as bool?,
-    owned: json['Owned'] as bool?,
-    daysInRepair: json['DaysInRepair'] as int?,
-    daysInRepairFilterMode: json['DaysInRepairFilterMode'] as String?,
-    includeOutsideRepairsOnly: json['IncludeOutsideRepairsOnly'] as bool?,
-    includeDamageNotes: json['IncludeDamageNotes'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    repairItemStatusId: json['RepairItemStatusId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    vendorRepairItemStatusId: json['VendorRepairItemStatusId'] as String?,
-    dealId: json['DealId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest(
+          repairOrderStatus: (json['RepairOrderStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          priority: (json['Priority'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          billable: json['Billable'] as bool?,
+          billed: json['Billed'] as bool?,
+          owned: json['Owned'] as bool?,
+          daysInRepair: json['DaysInRepair'] as int?,
+          daysInRepairFilterMode: json['DaysInRepairFilterMode'] as String?,
+          includeOutsideRepairsOnly: json['IncludeOutsideRepairsOnly'] as bool?,
+          includeDamageNotes: json['IncludeDamageNotes'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          repairItemStatusId: json['RepairItemStatusId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          vendorRepairItemStatusId: json['VendorRepairItemStatusId'] as String?,
+          dealId: json['DealId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequestToJson(
@@ -6455,22 +6424,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
     _$WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest(
-    repairId: json['RepairId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest(
+          repairId: json['RepairId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestToJson(
@@ -6498,22 +6466,21 @@ Map<String, dynamic>
 
 WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
     _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest(
-    repairId: json['RepairId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest(
+          repairId: json['RepairId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestToJson(
@@ -6541,26 +6508,25 @@ Map<String, dynamic>
 
 WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest(
-    vendorId: json['VendorId'] as String?,
-    dealId: json['DealId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest(
+          vendorId: json['VendorId'] as String?,
+          dealId: json['DealId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestToJson(
@@ -6592,42 +6558,42 @@ Map<String, dynamic>
 
 WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    summary: json['Summary'] as bool?,
-    includeSalesTax: json['IncludeSalesTax'] as bool?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    officeLocationId: json['OfficeLocationId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderId: json['OrderId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          summary: json['Summary'] as bool?,
+          includeSalesTax: json['IncludeSalesTax'] as bool?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          officeLocationId: json['OfficeLocationId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderId: json['OrderId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestToJson(
@@ -6667,40 +6633,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest(
-    includePeriodRevenue: json['IncludePeriodRevenue'] as bool?,
-    revenueFromDate: json['RevenueFromDate'] == null
-        ? null
-        : DateTime.parse(json['RevenueFromDate'] as String),
-    revenueToDate: json['RevenueToDate'] == null
-        ? null
-        : DateTime.parse(json['RevenueToDate'] as String),
-    revenueFilterMode: json['RevenueFilterMode'] as String?,
-    revenueFilterAmount: (json['RevenueFilterAmount'] as num?)?.toDouble(),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    excludeZeroOwned: json['ExcludeZeroOwned'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest(
+          includePeriodRevenue: json['IncludePeriodRevenue'] as bool?,
+          revenueFromDate: json['RevenueFromDate'] == null
+              ? null
+              : DateTime.parse(json['RevenueFromDate'] as String),
+          revenueToDate: json['RevenueToDate'] == null
+              ? null
+              : DateTime.parse(json['RevenueToDate'] as String),
+          revenueFilterMode: json['RevenueFilterMode'] as String?,
+          revenueFilterAmount:
+              (json['RevenueFilterAmount'] as num?)?.toDouble(),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          excludeZeroOwned: json['ExcludeZeroOwned'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestToJson(
@@ -6738,28 +6705,27 @@ Map<String, dynamic>
 
 WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest(
-    reorderPointMode: json['ReorderPointMode'] as String?,
-    includeZeroReorderPoint: json['IncludeZeroReorderPoint'] as bool?,
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest(
+          reorderPointMode: json['ReorderPointMode'] as String?,
+          includeZeroReorderPoint: json['IncludeZeroReorderPoint'] as bool?,
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestToJson(
@@ -6793,37 +6759,38 @@ Map<String, dynamic>
 
 WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest
     _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest(
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    attributeId: json['AttributeId'] as String?,
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest(
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          attributeId: json['AttributeId'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestToJson(
@@ -6859,44 +6826,47 @@ Map<String, dynamic>
 
 WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
     _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest(
-    classifications: (json['Classifications'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    warehouseCatalogId: json['WarehouseCatalogId'] as String?,
-    includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest(
+          classifications: (json['Classifications'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          fixedAsset:
+              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          warehouseCatalogId: json['WarehouseCatalogId'] as String?,
+          includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestToJson(
@@ -6937,48 +6907,49 @@ Map<String, dynamic>
 
 WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest
     _$WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest(
-    purchasedFromDate: json['PurchasedFromDate'] == null
-        ? null
-        : DateTime.parse(json['PurchasedFromDate'] as String),
-    purchasedToDate: json['PurchasedToDate'] == null
-        ? null
-        : DateTime.parse(json['PurchasedToDate'] as String),
-    receivedFromDate: json['ReceivedFromDate'] == null
-        ? null
-        : DateTime.parse(json['ReceivedFromDate'] as String),
-    receivedToDate: json['ReceivedToDate'] == null
-        ? null
-        : DateTime.parse(json['ReceivedToDate'] as String),
-    trackedBys: (json['TrackedBys'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    ranks: (json['Ranks'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest(
+          purchasedFromDate: json['PurchasedFromDate'] == null
+              ? null
+              : DateTime.parse(json['PurchasedFromDate'] as String),
+          purchasedToDate: json['PurchasedToDate'] == null
+              ? null
+              : DateTime.parse(json['PurchasedToDate'] as String),
+          receivedFromDate: json['ReceivedFromDate'] == null
+              ? null
+              : DateTime.parse(json['ReceivedFromDate'] as String),
+          receivedToDate: json['ReceivedToDate'] == null
+              ? null
+              : DateTime.parse(json['ReceivedToDate'] as String),
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          ranks: (json['Ranks'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestToJson(
@@ -7019,37 +6990,37 @@ Map<String, dynamic>
 
 WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest
     _$WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    transactionTypes: (json['TransactionTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    warehouseId: json['WarehouseId'] as String?,
-    inventoryTypeId: json['InventoryTypeId'] as String?,
-    categoryId: json['CategoryId'] as String?,
-    subCategoryId: json['SubCategoryId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          transactionTypes: (json['TransactionTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestToJson(
@@ -7085,34 +7056,34 @@ Map<String, dynamic>
 
 WebApiModulesReportsSharedReportSettingsReportSettings
     _$WebApiModulesReportsSharedReportSettingsReportSettingsFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSharedReportSettingsReportSettings(
-    id: json['Id'] as int?,
-    webUserId: json['WebUserId'] as String?,
-    reportName: json['ReportName'] as String?,
-    description: json['Description'] as String?,
-    settings: json['Settings'] as String?,
-    excelSettings: json['ExcelSettings'] as String?,
-    dateStamp: json['DateStamp'] as String?,
-    recordTitle: json['RecordTitle'] as String?,
-    fields: (json['_Fields'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                    e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSharedReportSettingsReportSettings(
+          id: json['Id'] as int?,
+          webUserId: json['WebUserId'] as String?,
+          reportName: json['ReportName'] as String?,
+          description: json['Description'] as String?,
+          settings: json['Settings'] as String?,
+          excelSettings: json['ExcelSettings'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedReportSettingsReportSettingsToJson(
@@ -7142,35 +7113,35 @@ Map<String, dynamic>
 
 WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest
     _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestToJson(
@@ -7203,40 +7174,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    activities: (json['Activities'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          activities: (json['Activities'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestToJson(
@@ -7271,23 +7243,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest(
-    purchaseOrderId: json['PurchaseOrderId'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest(
+          purchaseOrderId: json['PurchaseOrderId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestToJson(
@@ -7316,25 +7287,24 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest(
-    purchaseOrderId: json['PurchaseOrderId'] as String?,
-    reportView:
-        webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-            json['ReportView'] as String?),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest(
+          purchaseOrderId: json['PurchaseOrderId'] as String?,
+          reportView:
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+                  json['ReportView'] as String?),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestToJson(
@@ -7366,37 +7336,37 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    projectId: json['ProjectId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    poApprovalStatusId: json['PoApprovalStatusId'] as String?,
-    status: (json['Status'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          projectId: json['ProjectId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          poApprovalStatusId: json['PoApprovalStatusId'] as String?,
+          status: (json['Status'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestToJson(
@@ -7431,44 +7401,45 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
     _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderId: json['OrderId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    poClassificationId: json['PoClassificationId'] as String?,
-    recType: (json['RecType'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderId: json['OrderId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          poClassificationId: json['PoClassificationId'] as String?,
+          recType: (json['RecType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestToJson(
@@ -7506,43 +7477,44 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest
     _$WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    customerId: json['CustomerId'] as String?,
-    dealId: json['DealId'] as String?,
-    orderId: json['OrderId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    poClassificationId: json['PoClassificationId'] as String?,
-    recType: (json['RecType'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          dealId: json['DealId'] as String?,
+          orderId: json['OrderId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          poClassificationId: json['PoClassificationId'] as String?,
+          recType: (json['RecType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestToJson(
@@ -7579,45 +7551,46 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest
     _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    dealId: json['DealId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    poClassificationId: json['PoClassificationId'] as String?,
-    purchaseOrderId: json['PurchaseOrderId'] as String?,
-    inventoryId: json['InventoryId'] as String?,
-    invoiceStatus: (json['InvoiceStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    purchaseOrderStatus: (json['PurchaseOrderStatus'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeVendorTax: json['IncludeVendorTax'] as bool?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          dealId: json['DealId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          poClassificationId: json['PoClassificationId'] as String?,
+          purchaseOrderId: json['PurchaseOrderId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          invoiceStatus: (json['InvoiceStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          purchaseOrderStatus: (json['PurchaseOrderStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeVendorTax: json['IncludeVendorTax'] as bool?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestToJson(
@@ -7658,46 +7631,46 @@ Map<String, dynamic>
 
 WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest
     _$WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    dateType: json['DateType'] as String?,
-    statuses: (json['Statuses'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    includeAccruals: json['IncludeAccruals'] as bool?,
-    accrualFromDate: json['AccrualFromDate'] == null
-        ? null
-        : DateTime.parse(json['AccrualFromDate'] as String),
-    accrualToDate: json['AccrualToDate'] == null
-        ? null
-        : DateTime.parse(json['AccrualToDate'] as String),
-    accrualsOnly: json['AccrualsOnly'] as bool?,
-    officeLocationId: json['OfficeLocationId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    dealId: json['DealId'] as String?,
-    vendorId: json['VendorId'] as String?,
-    purchaseOrderId: json['PurchaseOrderId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          dateType: json['DateType'] as String?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeAccruals: json['IncludeAccruals'] as bool?,
+          accrualFromDate: json['AccrualFromDate'] == null
+              ? null
+              : DateTime.parse(json['AccrualFromDate'] as String),
+          accrualToDate: json['AccrualToDate'] == null
+              ? null
+              : DateTime.parse(json['AccrualToDate'] as String),
+          accrualsOnly: json['AccrualsOnly'] as bool?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          dealId: json['DealId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          purchaseOrderId: json['PurchaseOrderId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestToJson(
@@ -7737,23 +7710,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest
     _$WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest(
-    containerItemId: json['ContainerItemId'] as String?,
-    appLanguageId: json['AppLanguageId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest(
+          containerItemId: json['ContainerItemId'] as String?,
+          appLanguageId: json['AppLanguageId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestToJson(
@@ -7782,16 +7754,15 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData(
-    personSignature: json['PersonSignature'] as String?,
-    quikReceiptId: json['QuikReceiptId'] as String?,
-    quikReceiptTermsConditionsHtml:
-        json['QuikReceiptTermsConditionsHtml'] as String?,
-    personPrintedName: json['PersonPrintedName'] as String?,
-    note: json['Note'] as String?,
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData(
+          personSignature: json['PersonSignature'] as String?,
+          quikReceiptId: json['QuikReceiptId'] as String?,
+          quikReceiptTermsConditionsHtml:
+              json['QuikReceiptTermsConditionsHtml'] as String?,
+          personPrintedName: json['PersonPrintedName'] as String?,
+          note: json['Note'] as String?,
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataToJson(
@@ -7816,30 +7787,30 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL(
-    rowType: json['RowType'] as String?,
-    description: json['Description'] as String?,
-    quantity: json['Quantity'] as String?,
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL(
+          rowType: json['RowType'] as String?,
+          description: json['Description'] as String?,
+          quantity: json['Quantity'] as String?,
+          printDate: json['PrintDate'] as String?,
+          printTime: json['PrintTime'] as String?,
+          printDateTime: json['PrintDateTime'] as String?,
+          dateFields: (json['DateFields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLToJson(
@@ -7868,117 +7839,119 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL(
-    sessionNo: json['SessionNo'] as int?,
-    customer: json['Customer'] as String?,
-    warehouseId: json['WarehouseId'] as String?,
-    estRentFrom: json['EstRentFrom'] as String?,
-    estRentTo: json['EstRentTo'] as String?,
-    quikReceiptTermsConditionsId:
-        json['QuikReceiptTermsConditionsId'] as String?,
-    items: (json['Items'] as List<dynamic>?)
-            ?.map((e) =>
-                WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
-                    .fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    metaData: json['MetaData'] == null
-        ? null
-        : WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
-            .fromJson(json['MetaData'] as Map<String, dynamic>),
-    dealId: json['DealId'] as String?,
-    deal: json['Deal'] as String?,
-    dealNumber: json['DealNumber'] as String?,
-    dealNumberAndDeal: json['DealNumberAndDeal'] as String?,
-    orderId: json['OrderId'] as String?,
-    orderNumber: json['OrderNumber'] as String?,
-    orderDate: json['OrderDate'] as String?,
-    orderPoNumber: json['OrderPoNumber'] as String?,
-    orderType: json['OrderType'] as String?,
-    orderDescription: json['OrderDescription'] as String?,
-    orderNumberAndDescription: json['OrderNumberAndDescription'] as String?,
-    orderLocation: json['OrderLocation'] as String?,
-    rowType: json['RowType'] as String?,
-    contractId: json['ContractId'] as String?,
-    contractNumber: json['ContractNumber'] as String?,
-    contractDate: json['ContractDate'] as String?,
-    contractTime: json['ContractTime'] as String?,
-    contractDateAndTime: json['ContractDateAndTime'] as String?,
-    contractType: json['ContractType'] as String?,
-    hasPendingExchange: json['HasPendingExchange'] as bool?,
-    hasRental: json['HasRental'] as bool?,
-    hasSales: json['HasSales'] as bool?,
-    inputByUserId: json['InputByUserId'] as String?,
-    billingDate: json['BillingDate'] as String?,
-    officeLocation: json['OfficeLocation'] as String?,
-    officeLocationCompany: json['OfficeLocationCompany'] as String?,
-    officeLocationAddress1: json['OfficeLocationAddress1'] as String?,
-    officeLocationAddress2: json['OfficeLocationAddress2'] as String?,
-    officeLocationCityStateZipCode:
-        json['OfficeLocationCityStateZipCode'] as String?,
-    officeLocationCityStateZipCodeCountry:
-        json['OfficeLocationCityStateZipCodeCountry'] as String?,
-    officeLocationPhone: json['OfficeLocationPhone'] as String?,
-    officeLocationFax: json['OfficeLocationFax'] as String?,
-    warehouse: json['Warehouse'] as String?,
-    warehouseAddress1: json['WarehouseAddress1'] as String?,
-    warehouseAddress2: json['WarehouseAddress2'] as String?,
-    warehouseCityStateZipCode: json['WarehouseCityStateZipCode'] as String?,
-    warehouseCityStateZipCodeCountry:
-        json['WarehouseCityStateZipCodeCountry'] as String?,
-    warehousePhone: json['WarehousePhone'] as String?,
-    warehouseFax: json['WarehouseFax'] as String?,
-    issuedToCompany: json['IssuedToCompany'] as String?,
-    issuedToAttentionTo1: json['IssuedToAttentionTo1'] as String?,
-    issuedToAttentionTo2: json['IssuedToAttentionTo2'] as String?,
-    issuedToAddress1: json['IssuedToAddress1'] as String?,
-    issuedToAddress2: json['IssuedToAddress2'] as String?,
-    issuedToCity: json['IssuedToCity'] as String?,
-    issuedToState: json['IssuedToState'] as String?,
-    issuedToZipCode: json['IssuedToZipCode'] as String?,
-    issuedToCountry: json['IssuedToCountry'] as String?,
-    issuedToPhone: json['IssuedToPhone'] as String?,
-    issuedToFax: json['IssuedToFax'] as String?,
-    usageDates: json['UsageDates'] as String?,
-    billingCycle: json['BillingCycle'] as String?,
-    paymentTerms: json['PaymentTerms'] as String?,
-    agent: json['Agent'] as String?,
-    agentEmail: json['AgentEmail'] as String?,
-    agentPhoneAndExtension: json['AgentPhoneAndExtension'] as String?,
-    agentFax: json['AgentFax'] as String?,
-    department: json['Department'] as String?,
-    deliveryContact: json['DeliveryContact'] as String?,
-    deliveryLocation: json['DeliveryLocation'] as String?,
-    deliveryAddress1: json['DeliveryAddress1'] as String?,
-    deliveryAddress2: json['DeliveryAddress2'] as String?,
-    deliveryCityStateZipCode: json['DeliveryCityStateZipCode'] as String?,
-    deliveryCountry: json['DeliveryCountry'] as String?,
-    deliveryContactPhone: json['DeliveryContactPhone'] as String?,
-    termsAndConditionsId: json['TermsAndConditionsId'] as String?,
-    termsAndConditionsHtml: json['TermsAndConditionsHtml'] as String?,
-    termsAndConditionsNewPage: json['TermsAndConditionsNewPage'] as bool?,
-    personPrintName: json['PersonPrintName'] as String?,
-    personSignature: json['PersonSignature'] as String?,
-    printDate: json['PrintDate'] as String?,
-    printTime: json['PrintTime'] as String?,
-    printDateTime: json['PrintDateTime'] as String?,
-    dateFields: (json['DateFields'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
-    custom: (json['_Custom'] as List<dynamic>?)
-            ?.map((e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    defaultFieldAttributes: (json['_DefaultFieldAttributes'] as List<dynamic>?)
-            ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL(
+          sessionNo: json['SessionNo'] as int?,
+          customer: json['Customer'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          estRentFrom: json['EstRentFrom'] as String?,
+          estRentTo: json['EstRentTo'] as String?,
+          quikReceiptTermsConditionsId:
+              json['QuikReceiptTermsConditionsId'] as String?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          metaData: json['MetaData'] == null
+              ? null
+              : WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
+                  .fromJson(json['MetaData'] as Map<String, dynamic>),
+          dealId: json['DealId'] as String?,
+          deal: json['Deal'] as String?,
+          dealNumber: json['DealNumber'] as String?,
+          dealNumberAndDeal: json['DealNumberAndDeal'] as String?,
+          orderId: json['OrderId'] as String?,
+          orderNumber: json['OrderNumber'] as String?,
+          orderDate: json['OrderDate'] as String?,
+          orderPoNumber: json['OrderPoNumber'] as String?,
+          orderType: json['OrderType'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          orderNumberAndDescription:
+              json['OrderNumberAndDescription'] as String?,
+          orderLocation: json['OrderLocation'] as String?,
+          rowType: json['RowType'] as String?,
+          contractId: json['ContractId'] as String?,
+          contractNumber: json['ContractNumber'] as String?,
+          contractDate: json['ContractDate'] as String?,
+          contractTime: json['ContractTime'] as String?,
+          contractDateAndTime: json['ContractDateAndTime'] as String?,
+          contractType: json['ContractType'] as String?,
+          hasPendingExchange: json['HasPendingExchange'] as bool?,
+          hasRental: json['HasRental'] as bool?,
+          hasSales: json['HasSales'] as bool?,
+          inputByUserId: json['InputByUserId'] as String?,
+          billingDate: json['BillingDate'] as String?,
+          officeLocation: json['OfficeLocation'] as String?,
+          officeLocationCompany: json['OfficeLocationCompany'] as String?,
+          officeLocationAddress1: json['OfficeLocationAddress1'] as String?,
+          officeLocationAddress2: json['OfficeLocationAddress2'] as String?,
+          officeLocationCityStateZipCode:
+              json['OfficeLocationCityStateZipCode'] as String?,
+          officeLocationCityStateZipCodeCountry:
+              json['OfficeLocationCityStateZipCodeCountry'] as String?,
+          officeLocationPhone: json['OfficeLocationPhone'] as String?,
+          officeLocationFax: json['OfficeLocationFax'] as String?,
+          warehouse: json['Warehouse'] as String?,
+          warehouseAddress1: json['WarehouseAddress1'] as String?,
+          warehouseAddress2: json['WarehouseAddress2'] as String?,
+          warehouseCityStateZipCode:
+              json['WarehouseCityStateZipCode'] as String?,
+          warehouseCityStateZipCodeCountry:
+              json['WarehouseCityStateZipCodeCountry'] as String?,
+          warehousePhone: json['WarehousePhone'] as String?,
+          warehouseFax: json['WarehouseFax'] as String?,
+          issuedToCompany: json['IssuedToCompany'] as String?,
+          issuedToAttentionTo1: json['IssuedToAttentionTo1'] as String?,
+          issuedToAttentionTo2: json['IssuedToAttentionTo2'] as String?,
+          issuedToAddress1: json['IssuedToAddress1'] as String?,
+          issuedToAddress2: json['IssuedToAddress2'] as String?,
+          issuedToCity: json['IssuedToCity'] as String?,
+          issuedToState: json['IssuedToState'] as String?,
+          issuedToZipCode: json['IssuedToZipCode'] as String?,
+          issuedToCountry: json['IssuedToCountry'] as String?,
+          issuedToPhone: json['IssuedToPhone'] as String?,
+          issuedToFax: json['IssuedToFax'] as String?,
+          usageDates: json['UsageDates'] as String?,
+          billingCycle: json['BillingCycle'] as String?,
+          paymentTerms: json['PaymentTerms'] as String?,
+          agent: json['Agent'] as String?,
+          agentEmail: json['AgentEmail'] as String?,
+          agentPhoneAndExtension: json['AgentPhoneAndExtension'] as String?,
+          agentFax: json['AgentFax'] as String?,
+          department: json['Department'] as String?,
+          deliveryContact: json['DeliveryContact'] as String?,
+          deliveryLocation: json['DeliveryLocation'] as String?,
+          deliveryAddress1: json['DeliveryAddress1'] as String?,
+          deliveryAddress2: json['DeliveryAddress2'] as String?,
+          deliveryCityStateZipCode: json['DeliveryCityStateZipCode'] as String?,
+          deliveryCountry: json['DeliveryCountry'] as String?,
+          deliveryContactPhone: json['DeliveryContactPhone'] as String?,
+          termsAndConditionsId: json['TermsAndConditionsId'] as String?,
+          termsAndConditionsHtml: json['TermsAndConditionsHtml'] as String?,
+          termsAndConditionsNewPage: json['TermsAndConditionsNewPage'] as bool?,
+          personPrintName: json['PersonPrintName'] as String?,
+          personSignature: json['PersonSignature'] as String?,
+          printDate: json['PrintDate'] as String?,
+          printTime: json['PrintTime'] as String?,
+          printDateTime: json['PrintDateTime'] as String?,
+          dateFields: (json['DateFields'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLToJson(
@@ -8086,23 +8059,22 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest(
-    contractId: json['ContractId'] as String?,
-    quikReceiptId: json['QuikReceiptId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest(
+          contractId: json['ContractId'] as String?,
+          quikReceiptId: json['QuikReceiptId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestToJson(
@@ -8131,24 +8103,23 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest
     _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest(
-    orderId: json['OrderId'] as String?,
-    printedByUsersId: json['PrintedByUsersId'] as String?,
-    storageContainerItemId: json['StorageContainerItemId'] as String?,
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest(
+          orderId: json['OrderId'] as String?,
+          printedByUsersId: json['PrintedByUsersId'] as String?,
+          storageContainerItemId: json['StorageContainerItemId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestToJson(
@@ -8178,25 +8149,24 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest
     _$WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest(
-    transferId: json['TransferId'] as String?,
-    reportView:
-        webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-            json['ReportView'] as String?),
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest(
+          transferId: json['TransferId'] as String?,
+          reportView:
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+                  json['ReportView'] as String?),
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestToJson(
@@ -8228,41 +8198,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest
     _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    agentId: json['AgentId'] as String?,
-    activityTypeId: json['ActivityTypeId'] as String?,
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    orderTypes: (json['OrderTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          agentId: json['AgentId'] as String?,
+          activityTypeId: json['ActivityTypeId'] as String?,
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          orderTypes: (json['OrderTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestToJson(
@@ -8298,41 +8268,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest
     _$WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    agentId: json['AgentId'] as String?,
-    activityTypeId: json['ActivityTypeId'] as String?,
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    orderTypes: (json['OrderTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          agentId: json['AgentId'] as String?,
+          activityTypeId: json['ActivityTypeId'] as String?,
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          orderTypes: (json['OrderTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestToJson(
@@ -8368,41 +8338,41 @@ Map<String, dynamic>
 
 WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest
     _$WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestFromJson(
-        Map<String, dynamic> json) {
-  return WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest(
-    fromDate: json['FromDate'] == null
-        ? null
-        : DateTime.parse(json['FromDate'] as String),
-    toDate: json['ToDate'] == null
-        ? null
-        : DateTime.parse(json['ToDate'] as String),
-    warehouseId: json['WarehouseId'] as String?,
-    departmentId: json['DepartmentId'] as String?,
-    agentId: json['AgentId'] as String?,
-    activityTypeId: json['ActivityTypeId'] as String?,
-    sortBy: (json['SortBy'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    orderTypes: (json['OrderTypes'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-    customReportLayoutId: json['CustomReportLayoutId'] as String?,
-    isSummary: json['IsSummary'] as bool?,
-    includeSubHeadingsAndSubTotals:
-        json['IncludeSubHeadingsAndSubTotals'] as bool?,
-    includeIdColumns: json['IncludeIdColumns'] as bool?,
-    locale: json['Locale'] as String?,
-    excelfields: (json['excelfields'] as List<dynamic>?)
-            ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList() ??
-        [],
-  );
-}
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          agentId: json['AgentId'] as String?,
+          activityTypeId: json['ActivityTypeId'] as String?,
+          sortBy: (json['SortBy'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          orderTypes: (json['OrderTypes'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestToJson(
