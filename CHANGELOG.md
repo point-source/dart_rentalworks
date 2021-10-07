@@ -1,3 +1,14 @@
+## 2.1.0
+
+- Add new Pages api and service
+- Updated generated code (for RW version .195)
+- Updated dependencies
+- Add more tests
+
+## 2.0.0
+
+- Updated swagger spec for 'home' module
+
 ## 1.3.1
 
 - Enable all rentalworks services
