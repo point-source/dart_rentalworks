@@ -602,12 +602,127 @@ class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<String>> downloadFilenameGet(
+  Future<Response<dynamic>> downloadFilenameGet(
       {required String? filename, String? downloadasfilename}) {
     final $url = '/download/$filename';
     final $params = <String, dynamic>{'downloadasfilename': downloadasfilename};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
-    return client.send<String, String>($request);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationitem/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      inventorylocationitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationitem/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>>
+      inventorylocationitemGet({int? pageno, int? pagesize, String? sort}) {
+    final $url = '/inventorylocationitem';
+    final $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort
+    };
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<
+            List<WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>,
+            WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>
+      inventorylocationitemIdGet({required String? id}) {
+    final $url = '/inventorylocationitem/$id';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<
+            WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem,
+            WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>
+      inventorylocationitemIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem?
+              body}) {
+    final $url = '/inventorylocationitem/$id';
+    final $body = body;
+    final $request = Request('PUT', $url, client.baseUrl, body: $body);
+    return client.send<
+            WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem,
+            WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic>>>
+      inventorylocationitemManyPost(
+          {required List<
+                  WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>?
+              body}) {
+    final $url = '/inventorylocationitem/many';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> inventorylocationitemEmptyobjectGet() {
+    final $url = '/inventorylocationitem/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> inventorylocationitemEmptybrowseobjectGet() {
+    final $url = '/inventorylocationitem/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> inventorylocationitemKeyfieldnamesGet() {
+    final $url = '/inventorylocationitem/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -963,6 +1078,17 @@ class _$Utilities extends Utilities {
       inventoryretireutilityValidateitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/inventoryretireutility/validateitem/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventoryretireutilityValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventoryretireutility/validateconsignoragreement/browse';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
@@ -2334,10 +2460,102 @@ class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<bool>> utilityfunctionsIstrainingGet() {
-    final $url = '/utilityfunctions/istraining';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> unretiredBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/unretired/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      unretiredExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/unretired/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> unretiredEmptyobjectGet() {
+    final $url = '/unretired/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<bool, bool>($request);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> unretiredEmptybrowseobjectGet() {
+    final $url = '/unretired/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> unretiredKeyfieldnamesGet() {
+    final $url = '/unretired/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesUtilitiesUserProfileUserProfile>>
+      userprofileIdGet({required String? id}) {
+    final $url = '/userprofile/$id';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<WebApiModulesUtilitiesUserProfileUserProfile,
+        WebApiModulesUtilitiesUserProfileUserProfile>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesUtilitiesUserProfileUserProfile>>
+      userprofileIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesUserProfileUserProfile? body}) {
+    final $url = '/userprofile/$id';
+    final $body = body;
+    final $request = Request('PUT', $url, client.baseUrl, body: $body);
+    return client.send<WebApiModulesUtilitiesUserProfileUserProfile,
+        WebApiModulesUtilitiesUserProfileUserProfile>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesUtilitiesUserProfileUserProfile>>
+      userprofilePost(
+          {required WebApiModulesUtilitiesUserProfileUserProfile? body}) {
+    final $url = '/userprofile';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiModulesUtilitiesUserProfileUserProfile,
+        WebApiModulesUtilitiesUserProfileUserProfile>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> userprofileEmptyobjectGet() {
+    final $url = '/userprofile/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> userprofileEmptybrowseobjectGet() {
+    final $url = '/userprofile/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> userprofileKeyfieldnamesGet() {
+    final $url = '/userprofile/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override

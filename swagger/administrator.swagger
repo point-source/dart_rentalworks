@@ -79,7 +79,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -159,7 +159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.Alert.AlertLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.Alert.AlertLogic"
                 }
               }
             }
@@ -606,7 +606,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -686,7 +686,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.AlertCondition.AlertConditionLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.AlertCondition.AlertConditionLogic"
                 }
               }
             }
@@ -1133,7 +1133,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -1213,7 +1213,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.AlertWebUsers.AlertWebUsersLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.AlertWebUsers.AlertWebUsersLogic"
                 }
               }
             }
@@ -1714,7 +1714,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -1939,7 +1939,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -2019,7 +2019,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.CustomField.CustomFieldLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.CustomField.CustomFieldLogic"
                 }
               }
             }
@@ -2466,7 +2466,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -2546,7 +2546,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.CustomForm.CustomFormLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.CustomForm.CustomFormLogic"
                 }
               }
             }
@@ -3111,7 +3111,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -3191,7 +3191,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomFormGroup.CustomFormGroupLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomFormGroup.CustomFormGroupLogic"
                 }
               }
             }
@@ -3692,7 +3692,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -3772,7 +3772,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomFormUser.CustomFormUserLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomFormUser.CustomFormUserLogic"
                 }
               }
             }
@@ -4273,7 +4273,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -4353,7 +4353,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomModule.CustomModuleLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomModule.CustomModuleLogic"
                 }
               }
             }
@@ -4504,6 +4504,526 @@
         }
       }
     },
+    "/customreportcss/browse": {
+      "post": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportcss/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportcss": {
+      "get": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportcss/{id}": {
+      "get": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportcss/emptyobject": {
+      "get": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "summary": "Get an empty object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportcss/emptybrowseobject": {
+      "get": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "summary": "Get an empty browse object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportcss/keyfieldnames": {
+      "get": {
+        "tags": [
+          "CustomReportCss"
+        ],
+        "summary": "Get an array of primary key field names",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/customreportlayout/browse": {
       "post": {
         "tags": [
@@ -4578,7 +5098,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -4658,7 +5178,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.CustomReportLayout.CustomReportLayoutLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.CustomReportLayout.CustomReportLayoutLogic"
                 }
               }
             }
@@ -4935,7 +5455,61 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.CustomReportLayout.CustomReportLayoutController+CustomReportLayoutResponse"
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.CustomReportLayout.CustomReportLayoutController_CustomReportLayoutResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customreportlayout/validatecustomcss/browse": {
+      "post": {
+        "tags": [
+          "CustomReportLayout"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
                 }
               }
             }
@@ -5160,7 +5734,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -5240,7 +5814,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomReportLayoutGroup.CustomReportLayoutGroupLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomReportLayoutGroup.CustomReportLayoutGroupLogic"
                 }
               }
             }
@@ -5741,7 +6315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -5821,7 +6395,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.SharedControls.CustomReportLayoutUser.CustomReportLayoutUserLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.SharedControls.CustomReportLayoutUser.CustomReportLayoutUserLogic"
                 }
               }
             }
@@ -6370,7 +6944,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -6450,7 +7024,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.DataHealth.DataHealthLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.DataHealth.DataHealthLogic"
                 }
               }
             }
@@ -6792,7 +7366,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -6872,7 +7446,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.DuplicateRule.DuplicateRuleLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.DuplicateRule.DuplicateRuleLogic"
                 }
               }
             }
@@ -7319,7 +7893,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -7399,7 +7973,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleFieldLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleFieldLogic"
                 }
               }
             }
@@ -7846,7 +8420,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -7926,7 +8500,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.EmailHistory.EmailHistoryLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.EmailHistory.EmailHistoryLogic"
                 }
               }
             }
@@ -8232,7 +8806,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic"
                 }
               }
             }
@@ -8508,7 +9082,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic+TemplateCategoriesResponse"
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic_TemplateCategoriesResponse"
                 }
               }
             }
@@ -8551,7 +9125,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic+GetTemplateFieldsRequest"
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic_GetTemplateFieldsRequest"
               }
             }
           }
@@ -8562,7 +9136,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic+TemplateFieldsResponse"
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic_TemplateFieldsResponse"
                 }
               }
             }
@@ -8787,7 +9361,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -8867,7 +9441,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.Group.GroupLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.Group.GroupLogic"
                 }
               }
             }
@@ -9293,7 +9867,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse<FwCore.Modules.Administrator.Group.LookupGroupResponse>"
+                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse_FwCore.Modules.Administrator.Group.LookupGroupResponse"
                 }
               }
             }
@@ -9566,7 +10140,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -9646,7 +10220,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.Hotfix.HotfixLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.Hotfix.HotfixLogic"
                 }
               }
             }
@@ -10252,7 +10826,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -10477,7 +11051,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -10557,7 +11131,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.Plugin.PluginLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.Plugin.PluginLogic"
                 }
               }
             }
@@ -11341,7 +11915,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -11421,7 +11995,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.SystemUpdateHistory.SystemUpdateHistoryLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.SystemUpdateHistory.SystemUpdateHistoryLogic"
                 }
               }
             }
@@ -11753,7 +12327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -11833,7 +12407,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.SystemUpdateHistoryLog.SystemUpdateHistoryLogLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.SystemUpdateHistoryLog.SystemUpdateHistoryLogLogic"
                 }
               }
             }
@@ -12113,7 +12687,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -12193,7 +12767,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.User.UserLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.User.UserLogic"
                 }
               }
             }
@@ -12416,6 +12990,61 @@
               "application/json": {
                 "schema": {
                   "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/createusersalesrepresentativecontact/{id}": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.User.CreateUserSalesRepresentativeContactResponse"
                 }
               }
             }
@@ -13927,7 +14556,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -14007,7 +14636,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.WebAlertLog.WebAlertLogLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.WebAlertLog.WebAlertLogLogic"
                 }
               }
             }
@@ -14287,7 +14916,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -14567,7 +15196,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -14647,7 +15276,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Settings.WidgetGroup.WidgetGroupLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Settings.WidgetGroup.WidgetGroupLogic"
                 }
               }
             }
@@ -15148,7 +15777,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult"
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
                 }
               }
             }
@@ -15228,7 +15857,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse<WebApi.Modules.Settings.WidgetUser.WidgetUserLogic>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Settings.WidgetUser.WidgetUserLogic"
                 }
               }
             }
@@ -15667,7 +16296,7 @@
           }
         }
       },
-      "FwCore.Controllers.FwDataController+DoExportExcelXlsxExportFileAsyncResult": {
+      "FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult": {
         "type": "object",
         "properties": {
           "downloadUrl": {
@@ -15985,7 +16614,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.Alert.AlertLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.Alert.AlertLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16014,7 +16643,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.AlertCondition.AlertConditionLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.AlertCondition.AlertConditionLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16043,7 +16672,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.AlertWebUsers.AlertWebUsersLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.AlertWebUsers.AlertWebUsersLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16072,7 +16701,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.CustomReportLayout.CustomReportLayoutLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.CustomReportLayout.CustomReportLayoutLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16101,7 +16730,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.DuplicateRule.DuplicateRuleLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.DuplicateRule.DuplicateRuleLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16130,7 +16759,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16159,7 +16788,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<FwStandard.Modules.Administrator.WebAlertLog.WebAlertLogLogic>": {
+      "FwStandard.Models.FwQueryResponse_FwStandard.Modules.Administrator.WebAlertLog.WebAlertLogLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16188,7 +16817,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.CustomField.CustomFieldLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.CustomField.CustomFieldLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16217,7 +16846,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.CustomForm.CustomFormLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.CustomForm.CustomFormLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16246,7 +16875,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.DataHealth.DataHealthLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.DataHealth.DataHealthLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16275,7 +16904,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.EmailHistory.EmailHistoryLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.EmailHistory.EmailHistoryLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16304,7 +16933,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.Group.GroupLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.Group.GroupLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16333,7 +16962,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.Hotfix.HotfixLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.Hotfix.HotfixLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16362,7 +16991,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.Plugin.PluginLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.Plugin.PluginLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16391,7 +17020,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.SystemUpdateHistory.SystemUpdateHistoryLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.SystemUpdateHistory.SystemUpdateHistoryLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16420,7 +17049,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.SystemUpdateHistoryLog.SystemUpdateHistoryLogLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.SystemUpdateHistoryLog.SystemUpdateHistoryLogLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16449,7 +17078,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Administrator.User.UserLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.User.UserLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16478,7 +17107,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomFormGroup.CustomFormGroupLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomFormGroup.CustomFormGroupLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16507,7 +17136,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomFormUser.CustomFormUserLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomFormUser.CustomFormUserLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16536,7 +17165,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomModule.CustomModuleLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomModule.CustomModuleLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16565,7 +17194,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.CustomReportLayoutGroup.CustomReportLayoutGroupLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomReportLayoutGroup.CustomReportLayoutGroupLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16594,7 +17223,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleFieldLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleFieldLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16623,7 +17252,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Settings.WidgetGroup.WidgetGroupLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Settings.WidgetGroup.WidgetGroupLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16652,7 +17281,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.Settings.WidgetUser.WidgetUserLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Settings.WidgetUser.WidgetUserLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16681,7 +17310,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse<WebApi.Modules.SharedControls.CustomReportLayoutUser.CustomReportLayoutUserLogic>": {
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.SharedControls.CustomReportLayoutUser.CustomReportLayoutUserLogic": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16710,7 +17339,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.GetResponse<FwCore.Modules.Administrator.Group.LookupGroupResponse>": {
+      "FwStandard.Models.GetResponse_FwCore.Modules.Administrator.Group.LookupGroupResponse": {
         "type": "object",
         "properties": {
           "Items": {
@@ -16819,6 +17448,10 @@
             "type": "string",
             "nullable": true
           },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
           "RecordTitle": {
             "type": "string",
             "nullable": true,
@@ -16877,6 +17510,10 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -16945,6 +17582,76 @@
             "type": "string",
             "nullable": true
           },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Modules.Administrator.CustomReportCss.CustomReportCssLogic": {
+        "type": "object",
+        "properties": {
+          "CustomReportCssId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "Css": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsGlobal": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Inactive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Active": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
           "RecordTitle": {
             "type": "string",
             "nullable": true,
@@ -17006,6 +17713,22 @@
             "type": "string",
             "nullable": true
           },
+          "CustomReportCssIds": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomReportCssDescriptions": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomReportCssRules": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomReportGlobalCssRules": {
+            "type": "string",
+            "nullable": true
+          },
           "Active": {
             "type": "boolean",
             "nullable": true
@@ -17019,6 +17742,10 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -17095,6 +17822,10 @@
             "type": "string",
             "nullable": true
           },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
           "RecordTitle": {
             "type": "string",
             "nullable": true,
@@ -17163,6 +17894,10 @@
           "Inactive": {
             "type": "boolean"
           },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
           "RecordTitle": {
             "type": "string",
             "nullable": true,
@@ -17193,7 +17928,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic+GetTemplateFieldsRequest": {
+      "FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic_GetTemplateFieldsRequest": {
         "type": "object",
         "properties": {
           "category": {
@@ -17203,7 +17938,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic+TemplateCategoriesResponse": {
+      "FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic_TemplateCategoriesResponse": {
         "type": "object",
         "properties": {
           "categories": {
@@ -17216,7 +17951,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic+TemplateFieldsResponse": {
+      "FwStandard.Modules.Administrator.EmailTemplate.EmailTemplateLogic_TemplateFieldsResponse": {
         "type": "object",
         "properties": {
           "fields": {
@@ -17271,6 +18006,10 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -17348,6 +18087,10 @@
             "type": "string",
             "nullable": true
           },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
           "RecordTitle": {
             "type": "string",
             "nullable": true,
@@ -17381,6 +18124,7 @@
       "FwStandard.SqlServer.FwDataTypes": {
         "enum": [
           "Text",
+          "NonTrimmableText",
           "Date",
           "Time",
           "DateTime",
@@ -17436,7 +18180,7 @@
             "type": "array",
             "items": {
               "type": "array",
-              "items": {}
+              "items": { }
             },
             "nullable": true
           },
@@ -17572,23 +18316,33 @@
         "type": "object",
         "properties": {
           "CustomFieldId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "ModuleName": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "FieldName": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "CustomTableName": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "CustomFieldName": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "FieldType": {
@@ -17601,15 +18355,22 @@
           },
           "StringLength": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "FloatDecimalDigits": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -17647,11 +18408,15 @@
         "type": "object",
         "properties": {
           "CustomFormId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "WebUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "UserName": {
@@ -17659,19 +18424,26 @@
             "nullable": true
           },
           "BaseForm": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Description": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "Html": {
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "Active": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "Inactive": {
@@ -17679,7 +18451,9 @@
             "nullable": true
           },
           "AssignTo": {
+            "maxLength": 10,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SelfAssign": {
@@ -17687,6 +18461,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -17720,10 +18499,18 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Administrator.CustomReportLayout.CustomReportLayoutController+CustomReportLayoutResponse": {
+      "WebApi.Modules.Administrator.CustomReportLayout.CustomReportLayoutController_CustomReportLayoutResponse": {
         "type": "object",
         "properties": {
           "ReportTemplate": {
+            "type": "string",
+            "nullable": true
+          },
+          "WebpackReportCss": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReportCss": {
             "type": "string",
             "nullable": true
           }
@@ -17735,15 +18522,19 @@
         "properties": {
           "DataHealthId": {
             "type": "integer",
+            "description": "Format: Integer, IsPrimaryKey: true",
             "format": "int32",
             "nullable": true
           },
           "DataHealthType": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CaptureDateTime": {
             "type": "string",
+            "description": "Format: Date",
             "nullable": true
           },
           "CaptureDate": {
@@ -17752,10 +18543,13 @@
           },
           "Json": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Severity": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SeverityColor": {
@@ -17764,14 +18558,21 @@
           },
           "Notes": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Resolved": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "Inactive": {
             "type": "boolean",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
             "nullable": true
           },
           "RecordTitle": {
@@ -17808,15 +18609,21 @@
         "type": "object",
         "properties": {
           "EmailHistoryId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "ReportId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "FromUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "FromWebUserId": {
@@ -17829,37 +18636,56 @@
           },
           "EmailDate": {
             "type": "string",
+            "description": "Format: Date",
             "nullable": true
           },
           "Status": {
+            "maxLength": 10,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "EmailText": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "EmailTo": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "EmailSubject": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "EmailCC": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Title": {
+            "maxLength": 50,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "RelatedToId": {
+            "maxLength": 50,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -17897,23 +18723,31 @@
         "type": "object",
         "properties": {
           "GroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "Name": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "Memo": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Security": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "HideNewMenuOptionsByDefault": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "IsMyGroup": {
@@ -17924,6 +18758,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -17961,28 +18800,39 @@
         "type": "object",
         "properties": {
           "HotfixId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "FileName": {
+            "maxLength": 100,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Description": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "HotfixBegin": {
             "type": "string",
+            "description": "Format: DateTime",
             "nullable": true
           },
           "HotfixEnd": {
             "type": "string",
+            "description": "Format: DateTime",
             "nullable": true
           },
           "HotfixSeconds": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
             "nullable": true
           },
           "RecordTitle": {
@@ -18020,22 +18870,33 @@
         "properties": {
           "PluginId": {
             "type": "integer",
+            "description": "Format: Integer, IsPrimaryKey: true",
             "format": "int32"
           },
           "Category": {
+            "maxLength": 50,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Description": {
+            "maxLength": 100,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Settings": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Inactive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Format: Boolean"
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
           },
           "RecordTitle": {
             "type": "string",
@@ -18284,11 +19145,14 @@
         "properties": {
           "SystemUpdateHistoryId": {
             "type": "integer",
+            "description": "Format: Integer, IsPrimaryKey: true",
             "format": "int32",
             "nullable": true
           },
           "UsersId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "UserName": {
@@ -18297,21 +19161,33 @@
           },
           "UpdateDateTime": {
             "type": "string",
+            "description": "Format: DateTime",
             "format": "date-time"
           },
           "FromVersion": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ToVersion": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ErrorMessage": {
+            "maxLength": 8000,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -18350,19 +19226,28 @@
         "properties": {
           "SystemUpdateHistoryLogId": {
             "type": "integer",
+            "description": "Format: Integer, IsPrimaryKey: true",
             "format": "int32",
             "nullable": true
           },
           "SystemUpdateHistoryId": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "Messsage": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -18396,19 +19281,52 @@
         },
         "additionalProperties": false
       },
+      "WebApi.Modules.Administrator.User.CreateUserSalesRepresentativeContactResponse": {
+        "type": "object",
+        "properties": {
+          "ContactId": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "msg": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WebApi.Modules.Administrator.User.User": {
         "type": "object",
         "properties": {
           "UserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ContactId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Name": {
+            "maxLength": 40,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "LoginName": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "FullName": {
@@ -18416,19 +19334,26 @@
             "nullable": true
           },
           "FirstName": {
+            "maxLength": 15,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "MiddleInitial": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "LastName": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "Password": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: NonTrimmableText",
             "nullable": true
           },
           "PasswordChanged": {
@@ -18437,11 +19362,15 @@
             "readOnly": true
           },
           "BarCode": {
+            "maxLength": 12,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "GroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "GroupName": {
@@ -18450,10 +19379,13 @@
           },
           "ScheduleColor": {
             "type": "string",
+            "description": "Format: OleToHtmlColor",
             "nullable": true
           },
           "UserTitleId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "UserTitle": {
@@ -18461,11 +19393,15 @@
             "nullable": true
           },
           "Email": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "OfficeLocationId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "OfficeLocation": {
@@ -18473,7 +19409,9 @@
             "nullable": true
           },
           "WarehouseId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "Warehouse": {
@@ -18481,27 +19419,39 @@
             "nullable": true
           },
           "Address1": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Address2": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "City": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "State": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ZipCode": {
+            "maxLength": 10,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CountryId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Country": {
@@ -18509,39 +19459,57 @@
             "nullable": true
           },
           "OfficePhone": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "OfficeExtension": {
+            "maxLength": 6,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Fax": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DirectPhone": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Pager": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "PagerPin": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Cellular": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "HomePhone": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DefaultDepartmentType": {
+            "maxLength": 3,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "PrimaryDepartmentId": {
@@ -18553,7 +19521,9 @@
             "nullable": true
           },
           "RentalDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "RentalDepartment": {
@@ -18561,7 +19531,9 @@
             "nullable": true
           },
           "SalesDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SalesDepartment": {
@@ -18569,7 +19541,9 @@
             "nullable": true
           },
           "PartsDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "PartsDepartment": {
@@ -18577,7 +19551,9 @@
             "nullable": true
           },
           "MiscDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "MiscDepartment": {
@@ -18585,7 +19561,9 @@
             "nullable": true
           },
           "LaborDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "LaborDepartment": {
@@ -18593,7 +19571,9 @@
             "nullable": true
           },
           "FacilityDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "FacilityDepartment": {
@@ -18601,7 +19581,9 @@
             "nullable": true
           },
           "TransportationDepartmentId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "TransportationDepartment": {
@@ -18609,7 +19591,9 @@
             "nullable": true
           },
           "RentalInventoryTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "RentalInventoryType": {
@@ -18617,7 +19601,9 @@
             "nullable": true
           },
           "SalesInventoryTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SalesInventoryType": {
@@ -18625,7 +19611,9 @@
             "nullable": true
           },
           "PartsInventoryTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "PartsInventoryType": {
@@ -18633,7 +19621,9 @@
             "nullable": true
           },
           "MiscTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "MiscType": {
@@ -18641,7 +19631,9 @@
             "nullable": true
           },
           "LaborTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "LaborType": {
@@ -18649,7 +19641,9 @@
             "nullable": true
           },
           "FacilityTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "FacilityType": {
@@ -18657,7 +19651,9 @@
             "nullable": true
           },
           "TransportationTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "TransportationType": {
@@ -18666,203 +19662,266 @@
           },
           "NoMiscellaneousOnQuotes": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "NoMiscellaneousOnOrders": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "NoMiscellaneousOnPurchaseOrders": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "LimitDaysPerWeek": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "MinimumDaysPerWeek": {
             "type": "number",
+            "description": "Format: Decimal, Total digits: 4, Decimal places: 2",
             "format": "double",
             "nullable": true
           },
           "AllowCreditLimitOverride": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "LimitDiscount": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "MaximumDiscount": {
             "type": "number",
+            "description": "Format: Decimal, Total digits: 8, Decimal places: 2",
             "format": "double",
             "nullable": true
           },
           "LimitSubDiscount": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "MaximumSubDiscount": {
             "type": "number",
+            "description": "Format: Decimal, Total digits: 8, Decimal places: 2",
             "format": "double",
             "nullable": true
           },
           "DiscountRule": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "StagingAllowIncreaseDecreaseOrderQuantity": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfDealRequiresPOAndOrderHasPendingPO": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfPendingItemsExist": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfCustomerDealDoesNotHaveApprovedCredit": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfCustomerDealIsOverTheirCreditLimit": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfCustomerDealInsuranceCoverageIsLess": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowReceiveSubsWhenPositiveConflictExists": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowStagingOfUnreservedConsignedItems": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowStagingOfUnapprovedItems": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowSubstitutesAtStaging": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "DeleteOriginalOnSubstitution": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "QuikActivityAllowPrintDollarAmounts": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "QuikScanAllowCreateContract": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "QuikScanAllowApplyAll": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowCrossICodeExchange": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowCrossICodePendingExchange": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllowChangeAvailabilityPriority": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "UserMustChangePassword": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PasswordExpires": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PasswordExpireDays": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "PasswordUpdatedDateTime": {
             "type": "string",
+            "description": "Format: Date",
             "nullable": true
           },
           "AccountLocked": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "Memo": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "AllowCrossLocationEditAndDelete": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "LastLoggedOn": {
             "type": "string",
             "nullable": true
           },
+          "DisableInsertIntoActiveOrder": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
           "Inactive": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "DateStamp": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: UTCDateTime, Total digits: 23, Decimal places: 3",
             "nullable": true
           },
           "WebUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "WebAccess": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "WebAdministrator": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "BrowseDefaultRows": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "ApplicationTheme": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "HomeMenuGuid": {
+            "maxLength": 100,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "HomeMenuPath": {
+            "maxLength": 100,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SuccessSoundId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SuccessSound": {
@@ -18874,7 +19933,9 @@
             "nullable": true
           },
           "ErrorSoundId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ErrorSound": {
@@ -18886,7 +19947,9 @@
             "nullable": true
           },
           "NotificationSoundId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "NotificationSound": {
@@ -18899,19 +19962,26 @@
           },
           "FirstDayOfWeek": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "SettingsNavigationMenuVisible": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "ReportsNavigationMenuVisible": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "WebQuoteRequest": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "EmailSignature": {
@@ -18919,6 +19989,24 @@
             "nullable": true
           },
           "Locale": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "AvailabilityPreference": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "AvailabilityAllWarehouses": {
+            "maxLength": 1,
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -18970,11 +20058,15 @@
         "type": "object",
         "properties": {
           "CustomFormGroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "CustomFormId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CustomFormDescription": {
@@ -18982,7 +20074,9 @@
             "nullable": true
           },
           "GroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "GroupName": {
@@ -18990,6 +20084,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19027,11 +20126,15 @@
         "type": "object",
         "properties": {
           "CustomFormUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "CustomFormId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CustomFormDescription": {
@@ -19039,7 +20142,9 @@
             "nullable": true
           },
           "WebUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "UserId": {
@@ -19051,6 +20156,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19091,6 +20201,10 @@
             "type": "string",
             "nullable": true
           },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
           "RecordTitle": {
             "type": "string",
             "nullable": true,
@@ -19125,11 +20239,15 @@
         "type": "object",
         "properties": {
           "CustomReportLayoutGroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "CustomReportLayoutId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CustomReportLayoutDescription": {
@@ -19137,7 +20255,9 @@
             "nullable": true
           },
           "GroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "GroupName": {
@@ -19145,6 +20265,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19182,18 +20307,29 @@
         "type": "object",
         "properties": {
           "DuplicateRuleFieldId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "DuplicateRuleId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, Required: true",
             "nullable": true
           },
           "FieldName": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19231,11 +20367,15 @@
         "type": "object",
         "properties": {
           "WidgetGroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "WidgetId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "WidgetDescription": {
@@ -19243,7 +20383,9 @@
             "nullable": true
           },
           "GroupId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "GroupName": {
@@ -19251,6 +20393,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19288,11 +20435,15 @@
         "type": "object",
         "properties": {
           "WidgetUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "WidgetId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "WidgetDescription": {
@@ -19300,7 +20451,9 @@
             "nullable": true
           },
           "WebUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "UserId": {
@@ -19312,6 +20465,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19349,11 +20507,15 @@
         "type": "object",
         "properties": {
           "CustomReportLayoutUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
             "nullable": true
           },
           "CustomReportLayoutId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CustomReportLayoutDescription": {
@@ -19361,7 +20523,9 @@
             "nullable": true
           },
           "WebUserId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "UserId": {
@@ -19373,6 +20537,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -19417,7 +20586,7 @@
   },
   "security": [
     {
-      "Bearer": []
+      "Bearer": [ ]
     }
   ]
 }

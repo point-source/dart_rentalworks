@@ -184,27 +184,25 @@ class _$Mobile extends Mobile {
   @override
   Future<
           Response<
-              FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse>>
-      quikscanFillcontainerLookupcontainerdescriptionGet(
-          {String? containerId,
-          String? description,
-          required String? scannableInventoryId,
-          int? pageNo,
-          int? pageSize,
-          String? sort}) {
-    final $url = '/quikscan/fillcontainer/lookupcontainerdescription';
+              FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
+      quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
+          {required String? scannableinventoryid,
+          int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    final $url =
+        '/quikscan/fillcontainer/scannableitem/$scannableinventoryid/lookuprentalinventory';
     final $params = <String, dynamic>{
-      'ContainerId': containerId,
-      'Description': description,
-      'ScannableInventoryId': scannableInventoryId,
-      'PageNo': pageNo,
-      'PageSize': pageSize,
-      'Sort': sort
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter
     };
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<
-            FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse,
-            FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse>(
+            FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse,
+            FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>(
         $request);
   }
 
@@ -520,6 +518,19 @@ class _$Mobile extends Mobile {
   }
 
   @override
+  Future<Response<WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
+      quikscanQuikassetGetimagesPost(
+          {required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
+              body}) {
+    final $url = '/quikscan/quikasset/getimages';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse,
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>($request);
+  }
+
+  @override
   Future<Response<WebApiLogicTSpStatusResponse>>
       quikscanQuikassetDeleteimagePost(
           {required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
@@ -548,9 +559,11 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetInventorydepartmentPost() {
+  Future<Response<dynamic>> quikscanQuikassetInventorydepartmentPost(
+      {required String? body}) {
     final $url = '/quikscan/quikasset/inventorydepartment';
-    final $request = Request('POST', $url, client.baseUrl);
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<dynamic, dynamic>($request);
   }
 

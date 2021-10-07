@@ -487,17 +487,17 @@ abstract class Settings extends ChopperService {
   Future<chopper.Response> attributevalueKeyfieldnamesGet();
 
   ///
-  @Post(path: '/availabilitykeepfreshlog/browse')
+  @Post(path: '/availabilityservicelog/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      availabilitykeepfreshlogBrowsePost(
+      availabilityservicelogBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///
-  @Post(path: '/availabilitykeepfreshlog/exportexcelxlsx')
+  @Post(path: '/availabilityservicelog/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      availabilitykeepfreshlogExportexcelxlsxPost(
+      availabilityservicelogExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///
@@ -505,11 +505,11 @@ abstract class Settings extends ChopperService {
   ///@param pagesize
   ///@param sort
   ///@param filter
-  @Get(path: '/availabilitykeepfreshlog')
+  @Get(path: '/availabilityservicelog')
   Future<
           chopper.Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic>>
-      availabilitykeepfreshlogGet(
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic>>
+      availabilityservicelogGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -517,23 +517,23 @@ abstract class Settings extends ChopperService {
 
   ///
   ///@param id
-  @Get(path: '/availabilitykeepfreshlog/{id}')
+  @Get(path: '/availabilityservicelog/{id}')
   Future<
           chopper.Response<
-              WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog>>
-      availabilitykeepfreshlogIdGet({@Path('id') required String? id});
+              WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog>>
+      availabilityservicelogIdGet({@Path('id') required String? id});
 
   ///Get an empty object
-  @Get(path: '/availabilitykeepfreshlog/emptyobject')
-  Future<chopper.Response> availabilitykeepfreshlogEmptyobjectGet();
+  @Get(path: '/availabilityservicelog/emptyobject')
+  Future<chopper.Response> availabilityservicelogEmptyobjectGet();
 
   ///Get an empty browse object
-  @Get(path: '/availabilitykeepfreshlog/emptybrowseobject')
-  Future<chopper.Response> availabilitykeepfreshlogEmptybrowseobjectGet();
+  @Get(path: '/availabilityservicelog/emptybrowseobject')
+  Future<chopper.Response> availabilityservicelogEmptybrowseobjectGet();
 
   ///Get an array of primary key field names
-  @Get(path: '/availabilitykeepfreshlog/keyfieldnames')
-  Future<chopper.Response> availabilitykeepfreshlogKeyfieldnamesGet();
+  @Get(path: '/availabilityservicelog/keyfieldnames')
+  Future<chopper.Response> availabilityservicelogKeyfieldnamesGet();
 
   ///
   @Post(path: '/availabilitysettings/browse')
@@ -638,6 +638,13 @@ abstract class Settings extends ChopperService {
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       availabilitysettingsValidatedefaultcontactgroupBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  @Post(path: '/availabilitysettings/prunecache', optionalBody: true)
+  Future<
+          chopper.Response<
+              WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>>
+      availabilitysettingsPrunecachePost();
 
   ///Get an empty object
   @Get(path: '/availabilitysettings/emptyobject')
@@ -1105,6 +1112,78 @@ abstract class Settings extends ChopperService {
   ///Get an array of primary key field names
   @Get(path: '/category/keyfieldnames')
   Future<chopper.Response> categoryKeyfieldnamesGet();
+
+  ///
+  @Post(path: '/consignmentsettings/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignmentsettingsBrowsePost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  @Post(path: '/consignmentsettings/exportexcelxlsx')
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignmentsettingsExportexcelxlsxPost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  @Get(path: '/consignmentsettings')
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic>>
+      consignmentsettingsGet(
+          {@Query('pageno') int? pageno,
+          @Query('pagesize') int? pagesize,
+          @Query('sort') String? sort,
+          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+
+  ///
+  @Post(path: '/consignmentsettings')
+  Future<
+          chopper.Response<
+              WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>>
+      consignmentsettingsPost(
+          {@Body()
+              required WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings?
+                  body});
+
+  ///
+  ///@param id
+  @Get(path: '/consignmentsettings/{id}')
+  Future<
+          chopper.Response<
+              WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>>
+      consignmentsettingsIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  @Put(path: '/consignmentsettings/{id}')
+  Future<
+          chopper.Response<
+              WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>>
+      consignmentsettingsIdPut(
+          {@Path('id')
+              required String? id,
+          @Body()
+              required WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings?
+                  body});
+
+  ///Get an empty object
+  @Get(path: '/consignmentsettings/emptyobject')
+  Future<chopper.Response> consignmentsettingsEmptyobjectGet();
+
+  ///Get an empty browse object
+  @Get(path: '/consignmentsettings/emptybrowseobject')
+  Future<chopper.Response> consignmentsettingsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  @Get(path: '/consignmentsettings/keyfieldnames')
+  Future<chopper.Response> consignmentsettingsKeyfieldnamesGet();
 
   ///
   @Post(path: '/contactevent/browse')
@@ -2862,6 +2941,12 @@ abstract class Settings extends ChopperService {
   @Post(path: '/defaultsettings/validatedefaultcontactgroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       defaultsettingsValidatedefaultcontactgroupBrowsePost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  @Post(path: '/defaultsettings/validatedefaultvendorbillingcycle/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      defaultsettingsValidatedefaultvendorbillingcycleBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
@@ -12533,38 +12618,6 @@ abstract class Settings extends ChopperService {
 
   ///
   ///@param id
-  @Get(path: '/userprofile/{id}')
-  Future<chopper.Response<WebApiModulesSettingsUserProfileUserProfile>>
-      userprofileIdGet({@Path('id') required String? id});
-
-  ///
-  ///@param id
-  @Put(path: '/userprofile/{id}')
-  Future<chopper.Response<WebApiModulesSettingsUserProfileUserProfile>>
-      userprofileIdPut(
-          {@Path('id') required String? id,
-          @Body() required WebApiModulesSettingsUserProfileUserProfile? body});
-
-  ///
-  @Post(path: '/userprofile')
-  Future<chopper.Response<WebApiModulesSettingsUserProfileUserProfile>>
-      userprofilePost(
-          {@Body() required WebApiModulesSettingsUserProfileUserProfile? body});
-
-  ///Get an empty object
-  @Get(path: '/userprofile/emptyobject')
-  Future<chopper.Response> userprofileEmptyobjectGet();
-
-  ///Get an empty browse object
-  @Get(path: '/userprofile/emptybrowseobject')
-  Future<chopper.Response> userprofileEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  @Get(path: '/userprofile/keyfieldnames')
-  Future<chopper.Response> userprofileKeyfieldnamesGet();
-
-  ///
-  ///@param id
   @Get(path: '/usersearchsettings/{id}')
   Future<
           chopper.Response<
@@ -14998,6 +15051,67 @@ abstract class Settings extends ChopperService {
   Future<chopper.Response> warehousecatalogKeyfieldnamesGet();
 
   ///
+  @Post(path: '/warehouseconsignmentsettings/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseconsignmentsettingsBrowsePost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  @Post(path: '/warehouseconsignmentsettings/exportexcelxlsx')
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      warehouseconsignmentsettingsExportexcelxlsxPost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  @Get(path: '/warehouseconsignmentsettings')
+  Future<
+          chopper.Response<
+              List<
+                  WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>>>
+      warehouseconsignmentsettingsGet(
+          {@Query('pageno') int? pageno,
+          @Query('pagesize') int? pagesize,
+          @Query('sort') String? sort});
+
+  ///
+  ///@param id
+  @Get(path: '/warehouseconsignmentsettings/{id}')
+  Future<
+          chopper.Response<
+              WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>>
+      warehouseconsignmentsettingsIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  @Put(path: '/warehouseconsignmentsettings/{id}')
+  Future<
+          chopper.Response<
+              WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>>
+      warehouseconsignmentsettingsIdPut(
+          {@Path('id')
+              required String? id,
+          @Body()
+              required WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings?
+                  body});
+
+  ///Get an empty object
+  @Get(path: '/warehouseconsignmentsettings/emptyobject')
+  Future<chopper.Response> warehouseconsignmentsettingsEmptyobjectGet();
+
+  ///Get an empty browse object
+  @Get(path: '/warehouseconsignmentsettings/emptybrowseobject')
+  Future<chopper.Response> warehouseconsignmentsettingsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  @Get(path: '/warehouseconsignmentsettings/keyfieldnames')
+  Future<chopper.Response> warehouseconsignmentsettingsKeyfieldnamesGet();
+
+  ///
   @Post(path: '/warehousedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       warehousedepartmentBrowsePost(
@@ -15633,8 +15747,8 @@ final Map<Type, Object Function(Map<String, dynamic>)>
   FwStandardModelsFwQueryResponseWebApiModulesSettingsAttributeValueAttributeValueLogic:
       FwStandardModelsFwQueryResponseWebApiModulesSettingsAttributeValueAttributeValueLogic
           .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic:
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic
           .fromJsonFactory,
   FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingCycleEventBillingCycleEventLogic:
       FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingCycleEventBillingCycleEventLogic
@@ -16041,6 +16155,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
   FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettingsLogic:
       FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettingsLogic
           .fromJsonFactory,
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic:
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic
+          .fromJsonFactory,
   FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic:
       FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic
           .fromJsonFactory,
@@ -16189,6 +16306,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
       MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryLogic
           .fromJsonFactory,
   WebApiLogicSortItemsResponse: WebApiLogicSortItemsResponse.fromJsonFactory,
+  WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse:
+      WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse
+          .fromJsonFactory,
   WebApiModulesInventoryStorageContainerStorageContainer:
       WebApiModulesInventoryStorageContainerStorageContainer.fromJsonFactory,
   WebApiModulesInventoryStorageContainerStorageContainerItem:
@@ -16217,8 +16337,8 @@ final Map<Type, Object Function(Map<String, dynamic>)>
       WebApiModulesSettingsAppReportDesignerAppReportDesigner.fromJsonFactory,
   WebApiModulesSettingsAttributeValueAttributeValue:
       WebApiModulesSettingsAttributeValueAttributeValue.fromJsonFactory,
-  WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog:
-      WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog
+  WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog:
+      WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog
           .fromJsonFactory,
   WebApiModulesSettingsBillingCycleEventBillingCycleEvent:
       WebApiModulesSettingsBillingCycleEventBillingCycleEvent.fromJsonFactory,
@@ -16604,6 +16724,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
   WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettings:
       WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettings
           .fromJsonFactory,
+  WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings:
+      WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings
+          .fromJsonFactory,
   WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings:
       WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings
           .fromJsonFactory,
@@ -16623,8 +16746,6 @@ final Map<Type, Object Function(Map<String, dynamic>)>
       WebApiModulesSettingsTaxSettingsTaxOptionTaxOption.fromJsonFactory,
   WebApiModulesSettingsTemplateSettingsTemplateTemplate:
       WebApiModulesSettingsTemplateSettingsTemplateTemplate.fromJsonFactory,
-  WebApiModulesSettingsUserProfileUserProfile:
-      WebApiModulesSettingsUserProfileUserProfile.fromJsonFactory,
   WebApiModulesSettingsUserSearchSettingsUserSearchSettings:
       WebApiModulesSettingsUserSearchSettingsUserSearchSettings.fromJsonFactory,
   WebApiModulesSettingsUserSettingsSoundSound:
@@ -16700,6 +16821,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
           .fromJsonFactory,
   WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip:
       WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip
+          .fromJsonFactory,
+  WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings:
+      WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings
           .fromJsonFactory,
   WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment:
       WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment
@@ -18192,8 +18316,8 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsAttributeValueAtt
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic({
+class FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic {
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic({
     this.items,
     this.pageNo,
     this.pageSize,
@@ -18201,15 +18325,14 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshL
     this.sort,
   });
 
-  factory FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic.fromJson(
+  factory FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic.fromJson(
           Map<String, dynamic> json) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicFromJson(
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicFromJson(
           json);
 
   @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
-      WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog>[])
-  final List<
-          WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog>?
+      WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog>[])
+  final List<WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog>?
       items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
@@ -18220,17 +18343,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshL
   @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicFromJson;
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicFromJson;
   static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicToJson;
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicToJson;
   Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicToJson(
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicToJson(
           this);
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -18255,17 +18378,17 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshL
       runtimeType.hashCode;
 }
 
-extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicExtension
-    on FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic
+extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicExtension
+    on FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic {
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic
       copyWith(
-          {List<WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog>?
+          {List<WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog>?
               items,
           int? pageNo,
           int? pageSize,
           int? totalItems,
           String? sort}) {
-    return FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic(
+    return FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic(
         items: items ?? this.items,
         pageNo: pageNo ?? this.pageNo,
         pageSize: pageSize ?? this.pageSize,
@@ -29371,6 +29494,89 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAva
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic {
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic({
+    this.items,
+    this.pageNo,
+    this.pageSize,
+    this.totalItems,
+    this.sort,
+  });
+
+  factory FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicFromJson(
+          json);
+
+  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
+      WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>[])
+  final List<
+          WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>?
+      items;
+  @JsonKey(name: 'PageNo', includeIfNull: false)
+  final int? pageNo;
+  @JsonKey(name: 'PageSize', includeIfNull: false)
+  final int? pageSize;
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
+  final int? totalItems;
+  @JsonKey(name: 'Sort', includeIfNull: false)
+  final String? sort;
+  static const fromJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicFromJson;
+  static const toJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic &&
+            (identical(other.items, items) ||
+                const DeepCollectionEquality().equals(other.items, items)) &&
+            (identical(other.pageNo, pageNo) ||
+                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality()
+                    .equals(other.pageSize, pageSize)) &&
+            (identical(other.totalItems, totalItems) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalItems, totalItems)) &&
+            (identical(other.sort, sort) ||
+                const DeepCollectionEquality().equals(other.sort, sort)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicExtension
+    on FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic {
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic
+      copyWith(
+          {List<WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>?
+              items,
+          int? pageNo,
+          int? pageSize,
+          int? totalItems,
+          String? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic(
+        items: items ?? this.items,
+        pageNo: pageNo ?? this.pageNo,
+        pageSize: pageSize ?? this.pageSize,
+        totalItems: totalItems ?? this.totalItems,
+        sort: sort ?? this.sort);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic {
   FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic({
     this.items,
@@ -33389,12 +33595,66 @@ extension $WebApiLogicSortItemsResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse {
+  WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse({
+    this.entriesBefore,
+    this.entriesAfter,
+  });
+
+  factory WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseFromJson(
+          json);
+
+  @JsonKey(name: 'EntriesBefore', includeIfNull: false)
+  final int? entriesBefore;
+  @JsonKey(name: 'EntriesAfter', includeIfNull: false)
+  final int? entriesAfter;
+  static const fromJsonFactory =
+      _$WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse &&
+            (identical(other.entriesBefore, entriesBefore) ||
+                const DeepCollectionEquality()
+                    .equals(other.entriesBefore, entriesBefore)) &&
+            (identical(other.entriesAfter, entriesAfter) ||
+                const DeepCollectionEquality()
+                    .equals(other.entriesAfter, entriesAfter)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(entriesBefore) ^
+      const DeepCollectionEquality().hash(entriesAfter) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseExtension
+    on WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse {
+  WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse copyWith(
+      {int? entriesBefore, int? entriesAfter}) {
+    return WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse(
+        entriesBefore: entriesBefore ?? this.entriesBefore,
+        entriesAfter: entriesAfter ?? this.entriesAfter);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesInventoryStorageContainerStorageContainer {
   WebApiModulesInventoryStorageContainerStorageContainer({
     this.storageContainerId,
     this.storageContainer,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -33413,6 +33673,8 @@ class WebApiModulesInventoryStorageContainerStorageContainer {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -33453,6 +33715,9 @@ class WebApiModulesInventoryStorageContainerStorageContainer {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -33471,6 +33736,7 @@ class WebApiModulesInventoryStorageContainerStorageContainer {
       const DeepCollectionEquality().hash(storageContainer) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -33485,6 +33751,7 @@ extension $WebApiModulesInventoryStorageContainerStorageContainerExtension
       String? storageContainer,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -33494,6 +33761,7 @@ extension $WebApiModulesInventoryStorageContainerStorageContainerExtension
         storageContainer: storageContainer ?? this.storageContainer,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -33513,6 +33781,7 @@ class WebApiModulesInventoryStorageContainerStorageContainerItem {
     this.orderDescription,
     this.deal,
     this.pickupLocation,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -33540,6 +33809,8 @@ class WebApiModulesInventoryStorageContainerStorageContainerItem {
   final String? deal;
   @JsonKey(name: 'PickupLocation', includeIfNull: false)
   final String? pickupLocation;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -33592,6 +33863,9 @@ class WebApiModulesInventoryStorageContainerStorageContainerItem {
             (identical(other.pickupLocation, pickupLocation) ||
                 const DeepCollectionEquality()
                     .equals(other.pickupLocation, pickupLocation)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -33614,6 +33888,7 @@ class WebApiModulesInventoryStorageContainerStorageContainerItem {
       const DeepCollectionEquality().hash(orderDescription) ^
       const DeepCollectionEquality().hash(deal) ^
       const DeepCollectionEquality().hash(pickupLocation) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -33632,6 +33907,7 @@ extension $WebApiModulesInventoryStorageContainerStorageContainerItemExtension
       String? orderDescription,
       String? deal,
       String? pickupLocation,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -33647,6 +33923,7 @@ extension $WebApiModulesInventoryStorageContainerStorageContainerItemExtension
         orderDescription: orderDescription ?? this.orderDescription,
         deal: deal ?? this.deal,
         pickupLocation: pickupLocation ?? this.pickupLocation,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -33675,6 +33952,7 @@ class WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSetting
     this.foreignSubRentalWithholdingCountry,
     this.foreignSubRentalWithholdingPercent,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -33720,6 +33998,8 @@ class WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSetting
   final double? foreignSubRentalWithholdingPercent;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -33786,6 +34066,7 @@ class WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSetting
             (identical(other.foreignSubRentalWithholdingCountry, foreignSubRentalWithholdingCountry) || const DeepCollectionEquality().equals(other.foreignSubRentalWithholdingCountry, foreignSubRentalWithholdingCountry)) &&
             (identical(other.foreignSubRentalWithholdingPercent, foreignSubRentalWithholdingPercent) || const DeepCollectionEquality().equals(other.foreignSubRentalWithholdingPercent, foreignSubRentalWithholdingPercent)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -33812,6 +34093,7 @@ class WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSetting
       const DeepCollectionEquality().hash(foreignSubRentalWithholdingCountry) ^
       const DeepCollectionEquality().hash(foreignSubRentalWithholdingPercent) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -33840,6 +34122,7 @@ extension $WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSe
           String? foreignSubRentalWithholdingCountry,
           double? foreignSubRentalWithholdingPercent,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -33879,6 +34162,7 @@ extension $WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSe
             foreignSubRentalWithholdingPercent ??
                 this.foreignSubRentalWithholdingPercent,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -33896,6 +34180,7 @@ class WebApiModulesSettingsAccountingSettingsGlAccountGlAccount {
     this.glAccountType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -33918,6 +34203,8 @@ class WebApiModulesSettingsAccountingSettingsGlAccountGlAccount {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -33964,6 +34251,9 @@ class WebApiModulesSettingsAccountingSettingsGlAccountGlAccount {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -33984,6 +34274,7 @@ class WebApiModulesSettingsAccountingSettingsGlAccountGlAccount {
       const DeepCollectionEquality().hash(glAccountType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34000,6 +34291,7 @@ extension $WebApiModulesSettingsAccountingSettingsGlAccountGlAccountExtension
       String? glAccountType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -34011,6 +34303,7 @@ extension $WebApiModulesSettingsAccountingSettingsGlAccountGlAccountExtension
         glAccountType: glAccountType ?? this.glAccountType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34029,6 +34322,7 @@ class WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRul
     this.glAccountNo,
     this.glAccountDescription,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -34054,6 +34348,8 @@ class WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRul
   final String? glAccountDescription;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -34104,6 +34400,9 @@ class WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRul
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -34125,6 +34424,7 @@ class WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRul
       const DeepCollectionEquality().hash(glAccountNo) ^
       const DeepCollectionEquality().hash(glAccountDescription) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34143,6 +34443,7 @@ extension $WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributi
           String? glAccountNo,
           String? glAccountDescription,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -34156,6 +34457,7 @@ extension $WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributi
         glAccountNo: glAccountNo ?? this.glAccountNo,
         glAccountDescription: glAccountDescription ?? this.glAccountDescription,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34179,6 +34481,7 @@ class WebApiModulesSettingsActivityStatusActivityStatus {
     this.inactive,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -34213,6 +34516,8 @@ class WebApiModulesSettingsActivityStatusActivityStatus {
   final int? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -34277,6 +34582,9 @@ class WebApiModulesSettingsActivityStatusActivityStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -34303,6 +34611,7 @@ class WebApiModulesSettingsActivityStatusActivityStatus {
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34325,6 +34634,7 @@ extension $WebApiModulesSettingsActivityStatusActivityStatusExtension
       bool? inactive,
       int? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -34343,6 +34653,7 @@ extension $WebApiModulesSettingsActivityStatusActivityStatusExtension
         inactive: inactive ?? this.inactive,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34423,6 +34734,7 @@ class WebApiModulesSettingsActivityTypeActivityType {
     this.isWarehouseDispatch,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -34463,6 +34775,8 @@ class WebApiModulesSettingsActivityTypeActivityType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -34534,6 +34848,9 @@ class WebApiModulesSettingsActivityTypeActivityType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -34563,6 +34880,7 @@ class WebApiModulesSettingsActivityTypeActivityType {
       const DeepCollectionEquality().hash(isWarehouseDispatch) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34588,6 +34906,7 @@ extension $WebApiModulesSettingsActivityTypeActivityTypeExtension
       bool? isWarehouseDispatch,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -34608,6 +34927,7 @@ extension $WebApiModulesSettingsActivityTypeActivityTypeExtension
         isWarehouseDispatch: isWarehouseDispatch ?? this.isWarehouseDispatch,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34626,6 +34946,7 @@ class WebApiModulesSettingsAddressSettingsCountryCountry {
     this.metric,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -34650,6 +34971,8 @@ class WebApiModulesSettingsAddressSettingsCountryCountry {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -34697,6 +35020,9 @@ class WebApiModulesSettingsAddressSettingsCountryCountry {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -34718,6 +35044,7 @@ class WebApiModulesSettingsAddressSettingsCountryCountry {
       const DeepCollectionEquality().hash(metric) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34735,6 +35062,7 @@ extension $WebApiModulesSettingsAddressSettingsCountryCountryExtension
       bool? metric,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -34747,6 +35075,7 @@ extension $WebApiModulesSettingsAddressSettingsCountryCountryExtension
         metric: metric ?? this.metric,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34762,6 +35091,7 @@ class WebApiModulesSettingsAddressSettingsStateState {
     this.state,
     this.stateCode,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -34780,6 +35110,8 @@ class WebApiModulesSettingsAddressSettingsStateState {
   final String? stateCode;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -34819,6 +35151,9 @@ class WebApiModulesSettingsAddressSettingsStateState {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -34837,6 +35172,7 @@ class WebApiModulesSettingsAddressSettingsStateState {
       const DeepCollectionEquality().hash(state) ^
       const DeepCollectionEquality().hash(stateCode) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34851,6 +35187,7 @@ extension $WebApiModulesSettingsAddressSettingsStateStateExtension
       String? state,
       String? stateCode,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -34860,6 +35197,7 @@ extension $WebApiModulesSettingsAddressSettingsStateStateExtension
         state: state ?? this.state,
         stateCode: stateCode ?? this.stateCode,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34875,6 +35213,7 @@ class WebApiModulesSettingsAppReportDesignerAppReportDesigner {
     this.category,
     this.description,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -34893,6 +35232,8 @@ class WebApiModulesSettingsAppReportDesignerAppReportDesigner {
   final String? description;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -34933,6 +35274,9 @@ class WebApiModulesSettingsAppReportDesignerAppReportDesigner {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -34951,6 +35295,7 @@ class WebApiModulesSettingsAppReportDesignerAppReportDesigner {
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -34965,6 +35310,7 @@ extension $WebApiModulesSettingsAppReportDesignerAppReportDesignerExtension
       String? category,
       String? description,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -34974,6 +35320,7 @@ extension $WebApiModulesSettingsAppReportDesignerAppReportDesignerExtension
         category: category ?? this.category,
         description: description ?? this.description,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -34994,6 +35341,7 @@ class WebApiModulesSettingsAttributeValueAttributeValue {
     this.numericOnly,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -35022,6 +35370,8 @@ class WebApiModulesSettingsAttributeValueAttributeValue {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -35077,6 +35427,9 @@ class WebApiModulesSettingsAttributeValueAttributeValue {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -35100,6 +35453,7 @@ class WebApiModulesSettingsAttributeValueAttributeValue {
       const DeepCollectionEquality().hash(numericOnly) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -35119,6 +35473,7 @@ extension $WebApiModulesSettingsAttributeValueAttributeValueExtension
       bool? numericOnly,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -35133,6 +35488,7 @@ extension $WebApiModulesSettingsAttributeValueAttributeValueExtension
         numericOnly: numericOnly ?? this.numericOnly,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -35142,46 +35498,37 @@ extension $WebApiModulesSettingsAttributeValueAttributeValueExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog {
-  WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog({
+class WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog {
+  WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog({
     this.id,
-    this.batchSize,
-    this.startDateTime,
-    this.startDateTimeString,
-    this.endDateTime,
-    this.endDateTimeString,
-    this.durationInSeconds,
-    this.durationInMinutes,
+    this.serverName,
+    this.logDateTime,
+    this.logMessage,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
     this.defaultFieldAttributes,
   });
 
-  factory WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog.fromJson(
+  factory WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog.fromJson(
           Map<String, dynamic> json) =>
-      _$WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogFromJson(
+      _$WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogFromJson(
           json);
 
   @JsonKey(name: 'Id', includeIfNull: false)
   final int? id;
-  @JsonKey(name: 'BatchSize', includeIfNull: false)
-  final int? batchSize;
-  @JsonKey(name: 'StartDateTime', includeIfNull: false)
-  final DateTime? startDateTime;
-  @JsonKey(name: 'StartDateTimeString', includeIfNull: false)
-  final String? startDateTimeString;
-  @JsonKey(name: 'EndDateTime', includeIfNull: false)
-  final DateTime? endDateTime;
-  @JsonKey(name: 'EndDateTimeString', includeIfNull: false)
-  final String? endDateTimeString;
-  @JsonKey(name: 'DurationInSeconds', includeIfNull: false)
-  final double? durationInSeconds;
-  @JsonKey(name: 'DurationInMinutes', includeIfNull: false)
-  final double? durationInMinutes;
+  @JsonKey(name: 'ServerName', includeIfNull: false)
+  final String? serverName;
+  @JsonKey(name: 'LogDateTime', includeIfNull: false)
+  final DateTime? logDateTime;
+  @JsonKey(name: 'LogMessage', includeIfNull: false)
+  final String? logMessage;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -35200,43 +35547,34 @@ class WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog {
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   static const fromJsonFactory =
-      _$WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogFromJson;
+      _$WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogFromJson;
   static const toJsonFactory =
-      _$WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogToJson;
+      _$WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogToJson;
   Map<String, dynamic> toJson() =>
-      _$WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogToJson(
+      _$WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogToJson(
           this);
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog &&
+        (other is WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.batchSize, batchSize) ||
+            (identical(other.serverName, serverName) ||
                 const DeepCollectionEquality()
-                    .equals(other.batchSize, batchSize)) &&
-            (identical(other.startDateTime, startDateTime) ||
+                    .equals(other.serverName, serverName)) &&
+            (identical(other.logDateTime, logDateTime) ||
                 const DeepCollectionEquality()
-                    .equals(other.startDateTime, startDateTime)) &&
-            (identical(other.startDateTimeString, startDateTimeString) ||
+                    .equals(other.logDateTime, logDateTime)) &&
+            (identical(other.logMessage, logMessage) ||
                 const DeepCollectionEquality()
-                    .equals(other.startDateTimeString, startDateTimeString)) &&
-            (identical(other.endDateTime, endDateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.endDateTime, endDateTime)) &&
-            (identical(other.endDateTimeString, endDateTimeString) ||
-                const DeepCollectionEquality()
-                    .equals(other.endDateTimeString, endDateTimeString)) &&
-            (identical(other.durationInSeconds, durationInSeconds) ||
-                const DeepCollectionEquality()
-                    .equals(other.durationInSeconds, durationInSeconds)) &&
-            (identical(other.durationInMinutes, durationInMinutes) ||
-                const DeepCollectionEquality()
-                    .equals(other.durationInMinutes, durationInMinutes)) &&
+                    .equals(other.logMessage, logMessage)) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -35252,14 +35590,11 @@ class WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(batchSize) ^
-      const DeepCollectionEquality().hash(startDateTime) ^
-      const DeepCollectionEquality().hash(startDateTimeString) ^
-      const DeepCollectionEquality().hash(endDateTime) ^
-      const DeepCollectionEquality().hash(endDateTimeString) ^
-      const DeepCollectionEquality().hash(durationInSeconds) ^
-      const DeepCollectionEquality().hash(durationInMinutes) ^
+      const DeepCollectionEquality().hash(serverName) ^
+      const DeepCollectionEquality().hash(logDateTime) ^
+      const DeepCollectionEquality().hash(logMessage) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -35267,33 +35602,26 @@ class WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog {
       runtimeType.hashCode;
 }
 
-extension $WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogExtension
-    on WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog {
-  WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog
-      copyWith(
-          {int? id,
-          int? batchSize,
-          DateTime? startDateTime,
-          String? startDateTimeString,
-          DateTime? endDateTime,
-          String? endDateTimeString,
-          double? durationInSeconds,
-          double? durationInMinutes,
-          String? dateStamp,
-          String? recordTitle,
-          List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-          List<FwStandardDataFwCustomValue>? custom,
-          List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
-    return WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog(
+extension $WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogExtension
+    on WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog {
+  WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog copyWith(
+      {int? id,
+      String? serverName,
+      DateTime? logDateTime,
+      String? logMessage,
+      String? dateStamp,
+      String? auditNote,
+      String? recordTitle,
+      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+      List<FwStandardDataFwCustomValue>? custom,
+      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
+    return WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog(
         id: id ?? this.id,
-        batchSize: batchSize ?? this.batchSize,
-        startDateTime: startDateTime ?? this.startDateTime,
-        startDateTimeString: startDateTimeString ?? this.startDateTimeString,
-        endDateTime: endDateTime ?? this.endDateTime,
-        endDateTimeString: endDateTimeString ?? this.endDateTimeString,
-        durationInSeconds: durationInSeconds ?? this.durationInSeconds,
-        durationInMinutes: durationInMinutes ?? this.durationInMinutes,
+        serverName: serverName ?? this.serverName,
+        logDateTime: logDateTime ?? this.logDateTime,
+        logMessage: logMessage ?? this.logMessage,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -35312,6 +35640,7 @@ class WebApiModulesSettingsBillingCycleEventBillingCycleEvent {
     this.orderBy,
     this.actualRevenue,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -35336,6 +35665,8 @@ class WebApiModulesSettingsBillingCycleEventBillingCycleEvent {
   final bool? actualRevenue;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -35385,6 +35716,9 @@ class WebApiModulesSettingsBillingCycleEventBillingCycleEvent {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -35406,6 +35740,7 @@ class WebApiModulesSettingsBillingCycleEventBillingCycleEvent {
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(actualRevenue) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -35423,6 +35758,7 @@ extension $WebApiModulesSettingsBillingCycleEventBillingCycleEventExtension
       int? orderBy,
       bool? actualRevenue,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -35435,6 +35771,7 @@ extension $WebApiModulesSettingsBillingCycleEventBillingCycleEventExtension
         orderBy: orderBy ?? this.orderBy,
         actualRevenue: actualRevenue ?? this.actualRevenue,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -35456,6 +35793,7 @@ class WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycle {
     this.billOnPeriodStartOrEnd,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -35487,6 +35825,8 @@ class WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycle {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -35546,6 +35886,9 @@ class WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycle {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -35570,6 +35913,7 @@ class WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycle {
       const DeepCollectionEquality().hash(billOnPeriodStartOrEnd) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -35590,6 +35934,7 @@ extension $WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycleExte
       String? billOnPeriodStartOrEnd,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -35606,6 +35951,7 @@ extension $WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycleExte
             billOnPeriodStartOrEnd ?? this.billOnPeriodStartOrEnd,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -35624,6 +35970,7 @@ class WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatus {
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -35649,6 +35996,8 @@ class WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -35698,6 +36047,9 @@ class WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -35719,6 +36071,7 @@ class WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatus {
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -35736,6 +36089,7 @@ extension $WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatusExte
       bool? whiteText,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -35748,6 +36102,7 @@ extension $WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatusExte
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -35776,6 +36131,7 @@ class WebApiModulesSettingsCalendarSettingsHolidayHoliday {
     this.offsetHoliday,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.$custom,
@@ -35820,6 +36176,8 @@ class WebApiModulesSettingsCalendarSettingsHolidayHoliday {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -35897,6 +36255,9 @@ class WebApiModulesSettingsCalendarSettingsHolidayHoliday {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -35929,6 +36290,7 @@ class WebApiModulesSettingsCalendarSettingsHolidayHoliday {
       const DeepCollectionEquality().hash(offsetHoliday) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash($custom) ^
@@ -35956,6 +36318,7 @@ extension $WebApiModulesSettingsCalendarSettingsHolidayHolidayExtension
       String? offsetHoliday,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? $custom,
@@ -35978,6 +36341,7 @@ extension $WebApiModulesSettingsCalendarSettingsHolidayHolidayExtension
         offsetHoliday: offsetHoliday ?? this.offsetHoliday,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         $custom: $custom ?? this.$custom,
@@ -36047,6 +36411,7 @@ class WebApiModulesSettingsContactSettingsContactEventContactEvent {
     this.recurring,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36072,6 +36437,8 @@ class WebApiModulesSettingsContactSettingsContactEventContactEvent {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36121,6 +36488,9 @@ class WebApiModulesSettingsContactSettingsContactEventContactEvent {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36142,6 +36512,7 @@ class WebApiModulesSettingsContactSettingsContactEventContactEvent {
       const DeepCollectionEquality().hash(recurring) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -36159,6 +36530,7 @@ extension $WebApiModulesSettingsContactSettingsContactEventContactEventExtension
       bool? recurring,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -36171,6 +36543,7 @@ extension $WebApiModulesSettingsContactSettingsContactEventContactEventExtension
         recurring: recurring ?? this.recurring,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -36189,6 +36562,7 @@ class WebApiModulesSettingsContactSettingsContactTitleContactTitle {
     this.accountsReceivable,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36214,6 +36588,8 @@ class WebApiModulesSettingsContactSettingsContactTitleContactTitle {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36264,6 +36640,9 @@ class WebApiModulesSettingsContactSettingsContactTitleContactTitle {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36285,6 +36664,7 @@ class WebApiModulesSettingsContactSettingsContactTitleContactTitle {
       const DeepCollectionEquality().hash(accountsReceivable) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -36302,6 +36682,7 @@ extension $WebApiModulesSettingsContactSettingsContactTitleContactTitleExtension
       bool? accountsReceivable,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -36314,6 +36695,7 @@ extension $WebApiModulesSettingsContactSettingsContactTitleContactTitleExtension
         accountsReceivable: accountsReceivable ?? this.accountsReceivable,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -36329,6 +36711,7 @@ class WebApiModulesSettingsContactSettingsMailListMailList {
     this.mailList,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36347,6 +36730,8 @@ class WebApiModulesSettingsContactSettingsMailListMailList {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36387,6 +36772,9 @@ class WebApiModulesSettingsContactSettingsMailListMailList {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36405,6 +36793,7 @@ class WebApiModulesSettingsContactSettingsMailListMailList {
       const DeepCollectionEquality().hash(mailList) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -36419,6 +36808,7 @@ extension $WebApiModulesSettingsContactSettingsMailListMailListExtension
       String? mailList,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -36428,6 +36818,7 @@ extension $WebApiModulesSettingsContactSettingsMailListMailListExtension
         mailList: mailList ?? this.mailList,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -36446,6 +36837,7 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaym
     this.refundPaymentTypeId,
     this.refundPaymentType,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36471,6 +36863,8 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaym
   final String? refundPaymentType;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36522,6 +36916,9 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaym
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36543,6 +36940,7 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaym
       const DeepCollectionEquality().hash(refundPaymentTypeId) ^
       const DeepCollectionEquality().hash(refundPaymentType) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -36561,6 +36959,7 @@ extension $WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCar
           String? refundPaymentTypeId,
           String? refundPaymentType,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -36574,6 +36973,7 @@ extension $WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCar
         refundPaymentTypeId: refundPaymentTypeId ?? this.refundPaymentTypeId,
         refundPaymentType: refundPaymentType ?? this.refundPaymentType,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -36590,6 +36990,7 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPad {
     this.description,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36611,6 +37012,8 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPad {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36654,6 +37057,9 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPad {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36673,6 +37079,7 @@ class WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPad {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -36689,6 +37096,7 @@ extension $WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinP
           String? description,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -36699,6 +37107,7 @@ extension $WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinP
         description: description ?? this.description,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -36716,6 +37125,7 @@ class WebApiModulesSettingsCrewLocationCrewLocation {
     this.location,
     this.isPrimary,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36738,6 +37148,8 @@ class WebApiModulesSettingsCrewLocationCrewLocation {
   final bool? isPrimary;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36783,6 +37195,9 @@ class WebApiModulesSettingsCrewLocationCrewLocation {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36803,6 +37218,7 @@ class WebApiModulesSettingsCrewLocationCrewLocation {
       const DeepCollectionEquality().hash(location) ^
       const DeepCollectionEquality().hash(isPrimary) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -36819,6 +37235,7 @@ extension $WebApiModulesSettingsCrewLocationCrewLocationExtension
       String? location,
       bool? isPrimary,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -36830,6 +37247,7 @@ extension $WebApiModulesSettingsCrewLocationCrewLocationExtension
         location: location ?? this.location,
         isPrimary: isPrimary ?? this.isPrimary,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -36856,6 +37274,7 @@ class WebApiModulesSettingsCrewPositionCrewPosition {
     this.endDate,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -36896,6 +37315,8 @@ class WebApiModulesSettingsCrewPositionCrewPosition {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -36967,6 +37388,9 @@ class WebApiModulesSettingsCrewPositionCrewPosition {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -36996,6 +37420,7 @@ class WebApiModulesSettingsCrewPositionCrewPosition {
       const DeepCollectionEquality().hash(endDate) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37021,6 +37446,7 @@ extension $WebApiModulesSettingsCrewPositionCrewPositionExtension
       String? endDate,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -37041,6 +37467,7 @@ extension $WebApiModulesSettingsCrewPositionCrewPositionExtension
         endDate: endDate ?? this.endDate,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37065,6 +37492,7 @@ class WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRate {
     this.toCurrency,
     this.toCurrencySymbol,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37102,6 +37530,8 @@ class WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRate {
   final String? toCurrencySymbol;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37170,15 +37600,16 @@ class WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRate {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
+            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -37196,6 +37627,7 @@ class WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRate {
       const DeepCollectionEquality().hash(toCurrency) ^
       const DeepCollectionEquality().hash(toCurrencySymbol) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37219,6 +37651,7 @@ extension $WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRateExtensio
       String? toCurrency,
       String? toCurrencySymbol,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -37238,6 +37671,7 @@ extension $WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRateExtensio
         toCurrency: toCurrency ?? this.toCurrency,
         toCurrencySymbol: toCurrencySymbol ?? this.toCurrencySymbol,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37254,6 +37688,7 @@ class WebApiModulesSettingsCurrencySettingsCurrencyCurrency {
     this.currencyCode,
     this.currencySymbol,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37274,6 +37709,8 @@ class WebApiModulesSettingsCurrencySettingsCurrencyCurrency {
   final String? currencySymbol;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37317,6 +37754,9 @@ class WebApiModulesSettingsCurrencySettingsCurrencyCurrency {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -37336,6 +37776,7 @@ class WebApiModulesSettingsCurrencySettingsCurrencyCurrency {
       const DeepCollectionEquality().hash(currencyCode) ^
       const DeepCollectionEquality().hash(currencySymbol) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37351,6 +37792,7 @@ extension $WebApiModulesSettingsCurrencySettingsCurrencyCurrencyExtension
       String? currencyCode,
       String? currencySymbol,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -37361,6 +37803,7 @@ extension $WebApiModulesSettingsCurrencySettingsCurrencyCurrencyExtension
         currencyCode: currencyCode ?? this.currencyCode,
         currencySymbol: currencySymbol ?? this.currencySymbol,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37377,6 +37820,7 @@ class WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatus {
     this.createContractAllowed,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37398,6 +37842,8 @@ class WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37442,6 +37888,9 @@ class WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -37461,6 +37910,7 @@ class WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatus {
       const DeepCollectionEquality().hash(createContractAllowed) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37476,6 +37926,7 @@ extension $WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatusExtensio
       bool? createContractAllowed,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -37487,6 +37938,7 @@ extension $WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatusExtensio
             createContractAllowed ?? this.createContractAllowed,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37502,6 +37954,7 @@ class WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory {
     this.customerCategory,
     this.dateStamp,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37521,6 +37974,8 @@ class WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory {
   final String? dateStamp;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37562,6 +38017,9 @@ class WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -37580,6 +38038,7 @@ class WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory {
       const DeepCollectionEquality().hash(customerCategory) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37595,6 +38054,7 @@ extension $WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory
           String? customerCategory,
           String? dateStamp,
           bool? inactive,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -37604,6 +38064,7 @@ extension $WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory
         customerCategory: customerCategory ?? this.customerCategory,
         dateStamp: dateStamp ?? this.dateStamp,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37622,6 +38083,7 @@ class WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatus {
     this.creditStatus,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37647,6 +38109,8 @@ class WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37697,6 +38161,9 @@ class WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -37718,6 +38185,7 @@ class WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatus {
       const DeepCollectionEquality().hash(creditStatus) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37735,6 +38203,7 @@ extension $WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatusExte
       String? creditStatus,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -37747,6 +38216,7 @@ extension $WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatusExte
         creditStatus: creditStatus ?? this.creditStatus,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37763,6 +38233,7 @@ class WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerType {
     this.color,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37784,6 +38255,8 @@ class WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37827,6 +38300,9 @@ class WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -37846,6 +38322,7 @@ class WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerType {
       const DeepCollectionEquality().hash(color) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37861,6 +38338,7 @@ extension $WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerTypeExtensio
       String? color,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -37871,6 +38349,7 @@ extension $WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerTypeExtensio
         color: color ?? this.color,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -37886,6 +38365,7 @@ class WebApiModulesSettingsDealSettingsDealClassificationDealClassification {
     this.dealClassification,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -37905,6 +38385,8 @@ class WebApiModulesSettingsDealSettingsDealClassificationDealClassification {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -37946,6 +38428,9 @@ class WebApiModulesSettingsDealSettingsDealClassificationDealClassification {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -37964,6 +38449,7 @@ class WebApiModulesSettingsDealSettingsDealClassificationDealClassification {
       const DeepCollectionEquality().hash(dealClassification) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -37979,6 +38465,7 @@ extension $WebApiModulesSettingsDealSettingsDealClassificationDealClassification
           String? dealClassification,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -37988,6 +38475,7 @@ extension $WebApiModulesSettingsDealSettingsDealClassificationDealClassification
         dealClassification: dealClassification ?? this.dealClassification,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38006,6 +38494,7 @@ class WebApiModulesSettingsDealSettingsDealStatusDealStatus {
     this.creditStatus,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38030,6 +38519,8 @@ class WebApiModulesSettingsDealSettingsDealStatusDealStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38079,6 +38570,9 @@ class WebApiModulesSettingsDealSettingsDealStatusDealStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -38100,6 +38594,7 @@ class WebApiModulesSettingsDealSettingsDealStatusDealStatus {
       const DeepCollectionEquality().hash(creditStatus) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -38117,6 +38612,7 @@ extension $WebApiModulesSettingsDealSettingsDealStatusDealStatusExtension
       String? creditStatus,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -38129,6 +38625,7 @@ extension $WebApiModulesSettingsDealSettingsDealStatusDealStatusExtension
         creditStatus: creditStatus ?? this.creditStatus,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38149,6 +38646,7 @@ class WebApiModulesSettingsDealSettingsDealTypeDealType {
     this.theatricalProduction,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38177,6 +38675,8 @@ class WebApiModulesSettingsDealSettingsDealTypeDealType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38231,6 +38731,9 @@ class WebApiModulesSettingsDealSettingsDealTypeDealType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -38254,6 +38757,7 @@ class WebApiModulesSettingsDealSettingsDealTypeDealType {
       const DeepCollectionEquality().hash(theatricalProduction) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -38273,6 +38777,7 @@ extension $WebApiModulesSettingsDealSettingsDealTypeDealTypeExtension
       bool? theatricalProduction,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -38287,6 +38792,7 @@ extension $WebApiModulesSettingsDealSettingsDealTypeDealTypeExtension
         theatricalProduction: theatricalProduction ?? this.theatricalProduction,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38303,6 +38809,7 @@ class WebApiModulesSettingsDealSettingsProductionTypeProductionType {
     this.productionTypeCode,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38324,6 +38831,8 @@ class WebApiModulesSettingsDealSettingsProductionTypeProductionType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38368,6 +38877,9 @@ class WebApiModulesSettingsDealSettingsProductionTypeProductionType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -38387,6 +38899,7 @@ class WebApiModulesSettingsDealSettingsProductionTypeProductionType {
       const DeepCollectionEquality().hash(productionTypeCode) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -38402,6 +38915,7 @@ extension $WebApiModulesSettingsDealSettingsProductionTypeProductionTypeExtensio
       String? productionTypeCode,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -38412,6 +38926,7 @@ extension $WebApiModulesSettingsDealSettingsProductionTypeProductionTypeExtensio
         productionTypeCode: productionTypeCode ?? this.productionTypeCode,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38427,6 +38942,7 @@ class WebApiModulesSettingsDealSettingsScheduleTypeScheduleType {
     this.scheduleType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38445,6 +38961,8 @@ class WebApiModulesSettingsDealSettingsScheduleTypeScheduleType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38485,6 +39003,9 @@ class WebApiModulesSettingsDealSettingsScheduleTypeScheduleType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -38503,6 +39024,7 @@ class WebApiModulesSettingsDealSettingsScheduleTypeScheduleType {
       const DeepCollectionEquality().hash(scheduleType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -38517,6 +39039,7 @@ extension $WebApiModulesSettingsDealSettingsScheduleTypeScheduleTypeExtension
       String? scheduleType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -38526,6 +39049,7 @@ extension $WebApiModulesSettingsDealSettingsScheduleTypeScheduleTypeExtension
         scheduleType: scheduleType ?? this.scheduleType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38546,6 +39070,7 @@ class WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryType {
     this.isFacilities,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38575,6 +39100,8 @@ class WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryType {
   final int? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38629,6 +39156,9 @@ class WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -38652,6 +39182,7 @@ class WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryType {
       const DeepCollectionEquality().hash(isFacilities) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -38671,6 +39202,7 @@ extension $WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryTypeEx
       bool? isFacilities,
       int? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -38685,6 +39217,7 @@ extension $WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryTypeEx
         isFacilities: isFacilities ?? this.isFacilities,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38703,6 +39236,7 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
     this.defaultOrderTypeId,
     this.defaultOrderType,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38727,6 +39261,8 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
   final String? defaultOrderType;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38776,6 +39312,9 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -38797,6 +39336,7 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
       const DeepCollectionEquality().hash(defaultOrderTypeId) ^
       const DeepCollectionEquality().hash(defaultOrderType) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -38814,6 +39354,7 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
       String? defaultOrderTypeId,
       String? defaultOrderType,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -38826,6 +39367,7 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
         defaultOrderTypeId: defaultOrderTypeId ?? this.defaultOrderTypeId,
         defaultOrderType: defaultOrderType ?? this.defaultOrderType,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -38861,6 +39403,7 @@ class WebApiModulesSettingsDepartmentSettingsDepartmentDepartment {
     this.enableProjects,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -38920,6 +39463,8 @@ class WebApiModulesSettingsDepartmentSettingsDepartmentDepartment {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -38999,6 +39544,7 @@ class WebApiModulesSettingsDepartmentSettingsDepartmentDepartment {
             (identical(other.enableProjects, enableProjects) || const DeepCollectionEquality().equals(other.enableProjects, enableProjects)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -39031,6 +39577,7 @@ class WebApiModulesSettingsDepartmentSettingsDepartmentDepartment {
       const DeepCollectionEquality().hash(enableProjects) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -39065,6 +39612,7 @@ extension $WebApiModulesSettingsDepartmentSettingsDepartmentDepartmentExtension
       bool? enableProjects,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -39107,6 +39655,7 @@ extension $WebApiModulesSettingsDepartmentSettingsDepartmentDepartmentExtension
         enableProjects: enableProjects ?? this.enableProjects,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -39152,6 +39701,7 @@ class WebApiModulesSettingsDiscountItemDiscountItem {
     this.warehouseDefaultDailyRate,
     this.warehouseDefaultWeeklyRate,
     this.discountTemplateId,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -39230,6 +39780,8 @@ class WebApiModulesSettingsDiscountItemDiscountItem {
   final double? warehouseDefaultWeeklyRate;
   @JsonKey(name: 'DiscountTemplateId', includeIfNull: false)
   final String? discountTemplateId;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -39335,6 +39887,7 @@ class WebApiModulesSettingsDiscountItemDiscountItem {
             (identical(other.warehouseDefaultDailyRate, warehouseDefaultDailyRate) || const DeepCollectionEquality().equals(other.warehouseDefaultDailyRate, warehouseDefaultDailyRate)) &&
             (identical(other.warehouseDefaultWeeklyRate, warehouseDefaultWeeklyRate) || const DeepCollectionEquality().equals(other.warehouseDefaultWeeklyRate, warehouseDefaultWeeklyRate)) &&
             (identical(other.discountTemplateId, discountTemplateId) || const DeepCollectionEquality().equals(other.discountTemplateId, discountTemplateId)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -39377,6 +39930,7 @@ class WebApiModulesSettingsDiscountItemDiscountItem {
       const DeepCollectionEquality().hash(warehouseDefaultDailyRate) ^
       const DeepCollectionEquality().hash(warehouseDefaultWeeklyRate) ^
       const DeepCollectionEquality().hash(discountTemplateId) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -39421,6 +39975,7 @@ extension $WebApiModulesSettingsDiscountItemDiscountItemExtension
       double? warehouseDefaultDailyRate,
       double? warehouseDefaultWeeklyRate,
       String? discountTemplateId,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -39462,6 +40017,7 @@ extension $WebApiModulesSettingsDiscountItemDiscountItemExtension
         warehouseDefaultWeeklyRate:
             warehouseDefaultWeeklyRate ?? this.warehouseDefaultWeeklyRate,
         discountTemplateId: discountTemplateId ?? this.discountTemplateId,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -39617,6 +40173,7 @@ class WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTempl
     this.applyDiscountToCustomRate,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -39676,6 +40233,8 @@ class WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTempl
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -39760,6 +40319,7 @@ class WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTempl
             (identical(other.applyDiscountToCustomRate, applyDiscountToCustomRate) || const DeepCollectionEquality().equals(other.applyDiscountToCustomRate, applyDiscountToCustomRate)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -39792,6 +40352,7 @@ class WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTempl
       const DeepCollectionEquality().hash(applyDiscountToCustomRate) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -39827,6 +40388,7 @@ extension $WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscount
           bool? applyDiscountToCustomRate,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -39858,6 +40420,7 @@ extension $WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscount
             applyDiscountToCustomRate ?? this.applyDiscountToCustomRate,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -39873,6 +40436,7 @@ class WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettings {
     this.documentBarCodeSettingsName,
     this.documentBarCodeStyle,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -39892,6 +40456,8 @@ class WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettings {
   final String? documentBarCodeStyle;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -39937,6 +40503,9 @@ class WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettings {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -39955,6 +40524,7 @@ class WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettings {
       const DeepCollectionEquality().hash(documentBarCodeSettingsName) ^
       const DeepCollectionEquality().hash(documentBarCodeStyle) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -39969,6 +40539,7 @@ extension $WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettingsEx
       String? documentBarCodeSettingsName,
       String? documentBarCodeStyle,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -39980,6 +40551,7 @@ extension $WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettingsEx
             documentBarCodeSettingsName ?? this.documentBarCodeSettingsName,
         documentBarCodeStyle: documentBarCodeStyle ?? this.documentBarCodeStyle,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -39997,6 +40569,7 @@ class WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetter {
     this.html,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -40020,6 +40593,8 @@ class WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetter {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -40065,6 +40640,9 @@ class WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetter {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -40085,6 +40663,7 @@ class WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetter {
       const DeepCollectionEquality().hash(html) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -40101,6 +40680,7 @@ extension $WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetterExtension
       String? html,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -40112,6 +40692,7 @@ extension $WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetterExtension
         html: html ?? this.html,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -40131,6 +40712,7 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
     this.automaticallyAttachToEmail,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -40158,6 +40740,8 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -40212,6 +40796,9 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -40234,6 +40821,7 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
       const DeepCollectionEquality().hash(automaticallyAttachToEmail) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -40252,6 +40840,7 @@ extension $WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeExtensio
       bool? automaticallyAttachToEmail,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -40266,6 +40855,7 @@ extension $WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeExtensio
             automaticallyAttachToEmail ?? this.automaticallyAttachToEmail,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -40284,6 +40874,7 @@ class WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditions {
     this.startOnNewPage,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -40309,6 +40900,8 @@ class WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditions {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -40358,6 +40951,9 @@ class WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditions {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -40379,6 +40975,7 @@ class WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditions {
       const DeepCollectionEquality().hash(startOnNewPage) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -40396,6 +40993,7 @@ extension $WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditionsEx
       bool? startOnNewPage,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -40408,6 +41006,7 @@ extension $WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditionsEx
         startOnNewPage: startOnNewPage ?? this.startOnNewPage,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -40424,6 +41023,7 @@ class WebApiModulesSettingsEventSettingsEventCategoryEventCategory {
     this.eventCategoryCode,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -40445,6 +41045,8 @@ class WebApiModulesSettingsEventSettingsEventCategoryEventCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -40489,6 +41091,9 @@ class WebApiModulesSettingsEventSettingsEventCategoryEventCategory {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -40508,6 +41113,7 @@ class WebApiModulesSettingsEventSettingsEventCategoryEventCategory {
       const DeepCollectionEquality().hash(eventCategoryCode) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -40523,6 +41129,7 @@ extension $WebApiModulesSettingsEventSettingsEventCategoryEventCategoryExtension
       String? eventCategoryCode,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -40533,6 +41140,7 @@ extension $WebApiModulesSettingsEventSettingsEventCategoryEventCategoryExtension
         eventCategoryCode: eventCategoryCode ?? this.eventCategoryCode,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -40734,6 +41342,7 @@ class WebApiModulesSettingsEventSettingsEventTypeEventType {
     this.orderBy,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -41126,6 +41735,8 @@ class WebApiModulesSettingsEventSettingsEventTypeEventType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -41382,6 +41993,7 @@ class WebApiModulesSettingsEventSettingsEventTypeEventType {
             (identical(other.orderBy, orderBy) || const DeepCollectionEquality().equals(other.orderBy, orderBy)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -41584,6 +42196,7 @@ class WebApiModulesSettingsEventSettingsEventTypeEventType {
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -41784,6 +42397,7 @@ extension $WebApiModulesSettingsEventSettingsEventTypeEventTypeExtension
       double? orderBy,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -42013,6 +42627,7 @@ extension $WebApiModulesSettingsEventSettingsEventTypeEventTypeExtension
         orderBy: orderBy ?? this.orderBy,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -42033,6 +42648,7 @@ class WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnel
     this.showCellular,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -42064,6 +42680,8 @@ class WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnel
   final double? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -42124,13 +42742,14 @@ class WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnel
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
@@ -42146,6 +42765,7 @@ class WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnel
       const DeepCollectionEquality().hash(showCellular) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -42167,6 +42787,7 @@ extension $WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePers
           bool? showCellular,
           double? orderBy,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -42183,6 +42804,7 @@ extension $WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePers
         showCellular: showCellular ?? this.showCellular,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -42198,6 +42820,7 @@ class WebApiModulesSettingsEventSettingsPhotographyTypePhotographyType {
     this.photographyType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -42217,6 +42840,8 @@ class WebApiModulesSettingsEventSettingsPhotographyTypePhotographyType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -42258,6 +42883,9 @@ class WebApiModulesSettingsEventSettingsPhotographyTypePhotographyType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -42276,6 +42904,7 @@ class WebApiModulesSettingsEventSettingsPhotographyTypePhotographyType {
       const DeepCollectionEquality().hash(photographyType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -42290,6 +42919,7 @@ extension $WebApiModulesSettingsEventSettingsPhotographyTypePhotographyTypeExten
       String? photographyType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -42299,6 +42929,7 @@ extension $WebApiModulesSettingsEventSettingsPhotographyTypePhotographyTypeExten
         photographyType: photographyType ?? this.photographyType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -42319,6 +42950,7 @@ class WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormat {
     this.defaultFormat,
     this.fileName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -42348,6 +42980,8 @@ class WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormat {
   final String? fileName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -42403,6 +43037,9 @@ class WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormat {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -42426,6 +43063,7 @@ class WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormat {
       const DeepCollectionEquality().hash(defaultFormat) ^
       const DeepCollectionEquality().hash(fileName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -42445,6 +43083,7 @@ extension $WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormatEx
       bool? defaultFormat,
       String? fileName,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -42459,6 +43098,7 @@ extension $WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormatEx
         defaultFormat: defaultFormat ?? this.defaultFormat,
         fileName: fileName ?? this.fileName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -42476,6 +43116,7 @@ class WebApiModulesSettingsFacilitySettingsBuildingBuilding {
     this.officeLocationId,
     this.officeLocation,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -42498,6 +43139,8 @@ class WebApiModulesSettingsFacilitySettingsBuildingBuilding {
   final String? officeLocation;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -42544,6 +43187,9 @@ class WebApiModulesSettingsFacilitySettingsBuildingBuilding {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -42564,6 +43210,7 @@ class WebApiModulesSettingsFacilitySettingsBuildingBuilding {
       const DeepCollectionEquality().hash(officeLocationId) ^
       const DeepCollectionEquality().hash(officeLocation) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -42580,6 +43227,7 @@ extension $WebApiModulesSettingsFacilitySettingsBuildingBuildingExtension
       String? officeLocationId,
       String? officeLocation,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -42591,6 +43239,7 @@ extension $WebApiModulesSettingsFacilitySettingsBuildingBuildingExtension
         officeLocationId: officeLocationId ?? this.officeLocationId,
         officeLocation: officeLocation ?? this.officeLocation,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -42814,6 +43463,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory {
     this.inventoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -42935,6 +43585,8 @@ class WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -43042,6 +43694,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory {
             (identical(other.inventoryCount, inventoryCount) || const DeepCollectionEquality().equals(other.inventoryCount, inventoryCount)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -43109,6 +43762,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory {
       const DeepCollectionEquality().hash(inventoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -43172,6 +43826,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
           int? inventoryCount,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -43262,6 +43917,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
         inventoryCount: inventoryCount ?? this.inventoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -43353,10 +44009,13 @@ class WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate {
     this.accumulatedDepreciationExpenseAccountNo,
     this.accumulatedDepreciationExpenseAccountDescription,
     this.originalShowId,
+    this.inputDate,
+    this.inputByUsersId,
     this.inactive,
     this.dateStamp,
     this.manifestShippingContainer,
     this.manifestStandAloneItem,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -43536,6 +44195,10 @@ class WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate {
   final String? accumulatedDepreciationExpenseAccountDescription;
   @JsonKey(name: 'OriginalShowId', includeIfNull: false)
   final String? originalShowId;
+  @JsonKey(name: 'InputDate', includeIfNull: false)
+  final String? inputDate;
+  @JsonKey(name: 'InputByUsersId', includeIfNull: false)
+  final String? inputByUsersId;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -43544,6 +44207,8 @@ class WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate {
   final bool? manifestShippingContainer;
   @JsonKey(name: 'ManifestStandAloneItem', includeIfNull: false)
   final bool? manifestStandAloneItem;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -43681,10 +44346,13 @@ class WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate {
             (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
             (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
             (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
+            (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
+            (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
             (identical(other.manifestStandAloneItem, manifestStandAloneItem) || const DeepCollectionEquality().equals(other.manifestStandAloneItem, manifestStandAloneItem)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -43781,10 +44449,13 @@ class WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate {
       const DeepCollectionEquality()
           .hash(accumulatedDepreciationExpenseAccountDescription) ^
       const DeepCollectionEquality().hash(originalShowId) ^
+      const DeepCollectionEquality().hash(inputDate) ^
+      const DeepCollectionEquality().hash(inputByUsersId) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(manifestShippingContainer) ^
       const DeepCollectionEquality().hash(manifestStandAloneItem) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -43876,10 +44547,13 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRateExtensio
       String? accumulatedDepreciationExpenseAccountNo,
       String? accumulatedDepreciationExpenseAccountDescription,
       String? originalShowId,
+      String? inputDate,
+      String? inputByUsersId,
       bool? inactive,
       String? dateStamp,
       bool? manifestShippingContainer,
       bool? manifestStandAloneItem,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -44006,10 +44680,13 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRateExtensio
             accumulatedDepreciationExpenseAccountDescription ??
                 this.accumulatedDepreciationExpenseAccountDescription,
         originalShowId: originalShowId ?? this.originalShowId,
+        inputDate: inputDate ?? this.inputDate,
+        inputByUsersId: inputByUsersId ?? this.inputByUsersId,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
         manifestStandAloneItem: manifestStandAloneItem ?? this.manifestStandAloneItem,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -44027,6 +44704,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilitySchedul
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -44052,6 +44730,8 @@ class WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilitySchedul
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -44101,6 +44781,9 @@ class WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilitySchedul
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -44122,6 +44805,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilitySchedul
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -44140,6 +44824,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilitySc
           bool? whiteText,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -44152,6 +44837,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilitySc
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -44170,6 +44856,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus {
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -44195,6 +44882,8 @@ class WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -44244,6 +44933,9 @@ class WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -44265,6 +44957,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus {
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -44282,6 +44975,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatusExte
       bool? whiteText,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -44294,6 +44988,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatusExte
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -44314,6 +45009,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType {
     this.groupProfitLoss,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -44343,6 +45039,8 @@ class WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -44387,8 +45085,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType {
             (identical(other.facilitiesDefaultDw, facilitiesDefaultDw) ||
                 const DeepCollectionEquality()
                     .equals(other.facilitiesDefaultDw, facilitiesDefaultDw)) &&
-            (identical(other.facilitiesDoNotDefaultRateOnBooking,
-                    facilitiesDoNotDefaultRateOnBooking) ||
+            (identical(other.facilitiesDoNotDefaultRateOnBooking, facilitiesDoNotDefaultRateOnBooking) ||
                 const DeepCollectionEquality().equals(
                     other.facilitiesDoNotDefaultRateOnBooking,
                     facilitiesDoNotDefaultRateOnBooking)) &&
@@ -44401,6 +45098,9 @@ class WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -44424,6 +45124,7 @@ class WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType {
       const DeepCollectionEquality().hash(groupProfitLoss) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -44443,6 +45144,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityTypeExtensio
       bool? groupProfitLoss,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -44459,6 +45161,7 @@ extension $WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityTypeExtensio
         groupProfitLoss: groupProfitLoss ?? this.groupProfitLoss,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -44488,6 +45191,7 @@ class WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType {
     this.addToDescription,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -44534,6 +45238,8 @@ class WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -44612,6 +45318,7 @@ class WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType {
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -44638,6 +45345,7 @@ class WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType {
       const DeepCollectionEquality().hash(addToDescription) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -44666,6 +45374,7 @@ extension $WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceTypeExtension
       bool? addToDescription,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -44690,6 +45399,7 @@ extension $WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceTypeExtension
         addToDescription: addToDescription ?? this.addToDescription,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -44730,6 +45440,7 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
     this.primaryCompanyContactId,
     this.primaryContact,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -44798,6 +45509,8 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
   final String? primaryContact;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -44898,6 +45611,7 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
             (identical(other.primaryCompanyContactId, primaryCompanyContactId) || const DeepCollectionEquality().equals(other.primaryCompanyContactId, primaryCompanyContactId)) &&
             (identical(other.primaryContact, primaryContact) || const DeepCollectionEquality().equals(other.primaryContact, primaryContact)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -44935,6 +45649,7 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
       const DeepCollectionEquality().hash(primaryCompanyContactId) ^
       const DeepCollectionEquality().hash(primaryContact) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -44974,6 +45689,7 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
       String? primaryCompanyContactId,
       String? primaryContact,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45009,6 +45725,7 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
             primaryCompanyContactId ?? this.primaryCompanyContactId,
         primaryContact: primaryContact ?? this.primaryContact,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45032,6 +45749,7 @@ class WebApiModulesSettingsFiscalMonthFiscalMonth {
     this.fiscalOrder,
     this.closed,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45066,6 +45784,8 @@ class WebApiModulesSettingsFiscalMonthFiscalMonth {
   final bool? closed;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45126,6 +45846,9 @@ class WebApiModulesSettingsFiscalMonthFiscalMonth {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45152,6 +45875,7 @@ class WebApiModulesSettingsFiscalMonthFiscalMonth {
       const DeepCollectionEquality().hash(fiscalOrder) ^
       const DeepCollectionEquality().hash(closed) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45174,6 +45898,7 @@ extension $WebApiModulesSettingsFiscalMonthFiscalMonthExtension
       String? fiscalOrder,
       bool? closed,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45191,6 +45916,7 @@ extension $WebApiModulesSettingsFiscalMonthFiscalMonthExtension
         fiscalOrder: fiscalOrder ?? this.fiscalOrder,
         closed: closed ?? this.closed,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45205,6 +45931,7 @@ class WebApiModulesSettingsFiscalYearFiscalYear {
     this.fiscalYearId,
     this.year,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45221,6 +45948,8 @@ class WebApiModulesSettingsFiscalYearFiscalYear {
   final String? year;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45257,6 +45986,9 @@ class WebApiModulesSettingsFiscalYearFiscalYear {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45274,6 +46006,7 @@ class WebApiModulesSettingsFiscalYearFiscalYear {
       const DeepCollectionEquality().hash(fiscalYearId) ^
       const DeepCollectionEquality().hash(year) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45287,6 +46020,7 @@ extension $WebApiModulesSettingsFiscalYearFiscalYearExtension
       {String? fiscalYearId,
       String? year,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45295,6 +46029,7 @@ extension $WebApiModulesSettingsFiscalYearFiscalYearExtension
         fiscalYearId: fiscalYearId ?? this.fiscalYearId,
         year: year ?? this.year,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45315,6 +46050,7 @@ class WebApiModulesSettingsFloorFloor {
     this.hasFloorPlan,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45342,6 +46078,8 @@ class WebApiModulesSettingsFloorFloor {
   final int? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45394,6 +46132,9 @@ class WebApiModulesSettingsFloorFloor {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45417,6 +46158,7 @@ class WebApiModulesSettingsFloorFloor {
       const DeepCollectionEquality().hash(hasFloorPlan) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45436,6 +46178,7 @@ extension $WebApiModulesSettingsFloorFloorExtension
       bool? hasFloorPlan,
       int? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45450,6 +46193,7 @@ extension $WebApiModulesSettingsFloorFloorExtension
         hasFloorPlan: hasFloorPlan ?? this.hasFloorPlan,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45465,6 +46209,7 @@ class WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType {
     this.generatorFuelType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45483,6 +46228,8 @@ class WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45523,6 +46270,9 @@ class WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45541,6 +46291,7 @@ class WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType {
       const DeepCollectionEquality().hash(generatorFuelType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45555,6 +46306,7 @@ extension $WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelTypeExtension
       String? generatorFuelType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45564,6 +46316,7 @@ extension $WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelTypeExtension
         generatorFuelType: generatorFuelType ?? this.generatorFuelType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45579,6 +46332,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake {
     this.generatorMake,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45598,6 +46352,8 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45639,6 +46395,9 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45657,6 +46416,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake {
       const DeepCollectionEquality().hash(generatorMake) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45671,6 +46431,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMakeExten
       String? generatorMake,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45680,6 +46441,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMakeExten
         generatorMake: generatorMake ?? this.generatorMake,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45696,6 +46458,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel {
     this.generatorMakeId,
     this.generatorMake,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45717,6 +46480,8 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel {
   final String? generatorMake;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45761,6 +46526,9 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45780,6 +46548,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel {
       const DeepCollectionEquality().hash(generatorMakeId) ^
       const DeepCollectionEquality().hash(generatorMake) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45795,6 +46564,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModelExt
       String? generatorMakeId,
       String? generatorMake,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45805,6 +46575,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModelExt
         generatorMakeId: generatorMakeId ?? this.generatorMakeId,
         generatorMake: generatorMake ?? this.generatorMake,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45820,6 +46591,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating {
     this.generatorRating,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -45839,6 +46611,8 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -45880,6 +46654,9 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -45898,6 +46675,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating {
       const DeepCollectionEquality().hash(generatorRating) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -45912,6 +46690,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRatingE
       String? generatorRating,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -45921,6 +46700,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRatingE
         generatorRating: generatorRating ?? this.generatorRating,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -45974,6 +46754,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType {
     this.pickListOrderBy,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -46075,6 +46856,8 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -46171,6 +46954,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType {
             (identical(other.pickListOrderBy, pickListOrderBy) || const DeepCollectionEquality().equals(other.pickListOrderBy, pickListOrderBy)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -46228,6 +47012,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType {
       const DeepCollectionEquality().hash(pickListOrderBy) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -46280,6 +47065,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorTypeExten
       int? pickListOrderBy,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -46355,6 +47141,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorTypeExten
         pickListOrderBy: pickListOrderBy ?? this.pickListOrderBy,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -46370,6 +47157,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts {
     this.generatorWatts,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -46389,6 +47177,8 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -46430,6 +47220,9 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -46448,6 +47241,7 @@ class WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts {
       const DeepCollectionEquality().hash(generatorWatts) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -46462,6 +47256,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWattsExt
       String? generatorWatts,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -46471,6 +47266,7 @@ extension $WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWattsExt
         generatorWatts: generatorWatts ?? this.generatorWatts,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -46492,6 +47288,7 @@ class WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse {
     this.warehouseCode,
     this.warehouse,
     this.warehouseOrderBy,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -46523,6 +47320,8 @@ class WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse {
   final String? warehouse;
   @JsonKey(name: 'WarehouseOrderBy', includeIfNull: false)
   final int? warehouseOrderBy;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -46582,6 +47381,9 @@ class WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse {
             (identical(other.warehouseOrderBy, warehouseOrderBy) ||
                 const DeepCollectionEquality()
                     .equals(other.warehouseOrderBy, warehouseOrderBy)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -46606,6 +47408,7 @@ class WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse {
       const DeepCollectionEquality().hash(warehouseCode) ^
       const DeepCollectionEquality().hash(warehouse) ^
       const DeepCollectionEquality().hash(warehouseOrderBy) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -46626,6 +47429,7 @@ extension $WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouseExte
       String? warehouseCode,
       String? warehouse,
       int? warehouseOrderBy,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -46641,6 +47445,7 @@ extension $WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouseExte
         warehouseCode: warehouseCode ?? this.warehouseCode,
         warehouse: warehouse ?? this.warehouse,
         warehouseOrderBy: warehouseOrderBy ?? this.warehouseOrderBy,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -46663,6 +47468,7 @@ class WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventory {
     this.consignorId,
     this.consignor,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -46696,6 +47502,8 @@ class WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventory {
   final String? consignor;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -46757,15 +47565,16 @@ class WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventory {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
+            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -46781,6 +47590,7 @@ class WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventory {
       const DeepCollectionEquality().hash(consignorId) ^
       const DeepCollectionEquality().hash(consignor) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -46802,6 +47612,7 @@ extension $WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventoryEx
       String? consignorId,
       String? consignor,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -46819,6 +47630,7 @@ extension $WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventoryEx
         consignorId: consignorId ?? this.consignorId,
         consignor: consignor ?? this.consignor,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -46838,6 +47650,7 @@ class WebApiModulesSettingsInventorySettingsAttributeAttribute {
     this.valueCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -46864,6 +47677,8 @@ class WebApiModulesSettingsInventorySettingsAttributeAttribute {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -46916,6 +47731,9 @@ class WebApiModulesSettingsInventorySettingsAttributeAttribute {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -46938,6 +47756,7 @@ class WebApiModulesSettingsInventorySettingsAttributeAttribute {
       const DeepCollectionEquality().hash(valueCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -46956,6 +47775,7 @@ extension $WebApiModulesSettingsInventorySettingsAttributeAttributeExtension
       int? valueCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -46969,6 +47789,7 @@ extension $WebApiModulesSettingsInventorySettingsAttributeAttributeExtension
         valueCount: valueCount ?? this.valueCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -46986,6 +47807,7 @@ class WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRange {
     this.barcodeFrom,
     this.barcodeTo,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47009,6 +47831,8 @@ class WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRange {
   final int? barcodeTo;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -47055,6 +47879,9 @@ class WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRange {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -47075,6 +47902,7 @@ class WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRange {
       const DeepCollectionEquality().hash(barcodeFrom) ^
       const DeepCollectionEquality().hash(barcodeTo) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -47091,6 +47919,7 @@ extension $WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRangeExtensi
       int? barcodeFrom,
       int? barcodeTo,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -47102,6 +47931,7 @@ extension $WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRangeExtensi
         barcodeFrom: barcodeFrom ?? this.barcodeFrom,
         barcodeTo: barcodeTo ?? this.barcodeTo,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -47117,6 +47947,7 @@ class WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAd
     this.inventoryAdjustmentReason,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47136,6 +47967,8 @@ class WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAd
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -47181,6 +48014,9 @@ class WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAd
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -47199,6 +48035,7 @@ class WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAd
       const DeepCollectionEquality().hash(inventoryAdjustmentReason) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -47214,6 +48051,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInvent
           String? inventoryAdjustmentReason,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -47225,6 +48063,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInvent
             inventoryAdjustmentReason ?? this.inventoryAdjustmentReason,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -47242,6 +48081,7 @@ class WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCondition
     this.sales,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47265,6 +48105,8 @@ class WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCondition
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -47310,6 +48152,9 @@ class WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCondition
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -47330,6 +48175,7 @@ class WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCondition
       const DeepCollectionEquality().hash(sales) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -47347,6 +48193,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCond
           bool? sales,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -47358,6 +48205,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCond
         sales: sales ?? this.sales,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -47374,6 +48222,7 @@ class WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroup {
     this.recType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47395,6 +48244,8 @@ class WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroup {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -47439,6 +48290,9 @@ class WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroup {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -47458,6 +48312,7 @@ class WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroup {
       const DeepCollectionEquality().hash(recType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -47473,6 +48328,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroupExt
       String? recType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -47483,6 +48339,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroupExt
         recType: recType ?? this.recType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -47519,6 +48376,7 @@ class WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank {
     this.rankUpdated,
     this.usersId,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47580,6 +48438,8 @@ class WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank {
   final String? usersId;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -47666,6 +48526,7 @@ class WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank {
             (identical(other.rankUpdated, rankUpdated) || const DeepCollectionEquality().equals(other.rankUpdated, rankUpdated)) &&
             (identical(other.usersId, usersId) || const DeepCollectionEquality().equals(other.usersId, usersId)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -47699,6 +48560,7 @@ class WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank {
       const DeepCollectionEquality().hash(rankUpdated) ^
       const DeepCollectionEquality().hash(usersId) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -47734,6 +48596,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryRankInventoryRankExten
       String? rankUpdated,
       String? usersId,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -47764,6 +48627,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryRankInventoryRankExten
         rankUpdated: rankUpdated ?? this.rankUpdated,
         usersId: usersId ?? this.usersId,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -47781,6 +48645,7 @@ class WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatus {
     this.color,
     this.textColor,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47804,6 +48669,8 @@ class WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatus {
   final String? textColor;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -47850,6 +48717,9 @@ class WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -47870,6 +48740,7 @@ class WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatus {
       const DeepCollectionEquality().hash(color) ^
       const DeepCollectionEquality().hash(textColor) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -47886,6 +48757,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatusE
       String? color,
       String? textColor,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -47897,6 +48769,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatusE
         color: color ?? this.color,
         textColor: textColor ?? this.textColor,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -47925,6 +48798,7 @@ class WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType {
     this.orderBy,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -47970,6 +48844,8 @@ class WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -48045,8 +48921,9 @@ class WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
@@ -48071,6 +48948,7 @@ class WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType {
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -48098,6 +48976,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeExten
       double? orderBy,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -48122,6 +49001,7 @@ extension $WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeExten
         orderBy: orderBy ?? this.orderBy,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -48247,6 +49127,7 @@ class WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategory {
     this.inventoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -48384,6 +49265,8 @@ class WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -48495,6 +49378,7 @@ class WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategory {
             (identical(other.inventoryCount, inventoryCount) || const DeepCollectionEquality().equals(other.inventoryCount, inventoryCount)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -48570,6 +49454,7 @@ class WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategory {
       const DeepCollectionEquality().hash(inventoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -48640,6 +49525,7 @@ extension $WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategoryExten
       int? inventoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -48741,6 +49627,7 @@ extension $WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategoryExten
         inventoryCount: inventoryCount ?? this.inventoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -48815,6 +49702,7 @@ class WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategory {
     this.inventoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -48960,6 +49848,8 @@ class WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -49075,6 +49965,7 @@ class WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategory {
             (identical(other.inventoryCount, inventoryCount) || const DeepCollectionEquality().equals(other.inventoryCount, inventoryCount)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -49154,6 +50045,7 @@ class WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategory {
       const DeepCollectionEquality().hash(inventoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -49228,6 +50120,7 @@ extension $WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategoryExt
       int? inventoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -49334,6 +50227,7 @@ extension $WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategoryExt
         inventoryCount: inventoryCount ?? this.inventoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -49349,6 +50243,7 @@ class WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReason {
     this.reasonType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -49370,6 +50265,8 @@ class WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReason {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -49414,6 +50311,9 @@ class WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReason {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -49433,6 +50333,7 @@ class WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReason {
       const DeepCollectionEquality().hash(reasonType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -49448,6 +50349,7 @@ extension $WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReasonExten
       String? reasonType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -49458,6 +50360,7 @@ extension $WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReasonExten
         reasonType: reasonType ?? this.reasonType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -49529,6 +50432,7 @@ class WebApiModulesSettingsInventorySettingsSalesCategorySalesCategory {
     this.inventoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -49666,6 +50570,8 @@ class WebApiModulesSettingsInventorySettingsSalesCategorySalesCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -49777,6 +50683,7 @@ class WebApiModulesSettingsInventorySettingsSalesCategorySalesCategory {
             (identical(other.inventoryCount, inventoryCount) || const DeepCollectionEquality().equals(other.inventoryCount, inventoryCount)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -49852,6 +50759,7 @@ class WebApiModulesSettingsInventorySettingsSalesCategorySalesCategory {
       const DeepCollectionEquality().hash(inventoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -49922,6 +50830,7 @@ extension $WebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryExten
       int? inventoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -50023,6 +50932,7 @@ extension $WebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryExten
         inventoryCount: inventoryCount ?? this.inventoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -50040,6 +50950,7 @@ class WebApiModulesSettingsInventorySettingsUnitUnit {
     this.pluralDescription,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -50064,6 +50975,8 @@ class WebApiModulesSettingsInventorySettingsUnitUnit {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -50111,6 +51024,9 @@ class WebApiModulesSettingsInventorySettingsUnitUnit {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -50132,6 +51048,7 @@ class WebApiModulesSettingsInventorySettingsUnitUnit {
       const DeepCollectionEquality().hash(pluralDescription) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -50149,6 +51066,7 @@ extension $WebApiModulesSettingsInventorySettingsUnitUnitExtension
       String? pluralDescription,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -50161,6 +51079,7 @@ extension $WebApiModulesSettingsInventorySettingsUnitUnitExtension
         pluralDescription: pluralDescription ?? this.pluralDescription,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -50177,6 +51096,7 @@ class WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReason {
     this.reasonType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -50198,6 +51118,8 @@ class WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReason {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -50242,6 +51164,9 @@ class WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReason {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -50261,6 +51186,7 @@ class WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReason {
       const DeepCollectionEquality().hash(reasonType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -50276,6 +51202,7 @@ extension $WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReasonE
       String? reasonType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -50286,6 +51213,7 @@ extension $WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReasonE
         reasonType: reasonType ?? this.reasonType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -50302,6 +51230,7 @@ class WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalog {
     this.catalogType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -50323,6 +51252,8 @@ class WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalog {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -50367,6 +51298,9 @@ class WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalog {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -50386,6 +51320,7 @@ class WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalog {
       const DeepCollectionEquality().hash(catalogType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -50402,6 +51337,7 @@ extension $WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalo
           String? catalogType,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -50412,6 +51348,7 @@ extension $WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalo
         catalogType: catalogType ?? this.catalogType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -50468,6 +51405,7 @@ class WebApiModulesSettingsLaborSettingsCrewCrew {
     this.changePasswordAtNextLogin,
     this.passwordLastUpdated,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -50568,6 +51506,8 @@ class WebApiModulesSettingsLaborSettingsCrewCrew {
   final String? passwordLastUpdated;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -50684,6 +51624,7 @@ class WebApiModulesSettingsLaborSettingsCrewCrew {
             (identical(other.changePasswordAtNextLogin, changePasswordAtNextLogin) || const DeepCollectionEquality().equals(other.changePasswordAtNextLogin, changePasswordAtNextLogin)) &&
             (identical(other.passwordLastUpdated, passwordLastUpdated) || const DeepCollectionEquality().equals(other.passwordLastUpdated, passwordLastUpdated)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -50737,6 +51678,7 @@ class WebApiModulesSettingsLaborSettingsCrewCrew {
       const DeepCollectionEquality().hash(changePasswordAtNextLogin) ^
       const DeepCollectionEquality().hash(passwordLastUpdated) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -50792,6 +51734,7 @@ extension $WebApiModulesSettingsLaborSettingsCrewCrewExtension
       bool? changePasswordAtNextLogin,
       String? passwordLastUpdated,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -50843,6 +51786,7 @@ extension $WebApiModulesSettingsLaborSettingsCrewCrewExtension
             changePasswordAtNextLogin ?? this.changePasswordAtNextLogin,
         passwordLastUpdated: passwordLastUpdated ?? this.passwordLastUpdated,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -50861,6 +51805,7 @@ class WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatus {
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -50886,6 +51831,8 @@ class WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -50935,6 +51882,9 @@ class WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -50956,6 +51906,7 @@ class WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatus {
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -50974,6 +51925,7 @@ extension $WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatu
           bool? whiteText,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -50986,6 +51938,7 @@ extension $WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatu
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -51004,6 +51957,7 @@ class WebApiModulesSettingsLaborSettingsCrewStatusCrewStatus {
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -51028,6 +51982,8 @@ class WebApiModulesSettingsLaborSettingsCrewStatusCrewStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -51076,6 +52032,9 @@ class WebApiModulesSettingsLaborSettingsCrewStatusCrewStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -51097,6 +52056,7 @@ class WebApiModulesSettingsLaborSettingsCrewStatusCrewStatus {
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -51114,6 +52074,7 @@ extension $WebApiModulesSettingsLaborSettingsCrewStatusCrewStatusExtension
       bool? whiteText,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -51126,6 +52087,7 @@ extension $WebApiModulesSettingsLaborSettingsCrewStatusCrewStatusExtension
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -51191,6 +52153,7 @@ class WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategory {
     this.inventoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -51317,6 +52280,8 @@ class WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -51423,6 +52388,7 @@ class WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategory {
             (identical(other.inventoryCount, inventoryCount) || const DeepCollectionEquality().equals(other.inventoryCount, inventoryCount)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -51493,6 +52459,7 @@ class WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategory {
       const DeepCollectionEquality().hash(inventoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -51557,6 +52524,7 @@ extension $WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategoryExtension
       int? inventoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -51646,6 +52614,7 @@ extension $WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategoryExtension
         inventoryCount: inventoryCount ?? this.inventoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -51737,10 +52706,13 @@ class WebApiModulesSettingsLaborSettingsLaborRateLaborRate {
     this.accumulatedDepreciationExpenseAccountNo,
     this.accumulatedDepreciationExpenseAccountDescription,
     this.originalShowId,
+    this.inputDate,
+    this.inputByUsersId,
     this.inactive,
     this.dateStamp,
     this.manifestShippingContainer,
     this.manifestStandAloneItem,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -51919,6 +52891,10 @@ class WebApiModulesSettingsLaborSettingsLaborRateLaborRate {
   final String? accumulatedDepreciationExpenseAccountDescription;
   @JsonKey(name: 'OriginalShowId', includeIfNull: false)
   final String? originalShowId;
+  @JsonKey(name: 'InputDate', includeIfNull: false)
+  final String? inputDate;
+  @JsonKey(name: 'InputByUsersId', includeIfNull: false)
+  final String? inputByUsersId;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -51927,6 +52903,8 @@ class WebApiModulesSettingsLaborSettingsLaborRateLaborRate {
   final bool? manifestShippingContainer;
   @JsonKey(name: 'ManifestStandAloneItem', includeIfNull: false)
   final bool? manifestStandAloneItem;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -52071,10 +53049,13 @@ class WebApiModulesSettingsLaborSettingsLaborRateLaborRate {
             (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
             (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
             (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
+            (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
+            (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
             (identical(other.manifestStandAloneItem, manifestStandAloneItem) || const DeepCollectionEquality().equals(other.manifestStandAloneItem, manifestStandAloneItem)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -52171,10 +53152,13 @@ class WebApiModulesSettingsLaborSettingsLaborRateLaborRate {
       const DeepCollectionEquality()
           .hash(accumulatedDepreciationExpenseAccountDescription) ^
       const DeepCollectionEquality().hash(originalShowId) ^
+      const DeepCollectionEquality().hash(inputDate) ^
+      const DeepCollectionEquality().hash(inputByUsersId) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(manifestShippingContainer) ^
       const DeepCollectionEquality().hash(manifestStandAloneItem) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -52266,10 +53250,13 @@ extension $WebApiModulesSettingsLaborSettingsLaborRateLaborRateExtension
       String? accumulatedDepreciationExpenseAccountNo,
       String? accumulatedDepreciationExpenseAccountDescription,
       String? originalShowId,
+      String? inputDate,
+      String? inputByUsersId,
       bool? inactive,
       String? dateStamp,
       bool? manifestShippingContainer,
       bool? manifestStandAloneItem,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -52396,10 +53383,13 @@ extension $WebApiModulesSettingsLaborSettingsLaborRateLaborRateExtension
             accumulatedDepreciationExpenseAccountDescription ??
                 this.accumulatedDepreciationExpenseAccountDescription,
         originalShowId: originalShowId ?? this.originalShowId,
+        inputDate: inputDate ?? this.inputDate,
+        inputByUsersId: inputByUsersId ?? this.inputByUsersId,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
         manifestStandAloneItem: manifestStandAloneItem ?? this.manifestStandAloneItem,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -52417,6 +53407,7 @@ class WebApiModulesSettingsLaborSettingsLaborTypeLaborType {
     this.categoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -52441,6 +53432,8 @@ class WebApiModulesSettingsLaborSettingsLaborTypeLaborType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -52489,6 +53482,9 @@ class WebApiModulesSettingsLaborSettingsLaborTypeLaborType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -52510,6 +53506,7 @@ class WebApiModulesSettingsLaborSettingsLaborTypeLaborType {
       const DeepCollectionEquality().hash(categoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -52527,6 +53524,7 @@ extension $WebApiModulesSettingsLaborSettingsLaborTypeLaborTypeExtension
       int? categoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -52539,6 +53537,7 @@ extension $WebApiModulesSettingsLaborSettingsLaborTypeLaborTypeExtension
         categoryCount: categoryCount ?? this.categoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -52631,10 +53630,13 @@ class WebApiModulesSettingsLaborSettingsPositionPosition {
     this.accumulatedDepreciationExpenseAccountNo,
     this.accumulatedDepreciationExpenseAccountDescription,
     this.originalShowId,
+    this.inputDate,
+    this.inputByUsersId,
     this.inactive,
     this.dateStamp,
     this.manifestShippingContainer,
     this.manifestStandAloneItem,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -52813,6 +53815,10 @@ class WebApiModulesSettingsLaborSettingsPositionPosition {
   final String? accumulatedDepreciationExpenseAccountDescription;
   @JsonKey(name: 'OriginalShowId', includeIfNull: false)
   final String? originalShowId;
+  @JsonKey(name: 'InputDate', includeIfNull: false)
+  final String? inputDate;
+  @JsonKey(name: 'InputByUsersId', includeIfNull: false)
+  final String? inputByUsersId;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -52821,6 +53827,8 @@ class WebApiModulesSettingsLaborSettingsPositionPosition {
   final bool? manifestShippingContainer;
   @JsonKey(name: 'ManifestStandAloneItem', includeIfNull: false)
   final bool? manifestStandAloneItem;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -52965,10 +53973,13 @@ class WebApiModulesSettingsLaborSettingsPositionPosition {
             (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
             (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
             (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
+            (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
+            (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
             (identical(other.manifestStandAloneItem, manifestStandAloneItem) || const DeepCollectionEquality().equals(other.manifestStandAloneItem, manifestStandAloneItem)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -53065,10 +54076,13 @@ class WebApiModulesSettingsLaborSettingsPositionPosition {
       const DeepCollectionEquality()
           .hash(accumulatedDepreciationExpenseAccountDescription) ^
       const DeepCollectionEquality().hash(originalShowId) ^
+      const DeepCollectionEquality().hash(inputDate) ^
+      const DeepCollectionEquality().hash(inputByUsersId) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(manifestShippingContainer) ^
       const DeepCollectionEquality().hash(manifestStandAloneItem) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -53160,10 +54174,13 @@ extension $WebApiModulesSettingsLaborSettingsPositionPositionExtension
       String? accumulatedDepreciationExpenseAccountNo,
       String? accumulatedDepreciationExpenseAccountDescription,
       String? originalShowId,
+      String? inputDate,
+      String? inputByUsersId,
       bool? inactive,
       String? dateStamp,
       bool? manifestShippingContainer,
       bool? manifestStandAloneItem,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -53290,10 +54307,13 @@ extension $WebApiModulesSettingsLaborSettingsPositionPositionExtension
             accumulatedDepreciationExpenseAccountDescription ??
                 this.accumulatedDepreciationExpenseAccountDescription,
         originalShowId: originalShowId ?? this.originalShowId,
+        inputDate: inputDate ?? this.inputDate,
+        inputByUsersId: inputByUsersId ?? this.inputByUsersId,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
         manifestStandAloneItem: manifestStandAloneItem ?? this.manifestStandAloneItem,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -53311,6 +54331,7 @@ class WebApiModulesSettingsMarketSegmentJobMarketSegmentJob {
     this.marketSegmentId,
     this.marketSegment,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -53335,6 +54356,8 @@ class WebApiModulesSettingsMarketSegmentJobMarketSegmentJob {
   final String? marketSegment;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -53384,6 +54407,9 @@ class WebApiModulesSettingsMarketSegmentJobMarketSegmentJob {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -53405,6 +54431,7 @@ class WebApiModulesSettingsMarketSegmentJobMarketSegmentJob {
       const DeepCollectionEquality().hash(marketSegmentId) ^
       const DeepCollectionEquality().hash(marketSegment) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -53422,6 +54449,7 @@ extension $WebApiModulesSettingsMarketSegmentJobMarketSegmentJobExtension
       String? marketSegmentId,
       String? marketSegment,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -53434,6 +54462,7 @@ extension $WebApiModulesSettingsMarketSegmentJobMarketSegmentJobExtension
         marketSegmentId: marketSegmentId ?? this.marketSegmentId,
         marketSegment: marketSegment ?? this.marketSegment,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -53499,6 +54528,7 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategory {
     this.inventoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -53625,6 +54655,8 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategory {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -53731,6 +54763,7 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategory {
             (identical(other.inventoryCount, inventoryCount) || const DeepCollectionEquality().equals(other.inventoryCount, inventoryCount)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -53801,6 +54834,7 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategory {
       const DeepCollectionEquality().hash(inventoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -53865,6 +54899,7 @@ extension $WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategoryExt
       int? inventoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -53954,6 +54989,7 @@ extension $WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategoryExt
         inventoryCount: inventoryCount ?? this.inventoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -54045,10 +55081,13 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRate {
     this.accumulatedDepreciationExpenseAccountNo,
     this.accumulatedDepreciationExpenseAccountDescription,
     this.originalShowId,
+    this.inputDate,
+    this.inputByUsersId,
     this.inactive,
     this.dateStamp,
     this.manifestShippingContainer,
     this.manifestStandAloneItem,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -54228,6 +55267,10 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRate {
   final String? accumulatedDepreciationExpenseAccountDescription;
   @JsonKey(name: 'OriginalShowId', includeIfNull: false)
   final String? originalShowId;
+  @JsonKey(name: 'InputDate', includeIfNull: false)
+  final String? inputDate;
+  @JsonKey(name: 'InputByUsersId', includeIfNull: false)
+  final String? inputByUsersId;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -54236,6 +55279,8 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRate {
   final bool? manifestShippingContainer;
   @JsonKey(name: 'ManifestStandAloneItem', includeIfNull: false)
   final bool? manifestStandAloneItem;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -54380,10 +55425,13 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRate {
             (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
             (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
             (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
+            (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
+            (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
             (identical(other.manifestStandAloneItem, manifestStandAloneItem) || const DeepCollectionEquality().equals(other.manifestStandAloneItem, manifestStandAloneItem)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -54480,10 +55528,13 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRate {
       const DeepCollectionEquality()
           .hash(accumulatedDepreciationExpenseAccountDescription) ^
       const DeepCollectionEquality().hash(originalShowId) ^
+      const DeepCollectionEquality().hash(inputDate) ^
+      const DeepCollectionEquality().hash(inputByUsersId) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(manifestShippingContainer) ^
       const DeepCollectionEquality().hash(manifestStandAloneItem) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -54575,10 +55626,13 @@ extension $WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRateExtension
       String? accumulatedDepreciationExpenseAccountNo,
       String? accumulatedDepreciationExpenseAccountDescription,
       String? originalShowId,
+      String? inputDate,
+      String? inputByUsersId,
       bool? inactive,
       String? dateStamp,
       bool? manifestShippingContainer,
       bool? manifestStandAloneItem,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -54705,10 +55759,13 @@ extension $WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRateExtension
             accumulatedDepreciationExpenseAccountDescription ??
                 this.accumulatedDepreciationExpenseAccountDescription,
         originalShowId: originalShowId ?? this.originalShowId,
+        inputDate: inputDate ?? this.inputDate,
+        inputByUsersId: inputByUsersId ?? this.inputByUsersId,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
         manifestStandAloneItem: manifestStandAloneItem ?? this.manifestStandAloneItem,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -54726,6 +55783,7 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscType {
     this.categoryCount,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -54751,6 +55809,8 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -54799,6 +55859,9 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -54820,6 +55883,7 @@ class WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscType {
       const DeepCollectionEquality().hash(categoryCount) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -54837,6 +55901,7 @@ extension $WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscTypeExtension
       int? categoryCount,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -54849,6 +55914,7 @@ extension $WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscTypeExtension
         categoryCount: categoryCount ?? this.categoryCount,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -54863,6 +55929,7 @@ class WebApiModulesSettingsNumberFormatNumberFormat {
     this.numberFormatId,
     this.numberFormat,
     this.mask,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -54879,6 +55946,8 @@ class WebApiModulesSettingsNumberFormatNumberFormat {
   final String? numberFormat;
   @JsonKey(name: 'Mask', includeIfNull: false)
   final String? mask;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -54915,6 +55984,9 @@ class WebApiModulesSettingsNumberFormatNumberFormat {
                     .equals(other.numberFormat, numberFormat)) &&
             (identical(other.mask, mask) ||
                 const DeepCollectionEquality().equals(other.mask, mask)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -54932,6 +56004,7 @@ class WebApiModulesSettingsNumberFormatNumberFormat {
       const DeepCollectionEquality().hash(numberFormatId) ^
       const DeepCollectionEquality().hash(numberFormat) ^
       const DeepCollectionEquality().hash(mask) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -54945,6 +56018,7 @@ extension $WebApiModulesSettingsNumberFormatNumberFormatExtension
       {String? numberFormatId,
       String? numberFormat,
       String? mask,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -54953,6 +56027,7 @@ extension $WebApiModulesSettingsNumberFormatNumberFormatExtension
         numberFormatId: numberFormatId ?? this.numberFormatId,
         numberFormat: numberFormat ?? this.numberFormat,
         mask: mask ?? this.mask,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -55023,8 +56098,14 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
     this.invoiceMessage,
     this.taxable,
     this.useOrderLocationByDefault,
+    this.defaultTaxOptionId,
+    this.defaultTaxOption,
+    this.hoursOffset,
+    this.currentServerTime,
+    this.currentLocationTime,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -55154,10 +56235,22 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
   final bool? taxable;
   @JsonKey(name: 'UseOrderLocationByDefault', includeIfNull: false)
   final bool? useOrderLocationByDefault;
+  @JsonKey(name: 'DefaultTaxOptionId', includeIfNull: false)
+  final String? defaultTaxOptionId;
+  @JsonKey(name: 'DefaultTaxOption', includeIfNull: false)
+  final String? defaultTaxOption;
+  @JsonKey(name: 'HoursOffset', includeIfNull: false)
+  final int? hoursOffset;
+  @JsonKey(name: 'CurrentServerTime', includeIfNull: false)
+  final String? currentServerTime;
+  @JsonKey(name: 'CurrentLocationTime', includeIfNull: false)
+  final String? currentLocationTime;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -55278,8 +56371,14 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
             (identical(other.invoiceMessage, invoiceMessage) || const DeepCollectionEquality().equals(other.invoiceMessage, invoiceMessage)) &&
             (identical(other.taxable, taxable) || const DeepCollectionEquality().equals(other.taxable, taxable)) &&
             (identical(other.useOrderLocationByDefault, useOrderLocationByDefault) || const DeepCollectionEquality().equals(other.useOrderLocationByDefault, useOrderLocationByDefault)) &&
+            (identical(other.defaultTaxOptionId, defaultTaxOptionId) || const DeepCollectionEquality().equals(other.defaultTaxOptionId, defaultTaxOptionId)) &&
+            (identical(other.defaultTaxOption, defaultTaxOption) || const DeepCollectionEquality().equals(other.defaultTaxOption, defaultTaxOption)) &&
+            (identical(other.hoursOffset, hoursOffset) || const DeepCollectionEquality().equals(other.hoursOffset, hoursOffset)) &&
+            (identical(other.currentServerTime, currentServerTime) || const DeepCollectionEquality().equals(other.currentServerTime, currentServerTime)) &&
+            (identical(other.currentLocationTime, currentLocationTime) || const DeepCollectionEquality().equals(other.currentLocationTime, currentLocationTime)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -55347,8 +56446,14 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
       const DeepCollectionEquality().hash(invoiceMessage) ^
       const DeepCollectionEquality().hash(taxable) ^
       const DeepCollectionEquality().hash(useOrderLocationByDefault) ^
+      const DeepCollectionEquality().hash(defaultTaxOptionId) ^
+      const DeepCollectionEquality().hash(defaultTaxOption) ^
+      const DeepCollectionEquality().hash(hoursOffset) ^
+      const DeepCollectionEquality().hash(currentServerTime) ^
+      const DeepCollectionEquality().hash(currentLocationTime) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -55419,8 +56524,14 @@ extension $WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocati
           String? invoiceMessage,
           bool? taxable,
           bool? useOrderLocationByDefault,
+          String? defaultTaxOptionId,
+          String? defaultTaxOption,
+          int? hoursOffset,
+          String? currentServerTime,
+          String? currentLocationTime,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -55504,8 +56615,14 @@ extension $WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocati
         taxable: taxable ?? this.taxable,
         useOrderLocationByDefault:
             useOrderLocationByDefault ?? this.useOrderLocationByDefault,
+        defaultTaxOptionId: defaultTaxOptionId ?? this.defaultTaxOptionId,
+        defaultTaxOption: defaultTaxOption ?? this.defaultTaxOption,
+        hoursOffset: hoursOffset ?? this.hoursOffset,
+        currentServerTime: currentServerTime ?? this.currentServerTime,
+        currentLocationTime: currentLocationTime ?? this.currentLocationTime,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -55519,6 +56636,7 @@ class WebApiModulesSettingsOrderItemRecTypeOrderItemRecType {
   WebApiModulesSettingsOrderItemRecTypeOrderItemRecType({
     this.recType,
     this.recTypeDisplay,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -55533,6 +56651,8 @@ class WebApiModulesSettingsOrderItemRecTypeOrderItemRecType {
   final String? recType;
   @JsonKey(name: 'RecTypeDisplay', includeIfNull: false)
   final String? recTypeDisplay;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -55567,6 +56687,9 @@ class WebApiModulesSettingsOrderItemRecTypeOrderItemRecType {
             (identical(other.recTypeDisplay, recTypeDisplay) ||
                 const DeepCollectionEquality()
                     .equals(other.recTypeDisplay, recTypeDisplay)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -55583,6 +56706,7 @@ class WebApiModulesSettingsOrderItemRecTypeOrderItemRecType {
   int get hashCode =>
       const DeepCollectionEquality().hash(recType) ^
       const DeepCollectionEquality().hash(recTypeDisplay) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -55595,6 +56719,7 @@ extension $WebApiModulesSettingsOrderItemRecTypeOrderItemRecTypeExtension
   WebApiModulesSettingsOrderItemRecTypeOrderItemRecType copyWith(
       {String? recType,
       String? recTypeDisplay,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -55602,6 +56727,7 @@ extension $WebApiModulesSettingsOrderItemRecTypeOrderItemRecTypeExtension
     return WebApiModulesSettingsOrderItemRecTypeOrderItemRecType(
         recType: recType ?? this.recType,
         recTypeDisplay: recTypeDisplay ?? this.recTypeDisplay,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -55617,6 +56743,7 @@ class WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReason {
     this.discountReason,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -55636,6 +56763,8 @@ class WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReason {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -55677,6 +56806,9 @@ class WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReason {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -55695,6 +56827,7 @@ class WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReason {
       const DeepCollectionEquality().hash(discountReason) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -55709,6 +56842,7 @@ extension $WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReasonExtensi
       String? discountReason,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -55718,6 +56852,7 @@ extension $WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReasonExtensi
         discountReason: discountReason ?? this.discountReason,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -55735,6 +56870,7 @@ class WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegment {
     this.marketType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -55758,6 +56894,8 @@ class WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegment {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -55805,6 +56943,9 @@ class WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegment {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -55825,6 +56966,7 @@ class WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegment {
       const DeepCollectionEquality().hash(marketType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -55841,6 +56983,7 @@ extension $WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegmentExtension
       String? marketType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -55852,6 +56995,7 @@ extension $WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegmentExtension
         marketType: marketType ?? this.marketType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -55868,6 +57012,7 @@ class WebApiModulesSettingsOrderSettingsMarketTypeMarketType {
     this.exportCode,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -55888,6 +57033,8 @@ class WebApiModulesSettingsOrderSettingsMarketTypeMarketType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -55931,6 +57078,9 @@ class WebApiModulesSettingsOrderSettingsMarketTypeMarketType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -55950,6 +57100,7 @@ class WebApiModulesSettingsOrderSettingsMarketTypeMarketType {
       const DeepCollectionEquality().hash(exportCode) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -55965,6 +57116,7 @@ extension $WebApiModulesSettingsOrderSettingsMarketTypeMarketTypeExtension
       String? exportCode,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -55975,6 +57127,7 @@ extension $WebApiModulesSettingsOrderSettingsMarketTypeMarketTypeExtension
         exportCode: exportCode ?? this.exportCode,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -55992,6 +57145,7 @@ class WebApiModulesSettingsOrderSettingsOrderLocationOrderLocation {
     this.locationId,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -56015,6 +57169,8 @@ class WebApiModulesSettingsOrderSettingsOrderLocationOrderLocation {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -56062,6 +57218,9 @@ class WebApiModulesSettingsOrderSettingsOrderLocationOrderLocation {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -56082,6 +57241,7 @@ class WebApiModulesSettingsOrderSettingsOrderLocationOrderLocation {
       const DeepCollectionEquality().hash(locationId) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -56098,6 +57258,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderLocationOrderLocationExtension
       String? locationId,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -56109,6 +57270,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderLocationOrderLocationExtension
         locationId: locationId ?? this.locationId,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -56125,6 +57287,7 @@ class WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNo {
     this.description,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -56145,6 +57308,8 @@ class WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNo {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -56188,6 +57353,9 @@ class WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNo {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -56207,6 +57375,7 @@ class WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNo {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -56222,6 +57391,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNoExtension
       String? description,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -56232,6 +57402,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNoExtension
         description: description ?? this.description,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -56255,6 +57426,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
     this.combineActivityTabs,
     this.defaultManualSort,
     this.determineQuantitiesToBillBasedOn,
+    this.useEstimatedDatesForBilling,
     this.allowNesting,
     this.rentalShowICode,
     this.rentalICodeWidth,
@@ -56302,6 +57474,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
     this.rentalShowTaxable,
     this.rentalShowNotes,
     this.rentalShowReturnToWarehouse,
+    this.rentalShowConsignor,
     this.rentalDateStamp,
     this.allowRoundTripRentals,
     this.salesShowICode,
@@ -56337,6 +57510,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
     this.salesShowWarehouse,
     this.salesShowTaxable,
     this.salesShowNotes,
+    this.salesShowConsignor,
     this.salesDateStamp,
     this.salesInventoryPrice,
     this.salesInventoryCost,
@@ -56541,6 +57715,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
     this.rentalSaleShowFields,
     this.lossAndDamageShowFields,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -56575,6 +57750,8 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
   final bool? defaultManualSort;
   @JsonKey(name: 'DetermineQuantitiesToBillBasedOn', includeIfNull: false)
   final String? determineQuantitiesToBillBasedOn;
+  @JsonKey(name: 'UseEstimatedDatesForBilling', includeIfNull: false)
+  final bool? useEstimatedDatesForBilling;
   @JsonKey(name: 'AllowNesting', includeIfNull: false)
   final bool? allowNesting;
   @JsonKey(name: 'RentalShowICode', includeIfNull: false)
@@ -56670,6 +57847,8 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
   final bool? rentalShowNotes;
   @JsonKey(name: 'RentalShowReturnToWarehouse', includeIfNull: false)
   final bool? rentalShowReturnToWarehouse;
+  @JsonKey(name: 'RentalShowConsignor', includeIfNull: false)
+  final bool? rentalShowConsignor;
   @JsonKey(name: 'RentalDateStamp', includeIfNull: false)
   final String? rentalDateStamp;
   @JsonKey(name: 'AllowRoundTripRentals', includeIfNull: false)
@@ -56741,6 +57920,8 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
   final bool? salesShowTaxable;
   @JsonKey(name: 'SalesShowNotes', includeIfNull: false)
   final bool? salesShowNotes;
+  @JsonKey(name: 'SalesShowConsignor', includeIfNull: false)
+  final bool? salesShowConsignor;
   @JsonKey(name: 'SalesDateStamp', includeIfNull: false)
   final String? salesDateStamp;
   @JsonKey(name: 'SalesInventoryPrice', includeIfNull: false)
@@ -57162,6 +58343,8 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
   final List<String>? lossAndDamageShowFields;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -57229,14 +58412,15 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
                 const DeepCollectionEquality().equals(
                     other.determineQuantitiesToBillBasedOn,
                     determineQuantitiesToBillBasedOn)) &&
+            (identical(other.useEstimatedDatesForBilling, useEstimatedDatesForBilling) ||
+                const DeepCollectionEquality().equals(
+                    other.useEstimatedDatesForBilling,
+                    useEstimatedDatesForBilling)) &&
             (identical(other.allowNesting, allowNesting) ||
                 const DeepCollectionEquality()
                     .equals(other.allowNesting, allowNesting)) &&
-            (identical(other.rentalShowICode, rentalShowICode) ||
-                const DeepCollectionEquality()
-                    .equals(other.rentalShowICode, rentalShowICode)) &&
-            (identical(other.rentalICodeWidth, rentalICodeWidth) ||
-                const DeepCollectionEquality().equals(other.rentalICodeWidth, rentalICodeWidth)) &&
+            (identical(other.rentalShowICode, rentalShowICode) || const DeepCollectionEquality().equals(other.rentalShowICode, rentalShowICode)) &&
+            (identical(other.rentalICodeWidth, rentalICodeWidth) || const DeepCollectionEquality().equals(other.rentalICodeWidth, rentalICodeWidth)) &&
             (identical(other.rentalShowDescription, rentalShowDescription) || const DeepCollectionEquality().equals(other.rentalShowDescription, rentalShowDescription)) &&
             (identical(other.rentalDescriptionWidth, rentalDescriptionWidth) || const DeepCollectionEquality().equals(other.rentalDescriptionWidth, rentalDescriptionWidth)) &&
             (identical(other.rentalShowPickDate, rentalShowPickDate) || const DeepCollectionEquality().equals(other.rentalShowPickDate, rentalShowPickDate)) &&
@@ -57281,6 +58465,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
             (identical(other.rentalShowTaxable, rentalShowTaxable) || const DeepCollectionEquality().equals(other.rentalShowTaxable, rentalShowTaxable)) &&
             (identical(other.rentalShowNotes, rentalShowNotes) || const DeepCollectionEquality().equals(other.rentalShowNotes, rentalShowNotes)) &&
             (identical(other.rentalShowReturnToWarehouse, rentalShowReturnToWarehouse) || const DeepCollectionEquality().equals(other.rentalShowReturnToWarehouse, rentalShowReturnToWarehouse)) &&
+            (identical(other.rentalShowConsignor, rentalShowConsignor) || const DeepCollectionEquality().equals(other.rentalShowConsignor, rentalShowConsignor)) &&
             (identical(other.rentalDateStamp, rentalDateStamp) || const DeepCollectionEquality().equals(other.rentalDateStamp, rentalDateStamp)) &&
             (identical(other.allowRoundTripRentals, allowRoundTripRentals) || const DeepCollectionEquality().equals(other.allowRoundTripRentals, allowRoundTripRentals)) &&
             (identical(other.salesShowICode, salesShowICode) || const DeepCollectionEquality().equals(other.salesShowICode, salesShowICode)) &&
@@ -57316,6 +58501,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
             (identical(other.salesShowWarehouse, salesShowWarehouse) || const DeepCollectionEquality().equals(other.salesShowWarehouse, salesShowWarehouse)) &&
             (identical(other.salesShowTaxable, salesShowTaxable) || const DeepCollectionEquality().equals(other.salesShowTaxable, salesShowTaxable)) &&
             (identical(other.salesShowNotes, salesShowNotes) || const DeepCollectionEquality().equals(other.salesShowNotes, salesShowNotes)) &&
+            (identical(other.salesShowConsignor, salesShowConsignor) || const DeepCollectionEquality().equals(other.salesShowConsignor, salesShowConsignor)) &&
             (identical(other.salesDateStamp, salesDateStamp) || const DeepCollectionEquality().equals(other.salesDateStamp, salesDateStamp)) &&
             (identical(other.salesInventoryPrice, salesInventoryPrice) || const DeepCollectionEquality().equals(other.salesInventoryPrice, salesInventoryPrice)) &&
             (identical(other.salesInventoryCost, salesInventoryCost) || const DeepCollectionEquality().equals(other.salesInventoryCost, salesInventoryCost)) &&
@@ -57520,6 +58706,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
             (identical(other.rentalSaleShowFields, rentalSaleShowFields) || const DeepCollectionEquality().equals(other.rentalSaleShowFields, rentalSaleShowFields)) &&
             (identical(other.lossAndDamageShowFields, lossAndDamageShowFields) || const DeepCollectionEquality().equals(other.lossAndDamageShowFields, lossAndDamageShowFields)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -57540,6 +58727,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
       const DeepCollectionEquality().hash(combineActivityTabs) ^
       const DeepCollectionEquality().hash(defaultManualSort) ^
       const DeepCollectionEquality().hash(determineQuantitiesToBillBasedOn) ^
+      const DeepCollectionEquality().hash(useEstimatedDatesForBilling) ^
       const DeepCollectionEquality().hash(allowNesting) ^
       const DeepCollectionEquality().hash(rentalShowICode) ^
       const DeepCollectionEquality().hash(rentalICodeWidth) ^
@@ -57589,6 +58777,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
       const DeepCollectionEquality().hash(rentalShowTaxable) ^
       const DeepCollectionEquality().hash(rentalShowNotes) ^
       const DeepCollectionEquality().hash(rentalShowReturnToWarehouse) ^
+      const DeepCollectionEquality().hash(rentalShowConsignor) ^
       const DeepCollectionEquality().hash(rentalDateStamp) ^
       const DeepCollectionEquality().hash(allowRoundTripRentals) ^
       const DeepCollectionEquality().hash(salesShowICode) ^
@@ -57625,6 +58814,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
       const DeepCollectionEquality().hash(salesShowWarehouse) ^
       const DeepCollectionEquality().hash(salesShowTaxable) ^
       const DeepCollectionEquality().hash(salesShowNotes) ^
+      const DeepCollectionEquality().hash(salesShowConsignor) ^
       const DeepCollectionEquality().hash(salesDateStamp) ^
       const DeepCollectionEquality().hash(salesInventoryPrice) ^
       const DeepCollectionEquality().hash(salesInventoryCost) ^
@@ -57830,6 +59020,7 @@ class WebApiModulesSettingsOrderSettingsOrderTypeOrderType {
       const DeepCollectionEquality().hash(rentalSaleShowFields) ^
       const DeepCollectionEquality().hash(lossAndDamageShowFields) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -57852,6 +59043,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
       bool? combineActivityTabs,
       bool? defaultManualSort,
       String? determineQuantitiesToBillBasedOn,
+      bool? useEstimatedDatesForBilling,
       bool? allowNesting,
       bool? rentalShowICode,
       int? rentalICodeWidth,
@@ -57899,6 +59091,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
       bool? rentalShowTaxable,
       bool? rentalShowNotes,
       bool? rentalShowReturnToWarehouse,
+      bool? rentalShowConsignor,
       String? rentalDateStamp,
       bool? allowRoundTripRentals,
       bool? salesShowICode,
@@ -57934,6 +59127,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
       bool? salesShowWarehouse,
       bool? salesShowTaxable,
       bool? salesShowNotes,
+      bool? salesShowConsignor,
       String? salesDateStamp,
       String? salesInventoryPrice,
       String? salesInventoryCost,
@@ -58138,6 +59332,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
       List<String>? rentalSaleShowFields,
       List<String>? lossAndDamageShowFields,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -58158,6 +59353,8 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
         defaultManualSort: defaultManualSort ?? this.defaultManualSort,
         determineQuantitiesToBillBasedOn: determineQuantitiesToBillBasedOn ??
             this.determineQuantitiesToBillBasedOn,
+        useEstimatedDatesForBilling:
+            useEstimatedDatesForBilling ?? this.useEstimatedDatesForBilling,
         allowNesting: allowNesting ?? this.allowNesting,
         rentalShowICode: rentalShowICode ?? this.rentalShowICode,
         rentalICodeWidth: rentalICodeWidth ?? this.rentalICodeWidth,
@@ -58239,6 +59436,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
         rentalShowNotes: rentalShowNotes ?? this.rentalShowNotes,
         rentalShowReturnToWarehouse:
             rentalShowReturnToWarehouse ?? this.rentalShowReturnToWarehouse,
+        rentalShowConsignor: rentalShowConsignor ?? this.rentalShowConsignor,
         rentalDateStamp: rentalDateStamp ?? this.rentalDateStamp,
         allowRoundTripRentals: allowRoundTripRentals ?? this.allowRoundTripRentals,
         salesShowICode: salesShowICode ?? this.salesShowICode,
@@ -58274,6 +59472,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
         salesShowWarehouse: salesShowWarehouse ?? this.salesShowWarehouse,
         salesShowTaxable: salesShowTaxable ?? this.salesShowTaxable,
         salesShowNotes: salesShowNotes ?? this.salesShowNotes,
+        salesShowConsignor: salesShowConsignor ?? this.salesShowConsignor,
         salesDateStamp: salesDateStamp ?? this.salesDateStamp,
         salesInventoryPrice: salesInventoryPrice ?? this.salesInventoryPrice,
         salesInventoryCost: salesInventoryCost ?? this.salesInventoryCost,
@@ -58478,6 +59677,7 @@ extension $WebApiModulesSettingsOrderSettingsOrderTypeOrderTypeExtension
         rentalSaleShowFields: rentalSaleShowFields ?? this.rentalSaleShowFields,
         lossAndDamageShowFields: lossAndDamageShowFields ?? this.lossAndDamageShowFields,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -58493,6 +59693,7 @@ class WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitle {
     this.contactTitleId,
     this.contactTitle,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -58514,6 +59715,8 @@ class WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitle {
   final String? contactTitle;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -58559,6 +59762,9 @@ class WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitle {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -58578,6 +59784,7 @@ class WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitle {
       const DeepCollectionEquality().hash(contactTitleId) ^
       const DeepCollectionEquality().hash(contactTitle) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -58593,6 +59800,7 @@ extension $WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitleExtens
       String? contactTitleId,
       String? contactTitle,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -58604,6 +59812,7 @@ extension $WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitleExtens
         contactTitleId: contactTitleId ?? this.contactTitleId,
         contactTitle: contactTitle ?? this.contactTitle,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -58628,6 +59837,7 @@ class WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateType {
     this.textColor,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -58664,6 +59874,8 @@ class WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateType {
   final double? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -58729,6 +59941,9 @@ class WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -58756,6 +59971,7 @@ class WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateType {
       const DeepCollectionEquality().hash(textColor) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -58779,6 +59995,7 @@ extension $WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateTypeExtension
       String? textColor,
       double? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -58797,6 +60014,7 @@ extension $WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateTypeExtension
         textColor: textColor ?? this.textColor,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -58877,6 +60095,7 @@ class WebApiModulesSettingsOrderTypeLocationOrderTypeLocation {
     this.presentationLayerId,
     this.presentationLayer,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -58911,6 +60130,8 @@ class WebApiModulesSettingsOrderTypeLocationOrderTypeLocation {
   final String? presentationLayer;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -58975,6 +60196,9 @@ class WebApiModulesSettingsOrderTypeLocationOrderTypeLocation {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -59001,6 +60225,7 @@ class WebApiModulesSettingsOrderTypeLocationOrderTypeLocation {
       const DeepCollectionEquality().hash(presentationLayerId) ^
       const DeepCollectionEquality().hash(presentationLayer) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -59023,6 +60248,7 @@ extension $WebApiModulesSettingsOrderTypeLocationOrderTypeLocationExtension
       String? presentationLayerId,
       String? presentationLayer,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -59040,6 +60266,7 @@ extension $WebApiModulesSettingsOrderTypeLocationOrderTypeLocationExtension
         presentationLayerId: presentationLayerId ?? this.presentationLayerId,
         presentationLayer: presentationLayer ?? this.presentationLayer,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -59058,6 +60285,7 @@ class WebApiModulesSettingsOrderTypeNoteOrderTypeNote {
     this.printOnOrder,
     this.notes,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -59082,6 +60310,8 @@ class WebApiModulesSettingsOrderTypeNoteOrderTypeNote {
   final String? notes;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -59130,6 +60360,9 @@ class WebApiModulesSettingsOrderTypeNoteOrderTypeNote {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -59151,6 +60384,7 @@ class WebApiModulesSettingsOrderTypeNoteOrderTypeNote {
       const DeepCollectionEquality().hash(printOnOrder) ^
       const DeepCollectionEquality().hash(notes) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -59168,6 +60402,7 @@ extension $WebApiModulesSettingsOrderTypeNoteOrderTypeNoteExtension
       bool? printOnOrder,
       String? notes,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -59180,6 +60415,7 @@ extension $WebApiModulesSettingsOrderTypeNoteOrderTypeNoteExtension
         printOnOrder: printOnOrder ?? this.printOnOrder,
         notes: notes ?? this.notes,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -59199,6 +60435,7 @@ class WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTerms {
     this.paymentTermsCode,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -59226,6 +60463,8 @@ class WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTerms {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -59278,6 +60517,9 @@ class WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTerms {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -59300,6 +60542,7 @@ class WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTerms {
       const DeepCollectionEquality().hash(paymentTermsCode) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -59318,6 +60561,7 @@ extension $WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTermsExtension
       String? paymentTermsCode,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -59331,6 +60575,7 @@ extension $WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTermsExtension
         paymentTermsCode: paymentTermsCode ?? this.paymentTermsCode,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -59357,6 +60602,7 @@ class WebApiModulesSettingsPaymentSettingsPaymentTypePaymentType {
     this.color,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -59398,6 +60644,8 @@ class WebApiModulesSettingsPaymentSettingsPaymentTypePaymentType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -59456,8 +60704,7 @@ class WebApiModulesSettingsPaymentSettingsPaymentTypePaymentType {
             (identical(other.exportPaymentType, exportPaymentType) ||
                 const DeepCollectionEquality()
                     .equals(other.exportPaymentType, exportPaymentType)) &&
-            (identical(
-                    other.includeInRentalWorksNet, includeInRentalWorksNet) ||
+            (identical(other.includeInRentalWorksNet, includeInRentalWorksNet) ||
                 const DeepCollectionEquality().equals(
                     other.includeInRentalWorksNet, includeInRentalWorksNet)) &&
             (identical(other.rentalWorksNetCaption, rentalWorksNetCaption) ||
@@ -59471,6 +60718,9 @@ class WebApiModulesSettingsPaymentSettingsPaymentTypePaymentType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -59500,6 +60750,7 @@ class WebApiModulesSettingsPaymentSettingsPaymentTypePaymentType {
       const DeepCollectionEquality().hash(color) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -59525,6 +60776,7 @@ extension $WebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeExtension
       String? color,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -59548,6 +60800,7 @@ extension $WebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeExtension
         color: color ?? this.color,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -59563,6 +60816,7 @@ class WebApiModulesSettingsPersonnelTypePersonnelType {
     this.personnelType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -59581,6 +60835,8 @@ class WebApiModulesSettingsPersonnelTypePersonnelType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -59621,6 +60877,9 @@ class WebApiModulesSettingsPersonnelTypePersonnelType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -59639,6 +60898,7 @@ class WebApiModulesSettingsPersonnelTypePersonnelType {
       const DeepCollectionEquality().hash(personnelType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -59653,6 +60913,7 @@ extension $WebApiModulesSettingsPersonnelTypePersonnelTypeExtension
       String? personnelType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -59662,6 +60923,7 @@ extension $WebApiModulesSettingsPersonnelTypePersonnelTypeExtension
         personnelType: personnelType ?? this.personnelType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -59678,6 +60940,7 @@ class WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatus {
     this.poApprovalStatusType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -59699,6 +60962,8 @@ class WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -59743,6 +61008,9 @@ class WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -59762,6 +61030,7 @@ class WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatus {
       const DeepCollectionEquality().hash(poApprovalStatusType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -59777,6 +61046,7 @@ extension $WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatusExtens
       String? poApprovalStatusType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -59787,6 +61057,7 @@ extension $WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatusExtens
         poApprovalStatusType: poApprovalStatusType ?? this.poApprovalStatusType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -59824,6 +61095,7 @@ class WebApiModulesSettingsPoSettingsPoApproverPoApprover {
     this.limitSubVehicle,
     this.limitRepair,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -59886,6 +61158,8 @@ class WebApiModulesSettingsPoSettingsPoApproverPoApprover {
   final double? limitRepair;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -59983,6 +61257,7 @@ class WebApiModulesSettingsPoSettingsPoApproverPoApprover {
             (identical(other.limitSubVehicle, limitSubVehicle) || const DeepCollectionEquality().equals(other.limitSubVehicle, limitSubVehicle)) &&
             (identical(other.limitRepair, limitRepair) || const DeepCollectionEquality().equals(other.limitRepair, limitRepair)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -60017,6 +61292,7 @@ class WebApiModulesSettingsPoSettingsPoApproverPoApprover {
       const DeepCollectionEquality().hash(limitSubVehicle) ^
       const DeepCollectionEquality().hash(limitRepair) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -60053,6 +61329,7 @@ extension $WebApiModulesSettingsPoSettingsPoApproverPoApproverExtension
       double? limitSubVehicle,
       double? limitRepair,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -60084,6 +61361,7 @@ extension $WebApiModulesSettingsPoSettingsPoApproverPoApproverExtension
         limitSubVehicle: limitSubVehicle ?? this.limitSubVehicle,
         limitRepair: limitRepair ?? this.limitRepair,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -60100,6 +61378,7 @@ class WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRole {
     this.poApproverType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -60121,6 +61400,8 @@ class WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRole {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -60164,6 +61445,9 @@ class WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRole {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -60183,6 +61467,7 @@ class WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRole {
       const DeepCollectionEquality().hash(poApproverType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -60198,6 +61483,7 @@ extension $WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRoleExtension
       String? poApproverType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -60208,6 +61494,7 @@ extension $WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRoleExtension
         poApproverType: poApproverType ?? this.poApproverType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -60224,6 +61511,7 @@ class WebApiModulesSettingsPoSettingsPoClassificationPoClassification {
     this.excludeFromRoa,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -60245,6 +61533,8 @@ class WebApiModulesSettingsPoSettingsPoClassificationPoClassification {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -60289,6 +61579,9 @@ class WebApiModulesSettingsPoSettingsPoClassificationPoClassification {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -60308,6 +61601,7 @@ class WebApiModulesSettingsPoSettingsPoClassificationPoClassification {
       const DeepCollectionEquality().hash(excludeFromRoa) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -60323,6 +61617,7 @@ extension $WebApiModulesSettingsPoSettingsPoClassificationPoClassificationExtens
       bool? excludeFromRoa,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -60333,6 +61628,7 @@ extension $WebApiModulesSettingsPoSettingsPoClassificationPoClassificationExtens
         excludeFromRoa: excludeFromRoa ?? this.excludeFromRoa,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -60348,6 +61644,7 @@ class WebApiModulesSettingsPoSettingsPoImportancePoImportance {
     this.poImportance,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -60366,6 +61663,8 @@ class WebApiModulesSettingsPoSettingsPoImportancePoImportance {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -60406,6 +61705,9 @@ class WebApiModulesSettingsPoSettingsPoImportancePoImportance {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -60424,6 +61726,7 @@ class WebApiModulesSettingsPoSettingsPoImportancePoImportance {
       const DeepCollectionEquality().hash(poImportance) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -60438,6 +61741,7 @@ extension $WebApiModulesSettingsPoSettingsPoImportancePoImportanceExtension
       String? poImportance,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -60447,6 +61751,7 @@ extension $WebApiModulesSettingsPoSettingsPoImportancePoImportanceExtension
         poImportance: poImportance ?? this.poImportance,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -60462,6 +61767,7 @@ class WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReason {
     this.poRejectReason,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -60481,6 +61787,8 @@ class WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReason {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -60521,6 +61829,9 @@ class WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReason {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -60539,6 +61850,7 @@ class WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReason {
       const DeepCollectionEquality().hash(poRejectReason) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -60553,6 +61865,7 @@ extension $WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReasonExtension
       String? poRejectReason,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -60562,6 +61875,7 @@ extension $WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReasonExtension
         poRejectReason: poRejectReason ?? this.poRejectReason,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -60643,6 +61957,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
     this.purchaseShowWarehouse,
     this.purchaseShowTaxable,
     this.purchaseShowNotes,
+    this.purchaseShowCostOrder,
     this.purchaseDateStamp,
     this.rentalPurchaseDefaultRate,
     this.salesPurchaseDefaultRate,
@@ -60672,6 +61987,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
     this.laborShowWarehouse,
     this.laborShowTaxable,
     this.laborShowNotes,
+    this.laborShowCostOrder,
     this.laborDateStamp,
     this.hideCrewBreaks,
     this.break1Paid,
@@ -60698,6 +62014,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
     this.miscShowWarehouse,
     this.miscShowTaxable,
     this.miscShowNotes,
+    this.miscShowCostOrder,
     this.miscShowWeeksAndDays,
     this.miscShowMonthsAndDays,
     this.miscDateStamp,
@@ -60779,6 +62096,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
     this.purchaseShowFields,
     this.miscShowFields,
     this.laborShowFields,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -60929,6 +62247,8 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
   final bool? purchaseShowTaxable;
   @JsonKey(name: 'PurchaseShowNotes', includeIfNull: false)
   final bool? purchaseShowNotes;
+  @JsonKey(name: 'PurchaseShowCostOrder', includeIfNull: false)
+  final bool? purchaseShowCostOrder;
   @JsonKey(name: 'PurchaseDateStamp', includeIfNull: false)
   final String? purchaseDateStamp;
   @JsonKey(name: 'RentalPurchaseDefaultRate', includeIfNull: false)
@@ -60987,6 +62307,8 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
   final bool? laborShowTaxable;
   @JsonKey(name: 'LaborShowNotes', includeIfNull: false)
   final bool? laborShowNotes;
+  @JsonKey(name: 'LaborShowCostOrder', includeIfNull: false)
+  final bool? laborShowCostOrder;
   @JsonKey(name: 'LaborDateStamp', includeIfNull: false)
   final String? laborDateStamp;
   @JsonKey(name: 'HideCrewBreaks', includeIfNull: false)
@@ -61039,6 +62361,8 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
   final bool? miscShowTaxable;
   @JsonKey(name: 'MiscShowNotes', includeIfNull: false)
   final bool? miscShowNotes;
+  @JsonKey(name: 'MiscShowCostOrder', includeIfNull: false)
+  final bool? miscShowCostOrder;
   @JsonKey(name: 'MiscShowWeeksAndDays', includeIfNull: false)
   final bool? miscShowWeeksAndDays;
   @JsonKey(name: 'MiscShowMonthsAndDays', includeIfNull: false)
@@ -61214,6 +62538,8 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
   @JsonKey(
       name: 'LaborShowFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? laborShowFields;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -61340,6 +62666,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
             (identical(other.purchaseShowWarehouse, purchaseShowWarehouse) || const DeepCollectionEquality().equals(other.purchaseShowWarehouse, purchaseShowWarehouse)) &&
             (identical(other.purchaseShowTaxable, purchaseShowTaxable) || const DeepCollectionEquality().equals(other.purchaseShowTaxable, purchaseShowTaxable)) &&
             (identical(other.purchaseShowNotes, purchaseShowNotes) || const DeepCollectionEquality().equals(other.purchaseShowNotes, purchaseShowNotes)) &&
+            (identical(other.purchaseShowCostOrder, purchaseShowCostOrder) || const DeepCollectionEquality().equals(other.purchaseShowCostOrder, purchaseShowCostOrder)) &&
             (identical(other.purchaseDateStamp, purchaseDateStamp) || const DeepCollectionEquality().equals(other.purchaseDateStamp, purchaseDateStamp)) &&
             (identical(other.rentalPurchaseDefaultRate, rentalPurchaseDefaultRate) || const DeepCollectionEquality().equals(other.rentalPurchaseDefaultRate, rentalPurchaseDefaultRate)) &&
             (identical(other.salesPurchaseDefaultRate, salesPurchaseDefaultRate) || const DeepCollectionEquality().equals(other.salesPurchaseDefaultRate, salesPurchaseDefaultRate)) &&
@@ -61369,6 +62696,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
             (identical(other.laborShowWarehouse, laborShowWarehouse) || const DeepCollectionEquality().equals(other.laborShowWarehouse, laborShowWarehouse)) &&
             (identical(other.laborShowTaxable, laborShowTaxable) || const DeepCollectionEquality().equals(other.laborShowTaxable, laborShowTaxable)) &&
             (identical(other.laborShowNotes, laborShowNotes) || const DeepCollectionEquality().equals(other.laborShowNotes, laborShowNotes)) &&
+            (identical(other.laborShowCostOrder, laborShowCostOrder) || const DeepCollectionEquality().equals(other.laborShowCostOrder, laborShowCostOrder)) &&
             (identical(other.laborDateStamp, laborDateStamp) || const DeepCollectionEquality().equals(other.laborDateStamp, laborDateStamp)) &&
             (identical(other.hideCrewBreaks, hideCrewBreaks) || const DeepCollectionEquality().equals(other.hideCrewBreaks, hideCrewBreaks)) &&
             (identical(other.break1Paid, break1Paid) || const DeepCollectionEquality().equals(other.break1Paid, break1Paid)) &&
@@ -61395,6 +62723,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
             (identical(other.miscShowWarehouse, miscShowWarehouse) || const DeepCollectionEquality().equals(other.miscShowWarehouse, miscShowWarehouse)) &&
             (identical(other.miscShowTaxable, miscShowTaxable) || const DeepCollectionEquality().equals(other.miscShowTaxable, miscShowTaxable)) &&
             (identical(other.miscShowNotes, miscShowNotes) || const DeepCollectionEquality().equals(other.miscShowNotes, miscShowNotes)) &&
+            (identical(other.miscShowCostOrder, miscShowCostOrder) || const DeepCollectionEquality().equals(other.miscShowCostOrder, miscShowCostOrder)) &&
             (identical(other.miscShowWeeksAndDays, miscShowWeeksAndDays) || const DeepCollectionEquality().equals(other.miscShowWeeksAndDays, miscShowWeeksAndDays)) &&
             (identical(other.miscShowMonthsAndDays, miscShowMonthsAndDays) || const DeepCollectionEquality().equals(other.miscShowMonthsAndDays, miscShowMonthsAndDays)) &&
             (identical(other.miscDateStamp, miscDateStamp) || const DeepCollectionEquality().equals(other.miscDateStamp, miscDateStamp)) &&
@@ -61476,6 +62805,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
             (identical(other.purchaseShowFields, purchaseShowFields) || const DeepCollectionEquality().equals(other.purchaseShowFields, purchaseShowFields)) &&
             (identical(other.miscShowFields, miscShowFields) || const DeepCollectionEquality().equals(other.miscShowFields, miscShowFields)) &&
             (identical(other.laborShowFields, laborShowFields) || const DeepCollectionEquality().equals(other.laborShowFields, laborShowFields)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -61554,6 +62884,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
       const DeepCollectionEquality().hash(purchaseShowWarehouse) ^
       const DeepCollectionEquality().hash(purchaseShowTaxable) ^
       const DeepCollectionEquality().hash(purchaseShowNotes) ^
+      const DeepCollectionEquality().hash(purchaseShowCostOrder) ^
       const DeepCollectionEquality().hash(purchaseDateStamp) ^
       const DeepCollectionEquality().hash(rentalPurchaseDefaultRate) ^
       const DeepCollectionEquality().hash(salesPurchaseDefaultRate) ^
@@ -61583,6 +62914,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
       const DeepCollectionEquality().hash(laborShowWarehouse) ^
       const DeepCollectionEquality().hash(laborShowTaxable) ^
       const DeepCollectionEquality().hash(laborShowNotes) ^
+      const DeepCollectionEquality().hash(laborShowCostOrder) ^
       const DeepCollectionEquality().hash(laborDateStamp) ^
       const DeepCollectionEquality().hash(hideCrewBreaks) ^
       const DeepCollectionEquality().hash(break1Paid) ^
@@ -61609,6 +62941,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
       const DeepCollectionEquality().hash(miscShowWarehouse) ^
       const DeepCollectionEquality().hash(miscShowTaxable) ^
       const DeepCollectionEquality().hash(miscShowNotes) ^
+      const DeepCollectionEquality().hash(miscShowCostOrder) ^
       const DeepCollectionEquality().hash(miscShowWeeksAndDays) ^
       const DeepCollectionEquality().hash(miscShowMonthsAndDays) ^
       const DeepCollectionEquality().hash(miscDateStamp) ^
@@ -61690,6 +63023,7 @@ class WebApiModulesSettingsPoSettingsPoTypePoType {
       const DeepCollectionEquality().hash(purchaseShowFields) ^
       const DeepCollectionEquality().hash(miscShowFields) ^
       const DeepCollectionEquality().hash(laborShowFields) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -61770,6 +63104,7 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
       bool? purchaseShowWarehouse,
       bool? purchaseShowTaxable,
       bool? purchaseShowNotes,
+      bool? purchaseShowCostOrder,
       String? purchaseDateStamp,
       String? rentalPurchaseDefaultRate,
       String? salesPurchaseDefaultRate,
@@ -61799,6 +63134,7 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
       bool? laborShowWarehouse,
       bool? laborShowTaxable,
       bool? laborShowNotes,
+      bool? laborShowCostOrder,
       String? laborDateStamp,
       bool? hideCrewBreaks,
       bool? break1Paid,
@@ -61825,6 +63161,7 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
       bool? miscShowWarehouse,
       bool? miscShowTaxable,
       bool? miscShowNotes,
+      bool? miscShowCostOrder,
       bool? miscShowWeeksAndDays,
       bool? miscShowMonthsAndDays,
       String? miscDateStamp,
@@ -61906,6 +63243,7 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
       List<String>? purchaseShowFields,
       List<String>? miscShowFields,
       List<String>? laborShowFields,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -62024,6 +63362,8 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
             purchaseShowWarehouse ?? this.purchaseShowWarehouse,
         purchaseShowTaxable: purchaseShowTaxable ?? this.purchaseShowTaxable,
         purchaseShowNotes: purchaseShowNotes ?? this.purchaseShowNotes,
+        purchaseShowCostOrder:
+            purchaseShowCostOrder ?? this.purchaseShowCostOrder,
         purchaseDateStamp: purchaseDateStamp ?? this.purchaseDateStamp,
         rentalPurchaseDefaultRate:
             rentalPurchaseDefaultRate ?? this.rentalPurchaseDefaultRate,
@@ -62056,14 +63396,14 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
             laborShowWeeklyDiscountAmount ?? this.laborShowWeeklyDiscountAmount,
         laborShowWeeklyExtended:
             laborShowWeeklyExtended ?? this.laborShowWeeklyExtended,
-        laborShowMonthlyDiscountAmount:
-            laborShowMonthlyDiscountAmount ?? this.laborShowMonthlyDiscountAmount,
+        laborShowMonthlyDiscountAmount: laborShowMonthlyDiscountAmount ?? this.laborShowMonthlyDiscountAmount,
         laborShowMonthlyExtended: laborShowMonthlyExtended ?? this.laborShowMonthlyExtended,
         laborShowPeriodDiscountAmount: laborShowPeriodDiscountAmount ?? this.laborShowPeriodDiscountAmount,
         laborShowPeriodExtended: laborShowPeriodExtended ?? this.laborShowPeriodExtended,
         laborShowWarehouse: laborShowWarehouse ?? this.laborShowWarehouse,
         laborShowTaxable: laborShowTaxable ?? this.laborShowTaxable,
         laborShowNotes: laborShowNotes ?? this.laborShowNotes,
+        laborShowCostOrder: laborShowCostOrder ?? this.laborShowCostOrder,
         laborDateStamp: laborDateStamp ?? this.laborDateStamp,
         hideCrewBreaks: hideCrewBreaks ?? this.hideCrewBreaks,
         break1Paid: break1Paid ?? this.break1Paid,
@@ -62090,6 +63430,7 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
         miscShowWarehouse: miscShowWarehouse ?? this.miscShowWarehouse,
         miscShowTaxable: miscShowTaxable ?? this.miscShowTaxable,
         miscShowNotes: miscShowNotes ?? this.miscShowNotes,
+        miscShowCostOrder: miscShowCostOrder ?? this.miscShowCostOrder,
         miscShowWeeksAndDays: miscShowWeeksAndDays ?? this.miscShowWeeksAndDays,
         miscShowMonthsAndDays: miscShowMonthsAndDays ?? this.miscShowMonthsAndDays,
         miscDateStamp: miscDateStamp ?? this.miscDateStamp,
@@ -62171,6 +63512,7 @@ extension $WebApiModulesSettingsPoSettingsPoTypePoTypeExtension
         purchaseShowFields: purchaseShowFields ?? this.purchaseShowFields,
         miscShowFields: miscShowFields ?? this.miscShowFields,
         laborShowFields: laborShowFields ?? this.laborShowFields,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -62201,6 +63543,7 @@ class WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApprover 
     this.subLabor,
     this.subVehicle,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -62252,6 +63595,8 @@ class WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApprover 
   final bool? subVehicle;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -62328,6 +63673,7 @@ class WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApprover 
             (identical(other.subLabor, subLabor) || const DeepCollectionEquality().equals(other.subLabor, subLabor)) &&
             (identical(other.subVehicle, subVehicle) || const DeepCollectionEquality().equals(other.subVehicle, subVehicle)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -62356,6 +63702,7 @@ class WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApprover 
       const DeepCollectionEquality().hash(subLabor) ^
       const DeepCollectionEquality().hash(subVehicle) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -62387,6 +63734,7 @@ extension $WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceAppr
           bool? subLabor,
           bool? subVehicle,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -62413,6 +63761,7 @@ extension $WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceAppr
         subLabor: subLabor ?? this.subLabor,
         subVehicle: subVehicle ?? this.subVehicle,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -62433,6 +63782,7 @@ class WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivity {
     this.exportCode,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -62462,6 +63812,8 @@ class WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivity {
   final double? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -62519,6 +63871,9 @@ class WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivity {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -62527,8 +63882,7 @@ class WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivity {
             (identical(other.custom, custom) ||
                 const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)));
+                const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -62542,6 +63896,7 @@ class WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivity {
       const DeepCollectionEquality().hash(exportCode) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -62562,6 +63917,7 @@ extension $WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivi
           String? exportCode,
           double? orderBy,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -62577,6 +63933,7 @@ extension $WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivi
         exportCode: exportCode ?? this.exportCode,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -62658,6 +64015,7 @@ class WebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerAct
     this.recType,
     this.activityColor,
     this.exportCode,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -62691,6 +64049,8 @@ class WebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerAct
   final String? activityColor;
   @JsonKey(name: 'ExportCode', includeIfNull: false)
   final String? exportCode;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -62754,6 +64114,7 @@ class WebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerAct
             (identical(other.exportCode, exportCode) ||
                 const DeepCollectionEquality()
                     .equals(other.exportCode, exportCode)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -62773,6 +64134,7 @@ class WebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerAct
       const DeepCollectionEquality().hash(recType) ^
       const DeepCollectionEquality().hash(activityColor) ^
       const DeepCollectionEquality().hash(exportCode) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -62795,6 +64157,7 @@ extension $WebApiModulesSettingsPresentationLayerActivityOverridePresentationLay
           String? recType,
           String? activityColor,
           String? exportCode,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -62814,6 +64177,7 @@ extension $WebApiModulesSettingsPresentationLayerActivityOverridePresentationLay
         recType: recType ?? this.recType,
         activityColor: activityColor ?? this.activityColor,
         exportCode: exportCode ?? this.exportCode,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -62830,6 +64194,7 @@ class WebApiModulesSettingsPresentationLayerFormPresentationLayerForm {
     this.formType,
     this.formTitle,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -62851,6 +64216,8 @@ class WebApiModulesSettingsPresentationLayerFormPresentationLayerForm {
   final String? formTitle;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -62896,6 +64263,9 @@ class WebApiModulesSettingsPresentationLayerFormPresentationLayerForm {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -62915,6 +64285,7 @@ class WebApiModulesSettingsPresentationLayerFormPresentationLayerForm {
       const DeepCollectionEquality().hash(formType) ^
       const DeepCollectionEquality().hash(formTitle) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -62930,6 +64301,7 @@ extension $WebApiModulesSettingsPresentationLayerFormPresentationLayerFormExtens
       String? formType,
       String? formTitle,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -62941,6 +64313,7 @@ extension $WebApiModulesSettingsPresentationLayerFormPresentationLayerFormExtens
         formType: formType ?? this.formType,
         formTitle: formTitle ?? this.formTitle,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -62957,6 +64330,7 @@ class WebApiModulesSettingsPresentationSettingsFormDesignFormDesign {
     this.formType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -62978,6 +64352,8 @@ class WebApiModulesSettingsPresentationSettingsFormDesignFormDesign {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63022,6 +64398,9 @@ class WebApiModulesSettingsPresentationSettingsFormDesignFormDesign {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63041,6 +64420,7 @@ class WebApiModulesSettingsPresentationSettingsFormDesignFormDesign {
       const DeepCollectionEquality().hash(formType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63056,6 +64436,7 @@ extension $WebApiModulesSettingsPresentationSettingsFormDesignFormDesignExtensio
       String? formType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -63066,6 +64447,7 @@ extension $WebApiModulesSettingsPresentationSettingsFormDesignFormDesignExtensio
         formType: formType ?? this.formType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63081,6 +64463,7 @@ class WebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLaye
     this.presentationLayer,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63100,6 +64483,8 @@ class WebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLaye
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63141,6 +64526,9 @@ class WebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLaye
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63159,6 +64547,7 @@ class WebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLaye
       const DeepCollectionEquality().hash(presentationLayer) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63174,6 +64563,7 @@ extension $WebApiModulesSettingsPresentationSettingsPresentationLayerPresentatio
           String? presentationLayer,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -63183,6 +64573,7 @@ extension $WebApiModulesSettingsPresentationSettingsPresentationLayerPresentatio
         presentationLayer: presentationLayer ?? this.presentationLayer,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63198,6 +64589,7 @@ class WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuild {
     this.projectAsBuild,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63217,6 +64609,8 @@ class WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuild {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63258,6 +64652,9 @@ class WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuild {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63276,6 +64673,7 @@ class WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuild {
       const DeepCollectionEquality().hash(projectAsBuild) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63290,6 +64688,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuildExten
       String? projectAsBuild,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -63299,6 +64698,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuildExten
         projectAsBuild: projectAsBuild ?? this.projectAsBuild,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63314,6 +64714,7 @@ class WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioni
     this.projectCommissioning,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63333,6 +64734,8 @@ class WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioni
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63374,6 +64777,9 @@ class WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioni
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63392,6 +64798,7 @@ class WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioni
       const DeepCollectionEquality().hash(projectCommissioning) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63407,6 +64814,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommis
           String? projectCommissioning,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -63417,6 +64825,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommis
         projectCommissioning: projectCommissioning ?? this.projectCommissioning,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63432,6 +64841,7 @@ class WebApiModulesSettingsProjectSettingsProjectDepositProjectDeposit {
     this.projectDeposit,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63451,6 +64861,8 @@ class WebApiModulesSettingsProjectSettingsProjectDepositProjectDeposit {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63492,6 +64904,9 @@ class WebApiModulesSettingsProjectSettingsProjectDepositProjectDeposit {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63510,6 +64925,7 @@ class WebApiModulesSettingsProjectSettingsProjectDepositProjectDeposit {
       const DeepCollectionEquality().hash(projectDeposit) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63524,6 +64940,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectDepositProjectDepositExten
       String? projectDeposit,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -63533,6 +64950,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectDepositProjectDepositExten
         projectDeposit: projectDeposit ?? this.projectDeposit,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63548,6 +64966,7 @@ class WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawings {
     this.projectDrawings,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63567,6 +64986,8 @@ class WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawings {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63608,6 +65029,9 @@ class WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawings {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63626,6 +65050,7 @@ class WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawings {
       const DeepCollectionEquality().hash(projectDrawings) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63640,6 +65065,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawingsExt
       String? projectDrawings,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -63649,6 +65075,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawingsExt
         projectDrawings: projectDrawings ?? this.projectDrawings,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63664,6 +65091,7 @@ class WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipIte
     this.projectDropShipItems,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63683,6 +65111,8 @@ class WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipIte
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63724,6 +65154,9 @@ class WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipIte
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63742,6 +65175,7 @@ class WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipIte
       const DeepCollectionEquality().hash(projectDropShipItems) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63757,6 +65191,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropSh
           String? projectDropShipItems,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -63767,6 +65202,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropSh
         projectDropShipItems: projectDropShipItems ?? this.projectDropShipItems,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63782,6 +65218,7 @@ class WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrdered
     this.projectItemsOrdered,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63801,6 +65238,8 @@ class WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrdered
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63842,6 +65281,9 @@ class WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrdered
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63860,6 +65302,7 @@ class WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrdered
       const DeepCollectionEquality().hash(projectItemsOrdered) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63875,6 +65318,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOr
           String? projectItemsOrdered,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -63885,6 +65329,7 @@ extension $WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOr
         projectItemsOrdered: projectItemsOrdered ?? this.projectItemsOrdered,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -63900,6 +65345,7 @@ class WebApiModulesSettingsPropsSettingsPropsConditionPropsCondition {
     this.propsCondition,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -63919,6 +65365,8 @@ class WebApiModulesSettingsPropsSettingsPropsConditionPropsCondition {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -63960,6 +65408,9 @@ class WebApiModulesSettingsPropsSettingsPropsConditionPropsCondition {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -63978,6 +65429,7 @@ class WebApiModulesSettingsPropsSettingsPropsConditionPropsCondition {
       const DeepCollectionEquality().hash(propsCondition) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -63992,6 +65444,7 @@ extension $WebApiModulesSettingsPropsSettingsPropsConditionPropsConditionExtensi
       String? propsCondition,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -64001,6 +65454,7 @@ extension $WebApiModulesSettingsPropsSettingsPropsConditionPropsConditionExtensi
         propsCondition: propsCondition ?? this.propsCondition,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64017,6 +65471,7 @@ class WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplate {
     this.description,
     this.inactive,
     this.orderBy,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64038,6 +65493,8 @@ class WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplate {
   final bool? inactive;
   @JsonKey(name: 'OrderBy', includeIfNull: false)
   final int? orderBy;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64081,6 +65538,9 @@ class WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplate {
             (identical(other.orderBy, orderBy) ||
                 const DeepCollectionEquality()
                     .equals(other.orderBy, orderBy)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -64100,6 +65560,7 @@ class WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplate {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(orderBy) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -64115,6 +65576,7 @@ extension $WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplateExtension
       String? description,
       bool? inactive,
       int? orderBy,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -64126,6 +65588,7 @@ extension $WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplateExtension
         description: description ?? this.description,
         inactive: inactive ?? this.inactive,
         orderBy: orderBy ?? this.orderBy,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64195,6 +65658,7 @@ extension $WebApiModulesSettingsQuikReceiptTemplateSortQuikReceiptTemplatesReque
 class WebApiModulesSettingsRankRank {
   WebApiModulesSettingsRankRank({
     this.rank,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64206,6 +65670,8 @@ class WebApiModulesSettingsRankRank {
 
   @JsonKey(name: 'Rank', includeIfNull: false)
   final String? rank;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64233,6 +65699,9 @@ class WebApiModulesSettingsRankRank {
         (other is WebApiModulesSettingsRankRank &&
             (identical(other.rank, rank) ||
                 const DeepCollectionEquality().equals(other.rank, rank)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -64248,6 +65717,7 @@ class WebApiModulesSettingsRankRank {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(rank) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -64259,12 +65729,14 @@ extension $WebApiModulesSettingsRankRankExtension
     on WebApiModulesSettingsRankRank {
   WebApiModulesSettingsRankRank copyWith(
       {String? rank,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
       List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
     return WebApiModulesSettingsRankRank(
         rank: rank ?? this.rank,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64285,6 +65757,7 @@ class WebApiModulesSettingsRateLocationTaxRateLocationTax {
     this.modByUsersId,
     this.modByUser,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64313,6 +65786,8 @@ class WebApiModulesSettingsRateLocationTaxRateLocationTax {
   final String? modByUser;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64366,6 +65841,9 @@ class WebApiModulesSettingsRateLocationTaxRateLocationTax {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -64389,6 +65867,7 @@ class WebApiModulesSettingsRateLocationTaxRateLocationTax {
       const DeepCollectionEquality().hash(modByUsersId) ^
       const DeepCollectionEquality().hash(modByUser) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -64408,6 +65887,7 @@ extension $WebApiModulesSettingsRateLocationTaxRateLocationTaxExtension
       String? modByUsersId,
       String? modByUser,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -64422,6 +65902,7 @@ extension $WebApiModulesSettingsRateLocationTaxRateLocationTaxExtension
         modByUsersId: modByUsersId ?? this.modByUsersId,
         modByUser: modByUser ?? this.modByUser,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64435,6 +65916,7 @@ class WebApiModulesSettingsRateTypeRateType {
   WebApiModulesSettingsRateTypeRateType({
     this.rateType,
     this.rateTypeDisplay,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64449,6 +65931,8 @@ class WebApiModulesSettingsRateTypeRateType {
   final String? rateType;
   @JsonKey(name: 'RateTypeDisplay', includeIfNull: false)
   final String? rateTypeDisplay;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64482,6 +65966,9 @@ class WebApiModulesSettingsRateTypeRateType {
             (identical(other.rateTypeDisplay, rateTypeDisplay) ||
                 const DeepCollectionEquality()
                     .equals(other.rateTypeDisplay, rateTypeDisplay)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -64498,6 +65985,7 @@ class WebApiModulesSettingsRateTypeRateType {
   int get hashCode =>
       const DeepCollectionEquality().hash(rateType) ^
       const DeepCollectionEquality().hash(rateTypeDisplay) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -64510,6 +65998,7 @@ extension $WebApiModulesSettingsRateTypeRateTypeExtension
   WebApiModulesSettingsRateTypeRateType copyWith(
       {String? rateType,
       String? rateTypeDisplay,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -64517,6 +66006,7 @@ extension $WebApiModulesSettingsRateTypeRateTypeExtension
     return WebApiModulesSettingsRateTypeRateType(
         rateType: rateType ?? this.rateType,
         rateTypeDisplay: rateTypeDisplay ?? this.rateTypeDisplay,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64551,6 +66041,7 @@ class WebApiModulesSettingsRateWarehouseRateWarehouse {
     this.warehouseCode,
     this.warehouse,
     this.warehouseOrderBy,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64607,6 +66098,8 @@ class WebApiModulesSettingsRateWarehouseRateWarehouse {
   final String? warehouse;
   @JsonKey(name: 'WarehouseOrderBy', includeIfNull: false)
   final int? warehouseOrderBy;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64701,6 +66194,7 @@ class WebApiModulesSettingsRateWarehouseRateWarehouse {
             (identical(other.warehouseOrderBy, warehouseOrderBy) ||
                 const DeepCollectionEquality()
                     .equals(other.warehouseOrderBy, warehouseOrderBy)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -64732,6 +66226,7 @@ class WebApiModulesSettingsRateWarehouseRateWarehouse {
       const DeepCollectionEquality().hash(warehouseCode) ^
       const DeepCollectionEquality().hash(warehouse) ^
       const DeepCollectionEquality().hash(warehouseOrderBy) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -64765,6 +66260,7 @@ extension $WebApiModulesSettingsRateWarehouseRateWarehouseExtension
       String? warehouseCode,
       String? warehouse,
       int? warehouseOrderBy,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -64793,6 +66289,7 @@ extension $WebApiModulesSettingsRateWarehouseRateWarehouseExtension
         warehouseCode: warehouseCode ?? this.warehouseCode,
         warehouse: warehouse ?? this.warehouse,
         warehouseOrderBy: warehouseOrderBy ?? this.warehouseOrderBy,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64808,6 +66305,7 @@ class WebApiModulesSettingsRegionSettingsRegionRegion {
     this.region,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64826,6 +66324,8 @@ class WebApiModulesSettingsRegionSettingsRegionRegion {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64865,6 +66365,9 @@ class WebApiModulesSettingsRegionSettingsRegionRegion {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -64883,6 +66386,7 @@ class WebApiModulesSettingsRegionSettingsRegionRegion {
       const DeepCollectionEquality().hash(region) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -64897,6 +66401,7 @@ extension $WebApiModulesSettingsRegionSettingsRegionRegionExtension
       String? region,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -64906,6 +66411,7 @@ extension $WebApiModulesSettingsRegionSettingsRegionRegionExtension
         region: region ?? this.region,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -64921,6 +66427,7 @@ class WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatus {
     this.repairItemStatus,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -64940,6 +66447,8 @@ class WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -64981,6 +66490,9 @@ class WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -64999,6 +66511,7 @@ class WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatus {
       const DeepCollectionEquality().hash(repairItemStatus) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65013,6 +66526,7 @@ extension $WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatusEx
       String? repairItemStatus,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65022,6 +66536,7 @@ extension $WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatusEx
         repairItemStatus: repairItemStatus ?? this.repairItemStatus,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65037,6 +66552,7 @@ class WebApiModulesSettingsSetSettingsSetConditionSetCondition {
     this.setCondition,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65055,6 +66571,8 @@ class WebApiModulesSettingsSetSettingsSetConditionSetCondition {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65095,6 +66613,9 @@ class WebApiModulesSettingsSetSettingsSetConditionSetCondition {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -65113,6 +66634,7 @@ class WebApiModulesSettingsSetSettingsSetConditionSetCondition {
       const DeepCollectionEquality().hash(setCondition) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65127,6 +66649,7 @@ extension $WebApiModulesSettingsSetSettingsSetConditionSetConditionExtension
       String? setCondition,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65136,6 +66659,7 @@ extension $WebApiModulesSettingsSetSettingsSetConditionSetConditionExtension
         setCondition: setCondition ?? this.setCondition,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65151,6 +66675,7 @@ class WebApiModulesSettingsSetSettingsSetOpeningSetOpening {
     this.setOpening,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65169,6 +66694,8 @@ class WebApiModulesSettingsSetSettingsSetOpeningSetOpening {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65209,6 +66736,9 @@ class WebApiModulesSettingsSetSettingsSetOpeningSetOpening {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -65227,6 +66757,7 @@ class WebApiModulesSettingsSetSettingsSetOpeningSetOpening {
       const DeepCollectionEquality().hash(setOpening) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65241,6 +66772,7 @@ extension $WebApiModulesSettingsSetSettingsSetOpeningSetOpeningExtension
       String? setOpening,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65250,6 +66782,7 @@ extension $WebApiModulesSettingsSetSettingsSetOpeningSetOpeningExtension
         setOpening: setOpening ?? this.setOpening,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65265,6 +66798,7 @@ class WebApiModulesSettingsSetSettingsSetSurfaceSetSurface {
     this.setSurface,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65283,6 +66817,8 @@ class WebApiModulesSettingsSetSettingsSetSurfaceSetSurface {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65323,6 +66859,9 @@ class WebApiModulesSettingsSetSettingsSetSurfaceSetSurface {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -65341,6 +66880,7 @@ class WebApiModulesSettingsSetSettingsSetSurfaceSetSurface {
       const DeepCollectionEquality().hash(setSurface) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65355,6 +66895,7 @@ extension $WebApiModulesSettingsSetSettingsSetSurfaceSetSurfaceExtension
       String? setSurface,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65364,6 +66905,7 @@ extension $WebApiModulesSettingsSetSettingsSetSurfaceSetSurfaceExtension
         setSurface: setSurface ?? this.setSurface,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65379,6 +66921,7 @@ class WebApiModulesSettingsSetSettingsWallDescriptionWallDescription {
     this.wallDescription,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65398,6 +66941,8 @@ class WebApiModulesSettingsSetSettingsWallDescriptionWallDescription {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65439,6 +66984,9 @@ class WebApiModulesSettingsSetSettingsWallDescriptionWallDescription {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -65457,6 +67005,7 @@ class WebApiModulesSettingsSetSettingsWallDescriptionWallDescription {
       const DeepCollectionEquality().hash(wallDescription) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65471,6 +67020,7 @@ extension $WebApiModulesSettingsSetSettingsWallDescriptionWallDescriptionExtensi
       String? wallDescription,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65480,6 +67030,7 @@ extension $WebApiModulesSettingsSetSettingsWallDescriptionWallDescriptionExtensi
         wallDescription: wallDescription ?? this.wallDescription,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65495,6 +67046,7 @@ class WebApiModulesSettingsSetSettingsWallTypeWallType {
     this.wallType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65513,6 +67065,8 @@ class WebApiModulesSettingsSetSettingsWallTypeWallType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65553,6 +67107,9 @@ class WebApiModulesSettingsSetSettingsWallTypeWallType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -65571,6 +67128,7 @@ class WebApiModulesSettingsSetSettingsWallTypeWallType {
       const DeepCollectionEquality().hash(wallType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65585,6 +67143,7 @@ extension $WebApiModulesSettingsSetSettingsWallTypeWallTypeExtension
       String? wallType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65594,6 +67153,7 @@ extension $WebApiModulesSettingsSetSettingsWallTypeWallTypeExtension
         wallType: wallType ?? this.wallType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65611,6 +67171,7 @@ class WebApiModulesSettingsShipViaSettingsShipViaShipVia {
     this.vendor,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65633,6 +67194,8 @@ class WebApiModulesSettingsShipViaSettingsShipViaShipVia {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65678,6 +67241,9 @@ class WebApiModulesSettingsShipViaSettingsShipViaShipVia {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -65698,6 +67264,7 @@ class WebApiModulesSettingsShipViaSettingsShipViaShipVia {
       const DeepCollectionEquality().hash(vendor) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65714,6 +67281,7 @@ extension $WebApiModulesSettingsShipViaSettingsShipViaShipViaExtension
       String? vendor,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -65725,6 +67293,7 @@ extension $WebApiModulesSettingsShipViaSettingsShipViaShipViaExtension
         vendor: vendor ?? this.vendor,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -65763,6 +67332,7 @@ class WebApiModulesSettingsSourceSettingsSourceSource {
     this.proxyUserName,
     this.proxyPassword,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -65827,6 +67397,8 @@ class WebApiModulesSettingsSourceSettingsSourceSource {
   final String? proxyPassword;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -65925,6 +67497,7 @@ class WebApiModulesSettingsSourceSettingsSourceSource {
             (identical(other.proxyUserName, proxyUserName) || const DeepCollectionEquality().equals(other.proxyUserName, proxyUserName)) &&
             (identical(other.proxyPassword, proxyPassword) || const DeepCollectionEquality().equals(other.proxyPassword, proxyPassword)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -65960,6 +67533,7 @@ class WebApiModulesSettingsSourceSettingsSourceSource {
       const DeepCollectionEquality().hash(proxyUserName) ^
       const DeepCollectionEquality().hash(proxyPassword) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -65997,6 +67571,7 @@ extension $WebApiModulesSettingsSourceSettingsSourceSourceExtension
       String? proxyUserName,
       String? proxyPassword,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -66029,6 +67604,7 @@ extension $WebApiModulesSettingsSourceSettingsSourceSourceExtension
         proxyUserName: proxyUserName ?? this.proxyUserName,
         proxyPassword: proxyPassword ?? this.proxyPassword,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -66059,6 +67635,7 @@ class WebApiModulesSettingsSpaceSpace {
     this.lengthFt,
     this.occupancy,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -66106,6 +67683,8 @@ class WebApiModulesSettingsSpaceSpace {
   final int? occupancy;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -66187,6 +67766,9 @@ class WebApiModulesSettingsSpaceSpace {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -66195,8 +67777,7 @@ class WebApiModulesSettingsSpaceSpace {
             (identical(other.custom, custom) ||
                 const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)));
+                const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -66220,6 +67801,7 @@ class WebApiModulesSettingsSpaceSpace {
       const DeepCollectionEquality().hash(lengthFt) ^
       const DeepCollectionEquality().hash(occupancy) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -66249,6 +67831,7 @@ extension $WebApiModulesSettingsSpaceSpaceExtension
       int? lengthFt,
       int? occupancy,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -66273,6 +67856,7 @@ extension $WebApiModulesSettingsSpaceSpaceExtension
         lengthFt: lengthFt ?? this.lengthFt,
         occupancy: occupancy ?? this.occupancy,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -66309,6 +67893,7 @@ class WebApiModulesSettingsSpaceRateSpaceRate {
     this.spaceTypeClassification,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -66369,6 +67954,8 @@ class WebApiModulesSettingsSpaceRateSpaceRate {
   final int? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -66464,6 +68051,7 @@ class WebApiModulesSettingsSpaceRateSpaceRate {
             (identical(other.orderBy, orderBy) ||
                 const DeepCollectionEquality().equals(other.orderBy, orderBy)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -66497,6 +68085,7 @@ class WebApiModulesSettingsSpaceRateSpaceRate {
       const DeepCollectionEquality().hash(spaceTypeClassification) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -66532,6 +68121,7 @@ extension $WebApiModulesSettingsSpaceRateSpaceRateExtension
       String? spaceTypeClassification,
       int? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -66563,6 +68153,7 @@ extension $WebApiModulesSettingsSpaceRateSpaceRateExtension
             spaceTypeClassification ?? this.spaceTypeClassification,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -66636,6 +68227,7 @@ class WebApiModulesSettingsSubCategorySubCategory {
     this.pickListOrderBy,
     this.dateStamp,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -66666,6 +68258,8 @@ class WebApiModulesSettingsSubCategorySubCategory {
   final String? dateStamp;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -66722,6 +68316,9 @@ class WebApiModulesSettingsSubCategorySubCategory {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -66746,6 +68343,7 @@ class WebApiModulesSettingsSubCategorySubCategory {
       const DeepCollectionEquality().hash(pickListOrderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -66766,6 +68364,7 @@ extension $WebApiModulesSettingsSubCategorySubCategoryExtension
       int? pickListOrderBy,
       String? dateStamp,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -66781,6 +68380,7 @@ extension $WebApiModulesSettingsSubCategorySubCategoryExtension
         pickListOrderBy: pickListOrderBy ?? this.pickListOrderBy,
         dateStamp: dateStamp ?? this.dateStamp,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -66799,6 +68399,7 @@ class WebApiModulesSettingsSystemNumberSystemNumber {
     this.counter,
     this.increment,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -66823,6 +68424,8 @@ class WebApiModulesSettingsSystemNumberSystemNumber {
   final int? increment;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -66871,6 +68474,9 @@ class WebApiModulesSettingsSystemNumberSystemNumber {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -66892,6 +68498,7 @@ class WebApiModulesSettingsSystemNumberSystemNumber {
       const DeepCollectionEquality().hash(counter) ^
       const DeepCollectionEquality().hash(increment) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -66909,6 +68516,7 @@ extension $WebApiModulesSettingsSystemNumberSystemNumberExtension
       int? counter,
       int? increment,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -66921,6 +68529,7 @@ extension $WebApiModulesSettingsSystemNumberSystemNumberExtension
         counter: counter ?? this.counter,
         increment: increment ?? this.increment,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -66939,7 +68548,12 @@ class WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySetting
     this.keepCurrentSeconds,
     this.daysToCache,
     this.maxAvailabilityItemsToQuery,
+    this.pruneMinutes,
+    this.availabilityServiceIsEnabled,
+    this.availabilityCacheEntries,
+    this.availabilityKeepInCacheEntries,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -66965,8 +68579,18 @@ class WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySetting
   final int? daysToCache;
   @JsonKey(name: 'MaxAvailabilityItemsToQuery', includeIfNull: false)
   final int? maxAvailabilityItemsToQuery;
+  @JsonKey(name: 'PruneMinutes', includeIfNull: false)
+  final int? pruneMinutes;
+  @JsonKey(name: 'AvailabilityServiceIsEnabled', includeIfNull: false)
+  final bool? availabilityServiceIsEnabled;
+  @JsonKey(name: 'AvailabilityCacheEntries', includeIfNull: false)
+  final int? availabilityCacheEntries;
+  @JsonKey(name: 'AvailabilityKeepInCacheEntries', includeIfNull: false)
+  final int? availabilityKeepInCacheEntries;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -67020,14 +68644,19 @@ class WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySetting
                 const DeepCollectionEquality().equals(
                     other.maxAvailabilityItemsToQuery,
                     maxAvailabilityItemsToQuery)) &&
-            (identical(other.dateStamp, dateStamp) ||
+            (identical(other.pruneMinutes, pruneMinutes) ||
                 const DeepCollectionEquality()
-                    .equals(other.dateStamp, dateStamp)) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.recordTitle, recordTitle)) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
+                    .equals(other.pruneMinutes, pruneMinutes)) &&
+            (identical(other.availabilityServiceIsEnabled, availabilityServiceIsEnabled) ||
+                const DeepCollectionEquality().equals(
+                    other.availabilityServiceIsEnabled,
+                    availabilityServiceIsEnabled)) &&
+            (identical(other.availabilityCacheEntries, availabilityCacheEntries) || const DeepCollectionEquality().equals(other.availabilityCacheEntries, availabilityCacheEntries)) &&
+            (identical(other.availabilityKeepInCacheEntries, availabilityKeepInCacheEntries) || const DeepCollectionEquality().equals(other.availabilityKeepInCacheEntries, availabilityKeepInCacheEntries)) &&
+            (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
+            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
@@ -67041,7 +68670,12 @@ class WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySetting
       const DeepCollectionEquality().hash(keepCurrentSeconds) ^
       const DeepCollectionEquality().hash(daysToCache) ^
       const DeepCollectionEquality().hash(maxAvailabilityItemsToQuery) ^
+      const DeepCollectionEquality().hash(pruneMinutes) ^
+      const DeepCollectionEquality().hash(availabilityServiceIsEnabled) ^
+      const DeepCollectionEquality().hash(availabilityCacheEntries) ^
+      const DeepCollectionEquality().hash(availabilityKeepInCacheEntries) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -67060,7 +68694,12 @@ extension $WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySe
           int? keepCurrentSeconds,
           int? daysToCache,
           int? maxAvailabilityItemsToQuery,
+          int? pruneMinutes,
+          bool? availabilityServiceIsEnabled,
+          int? availabilityCacheEntries,
+          int? availabilityKeepInCacheEntries,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -67076,7 +68715,277 @@ extension $WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySe
         daysToCache: daysToCache ?? this.daysToCache,
         maxAvailabilityItemsToQuery:
             maxAvailabilityItemsToQuery ?? this.maxAvailabilityItemsToQuery,
+        pruneMinutes: pruneMinutes ?? this.pruneMinutes,
+        availabilityServiceIsEnabled:
+            availabilityServiceIsEnabled ?? this.availabilityServiceIsEnabled,
+        availabilityCacheEntries:
+            availabilityCacheEntries ?? this.availabilityCacheEntries,
+        availabilityKeepInCacheEntries: availabilityKeepInCacheEntries ??
+            this.availabilityKeepInCacheEntries,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
+        recordTitle: recordTitle ?? this.recordTitle,
+        fields: fields ?? this.fields,
+        custom: custom ?? this.custom,
+        defaultFieldAttributes:
+            defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings {
+  WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings({
+    this.consignmentSettingsId,
+    this.consignmentSettingsName,
+    this.enableConsignment,
+    this.consignmentColor,
+    this.consignorFeePoRateId,
+    this.consignorFeePoRateICode,
+    this.consignorFeePoRateDescription,
+    this.consignorFeePoTypeId,
+    this.consignorFeePoType,
+    this.defaultConsignorFeeBasedOn,
+    this.defaultConsignorPercent,
+    this.defaultHousePercent,
+    this.reReceiveConsignedItemUnretiredReasonId,
+    this.reReceiveConsignedItemUnretiredReason,
+    this.hideConsignmentTransactionsOnSubRentalTab,
+    this.awardConsignorFeesForStaged,
+    this.awardFullConsignorFeeEvenWhenItemsAreOverfulfilled,
+    this.defaultTreatConsignedQtyAsOwned,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+  });
+
+  factory WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsFromJson(
+          json);
+
+  @JsonKey(name: 'ConsignmentSettingsId', includeIfNull: false)
+  final String? consignmentSettingsId;
+  @JsonKey(name: 'ConsignmentSettingsName', includeIfNull: false)
+  final String? consignmentSettingsName;
+  @JsonKey(name: 'EnableConsignment', includeIfNull: false)
+  final bool? enableConsignment;
+  @JsonKey(name: 'ConsignmentColor', includeIfNull: false)
+  final String? consignmentColor;
+  @JsonKey(name: 'ConsignorFeePoRateId', includeIfNull: false)
+  final String? consignorFeePoRateId;
+  @JsonKey(name: 'ConsignorFeePoRateICode', includeIfNull: false)
+  final String? consignorFeePoRateICode;
+  @JsonKey(name: 'ConsignorFeePoRateDescription', includeIfNull: false)
+  final String? consignorFeePoRateDescription;
+  @JsonKey(name: 'ConsignorFeePoTypeId', includeIfNull: false)
+  final String? consignorFeePoTypeId;
+  @JsonKey(name: 'ConsignorFeePoType', includeIfNull: false)
+  final String? consignorFeePoType;
+  @JsonKey(name: 'DefaultConsignorFeeBasedOn', includeIfNull: false)
+  final String? defaultConsignorFeeBasedOn;
+  @JsonKey(name: 'DefaultConsignorPercent', includeIfNull: false)
+  final int? defaultConsignorPercent;
+  @JsonKey(name: 'DefaultHousePercent', includeIfNull: false)
+  final int? defaultHousePercent;
+  @JsonKey(
+      name: 'ReReceiveConsignedItemUnretiredReasonId', includeIfNull: false)
+  final String? reReceiveConsignedItemUnretiredReasonId;
+  @JsonKey(name: 'ReReceiveConsignedItemUnretiredReason', includeIfNull: false)
+  final String? reReceiveConsignedItemUnretiredReason;
+  @JsonKey(
+      name: 'HideConsignmentTransactionsOnSubRentalTab', includeIfNull: false)
+  final bool? hideConsignmentTransactionsOnSubRentalTab;
+  @JsonKey(name: 'AwardConsignorFeesForStaged', includeIfNull: false)
+  final bool? awardConsignorFeesForStaged;
+  @JsonKey(
+      name: 'AwardFullConsignorFeeEvenWhenItemsAreOverfulfilled',
+      includeIfNull: false)
+  final bool? awardFullConsignorFeeEvenWhenItemsAreOverfulfilled;
+  @JsonKey(name: 'DefaultTreatConsignedQtyAsOwned', includeIfNull: false)
+  final bool? defaultTreatConsignedQtyAsOwned;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(
+      name: '_Fields',
+      includeIfNull: false,
+      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+      name: '_DefaultFieldAttributes',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings &&
+            (identical(other.consignmentSettingsId, consignmentSettingsId) ||
+                const DeepCollectionEquality().equals(
+                    other.consignmentSettingsId, consignmentSettingsId)) &&
+            (identical(other.consignmentSettingsName, consignmentSettingsName) ||
+                const DeepCollectionEquality().equals(
+                    other.consignmentSettingsName, consignmentSettingsName)) &&
+            (identical(other.enableConsignment, enableConsignment) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableConsignment, enableConsignment)) &&
+            (identical(other.consignmentColor, consignmentColor) ||
+                const DeepCollectionEquality()
+                    .equals(other.consignmentColor, consignmentColor)) &&
+            (identical(other.consignorFeePoRateId, consignorFeePoRateId) ||
+                const DeepCollectionEquality().equals(
+                    other.consignorFeePoRateId, consignorFeePoRateId)) &&
+            (identical(other.consignorFeePoRateICode, consignorFeePoRateICode) ||
+                const DeepCollectionEquality().equals(
+                    other.consignorFeePoRateICode, consignorFeePoRateICode)) &&
+            (identical(other.consignorFeePoRateDescription, consignorFeePoRateDescription) ||
+                const DeepCollectionEquality().equals(
+                    other.consignorFeePoRateDescription,
+                    consignorFeePoRateDescription)) &&
+            (identical(other.consignorFeePoTypeId, consignorFeePoTypeId) ||
+                const DeepCollectionEquality().equals(
+                    other.consignorFeePoTypeId, consignorFeePoTypeId)) &&
+            (identical(other.consignorFeePoType, consignorFeePoType) ||
+                const DeepCollectionEquality()
+                    .equals(other.consignorFeePoType, consignorFeePoType)) &&
+            (identical(other.defaultConsignorFeeBasedOn, defaultConsignorFeeBasedOn) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultConsignorFeeBasedOn,
+                    defaultConsignorFeeBasedOn)) &&
+            (identical(other.defaultConsignorPercent, defaultConsignorPercent) ||
+                const DeepCollectionEquality().equals(other.defaultConsignorPercent, defaultConsignorPercent)) &&
+            (identical(other.defaultHousePercent, defaultHousePercent) || const DeepCollectionEquality().equals(other.defaultHousePercent, defaultHousePercent)) &&
+            (identical(other.reReceiveConsignedItemUnretiredReasonId, reReceiveConsignedItemUnretiredReasonId) || const DeepCollectionEquality().equals(other.reReceiveConsignedItemUnretiredReasonId, reReceiveConsignedItemUnretiredReasonId)) &&
+            (identical(other.reReceiveConsignedItemUnretiredReason, reReceiveConsignedItemUnretiredReason) || const DeepCollectionEquality().equals(other.reReceiveConsignedItemUnretiredReason, reReceiveConsignedItemUnretiredReason)) &&
+            (identical(other.hideConsignmentTransactionsOnSubRentalTab, hideConsignmentTransactionsOnSubRentalTab) || const DeepCollectionEquality().equals(other.hideConsignmentTransactionsOnSubRentalTab, hideConsignmentTransactionsOnSubRentalTab)) &&
+            (identical(other.awardConsignorFeesForStaged, awardConsignorFeesForStaged) || const DeepCollectionEquality().equals(other.awardConsignorFeesForStaged, awardConsignorFeesForStaged)) &&
+            (identical(other.awardFullConsignorFeeEvenWhenItemsAreOverfulfilled, awardFullConsignorFeeEvenWhenItemsAreOverfulfilled) || const DeepCollectionEquality().equals(other.awardFullConsignorFeeEvenWhenItemsAreOverfulfilled, awardFullConsignorFeeEvenWhenItemsAreOverfulfilled)) &&
+            (identical(other.defaultTreatConsignedQtyAsOwned, defaultTreatConsignedQtyAsOwned) || const DeepCollectionEquality().equals(other.defaultTreatConsignedQtyAsOwned, defaultTreatConsignedQtyAsOwned)) &&
+            (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
+            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(consignmentSettingsId) ^
+      const DeepCollectionEquality().hash(consignmentSettingsName) ^
+      const DeepCollectionEquality().hash(enableConsignment) ^
+      const DeepCollectionEquality().hash(consignmentColor) ^
+      const DeepCollectionEquality().hash(consignorFeePoRateId) ^
+      const DeepCollectionEquality().hash(consignorFeePoRateICode) ^
+      const DeepCollectionEquality().hash(consignorFeePoRateDescription) ^
+      const DeepCollectionEquality().hash(consignorFeePoTypeId) ^
+      const DeepCollectionEquality().hash(consignorFeePoType) ^
+      const DeepCollectionEquality().hash(defaultConsignorFeeBasedOn) ^
+      const DeepCollectionEquality().hash(defaultConsignorPercent) ^
+      const DeepCollectionEquality().hash(defaultHousePercent) ^
+      const DeepCollectionEquality()
+          .hash(reReceiveConsignedItemUnretiredReasonId) ^
+      const DeepCollectionEquality()
+          .hash(reReceiveConsignedItemUnretiredReason) ^
+      const DeepCollectionEquality()
+          .hash(hideConsignmentTransactionsOnSubRentalTab) ^
+      const DeepCollectionEquality().hash(awardConsignorFeesForStaged) ^
+      const DeepCollectionEquality()
+          .hash(awardFullConsignorFeeEvenWhenItemsAreOverfulfilled) ^
+      const DeepCollectionEquality().hash(defaultTreatConsignedQtyAsOwned) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsExtension
+    on WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings {
+  WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings
+      copyWith(
+          {String? consignmentSettingsId,
+          String? consignmentSettingsName,
+          bool? enableConsignment,
+          String? consignmentColor,
+          String? consignorFeePoRateId,
+          String? consignorFeePoRateICode,
+          String? consignorFeePoRateDescription,
+          String? consignorFeePoTypeId,
+          String? consignorFeePoType,
+          String? defaultConsignorFeeBasedOn,
+          int? defaultConsignorPercent,
+          int? defaultHousePercent,
+          String? reReceiveConsignedItemUnretiredReasonId,
+          String? reReceiveConsignedItemUnretiredReason,
+          bool? hideConsignmentTransactionsOnSubRentalTab,
+          bool? awardConsignorFeesForStaged,
+          bool? awardFullConsignorFeeEvenWhenItemsAreOverfulfilled,
+          bool? defaultTreatConsignedQtyAsOwned,
+          String? dateStamp,
+          String? auditNote,
+          String? recordTitle,
+          List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+          List<FwStandardDataFwCustomValue>? custom,
+          List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
+    return WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings(
+        consignmentSettingsId:
+            consignmentSettingsId ?? this.consignmentSettingsId,
+        consignmentSettingsName:
+            consignmentSettingsName ?? this.consignmentSettingsName,
+        enableConsignment: enableConsignment ?? this.enableConsignment,
+        consignmentColor: consignmentColor ?? this.consignmentColor,
+        consignorFeePoRateId: consignorFeePoRateId ?? this.consignorFeePoRateId,
+        consignorFeePoRateICode:
+            consignorFeePoRateICode ?? this.consignorFeePoRateICode,
+        consignorFeePoRateDescription:
+            consignorFeePoRateDescription ?? this.consignorFeePoRateDescription,
+        consignorFeePoTypeId: consignorFeePoTypeId ?? this.consignorFeePoTypeId,
+        consignorFeePoType: consignorFeePoType ?? this.consignorFeePoType,
+        defaultConsignorFeeBasedOn:
+            defaultConsignorFeeBasedOn ?? this.defaultConsignorFeeBasedOn,
+        defaultConsignorPercent:
+            defaultConsignorPercent ?? this.defaultConsignorPercent,
+        defaultHousePercent: defaultHousePercent ?? this.defaultHousePercent,
+        reReceiveConsignedItemUnretiredReasonId:
+            reReceiveConsignedItemUnretiredReasonId ??
+                this.reReceiveConsignedItemUnretiredReasonId,
+        reReceiveConsignedItemUnretiredReason:
+            reReceiveConsignedItemUnretiredReason ??
+                this.reReceiveConsignedItemUnretiredReason,
+        hideConsignmentTransactionsOnSubRentalTab:
+            hideConsignmentTransactionsOnSubRentalTab ??
+                this.hideConsignmentTransactionsOnSubRentalTab,
+        awardConsignorFeesForStaged:
+            awardConsignorFeesForStaged ?? this.awardConsignorFeesForStaged,
+        awardFullConsignorFeeEvenWhenItemsAreOverfulfilled:
+            awardFullConsignorFeeEvenWhenItemsAreOverfulfilled ??
+                this.awardFullConsignorFeeEvenWhenItemsAreOverfulfilled,
+        defaultTreatConsignedQtyAsOwned: defaultTreatConsignedQtyAsOwned ??
+            this.defaultTreatConsignedQtyAsOwned,
+        dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -67110,7 +69019,10 @@ class WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings {
     this.defaultCreditStatusId,
     this.defaultCreditStatus,
     this.contactShowAllDeals,
+    this.defaultVendorBillingCycleId,
+    this.defaultVendorBillingCycle,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -67166,8 +69078,14 @@ class WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings {
   final String? defaultCreditStatus;
   @JsonKey(name: 'ContactShowAllDeals', includeIfNull: false)
   final bool? contactShowAllDeals;
+  @JsonKey(name: 'DefaultVendorBillingCycleId', includeIfNull: false)
+  final String? defaultVendorBillingCycleId;
+  @JsonKey(name: 'DefaultVendorBillingCycle', includeIfNull: false)
+  final String? defaultVendorBillingCycle;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -67245,7 +69163,10 @@ class WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings {
             (identical(other.defaultCreditStatusId, defaultCreditStatusId) || const DeepCollectionEquality().equals(other.defaultCreditStatusId, defaultCreditStatusId)) &&
             (identical(other.defaultCreditStatus, defaultCreditStatus) || const DeepCollectionEquality().equals(other.defaultCreditStatus, defaultCreditStatus)) &&
             (identical(other.contactShowAllDeals, contactShowAllDeals) || const DeepCollectionEquality().equals(other.contactShowAllDeals, contactShowAllDeals)) &&
+            (identical(other.defaultVendorBillingCycleId, defaultVendorBillingCycleId) || const DeepCollectionEquality().equals(other.defaultVendorBillingCycleId, defaultVendorBillingCycleId)) &&
+            (identical(other.defaultVendorBillingCycle, defaultVendorBillingCycle) || const DeepCollectionEquality().equals(other.defaultVendorBillingCycle, defaultVendorBillingCycle)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -67276,7 +69197,10 @@ class WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings {
       const DeepCollectionEquality().hash(defaultCreditStatusId) ^
       const DeepCollectionEquality().hash(defaultCreditStatus) ^
       const DeepCollectionEquality().hash(contactShowAllDeals) ^
+      const DeepCollectionEquality().hash(defaultVendorBillingCycleId) ^
+      const DeepCollectionEquality().hash(defaultVendorBillingCycle) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -67309,7 +69233,10 @@ extension $WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsExte
       String? defaultCreditStatusId,
       String? defaultCreditStatus,
       bool? contactShowAllDeals,
+      String? defaultVendorBillingCycleId,
+      String? defaultVendorBillingCycle,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -67349,7 +69276,12 @@ extension $WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsExte
             defaultCreditStatusId ?? this.defaultCreditStatusId,
         defaultCreditStatus: defaultCreditStatus ?? this.defaultCreditStatus,
         contactShowAllDeals: contactShowAllDeals ?? this.contactShowAllDeals,
+        defaultVendorBillingCycleId:
+            defaultVendorBillingCycleId ?? this.defaultVendorBillingCycleId,
+        defaultVendorBillingCycle:
+            defaultVendorBillingCycle ?? this.defaultVendorBillingCycle,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -67370,6 +69302,7 @@ class WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettings {
     this.authenticationType,
     this.deleteDays,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -67399,6 +69332,8 @@ class WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettings {
   final int? deleteDays;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -67453,6 +69388,9 @@ class WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettings {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -67476,6 +69414,7 @@ class WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettings {
       const DeepCollectionEquality().hash(authenticationType) ^
       const DeepCollectionEquality().hash(deleteDays) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -67495,6 +69434,7 @@ extension $WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettingsExtensio
       String? authenticationType,
       int? deleteDays,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -67509,6 +69449,7 @@ extension $WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettingsExtensio
         authenticationType: authenticationType ?? this.authenticationType,
         deleteDays: deleteDays ?? this.deleteDays,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -67542,11 +69483,14 @@ class WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings {
     this.defaultRentalQuantityInventoryCostCalculation,
     this.defaultSalesQuantityInventoryCostCalculation,
     this.defaultPartsQuantityInventoryCostCalculation,
-    this.enableConsignment,
     this.enableLease,
     this.autoUpdateInventoryMetricImperialDimensions,
     this.fixedAssetTransferFutureDepreciation,
+    this.changeICodeRetiredReasonId,
+    this.changeICodeRetiredReason,
+    this.changeICodeCreateBrandNewPurchase,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -67610,8 +69554,6 @@ class WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings {
       name: 'DefaultPartsQuantityInventoryCostCalculation',
       includeIfNull: false)
   final String? defaultPartsQuantityInventoryCostCalculation;
-  @JsonKey(name: 'EnableConsignment', includeIfNull: false)
-  final bool? enableConsignment;
   @JsonKey(name: 'EnableLease', includeIfNull: false)
   final bool? enableLease;
   @JsonKey(
@@ -67619,8 +69561,16 @@ class WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings {
   final bool? autoUpdateInventoryMetricImperialDimensions;
   @JsonKey(name: 'FixedAssetTransferFutureDepreciation', includeIfNull: false)
   final bool? fixedAssetTransferFutureDepreciation;
+  @JsonKey(name: 'ChangeICodeRetiredReasonId', includeIfNull: false)
+  final String? changeICodeRetiredReasonId;
+  @JsonKey(name: 'ChangeICodeRetiredReason', includeIfNull: false)
+  final String? changeICodeRetiredReason;
+  @JsonKey(name: 'ChangeICodeCreateBrandNewPurchase', includeIfNull: false)
+  final bool? changeICodeCreateBrandNewPurchase;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -67699,11 +69649,14 @@ class WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings {
             (identical(other.defaultRentalQuantityInventoryCostCalculation, defaultRentalQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultRentalQuantityInventoryCostCalculation, defaultRentalQuantityInventoryCostCalculation)) &&
             (identical(other.defaultSalesQuantityInventoryCostCalculation, defaultSalesQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultSalesQuantityInventoryCostCalculation, defaultSalesQuantityInventoryCostCalculation)) &&
             (identical(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation)) &&
-            (identical(other.enableConsignment, enableConsignment) || const DeepCollectionEquality().equals(other.enableConsignment, enableConsignment)) &&
             (identical(other.enableLease, enableLease) || const DeepCollectionEquality().equals(other.enableLease, enableLease)) &&
             (identical(other.autoUpdateInventoryMetricImperialDimensions, autoUpdateInventoryMetricImperialDimensions) || const DeepCollectionEquality().equals(other.autoUpdateInventoryMetricImperialDimensions, autoUpdateInventoryMetricImperialDimensions)) &&
             (identical(other.fixedAssetTransferFutureDepreciation, fixedAssetTransferFutureDepreciation) || const DeepCollectionEquality().equals(other.fixedAssetTransferFutureDepreciation, fixedAssetTransferFutureDepreciation)) &&
+            (identical(other.changeICodeRetiredReasonId, changeICodeRetiredReasonId) || const DeepCollectionEquality().equals(other.changeICodeRetiredReasonId, changeICodeRetiredReasonId)) &&
+            (identical(other.changeICodeRetiredReason, changeICodeRetiredReason) || const DeepCollectionEquality().equals(other.changeICodeRetiredReason, changeICodeRetiredReason)) &&
+            (identical(other.changeICodeCreateBrandNewPurchase, changeICodeCreateBrandNewPurchase) || const DeepCollectionEquality().equals(other.changeICodeCreateBrandNewPurchase, changeICodeCreateBrandNewPurchase)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -67738,13 +69691,16 @@ class WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings {
           .hash(defaultSalesQuantityInventoryCostCalculation) ^
       const DeepCollectionEquality()
           .hash(defaultPartsQuantityInventoryCostCalculation) ^
-      const DeepCollectionEquality().hash(enableConsignment) ^
       const DeepCollectionEquality().hash(enableLease) ^
       const DeepCollectionEquality()
           .hash(autoUpdateInventoryMetricImperialDimensions) ^
       const DeepCollectionEquality()
           .hash(fixedAssetTransferFutureDepreciation) ^
+      const DeepCollectionEquality().hash(changeICodeRetiredReasonId) ^
+      const DeepCollectionEquality().hash(changeICodeRetiredReason) ^
+      const DeepCollectionEquality().hash(changeICodeCreateBrandNewPurchase) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -67778,11 +69734,14 @@ extension $WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings
           String? defaultRentalQuantityInventoryCostCalculation,
           String? defaultSalesQuantityInventoryCostCalculation,
           String? defaultPartsQuantityInventoryCostCalculation,
-          bool? enableConsignment,
           bool? enableLease,
           bool? autoUpdateInventoryMetricImperialDimensions,
           bool? fixedAssetTransferFutureDepreciation,
+          String? changeICodeRetiredReasonId,
+          String? changeICodeRetiredReason,
+          bool? changeICodeCreateBrandNewPurchase,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -67810,9 +69769,8 @@ extension $WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings
             this.defaultRentalSaleRetiredReasonId,
         defaultRentalSaleRetiredReason: defaultRentalSaleRetiredReason ??
             this.defaultRentalSaleRetiredReason,
-        defaultLossAndDamageRetiredReasonId:
-            defaultLossAndDamageRetiredReasonId ??
-                this.defaultLossAndDamageRetiredReasonId,
+        defaultLossAndDamageRetiredReasonId: defaultLossAndDamageRetiredReasonId ??
+            this.defaultLossAndDamageRetiredReasonId,
         defaultLossAndDamageRetiredReason: defaultLossAndDamageRetiredReason ??
             this.defaultLossAndDamageRetiredReason,
         startDepreciatingFixedAssetsTheMonthAfterTheyAreReceived:
@@ -67831,20 +69789,24 @@ extension $WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings
         defaultPartsQuantityInventoryCostCalculation:
             defaultPartsQuantityInventoryCostCalculation ??
                 this.defaultPartsQuantityInventoryCostCalculation,
-        enableConsignment: enableConsignment ?? this.enableConsignment,
         enableLease: enableLease ?? this.enableLease,
         autoUpdateInventoryMetricImperialDimensions:
             autoUpdateInventoryMetricImperialDimensions ??
                 this.autoUpdateInventoryMetricImperialDimensions,
-        fixedAssetTransferFutureDepreciation:
-            fixedAssetTransferFutureDepreciation ??
-                this.fixedAssetTransferFutureDepreciation,
+        fixedAssetTransferFutureDepreciation: fixedAssetTransferFutureDepreciation ??
+            this.fixedAssetTransferFutureDepreciation,
+        changeICodeRetiredReasonId:
+            changeICodeRetiredReasonId ?? this.changeICodeRetiredReasonId,
+        changeICodeRetiredReason:
+            changeICodeRetiredReason ?? this.changeICodeRetiredReason,
+        changeICodeCreateBrandNewPurchase: changeICodeCreateBrandNewPurchase ??
+            this.changeICodeCreateBrandNewPurchase,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
-        defaultFieldAttributes:
-            defaultFieldAttributes ?? this.defaultFieldAttributes);
+        defaultFieldAttributes: defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
 }
 
@@ -67858,6 +69820,7 @@ class WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettings {
     this.logoImageHeight,
     this.logoImageWidth,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -67883,6 +69846,8 @@ class WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettings {
   final int? logoImageWidth;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -67932,6 +69897,9 @@ class WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettings {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -67953,6 +69921,7 @@ class WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettings {
       const DeepCollectionEquality().hash(logoImageHeight) ^
       const DeepCollectionEquality().hash(logoImageWidth) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -67970,6 +69939,7 @@ extension $WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettingsExtension
       int? logoImageHeight,
       int? logoImageWidth,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -67982,6 +69952,7 @@ extension $WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettingsExtension
         logoImageHeight: logoImageHeight ?? this.logoImageHeight,
         logoImageWidth: logoImageWidth ?? this.logoImageWidth,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -68012,6 +69983,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
     this.ordersCompleteWithItemsNotYetStaged,
     this.populateInventoryUtilizationDataWeekly,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -68061,6 +70033,8 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
   final bool? populateInventoryUtilizationDataWeekly;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -68135,6 +70109,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
             (identical(other.ordersCompleteWithItemsNotYetStaged, ordersCompleteWithItemsNotYetStaged) || const DeepCollectionEquality().equals(other.ordersCompleteWithItemsNotYetStaged, ordersCompleteWithItemsNotYetStaged)) &&
             (identical(other.populateInventoryUtilizationDataWeekly, populateInventoryUtilizationDataWeekly) || const DeepCollectionEquality().equals(other.populateInventoryUtilizationDataWeekly, populateInventoryUtilizationDataWeekly)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -68163,6 +70138,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
       const DeepCollectionEquality()
           .hash(populateInventoryUtilizationDataWeekly) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -68192,6 +70168,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
       bool? ordersCompleteWithItemsNotYetStaged,
       bool? populateInventoryUtilizationDataWeekly,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -68225,6 +70202,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
             populateInventoryUtilizationDataWeekly ??
                 this.populateInventoryUtilizationDataWeekly,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -68277,6 +70255,7 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
     this.tax2Description,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -68369,6 +70348,8 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -68481,6 +70462,7 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
             (identical(other.tax2Description, tax2Description) || const DeepCollectionEquality().equals(other.tax2Description, tax2Description)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -68530,6 +70512,7 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
       const DeepCollectionEquality().hash(tax2Description) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -68581,6 +70564,7 @@ extension $WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionExtension
       String? tax2Description,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -68633,6 +70617,7 @@ extension $WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionExtension
         tax2Description: tax2Description ?? this.tax2Description,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -68667,6 +70652,7 @@ class WebApiModulesSettingsTemplateSettingsTemplateTemplate {
     this.hasLaborItem,
     this.hasFacilitiesItem,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -68723,6 +70709,8 @@ class WebApiModulesSettingsTemplateSettingsTemplateTemplate {
   final bool? hasFacilitiesItem;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -68816,8 +70804,9 @@ class WebApiModulesSettingsTemplateSettingsTemplateTemplate {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
@@ -68848,6 +70837,7 @@ class WebApiModulesSettingsTemplateSettingsTemplateTemplate {
       const DeepCollectionEquality().hash(hasLaborItem) ^
       const DeepCollectionEquality().hash(hasFacilitiesItem) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -68881,6 +70871,7 @@ extension $WebApiModulesSettingsTemplateSettingsTemplateTemplateExtension
       bool? hasLaborItem,
       bool? hasFacilitiesItem,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -68909,325 +70900,7 @@ extension $WebApiModulesSettingsTemplateSettingsTemplateTemplateExtension
         hasLaborItem: hasLaborItem ?? this.hasLaborItem,
         hasFacilitiesItem: hasFacilitiesItem ?? this.hasFacilitiesItem,
         dateStamp: dateStamp ?? this.dateStamp,
-        recordTitle: recordTitle ?? this.recordTitle,
-        fields: fields ?? this.fields,
-        custom: custom ?? this.custom,
-        defaultFieldAttributes:
-            defaultFieldAttributes ?? this.defaultFieldAttributes);
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesSettingsUserProfileUserProfile {
-  WebApiModulesSettingsUserProfileUserProfile({
-    this.webUserId,
-    this.userName,
-    this.userId,
-    this.loginName,
-    this.browseDefaultRows,
-    this.applicationTheme,
-    this.homeMenuGuid,
-    this.homeMenuPath,
-    this.successSoundId,
-    this.successSound,
-    this.successBase64Sound,
-    this.errorSoundId,
-    this.errorSound,
-    this.errorBase64Sound,
-    this.notificationSoundId,
-    this.notificationSound,
-    this.notificationBase64Sound,
-    this.favoritesJson,
-    this.firstDayOfWeek,
-    this.settingsNavigationMenuVisible,
-    this.reportsNavigationMenuVisible,
-    this.mainMenuPinned,
-    this.webAdministrator,
-    this.quikActivitySetting,
-    this.emailSignature,
-    this.newPassword,
-    this.oldPassword,
-    this.locale,
-    this.dateStamp,
-    this.recordTitle,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-  });
-
-  factory WebApiModulesSettingsUserProfileUserProfile.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesSettingsUserProfileUserProfileFromJson(json);
-
-  @JsonKey(name: 'WebUserId', includeIfNull: false)
-  final String? webUserId;
-  @JsonKey(name: 'UserName', includeIfNull: false)
-  final String? userName;
-  @JsonKey(name: 'UserId', includeIfNull: false)
-  final String? userId;
-  @JsonKey(name: 'LoginName', includeIfNull: false)
-  final String? loginName;
-  @JsonKey(name: 'BrowseDefaultRows', includeIfNull: false)
-  final int? browseDefaultRows;
-  @JsonKey(name: 'ApplicationTheme', includeIfNull: false)
-  final String? applicationTheme;
-  @JsonKey(name: 'HomeMenuGuid', includeIfNull: false)
-  final String? homeMenuGuid;
-  @JsonKey(name: 'HomeMenuPath', includeIfNull: false)
-  final String? homeMenuPath;
-  @JsonKey(name: 'SuccessSoundId', includeIfNull: false)
-  final String? successSoundId;
-  @JsonKey(name: 'SuccessSound', includeIfNull: false)
-  final String? successSound;
-  @JsonKey(name: 'SuccessBase64Sound', includeIfNull: false)
-  final String? successBase64Sound;
-  @JsonKey(name: 'ErrorSoundId', includeIfNull: false)
-  final String? errorSoundId;
-  @JsonKey(name: 'ErrorSound', includeIfNull: false)
-  final String? errorSound;
-  @JsonKey(name: 'ErrorBase64Sound', includeIfNull: false)
-  final String? errorBase64Sound;
-  @JsonKey(name: 'NotificationSoundId', includeIfNull: false)
-  final String? notificationSoundId;
-  @JsonKey(name: 'NotificationSound', includeIfNull: false)
-  final String? notificationSound;
-  @JsonKey(name: 'NotificationBase64Sound', includeIfNull: false)
-  final String? notificationBase64Sound;
-  @JsonKey(name: 'FavoritesJson', includeIfNull: false)
-  final String? favoritesJson;
-  @JsonKey(name: 'FirstDayOfWeek', includeIfNull: false)
-  final int? firstDayOfWeek;
-  @JsonKey(name: 'SettingsNavigationMenuVisible', includeIfNull: false)
-  final bool? settingsNavigationMenuVisible;
-  @JsonKey(name: 'ReportsNavigationMenuVisible', includeIfNull: false)
-  final bool? reportsNavigationMenuVisible;
-  @JsonKey(name: 'MainMenuPinned', includeIfNull: false)
-  final bool? mainMenuPinned;
-  @JsonKey(name: 'WebAdministrator', includeIfNull: false)
-  final bool? webAdministrator;
-  @JsonKey(name: 'QuikActivitySetting', includeIfNull: false)
-  final String? quikActivitySetting;
-  @JsonKey(name: 'EmailSignature', includeIfNull: false)
-  final String? emailSignature;
-  @JsonKey(name: 'NewPassword', includeIfNull: false)
-  final String? newPassword;
-  @JsonKey(name: 'OldPassword', includeIfNull: false)
-  final String? oldPassword;
-  @JsonKey(name: 'Locale', includeIfNull: false)
-  final String? locale;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(
-      name: '_Fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-      name: '_Custom',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwCustomValue>[])
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-      name: '_DefaultFieldAttributes',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwDefaultAttribute>[])
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  static const fromJsonFactory =
-      _$WebApiModulesSettingsUserProfileUserProfileFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesSettingsUserProfileUserProfileToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesSettingsUserProfileUserProfileToJson(this);
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is WebApiModulesSettingsUserProfileUserProfile &&
-            (identical(other.webUserId, webUserId) ||
-                const DeepCollectionEquality()
-                    .equals(other.webUserId, webUserId)) &&
-            (identical(other.userName, userName) ||
-                const DeepCollectionEquality()
-                    .equals(other.userName, userName)) &&
-            (identical(other.userId, userId) ||
-                const DeepCollectionEquality().equals(other.userId, userId)) &&
-            (identical(other.loginName, loginName) ||
-                const DeepCollectionEquality()
-                    .equals(other.loginName, loginName)) &&
-            (identical(other.browseDefaultRows, browseDefaultRows) ||
-                const DeepCollectionEquality()
-                    .equals(other.browseDefaultRows, browseDefaultRows)) &&
-            (identical(other.applicationTheme, applicationTheme) ||
-                const DeepCollectionEquality()
-                    .equals(other.applicationTheme, applicationTheme)) &&
-            (identical(other.homeMenuGuid, homeMenuGuid) ||
-                const DeepCollectionEquality()
-                    .equals(other.homeMenuGuid, homeMenuGuid)) &&
-            (identical(other.homeMenuPath, homeMenuPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.homeMenuPath, homeMenuPath)) &&
-            (identical(other.successSoundId, successSoundId) ||
-                const DeepCollectionEquality()
-                    .equals(other.successSoundId, successSoundId)) &&
-            (identical(other.successSound, successSound) ||
-                const DeepCollectionEquality()
-                    .equals(other.successSound, successSound)) &&
-            (identical(other.successBase64Sound, successBase64Sound) ||
-                const DeepCollectionEquality()
-                    .equals(other.successBase64Sound, successBase64Sound)) &&
-            (identical(other.errorSoundId, errorSoundId) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorSoundId, errorSoundId)) &&
-            (identical(other.errorSound, errorSound) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorSound, errorSound)) &&
-            (identical(other.errorBase64Sound, errorBase64Sound) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorBase64Sound, errorBase64Sound)) &&
-            (identical(other.notificationSoundId, notificationSoundId) ||
-                const DeepCollectionEquality()
-                    .equals(other.notificationSoundId, notificationSoundId)) &&
-            (identical(other.notificationSound, notificationSound) ||
-                const DeepCollectionEquality()
-                    .equals(other.notificationSound, notificationSound)) &&
-            (identical(other.notificationBase64Sound, notificationBase64Sound) ||
-                const DeepCollectionEquality().equals(
-                    other.notificationBase64Sound, notificationBase64Sound)) &&
-            (identical(other.favoritesJson, favoritesJson) ||
-                const DeepCollectionEquality()
-                    .equals(other.favoritesJson, favoritesJson)) &&
-            (identical(other.firstDayOfWeek, firstDayOfWeek) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstDayOfWeek, firstDayOfWeek)) &&
-            (identical(other.settingsNavigationMenuVisible, settingsNavigationMenuVisible) ||
-                const DeepCollectionEquality().equals(
-                    other.settingsNavigationMenuVisible,
-                    settingsNavigationMenuVisible)) &&
-            (identical(other.reportsNavigationMenuVisible, reportsNavigationMenuVisible) ||
-                const DeepCollectionEquality().equals(other.reportsNavigationMenuVisible, reportsNavigationMenuVisible)) &&
-            (identical(other.mainMenuPinned, mainMenuPinned) || const DeepCollectionEquality().equals(other.mainMenuPinned, mainMenuPinned)) &&
-            (identical(other.webAdministrator, webAdministrator) || const DeepCollectionEquality().equals(other.webAdministrator, webAdministrator)) &&
-            (identical(other.quikActivitySetting, quikActivitySetting) || const DeepCollectionEquality().equals(other.quikActivitySetting, quikActivitySetting)) &&
-            (identical(other.emailSignature, emailSignature) || const DeepCollectionEquality().equals(other.emailSignature, emailSignature)) &&
-            (identical(other.newPassword, newPassword) || const DeepCollectionEquality().equals(other.newPassword, newPassword)) &&
-            (identical(other.oldPassword, oldPassword) || const DeepCollectionEquality().equals(other.oldPassword, oldPassword)) &&
-            (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
-            (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
-            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
-            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
-  }
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(webUserId) ^
-      const DeepCollectionEquality().hash(userName) ^
-      const DeepCollectionEquality().hash(userId) ^
-      const DeepCollectionEquality().hash(loginName) ^
-      const DeepCollectionEquality().hash(browseDefaultRows) ^
-      const DeepCollectionEquality().hash(applicationTheme) ^
-      const DeepCollectionEquality().hash(homeMenuGuid) ^
-      const DeepCollectionEquality().hash(homeMenuPath) ^
-      const DeepCollectionEquality().hash(successSoundId) ^
-      const DeepCollectionEquality().hash(successSound) ^
-      const DeepCollectionEquality().hash(successBase64Sound) ^
-      const DeepCollectionEquality().hash(errorSoundId) ^
-      const DeepCollectionEquality().hash(errorSound) ^
-      const DeepCollectionEquality().hash(errorBase64Sound) ^
-      const DeepCollectionEquality().hash(notificationSoundId) ^
-      const DeepCollectionEquality().hash(notificationSound) ^
-      const DeepCollectionEquality().hash(notificationBase64Sound) ^
-      const DeepCollectionEquality().hash(favoritesJson) ^
-      const DeepCollectionEquality().hash(firstDayOfWeek) ^
-      const DeepCollectionEquality().hash(settingsNavigationMenuVisible) ^
-      const DeepCollectionEquality().hash(reportsNavigationMenuVisible) ^
-      const DeepCollectionEquality().hash(mainMenuPinned) ^
-      const DeepCollectionEquality().hash(webAdministrator) ^
-      const DeepCollectionEquality().hash(quikActivitySetting) ^
-      const DeepCollectionEquality().hash(emailSignature) ^
-      const DeepCollectionEquality().hash(newPassword) ^
-      const DeepCollectionEquality().hash(oldPassword) ^
-      const DeepCollectionEquality().hash(locale) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesSettingsUserProfileUserProfileExtension
-    on WebApiModulesSettingsUserProfileUserProfile {
-  WebApiModulesSettingsUserProfileUserProfile copyWith(
-      {String? webUserId,
-      String? userName,
-      String? userId,
-      String? loginName,
-      int? browseDefaultRows,
-      String? applicationTheme,
-      String? homeMenuGuid,
-      String? homeMenuPath,
-      String? successSoundId,
-      String? successSound,
-      String? successBase64Sound,
-      String? errorSoundId,
-      String? errorSound,
-      String? errorBase64Sound,
-      String? notificationSoundId,
-      String? notificationSound,
-      String? notificationBase64Sound,
-      String? favoritesJson,
-      int? firstDayOfWeek,
-      bool? settingsNavigationMenuVisible,
-      bool? reportsNavigationMenuVisible,
-      bool? mainMenuPinned,
-      bool? webAdministrator,
-      String? quikActivitySetting,
-      String? emailSignature,
-      String? newPassword,
-      String? oldPassword,
-      String? locale,
-      String? dateStamp,
-      String? recordTitle,
-      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-      List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
-    return WebApiModulesSettingsUserProfileUserProfile(
-        webUserId: webUserId ?? this.webUserId,
-        userName: userName ?? this.userName,
-        userId: userId ?? this.userId,
-        loginName: loginName ?? this.loginName,
-        browseDefaultRows: browseDefaultRows ?? this.browseDefaultRows,
-        applicationTheme: applicationTheme ?? this.applicationTheme,
-        homeMenuGuid: homeMenuGuid ?? this.homeMenuGuid,
-        homeMenuPath: homeMenuPath ?? this.homeMenuPath,
-        successSoundId: successSoundId ?? this.successSoundId,
-        successSound: successSound ?? this.successSound,
-        successBase64Sound: successBase64Sound ?? this.successBase64Sound,
-        errorSoundId: errorSoundId ?? this.errorSoundId,
-        errorSound: errorSound ?? this.errorSound,
-        errorBase64Sound: errorBase64Sound ?? this.errorBase64Sound,
-        notificationSoundId: notificationSoundId ?? this.notificationSoundId,
-        notificationSound: notificationSound ?? this.notificationSound,
-        notificationBase64Sound:
-            notificationBase64Sound ?? this.notificationBase64Sound,
-        favoritesJson: favoritesJson ?? this.favoritesJson,
-        firstDayOfWeek: firstDayOfWeek ?? this.firstDayOfWeek,
-        settingsNavigationMenuVisible:
-            settingsNavigationMenuVisible ?? this.settingsNavigationMenuVisible,
-        reportsNavigationMenuVisible:
-            reportsNavigationMenuVisible ?? this.reportsNavigationMenuVisible,
-        mainMenuPinned: mainMenuPinned ?? this.mainMenuPinned,
-        webAdministrator: webAdministrator ?? this.webAdministrator,
-        quikActivitySetting: quikActivitySetting ?? this.quikActivitySetting,
-        emailSignature: emailSignature ?? this.emailSignature,
-        newPassword: newPassword ?? this.newPassword,
-        oldPassword: oldPassword ?? this.oldPassword,
-        locale: locale ?? this.locale,
-        dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -69248,6 +70921,7 @@ class WebApiModulesSettingsUserSearchSettingsUserSearchSettings {
     this.defaultSortBy,
     this.expandAccessoryOnQuantityIncrease,
     this.expandAccessoryBehavior,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -69276,6 +70950,8 @@ class WebApiModulesSettingsUserSearchSettingsUserSearchSettings {
   final bool? expandAccessoryOnQuantityIncrease;
   @JsonKey(name: 'ExpandAccessoryBehavior', includeIfNull: false)
   final String? expandAccessoryBehavior;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -69330,10 +71006,12 @@ class WebApiModulesSettingsUserSearchSettingsUserSearchSettings {
                 const DeepCollectionEquality().equals(
                     other.expandAccessoryOnQuantityIncrease,
                     expandAccessoryOnQuantityIncrease)) &&
-            (identical(
-                    other.expandAccessoryBehavior, expandAccessoryBehavior) ||
+            (identical(other.expandAccessoryBehavior, expandAccessoryBehavior) ||
                 const DeepCollectionEquality().equals(
                     other.expandAccessoryBehavior, expandAccessoryBehavior)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -69342,8 +71020,8 @@ class WebApiModulesSettingsUserSearchSettingsUserSearchSettings {
             (identical(other.custom, custom) ||
                 const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)));
+                const DeepCollectionEquality()
+                    .equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -69357,6 +71035,7 @@ class WebApiModulesSettingsUserSearchSettingsUserSearchSettings {
       const DeepCollectionEquality().hash(defaultSortBy) ^
       const DeepCollectionEquality().hash(expandAccessoryOnQuantityIncrease) ^
       const DeepCollectionEquality().hash(expandAccessoryBehavior) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -69376,6 +71055,7 @@ extension $WebApiModulesSettingsUserSearchSettingsUserSearchSettingsExtension
       String? defaultSortBy,
       bool? expandAccessoryOnQuantityIncrease,
       String? expandAccessoryBehavior,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -69393,6 +71073,7 @@ extension $WebApiModulesSettingsUserSearchSettingsUserSearchSettingsExtension
             this.expandAccessoryOnQuantityIncrease,
         expandAccessoryBehavior:
             expandAccessoryBehavior ?? this.expandAccessoryBehavior,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -69411,6 +71092,7 @@ class WebApiModulesSettingsUserSettingsSoundSound {
     this.systemSound,
     this.soundColor,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -69435,6 +71117,8 @@ class WebApiModulesSettingsUserSettingsSoundSound {
   final String? soundColor;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -69483,6 +71167,9 @@ class WebApiModulesSettingsUserSettingsSoundSound {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -69504,6 +71191,7 @@ class WebApiModulesSettingsUserSettingsSoundSound {
       const DeepCollectionEquality().hash(systemSound) ^
       const DeepCollectionEquality().hash(soundColor) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -69521,6 +71209,7 @@ extension $WebApiModulesSettingsUserSettingsSoundSoundExtension
       bool? systemSound,
       String? soundColor,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -69533,6 +71222,7 @@ extension $WebApiModulesSettingsUserSettingsSoundSoundExtension
         systemSound: systemSound ?? this.systemSound,
         soundColor: soundColor ?? this.soundColor,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -69551,6 +71241,7 @@ class WebApiModulesSettingsUserSettingsUserStatusUserStatus {
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -69575,6 +71266,8 @@ class WebApiModulesSettingsUserSettingsUserStatusUserStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -69623,6 +71316,9 @@ class WebApiModulesSettingsUserSettingsUserStatusUserStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -69644,6 +71340,7 @@ class WebApiModulesSettingsUserSettingsUserStatusUserStatus {
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -69661,6 +71358,7 @@ extension $WebApiModulesSettingsUserSettingsUserStatusUserStatusExtension
       bool? whiteText,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -69673,6 +71371,7 @@ extension $WebApiModulesSettingsUserSettingsUserStatusUserStatusExtension
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -69689,6 +71388,7 @@ class WebApiModulesSettingsVehicleModelVehicleModel {
     this.vehicleMakeId,
     this.vehicleMake,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -69709,6 +71409,8 @@ class WebApiModulesSettingsVehicleModelVehicleModel {
   final String? vehicleMake;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -69752,6 +71454,9 @@ class WebApiModulesSettingsVehicleModelVehicleModel {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -69771,6 +71476,7 @@ class WebApiModulesSettingsVehicleModelVehicleModel {
       const DeepCollectionEquality().hash(vehicleMakeId) ^
       const DeepCollectionEquality().hash(vehicleMake) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -69786,6 +71492,7 @@ extension $WebApiModulesSettingsVehicleModelVehicleModelExtension
       String? vehicleMakeId,
       String? vehicleMake,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -69796,6 +71503,7 @@ extension $WebApiModulesSettingsVehicleModelVehicleModelExtension
         vehicleMakeId: vehicleMakeId ?? this.vehicleMakeId,
         vehicleMake: vehicleMake ?? this.vehicleMake,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -69813,6 +71521,7 @@ class WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass {
     this.regulated,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -69836,6 +71545,8 @@ class WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -69883,6 +71594,9 @@ class WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -69903,6 +71617,7 @@ class WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass {
       const DeepCollectionEquality().hash(regulated) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -69919,6 +71634,7 @@ extension $WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClassExtension
       bool? regulated,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -69930,6 +71646,7 @@ extension $WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClassExtension
         regulated: regulated ?? this.regulated,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -69946,6 +71663,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor {
     this.colorType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -69967,6 +71685,8 @@ class WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -70011,6 +71731,9 @@ class WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -70030,6 +71753,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor {
       const DeepCollectionEquality().hash(colorType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -70045,6 +71769,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColorExtension
       String? colorType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -70055,6 +71780,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColorExtension
         colorType: colorType ?? this.colorType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -70070,6 +71796,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType {
     this.vehicleFuelType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -70089,6 +71816,8 @@ class WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -70130,6 +71859,9 @@ class WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -70148,6 +71880,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType {
       const DeepCollectionEquality().hash(vehicleFuelType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -70162,6 +71895,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelTypeExt
       String? vehicleFuelType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -70171,6 +71905,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelTypeExt
         vehicleFuelType: vehicleFuelType ?? this.vehicleFuelType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -70186,6 +71921,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake {
     this.vehicleMake,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -70205,6 +71941,8 @@ class WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -70245,6 +71983,9 @@ class WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -70263,6 +72004,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake {
       const DeepCollectionEquality().hash(vehicleMake) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -70277,6 +72019,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMakeExtension
       String? vehicleMake,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -70286,6 +72029,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMakeExtension
         vehicleMake: vehicleMake ?? this.vehicleMake,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -70304,6 +72048,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleSt
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -70329,6 +72074,8 @@ class WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleSt
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -70378,6 +72125,9 @@ class WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleSt
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -70399,6 +72149,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleSt
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -70417,6 +72168,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleSched
           bool? whiteText,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -70429,6 +72181,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleSched
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -70447,6 +72200,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus {
     this.whiteText,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -70472,6 +72226,8 @@ class WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -70521,6 +72277,9 @@ class WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -70542,6 +72301,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus {
       const DeepCollectionEquality().hash(whiteText) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -70559,6 +72319,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatusExtensi
       bool? whiteText,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -70571,6 +72332,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatusExtensi
         whiteText: whiteText ?? this.whiteText,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -70629,6 +72391,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType {
     this.pickListOrderBy,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -70740,6 +72503,8 @@ class WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -70844,6 +72609,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType {
             (identical(other.pickListOrderBy, pickListOrderBy) || const DeepCollectionEquality().equals(other.pickListOrderBy, pickListOrderBy)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -70906,6 +72672,7 @@ class WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType {
       const DeepCollectionEquality().hash(pickListOrderBy) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -70963,6 +72730,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleTypeExtension
       int? pickListOrderBy,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -71044,6 +72812,7 @@ extension $WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleTypeExtension
         pickListOrderBy: pickListOrderBy ?? this.pickListOrderBy,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71065,6 +72834,7 @@ class WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse {
     this.warehouseCode,
     this.warehouse,
     this.warehouseOrderBy,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71096,6 +72866,8 @@ class WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse {
   final String? warehouse;
   @JsonKey(name: 'WarehouseOrderBy', includeIfNull: false)
   final int? warehouseOrderBy;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -71155,6 +72927,9 @@ class WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse {
             (identical(other.warehouseOrderBy, warehouseOrderBy) ||
                 const DeepCollectionEquality()
                     .equals(other.warehouseOrderBy, warehouseOrderBy)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -71179,6 +72954,7 @@ class WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse {
       const DeepCollectionEquality().hash(warehouseCode) ^
       const DeepCollectionEquality().hash(warehouse) ^
       const DeepCollectionEquality().hash(warehouseOrderBy) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -71199,6 +72975,7 @@ extension $WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouseExtensio
       String? warehouseCode,
       String? warehouse,
       int? warehouseOrderBy,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -71214,6 +72991,7 @@ extension $WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouseExtensio
         warehouseCode: warehouseCode ?? this.warehouseCode,
         warehouse: warehouse ?? this.warehouse,
         warehouseOrderBy: warehouseOrderBy ?? this.warehouseOrderBy,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71230,6 +73008,7 @@ class WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationType {
     this.organizationTypeCode,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71251,6 +73030,8 @@ class WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationType {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -71295,6 +73076,9 @@ class WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -71314,6 +73098,7 @@ class WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationType {
       const DeepCollectionEquality().hash(organizationTypeCode) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -71329,6 +73114,7 @@ extension $WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationTypeEx
       String? organizationTypeCode,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -71339,6 +73125,7 @@ extension $WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationTypeEx
         organizationTypeCode: organizationTypeCode ?? this.organizationTypeCode,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71356,6 +73143,7 @@ class WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceS
     this.sapStatus,
     this.sapStatusDisplay,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71379,6 +73167,8 @@ class WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceS
   final String? sapStatusDisplay;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -71428,6 +73218,9 @@ class WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceS
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -71448,6 +73241,7 @@ class WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceS
       const DeepCollectionEquality().hash(sapStatus) ^
       const DeepCollectionEquality().hash(sapStatusDisplay) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -71465,6 +73259,7 @@ extension $WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInv
           String? sapStatus,
           String? sapStatusDisplay,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -71478,6 +73273,7 @@ extension $WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInv
         sapStatus: sapStatus ?? this.sapStatus,
         sapStatusDisplay: sapStatusDisplay ?? this.sapStatusDisplay,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71506,6 +73302,7 @@ class WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalog {
     this.shipVia,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71551,6 +73348,8 @@ class WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalog {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -71629,6 +73428,7 @@ class WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalog {
                     .equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -71654,6 +73454,7 @@ class WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalog {
       const DeepCollectionEquality().hash(shipVia) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -71681,6 +73482,7 @@ extension $WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalogExtensio
       String? shipVia,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -71703,6 +73505,7 @@ extension $WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalogExtensio
         shipVia: shipVia ?? this.shipVia,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71718,6 +73521,7 @@ class WebApiModulesSettingsVendorSettingsVendorClassVendorClass {
     this.vendorClass,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71736,6 +73540,8 @@ class WebApiModulesSettingsVendorSettingsVendorClassVendorClass {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -71776,6 +73582,9 @@ class WebApiModulesSettingsVendorSettingsVendorClassVendorClass {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -71794,6 +73603,7 @@ class WebApiModulesSettingsVendorSettingsVendorClassVendorClass {
       const DeepCollectionEquality().hash(vendorClass) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -71808,6 +73618,7 @@ extension $WebApiModulesSettingsVendorSettingsVendorClassVendorClassExtension
       String? vendorClass,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -71817,6 +73628,7 @@ extension $WebApiModulesSettingsVendorSettingsVendorClassVendorClassExtension
         vendorClass: vendorClass ?? this.vendorClass,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71832,6 +73644,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCare {
     this.wardrobeCare,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71851,6 +73664,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCare {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -71892,6 +73707,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCare {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -71910,6 +73728,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCare {
       const DeepCollectionEquality().hash(wardrobeCare) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -71924,6 +73743,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCareExtensio
       String? wardrobeCare,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -71933,6 +73753,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCareExtensio
         wardrobeCare: wardrobeCare ?? this.wardrobeCare,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -71949,6 +73770,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColor {
     this.colorType,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -71970,6 +73792,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColor {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72014,6 +73838,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColor {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72033,6 +73860,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColor {
       const DeepCollectionEquality().hash(colorType) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72048,6 +73876,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColorExtens
       String? colorType,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -72058,6 +73887,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColorExtens
         colorType: colorType ?? this.colorType,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72073,6 +73903,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeCondition {
     this.wardrobeCondition,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72092,6 +73923,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeCondition {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72133,6 +73966,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeCondition {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72151,6 +73987,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeCondition {
       const DeepCollectionEquality().hash(wardrobeCondition) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72166,6 +74003,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeConditi
           String? wardrobeCondition,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -72175,6 +74013,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeConditi
         wardrobeCondition: wardrobeCondition ?? this.wardrobeCondition,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72190,6 +74029,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGender {
     this.wardrobeGender,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72209,6 +74049,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGender {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72250,6 +74092,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGender {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72268,6 +74113,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGender {
       const DeepCollectionEquality().hash(wardrobeGender) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72282,6 +74128,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGenderExte
       String? wardrobeGender,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -72291,6 +74138,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGenderExte
         wardrobeGender: wardrobeGender ?? this.wardrobeGender,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72306,6 +74154,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabel {
     this.wardrobeLabel,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72325,6 +74174,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabel {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72366,6 +74217,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabel {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72384,6 +74238,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabel {
       const DeepCollectionEquality().hash(wardrobeLabel) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72398,6 +74253,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabelExtens
       String? wardrobeLabel,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -72407,6 +74263,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabelExtens
         wardrobeLabel: wardrobeLabel ?? this.wardrobeLabel,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72422,6 +74279,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial {
     this.wardrobeMaterial,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72441,6 +74299,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72482,6 +74342,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72500,6 +74363,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial {
       const DeepCollectionEquality().hash(wardrobeMaterial) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72515,6 +74379,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial
           String? wardrobeMaterial,
           bool? inactive,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -72524,6 +74389,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial
         wardrobeMaterial: wardrobeMaterial ?? this.wardrobeMaterial,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72539,6 +74405,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePattern {
     this.wardrobePattern,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72558,6 +74425,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePattern {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72599,6 +74468,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePattern {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72617,6 +74489,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePattern {
       const DeepCollectionEquality().hash(wardrobePattern) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72631,6 +74504,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePatternEx
       String? wardrobePattern,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -72640,6 +74514,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePatternEx
         wardrobePattern: wardrobePattern ?? this.wardrobePattern,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72655,6 +74530,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriod {
     this.wardrobePeriod,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72674,6 +74550,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriod {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72715,6 +74593,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriod {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72733,6 +74614,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriod {
       const DeepCollectionEquality().hash(wardrobePeriod) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72747,6 +74629,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriodExte
       String? wardrobePeriod,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -72756,6 +74639,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriodExte
         wardrobePeriod: wardrobePeriod ?? this.wardrobePeriod,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72771,6 +74655,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSource {
     this.wardrobeSource,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72790,6 +74675,8 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSource {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72831,6 +74718,9 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSource {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72849,6 +74739,7 @@ class WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSource {
       const DeepCollectionEquality().hash(wardrobeSource) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72863,6 +74754,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSourceExte
       String? wardrobeSource,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -72872,6 +74764,7 @@ extension $WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSourceExte
         wardrobeSource: wardrobeSource ?? this.wardrobeSource,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -72887,6 +74780,7 @@ class WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour {
     this.warehouseId,
     this.warehouseAvailabilityHour,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -72906,6 +74800,8 @@ class WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour {
   final int? warehouseAvailabilityHour;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -72951,6 +74847,9 @@ class WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -72969,6 +74868,7 @@ class WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour {
       const DeepCollectionEquality().hash(warehouseId) ^
       const DeepCollectionEquality().hash(warehouseAvailabilityHour) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -72984,6 +74884,7 @@ extension $WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHo
           String? warehouseId,
           int? warehouseAvailabilityHour,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -72995,6 +74896,7 @@ extension $WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHo
         warehouseAvailabilityHour:
             warehouseAvailabilityHour ?? this.warehouseAvailabilityHour,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -73010,6 +74912,7 @@ class WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip {
     this.warehouseId,
     this.warehouseBarCodeSkip,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -73029,6 +74932,8 @@ class WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip {
   final String? warehouseBarCodeSkip;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -73070,6 +74975,9 @@ class WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -73088,6 +74996,7 @@ class WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip {
       const DeepCollectionEquality().hash(warehouseId) ^
       const DeepCollectionEquality().hash(warehouseBarCodeSkip) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -73102,6 +75011,7 @@ extension $WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkipExtensio
       String? warehouseId,
       String? warehouseBarCodeSkip,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -73112,6 +75022,158 @@ extension $WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkipExtensio
         warehouseId: warehouseId ?? this.warehouseId,
         warehouseBarCodeSkip: warehouseBarCodeSkip ?? this.warehouseBarCodeSkip,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
+        recordTitle: recordTitle ?? this.recordTitle,
+        fields: fields ?? this.fields,
+        custom: custom ?? this.custom,
+        defaultFieldAttributes:
+            defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings {
+  WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings({
+    this.warehouseId,
+    this.warehouse,
+    this.warehouseCode,
+    this.availabilityExcludeConsigned,
+    this.availabilityRequireConsignedReserved,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+  });
+
+  factory WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsFromJson(
+          json);
+
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'Warehouse', includeIfNull: false)
+  final String? warehouse;
+  @JsonKey(name: 'WarehouseCode', includeIfNull: false)
+  final String? warehouseCode;
+  @JsonKey(name: 'AvailabilityExcludeConsigned', includeIfNull: false)
+  final bool? availabilityExcludeConsigned;
+  @JsonKey(name: 'AvailabilityRequireConsignedReserved', includeIfNull: false)
+  final bool? availabilityRequireConsignedReserved;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(
+      name: '_Fields',
+      includeIfNull: false,
+      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+      name: '_DefaultFieldAttributes',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouseId, warehouseId)) &&
+            (identical(other.warehouse, warehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouse, warehouse)) &&
+            (identical(other.warehouseCode, warehouseCode) ||
+                const DeepCollectionEquality()
+                    .equals(other.warehouseCode, warehouseCode)) &&
+            (identical(other.availabilityExcludeConsigned, availabilityExcludeConsigned) ||
+                const DeepCollectionEquality().equals(
+                    other.availabilityExcludeConsigned,
+                    availabilityExcludeConsigned)) &&
+            (identical(other.availabilityRequireConsignedReserved,
+                    availabilityRequireConsignedReserved) ||
+                const DeepCollectionEquality().equals(
+                    other.availabilityRequireConsignedReserved,
+                    availabilityRequireConsignedReserved)) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.recordTitle, recordTitle)) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultFieldAttributes, defaultFieldAttributes)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(warehouseCode) ^
+      const DeepCollectionEquality().hash(availabilityExcludeConsigned) ^
+      const DeepCollectionEquality()
+          .hash(availabilityRequireConsignedReserved) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsExtension
+    on WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings {
+  WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings
+      copyWith(
+          {String? warehouseId,
+          String? warehouse,
+          String? warehouseCode,
+          bool? availabilityExcludeConsigned,
+          bool? availabilityRequireConsignedReserved,
+          String? dateStamp,
+          String? auditNote,
+          String? recordTitle,
+          List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+          List<FwStandardDataFwCustomValue>? custom,
+          List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
+    return WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings(
+        warehouseId: warehouseId ?? this.warehouseId,
+        warehouse: warehouse ?? this.warehouse,
+        warehouseCode: warehouseCode ?? this.warehouseCode,
+        availabilityExcludeConsigned:
+            availabilityExcludeConsigned ?? this.availabilityExcludeConsigned,
+        availabilityRequireConsignedReserved:
+            availabilityRequireConsignedReserved ??
+                this.availabilityRequireConsignedReserved,
+        dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -73134,6 +75196,7 @@ class WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment {
     this.requestToId,
     this.requestTo,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -73167,6 +75230,8 @@ class WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment {
   final String? requestTo;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -73228,6 +75293,9 @@ class WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -73253,6 +75321,7 @@ class WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment {
       const DeepCollectionEquality().hash(requestToId) ^
       const DeepCollectionEquality().hash(requestTo) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -73274,6 +75343,7 @@ extension $WebApiModulesSettingsWarehouseDepartmentWarehouseDepartmentExtension
       String? requestToId,
       String? requestTo,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -73290,6 +75360,7 @@ extension $WebApiModulesSettingsWarehouseDepartmentWarehouseDepartmentExtension
         requestToId: requestToId ?? this.requestToId,
         requestTo: requestTo ?? this.requestTo,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -73310,6 +75381,7 @@ class WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryType {
     this.salesBarCodeRange,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -73339,6 +75411,8 @@ class WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryType {
   final String? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -73395,6 +75469,9 @@ class WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryType {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -73418,6 +75495,7 @@ class WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryType {
       const DeepCollectionEquality().hash(salesBarCodeRange) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -73437,6 +75515,7 @@ extension $WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryTypeExte
       String? salesBarCodeRange,
       String? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -73451,6 +75530,7 @@ extension $WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryTypeExte
         salesBarCodeRange: salesBarCodeRange ?? this.salesBarCodeRange,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -73468,6 +75548,7 @@ class WebApiModulesSettingsWarehouseLocationWarehouseLocation {
     this.officeLocationId,
     this.officeLocation,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -73490,6 +75571,8 @@ class WebApiModulesSettingsWarehouseLocationWarehouseLocation {
   final String? officeLocation;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -73536,6 +75619,9 @@ class WebApiModulesSettingsWarehouseLocationWarehouseLocation {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -73556,6 +75642,7 @@ class WebApiModulesSettingsWarehouseLocationWarehouseLocation {
       const DeepCollectionEquality().hash(officeLocationId) ^
       const DeepCollectionEquality().hash(officeLocation) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -73572,6 +75659,7 @@ extension $WebApiModulesSettingsWarehouseLocationWarehouseLocationExtension
       String? officeLocationId,
       String? officeLocation,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -73583,6 +75671,7 @@ extension $WebApiModulesSettingsWarehouseLocationWarehouseLocationExtension
         officeLocationId: officeLocationId ?? this.officeLocationId,
         officeLocation: officeLocation ?? this.officeLocation,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -73607,6 +75696,7 @@ class WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApprove
     this.email,
     this.sendEmail,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -73644,6 +75734,8 @@ class WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApprove
   final bool? sendEmail;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -73712,6 +75804,7 @@ class WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApprove
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -73733,6 +75826,7 @@ class WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApprove
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(sendEmail) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -73757,6 +75851,7 @@ extension $WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateAp
           String? email,
           bool? sendEmail,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -73776,6 +75871,7 @@ extension $WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateAp
         email: email ?? this.email,
         sendEmail: sendEmail ?? this.sendEmail,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -73792,6 +75888,7 @@ class WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocation {
     this.warehouseId,
     this.warehouse,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -73813,6 +75910,8 @@ class WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocation {
   final String? warehouse;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -73857,6 +75956,9 @@ class WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocation {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -73876,6 +75978,7 @@ class WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocation {
       const DeepCollectionEquality().hash(warehouseId) ^
       const DeepCollectionEquality().hash(warehouse) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -73891,6 +75994,7 @@ extension $WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocationExt
       String? warehouseId,
       String? warehouse,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -73901,6 +76005,7 @@ extension $WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocationExt
         warehouseId: warehouseId ?? this.warehouseId,
         warehouse: warehouse ?? this.warehouse,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -74015,6 +76120,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.markupReplacementCost,
     this.replacementCostMarkupPercent,
     this.availabilityHourlyDays,
+    this.transferAvailabilityDays,
     this.salesRestockPercent,
     this.availabilityExcludeConsigned,
     this.availabilityRequireConsignedReserved,
@@ -74022,7 +76128,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.availabilityQcDelayExcludeWeekend,
     this.availabilityQcDelayExcludeHoliday,
     this.availabilityQcDelayIndefinite,
-    this.defaultMuteItemsAddedToOrderAtStaging,
+    this.defaultNoChargePrintItemsAddedToOrderAtStaging,
     this.quikReceiptEnable,
     this.storageContainerCheckInEnable,
     this.storageContainerStagingEnable,
@@ -74032,6 +76138,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.disableSubstituteNote,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -74251,6 +76358,8 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final double? replacementCostMarkupPercent;
   @JsonKey(name: 'AvailabilityHourlyDays', includeIfNull: false)
   final int? availabilityHourlyDays;
+  @JsonKey(name: 'TransferAvailabilityDays', includeIfNull: false)
+  final int? transferAvailabilityDays;
   @JsonKey(name: 'SalesRestockPercent', includeIfNull: false)
   final double? salesRestockPercent;
   @JsonKey(name: 'AvailabilityExcludeConsigned', includeIfNull: false)
@@ -74265,8 +76374,10 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final bool? availabilityQcDelayExcludeHoliday;
   @JsonKey(name: 'AvailabilityQcDelayIndefinite', includeIfNull: false)
   final bool? availabilityQcDelayIndefinite;
-  @JsonKey(name: 'DefaultMuteItemsAddedToOrderAtStaging', includeIfNull: false)
-  final bool? defaultMuteItemsAddedToOrderAtStaging;
+  @JsonKey(
+      name: 'DefaultNoChargePrintItemsAddedToOrderAtStaging',
+      includeIfNull: false)
+  final bool? defaultNoChargePrintItemsAddedToOrderAtStaging;
   @JsonKey(name: 'QuikReceiptEnable', includeIfNull: false)
   final bool? quikReceiptEnable;
   @JsonKey(name: 'StorageContainerCheckInEnable', includeIfNull: false)
@@ -74285,6 +76396,8 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -74459,6 +76572,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
             (identical(other.markupReplacementCost, markupReplacementCost) || const DeepCollectionEquality().equals(other.markupReplacementCost, markupReplacementCost)) &&
             (identical(other.replacementCostMarkupPercent, replacementCostMarkupPercent) || const DeepCollectionEquality().equals(other.replacementCostMarkupPercent, replacementCostMarkupPercent)) &&
             (identical(other.availabilityHourlyDays, availabilityHourlyDays) || const DeepCollectionEquality().equals(other.availabilityHourlyDays, availabilityHourlyDays)) &&
+            (identical(other.transferAvailabilityDays, transferAvailabilityDays) || const DeepCollectionEquality().equals(other.transferAvailabilityDays, transferAvailabilityDays)) &&
             (identical(other.salesRestockPercent, salesRestockPercent) || const DeepCollectionEquality().equals(other.salesRestockPercent, salesRestockPercent)) &&
             (identical(other.availabilityExcludeConsigned, availabilityExcludeConsigned) || const DeepCollectionEquality().equals(other.availabilityExcludeConsigned, availabilityExcludeConsigned)) &&
             (identical(other.availabilityRequireConsignedReserved, availabilityRequireConsignedReserved) || const DeepCollectionEquality().equals(other.availabilityRequireConsignedReserved, availabilityRequireConsignedReserved)) &&
@@ -74466,7 +76580,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
             (identical(other.availabilityQcDelayExcludeWeekend, availabilityQcDelayExcludeWeekend) || const DeepCollectionEquality().equals(other.availabilityQcDelayExcludeWeekend, availabilityQcDelayExcludeWeekend)) &&
             (identical(other.availabilityQcDelayExcludeHoliday, availabilityQcDelayExcludeHoliday) || const DeepCollectionEquality().equals(other.availabilityQcDelayExcludeHoliday, availabilityQcDelayExcludeHoliday)) &&
             (identical(other.availabilityQcDelayIndefinite, availabilityQcDelayIndefinite) || const DeepCollectionEquality().equals(other.availabilityQcDelayIndefinite, availabilityQcDelayIndefinite)) &&
-            (identical(other.defaultMuteItemsAddedToOrderAtStaging, defaultMuteItemsAddedToOrderAtStaging) || const DeepCollectionEquality().equals(other.defaultMuteItemsAddedToOrderAtStaging, defaultMuteItemsAddedToOrderAtStaging)) &&
+            (identical(other.defaultNoChargePrintItemsAddedToOrderAtStaging, defaultNoChargePrintItemsAddedToOrderAtStaging) || const DeepCollectionEquality().equals(other.defaultNoChargePrintItemsAddedToOrderAtStaging, defaultNoChargePrintItemsAddedToOrderAtStaging)) &&
             (identical(other.quikReceiptEnable, quikReceiptEnable) || const DeepCollectionEquality().equals(other.quikReceiptEnable, quikReceiptEnable)) &&
             (identical(other.storageContainerCheckInEnable, storageContainerCheckInEnable) || const DeepCollectionEquality().equals(other.storageContainerCheckInEnable, storageContainerCheckInEnable)) &&
             (identical(other.storageContainerStagingEnable, storageContainerStagingEnable) || const DeepCollectionEquality().equals(other.storageContainerStagingEnable, storageContainerStagingEnable)) &&
@@ -74476,6 +76590,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
             (identical(other.disableSubstituteNote, disableSubstituteNote) || const DeepCollectionEquality().equals(other.disableSubstituteNote, disableSubstituteNote)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -74590,6 +76705,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(markupReplacementCost) ^
       const DeepCollectionEquality().hash(replacementCostMarkupPercent) ^
       const DeepCollectionEquality().hash(availabilityHourlyDays) ^
+      const DeepCollectionEquality().hash(transferAvailabilityDays) ^
       const DeepCollectionEquality().hash(salesRestockPercent) ^
       const DeepCollectionEquality().hash(availabilityExcludeConsigned) ^
       const DeepCollectionEquality()
@@ -74599,7 +76715,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(availabilityQcDelayExcludeHoliday) ^
       const DeepCollectionEquality().hash(availabilityQcDelayIndefinite) ^
       const DeepCollectionEquality()
-          .hash(defaultMuteItemsAddedToOrderAtStaging) ^
+          .hash(defaultNoChargePrintItemsAddedToOrderAtStaging) ^
       const DeepCollectionEquality().hash(quikReceiptEnable) ^
       const DeepCollectionEquality().hash(storageContainerCheckInEnable) ^
       const DeepCollectionEquality().hash(storageContainerStagingEnable) ^
@@ -74609,6 +76725,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(disableSubstituteNote) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -74722,6 +76839,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       bool? markupReplacementCost,
       double? replacementCostMarkupPercent,
       int? availabilityHourlyDays,
+      int? transferAvailabilityDays,
       double? salesRestockPercent,
       bool? availabilityExcludeConsigned,
       bool? availabilityRequireConsignedReserved,
@@ -74729,7 +76847,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       bool? availabilityQcDelayExcludeWeekend,
       bool? availabilityQcDelayExcludeHoliday,
       bool? availabilityQcDelayIndefinite,
-      bool? defaultMuteItemsAddedToOrderAtStaging,
+      bool? defaultNoChargePrintItemsAddedToOrderAtStaging,
       bool? quikReceiptEnable,
       bool? storageContainerCheckInEnable,
       bool? storageContainerStagingEnable,
@@ -74739,6 +76857,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       bool? disableSubstituteNote,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -74838,8 +76957,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
         availabilityStopHour: availabilityStopHour ?? this.availabilityStopHour,
         includeTaxInAssetValue:
             includeTaxInAssetValue ?? this.includeTaxInAssetValue,
-        productionExchangeAvailabilityPercent: productionExchangeAvailabilityPercent ??
-            this.productionExchangeAvailabilityPercent,
+        productionExchangeAvailabilityPercent:
+            productionExchangeAvailabilityPercent ??
+                this.productionExchangeAvailabilityPercent,
         productionexchangeEnabled:
             productionexchangeEnabled ?? this.productionexchangeEnabled,
         productionExchangeWarehouseCode: productionExchangeWarehouseCode ??
@@ -74867,8 +76987,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
             quikLocateRequiredDaysBefore ?? this.quikLocateRequiredDaysBefore,
         calculateDefaultRentalRates:
             calculateDefaultRentalRates ?? this.calculateDefaultRentalRates,
-        rentalDailyRatePercentOfReplacementCost: rentalDailyRatePercentOfReplacementCost ??
-            this.rentalDailyRatePercentOfReplacementCost,
+        rentalDailyRatePercentOfReplacementCost:
+            rentalDailyRatePercentOfReplacementCost ??
+                this.rentalDailyRatePercentOfReplacementCost,
         rentalWeeklyRateMultipleOfDailyRate: rentalWeeklyRateMultipleOfDailyRate ??
             this.rentalWeeklyRateMultipleOfDailyRate,
         checkInEnableScanningToAisleShelf: checkInEnableScanningToAisleShelf ??
@@ -74893,18 +77014,18 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
             replacementCostMarkupPercent ?? this.replacementCostMarkupPercent,
         availabilityHourlyDays:
             availabilityHourlyDays ?? this.availabilityHourlyDays,
+        transferAvailabilityDays:
+            transferAvailabilityDays ?? this.transferAvailabilityDays,
         salesRestockPercent: salesRestockPercent ?? this.salesRestockPercent,
         availabilityExcludeConsigned:
             availabilityExcludeConsigned ?? this.availabilityExcludeConsigned,
         availabilityRequireConsignedReserved: availabilityRequireConsignedReserved ??
             this.availabilityRequireConsignedReserved,
-        availabilityEnableQcDelay:
-            availabilityEnableQcDelay ?? this.availabilityEnableQcDelay,
-        availabilityQcDelayExcludeWeekend:
-            availabilityQcDelayExcludeWeekend ?? this.availabilityQcDelayExcludeWeekend,
+        availabilityEnableQcDelay: availabilityEnableQcDelay ?? this.availabilityEnableQcDelay,
+        availabilityQcDelayExcludeWeekend: availabilityQcDelayExcludeWeekend ?? this.availabilityQcDelayExcludeWeekend,
         availabilityQcDelayExcludeHoliday: availabilityQcDelayExcludeHoliday ?? this.availabilityQcDelayExcludeHoliday,
         availabilityQcDelayIndefinite: availabilityQcDelayIndefinite ?? this.availabilityQcDelayIndefinite,
-        defaultMuteItemsAddedToOrderAtStaging: defaultMuteItemsAddedToOrderAtStaging ?? this.defaultMuteItemsAddedToOrderAtStaging,
+        defaultNoChargePrintItemsAddedToOrderAtStaging: defaultNoChargePrintItemsAddedToOrderAtStaging ?? this.defaultNoChargePrintItemsAddedToOrderAtStaging,
         quikReceiptEnable: quikReceiptEnable ?? this.quikReceiptEnable,
         storageContainerCheckInEnable: storageContainerCheckInEnable ?? this.storageContainerCheckInEnable,
         storageContainerStagingEnable: storageContainerStagingEnable ?? this.storageContainerStagingEnable,
@@ -74914,6 +77035,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
         disableSubstituteNote: disableSubstituteNote ?? this.disableSubstituteNote,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -74927,6 +77049,7 @@ class WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog {
     this.webCatalogId,
     this.description,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -74944,6 +77067,8 @@ class WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog {
   final String? description;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -74981,6 +77106,9 @@ class WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -74998,6 +77126,7 @@ class WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog {
       const DeepCollectionEquality().hash(webCatalogId) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -75011,6 +77140,7 @@ extension $WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalogExtension
       {String? webCatalogId,
       String? description,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -75019,6 +77149,7 @@ extension $WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalogExtension
         webCatalogId: webCatalogId ?? this.webCatalogId,
         description: description ?? this.description,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -75072,6 +77203,7 @@ class WebApiModulesSettingsWebUserWidgetUserWidget {
     this.disabled,
     this.orderBy,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -75166,6 +77298,8 @@ class WebApiModulesSettingsWebUserWidgetUserWidget {
   final double? orderBy;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -75268,6 +77402,7 @@ class WebApiModulesSettingsWebUserWidgetUserWidget {
             (identical(other.disabled, disabled) || const DeepCollectionEquality().equals(other.disabled, disabled)) &&
             (identical(other.orderBy, orderBy) || const DeepCollectionEquality().equals(other.orderBy, orderBy)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -75318,6 +77453,7 @@ class WebApiModulesSettingsWebUserWidgetUserWidget {
       const DeepCollectionEquality().hash(disabled) ^
       const DeepCollectionEquality().hash(orderBy) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -75370,6 +77506,7 @@ extension $WebApiModulesSettingsWebUserWidgetUserWidgetExtension
       bool? disabled,
       double? orderBy,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -75425,6 +77562,7 @@ extension $WebApiModulesSettingsWebUserWidgetUserWidgetExtension
         disabled: disabled ?? this.disabled,
         orderBy: orderBy ?? this.orderBy,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -75465,6 +77603,7 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidget {
     this.dateStamp,
     this.value,
     this.text,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -75533,6 +77672,8 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidget {
   final String? value;
   @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -75626,6 +77767,7 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidget {
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.text, text) || const DeepCollectionEquality().equals(other.text, text)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -75663,6 +77805,7 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidget {
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(value) ^
       const DeepCollectionEquality().hash(text) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -75702,6 +77845,7 @@ extension $WebApiModulesSettingsWidgetSettingsWidgetWidgetExtension
       String? dateStamp,
       String? value,
       String? text,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -75744,6 +77888,7 @@ extension $WebApiModulesSettingsWidgetSettingsWidgetWidgetExtension
         dateStamp: dateStamp ?? this.dateStamp,
         value: value ?? this.value,
         text: text ?? this.text,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -75761,6 +77906,7 @@ class WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeek {
     this.toDate,
     this.inactive,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -75783,6 +77929,8 @@ class WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeek {
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -75828,6 +77976,9 @@ class WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeek {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -75848,6 +77999,7 @@ class WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeek {
       const DeepCollectionEquality().hash(toDate) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -75864,6 +78016,7 @@ extension $WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeekExtension
       String? toDate,
       bool? inactive,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -75875,6 +78028,7 @@ extension $WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeekExtension
         toDate: toDate ?? this.toDate,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,

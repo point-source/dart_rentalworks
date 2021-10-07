@@ -232,25 +232,49 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
   return val;
 }
 
-FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
-    _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
+FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwQueryFilter(
+      field: json['Field'] as String?,
+      op: json['Op'] as String?,
+      value: json['Value'] as String?,
+    );
+
+Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
+    FwStandardModelsFwQueryFilter instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Field', instance.field);
+  writeNotNull('Op', instance.op);
+  writeNotNull('Value', instance.value);
+  return val;
+}
+
+FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+    _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
             Map<String, dynamic> json) =>
-        FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse(
+        FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
           items: (json['Items'] as List<dynamic>?)
                   ?.map((e) =>
-                      WebApiModulesContainersContainerLookupContainerDescriptionResponse
+                      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
                           .fromJson(e as Map<String, dynamic>))
                   .toList() ??
               [],
           pageNo: json['PageNo'] as int?,
           pageSize: json['PageSize'] as int?,
-          totalRows: json['TotalRows'] as int?,
+          totalItems: json['TotalItems'] as int?,
           sort: json['Sort'] as String?,
         );
 
 Map<String, dynamic>
-    _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseToJson(
-        FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
+    _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
+        FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
             instance) {
   final val = <String, dynamic>{};
 
@@ -263,7 +287,7 @@ Map<String, dynamic>
   writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
   writeNotNull('PageNo', instance.pageNo);
   writeNotNull('PageSize', instance.pageSize);
-  writeNotNull('TotalRows', instance.totalRows);
+  writeNotNull('TotalItems', instance.totalItems);
   writeNotNull('Sort', instance.sort);
   return val;
 }
@@ -408,17 +432,17 @@ Map<String, dynamic> _$WebApiLogicTSpStatusResponseToJson(
   return val;
 }
 
-WebApiModulesContainersContainerLookupContainerDescriptionResponse
-    _$WebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
+WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+    _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesContainersContainerLookupContainerDescriptionResponse(
-          containerId: json['ContainerId'] as String?,
+        WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
+          inventoryId: json['InventoryId'] as String?,
           description: json['Description'] as String?,
         );
 
 Map<String, dynamic>
-    _$WebApiModulesContainersContainerLookupContainerDescriptionResponseToJson(
-        WebApiModulesContainersContainerLookupContainerDescriptionResponse
+    _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
+        WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
             instance) {
   final val = <String, dynamic>{};
 
@@ -428,7 +452,7 @@ Map<String, dynamic>
     }
   }
 
-  writeNotNull('ContainerId', instance.containerId);
+  writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('Description', instance.description);
   return val;
 }
@@ -446,6 +470,7 @@ WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
           rfId: json['RfId'] as String?,
           serialNumberIsMixedCase: json['SerialNumberIsMixedCase'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -487,6 +512,7 @@ Map<String, dynamic>
   writeNotNull('RfId', instance.rfId);
   writeNotNull('SerialNumberIsMixedCase', instance.serialNumberIsMixedCase);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -515,6 +541,7 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           wallHeightIn: json['WallHeightIn'] as int?,
           wallLengthFt: json['WallLengthFt'] as int?,
           wallLengthIn: json['WallLengthIn'] as int?,
+          treatConsignedQtyAsOwned: json['TreatConsignedQtyAsOwned'] as bool?,
           dailyRate: (json['DailyRate'] as num?)?.toDouble(),
           weeklyRate: (json['WeeklyRate'] as num?)?.toDouble(),
           week2Rate: (json['Week2Rate'] as num?)?.toDouble(),
@@ -681,6 +708,14 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           descriptionWithAkas: json['DescriptionWithAkas'] as String?,
           costCalculation: json['CostCalculation'] as String?,
           quantity: (json['Quantity'] as num?)?.toDouble(),
+          quantityIn: (json['QuantityIn'] as num?)?.toDouble(),
+          quantityStaged: (json['QuantityStaged'] as num?)?.toDouble(),
+          quantityOut: (json['QuantityOut'] as num?)?.toDouble(),
+          quantityInContainer:
+              (json['QuantityInContainer'] as num?)?.toDouble(),
+          quantityInRepair: (json['QuantityInRepair'] as num?)?.toDouble(),
+          quantityInTransit: (json['QuantityInTransit'] as num?)?.toDouble(),
+          quantityOnTruck: (json['QuantityOnTruck'] as num?)?.toDouble(),
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           taxable: json['Taxable'] as bool?,
@@ -775,10 +810,13 @@ WebApiModulesInventoryRentalInventoryRentalInventory
               json['AccumulatedDepreciationExpenseAccountDescription']
                   as String?,
           originalShowId: json['OriginalShowId'] as String?,
+          inputDate: json['InputDate'] as String?,
+          inputByUsersId: json['InputByUsersId'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
           manifestStandAloneItem: json['ManifestStandAloneItem'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -826,6 +864,7 @@ Map<String, dynamic>
   writeNotNull('WallHeightIn', instance.wallHeightIn);
   writeNotNull('WallLengthFt', instance.wallLengthFt);
   writeNotNull('WallLengthIn', instance.wallLengthIn);
+  writeNotNull('TreatConsignedQtyAsOwned', instance.treatConsignedQtyAsOwned);
   writeNotNull('DailyRate', instance.dailyRate);
   writeNotNull('WeeklyRate', instance.weeklyRate);
   writeNotNull('Week2Rate', instance.week2Rate);
@@ -992,6 +1031,13 @@ Map<String, dynamic>
   writeNotNull('DescriptionWithAkas', instance.descriptionWithAkas);
   writeNotNull('CostCalculation', instance.costCalculation);
   writeNotNull('Quantity', instance.quantity);
+  writeNotNull('QuantityIn', instance.quantityIn);
+  writeNotNull('QuantityStaged', instance.quantityStaged);
+  writeNotNull('QuantityOut', instance.quantityOut);
+  writeNotNull('QuantityInContainer', instance.quantityInContainer);
+  writeNotNull('QuantityInRepair', instance.quantityInRepair);
+  writeNotNull('QuantityInTransit', instance.quantityInTransit);
+  writeNotNull('QuantityOnTruck', instance.quantityOnTruck);
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('Taxable', instance.taxable);
@@ -1083,10 +1129,13 @@ Map<String, dynamic>
   writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
       instance.accumulatedDepreciationExpenseAccountDescription);
   writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('InputDate', instance.inputDate);
+  writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
   writeNotNull('ManifestStandAloneItem', instance.manifestStandAloneItem);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -1164,6 +1213,83 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel
+    _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel(
+          image: json['Image'] as String?,
+          appImageId: json['AppImageId'] as String?,
+          imageDesc: json['ImageDesc'] as String?,
+          imageNo: json['ImageNo'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson(
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Image', instance.image);
+  writeNotNull('AppImageId', instance.appImageId);
+  writeNotNull('ImageDesc', instance.imageDesc);
+  writeNotNull('ImageNo', instance.imageNo);
+  return val;
+}
+
+WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest
+    _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest(
+          uniqueId1: json['UniqueId1'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestToJson(
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('UniqueId1', instance.uniqueId1);
+  return val;
+}
+
+WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse
+    _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse(
+          images: (json['Images'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson(
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Images', instance.images?.map((e) => e.toJson()).toList());
+  return val;
+}
+
 WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson(
             Map<String, dynamic> json) =>
@@ -1220,6 +1346,7 @@ WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
     _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest(
+          isWall: json['IsWall'] as bool?,
           inventoryId: json['InventoryId'] as String?,
           image: json['Image'] as String?,
           imageDesc: json['ImageDesc'] as String?,
@@ -1238,6 +1365,7 @@ Map<String, dynamic>
     }
   }
 
+  writeNotNull('IsWall', instance.isWall);
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('Image', instance.image);
   writeNotNull('ImageDesc', instance.imageDesc);
@@ -1251,6 +1379,7 @@ WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
         WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest(
           searchValue: json['SearchValue'] as String?,
           warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
         );
 
 Map<String, dynamic>
@@ -1267,6 +1396,7 @@ Map<String, dynamic>
 
   writeNotNull('SearchValue', instance.searchValue);
   writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('DepartmentId', instance.departmentId);
   return val;
 }
 
@@ -1327,6 +1457,7 @@ WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRe
           vendorPartNumber: json['VendorPartNumber'] as String?,
           currencyId: json['CurrencyId'] as String?,
           unitCost: (json['UnitCost'] as num?)?.toDouble(),
+          originalShowId: json['OriginalShowId'] as String?,
         );
 
 Map<String, dynamic>
@@ -1363,6 +1494,7 @@ Map<String, dynamic>
   writeNotNull('VendorPartNumber', instance.vendorPartNumber);
   writeNotNull('CurrencyId', instance.currencyId);
   writeNotNull('UnitCost', instance.unitCost);
+  writeNotNull('OriginalShowId', instance.originalShowId);
   return val;
 }
 

@@ -637,13 +637,13 @@ Map<String, dynamic>
   return val;
 }
 
-FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic
-    _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicFromJson(
+FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicFromJson(
             Map<String, dynamic> json) =>
-        FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic(
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic(
           items: (json['Items'] as List<dynamic>?)
                   ?.map((e) =>
-                      WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog
+                      WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog
                           .fromJson(e as Map<String, dynamic>))
                   .toList() ??
               [],
@@ -654,8 +654,8 @@ FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvai
         );
 
 Map<String, dynamic>
-    _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogicToJson(
-        FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogicToJson(
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic
             instance) {
   final val = <String, dynamic>{};
 
@@ -5527,6 +5527,42 @@ Map<String, dynamic>
   return val;
 }
 
+FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
+
+Map<String, dynamic>
+    _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogicToJson(
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
+
 FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogicFromJson(
             Map<String, dynamic> json) =>
@@ -7311,6 +7347,31 @@ Map<String, dynamic> _$WebApiLogicSortItemsResponseToJson(
   return val;
 }
 
+WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse
+    _$WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse(
+          entriesBefore: json['EntriesBefore'] as int?,
+          entriesAfter: json['EntriesAfter'] as int?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponseToJson(
+        WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('EntriesBefore', instance.entriesBefore);
+  writeNotNull('EntriesAfter', instance.entriesAfter);
+  return val;
+}
+
 WebApiModulesInventoryStorageContainerStorageContainer
     _$WebApiModulesInventoryStorageContainerStorageContainerFromJson(
             Map<String, dynamic> json) =>
@@ -7319,6 +7380,7 @@ WebApiModulesInventoryStorageContainerStorageContainer
           storageContainer: json['StorageContainer'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7354,6 +7416,7 @@ Map<String, dynamic>
   writeNotNull('StorageContainer', instance.storageContainer);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7374,6 +7437,7 @@ WebApiModulesInventoryStorageContainerStorageContainerItem
           orderDescription: json['OrderDescription'] as String?,
           deal: json['Deal'] as String?,
           pickupLocation: json['PickupLocation'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7413,6 +7477,7 @@ Map<String, dynamic>
   writeNotNull('OrderDescription', instance.orderDescription);
   writeNotNull('Deal', instance.deal);
   writeNotNull('PickupLocation', instance.pickupLocation);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7452,6 +7517,7 @@ WebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSettings
           foreignSubRentalWithholdingPercent:
               (json['ForeignSubRentalWithholdingPercent'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7510,6 +7576,7 @@ Map<String, dynamic>
   writeNotNull('ForeignSubRentalWithholdingPercent',
       instance.foreignSubRentalWithholdingPercent);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7528,6 +7595,7 @@ WebApiModulesSettingsAccountingSettingsGlAccountGlAccount
           glAccountType: json['GlAccountType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7565,6 +7633,7 @@ Map<String, dynamic>
   writeNotNull('GlAccountType', instance.glAccountType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7584,6 +7653,7 @@ WebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRule
           glAccountNo: json['GlAccountNo'] as String?,
           glAccountDescription: json['GlAccountDescription'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7623,6 +7693,7 @@ Map<String, dynamic>
   writeNotNull('GlAccountNo', instance.glAccountNo);
   writeNotNull('GlAccountDescription', instance.glAccountDescription);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7648,6 +7719,7 @@ WebApiModulesSettingsActivityStatusActivityStatus
           inactive: json['Inactive'] as bool?,
           orderBy: json['OrderBy'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7690,6 +7762,7 @@ Map<String, dynamic> _$WebApiModulesSettingsActivityStatusActivityStatusToJson(
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7744,6 +7817,7 @@ WebApiModulesSettingsActivityTypeActivityType
           isWarehouseDispatch: json['IsWarehouseDispatch'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7789,6 +7863,7 @@ Map<String, dynamic> _$WebApiModulesSettingsActivityTypeActivityTypeToJson(
   writeNotNull('IsWarehouseDispatch', instance.isWarehouseDispatch);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7808,6 +7883,7 @@ WebApiModulesSettingsAddressSettingsCountryCountry
           metric: json['Metric'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7845,6 +7921,7 @@ Map<String, dynamic> _$WebApiModulesSettingsAddressSettingsCountryCountryToJson(
   writeNotNull('Metric', instance.metric);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7861,6 +7938,7 @@ WebApiModulesSettingsAddressSettingsStateState
           state: json['State'] as String?,
           stateCode: json['StateCode'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7895,6 +7973,7 @@ Map<String, dynamic> _$WebApiModulesSettingsAddressSettingsStateStateToJson(
   writeNotNull('State', instance.state);
   writeNotNull('StateCode', instance.stateCode);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7911,6 +7990,7 @@ WebApiModulesSettingsAppReportDesignerAppReportDesigner
           category: json['Category'] as String?,
           description: json['Description'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7946,6 +8026,7 @@ Map<String, dynamic>
   writeNotNull('Category', instance.category);
   writeNotNull('Description', instance.description);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7967,6 +8048,7 @@ WebApiModulesSettingsAttributeValueAttributeValue
           numericOnly: json['NumericOnly'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8006,6 +8088,7 @@ Map<String, dynamic> _$WebApiModulesSettingsAttributeValueAttributeValueToJson(
   writeNotNull('NumericOnly', instance.numericOnly);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8014,23 +8097,18 @@ Map<String, dynamic> _$WebApiModulesSettingsAttributeValueAttributeValueToJson(
   return val;
 }
 
-WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog
-    _$WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogFromJson(
+WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog
+    _$WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog(
+        WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog(
           id: json['Id'] as int?,
-          batchSize: json['BatchSize'] as int?,
-          startDateTime: json['StartDateTime'] == null
+          serverName: json['ServerName'] as String?,
+          logDateTime: json['LogDateTime'] == null
               ? null
-              : DateTime.parse(json['StartDateTime'] as String),
-          startDateTimeString: json['StartDateTimeString'] as String?,
-          endDateTime: json['EndDateTime'] == null
-              ? null
-              : DateTime.parse(json['EndDateTime'] as String),
-          endDateTimeString: json['EndDateTimeString'] as String?,
-          durationInSeconds: (json['DurationInSeconds'] as num?)?.toDouble(),
-          durationInMinutes: (json['DurationInMinutes'] as num?)?.toDouble(),
+              : DateTime.parse(json['LogDateTime'] as String),
+          logMessage: json['LogMessage'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8052,8 +8130,8 @@ WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog
         );
 
 Map<String, dynamic>
-    _$WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogToJson(
-        WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog
+    _$WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogToJson(
+        WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog
             instance) {
   final val = <String, dynamic>{};
 
@@ -8064,14 +8142,11 @@ Map<String, dynamic>
   }
 
   writeNotNull('Id', instance.id);
-  writeNotNull('BatchSize', instance.batchSize);
-  writeNotNull('StartDateTime', instance.startDateTime?.toIso8601String());
-  writeNotNull('StartDateTimeString', instance.startDateTimeString);
-  writeNotNull('EndDateTime', instance.endDateTime?.toIso8601String());
-  writeNotNull('EndDateTimeString', instance.endDateTimeString);
-  writeNotNull('DurationInSeconds', instance.durationInSeconds);
-  writeNotNull('DurationInMinutes', instance.durationInMinutes);
+  writeNotNull('ServerName', instance.serverName);
+  writeNotNull('LogDateTime', instance.logDateTime?.toIso8601String());
+  writeNotNull('LogMessage', instance.logMessage);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8091,6 +8166,7 @@ WebApiModulesSettingsBillingCycleEventBillingCycleEvent
           orderBy: json['OrderBy'] as int?,
           actualRevenue: json['ActualRevenue'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8129,6 +8205,7 @@ Map<String, dynamic>
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('ActualRevenue', instance.actualRevenue);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8151,6 +8228,7 @@ WebApiModulesSettingsBillingCycleSettingsBillingCycleBillingCycle
           billOnPeriodStartOrEnd: json['BillOnPeriodStartOrEnd'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8193,6 +8271,7 @@ Map<String, dynamic>
   writeNotNull('BillOnPeriodStartOrEnd', instance.billOnPeriodStartOrEnd);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8212,6 +8291,7 @@ WebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8251,6 +8331,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8280,6 +8361,7 @@ WebApiModulesSettingsCalendarSettingsHolidayHoliday
           offsetHoliday: json['OffsetHoliday'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8328,6 +8410,7 @@ Map<String, dynamic>
   writeNotNull('OffsetHoliday', instance.offsetHoliday);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.$custom?.map((e) => e.toJson()).toList());
@@ -8373,6 +8456,7 @@ WebApiModulesSettingsContactSettingsContactEventContactEvent
           recurring: json['Recurring'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8411,6 +8495,7 @@ Map<String, dynamic>
   writeNotNull('Recurring', instance.recurring);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8430,6 +8515,7 @@ WebApiModulesSettingsContactSettingsContactTitleContactTitle
           accountsReceivable: json['AccountsReceivable'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8468,6 +8554,7 @@ Map<String, dynamic>
   writeNotNull('AccountsReceivable', instance.accountsReceivable);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8484,6 +8571,7 @@ WebApiModulesSettingsContactSettingsMailListMailList
           mailList: json['MailList'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8519,6 +8607,7 @@ Map<String, dynamic>
   writeNotNull('MailList', instance.mailList);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8538,6 +8627,7 @@ WebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTyp
           refundPaymentTypeId: json['RefundPaymentTypeId'] as String?,
           refundPaymentType: json['RefundPaymentType'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8577,6 +8667,7 @@ Map<String, dynamic>
   writeNotNull('RefundPaymentTypeId', instance.refundPaymentTypeId);
   writeNotNull('RefundPaymentType', instance.refundPaymentType);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8594,6 +8685,7 @@ WebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPad
           description: json['Description'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8631,6 +8723,7 @@ Map<String, dynamic>
   writeNotNull('Description', instance.description);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8649,6 +8742,7 @@ WebApiModulesSettingsCrewLocationCrewLocation
           location: json['Location'] as String?,
           isPrimary: json['IsPrimary'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8685,6 +8779,7 @@ Map<String, dynamic> _$WebApiModulesSettingsCrewLocationCrewLocationToJson(
   writeNotNull('Location', instance.location);
   writeNotNull('IsPrimary', instance.isPrimary);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8712,6 +8807,7 @@ WebApiModulesSettingsCrewPositionCrewPosition
           endDate: json['EndDate'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8757,6 +8853,7 @@ Map<String, dynamic> _$WebApiModulesSettingsCrewPositionCrewPositionToJson(
   writeNotNull('EndDate', instance.endDate);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8782,6 +8879,7 @@ WebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRate
           toCurrency: json['ToCurrency'] as String?,
           toCurrencySymbol: json['ToCurrencySymbol'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8827,6 +8925,7 @@ Map<String, dynamic>
   writeNotNull('ToCurrency', instance.toCurrency);
   writeNotNull('ToCurrencySymbol', instance.toCurrencySymbol);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8844,6 +8943,7 @@ WebApiModulesSettingsCurrencySettingsCurrencyCurrency
           currencyCode: json['CurrencyCode'] as String?,
           currencySymbol: json['CurrencySymbol'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8880,6 +8980,7 @@ Map<String, dynamic>
   writeNotNull('CurrencyCode', instance.currencyCode);
   writeNotNull('CurrencySymbol', instance.currencySymbol);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8897,6 +8998,7 @@ WebApiModulesSettingsCustomerSettingsCreditStatusCreditStatus
           createContractAllowed: json['CreateContractAllowed'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8934,6 +9036,7 @@ Map<String, dynamic>
   writeNotNull('CreateContractAllowed', instance.createContractAllowed);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -8950,6 +9053,7 @@ WebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategory
           customerCategory: json['CustomerCategory'] as String?,
           dateStamp: json['DateStamp'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -8986,6 +9090,7 @@ Map<String, dynamic>
   writeNotNull('CustomerCategory', instance.customerCategory);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9005,6 +9110,7 @@ WebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatus
           creditStatus: json['CreditStatus'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9044,6 +9150,7 @@ Map<String, dynamic>
   writeNotNull('CreditStatus', instance.creditStatus);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9061,6 +9168,7 @@ WebApiModulesSettingsCustomerSettingsCustomerTypeCustomerType
           color: json['Color'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9098,6 +9206,7 @@ Map<String, dynamic>
   writeNotNull('Color', instance.color);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9114,6 +9223,7 @@ WebApiModulesSettingsDealSettingsDealClassificationDealClassification
           dealClassification: json['DealClassification'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9150,6 +9260,7 @@ Map<String, dynamic>
   writeNotNull('DealClassification', instance.dealClassification);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9169,6 +9280,7 @@ WebApiModulesSettingsDealSettingsDealStatusDealStatus
           creditStatus: json['CreditStatus'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9207,6 +9319,7 @@ Map<String, dynamic>
   writeNotNull('CreditStatus', instance.creditStatus);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9228,6 +9341,7 @@ WebApiModulesSettingsDealSettingsDealTypeDealType
           theatricalProduction: json['TheatricalProduction'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9267,6 +9381,7 @@ Map<String, dynamic> _$WebApiModulesSettingsDealSettingsDealTypeDealTypeToJson(
   writeNotNull('TheatricalProduction', instance.theatricalProduction);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9284,6 +9399,7 @@ WebApiModulesSettingsDealSettingsProductionTypeProductionType
           productionTypeCode: json['ProductionTypeCode'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9321,6 +9437,7 @@ Map<String, dynamic>
   writeNotNull('ProductionTypeCode', instance.productionTypeCode);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9337,6 +9454,7 @@ WebApiModulesSettingsDealSettingsScheduleTypeScheduleType
           scheduleType: json['ScheduleType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9372,6 +9490,7 @@ Map<String, dynamic>
   writeNotNull('ScheduleType', instance.scheduleType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9393,6 +9512,7 @@ WebApiModulesSettingsDepartmentInventoryTypeDepartmentInventoryType
           isFacilities: json['IsFacilities'] as bool?,
           orderBy: json['OrderBy'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9434,6 +9554,7 @@ Map<String, dynamic>
   writeNotNull('IsFacilities', instance.isFacilities);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9453,6 +9574,7 @@ WebApiModulesSettingsDepartmentLocationDepartmentLocation
           defaultOrderTypeId: json['DefaultOrderTypeId'] as String?,
           defaultOrderType: json['DefaultOrderType'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9491,6 +9613,7 @@ Map<String, dynamic>
   writeNotNull('DefaultOrderTypeId', instance.defaultOrderTypeId);
   writeNotNull('DefaultOrderType', instance.defaultOrderType);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9533,6 +9656,7 @@ WebApiModulesSettingsDepartmentSettingsDepartmentDepartment
           enableProjects: json['EnableProjects'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9594,6 +9718,7 @@ Map<String, dynamic>
   writeNotNull('EnableProjects', instance.enableProjects);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9643,6 +9768,7 @@ WebApiModulesSettingsDiscountItemDiscountItem
           warehouseDefaultWeeklyRate:
               (json['WarehouseDefaultWeeklyRate'] as num?)?.toDouble(),
           discountTemplateId: json['DiscountTemplateId'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9708,6 +9834,7 @@ Map<String, dynamic> _$WebApiModulesSettingsDiscountItemDiscountItemToJson(
   writeNotNull(
       'WarehouseDefaultWeeklyRate', instance.warehouseDefaultWeeklyRate);
   writeNotNull('DiscountTemplateId', instance.discountTemplateId);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9801,6 +9928,7 @@ WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTemplate
           applyDiscountToCustomRate: json['ApplyDiscountToCustomRate'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9857,6 +9985,7 @@ Map<String, dynamic>
   writeNotNull('ApplyDiscountToCustomRate', instance.applyDiscountToCustomRate);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9875,6 +10004,7 @@ WebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettings
               json['DocumentBarCodeSettingsName'] as String?,
           documentBarCodeStyle: json['DocumentBarCodeStyle'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9912,6 +10042,7 @@ Map<String, dynamic>
       'DocumentBarCodeSettingsName', instance.documentBarCodeSettingsName);
   writeNotNull('DocumentBarCodeStyle', instance.documentBarCodeStyle);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9930,6 +10061,7 @@ WebApiModulesSettingsDocumentSettingsCoverLetterCoverLetter
           html: json['Html'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -9967,6 +10099,7 @@ Map<String, dynamic>
   writeNotNull('Html', instance.html);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -9988,6 +10121,7 @@ WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType
               json['AutomaticallyAttachToEmail'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10029,6 +10163,7 @@ Map<String, dynamic>
       'AutomaticallyAttachToEmail', instance.automaticallyAttachToEmail);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10048,6 +10183,7 @@ WebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditions
           startOnNewPage: json['StartOnNewPage'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10087,6 +10223,7 @@ Map<String, dynamic>
   writeNotNull('StartOnNewPage', instance.startOnNewPage);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10104,6 +10241,7 @@ WebApiModulesSettingsEventSettingsEventCategoryEventCategory
           eventCategoryCode: json['EventCategoryCode'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10140,6 +10278,7 @@ Map<String, dynamic>
   writeNotNull('EventCategoryCode', instance.eventCategoryCode);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10391,6 +10530,7 @@ WebApiModulesSettingsEventSettingsEventTypeEventType
           orderBy: (json['OrderBy'] as num?)?.toDouble(),
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10661,6 +10801,7 @@ Map<String, dynamic>
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10683,6 +10824,7 @@ WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
           showCellular: json['ShowCellular'] as bool?,
           orderBy: (json['OrderBy'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10725,6 +10867,7 @@ Map<String, dynamic>
   writeNotNull('ShowCellular', instance.showCellular);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10741,6 +10884,7 @@ WebApiModulesSettingsEventSettingsPhotographyTypePhotographyType
           photographyType: json['PhotographyType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10777,6 +10921,7 @@ Map<String, dynamic>
   writeNotNull('PhotographyType', instance.photographyType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10798,6 +10943,7 @@ WebApiModulesSettingsExportSettingsDataExportFormatDataExportFormat
           defaultFormat: json['DefaultFormat'] as bool?,
           fileName: json['FileName'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10839,6 +10985,7 @@ Map<String, dynamic>
   writeNotNull('DefaultFormat', instance.defaultFormat);
   writeNotNull('FileName', instance.fileName);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -10857,6 +11004,7 @@ WebApiModulesSettingsFacilitySettingsBuildingBuilding
           officeLocationId: json['OfficeLocationId'] as String?,
           officeLocation: json['OfficeLocation'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -10894,6 +11042,7 @@ Map<String, dynamic>
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('OfficeLocation', instance.officeLocation);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11068,6 +11217,7 @@ WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
           inventoryCount: json['InventoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11174,6 +11324,7 @@ Map<String, dynamic>
   writeNotNull('InventoryCount', instance.inventoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11293,10 +11444,13 @@ WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate
               json['AccumulatedDepreciationExpenseAccountDescription']
                   as String?,
           originalShowId: json['OriginalShowId'] as String?,
+          inputDate: json['InputDate'] as String?,
+          inputByUsersId: json['InputByUsersId'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
           manifestStandAloneItem: json['ManifestStandAloneItem'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11433,10 +11587,13 @@ Map<String, dynamic>
   writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
       instance.accumulatedDepreciationExpenseAccountDescription);
   writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('InputDate', instance.inputDate);
+  writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
   writeNotNull('ManifestStandAloneItem', instance.manifestStandAloneItem);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11456,6 +11613,7 @@ WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatu
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11495,6 +11653,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11514,6 +11673,7 @@ WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11553,6 +11713,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11576,6 +11737,7 @@ WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType
           groupProfitLoss: json['GroupProfitLoss'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11618,6 +11780,7 @@ Map<String, dynamic>
   writeNotNull('GroupProfitLoss', instance.groupProfitLoss);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11648,6 +11811,7 @@ WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType
           addToDescription: json['AddToDescription'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11697,6 +11861,7 @@ Map<String, dynamic>
   writeNotNull('AddToDescription', instance.addToDescription);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11738,6 +11903,7 @@ WebApiModulesSettingsFacilitySettingsVenueVenue
           primaryCompanyContactId: json['PrimaryCompanyContactId'] as String?,
           primaryContact: json['PrimaryContact'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11797,6 +11963,7 @@ Map<String, dynamic> _$WebApiModulesSettingsFacilitySettingsVenueVenueToJson(
   writeNotNull('PrimaryCompanyContactId', instance.primaryCompanyContactId);
   writeNotNull('PrimaryContact', instance.primaryContact);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11821,6 +11988,7 @@ WebApiModulesSettingsFiscalMonthFiscalMonth
           fiscalOrder: json['FiscalOrder'] as String?,
           closed: json['Closed'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11863,6 +12031,7 @@ Map<String, dynamic> _$WebApiModulesSettingsFiscalMonthFiscalMonthToJson(
   writeNotNull('FiscalOrder', instance.fiscalOrder);
   writeNotNull('Closed', instance.closed);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11878,6 +12047,7 @@ WebApiModulesSettingsFiscalYearFiscalYear
           fiscalYearId: json['FiscalYearId'] as String?,
           year: json['Year'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -11911,6 +12081,7 @@ Map<String, dynamic> _$WebApiModulesSettingsFiscalYearFiscalYearToJson(
   writeNotNull('FiscalYearId', instance.fiscalYearId);
   writeNotNull('Year', instance.year);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11931,6 +12102,7 @@ WebApiModulesSettingsFloorFloor _$WebApiModulesSettingsFloorFloorFromJson(
       hasFloorPlan: json['HasFloorPlan'] as bool?,
       orderBy: json['OrderBy'] as int?,
       dateStamp: json['DateStamp'] as String?,
+      auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
       fields: (json['_Fields'] as List<dynamic>?)
               ?.map((e) => FwStandardBusinessLogicFwBusinessLogicFieldDefinition
@@ -11969,6 +12141,7 @@ Map<String, dynamic> _$WebApiModulesSettingsFloorFloorToJson(
   writeNotNull('HasFloorPlan', instance.hasFloorPlan);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -11985,6 +12158,7 @@ WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType
           generatorFuelType: json['GeneratorFuelType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12020,6 +12194,7 @@ Map<String, dynamic>
   writeNotNull('GeneratorFuelType', instance.generatorFuelType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12036,6 +12211,7 @@ WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake
           generatorMake: json['GeneratorMake'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12072,6 +12248,7 @@ Map<String, dynamic>
   writeNotNull('GeneratorMake', instance.generatorMake);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12089,6 +12266,7 @@ WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel
           generatorMakeId: json['GeneratorMakeId'] as String?,
           generatorMake: json['GeneratorMake'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12126,6 +12304,7 @@ Map<String, dynamic>
   writeNotNull('GeneratorMakeId', instance.generatorMakeId);
   writeNotNull('GeneratorMake', instance.generatorMake);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12142,6 +12321,7 @@ WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
           generatorRating: json['GeneratorRating'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12178,6 +12358,7 @@ Map<String, dynamic>
   writeNotNull('GeneratorRating', instance.generatorRating);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12252,6 +12433,7 @@ WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType
           pickListOrderBy: json['PickListOrderBy'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12344,6 +12526,7 @@ Map<String, dynamic>
   writeNotNull('PickListOrderBy', instance.pickListOrderBy);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12360,6 +12543,7 @@ WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts
           generatorWatts: json['GeneratorWatts'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12396,6 +12580,7 @@ Map<String, dynamic>
   writeNotNull('GeneratorWatts', instance.generatorWatts);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12418,6 +12603,7 @@ WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse
           warehouseCode: json['WarehouseCode'] as String?,
           warehouse: json['Warehouse'] as String?,
           warehouseOrderBy: json['WarehouseOrderBy'] as int?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12460,6 +12646,7 @@ Map<String, dynamic>
   writeNotNull('WarehouseCode', instance.warehouseCode);
   writeNotNull('Warehouse', instance.warehouse);
   writeNotNull('WarehouseOrderBy', instance.warehouseOrderBy);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12483,6 +12670,7 @@ WebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventory
           consignorId: json['ConsignorId'] as String?,
           consignor: json['Consignor'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12526,6 +12714,7 @@ Map<String, dynamic>
   writeNotNull('ConsignorId', instance.consignorId);
   writeNotNull('Consignor', instance.consignor);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12546,6 +12735,7 @@ WebApiModulesSettingsInventorySettingsAttributeAttribute
           valueCount: json['ValueCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12585,6 +12775,7 @@ Map<String, dynamic>
   writeNotNull('ValueCount', instance.valueCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12603,6 +12794,7 @@ WebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRange
           barcodeFrom: json['BarcodeFrom'] as int?,
           barcodeTo: json['BarcodeTo'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12641,6 +12833,7 @@ Map<String, dynamic>
   writeNotNull('BarcodeFrom', instance.barcodeFrom);
   writeNotNull('BarcodeTo', instance.barcodeTo);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12659,6 +12852,7 @@ WebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAdjustme
               json['InventoryAdjustmentReason'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12696,6 +12890,7 @@ Map<String, dynamic>
   writeNotNull('InventoryAdjustmentReason', instance.inventoryAdjustmentReason);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12714,6 +12909,7 @@ WebApiModulesSettingsInventorySettingsInventoryConditionInventoryCondition
           sales: json['Sales'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12752,6 +12948,7 @@ Map<String, dynamic>
   writeNotNull('Sales', instance.sales);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12769,6 +12966,7 @@ WebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroup
           recType: json['RecType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12806,6 +13004,7 @@ Map<String, dynamic>
   writeNotNull('RecType', instance.recType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12843,6 +13042,7 @@ WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank
           rankUpdated: json['RankUpdated'] as String?,
           usersId: json['UsersId'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12900,6 +13100,7 @@ Map<String, dynamic>
   writeNotNull('RankUpdated', instance.rankUpdated);
   writeNotNull('UsersId', instance.usersId);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12918,6 +13119,7 @@ WebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatus
           color: json['Color'] as String?,
           textColor: json['TextColor'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -12956,6 +13158,7 @@ Map<String, dynamic>
   writeNotNull('Color', instance.color);
   writeNotNull('TextColor', instance.textColor);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -12985,6 +13188,7 @@ WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType
           orderBy: (json['OrderBy'] as num?)?.toDouble(),
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13034,6 +13238,7 @@ Map<String, dynamic>
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13162,6 +13367,7 @@ WebApiModulesSettingsInventorySettingsPartsCategoryPartsCategory
           inventoryCount: json['InventoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13278,6 +13484,7 @@ Map<String, dynamic>
   writeNotNull('InventoryCount', instance.inventoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13384,6 +13591,7 @@ WebApiModulesSettingsInventorySettingsRentalCategoryRentalCategory
           inventoryCount: json['InventoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13506,6 +13714,7 @@ Map<String, dynamic>
   writeNotNull('InventoryCount', instance.inventoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13523,6 +13732,7 @@ WebApiModulesSettingsInventorySettingsRetiredReasonRetiredReason
           reasonType: json['ReasonType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13560,6 +13770,7 @@ Map<String, dynamic>
   writeNotNull('ReasonType', instance.reasonType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13660,6 +13871,7 @@ WebApiModulesSettingsInventorySettingsSalesCategorySalesCategory
           inventoryCount: json['InventoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13776,6 +13988,7 @@ Map<String, dynamic>
   writeNotNull('InventoryCount', instance.inventoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13795,6 +14008,7 @@ WebApiModulesSettingsInventorySettingsUnitUnit
           pluralDescription: json['PluralDescription'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13832,6 +14046,7 @@ Map<String, dynamic> _$WebApiModulesSettingsInventorySettingsUnitUnitToJson(
   writeNotNull('PluralDescription', instance.pluralDescription);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13849,6 +14064,7 @@ WebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReason
           reasonType: json['ReasonType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13886,6 +14102,7 @@ Map<String, dynamic>
   writeNotNull('ReasonType', instance.reasonType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13903,6 +14120,7 @@ WebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalog
           catalogType: json['CatalogType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -13940,6 +14158,7 @@ Map<String, dynamic>
   writeNotNull('CatalogType', instance.catalogType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -13997,6 +14216,7 @@ WebApiModulesSettingsLaborSettingsCrewCrew
           changePasswordAtNextLogin: json['ChangePasswordAtNextLogin'] as bool?,
           passwordLastUpdated: json['PasswordLastUpdated'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14072,6 +14292,7 @@ Map<String, dynamic> _$WebApiModulesSettingsLaborSettingsCrewCrewToJson(
   writeNotNull('ChangePasswordAtNextLogin', instance.changePasswordAtNextLogin);
   writeNotNull('PasswordLastUpdated', instance.passwordLastUpdated);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14091,6 +14312,7 @@ WebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14130,6 +14352,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14149,6 +14372,7 @@ WebApiModulesSettingsLaborSettingsCrewStatusCrewStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14187,6 +14411,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14281,6 +14506,7 @@ WebApiModulesSettingsLaborSettingsLaborCategoryLaborCategory
           inventoryCount: json['InventoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14390,6 +14616,7 @@ Map<String, dynamic>
   writeNotNull('InventoryCount', instance.inventoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14509,10 +14736,13 @@ WebApiModulesSettingsLaborSettingsLaborRateLaborRate
               json['AccumulatedDepreciationExpenseAccountDescription']
                   as String?,
           originalShowId: json['OriginalShowId'] as String?,
+          inputDate: json['InputDate'] as String?,
+          inputByUsersId: json['InputByUsersId'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
           manifestStandAloneItem: json['ManifestStandAloneItem'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14648,10 +14878,13 @@ Map<String, dynamic>
   writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
       instance.accumulatedDepreciationExpenseAccountDescription);
   writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('InputDate', instance.inputDate);
+  writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
   writeNotNull('ManifestStandAloneItem', instance.manifestStandAloneItem);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14671,6 +14904,7 @@ WebApiModulesSettingsLaborSettingsLaborTypeLaborType
           categoryCount: json['CategoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14709,6 +14943,7 @@ Map<String, dynamic>
   writeNotNull('CategoryCount', instance.categoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14828,10 +15063,13 @@ WebApiModulesSettingsLaborSettingsPositionPosition
               json['AccumulatedDepreciationExpenseAccountDescription']
                   as String?,
           originalShowId: json['OriginalShowId'] as String?,
+          inputDate: json['InputDate'] as String?,
+          inputByUsersId: json['InputByUsersId'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
           manifestStandAloneItem: json['ManifestStandAloneItem'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -14966,10 +15204,13 @@ Map<String, dynamic> _$WebApiModulesSettingsLaborSettingsPositionPositionToJson(
   writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
       instance.accumulatedDepreciationExpenseAccountDescription);
   writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('InputDate', instance.inputDate);
+  writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
   writeNotNull('ManifestStandAloneItem', instance.manifestStandAloneItem);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -14989,6 +15230,7 @@ WebApiModulesSettingsMarketSegmentJobMarketSegmentJob
           marketSegmentId: json['MarketSegmentId'] as String?,
           marketSegment: json['MarketSegment'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15027,6 +15269,7 @@ Map<String, dynamic>
   writeNotNull('MarketSegmentId', instance.marketSegmentId);
   writeNotNull('MarketSegment', instance.marketSegment);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15121,6 +15364,7 @@ WebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategory
           inventoryCount: json['InventoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15231,6 +15475,7 @@ Map<String, dynamic>
   writeNotNull('InventoryCount', instance.inventoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15350,10 +15595,13 @@ WebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRate
               json['AccumulatedDepreciationExpenseAccountDescription']
                   as String?,
           originalShowId: json['OriginalShowId'] as String?,
+          inputDate: json['InputDate'] as String?,
+          inputByUsersId: json['InputByUsersId'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
           manifestStandAloneItem: json['ManifestStandAloneItem'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15489,10 +15737,13 @@ Map<String, dynamic>
   writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
       instance.accumulatedDepreciationExpenseAccountDescription);
   writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('InputDate', instance.inputDate);
+  writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
   writeNotNull('ManifestStandAloneItem', instance.manifestStandAloneItem);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15512,6 +15763,7 @@ WebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscType
           categoryCount: json['CategoryCount'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15550,6 +15802,7 @@ Map<String, dynamic>
   writeNotNull('CategoryCount', instance.categoryCount);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15565,6 +15818,7 @@ WebApiModulesSettingsNumberFormatNumberFormat
           numberFormatId: json['NumberFormatId'] as String?,
           numberFormat: json['NumberFormat'] as String?,
           mask: json['Mask'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15598,6 +15852,7 @@ Map<String, dynamic> _$WebApiModulesSettingsNumberFormatNumberFormatToJson(
   writeNotNull('NumberFormatId', instance.numberFormatId);
   writeNotNull('NumberFormat', instance.numberFormat);
   writeNotNull('Mask', instance.mask);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15680,8 +15935,14 @@ WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation
           invoiceMessage: json['InvoiceMessage'] as String?,
           taxable: json['Taxable'] as bool?,
           useOrderLocationByDefault: json['UseOrderLocationByDefault'] as bool?,
+          defaultTaxOptionId: json['DefaultTaxOptionId'] as String?,
+          defaultTaxOption: json['DefaultTaxOption'] as String?,
+          hoursOffset: json['HoursOffset'] as int?,
+          currentServerTime: json['CurrentServerTime'] as String?,
+          currentLocationTime: json['CurrentLocationTime'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15784,8 +16045,14 @@ Map<String, dynamic>
   writeNotNull('InvoiceMessage', instance.invoiceMessage);
   writeNotNull('Taxable', instance.taxable);
   writeNotNull('UseOrderLocationByDefault', instance.useOrderLocationByDefault);
+  writeNotNull('DefaultTaxOptionId', instance.defaultTaxOptionId);
+  writeNotNull('DefaultTaxOption', instance.defaultTaxOption);
+  writeNotNull('HoursOffset', instance.hoursOffset);
+  writeNotNull('CurrentServerTime', instance.currentServerTime);
+  writeNotNull('CurrentLocationTime', instance.currentLocationTime);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15800,6 +16067,7 @@ WebApiModulesSettingsOrderItemRecTypeOrderItemRecType
         WebApiModulesSettingsOrderItemRecTypeOrderItemRecType(
           recType: json['RecType'] as String?,
           recTypeDisplay: json['RecTypeDisplay'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15833,6 +16101,7 @@ Map<String, dynamic>
 
   writeNotNull('RecType', instance.recType);
   writeNotNull('RecTypeDisplay', instance.recTypeDisplay);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15849,6 +16118,7 @@ WebApiModulesSettingsOrderSettingsDiscountReasonDiscountReason
           discountReason: json['DiscountReason'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15885,6 +16155,7 @@ Map<String, dynamic>
   writeNotNull('DiscountReason', instance.discountReason);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15903,6 +16174,7 @@ WebApiModulesSettingsOrderSettingsMarketSegmentMarketSegment
           marketType: json['MarketType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15940,6 +16212,7 @@ Map<String, dynamic>
   writeNotNull('MarketType', instance.marketType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -15957,6 +16230,7 @@ WebApiModulesSettingsOrderSettingsMarketTypeMarketType
           exportCode: json['ExportCode'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -15993,6 +16267,7 @@ Map<String, dynamic>
   writeNotNull('ExportCode', instance.exportCode);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -16011,6 +16286,7 @@ WebApiModulesSettingsOrderSettingsOrderLocationOrderLocation
           locationId: json['LocationId'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -16048,6 +16324,7 @@ Map<String, dynamic>
   writeNotNull('LocationId', instance.locationId);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -16065,6 +16342,7 @@ WebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNo
           description: json['Description'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -16101,6 +16379,7 @@ Map<String, dynamic>
   writeNotNull('Description', instance.description);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -16128,6 +16407,8 @@ WebApiModulesSettingsOrderSettingsOrderTypeOrderType
           defaultManualSort: json['DefaultManualSort'] as bool?,
           determineQuantitiesToBillBasedOn:
               json['DetermineQuantitiesToBillBasedOn'] as String?,
+          useEstimatedDatesForBilling:
+              json['UseEstimatedDatesForBilling'] as bool?,
           allowNesting: json['AllowNesting'] as bool?,
           rentalShowICode: json['RentalShowICode'] as bool?,
           rentalICodeWidth: json['RentalICodeWidth'] as int?,
@@ -16190,6 +16471,7 @@ WebApiModulesSettingsOrderSettingsOrderTypeOrderType
           rentalShowNotes: json['RentalShowNotes'] as bool?,
           rentalShowReturnToWarehouse:
               json['RentalShowReturnToWarehouse'] as bool?,
+          rentalShowConsignor: json['RentalShowConsignor'] as bool?,
           rentalDateStamp: json['RentalDateStamp'] as String?,
           allowRoundTripRentals: json['AllowRoundTripRentals'] as bool?,
           salesShowICode: json['SalesShowICode'] as bool?,
@@ -16235,6 +16517,7 @@ WebApiModulesSettingsOrderSettingsOrderTypeOrderType
           salesShowWarehouse: json['SalesShowWarehouse'] as bool?,
           salesShowTaxable: json['SalesShowTaxable'] as bool?,
           salesShowNotes: json['SalesShowNotes'] as bool?,
+          salesShowConsignor: json['SalesShowConsignor'] as bool?,
           salesDateStamp: json['SalesDateStamp'] as String?,
           salesInventoryPrice: json['SalesInventoryPrice'] as String?,
           salesInventoryCost: json['SalesInventoryCost'] as String?,
@@ -16531,6 +16814,7 @@ WebApiModulesSettingsOrderSettingsOrderTypeOrderType
                       .toList() ??
                   [],
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -16577,6 +16861,8 @@ Map<String, dynamic>
   writeNotNull('DefaultManualSort', instance.defaultManualSort);
   writeNotNull('DetermineQuantitiesToBillBasedOn',
       instance.determineQuantitiesToBillBasedOn);
+  writeNotNull(
+      'UseEstimatedDatesForBilling', instance.useEstimatedDatesForBilling);
   writeNotNull('AllowNesting', instance.allowNesting);
   writeNotNull('RentalShowICode', instance.rentalShowICode);
   writeNotNull('RentalICodeWidth', instance.rentalICodeWidth);
@@ -16639,6 +16925,7 @@ Map<String, dynamic>
   writeNotNull('RentalShowNotes', instance.rentalShowNotes);
   writeNotNull(
       'RentalShowReturnToWarehouse', instance.rentalShowReturnToWarehouse);
+  writeNotNull('RentalShowConsignor', instance.rentalShowConsignor);
   writeNotNull('RentalDateStamp', instance.rentalDateStamp);
   writeNotNull('AllowRoundTripRentals', instance.allowRoundTripRentals);
   writeNotNull('SalesShowICode', instance.salesShowICode);
@@ -16684,6 +16971,7 @@ Map<String, dynamic>
   writeNotNull('SalesShowWarehouse', instance.salesShowWarehouse);
   writeNotNull('SalesShowTaxable', instance.salesShowTaxable);
   writeNotNull('SalesShowNotes', instance.salesShowNotes);
+  writeNotNull('SalesShowConsignor', instance.salesShowConsignor);
   writeNotNull('SalesDateStamp', instance.salesDateStamp);
   writeNotNull('SalesInventoryPrice', instance.salesInventoryPrice);
   writeNotNull('SalesInventoryCost', instance.salesInventoryCost);
@@ -16957,6 +17245,7 @@ Map<String, dynamic>
   writeNotNull('RentalSaleShowFields', instance.rentalSaleShowFields);
   writeNotNull('LossAndDamageShowFields', instance.lossAndDamageShowFields);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -16974,6 +17263,7 @@ WebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitle
           contactTitleId: json['ContactTitleId'] as String?,
           contactTitle: json['ContactTitle'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17011,6 +17301,7 @@ Map<String, dynamic>
   writeNotNull('ContactTitleId', instance.contactTitleId);
   writeNotNull('ContactTitle', instance.contactTitle);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17036,6 +17327,7 @@ WebApiModulesSettingsOrderTypeDateTypeOrderTypeDateType
           textColor: json['TextColor'] as String?,
           orderBy: (json['OrderBy'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17080,6 +17372,7 @@ Map<String, dynamic>
   writeNotNull('TextColor', instance.textColor);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17132,6 +17425,7 @@ WebApiModulesSettingsOrderTypeLocationOrderTypeLocation
           presentationLayerId: json['PresentationLayerId'] as String?,
           presentationLayer: json['PresentationLayer'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17175,6 +17469,7 @@ Map<String, dynamic>
   writeNotNull('PresentationLayerId', instance.presentationLayerId);
   writeNotNull('PresentationLayer', instance.presentationLayer);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17194,6 +17489,7 @@ WebApiModulesSettingsOrderTypeNoteOrderTypeNote
           printOnOrder: json['PrintOnOrder'] as bool?,
           notes: json['Notes'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17231,6 +17527,7 @@ Map<String, dynamic> _$WebApiModulesSettingsOrderTypeNoteOrderTypeNoteToJson(
   writeNotNull('PrintOnOrder', instance.printOnOrder);
   writeNotNull('Notes', instance.notes);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17251,6 +17548,7 @@ WebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTerms
           paymentTermsCode: json['PaymentTermsCode'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17290,6 +17588,7 @@ Map<String, dynamic>
   writeNotNull('PaymentTermsCode', instance.paymentTermsCode);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17317,6 +17616,7 @@ WebApiModulesSettingsPaymentSettingsPaymentTypePaymentType
           color: json['Color'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17363,6 +17663,7 @@ Map<String, dynamic>
   writeNotNull('Color', instance.color);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17379,6 +17680,7 @@ WebApiModulesSettingsPersonnelTypePersonnelType
           personnelType: json['PersonnelType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17413,6 +17715,7 @@ Map<String, dynamic> _$WebApiModulesSettingsPersonnelTypePersonnelTypeToJson(
   writeNotNull('PersonnelType', instance.personnelType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17430,6 +17733,7 @@ WebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatus
           poApprovalStatusType: json['PoApprovalStatusType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17467,6 +17771,7 @@ Map<String, dynamic>
   writeNotNull('PoApprovalStatusType', instance.poApprovalStatusType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17505,6 +17810,7 @@ WebApiModulesSettingsPoSettingsPoApproverPoApprover
           limitSubVehicle: (json['LimitSubVehicle'] as num?)?.toDouble(),
           limitRepair: (json['LimitRepair'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17562,6 +17868,7 @@ Map<String, dynamic>
   writeNotNull('LimitSubVehicle', instance.limitSubVehicle);
   writeNotNull('LimitRepair', instance.limitRepair);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17579,6 +17886,7 @@ WebApiModulesSettingsPoSettingsPoApproverRolePoApproverRole
           poApproverType: json['PoApproverType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17615,6 +17923,7 @@ Map<String, dynamic>
   writeNotNull('PoApproverType', instance.poApproverType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17632,6 +17941,7 @@ WebApiModulesSettingsPoSettingsPoClassificationPoClassification
           excludeFromRoa: json['ExcludeFromRoa'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17669,6 +17979,7 @@ Map<String, dynamic>
   writeNotNull('ExcludeFromRoa', instance.excludeFromRoa);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17685,6 +17996,7 @@ WebApiModulesSettingsPoSettingsPoImportancePoImportance
           poImportance: json['PoImportance'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17720,6 +18032,7 @@ Map<String, dynamic>
   writeNotNull('PoImportance', instance.poImportance);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17736,6 +18049,7 @@ WebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReason
           poRejectReason: json['PoRejectReason'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -17771,6 +18085,7 @@ Map<String, dynamic>
   writeNotNull('PoRejectReason', instance.poRejectReason);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -17875,6 +18190,7 @@ WebApiModulesSettingsPoSettingsPoTypePoType
           purchaseShowWarehouse: json['PurchaseShowWarehouse'] as bool?,
           purchaseShowTaxable: json['PurchaseShowTaxable'] as bool?,
           purchaseShowNotes: json['PurchaseShowNotes'] as bool?,
+          purchaseShowCostOrder: json['PurchaseShowCostOrder'] as bool?,
           purchaseDateStamp: json['PurchaseDateStamp'] as String?,
           rentalPurchaseDefaultRate:
               json['RentalPurchaseDefaultRate'] as String?,
@@ -17909,6 +18225,7 @@ WebApiModulesSettingsPoSettingsPoTypePoType
           laborShowWarehouse: json['LaborShowWarehouse'] as bool?,
           laborShowTaxable: json['LaborShowTaxable'] as bool?,
           laborShowNotes: json['LaborShowNotes'] as bool?,
+          laborShowCostOrder: json['LaborShowCostOrder'] as bool?,
           laborDateStamp: json['LaborDateStamp'] as String?,
           hideCrewBreaks: json['HideCrewBreaks'] as bool?,
           break1Paid: json['Break1Paid'] as bool?,
@@ -17939,6 +18256,7 @@ WebApiModulesSettingsPoSettingsPoTypePoType
           miscShowWarehouse: json['MiscShowWarehouse'] as bool?,
           miscShowTaxable: json['MiscShowTaxable'] as bool?,
           miscShowNotes: json['MiscShowNotes'] as bool?,
+          miscShowCostOrder: json['MiscShowCostOrder'] as bool?,
           miscShowWeeksAndDays: json['MiscShowWeeksAndDays'] as bool?,
           miscShowMonthsAndDays: json['MiscShowMonthsAndDays'] as bool?,
           miscDateStamp: json['MiscDateStamp'] as String?,
@@ -18060,6 +18378,7 @@ WebApiModulesSettingsPoSettingsPoTypePoType
                   ?.map((e) => e as String)
                   .toList() ??
               [],
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18182,6 +18501,7 @@ Map<String, dynamic> _$WebApiModulesSettingsPoSettingsPoTypePoTypeToJson(
   writeNotNull('PurchaseShowWarehouse', instance.purchaseShowWarehouse);
   writeNotNull('PurchaseShowTaxable', instance.purchaseShowTaxable);
   writeNotNull('PurchaseShowNotes', instance.purchaseShowNotes);
+  writeNotNull('PurchaseShowCostOrder', instance.purchaseShowCostOrder);
   writeNotNull('PurchaseDateStamp', instance.purchaseDateStamp);
   writeNotNull('RentalPurchaseDefaultRate', instance.rentalPurchaseDefaultRate);
   writeNotNull('SalesPurchaseDefaultRate', instance.salesPurchaseDefaultRate);
@@ -18215,6 +18535,7 @@ Map<String, dynamic> _$WebApiModulesSettingsPoSettingsPoTypePoTypeToJson(
   writeNotNull('LaborShowWarehouse', instance.laborShowWarehouse);
   writeNotNull('LaborShowTaxable', instance.laborShowTaxable);
   writeNotNull('LaborShowNotes', instance.laborShowNotes);
+  writeNotNull('LaborShowCostOrder', instance.laborShowCostOrder);
   writeNotNull('LaborDateStamp', instance.laborDateStamp);
   writeNotNull('HideCrewBreaks', instance.hideCrewBreaks);
   writeNotNull('Break1Paid', instance.break1Paid);
@@ -18245,6 +18566,7 @@ Map<String, dynamic> _$WebApiModulesSettingsPoSettingsPoTypePoTypeToJson(
   writeNotNull('MiscShowWarehouse', instance.miscShowWarehouse);
   writeNotNull('MiscShowTaxable', instance.miscShowTaxable);
   writeNotNull('MiscShowNotes', instance.miscShowNotes);
+  writeNotNull('MiscShowCostOrder', instance.miscShowCostOrder);
   writeNotNull('MiscShowWeeksAndDays', instance.miscShowWeeksAndDays);
   writeNotNull('MiscShowMonthsAndDays', instance.miscShowMonthsAndDays);
   writeNotNull('MiscDateStamp', instance.miscDateStamp);
@@ -18345,6 +18667,7 @@ Map<String, dynamic> _$WebApiModulesSettingsPoSettingsPoTypePoTypeToJson(
   writeNotNull('PurchaseShowFields', instance.purchaseShowFields);
   writeNotNull('MiscShowFields', instance.miscShowFields);
   writeNotNull('LaborShowFields', instance.laborShowFields);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18377,6 +18700,7 @@ WebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApprover
           subLabor: json['SubLabor'] as bool?,
           subVehicle: json['SubVehicle'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18429,6 +18753,7 @@ Map<String, dynamic>
   writeNotNull('SubLabor', instance.subLabor);
   writeNotNull('SubVehicle', instance.subVehicle);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18451,6 +18776,7 @@ WebApiModulesSettingsPresentationLayerActivityPresentationLayerActivity
           exportCode: json['ExportCode'] as String?,
           orderBy: (json['OrderBy'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18493,6 +18819,7 @@ Map<String, dynamic>
   writeNotNull('ExportCode', instance.exportCode);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18548,6 +18875,7 @@ WebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerActivityO
           recType: json['RecType'] as String?,
           activityColor: json['ActivityColor'] as String?,
           exportCode: json['ExportCode'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18593,6 +18921,7 @@ Map<String, dynamic>
   writeNotNull('RecType', instance.recType);
   writeNotNull('ActivityColor', instance.activityColor);
   writeNotNull('ExportCode', instance.exportCode);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18610,6 +18939,7 @@ WebApiModulesSettingsPresentationLayerFormPresentationLayerForm
           formType: json['FormType'] as String?,
           formTitle: json['FormTitle'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18647,6 +18977,7 @@ Map<String, dynamic>
   writeNotNull('FormType', instance.formType);
   writeNotNull('FormTitle', instance.formTitle);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18664,6 +18995,7 @@ WebApiModulesSettingsPresentationSettingsFormDesignFormDesign
           formType: json['FormType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18701,6 +19033,7 @@ Map<String, dynamic>
   writeNotNull('FormType', instance.formType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18717,6 +19050,7 @@ WebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLayer
           presentationLayer: json['PresentationLayer'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18753,6 +19087,7 @@ Map<String, dynamic>
   writeNotNull('PresentationLayer', instance.presentationLayer);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18769,6 +19104,7 @@ WebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuild
           projectAsBuild: json['ProjectAsBuild'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18805,6 +19141,7 @@ Map<String, dynamic>
   writeNotNull('ProjectAsBuild', instance.projectAsBuild);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18821,6 +19158,7 @@ WebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioning
           projectCommissioning: json['ProjectCommissioning'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18857,6 +19195,7 @@ Map<String, dynamic>
   writeNotNull('ProjectCommissioning', instance.projectCommissioning);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18873,6 +19212,7 @@ WebApiModulesSettingsProjectSettingsProjectDepositProjectDeposit
           projectDeposit: json['ProjectDeposit'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18909,6 +19249,7 @@ Map<String, dynamic>
   writeNotNull('ProjectDeposit', instance.projectDeposit);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18925,6 +19266,7 @@ WebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawings
           projectDrawings: json['ProjectDrawings'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -18961,6 +19303,7 @@ Map<String, dynamic>
   writeNotNull('ProjectDrawings', instance.projectDrawings);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -18977,6 +19320,7 @@ WebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipItems
           projectDropShipItems: json['ProjectDropShipItems'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19013,6 +19357,7 @@ Map<String, dynamic>
   writeNotNull('ProjectDropShipItems', instance.projectDropShipItems);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19029,6 +19374,7 @@ WebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrdered
           projectItemsOrdered: json['ProjectItemsOrdered'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19065,6 +19411,7 @@ Map<String, dynamic>
   writeNotNull('ProjectItemsOrdered', instance.projectItemsOrdered);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19081,6 +19428,7 @@ WebApiModulesSettingsPropsSettingsPropsConditionPropsCondition
           propsCondition: json['PropsCondition'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19117,6 +19465,7 @@ Map<String, dynamic>
   writeNotNull('PropsCondition', instance.propsCondition);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19134,6 +19483,7 @@ WebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplate
           description: json['Description'] as String?,
           inactive: json['Inactive'] as bool?,
           orderBy: json['OrderBy'] as int?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19170,6 +19520,7 @@ Map<String, dynamic>
   writeNotNull('Description', instance.description);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('OrderBy', instance.orderBy);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19211,6 +19562,7 @@ WebApiModulesSettingsRankRank _$WebApiModulesSettingsRankRankFromJson(
         Map<String, dynamic> json) =>
     WebApiModulesSettingsRankRank(
       rank: json['Rank'] as String?,
+      auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
       fields: (json['_Fields'] as List<dynamic>?)
               ?.map((e) => FwStandardBusinessLogicFwBusinessLogicFieldDefinition
@@ -19241,6 +19593,7 @@ Map<String, dynamic> _$WebApiModulesSettingsRankRankToJson(
   }
 
   writeNotNull('Rank', instance.rank);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19262,6 +19615,7 @@ WebApiModulesSettingsRateLocationTaxRateLocationTax
           modByUsersId: json['ModByUsersId'] as String?,
           modByUser: json['ModByUser'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19302,6 +19656,7 @@ Map<String, dynamic>
   writeNotNull('ModByUsersId', instance.modByUsersId);
   writeNotNull('ModByUser', instance.modByUser);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19316,6 +19671,7 @@ WebApiModulesSettingsRateTypeRateType
         WebApiModulesSettingsRateTypeRateType(
           rateType: json['RateType'] as String?,
           rateTypeDisplay: json['RateTypeDisplay'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19348,6 +19704,7 @@ Map<String, dynamic> _$WebApiModulesSettingsRateTypeRateTypeToJson(
 
   writeNotNull('RateType', instance.rateType);
   writeNotNull('RateTypeDisplay', instance.rateTypeDisplay);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19386,6 +19743,7 @@ WebApiModulesSettingsRateWarehouseRateWarehouse
           warehouseCode: json['WarehouseCode'] as String?,
           warehouse: json['Warehouse'] as String?,
           warehouseOrderBy: json['WarehouseOrderBy'] as int?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19439,6 +19797,7 @@ Map<String, dynamic> _$WebApiModulesSettingsRateWarehouseRateWarehouseToJson(
   writeNotNull('WarehouseCode', instance.warehouseCode);
   writeNotNull('Warehouse', instance.warehouse);
   writeNotNull('WarehouseOrderBy', instance.warehouseOrderBy);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19455,6 +19814,7 @@ WebApiModulesSettingsRegionSettingsRegionRegion
           region: json['Region'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19489,6 +19849,7 @@ Map<String, dynamic> _$WebApiModulesSettingsRegionSettingsRegionRegionToJson(
   writeNotNull('Region', instance.region);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19505,6 +19866,7 @@ WebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatus
           repairItemStatus: json['RepairItemStatus'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19541,6 +19903,7 @@ Map<String, dynamic>
   writeNotNull('RepairItemStatus', instance.repairItemStatus);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19557,6 +19920,7 @@ WebApiModulesSettingsSetSettingsSetConditionSetCondition
           setCondition: json['SetCondition'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19592,6 +19956,7 @@ Map<String, dynamic>
   writeNotNull('SetCondition', instance.setCondition);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19608,6 +19973,7 @@ WebApiModulesSettingsSetSettingsSetOpeningSetOpening
           setOpening: json['SetOpening'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19643,6 +20009,7 @@ Map<String, dynamic>
   writeNotNull('SetOpening', instance.setOpening);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19659,6 +20026,7 @@ WebApiModulesSettingsSetSettingsSetSurfaceSetSurface
           setSurface: json['SetSurface'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19694,6 +20062,7 @@ Map<String, dynamic>
   writeNotNull('SetSurface', instance.setSurface);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19710,6 +20079,7 @@ WebApiModulesSettingsSetSettingsWallDescriptionWallDescription
           wallDescription: json['WallDescription'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19746,6 +20116,7 @@ Map<String, dynamic>
   writeNotNull('WallDescription', instance.wallDescription);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19762,6 +20133,7 @@ WebApiModulesSettingsSetSettingsWallTypeWallType
           wallType: json['WallType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19796,6 +20168,7 @@ Map<String, dynamic> _$WebApiModulesSettingsSetSettingsWallTypeWallTypeToJson(
   writeNotNull('WallType', instance.wallType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19814,6 +20187,7 @@ WebApiModulesSettingsShipViaSettingsShipViaShipVia
           vendor: json['Vendor'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19850,6 +20224,7 @@ Map<String, dynamic> _$WebApiModulesSettingsShipViaSettingsShipViaShipViaToJson(
   writeNotNull('Vendor', instance.vendor);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19889,6 +20264,7 @@ WebApiModulesSettingsSourceSettingsSourceSource
           proxyUserName: json['ProxyUserName'] as String?,
           proxyPassword: json['ProxyPassword'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -19946,6 +20322,7 @@ Map<String, dynamic> _$WebApiModulesSettingsSourceSettingsSourceSourceToJson(
   writeNotNull('ProxyUserName', instance.proxyUserName);
   writeNotNull('ProxyPassword', instance.proxyPassword);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -19976,6 +20353,7 @@ WebApiModulesSettingsSpaceSpace _$WebApiModulesSettingsSpaceSpaceFromJson(
       lengthFt: json['LengthFt'] as int?,
       occupancy: json['Occupancy'] as int?,
       inactive: json['Inactive'] as bool?,
+      auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
       fields: (json['_Fields'] as List<dynamic>?)
               ?.map((e) => FwStandardBusinessLogicFwBusinessLogicFieldDefinition
@@ -20024,6 +20402,7 @@ Map<String, dynamic> _$WebApiModulesSettingsSpaceSpaceToJson(
   writeNotNull('LengthFt', instance.lengthFt);
   writeNotNull('Occupancy', instance.occupancy);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20061,6 +20440,7 @@ WebApiModulesSettingsSpaceRateSpaceRate
           spaceTypeClassification: json['SpaceTypeClassification'] as String?,
           orderBy: json['OrderBy'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20116,6 +20496,7 @@ Map<String, dynamic> _$WebApiModulesSettingsSpaceRateSpaceRateToJson(
   writeNotNull('SpaceTypeClassification', instance.spaceTypeClassification);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20165,6 +20546,7 @@ WebApiModulesSettingsSubCategorySubCategory
           pickListOrderBy: json['PickListOrderBy'] as int?,
           dateStamp: json['DateStamp'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20205,6 +20587,7 @@ Map<String, dynamic> _$WebApiModulesSettingsSubCategorySubCategoryToJson(
   writeNotNull('PickListOrderBy', instance.pickListOrderBy);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20224,6 +20607,7 @@ WebApiModulesSettingsSystemNumberSystemNumber
           counter: json['Counter'] as int?,
           increment: json['Increment'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20261,6 +20645,7 @@ Map<String, dynamic> _$WebApiModulesSettingsSystemNumberSystemNumberToJson(
   writeNotNull('Counter', instance.counter);
   writeNotNull('Increment', instance.increment);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20283,7 +20668,14 @@ WebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettings
           daysToCache: json['DaysToCache'] as int?,
           maxAvailabilityItemsToQuery:
               json['MaxAvailabilityItemsToQuery'] as int?,
+          pruneMinutes: json['PruneMinutes'] as int?,
+          availabilityServiceIsEnabled:
+              json['AvailabilityServiceIsEnabled'] as bool?,
+          availabilityCacheEntries: json['AvailabilityCacheEntries'] as int?,
+          availabilityKeepInCacheEntries:
+              json['AvailabilityKeepInCacheEntries'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20326,7 +20718,115 @@ Map<String, dynamic>
   writeNotNull('DaysToCache', instance.daysToCache);
   writeNotNull(
       'MaxAvailabilityItemsToQuery', instance.maxAvailabilityItemsToQuery);
+  writeNotNull('PruneMinutes', instance.pruneMinutes);
+  writeNotNull(
+      'AvailabilityServiceIsEnabled', instance.availabilityServiceIsEnabled);
+  writeNotNull('AvailabilityCacheEntries', instance.availabilityCacheEntries);
+  writeNotNull('AvailabilityKeepInCacheEntries',
+      instance.availabilityKeepInCacheEntries);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings
+    _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings(
+          consignmentSettingsId: json['ConsignmentSettingsId'] as String?,
+          consignmentSettingsName: json['ConsignmentSettingsName'] as String?,
+          enableConsignment: json['EnableConsignment'] as bool?,
+          consignmentColor: json['ConsignmentColor'] as String?,
+          consignorFeePoRateId: json['ConsignorFeePoRateId'] as String?,
+          consignorFeePoRateICode: json['ConsignorFeePoRateICode'] as String?,
+          consignorFeePoRateDescription:
+              json['ConsignorFeePoRateDescription'] as String?,
+          consignorFeePoTypeId: json['ConsignorFeePoTypeId'] as String?,
+          consignorFeePoType: json['ConsignorFeePoType'] as String?,
+          defaultConsignorFeeBasedOn:
+              json['DefaultConsignorFeeBasedOn'] as String?,
+          defaultConsignorPercent: json['DefaultConsignorPercent'] as int?,
+          defaultHousePercent: json['DefaultHousePercent'] as int?,
+          reReceiveConsignedItemUnretiredReasonId:
+              json['ReReceiveConsignedItemUnretiredReasonId'] as String?,
+          reReceiveConsignedItemUnretiredReason:
+              json['ReReceiveConsignedItemUnretiredReason'] as String?,
+          hideConsignmentTransactionsOnSubRentalTab:
+              json['HideConsignmentTransactionsOnSubRentalTab'] as bool?,
+          awardConsignorFeesForStaged:
+              json['AwardConsignorFeesForStaged'] as bool?,
+          awardFullConsignorFeeEvenWhenItemsAreOverfulfilled:
+              json['AwardFullConsignorFeeEvenWhenItemsAreOverfulfilled']
+                  as bool?,
+          defaultTreatConsignedQtyAsOwned:
+              json['DefaultTreatConsignedQtyAsOwned'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsToJson(
+        WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ConsignmentSettingsId', instance.consignmentSettingsId);
+  writeNotNull('ConsignmentSettingsName', instance.consignmentSettingsName);
+  writeNotNull('EnableConsignment', instance.enableConsignment);
+  writeNotNull('ConsignmentColor', instance.consignmentColor);
+  writeNotNull('ConsignorFeePoRateId', instance.consignorFeePoRateId);
+  writeNotNull('ConsignorFeePoRateICode', instance.consignorFeePoRateICode);
+  writeNotNull(
+      'ConsignorFeePoRateDescription', instance.consignorFeePoRateDescription);
+  writeNotNull('ConsignorFeePoTypeId', instance.consignorFeePoTypeId);
+  writeNotNull('ConsignorFeePoType', instance.consignorFeePoType);
+  writeNotNull(
+      'DefaultConsignorFeeBasedOn', instance.defaultConsignorFeeBasedOn);
+  writeNotNull('DefaultConsignorPercent', instance.defaultConsignorPercent);
+  writeNotNull('DefaultHousePercent', instance.defaultHousePercent);
+  writeNotNull('ReReceiveConsignedItemUnretiredReasonId',
+      instance.reReceiveConsignedItemUnretiredReasonId);
+  writeNotNull('ReReceiveConsignedItemUnretiredReason',
+      instance.reReceiveConsignedItemUnretiredReason);
+  writeNotNull('HideConsignmentTransactionsOnSubRentalTab',
+      instance.hideConsignmentTransactionsOnSubRentalTab);
+  writeNotNull(
+      'AwardConsignorFeesForStaged', instance.awardConsignorFeesForStaged);
+  writeNotNull('AwardFullConsignorFeeEvenWhenItemsAreOverfulfilled',
+      instance.awardFullConsignorFeeEvenWhenItemsAreOverfulfilled);
+  writeNotNull('DefaultTreatConsignedQtyAsOwned',
+      instance.defaultTreatConsignedQtyAsOwned);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20366,7 +20866,12 @@ WebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettings
           defaultCreditStatusId: json['DefaultCreditStatusId'] as String?,
           defaultCreditStatus: json['DefaultCreditStatus'] as String?,
           contactShowAllDeals: json['ContactShowAllDeals'] as bool?,
+          defaultVendorBillingCycleId:
+              json['DefaultVendorBillingCycleId'] as String?,
+          defaultVendorBillingCycle:
+              json['DefaultVendorBillingCycle'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20425,7 +20930,11 @@ Map<String, dynamic>
   writeNotNull('DefaultCreditStatusId', instance.defaultCreditStatusId);
   writeNotNull('DefaultCreditStatus', instance.defaultCreditStatus);
   writeNotNull('ContactShowAllDeals', instance.contactShowAllDeals);
+  writeNotNull(
+      'DefaultVendorBillingCycleId', instance.defaultVendorBillingCycleId);
+  writeNotNull('DefaultVendorBillingCycle', instance.defaultVendorBillingCycle);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20447,6 +20956,7 @@ WebApiModulesSettingsSystemSettingsEmailSettingsEmailSettings
           authenticationType: json['AuthenticationType'] as String?,
           deleteDays: json['DeleteDays'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20488,6 +20998,7 @@ Map<String, dynamic>
   writeNotNull('AuthenticationType', instance.authenticationType);
   writeNotNull('DeleteDays', instance.deleteDays);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20537,13 +21048,18 @@ WebApiModulesSettingsSystemSettingsInventorySettingsInventorySettings
               json['DefaultSalesQuantityInventoryCostCalculation'] as String?,
           defaultPartsQuantityInventoryCostCalculation:
               json['DefaultPartsQuantityInventoryCostCalculation'] as String?,
-          enableConsignment: json['EnableConsignment'] as bool?,
           enableLease: json['EnableLease'] as bool?,
           autoUpdateInventoryMetricImperialDimensions:
               json['AutoUpdateInventoryMetricImperialDimensions'] as bool?,
           fixedAssetTransferFutureDepreciation:
               json['FixedAssetTransferFutureDepreciation'] as bool?,
+          changeICodeRetiredReasonId:
+              json['ChangeICodeRetiredReasonId'] as String?,
+          changeICodeRetiredReason: json['ChangeICodeRetiredReason'] as String?,
+          changeICodeCreateBrandNewPurchase:
+              json['ChangeICodeCreateBrandNewPurchase'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20612,13 +21128,18 @@ Map<String, dynamic>
       instance.defaultSalesQuantityInventoryCostCalculation);
   writeNotNull('DefaultPartsQuantityInventoryCostCalculation',
       instance.defaultPartsQuantityInventoryCostCalculation);
-  writeNotNull('EnableConsignment', instance.enableConsignment);
   writeNotNull('EnableLease', instance.enableLease);
   writeNotNull('AutoUpdateInventoryMetricImperialDimensions',
       instance.autoUpdateInventoryMetricImperialDimensions);
   writeNotNull('FixedAssetTransferFutureDepreciation',
       instance.fixedAssetTransferFutureDepreciation);
+  writeNotNull(
+      'ChangeICodeRetiredReasonId', instance.changeICodeRetiredReasonId);
+  writeNotNull('ChangeICodeRetiredReason', instance.changeICodeRetiredReason);
+  writeNotNull('ChangeICodeCreateBrandNewPurchase',
+      instance.changeICodeCreateBrandNewPurchase);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20638,6 +21159,7 @@ WebApiModulesSettingsSystemSettingsLogoSettingsLogoSettings
           logoImageHeight: json['LogoImageHeight'] as int?,
           logoImageWidth: json['LogoImageWidth'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20676,6 +21198,7 @@ Map<String, dynamic>
   writeNotNull('LogoImageHeight', instance.logoImageHeight);
   writeNotNull('LogoImageWidth', instance.logoImageWidth);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20713,6 +21236,7 @@ WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings
           populateInventoryUtilizationDataWeekly:
               json['PopulateInventoryUtilizationDataWeekly'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20770,6 +21294,7 @@ Map<String, dynamic>
   writeNotNull('PopulateInventoryUtilizationDataWeekly',
       instance.populateInventoryUtilizationDataWeekly);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20825,6 +21350,7 @@ WebApiModulesSettingsTaxSettingsTaxOptionTaxOption
           tax2Description: json['Tax2Description'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20898,6 +21424,7 @@ Map<String, dynamic> _$WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionToJson(
   writeNotNull('Tax2Description', instance.tax2Description);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -20933,6 +21460,7 @@ WebApiModulesSettingsTemplateSettingsTemplateTemplate
           hasLaborItem: json['HasLaborItem'] as bool?,
           hasFacilitiesItem: json['HasFacilitiesItem'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -20987,110 +21515,7 @@ Map<String, dynamic>
   writeNotNull('HasLaborItem', instance.hasLaborItem);
   writeNotNull('HasFacilitiesItem', instance.hasFacilitiesItem);
   writeNotNull('DateStamp', instance.dateStamp);
-  writeNotNull('RecordTitle', instance.recordTitle);
-  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-WebApiModulesSettingsUserProfileUserProfile
-    _$WebApiModulesSettingsUserProfileUserProfileFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesSettingsUserProfileUserProfile(
-          webUserId: json['WebUserId'] as String?,
-          userName: json['UserName'] as String?,
-          userId: json['UserId'] as String?,
-          loginName: json['LoginName'] as String?,
-          browseDefaultRows: json['BrowseDefaultRows'] as int?,
-          applicationTheme: json['ApplicationTheme'] as String?,
-          homeMenuGuid: json['HomeMenuGuid'] as String?,
-          homeMenuPath: json['HomeMenuPath'] as String?,
-          successSoundId: json['SuccessSoundId'] as String?,
-          successSound: json['SuccessSound'] as String?,
-          successBase64Sound: json['SuccessBase64Sound'] as String?,
-          errorSoundId: json['ErrorSoundId'] as String?,
-          errorSound: json['ErrorSound'] as String?,
-          errorBase64Sound: json['ErrorBase64Sound'] as String?,
-          notificationSoundId: json['NotificationSoundId'] as String?,
-          notificationSound: json['NotificationSound'] as String?,
-          notificationBase64Sound: json['NotificationBase64Sound'] as String?,
-          favoritesJson: json['FavoritesJson'] as String?,
-          firstDayOfWeek: json['FirstDayOfWeek'] as int?,
-          settingsNavigationMenuVisible:
-              json['SettingsNavigationMenuVisible'] as bool?,
-          reportsNavigationMenuVisible:
-              json['ReportsNavigationMenuVisible'] as bool?,
-          mainMenuPinned: json['MainMenuPinned'] as bool?,
-          webAdministrator: json['WebAdministrator'] as bool?,
-          quikActivitySetting: json['QuikActivitySetting'] as String?,
-          emailSignature: json['EmailSignature'] as String?,
-          newPassword: json['NewPassword'] as String?,
-          oldPassword: json['OldPassword'] as String?,
-          locale: json['Locale'] as String?,
-          dateStamp: json['DateStamp'] as String?,
-          recordTitle: json['RecordTitle'] as String?,
-          fields: (json['_Fields'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
-                          .fromJson(e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          custom: (json['_Custom'] as List<dynamic>?)
-                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
-                      e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          defaultFieldAttributes:
-              (json['_DefaultFieldAttributes'] as List<dynamic>?)
-                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                          e as Map<String, dynamic>))
-                      .toList() ??
-                  [],
-        );
-
-Map<String, dynamic> _$WebApiModulesSettingsUserProfileUserProfileToJson(
-    WebApiModulesSettingsUserProfileUserProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('WebUserId', instance.webUserId);
-  writeNotNull('UserName', instance.userName);
-  writeNotNull('UserId', instance.userId);
-  writeNotNull('LoginName', instance.loginName);
-  writeNotNull('BrowseDefaultRows', instance.browseDefaultRows);
-  writeNotNull('ApplicationTheme', instance.applicationTheme);
-  writeNotNull('HomeMenuGuid', instance.homeMenuGuid);
-  writeNotNull('HomeMenuPath', instance.homeMenuPath);
-  writeNotNull('SuccessSoundId', instance.successSoundId);
-  writeNotNull('SuccessSound', instance.successSound);
-  writeNotNull('SuccessBase64Sound', instance.successBase64Sound);
-  writeNotNull('ErrorSoundId', instance.errorSoundId);
-  writeNotNull('ErrorSound', instance.errorSound);
-  writeNotNull('ErrorBase64Sound', instance.errorBase64Sound);
-  writeNotNull('NotificationSoundId', instance.notificationSoundId);
-  writeNotNull('NotificationSound', instance.notificationSound);
-  writeNotNull('NotificationBase64Sound', instance.notificationBase64Sound);
-  writeNotNull('FavoritesJson', instance.favoritesJson);
-  writeNotNull('FirstDayOfWeek', instance.firstDayOfWeek);
-  writeNotNull(
-      'SettingsNavigationMenuVisible', instance.settingsNavigationMenuVisible);
-  writeNotNull(
-      'ReportsNavigationMenuVisible', instance.reportsNavigationMenuVisible);
-  writeNotNull('MainMenuPinned', instance.mainMenuPinned);
-  writeNotNull('WebAdministrator', instance.webAdministrator);
-  writeNotNull('QuikActivitySetting', instance.quikActivitySetting);
-  writeNotNull('EmailSignature', instance.emailSignature);
-  writeNotNull('NewPassword', instance.newPassword);
-  writeNotNull('OldPassword', instance.oldPassword);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21114,6 +21539,7 @@ WebApiModulesSettingsUserSearchSettingsUserSearchSettings
           expandAccessoryOnQuantityIncrease:
               json['ExpandAccessoryOnQuantityIncrease'] as bool?,
           expandAccessoryBehavior: json['ExpandAccessoryBehavior'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21156,6 +21582,7 @@ Map<String, dynamic>
   writeNotNull('ExpandAccessoryOnQuantityIncrease',
       instance.expandAccessoryOnQuantityIncrease);
   writeNotNull('ExpandAccessoryBehavior', instance.expandAccessoryBehavior);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21175,6 +21602,7 @@ WebApiModulesSettingsUserSettingsSoundSound
           systemSound: json['SystemSound'] as bool?,
           soundColor: json['SoundColor'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21212,6 +21640,7 @@ Map<String, dynamic> _$WebApiModulesSettingsUserSettingsSoundSoundToJson(
   writeNotNull('SystemSound', instance.systemSound);
   writeNotNull('SoundColor', instance.soundColor);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21231,6 +21660,7 @@ WebApiModulesSettingsUserSettingsUserStatusUserStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21269,6 +21699,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21286,6 +21717,7 @@ WebApiModulesSettingsVehicleModelVehicleModel
           vehicleMakeId: json['VehicleMakeId'] as String?,
           vehicleMake: json['VehicleMake'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21321,6 +21753,7 @@ Map<String, dynamic> _$WebApiModulesSettingsVehicleModelVehicleModelToJson(
   writeNotNull('VehicleMakeId', instance.vehicleMakeId);
   writeNotNull('VehicleMake', instance.vehicleMake);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21339,6 +21772,7 @@ WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass
           regulated: json['Regulated'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21376,6 +21810,7 @@ Map<String, dynamic>
   writeNotNull('Regulated', instance.regulated);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21393,6 +21828,7 @@ WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor
           colorType: json['ColorType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21429,6 +21865,7 @@ Map<String, dynamic>
   writeNotNull('ColorType', instance.colorType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21445,6 +21882,7 @@ WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType
           vehicleFuelType: json['VehicleFuelType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21481,6 +21919,7 @@ Map<String, dynamic>
   writeNotNull('VehicleFuelType', instance.vehicleFuelType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21497,6 +21936,7 @@ WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake
           vehicleMake: json['VehicleMake'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21532,6 +21972,7 @@ Map<String, dynamic>
   writeNotNull('VehicleMake', instance.vehicleMake);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21551,6 +21992,7 @@ WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21590,6 +22032,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21609,6 +22052,7 @@ WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus
           whiteText: json['WhiteText'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21648,6 +22092,7 @@ Map<String, dynamic>
   writeNotNull('WhiteText', instance.whiteText);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21728,6 +22173,7 @@ WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType
           pickListOrderBy: json['PickListOrderBy'] as int?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21825,6 +22271,7 @@ Map<String, dynamic>
   writeNotNull('PickListOrderBy', instance.pickListOrderBy);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21847,6 +22294,7 @@ WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse
           warehouseCode: json['WarehouseCode'] as String?,
           warehouse: json['Warehouse'] as String?,
           warehouseOrderBy: json['WarehouseOrderBy'] as int?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21889,6 +22337,7 @@ Map<String, dynamic>
   writeNotNull('WarehouseCode', instance.warehouseCode);
   writeNotNull('Warehouse', instance.warehouse);
   writeNotNull('WarehouseOrderBy', instance.warehouseOrderBy);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21906,6 +22355,7 @@ WebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationType
           organizationTypeCode: json['OrganizationTypeCode'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21943,6 +22393,7 @@ Map<String, dynamic>
   writeNotNull('OrganizationTypeCode', instance.organizationTypeCode);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -21961,6 +22412,7 @@ WebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceStatus
           sapStatus: json['SapStatus'] as String?,
           sapStatusDisplay: json['SapStatusDisplay'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -21999,6 +22451,7 @@ Map<String, dynamic>
   writeNotNull('SapStatus', instance.sapStatus);
   writeNotNull('SapStatusDisplay', instance.sapStatusDisplay);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22028,6 +22481,7 @@ WebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalog
           shipVia: json['ShipVia'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22077,6 +22531,7 @@ Map<String, dynamic>
   writeNotNull('ShipVia', instance.shipVia);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22093,6 +22548,7 @@ WebApiModulesSettingsVendorSettingsVendorClassVendorClass
           vendorClass: json['VendorClass'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22128,6 +22584,7 @@ Map<String, dynamic>
   writeNotNull('VendorClass', instance.vendorClass);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22144,6 +22601,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCare
           wardrobeCare: json['WardrobeCare'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22180,6 +22638,7 @@ Map<String, dynamic>
   writeNotNull('WardrobeCare', instance.wardrobeCare);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22197,6 +22656,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColor
           colorType: json['ColorType'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22234,6 +22694,7 @@ Map<String, dynamic>
   writeNotNull('ColorType', instance.colorType);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22250,6 +22711,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeConditionWardrobeCondition
           wardrobeCondition: json['WardrobeCondition'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22286,6 +22748,7 @@ Map<String, dynamic>
   writeNotNull('WardrobeCondition', instance.wardrobeCondition);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22302,6 +22765,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGender
           wardrobeGender: json['WardrobeGender'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22338,6 +22802,7 @@ Map<String, dynamic>
   writeNotNull('WardrobeGender', instance.wardrobeGender);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22354,6 +22819,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabel
           wardrobeLabel: json['WardrobeLabel'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22390,6 +22856,7 @@ Map<String, dynamic>
   writeNotNull('WardrobeLabel', instance.wardrobeLabel);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22406,6 +22873,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterial
           wardrobeMaterial: json['WardrobeMaterial'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22442,6 +22910,7 @@ Map<String, dynamic>
   writeNotNull('WardrobeMaterial', instance.wardrobeMaterial);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22458,6 +22927,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePattern
           wardrobePattern: json['WardrobePattern'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22494,6 +22964,7 @@ Map<String, dynamic>
   writeNotNull('WardrobePattern', instance.wardrobePattern);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22510,6 +22981,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriod
           wardrobePeriod: json['WardrobePeriod'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22546,6 +23018,7 @@ Map<String, dynamic>
   writeNotNull('WardrobePeriod', instance.wardrobePeriod);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22562,6 +23035,7 @@ WebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSource
           wardrobeSource: json['WardrobeSource'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22598,6 +23072,7 @@ Map<String, dynamic>
   writeNotNull('WardrobeSource', instance.wardrobeSource);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22615,6 +23090,7 @@ WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour
           warehouseId: json['WarehouseId'] as String?,
           warehouseAvailabilityHour: json['WarehouseAvailabilityHour'] as int?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22652,6 +23128,7 @@ Map<String, dynamic>
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('WarehouseAvailabilityHour', instance.warehouseAvailabilityHour);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22668,6 +23145,7 @@ WebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkip
           warehouseId: json['WarehouseId'] as String?,
           warehouseBarCodeSkip: json['WarehouseBarCodeSkip'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22704,6 +23182,69 @@ Map<String, dynamic>
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('WarehouseBarCodeSkip', instance.warehouseBarCodeSkip);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings
+    _$WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings(
+          warehouseId: json['WarehouseId'] as String?,
+          warehouse: json['Warehouse'] as String?,
+          warehouseCode: json['WarehouseCode'] as String?,
+          availabilityExcludeConsigned:
+              json['AvailabilityExcludeConsigned'] as bool?,
+          availabilityRequireConsignedReserved:
+              json['AvailabilityRequireConsignedReserved'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettingsToJson(
+        WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull(
+      'AvailabilityExcludeConsigned', instance.availabilityExcludeConsigned);
+  writeNotNull('AvailabilityRequireConsignedReserved',
+      instance.availabilityRequireConsignedReserved);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22727,6 +23268,7 @@ WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment
           requestToId: json['RequestToId'] as String?,
           requestTo: json['RequestTo'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22769,6 +23311,7 @@ Map<String, dynamic>
   writeNotNull('RequestToId', instance.requestToId);
   writeNotNull('RequestTo', instance.requestTo);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22790,6 +23333,7 @@ WebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryType
           salesBarCodeRange: json['SalesBarCodeRange'] as String?,
           orderBy: json['OrderBy'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22831,6 +23375,7 @@ Map<String, dynamic>
   writeNotNull('SalesBarCodeRange', instance.salesBarCodeRange);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22849,6 +23394,7 @@ WebApiModulesSettingsWarehouseLocationWarehouseLocation
           officeLocationId: json['OfficeLocationId'] as String?,
           officeLocation: json['OfficeLocation'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22886,6 +23432,7 @@ Map<String, dynamic>
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('OfficeLocation', instance.officeLocation);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22912,6 +23459,7 @@ WebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApprover
           email: json['Email'] as String?,
           sendEmail: json['SendEmail'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -22958,6 +23506,7 @@ Map<String, dynamic>
   writeNotNull('Email', instance.email);
   writeNotNull('SendEmail', instance.sendEmail);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -22975,6 +23524,7 @@ WebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocation
           warehouseId: json['WarehouseId'] as String?,
           warehouse: json['Warehouse'] as String?,
           inactive: json['Inactive'] as bool?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -23012,6 +23562,7 @@ Map<String, dynamic>
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('Warehouse', instance.warehouse);
   writeNotNull('Inactive', instance.inactive);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -23155,6 +23706,7 @@ WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse
           replacementCostMarkupPercent:
               (json['ReplacementCostMarkupPercent'] as num?)?.toDouble(),
           availabilityHourlyDays: json['AvailabilityHourlyDays'] as int?,
+          transferAvailabilityDays: json['TransferAvailabilityDays'] as int?,
           salesRestockPercent:
               (json['SalesRestockPercent'] as num?)?.toDouble(),
           availabilityExcludeConsigned:
@@ -23168,8 +23720,8 @@ WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse
               json['AvailabilityQcDelayExcludeHoliday'] as bool?,
           availabilityQcDelayIndefinite:
               json['AvailabilityQcDelayIndefinite'] as bool?,
-          defaultMuteItemsAddedToOrderAtStaging:
-              json['DefaultMuteItemsAddedToOrderAtStaging'] as bool?,
+          defaultNoChargePrintItemsAddedToOrderAtStaging:
+              json['DefaultNoChargePrintItemsAddedToOrderAtStaging'] as bool?,
           quikReceiptEnable: json['QuikReceiptEnable'] as bool?,
           storageContainerCheckInEnable:
               json['StorageContainerCheckInEnable'] as bool?,
@@ -23184,6 +23736,7 @@ WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse
           disableSubstituteNote: json['DisableSubstituteNote'] as bool?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -23344,6 +23897,7 @@ Map<String, dynamic>
   writeNotNull(
       'ReplacementCostMarkupPercent', instance.replacementCostMarkupPercent);
   writeNotNull('AvailabilityHourlyDays', instance.availabilityHourlyDays);
+  writeNotNull('TransferAvailabilityDays', instance.transferAvailabilityDays);
   writeNotNull('SalesRestockPercent', instance.salesRestockPercent);
   writeNotNull(
       'AvailabilityExcludeConsigned', instance.availabilityExcludeConsigned);
@@ -23356,8 +23910,8 @@ Map<String, dynamic>
       instance.availabilityQcDelayExcludeHoliday);
   writeNotNull(
       'AvailabilityQcDelayIndefinite', instance.availabilityQcDelayIndefinite);
-  writeNotNull('DefaultMuteItemsAddedToOrderAtStaging',
-      instance.defaultMuteItemsAddedToOrderAtStaging);
+  writeNotNull('DefaultNoChargePrintItemsAddedToOrderAtStaging',
+      instance.defaultNoChargePrintItemsAddedToOrderAtStaging);
   writeNotNull('QuikReceiptEnable', instance.quikReceiptEnable);
   writeNotNull(
       'StorageContainerCheckInEnable', instance.storageContainerCheckInEnable);
@@ -23372,6 +23926,7 @@ Map<String, dynamic>
   writeNotNull('DisableSubstituteNote', instance.disableSubstituteNote);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -23387,6 +23942,7 @@ WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog
           webCatalogId: json['WebCatalogId'] as String?,
           description: json['Description'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -23421,6 +23977,7 @@ Map<String, dynamic>
   writeNotNull('WebCatalogId', instance.webCatalogId);
   writeNotNull('Description', instance.description);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -23479,6 +24036,7 @@ WebApiModulesSettingsWebUserWidgetUserWidget
           disabled: json['Disabled'] as bool?,
           orderBy: (json['OrderBy'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -23553,6 +24111,7 @@ Map<String, dynamic> _$WebApiModulesSettingsWebUserWidgetUserWidgetToJson(
   writeNotNull('Disabled', instance.disabled);
   writeNotNull('OrderBy', instance.orderBy);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -23598,6 +24157,7 @@ WebApiModulesSettingsWidgetSettingsWidgetWidget
           dateStamp: json['DateStamp'] as String?,
           value: json['value'] as String?,
           text: json['text'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -23659,6 +24219,7 @@ Map<String, dynamic> _$WebApiModulesSettingsWidgetSettingsWidgetWidgetToJson(
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('value', instance.value);
   writeNotNull('text', instance.text);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -23677,6 +24238,7 @@ WebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeek
           toDate: json['ToDate'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -23714,6 +24276,7 @@ Map<String, dynamic>
   writeNotNull('ToDate', instance.toDate);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());

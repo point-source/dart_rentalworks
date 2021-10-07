@@ -3,6 +3,7 @@ export 'administrator.swagger.dart' show Administrator;
 export 'exports.swagger.dart' show Exports;
 export 'home.swagger.dart' show Home;
 export 'mobile.swagger.dart' show Mobile;
+export 'pages.swagger.dart' show Pages;
 export 'plugins.swagger.dart' show Plugins;
 export 'reports.swagger.dart' show Reports;
 export 'settings.swagger.dart' show Settings;

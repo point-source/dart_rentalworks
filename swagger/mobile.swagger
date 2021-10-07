@@ -74,7 +74,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse<WebApi.Modules.Mobile.AssetDisposition.LookupRetiredReasonResponse>"
+                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse_WebApi.Modules.Mobile.AssetDisposition.LookupRetiredReasonResponse"
                 }
               }
             }
@@ -864,7 +864,7 @@
         }
       }
     },
-    "/quikscan/fillcontainer/lookupcontainerdescription": {
+    "/quikscan/fillcontainer/scannableitem/{scannableinventoryid}/lookuprentalinventory": {
       "get": {
         "tags": [
           "FillContainer"
@@ -872,58 +872,44 @@
         "summary": "Get a list of valid Container Descriptions.",
         "parameters": [
           {
-            "name": "ContainerId",
-            "in": "query",
-            "description": "Container Identifier [Key|Filter]",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Description",
-            "in": "query",
-            "description": "Container Description. [Filter|Sort]",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ScannableInventoryId",
-            "in": "query",
-            "description": "InventoryId of Scannable Item Barcode. [Filter]",
+            "name": "scannableinventoryid",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "PageNo",
+            "name": "pageno",
             "in": "query",
-            "description": "The page number in the result set starting from 1.  PageNo is required when the PageSize is specified.",
             "schema": {
-              "minimum": 1,
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "PageSize",
+            "name": "pagesize",
             "in": "query",
-            "description": "Limit result set to the specified amount.",
             "schema": {
-              "maximum": 1000,
-              "minimum": 1,
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "Sort",
+            "name": "sort",
             "in": "query",
-            "description": "A sort expression to use of the form: Field1:asc,Field2:desc",
             "schema": {
-              "maxLength": 1024,
               "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
             }
           }
         ],
@@ -933,7 +919,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse<WebApi.Modules.Containers.Container.LookupContainerDescriptionResponse>"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Containers.Container.LookupScannableItemRentalInventoryResponse"
                 }
               }
             }
@@ -1339,7 +1325,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": {}
+                  "additionalProperties": { }
                 }
               }
             }
@@ -2138,7 +2124,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+UpdateUnitValueRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_UpdateUnitValueRequest"
               }
             }
           }
@@ -2482,7 +2468,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+QuikAssetInsertImagesRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_QuikAssetInsertImagesRequest"
               }
             }
           }
@@ -2493,7 +2479,61 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+QuikAssetInsertImageResponse"
+                  "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_QuikAssetInsertImageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quikscan/quikasset/getimages": {
+      "post": {
+        "tags": [
+          "QuikAsset"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetImagesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetImagesResponse"
                 }
               }
             }
@@ -2536,7 +2576,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+DeleteImageRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_DeleteImageRequest"
               }
             }
           }
@@ -2640,6 +2680,15 @@
         "tags": [
           "QuikAsset"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -2682,7 +2731,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+GetCategoryRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetCategoryRequest"
               }
             }
           }
@@ -2729,7 +2778,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+GetSubCategoryRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetSubCategoryRequest"
               }
             }
           }
@@ -2852,7 +2901,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+SearchItemsByDescriptionRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_SearchItemsByDescriptionRequest"
               }
             }
           }
@@ -4285,13 +4334,36 @@
           }
         }
       },
-      "FwStandard.Models.GetResponse<WebApi.Modules.Containers.Container.LookupContainerDescriptionResponse>": {
+      "FwStandard.Models.FwQueryFilter": {
+        "required": [
+          "Field",
+          "Op"
+        ],
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "description": "The DataField name to filter on."
+          },
+          "Op": {
+            "type": "string",
+            "description": "Comparison operator: = (equals), <> (not equals)"
+          },
+          "Value": {
+            "type": "string",
+            "description": "The value of the DataField to filter on.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Containers.Container.LookupScannableItemRentalInventoryResponse": {
         "type": "object",
         "properties": {
           "Items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebApi.Modules.Containers.Container.LookupContainerDescriptionResponse"
+              "$ref": "#/components/schemas/WebApi.Modules.Containers.Container.LookupScannableItemRentalInventoryResponse"
             },
             "nullable": true
           },
@@ -4303,7 +4375,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "TotalRows": {
+          "TotalItems": {
             "type": "integer",
             "format": "int32"
           },
@@ -4314,7 +4386,7 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.GetResponse<WebApi.Modules.Mobile.AssetDisposition.LookupRetiredReasonResponse>": {
+      "FwStandard.Models.GetResponse_WebApi.Modules.Mobile.AssetDisposition.LookupRetiredReasonResponse": {
         "type": "object",
         "properties": {
           "Items": {
@@ -4346,6 +4418,7 @@
       "FwStandard.SqlServer.FwDataTypes": {
         "enum": [
           "Text",
+          "NonTrimmableText",
           "Date",
           "Time",
           "DateTime",
@@ -4401,7 +4474,7 @@
             "type": "array",
             "items": {
               "type": "array",
-              "items": {}
+              "items": { }
             },
             "nullable": true
           },
@@ -4479,17 +4552,17 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Containers.Container.LookupContainerDescriptionResponse": {
+      "WebApi.Modules.Containers.Container.LookupScannableItemRentalInventoryResponse": {
         "type": "object",
         "properties": {
-          "ContainerId": {
+          "InventoryId": {
             "type": "string",
-            "description": "Container Description Identifier",
+            "description": "Rental Inventory Identifier",
             "nullable": true
           },
           "Description": {
             "type": "string",
-            "description": "Container Description",
+            "description": "Rental Inventory Description",
             "nullable": true
           }
         },
@@ -4504,28 +4577,38 @@
             "nullable": true
           },
           "SessionId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "BarCode": {
+            "maxLength": 40,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ManufactureDate": {
             "type": "string",
+            "description": "Format: Date",
             "nullable": true
           },
           "PrintQuantity": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "SerialNumber": {
+            "maxLength": 40,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "RfId": {
+            "maxLength": 50,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SerialNumberIsMixedCase": {
@@ -4533,6 +4616,11 @@
             "nullable": true
           },
           "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
             "type": "string",
             "nullable": true
           },
@@ -4571,14 +4659,19 @@
         "properties": {
           "ExcludeFromReturnOnAsset": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "IsFixedAsset": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "MultiAssignRFIDs": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "MinimumDaysPerWeek": {
@@ -4587,7 +4680,9 @@
             "nullable": true
           },
           "SetOpeningId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SetOpening": {
@@ -4595,7 +4690,9 @@
             "nullable": true
           },
           "WallTypeId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "WallType": {
@@ -4603,7 +4700,9 @@
             "nullable": true
           },
           "SetSurfaceId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SetSurface": {
@@ -4638,6 +4737,11 @@
           "WallLengthIn": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "TreatConsignedQtyAsOwned": {
+            "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "DailyRate": {
@@ -4693,11 +4797,15 @@
             "nullable": true
           },
           "AvailableFrom": {
+            "maxLength": 3,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "TrackedBy": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ConfirmTrackedBy": {
@@ -4706,14 +4814,19 @@
           },
           "Rank": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ManufacturerPartNumber": {
+            "maxLength": 40,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ManufacturerId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Manufacturer": {
@@ -4721,23 +4834,29 @@
             "nullable": true
           },
           "ManufacturerUrl": {
+            "maxLength": 255,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ExcludeImageFromQuoteOrderPrint": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "NoAvailabilityCheck": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AvailabilityManuallyResolveConflicts": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "SendAvailabilityAlert": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrimaryDimensionUniqueId": {
@@ -4746,6 +4865,7 @@
           },
           "DefaultImperialMetric": {
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "PrimaryDimensionDescription": {
@@ -4853,7 +4973,9 @@
             "nullable": true
           },
           "HasSecondaryDimensions": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "SecondaryDimensionUniqueId": {
@@ -4965,7 +5087,9 @@
             "nullable": true
           },
           "CountryOfOriginId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CountryOfOrigin": {
@@ -4974,60 +5098,76 @@
           },
           "DisplayInSummaryModeWhenRateIsZero": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "QcRequired": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "QcTime": {
+            "maxLength": 5,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CopyAttributesAsNote": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "TrackAssetUsage": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "TrackLampUsage": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "TrackStrikes": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "TrackCandles": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "LampCount": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "MinimumFootCandles": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "TrackSoftware": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "SoftwareVersion": {
+            "maxLength": 50,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SoftwareEffectiveDate": {
             "type": "string",
+            "description": "Format: Date",
             "nullable": true
           },
           "WarehouseSpecificPackage": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "CompletePackagePrice": {
@@ -5040,10 +5180,13 @@
           },
           "SeparatePackageOnQuoteOrder": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "ContainerId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ContainerScannableInventoryId": {
@@ -5060,26 +5203,34 @@
           },
           "AutomaticallyRebuildContainerAtCheckIn": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AutomaticallyRebuildContainerAtTransferIn": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "ContainerStagingRule": {
+            "maxLength": 10,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ExcludeContainedItemsFromAvailability": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "UseContainerNumber": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "ContainerPackingListBehavior": {
+            "maxLength": 10,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "InventoryTypeIsWardrobe": {
@@ -5091,7 +5242,9 @@
             "nullable": true
           },
           "PatternId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Pattern": {
@@ -5099,7 +5252,9 @@
             "nullable": true
           },
           "PeriodId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Period": {
@@ -5107,7 +5262,9 @@
             "nullable": true
           },
           "MaterialId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Material": {
@@ -5115,7 +5272,9 @@
             "nullable": true
           },
           "GenderId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Gender": {
@@ -5123,7 +5282,9 @@
             "nullable": true
           },
           "LabelId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Label": {
@@ -5131,20 +5292,26 @@
             "nullable": true
           },
           "WardrobeSize": {
+            "maxLength": 30,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "WardrobePieceCount": {
             "type": "integer",
+            "description": "Format: Integer",
             "format": "int32",
             "nullable": true
           },
           "Dyed": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "WardrobeSourceId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "WardrobeSource": {
@@ -5152,7 +5319,9 @@
             "nullable": true
           },
           "WardrobeCareId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "WardrobeCare": {
@@ -5161,6 +5330,7 @@
           },
           "CleaningFeeAmount": {
             "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
             "format": "double",
             "nullable": true
           },
@@ -5174,18 +5344,24 @@
           },
           "OverrideSystemDefaultRevenueAllocationBehavior": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AllocateRevenueForAccessories": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PackageRevenueCalculationFormula": {
+            "maxLength": 20,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "IsHazardousMaterial": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "DescriptionWithAkas": {
@@ -5193,10 +5369,47 @@
             "nullable": true
           },
           "CostCalculation": {
+            "maxLength": 15,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Quantity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityIn": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityStaged": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityOut": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityInContainer": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityInRepair": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityInTransit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "QuantityOnTruck": {
             "type": "number",
             "format": "double",
             "nullable": true
@@ -5214,19 +5427,27 @@
             "nullable": true
           },
           "ICode": {
+            "maxLength": 12,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Description": {
+            "maxLength": 100,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "AvailFor": {
+            "maxLength": 3,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CategoryId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Category": {
@@ -5239,7 +5460,9 @@
             "nullable": true
           },
           "SubCategoryId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SubCategory": {
@@ -5247,7 +5470,9 @@
             "nullable": true
           },
           "Classification": {
+            "maxLength": 2,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ClassificationDescription": {
@@ -5259,7 +5484,9 @@
             "nullable": true
           },
           "UnitId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Unit": {
@@ -5272,14 +5499,18 @@
           },
           "NonDiscountable": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "OverrideProfitAndLossCategory": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "ProfitAndLossCategoryId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ProfitAndLossCategory": {
@@ -5288,6 +5519,7 @@
           },
           "AutoCopyNotesToQuoteOrder": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "Note": {
@@ -5296,54 +5528,68 @@
           },
           "PrintNoteOnInContract": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnOutContract": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnReceiveContract": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnReturnContract": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnInvoice": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnOrder": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnPickList": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnPO": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnQuote": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnReturnList": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnPoReceiveList": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "PrintNoteOnPoReturnList": {
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AssetAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "AssetAccountNo": {
@@ -5355,7 +5601,9 @@
             "nullable": true
           },
           "IncomeAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "IncomeAccountNo": {
@@ -5367,7 +5615,9 @@
             "nullable": true
           },
           "SubIncomeAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "SubIncomeAccountNo": {
@@ -5379,7 +5629,9 @@
             "nullable": true
           },
           "ConsignmentIncomeAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ConsignmentIncomeAccountNo": {
@@ -5391,7 +5643,9 @@
             "nullable": true
           },
           "LdIncomeAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "LdIncomeAccountNo": {
@@ -5403,7 +5657,9 @@
             "nullable": true
           },
           "EquipmentSaleIncomeAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "EquipmentSaleIncomeAccountNo": {
@@ -5415,7 +5671,9 @@
             "nullable": true
           },
           "ExpenseAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "ExpenseAccountNo": {
@@ -5427,7 +5685,9 @@
             "nullable": true
           },
           "CostOfGoodsSoldExpenseAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CostOfGoodsSoldExpenseAccountNo": {
@@ -5439,7 +5699,9 @@
             "nullable": true
           },
           "CostOfGoodsRentedExpenseAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CostOfGoodsRentedExpenseAccountNo": {
@@ -5451,7 +5713,9 @@
             "nullable": true
           },
           "DepreciationExpenseAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "DepreciationExpenseAccountNo": {
@@ -5463,7 +5727,9 @@
             "nullable": true
           },
           "AccumulatedDepreciationExpenseAccountId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "AccumulatedDepreciationExpenseAccountNo": {
@@ -5475,23 +5741,47 @@
             "nullable": true
           },
           "OriginalShowId": {
+            "maxLength": 8,
             "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InputDate": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "InputByUsersId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "Inactive": {
+            "maxLength": 3,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "DateStamp": {
             "type": "string",
+            "description": "Format: UTCDateTime",
             "nullable": true
           },
           "ManifestShippingContainer": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "ManifestStandAloneItem": {
+            "maxLength": 1,
             "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
             "nullable": true
           },
           "RecordTitle": {
@@ -5540,7 +5830,7 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+DeleteImageRequest": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_DeleteImageRequest": {
         "type": "object",
         "properties": {
           "AppImageId": {
@@ -5550,7 +5840,7 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+GetCategoryRequest": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetCategoryRequest": {
         "type": "object",
         "properties": {
           "InventoryDepartmentId": {
@@ -5560,7 +5850,52 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+GetSubCategoryRequest": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetImageModel": {
+        "type": "object",
+        "properties": {
+          "Image": {
+            "type": "string",
+            "nullable": true
+          },
+          "AppImageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageNo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetImagesRequest": {
+        "type": "object",
+        "properties": {
+          "UniqueId1": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetImagesResponse": {
+        "type": "object",
+        "properties": {
+          "Images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetImageModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_GetSubCategoryRequest": {
         "type": "object",
         "properties": {
           "CategoryId": {
@@ -5570,7 +5905,7 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+QuikAssetInsertImageResponse": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_QuikAssetInsertImageResponse": {
         "type": "object",
         "properties": {
           "status": {
@@ -5591,9 +5926,13 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+QuikAssetInsertImagesRequest": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_QuikAssetInsertImagesRequest": {
         "type": "object",
         "properties": {
+          "IsWall": {
+            "type": "boolean",
+            "nullable": true
+          },
           "InventoryId": {
             "type": "string",
             "nullable": true
@@ -5613,7 +5952,7 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+SearchItemsByDescriptionRequest": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_SearchItemsByDescriptionRequest": {
         "type": "object",
         "properties": {
           "SearchValue": {
@@ -5623,11 +5962,15 @@
           "WarehouseId": {
             "type": "string",
             "nullable": true
+          },
+          "DepartmentId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc+UpdateUnitValueRequest": {
+      "WebApi.Modules.Mobile.QuikAsset.QuikAssetFunc_UpdateUnitValueRequest": {
         "type": "object",
         "properties": {
           "WarehouseId": {
@@ -5738,6 +6081,10 @@
           "UnitCost": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "OriginalShowId": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -5858,7 +6205,7 @@
   },
   "security": [
     {
-      "Bearer": []
+      "Bearer": [ ]
     }
   ]
 }

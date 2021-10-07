@@ -70,8 +70,9 @@ void main(List<String> arguments) {
   });
 
   test('/ordersummary', () async {
-    var summary = await rw!.home.ordersummaryIdGet(id: '304949~P');
-    print(summary.base.reasonPhrase);
+    var summary =
+        await rw!.home.ordersummaryGet(orderid: '304949', totaltype: 'P');
+    expect(summary.base.reasonPhrase, 'OK');
     expect(summary.isSuccessful, isTrue);
   }, skip: urlSkip ?? authSkip);
 }

@@ -127,23 +127,23 @@ abstract class Mobile extends ChopperService {
   Future<chopper.Response> quikscanExchangeKeyfieldnamesGet();
 
   ///Get a list of valid Container Descriptions.
-  ///@param ContainerId Container Identifier [Key|Filter]
-  ///@param Description Container Description. [Filter|Sort]
-  ///@param ScannableInventoryId InventoryId of Scannable Item Barcode. [Filter]
-  ///@param PageNo The page number in the result set starting from 1.  PageNo is required when the PageSize is specified.
-  ///@param PageSize Limit result set to the specified amount.
-  ///@param Sort A sort expression to use of the form: Field1:asc,Field2:desc
-  @Get(path: '/quikscan/fillcontainer/lookupcontainerdescription')
+  ///@param scannableinventoryid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  @Get(
+      path:
+          '/quikscan/fillcontainer/scannableitem/{scannableinventoryid}/lookuprentalinventory')
   Future<
           chopper.Response<
-              FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse>>
-      quikscanFillcontainerLookupcontainerdescriptionGet(
-          {@Query('ContainerId') String? containerId,
-          @Query('Description') String? description,
-          @Query('ScannableInventoryId') required String? scannableInventoryId,
-          @Query('PageNo') int? pageNo,
-          @Query('PageSize') int? pageSize,
-          @Query('Sort') String? sort});
+              FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
+      quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
+          {@Path('scannableinventoryid') required String? scannableinventoryid,
+          @Query('pageno') int? pageno,
+          @Query('pagesize') int? pagesize,
+          @Query('sort') String? sort,
+          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///Get an empty object
   @Get(path: '/quikscan/fillcontainer/emptyobject')
@@ -336,6 +336,16 @@ abstract class Mobile extends ChopperService {
                   body});
 
   ///
+  @Post(path: '/quikscan/quikasset/getimages')
+  Future<
+          chopper.Response<
+              WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
+      quikscanQuikassetGetimagesPost(
+          {@Body()
+              required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
+                  body});
+
+  ///
   @Post(path: '/quikscan/quikasset/deleteimage')
   Future<
       chopper.Response<
@@ -355,8 +365,9 @@ abstract class Mobile extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/quikscan/quikasset/inventorydepartment', optionalBody: true)
-  Future<chopper.Response> quikscanQuikassetInventorydepartmentPost();
+  @Post(path: '/quikscan/quikasset/inventorydepartment')
+  Future<chopper.Response> quikscanQuikassetInventorydepartmentPost(
+      {@Body() required String? body});
 
   ///
   @Post(path: '/quikscan/quikasset/category')
@@ -522,8 +533,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
       FwStandardModelsCheckBoxListItem.fromJsonFactory,
   FwStandardModelsFwApiException:
       FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse:
-      FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
+  FwStandardModelsFwQueryFilter: FwStandardModelsFwQueryFilter.fromJsonFactory,
+  FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse:
+      FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
           .fromJsonFactory,
   FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse:
       FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
@@ -533,8 +545,8 @@ final Map<Type, Object Function(Map<String, dynamic>)>
   FwStandardSqlServerFwJsonDataTableColumn:
       FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
   WebApiLogicTSpStatusResponse: WebApiLogicTSpStatusResponse.fromJsonFactory,
-  WebApiModulesContainersContainerLookupContainerDescriptionResponse:
-      WebApiModulesContainersContainerLookupContainerDescriptionResponse
+  WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse:
+      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
           .fromJsonFactory,
   WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem:
       WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
@@ -549,6 +561,13 @@ final Map<Type, Object Function(Map<String, dynamic>)>
           .fromJsonFactory,
   WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest:
       WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest
+          .fromJsonFactory,
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel:
+      WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel.fromJsonFactory,
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest:
+      WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest.fromJsonFactory,
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse:
+      WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse
           .fromJsonFactory,
   WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest:
       WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
@@ -1134,45 +1153,97 @@ extension $FwStandardModelsFwApiExceptionExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse {
-  FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse({
+class FwStandardModelsFwQueryFilter {
+  FwStandardModelsFwQueryFilter({
+    this.field,
+    this.op,
+    this.value,
+  });
+
+  factory FwStandardModelsFwQueryFilter.fromJson(Map<String, dynamic> json) =>
+      _$FwStandardModelsFwQueryFilterFromJson(json);
+
+  @JsonKey(name: 'Field', includeIfNull: false)
+  final String? field;
+  @JsonKey(name: 'Op', includeIfNull: false)
+  final String? op;
+  @JsonKey(name: 'Value', includeIfNull: false)
+  final String? value;
+  static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
+  static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardModelsFwQueryFilter &&
+            (identical(other.field, field) ||
+                const DeepCollectionEquality().equals(other.field, field)) &&
+            (identical(other.op, op) ||
+                const DeepCollectionEquality().equals(other.op, op)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(op) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModelsFwQueryFilterExtension
+    on FwStandardModelsFwQueryFilter {
+  FwStandardModelsFwQueryFilter copyWith(
+      {String? field, String? op, String? value}) {
+    return FwStandardModelsFwQueryFilter(
+        field: field ?? this.field,
+        op: op ?? this.op,
+        value: value ?? this.value);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
+  FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse({
     this.items,
     this.pageNo,
     this.pageSize,
-    this.totalRows,
+    this.totalItems,
     this.sort,
   });
 
-  factory FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse.fromJson(
+  factory FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse.fromJson(
           Map<String, dynamic> json) =>
-      _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
+      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
           json);
 
   @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
-      WebApiModulesContainersContainerLookupContainerDescriptionResponse>[])
+      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>[])
   final List<
-          WebApiModulesContainersContainerLookupContainerDescriptionResponse>?
+          WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>?
       items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
   final int? pageSize;
-  @JsonKey(name: 'TotalRows', includeIfNull: false)
-  final int? totalRows;
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
+  final int? totalItems;
   @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
-      _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson;
+      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson;
   static const toJsonFactory =
-      _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseToJson;
+      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseToJson(
+      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
           this);
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -1180,9 +1251,9 @@ class FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainer
             (identical(other.pageSize, pageSize) ||
                 const DeepCollectionEquality()
                     .equals(other.pageSize, pageSize)) &&
-            (identical(other.totalRows, totalRows) ||
+            (identical(other.totalItems, totalItems) ||
                 const DeepCollectionEquality()
-                    .equals(other.totalRows, totalRows)) &&
+                    .equals(other.totalItems, totalItems)) &&
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
@@ -1192,26 +1263,26 @@ class FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainer
       const DeepCollectionEquality().hash(items) ^
       const DeepCollectionEquality().hash(pageNo) ^
       const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalRows) ^
+      const DeepCollectionEquality().hash(totalItems) ^
       const DeepCollectionEquality().hash(sort) ^
       runtimeType.hashCode;
 }
 
-extension $FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponseExtension
-    on FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse {
-  FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse
+extension $FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseExtension
+    on FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
+  FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
       copyWith(
-          {List<WebApiModulesContainersContainerLookupContainerDescriptionResponse>?
+          {List<WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>?
               items,
           int? pageNo,
           int? pageSize,
-          int? totalRows,
+          int? totalItems,
           String? sort}) {
-    return FwStandardModelsGetResponseWebApiModulesContainersContainerLookupContainerDescriptionResponse(
+    return FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
         items: items ?? this.items,
         pageNo: pageNo ?? this.pageNo,
         pageSize: pageSize ?? this.pageSize,
-        totalRows: totalRows ?? this.totalRows,
+        totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
   }
 }
@@ -1555,36 +1626,36 @@ extension $WebApiLogicTSpStatusResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesContainersContainerLookupContainerDescriptionResponse {
-  WebApiModulesContainersContainerLookupContainerDescriptionResponse({
-    this.containerId,
+class WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
+  WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse({
+    this.inventoryId,
     this.description,
   });
 
-  factory WebApiModulesContainersContainerLookupContainerDescriptionResponse.fromJson(
+  factory WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse.fromJson(
           Map<String, dynamic> json) =>
-      _$WebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson(
+      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
           json);
 
-  @JsonKey(name: 'ContainerId', includeIfNull: false)
-  final String? containerId;
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
+  final String? inventoryId;
   @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
   static const fromJsonFactory =
-      _$WebApiModulesContainersContainerLookupContainerDescriptionResponseFromJson;
+      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson;
   static const toJsonFactory =
-      _$WebApiModulesContainersContainerLookupContainerDescriptionResponseToJson;
+      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$WebApiModulesContainersContainerLookupContainerDescriptionResponseToJson(
+      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
           this);
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is WebApiModulesContainersContainerLookupContainerDescriptionResponse &&
-            (identical(other.containerId, containerId) ||
+        (other is WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
+            (identical(other.inventoryId, inventoryId) ||
                 const DeepCollectionEquality()
-                    .equals(other.containerId, containerId)) &&
+                    .equals(other.inventoryId, inventoryId)) &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)));
@@ -1592,17 +1663,17 @@ class WebApiModulesContainersContainerLookupContainerDescriptionResponse {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(containerId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
       const DeepCollectionEquality().hash(description) ^
       runtimeType.hashCode;
 }
 
-extension $WebApiModulesContainersContainerLookupContainerDescriptionResponseExtension
-    on WebApiModulesContainersContainerLookupContainerDescriptionResponse {
-  WebApiModulesContainersContainerLookupContainerDescriptionResponse copyWith(
-      {String? containerId, String? description}) {
-    return WebApiModulesContainersContainerLookupContainerDescriptionResponse(
-        containerId: containerId ?? this.containerId,
+extension $WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseExtension
+    on WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
+  WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+      copyWith({String? inventoryId, String? description}) {
+    return WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
+        inventoryId: inventoryId ?? this.inventoryId,
         description: description ?? this.description);
   }
 }
@@ -1619,6 +1690,7 @@ class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
     this.rfId,
     this.serialNumberIsMixedCase,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -1648,6 +1720,8 @@ class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
   final bool? serialNumberIsMixedCase;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -1697,13 +1771,15 @@ class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
                     .equals(other.serialNumber, serialNumber)) &&
             (identical(other.rfId, rfId) ||
                 const DeepCollectionEquality().equals(other.rfId, rfId)) &&
-            (identical(
-                    other.serialNumberIsMixedCase, serialNumberIsMixedCase) ||
+            (identical(other.serialNumberIsMixedCase, serialNumberIsMixedCase) ||
                 const DeepCollectionEquality().equals(
                     other.serialNumberIsMixedCase, serialNumberIsMixedCase)) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -1727,6 +1803,7 @@ class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
       const DeepCollectionEquality().hash(rfId) ^
       const DeepCollectionEquality().hash(serialNumberIsMixedCase) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -1746,6 +1823,7 @@ extension $WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemEx
       String? rfId,
       bool? serialNumberIsMixedCase,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -1762,6 +1840,7 @@ extension $WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemEx
         serialNumberIsMixedCase:
             serialNumberIsMixedCase ?? this.serialNumberIsMixedCase,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -1789,6 +1868,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.wallHeightIn,
     this.wallLengthFt,
     this.wallLengthIn,
+    this.treatConsignedQtyAsOwned,
     this.dailyRate,
     this.weeklyRate,
     this.week2Rate,
@@ -1916,6 +1996,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.descriptionWithAkas,
     this.costCalculation,
     this.quantity,
+    this.quantityIn,
+    this.quantityStaged,
+    this.quantityOut,
+    this.quantityInContainer,
+    this.quantityInRepair,
+    this.quantityInTransit,
+    this.quantityOnTruck,
     this.aisleLocation,
     this.shelfLocation,
     this.taxable,
@@ -1985,10 +2072,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.accumulatedDepreciationExpenseAccountNo,
     this.accumulatedDepreciationExpenseAccountDescription,
     this.originalShowId,
+    this.inputDate,
+    this.inputByUsersId,
     this.inactive,
     this.dateStamp,
     this.manifestShippingContainer,
     this.manifestStandAloneItem,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -2031,6 +2121,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final int? wallLengthFt;
   @JsonKey(name: 'WallLengthIn', includeIfNull: false)
   final int? wallLengthIn;
+  @JsonKey(name: 'TreatConsignedQtyAsOwned', includeIfNull: false)
+  final bool? treatConsignedQtyAsOwned;
   @JsonKey(name: 'DailyRate', includeIfNull: false)
   final double? dailyRate;
   @JsonKey(name: 'WeeklyRate', includeIfNull: false)
@@ -2288,6 +2380,20 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final String? costCalculation;
   @JsonKey(name: 'Quantity', includeIfNull: false)
   final double? quantity;
+  @JsonKey(name: 'QuantityIn', includeIfNull: false)
+  final double? quantityIn;
+  @JsonKey(name: 'QuantityStaged', includeIfNull: false)
+  final double? quantityStaged;
+  @JsonKey(name: 'QuantityOut', includeIfNull: false)
+  final double? quantityOut;
+  @JsonKey(name: 'QuantityInContainer', includeIfNull: false)
+  final double? quantityInContainer;
+  @JsonKey(name: 'QuantityInRepair', includeIfNull: false)
+  final double? quantityInRepair;
+  @JsonKey(name: 'QuantityInTransit', includeIfNull: false)
+  final double? quantityInTransit;
+  @JsonKey(name: 'QuantityOnTruck', includeIfNull: false)
+  final double? quantityOnTruck;
   @JsonKey(name: 'AisleLocation', includeIfNull: false)
   final String? aisleLocation;
   @JsonKey(name: 'ShelfLocation', includeIfNull: false)
@@ -2432,6 +2538,10 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final String? accumulatedDepreciationExpenseAccountDescription;
   @JsonKey(name: 'OriginalShowId', includeIfNull: false)
   final String? originalShowId;
+  @JsonKey(name: 'InputDate', includeIfNull: false)
+  final String? inputDate;
+  @JsonKey(name: 'InputByUsersId', includeIfNull: false)
+  final String? inputByUsersId;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -2440,6 +2550,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final bool? manifestShippingContainer;
   @JsonKey(name: 'ManifestStandAloneItem', includeIfNull: false)
   final bool? manifestStandAloneItem;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -2517,6 +2629,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.wallLengthIn, wallLengthIn) ||
                 const DeepCollectionEquality()
                     .equals(other.wallLengthIn, wallLengthIn)) &&
+            (identical(other.treatConsignedQtyAsOwned, treatConsignedQtyAsOwned) || const DeepCollectionEquality().equals(other.treatConsignedQtyAsOwned, treatConsignedQtyAsOwned)) &&
             (identical(other.dailyRate, dailyRate) || const DeepCollectionEquality().equals(other.dailyRate, dailyRate)) &&
             (identical(other.weeklyRate, weeklyRate) || const DeepCollectionEquality().equals(other.weeklyRate, weeklyRate)) &&
             (identical(other.week2Rate, week2Rate) || const DeepCollectionEquality().equals(other.week2Rate, week2Rate)) &&
@@ -2644,6 +2757,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.descriptionWithAkas, descriptionWithAkas) || const DeepCollectionEquality().equals(other.descriptionWithAkas, descriptionWithAkas)) &&
             (identical(other.costCalculation, costCalculation) || const DeepCollectionEquality().equals(other.costCalculation, costCalculation)) &&
             (identical(other.quantity, quantity) || const DeepCollectionEquality().equals(other.quantity, quantity)) &&
+            (identical(other.quantityIn, quantityIn) || const DeepCollectionEquality().equals(other.quantityIn, quantityIn)) &&
+            (identical(other.quantityStaged, quantityStaged) || const DeepCollectionEquality().equals(other.quantityStaged, quantityStaged)) &&
+            (identical(other.quantityOut, quantityOut) || const DeepCollectionEquality().equals(other.quantityOut, quantityOut)) &&
+            (identical(other.quantityInContainer, quantityInContainer) || const DeepCollectionEquality().equals(other.quantityInContainer, quantityInContainer)) &&
+            (identical(other.quantityInRepair, quantityInRepair) || const DeepCollectionEquality().equals(other.quantityInRepair, quantityInRepair)) &&
+            (identical(other.quantityInTransit, quantityInTransit) || const DeepCollectionEquality().equals(other.quantityInTransit, quantityInTransit)) &&
+            (identical(other.quantityOnTruck, quantityOnTruck) || const DeepCollectionEquality().equals(other.quantityOnTruck, quantityOnTruck)) &&
             (identical(other.aisleLocation, aisleLocation) || const DeepCollectionEquality().equals(other.aisleLocation, aisleLocation)) &&
             (identical(other.shelfLocation, shelfLocation) || const DeepCollectionEquality().equals(other.shelfLocation, shelfLocation)) &&
             (identical(other.taxable, taxable) || const DeepCollectionEquality().equals(other.taxable, taxable)) &&
@@ -2713,10 +2833,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
             (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
             (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
+            (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
+            (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
             (identical(other.manifestStandAloneItem, manifestStandAloneItem) || const DeepCollectionEquality().equals(other.manifestStandAloneItem, manifestStandAloneItem)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -2741,6 +2864,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(wallHeightIn) ^
       const DeepCollectionEquality().hash(wallLengthFt) ^
       const DeepCollectionEquality().hash(wallLengthIn) ^
+      const DeepCollectionEquality().hash(treatConsignedQtyAsOwned) ^
       const DeepCollectionEquality().hash(dailyRate) ^
       const DeepCollectionEquality().hash(weeklyRate) ^
       const DeepCollectionEquality().hash(week2Rate) ^
@@ -2873,6 +2997,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(descriptionWithAkas) ^
       const DeepCollectionEquality().hash(costCalculation) ^
       const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(quantityIn) ^
+      const DeepCollectionEquality().hash(quantityStaged) ^
+      const DeepCollectionEquality().hash(quantityOut) ^
+      const DeepCollectionEquality().hash(quantityInContainer) ^
+      const DeepCollectionEquality().hash(quantityInRepair) ^
+      const DeepCollectionEquality().hash(quantityInTransit) ^
+      const DeepCollectionEquality().hash(quantityOnTruck) ^
       const DeepCollectionEquality().hash(aisleLocation) ^
       const DeepCollectionEquality().hash(shelfLocation) ^
       const DeepCollectionEquality().hash(taxable) ^
@@ -2949,10 +3080,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality()
           .hash(accumulatedDepreciationExpenseAccountDescription) ^
       const DeepCollectionEquality().hash(originalShowId) ^
+      const DeepCollectionEquality().hash(inputDate) ^
+      const DeepCollectionEquality().hash(inputByUsersId) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(manifestShippingContainer) ^
       const DeepCollectionEquality().hash(manifestStandAloneItem) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -2979,6 +3113,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       int? wallHeightIn,
       int? wallLengthFt,
       int? wallLengthIn,
+      bool? treatConsignedQtyAsOwned,
       double? dailyRate,
       double? weeklyRate,
       double? week2Rate,
@@ -3106,6 +3241,13 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       String? descriptionWithAkas,
       String? costCalculation,
       double? quantity,
+      double? quantityIn,
+      double? quantityStaged,
+      double? quantityOut,
+      double? quantityInContainer,
+      double? quantityInRepair,
+      double? quantityInTransit,
+      double? quantityOnTruck,
       String? aisleLocation,
       String? shelfLocation,
       bool? taxable,
@@ -3175,10 +3317,13 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       String? accumulatedDepreciationExpenseAccountNo,
       String? accumulatedDepreciationExpenseAccountDescription,
       String? originalShowId,
+      String? inputDate,
+      String? inputByUsersId,
       bool? inactive,
       String? dateStamp,
       bool? manifestShippingContainer,
       bool? manifestStandAloneItem,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -3201,6 +3346,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         wallHeightIn: wallHeightIn ?? this.wallHeightIn,
         wallLengthFt: wallLengthFt ?? this.wallLengthFt,
         wallLengthIn: wallLengthIn ?? this.wallLengthIn,
+        treatConsignedQtyAsOwned:
+            treatConsignedQtyAsOwned ?? this.treatConsignedQtyAsOwned,
         dailyRate: dailyRate ?? this.dailyRate,
         weeklyRate: weeklyRate ?? this.weeklyRate,
         week2Rate: week2Rate ?? this.week2Rate,
@@ -3352,8 +3499,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
             containerScannableDescription ?? this.containerScannableDescription,
         automaticallyRebuildContainerAtCheckIn: automaticallyRebuildContainerAtCheckIn ??
             this.automaticallyRebuildContainerAtCheckIn,
-        automaticallyRebuildContainerAtTransferIn:
-            automaticallyRebuildContainerAtTransferIn ?? this.automaticallyRebuildContainerAtTransferIn,
+        automaticallyRebuildContainerAtTransferIn: automaticallyRebuildContainerAtTransferIn ?? this.automaticallyRebuildContainerAtTransferIn,
         containerStagingRule: containerStagingRule ?? this.containerStagingRule,
         excludeContainedItemsFromAvailability: excludeContainedItemsFromAvailability ?? this.excludeContainedItemsFromAvailability,
         useContainerNumber: useContainerNumber ?? this.useContainerNumber,
@@ -3387,6 +3533,13 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         descriptionWithAkas: descriptionWithAkas ?? this.descriptionWithAkas,
         costCalculation: costCalculation ?? this.costCalculation,
         quantity: quantity ?? this.quantity,
+        quantityIn: quantityIn ?? this.quantityIn,
+        quantityStaged: quantityStaged ?? this.quantityStaged,
+        quantityOut: quantityOut ?? this.quantityOut,
+        quantityInContainer: quantityInContainer ?? this.quantityInContainer,
+        quantityInRepair: quantityInRepair ?? this.quantityInRepair,
+        quantityInTransit: quantityInTransit ?? this.quantityInTransit,
+        quantityOnTruck: quantityOnTruck ?? this.quantityOnTruck,
         aisleLocation: aisleLocation ?? this.aisleLocation,
         shelfLocation: shelfLocation ?? this.shelfLocation,
         taxable: taxable ?? this.taxable,
@@ -3456,10 +3609,13 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         accumulatedDepreciationExpenseAccountNo: accumulatedDepreciationExpenseAccountNo ?? this.accumulatedDepreciationExpenseAccountNo,
         accumulatedDepreciationExpenseAccountDescription: accumulatedDepreciationExpenseAccountDescription ?? this.accumulatedDepreciationExpenseAccountDescription,
         originalShowId: originalShowId ?? this.originalShowId,
+        inputDate: inputDate ?? this.inputDate,
+        inputByUsersId: inputByUsersId ?? this.inputByUsersId,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
         manifestStandAloneItem: manifestStandAloneItem ?? this.manifestStandAloneItem,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -3609,6 +3765,158 @@ extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel({
+    this.image,
+    this.appImageId,
+    this.imageDesc,
+    this.imageNo,
+  });
+
+  factory WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson(json);
+
+  @JsonKey(name: 'Image', includeIfNull: false)
+  final String? image;
+  @JsonKey(name: 'AppImageId', includeIfNull: false)
+  final String? appImageId;
+  @JsonKey(name: 'ImageDesc', includeIfNull: false)
+  final String? imageDesc;
+  @JsonKey(name: 'ImageNo', includeIfNull: false)
+  final String? imageNo;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.appImageId, appImageId) ||
+                const DeepCollectionEquality()
+                    .equals(other.appImageId, appImageId)) &&
+            (identical(other.imageDesc, imageDesc) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageDesc, imageDesc)) &&
+            (identical(other.imageNo, imageNo) ||
+                const DeepCollectionEquality().equals(other.imageNo, imageNo)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(appImageId) ^
+      const DeepCollectionEquality().hash(imageDesc) ^
+      const DeepCollectionEquality().hash(imageNo) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelExtension
+    on WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel copyWith(
+      {String? image, String? appImageId, String? imageDesc, String? imageNo}) {
+    return WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel(
+        image: image ?? this.image,
+        appImageId: appImageId ?? this.appImageId,
+        imageDesc: imageDesc ?? this.imageDesc,
+        imageNo: imageNo ?? this.imageNo);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest({
+    this.uniqueId1,
+  });
+
+  factory WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson(json);
+
+  @JsonKey(name: 'UniqueId1', includeIfNull: false)
+  final String? uniqueId1;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest &&
+            (identical(other.uniqueId1, uniqueId1) ||
+                const DeepCollectionEquality()
+                    .equals(other.uniqueId1, uniqueId1)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(uniqueId1) ^ runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestExtension
+    on WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest copyWith(
+      {String? uniqueId1}) {
+    return WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest(
+        uniqueId1: uniqueId1 ?? this.uniqueId1);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse({
+    this.images,
+  });
+
+  factory WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson(
+          json);
+
+  @JsonKey(
+      name: 'Images',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>[])
+  final List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>? images;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse &&
+            (identical(other.images, images) ||
+                const DeepCollectionEquality().equals(other.images, images)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(images) ^ runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseExtension
+    on WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse copyWith(
+      {List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>? images}) {
+    return WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse(
+        images: images ?? this.images);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest({
     this.categoryId,
@@ -3722,6 +4030,7 @@ extension $WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest({
+    this.isWall,
     this.inventoryId,
     this.image,
     this.imageDesc,
@@ -3733,6 +4042,8 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson(
           json);
 
+  @JsonKey(name: 'IsWall', includeIfNull: false)
+  final bool? isWall;
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(name: 'Image', includeIfNull: false)
@@ -3753,6 +4064,8 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest &&
+            (identical(other.isWall, isWall) ||
+                const DeepCollectionEquality().equals(other.isWall, isWall)) &&
             (identical(other.inventoryId, inventoryId) ||
                 const DeepCollectionEquality()
                     .equals(other.inventoryId, inventoryId)) &&
@@ -3767,6 +4080,7 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
 
   @override
   int get hashCode =>
+      const DeepCollectionEquality().hash(isWall) ^
       const DeepCollectionEquality().hash(inventoryId) ^
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(imageDesc) ^
@@ -3778,11 +4092,13 @@ extension $WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
     on WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
       copyWith(
-          {String? inventoryId,
+          {bool? isWall,
+          String? inventoryId,
           String? image,
           String? imageDesc,
           String? imageNo}) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest(
+        isWall: isWall ?? this.isWall,
         inventoryId: inventoryId ?? this.inventoryId,
         image: image ?? this.image,
         imageDesc: imageDesc ?? this.imageDesc,
@@ -3795,6 +4111,7 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest({
     this.searchValue,
     this.warehouseId,
+    this.departmentId,
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest.fromJson(
@@ -3806,6 +4123,8 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   final String? searchValue;
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
+  final String? departmentId;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson;
   static const toJsonFactory =
@@ -3823,23 +4142,29 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
                     .equals(other.searchValue, searchValue)) &&
             (identical(other.warehouseId, warehouseId) ||
                 const DeepCollectionEquality()
-                    .equals(other.warehouseId, warehouseId)));
+                    .equals(other.warehouseId, warehouseId)) &&
+            (identical(other.departmentId, departmentId) ||
+                const DeepCollectionEquality()
+                    .equals(other.departmentId, departmentId)));
   }
 
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(searchValue) ^
       const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(departmentId) ^
       runtimeType.hashCode;
 }
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
-      copyWith({String? searchValue, String? warehouseId}) {
+      copyWith(
+          {String? searchValue, String? warehouseId, String? departmentId}) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest(
         searchValue: searchValue ?? this.searchValue,
-        warehouseId: warehouseId ?? this.warehouseId);
+        warehouseId: warehouseId ?? this.warehouseId,
+        departmentId: departmentId ?? this.departmentId);
   }
 }
 
@@ -3929,6 +4254,7 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
     this.vendorPartNumber,
     this.currencyId,
     this.unitCost,
+    this.originalShowId,
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest.fromJson(
@@ -3980,6 +4306,8 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   final String? currencyId;
   @JsonKey(name: 'UnitCost', includeIfNull: false)
   final double? unitCost;
+  @JsonKey(name: 'OriginalShowId', includeIfNull: false)
+  final String? originalShowId;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson;
   static const toJsonFactory =
@@ -4042,7 +4370,8 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
             (identical(other.receiveDate, receiveDate) || const DeepCollectionEquality().equals(other.receiveDate, receiveDate)) &&
             (identical(other.vendorPartNumber, vendorPartNumber) || const DeepCollectionEquality().equals(other.vendorPartNumber, vendorPartNumber)) &&
             (identical(other.currencyId, currencyId) || const DeepCollectionEquality().equals(other.currencyId, currencyId)) &&
-            (identical(other.unitCost, unitCost) || const DeepCollectionEquality().equals(other.unitCost, unitCost)));
+            (identical(other.unitCost, unitCost) || const DeepCollectionEquality().equals(other.unitCost, unitCost)) &&
+            (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)));
   }
 
   @override
@@ -4069,6 +4398,7 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
       const DeepCollectionEquality().hash(vendorPartNumber) ^
       const DeepCollectionEquality().hash(currencyId) ^
       const DeepCollectionEquality().hash(unitCost) ^
+      const DeepCollectionEquality().hash(originalShowId) ^
       runtimeType.hashCode;
 }
 
@@ -4097,7 +4427,8 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseComple
           DateTime? receiveDate,
           String? vendorPartNumber,
           String? currencyId,
-          double? unitCost}) {
+          double? unitCost,
+          String? originalShowId}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest(
         status: status ?? this.status,
         success: success ?? this.success,
@@ -4122,7 +4453,8 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseComple
         receiveDate: receiveDate ?? this.receiveDate,
         vendorPartNumber: vendorPartNumber ?? this.vendorPartNumber,
         currencyId: currencyId ?? this.currencyId,
-        unitCost: unitCost ?? this.unitCost);
+        unitCost: unitCost ?? this.unitCost,
+        originalShowId: originalShowId ?? this.originalShowId);
   }
 }
 

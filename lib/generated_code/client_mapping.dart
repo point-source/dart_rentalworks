@@ -3,6 +3,7 @@ import 'administrator.swagger.dart';
 import 'exports.swagger.dart';
 import 'home.swagger.dart';
 import 'mobile.swagger.dart';
+import 'pages.swagger.dart';
 import 'plugins.swagger.dart';
 import 'reports.swagger.dart';
 import 'settings.swagger.dart';
@@ -18,4 +19,5 @@ final Map<Type, Object Function(Map<String, dynamic>)> generatedMapping = {
   ...HomeJsonDecoderMappings,
   ...AccountServicesJsonDecoderMappings,
   ...AdministratorJsonDecoderMappings,
+  ...PagesJsonDecoderMappings,
 };

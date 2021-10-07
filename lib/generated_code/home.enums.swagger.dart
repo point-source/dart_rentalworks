@@ -5,6 +5,8 @@ enum FwStandardSqlServerFwDataTypes {
   swaggerGeneratedUnknown,
   @JsonValue('Text')
   text,
+  @JsonValue('NonTrimmableText')
+  nontrimmabletext,
   @JsonValue('Date')
   date,
   @JsonValue('Time')
@@ -53,6 +55,7 @@ enum FwStandardSqlServerFwDataTypes {
 
 const $FwStandardSqlServerFwDataTypesMap = {
   FwStandardSqlServerFwDataTypes.text: 'Text',
+  FwStandardSqlServerFwDataTypes.nontrimmabletext: 'NonTrimmableText',
   FwStandardSqlServerFwDataTypes.date: 'Date',
   FwStandardSqlServerFwDataTypes.time: 'Time',
   FwStandardSqlServerFwDataTypes.datetime: 'DateTime',
@@ -79,35 +82,4 @@ const $FwStandardSqlServerFwDataTypesMap = {
   FwStandardSqlServerFwDataTypes.jpgdataurl: 'JpgDataUrl',
   FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime',
   FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown: ''
-};
-
-enum WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('Other')
-  other,
-  @JsonValue('Amex')
-  amex,
-  @JsonValue('Visa')
-  visa,
-  @JsonValue('MasterCard')
-  mastercard,
-  @JsonValue('Discover')
-  discover
-}
-
-const $WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypesMap =
-    {
-  WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes.other:
-      'Other',
-  WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes.amex:
-      'Amex',
-  WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes.visa:
-      'Visa',
-  WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes
-      .mastercard: 'MasterCard',
-  WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes
-      .discover: 'Discover',
-  WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentCardTypes
-      .swaggerGeneratedUnknown: ''
 };

@@ -708,9 +708,9 @@ class _$Settings extends Settings {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      availabilitykeepfreshlogBrowsePost(
+      availabilityservicelogBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/availabilitykeepfreshlog/browse';
+    final $url = '/availabilityservicelog/browse';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
@@ -721,9 +721,9 @@ class _$Settings extends Settings {
   Future<
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      availabilitykeepfreshlogExportexcelxlsxPost(
+      availabilityservicelogExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/availabilitykeepfreshlog/exportexcelxlsx';
+    final $url = '/availabilityservicelog/exportexcelxlsx';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<
@@ -735,13 +735,13 @@ class _$Settings extends Settings {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic>>
-      availabilitykeepfreshlogGet(
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic>>
+      availabilityservicelogGet(
           {int? pageno,
           int? pagesize,
           String? sort,
           List<FwStandardModelsFwQueryFilter>? filter}) {
-    final $url = '/availabilitykeepfreshlog';
+    final $url = '/availabilityservicelog';
     final $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -750,41 +750,41 @@ class _$Settings extends Settings {
     };
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLogLogic>(
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog>>
-      availabilitykeepfreshlogIdGet({required String? id}) {
-    final $url = '/availabilitykeepfreshlog/$id';
+              WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog>>
+      availabilityservicelogIdGet({required String? id}) {
+    final $url = '/availabilityservicelog/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<
-            WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog,
-            WebApiModulesSettingsAvailabilityKeepFreshLogAvailabilityKeepFreshLog>(
+            WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog,
+            WebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLog>(
         $request);
   }
 
   @override
-  Future<Response<dynamic>> availabilitykeepfreshlogEmptyobjectGet() {
-    final $url = '/availabilitykeepfreshlog/emptyobject';
+  Future<Response<dynamic>> availabilityservicelogEmptyobjectGet() {
+    final $url = '/availabilityservicelog/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> availabilitykeepfreshlogEmptybrowseobjectGet() {
-    final $url = '/availabilitykeepfreshlog/emptybrowseobject';
+  Future<Response<dynamic>> availabilityservicelogEmptybrowseobjectGet() {
+    final $url = '/availabilityservicelog/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> availabilitykeepfreshlogKeyfieldnamesGet() {
-    final $url = '/availabilitykeepfreshlog/keyfieldnames';
+  Future<Response<dynamic>> availabilityservicelogKeyfieldnamesGet() {
+    final $url = '/availabilityservicelog/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
@@ -960,6 +960,19 @@ class _$Settings extends Settings {
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>>
+      availabilitysettingsPrunecachePost() {
+    final $url = '/availabilitysettings/prunecache';
+    final $request = Request('POST', $url, client.baseUrl);
+    return client.send<
+            WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse,
+            WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>(
+        $request);
   }
 
   @override
@@ -1681,6 +1694,122 @@ class _$Settings extends Settings {
   @override
   Future<Response<dynamic>> categoryKeyfieldnamesGet() {
     final $url = '/category/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignmentsettingsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignmentsettings/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignmentsettingsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignmentsettings/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic>>
+      consignmentsettingsGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    final $url = '/consignmentsettings';
+    final $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter
+    };
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>>
+      consignmentsettingsPost(
+          {required WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings?
+              body}) {
+    final $url = '/consignmentsettings';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings,
+            WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>>
+      consignmentsettingsIdGet({required String? id}) {
+    final $url = '/consignmentsettings/$id';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<
+            WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings,
+            WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>>
+      consignmentsettingsIdPut(
+          {required String? id,
+          required WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings?
+              body}) {
+    final $url = '/consignmentsettings/$id';
+    final $body = body;
+    final $request = Request('PUT', $url, client.baseUrl, body: $body);
+    return client.send<
+            WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings,
+            WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> consignmentsettingsEmptyobjectGet() {
+    final $url = '/consignmentsettings/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> consignmentsettingsEmptybrowseobjectGet() {
+    final $url = '/consignmentsettings/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> consignmentsettingsKeyfieldnamesGet() {
+    final $url = '/consignmentsettings/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
@@ -4395,6 +4524,17 @@ class _$Settings extends Settings {
       defaultsettingsValidatedefaultcontactgroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/defaultsettings/validatedefaultcontactgroup/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      defaultsettingsValidatedefaultvendorbillingcycleBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/defaultsettings/validatedefaultvendorbillingcycle/browse';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
@@ -19419,58 +19559,6 @@ class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<WebApiModulesSettingsUserProfileUserProfile>>
-      userprofileIdGet({required String? id}) {
-    final $url = '/userprofile/$id';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<WebApiModulesSettingsUserProfileUserProfile,
-        WebApiModulesSettingsUserProfileUserProfile>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsUserProfileUserProfile>>
-      userprofileIdPut(
-          {required String? id,
-          required WebApiModulesSettingsUserProfileUserProfile? body}) {
-    final $url = '/userprofile/$id';
-    final $body = body;
-    final $request = Request('PUT', $url, client.baseUrl, body: $body);
-    return client.send<WebApiModulesSettingsUserProfileUserProfile,
-        WebApiModulesSettingsUserProfileUserProfile>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsUserProfileUserProfile>> userprofilePost(
-      {required WebApiModulesSettingsUserProfileUserProfile? body}) {
-    final $url = '/userprofile';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<WebApiModulesSettingsUserProfileUserProfile,
-        WebApiModulesSettingsUserProfileUserProfile>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> userprofileEmptyobjectGet() {
-    final $url = '/userprofile/emptyobject';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> userprofileEmptybrowseobjectGet() {
-    final $url = '/userprofile/emptybrowseobject';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> userprofileKeyfieldnamesGet() {
-    final $url = '/userprofile/keyfieldnames';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<WebApiModulesSettingsUserSearchSettingsUserSearchSettings>>
       usersearchsettingsIdGet({required String? id}) {
     final $url = '/usersearchsettings/$id';
@@ -23260,6 +23348,104 @@ class _$Settings extends Settings {
   @override
   Future<Response<dynamic>> warehousecatalogKeyfieldnamesGet() {
     final $url = '/warehousecatalog/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseconsignmentsettingsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/warehouseconsignmentsettings/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      warehouseconsignmentsettingsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/warehouseconsignmentsettings/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>>>
+      warehouseconsignmentsettingsGet(
+          {int? pageno, int? pagesize, String? sort}) {
+    final $url = '/warehouseconsignmentsettings';
+    final $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort
+    };
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<
+            List<
+                WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>,
+            WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>>
+      warehouseconsignmentsettingsIdGet({required String? id}) {
+    final $url = '/warehouseconsignmentsettings/$id';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<
+            WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings,
+            WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>>
+      warehouseconsignmentsettingsIdPut(
+          {required String? id,
+          required WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings?
+              body}) {
+    final $url = '/warehouseconsignmentsettings/$id';
+    final $body = body;
+    final $request = Request('PUT', $url, client.baseUrl, body: $body);
+    return client.send<
+            WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings,
+            WebApiModulesSettingsWarehouseConsignmentSettingsWarehouseConsignmentSettings>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> warehouseconsignmentsettingsEmptyobjectGet() {
+    final $url = '/warehouseconsignmentsettings/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> warehouseconsignmentsettingsEmptybrowseobjectGet() {
+    final $url = '/warehouseconsignmentsettings/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> warehouseconsignmentsettingsKeyfieldnamesGet() {
+    final $url = '/warehouseconsignmentsettings/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }

@@ -379,6 +379,53 @@ Map<String, dynamic> _$FwStandardModelsSelectedCheckBoxListItemToJson(
   return val;
 }
 
+FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
+    _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader(
+          customReportCssId: json['CustomReportCssId'] as int?,
+          description: json['Description'] as String?,
+          css: json['Css'] as String?,
+          isGlobal: json['IsGlobal'] as bool?,
+          inactive: json['Inactive'] as bool?,
+          active: json['Active'] as bool?,
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
+
+Map<String, dynamic>
+    _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderToJson(
+        FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CustomReportCssId', instance.customReportCssId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Css', instance.css);
+  writeNotNull('IsGlobal', instance.isGlobal);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('Active', instance.active);
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
+
 FwStandardReportingFwReportEmailInfo
     _$FwStandardReportingFwReportEmailInfoFromJson(Map<String, dynamic> json) =>
         FwStandardReportingFwReportEmailInfo(
@@ -608,6 +655,13 @@ WebApiDataAppReportResponse _$WebApiDataAppReportResponseFromJson(
       printTime: json['PrintTime'] as String?,
       printDateTime: json['PrintDateTime'] as String?,
       customReportTemplate: json['CustomReportTemplate'] as String?,
+      globalCssRules: (json['GlobalCssRules'] as List<dynamic>?)
+              ?.map((e) =>
+                  FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
+                      .fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      globalStyle: json['GlobalStyle'] as String?,
     );
 
 Map<String, dynamic> _$WebApiDataAppReportResponseToJson(
@@ -626,6 +680,9 @@ Map<String, dynamic> _$WebApiDataAppReportResponseToJson(
   writeNotNull('PrintTime', instance.printTime);
   writeNotNull('PrintDateTime', instance.printDateTime);
   writeNotNull('CustomReportTemplate', instance.customReportTemplate);
+  writeNotNull('GlobalCssRules',
+      instance.globalCssRules?.map((e) => e.toJson()).toList());
+  writeNotNull('GlobalStyle', instance.globalStyle);
   return val;
 }
 
@@ -1041,6 +1098,7 @@ WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
           includePaidInvoices: json['IncludePaidInvoices'] as bool?,
           includeZeroBalance: json['IncludeZeroBalance'] as bool?,
           paymentsThroughToday: json['PaymentsThroughToday'] as bool?,
+          hidePaymentDetails: json['HidePaymentDetails'] as bool?,
           officeLocationId: json['OfficeLocationId'] as String?,
           dealStatusId: json['DealStatusId'] as String?,
           dealTypeId: json['DealTypeId'] as String?,
@@ -1077,6 +1135,7 @@ Map<String, dynamic>
   writeNotNull('IncludePaidInvoices', instance.includePaidInvoices);
   writeNotNull('IncludeZeroBalance', instance.includeZeroBalance);
   writeNotNull('PaymentsThroughToday', instance.paymentsThroughToday);
+  writeNotNull('HidePaymentDetails', instance.hidePaymentDetails);
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('DealStatusId', instance.dealStatusId);
   writeNotNull('DealTypeId', instance.dealTypeId);
@@ -1743,6 +1802,320 @@ Map<String, dynamic>
   writeNotNull('BatchId', instance.batchId);
   writeNotNull('BatchNumber', instance.batchNumber);
   writeNotNull('BatchDate', instance.batchDate?.toIso8601String());
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('IsSummary', instance.isSummary);
+  writeNotNull('IncludeSubHeadingsAndSubTotals',
+      instance.includeSubHeadingsAndSubTotals);
+  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
+    _$WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequestToJson(
+        WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
+  writeNotNull('CategoryId', instance.categoryId);
+  writeNotNull('SubCategoryId', instance.subCategoryId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('IsSummary', instance.isSummary);
+  writeNotNull('IncludeSubHeadingsAndSubTotals',
+      instance.includeSubHeadingsAndSubTotals);
+  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
+    _$WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequestToJson(
+        WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
+  writeNotNull('CategoryId', instance.categoryId);
+  writeNotNull('SubCategoryId', instance.subCategoryId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('IsSummary', instance.isSummary);
+  writeNotNull('IncludeSubHeadingsAndSubTotals',
+      instance.includeSubHeadingsAndSubTotals);
+  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
+    _$WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest(
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequestToJson(
+        WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('IsSummary', instance.isSummary);
+  writeNotNull('IncludeSubHeadingsAndSubTotals',
+      instance.includeSubHeadingsAndSubTotals);
+  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
+    _$WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequestToJson(
+        WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('IsSummary', instance.isSummary);
+  writeNotNull('IncludeSubHeadingsAndSubTotals',
+      instance.includeSubHeadingsAndSubTotals);
+  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
+    _$WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequestToJson(
+        WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
+  writeNotNull('IsSummary', instance.isSummary);
+  writeNotNull('IncludeSubHeadingsAndSubTotals',
+      instance.includeSubHeadingsAndSubTotals);
+  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
+  writeNotNull('Locale', instance.locale);
+  writeNotNull(
+      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
+    _$WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          officeLocationId: json['OfficeLocationId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequestToJson(
+        WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
   writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
   writeNotNull('IsSummary', instance.isSummary);
   writeNotNull('IncludeSubHeadingsAndSubTotals',
@@ -4460,6 +4833,7 @@ WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
         WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest(
           orderId: json['OrderId'] as String?,
           rentalValue: json['RentalValue'] as String?,
+          printZeroExtended: json['PrintZeroExtended'] as bool?,
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
           isSummary: json['IsSummary'] as bool?,
           includeSubHeadingsAndSubTotals:
@@ -4487,6 +4861,7 @@ Map<String, dynamic>
 
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('RentalValue', instance.rentalValue);
+  writeNotNull('PrintZeroExtended', instance.printZeroExtended);
   writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
   writeNotNull('IsSummary', instance.isSummary);
   writeNotNull('IncludeSubHeadingsAndSubTotals',
@@ -7065,6 +7440,7 @@ WebApiModulesReportsSharedReportSettingsReportSettings
           settings: json['Settings'] as String?,
           excelSettings: json['ExcelSettings'] as String?,
           dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7103,6 +7479,7 @@ Map<String, dynamic>
   writeNotNull('Settings', instance.settings);
   writeNotNull('ExcelSettings', instance.excelSettings);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
@@ -7293,6 +7670,7 @@ WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
           reportView:
               webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
                   json['ReportView'] as String?),
+          excludeZeroConsignorFee: json['ExcludeZeroConsignorFee'] as bool?,
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
           isSummary: json['IsSummary'] as bool?,
           includeSubHeadingsAndSubTotals:
@@ -7323,6 +7701,7 @@ Map<String, dynamic>
       'ReportView',
       webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
           instance.reportView));
+  writeNotNull('ExcludeZeroConsignorFee', instance.excludeZeroConsignorFee);
   writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
   writeNotNull('IsSummary', instance.isSummary);
   writeNotNull('IncludeSubHeadingsAndSubTotals',

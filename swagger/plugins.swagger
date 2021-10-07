@@ -1,1 +1,3878 @@
-{"openapi":"3.0.1","info":{"title":"RentalWorksPlugins API v1","version":"v1"},"paths":{"/azureadplugin/loadadgroups":{"post":{"tags":["AzureADPlugin"],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsRequest"}}}},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsResponse"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/azureadplugin/importgroup":{"post":{"tags":["AzureADPlugin"],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebApi.Modules.Plugins.AzureAD.ImportGroupRequest"}}}},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebApi.Modules.Plugins.AzureAD.ImportGroupResponse"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/azureadplugin/emptyobject":{"get":{"tags":["AzureADPlugin"],"summary":"Get an empty object","responses":{"200":{"description":"Success"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/azureadplugin/emptybrowseobject":{"get":{"tags":["AzureADPlugin"],"summary":"Get an empty browse object","responses":{"200":{"description":"Success"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/azureadplugin/keyfieldnames":{"get":{"tags":["AzureADPlugin"],"summary":"Get an array of primary key field names","responses":{"200":{"description":"Success"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/hubspotplugin/hashubspotrefreshtoken":{"post":{"tags":["HubspotPlugin"],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebApi.Modules.AccountServices.HubSpot.GetHubSpotRefreshTokenBool"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/hubspotplugin/deletehubspottokens":{"post":{"tags":["HubspotPlugin"],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebApi.Modules.AccountServices.HubSpot.DeleteHubSpotTokens"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/hubspotplugin/emptyobject":{"get":{"tags":["HubspotPlugin"],"summary":"Get an empty object","responses":{"200":{"description":"Success"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/hubspotplugin/emptybrowseobject":{"get":{"tags":["HubspotPlugin"],"summary":"Get an empty browse object","responses":{"200":{"description":"Success"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}},"/hubspotplugin/keyfieldnames":{"get":{"tags":["HubspotPlugin"],"summary":"Get an array of primary key field names","responses":{"200":{"description":"Success"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"}}}},"401":{"description":"Unauthorized (jwt token is invalid)"},"403":{"description":"Forbidden (jwt token is valid, but you don't have permission)"},"500":{"description":"Internal Server Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FwStandard.Models.FwApiException"}}}}}}}},"components":{"schemas":{"FwCore.Api.Swashbuckle.BadRequestResponse":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"FwStandard.Models.FwApiException":{"type":"object","properties":{"StatusCode":{"type":"integer"},"Message":{"type":"string"},"StackTrace":{"type":"string"}}},"WebApi.Modules.AccountServices.HubSpot.DeleteHubSpotTokens":{"type":"object","properties":{"message":{"type":"string","nullable":true}},"additionalProperties":false},"WebApi.Modules.AccountServices.HubSpot.GetHubSpotRefreshTokenBool":{"type":"object","properties":{"hasRefreshToken":{"type":"boolean"}},"additionalProperties":false},"WebApi.Modules.Plugins.AzureAD.AzureADGroup":{"type":"object","properties":{"id":{"type":"string","nullable":true},"displayName":{"type":"string","nullable":true}},"additionalProperties":false},"WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsRequest":{"type":"object","properties":{"GroupSearch":{"type":"string","nullable":true}},"additionalProperties":false},"WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsResponse":{"type":"object","properties":{"Groups":{"type":"array","items":{"$ref":"#/components/schemas/WebApi.Modules.Plugins.AzureAD.AzureADGroup"},"nullable":true},"TooManyResults":{"type":"boolean"},"StatusCode":{"type":"integer","format":"int32"},"Message":{"type":"string","nullable":true}},"additionalProperties":false},"WebApi.Modules.Plugins.AzureAD.ImportGroupRequest":{"type":"object","properties":{"AzureADGroupId":{"type":"string","nullable":true},"ContactTitleId":{"type":"string","nullable":true}},"additionalProperties":false},"WebApi.Modules.Plugins.AzureAD.ImportGroupResponse":{"type":"object","properties":{"LastImported":{"type":"string","nullable":true},"Users":{"type":"array","items":{"$ref":"#/components/schemas/WebApi.Modules.Plugins.AzureAD.UserData"},"nullable":true},"StatusCode":{"type":"integer","format":"int32"},"Message":{"type":"string","nullable":true}},"additionalProperties":false},"WebApi.Modules.Plugins.AzureAD.UserData":{"type":"object","properties":{"ContactId":{"type":"string","nullable":true},"FirstName":{"type":"string","nullable":true},"LastName":{"type":"string","nullable":true},"Email":{"type":"string","nullable":true},"SourceId":{"type":"string","nullable":true}},"additionalProperties":false}},"securitySchemes":{"Bearer":{"type":"http","description":"JWT Authorization header using the Bearer scheme. (Don't add the prefix Bearer anymore).","scheme":"bearer"}}},"security":[{"Bearer":[]}]}
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RentalWorksPlugins API v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/azureadplugin/loadadgroups": {
+      "post": {
+        "tags": [
+          "AzureADPlugin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/azureadplugin/importgroup": {
+      "post": {
+        "tags": [
+          "AzureADPlugin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.ImportGroupRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.ImportGroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/azureadplugin/emptyobject": {
+      "get": {
+        "tags": [
+          "AzureADPlugin"
+        ],
+        "summary": "Get an empty object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/azureadplugin/emptybrowseobject": {
+      "get": {
+        "tags": [
+          "AzureADPlugin"
+        ],
+        "summary": "Get an empty browse object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/azureadplugin/keyfieldnames": {
+      "get": {
+        "tags": [
+          "AzureADPlugin"
+        ],
+        "summary": "Get an array of primary key field names",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/log": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Gets credit card transaction log records.",
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.CreditCardLogLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/log/browse": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Browse the credit card transaction log.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/log/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Return credit card transaction log as an excel spreadsheet.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/log/emptyobject": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get an empty credit card transaction log object.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/log/order/{orderid}/hasrecords": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Returns a boolean if an order has credit card transaction log records.",
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get credit card pre-authorizations.",
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Create a credit card pre-authorization record and do a credit card authorize transaction (unless there's an approval step).",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/browse": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Browse credit card pre-authorization records.",
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Export credit card pre-authorization records to excel.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/emptyobject": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get an empty credit card pre-authorization record.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/order/{orderid}/totalpreauthorizationamount": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get total of all credit card pre-authorization records for an order where status is APPROVED.",
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/order/{orderid}/haspreauthorizationrecords": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Returns a boolean if an order has any pre-authorization records (no status filter).",
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/order/{orderid}/capturepreauthorizations": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Capture all ACTIVE pre-authorizations for an order and create depleting deposits.",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationForOrderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationForOrderResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/{preauthorizationid}/capture": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Capture a pre-authorization and create a depleting deposit.",
+        "parameters": [
+          {
+            "name": "preauthorizationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/{preauthorizationid}/updatestatus": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Approve a credit card pre-authorization.",
+        "parameters": [
+          {
+            "name": "preauthorizationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardUpdatePreAuthorizationStatusRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardUpdatePreAuthorizationStatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/preauthorization/{preauthorizationid}/void": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Void a credit card pre-authorization.",
+        "parameters": [
+          {
+            "name": "preauthorizationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardVoidPreAuthorizationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardVoidPreAuthorizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/deposit": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get credit card deposit records.",
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.OrderDepositLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Do a credit card authorize and capture transaction and create a depleting deposit receipt.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardDepositResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/deposit/browse": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Browse credit card deposit records.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/deposit/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Export credit card deposit records to excel.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/deposit/emptyobject": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get an empty credit card deposit record.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/deposit/{receiptid}/refund": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Do a credit card refund against a depleting deposit.",
+        "parameters": [
+          {
+            "name": "receiptid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardRefundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardRefundResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/deposit/order/{orderid}/hasdepositrecords": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Returns a boolean used to toggle the View Deposits button on an Order.  The value is true when there is data to see.",
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "path",
+            "description": "Unique Identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/processcreditcardinfo/{orderid}": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Load order info for processing credit card payments.",
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.ProcessCreditCardInfo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/emptyobject": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get an empty object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/emptybrowseobject": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get an empty browse object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/keyfieldnames": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get an array of primary key field names",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hubspotplugin/hashubspotrefreshtoken": {
+      "post": {
+        "tags": [
+          "HubspotPlugin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.AccountServices.HubSpot.GetHubSpotRefreshTokenBool"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hubspotplugin/deletehubspottokens": {
+      "post": {
+        "tags": [
+          "HubspotPlugin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.AccountServices.HubSpot.DeleteHubSpotTokens"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hubspotplugin/emptyobject": {
+      "get": {
+        "tags": [
+          "HubspotPlugin"
+        ],
+        "summary": "Get an empty object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hubspotplugin/emptybrowseobject": {
+      "get": {
+        "tags": [
+          "HubspotPlugin"
+        ],
+        "summary": "Get an empty browse object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hubspotplugin/keyfieldnames": {
+      "get": {
+        "tags": [
+          "HubspotPlugin"
+        ],
+        "summary": "Get an array of primary key field names",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FwCore.Api.Swashbuckle.BadRequestResponse": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult": {
+        "type": "object",
+        "properties": {
+          "downloadUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/FwStandard.SqlServer.FwDataTypes"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Data.FwCustomValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Data.FwDefaultAttribute": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AttributeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.BrowseRequest": {
+        "type": "object",
+        "properties": {
+          "miscfields": {
+            "nullable": true
+          },
+          "module": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "nullable": true
+          },
+          "orderby": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderbydirection": {
+            "type": "string",
+            "nullable": true
+          },
+          "top": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageno": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pagesize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "searchfieldoperators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchfields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchfieldvalues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchfieldtypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchseparators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchcondition": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchconjunctions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "uniqueids": {
+            "nullable": true
+          },
+          "boundids": {
+            "nullable": true
+          },
+          "filterfields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "activeview": {
+            "type": "string",
+            "nullable": true
+          },
+          "emptyobject": {
+            "type": "boolean"
+          },
+          "forexcel": {
+            "type": "boolean"
+          },
+          "excelfields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Models.CheckBoxListItem"
+            },
+            "nullable": true
+          },
+          "totalfields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "activeviewfields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.CheckBoxListItem": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "selected": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwApiException": {
+        "type": "object",
+        "properties": {
+          "StatusCode": {
+            "type": "integer"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "StackTrace": {
+            "type": "string"
+          }
+        }
+      },
+      "FwStandard.Models.FwQueryFilter": {
+        "required": [
+          "Field",
+          "Op"
+        ],
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "description": "The DataField name to filter on."
+          },
+          "Op": {
+            "type": "string",
+            "description": "Comparison operator: = (equals), <> (not equals)"
+          },
+          "Value": {
+            "type": "string",
+            "description": "The value of the DataField to filter on.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.CreditCardLogLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardLog"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorization"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.OrderDepositLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.OrderDeposit"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.SqlServer.FwDataTypes": {
+        "enum": [
+          "Text",
+          "NonTrimmableText",
+          "Date",
+          "Time",
+          "DateTime",
+          "DateTimeOffset",
+          "Decimal",
+          "DecimalStringNoTrailingZeros",
+          "DecimalString1Digit",
+          "DecimalString2Digits",
+          "DecimalString3Digits",
+          "DecimalString4Digits",
+          "DecimalString8Digits",
+          "Boolean",
+          "CurrencyString",
+          "CurrencyStringNoDollarSign",
+          "CurrencyStringNoDollarSignNoDecimalPlaces",
+          "PhoneUS",
+          "ZipcodeUS",
+          "Percentage",
+          "OleToHtmlColor",
+          "Integer",
+          "JpgDataUrl",
+          "UTCDateTime"
+        ],
+        "type": "string"
+      },
+      "FwStandard.SqlServer.FwJsonDataTable": {
+        "type": "object",
+        "properties": {
+          "ColumnIndex": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "Totals": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            },
+            "nullable": true
+          },
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTableColumn"
+            },
+            "nullable": true
+          },
+          "Rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": { }
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalRows": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DateFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ColumnNameByIndex": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.SqlServer.FwJsonDataTableColumn": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataField": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/FwStandard.SqlServer.FwDataTypes"
+          },
+          "IsUniqueId": {
+            "type": "boolean"
+          },
+          "IsVisible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.AccountServices.HubSpot.DeleteHubSpotTokens": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.AccountServices.HubSpot.GetHubSpotRefreshTokenBool": {
+        "type": "object",
+        "properties": {
+          "hasRefreshToken": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Billing.Receipt.Receipt": {
+        "type": "object",
+        "properties": {
+          "ReceiptId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "ReceiptDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "LocationId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "LocationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Deal": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentBy": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CustomerDeal": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "PaymentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTypeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTypeExportPaymentMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "CheckNumber": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PaymentAmount": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 9, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "AppliedById": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "AppliedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedById": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ModifiedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentMemo": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "RecType": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ChargeBatchId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChargeBatchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencyId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "OfficeLocationDefaultCurrencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OverPaymentId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InvoiceDataList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Billing.Receipt.ReceiptInvoice"
+            },
+            "nullable": true
+          },
+          "CreditDataList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Billing.Receipt.ReceiptCredit"
+            },
+            "nullable": true
+          },
+          "CreateOverpayment": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "CreateDepletingDeposit": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DealDepositId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealDepositCheckNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerDepositId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerDepositCheckNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OrderDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransactionId": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardAccountToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardExpirationDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "format": "date-time"
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Billing.Receipt.ReceiptCredit": {
+        "type": "object",
+        "properties": {
+          "CreditReceiptId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Billing.Receipt.ReceiptInvoice": {
+        "type": "object",
+        "properties": {
+          "InvoiceReceiptId": {
+            "type": "string",
+            "nullable": true
+          },
+          "InvoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.AzureADGroup": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsRequest": {
+        "type": "object",
+        "properties": {
+          "GroupSearch": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsResponse": {
+        "type": "object",
+        "properties": {
+          "Groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.AzureADGroup"
+            },
+            "nullable": true
+          },
+          "TooManyResults": {
+            "type": "boolean"
+          },
+          "StatusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.ImportGroupRequest": {
+        "type": "object",
+        "properties": {
+          "AzureADGroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContactTitleId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.ImportGroupResponse": {
+        "type": "object",
+        "properties": {
+          "LastImported": {
+            "type": "string",
+            "nullable": true
+          },
+          "Users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.UserData"
+            },
+            "nullable": true
+          },
+          "StatusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.UserData": {
+        "type": "object",
+        "properties": {
+          "ContactId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "SourceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationForOrderRequest": {
+        "required": [
+          "OrderId"
+        ],
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationForOrderResponse": {
+        "type": "object",
+        "properties": {
+          "CapturePreAuthorizationResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationRequest": {
+        "required": [
+          "Amount",
+          "CreditCardPreAuthorizationId"
+        ],
+        "type": "object",
+        "properties": {
+          "CreditCardPreAuthorizationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardCapturePreAuthorizationResponse": {
+        "type": "object",
+        "properties": {
+          "PluginResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponse"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest": {
+        "required": [
+          "AmountToPay",
+          "DealNumber",
+          "OrderId",
+          "PaymentType"
+        ],
+        "type": "object",
+        "properties": {
+          "PaymentType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest_PaymentTypes"
+          },
+          "OrderId": {
+            "type": "string"
+          },
+          "AmountToPay": {
+            "type": "number",
+            "format": "double"
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DealNumber": {
+            "type": "string"
+          },
+          "EmailFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailSubject": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailBody": {
+            "type": "string",
+            "nullable": true
+          },
+          "Account": {
+            "type": "string",
+            "description": "The tokenized card number or blank if this initiates a process to collect input from a PIN Pad.",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "description": "Required if passing Account",
+            "nullable": true
+          },
+          "TrackData": {
+            "type": "string",
+            "description": "The tokenized track data from a credit card reader",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest_PaymentTypes": {
+        "enum": [
+          "TOKENIZEDCARDNUMBER",
+          "TRACKDATA",
+          "EMAIL",
+          "WEBPAY",
+          "PINPAD"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardDepositResponse": {
+        "type": "object",
+        "properties": {
+          "PluginResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponse"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardLog": {
+        "type": "object",
+        "properties": {
+          "CreditCardLogId": {
+            "type": "integer",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "format": "int32"
+          },
+          "CreditCardPlugin": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OrderId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TransactionDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "HoldPeriod": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32"
+          },
+          "TransactionId": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "description": "Format: Decimal",
+            "format": "double",
+            "nullable": true
+          },
+          "TransactionType": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PinPadCode": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiUrl": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiRequestMethod": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiRequestHeader": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiRequestBody": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiResponseStatusCode": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiResponseHeader": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ApiResponseBody": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ResponseSuccess": {
+            "type": "boolean",
+            "description": "Format: Boolean"
+          },
+          "ResponseStatus": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ResponseStatusText": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponse": {
+        "required": [
+          "Amount"
+        ],
+        "type": "object",
+        "properties": {
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Receipt": {
+            "$ref": "#/components/schemas/WebApi.Modules.Billing.Receipt.Receipt"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponseStatusCodes"
+          },
+          "CardType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes"
+          },
+          "CardEntryMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransactionId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponseStatusCodes": {
+        "enum": [
+          "Pending",
+          "Approved",
+          "Retry",
+          "Declined",
+          "Error",
+          "Sent"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponse": {
+        "type": "object",
+        "properties": {
+          "TransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Receipt": {
+            "$ref": "#/components/schemas/WebApi.Modules.Billing.Receipt.Receipt"
+          },
+          "CardEntryMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CardType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponseStatusCodes": {
+        "enum": [
+          "Authorized",
+          "Declined",
+          "QueuedForCapture",
+          "Voided",
+          "ZeroAmount",
+          "Unauthorized",
+          "BadRequest",
+          "Error",
+          "InternalServerError"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginRefundResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginRefundResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CardEntryMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CardType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes"
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginRefundResponseStatusCodes": {
+        "enum": [
+          "Approved",
+          "Retry",
+          "Declined",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean",
+            "description": "true when the StatusCode is Approved, otherwise false"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponseStatusCodes": {
+        "enum": [
+          "Approved",
+          "Retry",
+          "Declined",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorization": {
+        "type": "object",
+        "properties": {
+          "CreditCardPreAuthorizationId": {
+            "type": "integer",
+            "description": "Format: Integer, IsPrimaryKey: true",
+            "format": "int32"
+          },
+          "TransactionId": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OrderId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TransactionDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "format": "date-time",
+            "nullable": true
+          },
+          "HoldPeriod": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "HoldDaysRemaining": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "description": "Format: Decimal",
+            "format": "double",
+            "nullable": true
+          },
+          "Status": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32"
+          },
+          "CreditCardPinPadCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime, Required: true",
+            "format": "date-time",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationRequest": {
+        "required": [
+          "AmountToPay",
+          "DealNumber",
+          "OrderId",
+          "PaymentType"
+        ],
+        "type": "object",
+        "properties": {
+          "PaymentType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationRequest_PaymentTypes"
+          },
+          "OrderId": {
+            "type": "string"
+          },
+          "AmountToPay": {
+            "type": "number",
+            "format": "double"
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DealNumber": {
+            "type": "string"
+          },
+          "Account": {
+            "type": "string",
+            "description": "Tokenized credit card number.  Required when RequestType is TokenizedCardNumber",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "description": "Required if passing Account",
+            "nullable": true
+          },
+          "TrackData": {
+            "type": "string",
+            "description": "The tokenized track data from a credit card reader",
+            "nullable": true
+          },
+          "EmailFrom": {
+            "type": "string",
+            "description": "Required when RequestType is TokenizedCardNumber",
+            "nullable": true
+          },
+          "EmailTo": {
+            "type": "string",
+            "description": "Required when RequestType is TokenizedCardNumber",
+            "nullable": true
+          },
+          "EmailSubject": {
+            "type": "string",
+            "description": "Required when RequestType is TokenizedCardNumber",
+            "nullable": true
+          },
+          "EmailBody": {
+            "type": "string",
+            "description": "Required when RequestType is TokenizedCardNumber",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationRequest_PaymentTypes": {
+        "enum": [
+          "PINPAD",
+          "TOKENIZEDCARDNUMBER",
+          "TRACKDATA",
+          "EMAIL",
+          "WEBPAY"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationResponse": {
+        "type": "object",
+        "properties": {
+          "PluginResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponse"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardRefundRequest": {
+        "required": [
+          "CreditCardPinPadId",
+          "ReceiptId",
+          "RefundAmount"
+        ],
+        "type": "object",
+        "properties": {
+          "ReceiptId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "CreditCardPinPadId": {
+            "minLength": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "RefundAmount": {
+            "minLength": 1,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardRefundResponse": {
+        "type": "object",
+        "properties": {
+          "PluginResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginRefundResponse"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginRefundResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardUpdatePreAuthorizationStatusRequest": {
+        "type": "object",
+        "properties": {
+          "CreditCardPreAuthorizationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.UpdatePreAuthorizationStatusCodes"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardUpdatePreAuthorizationStatusResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardVoidPreAuthorizationRequest": {
+        "required": [
+          "CreditCardPreAuthorizationId"
+        ],
+        "type": "object",
+        "properties": {
+          "CreditCardPreAuthorizationId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardVoidPreAuthorizationResponse": {
+        "type": "object",
+        "properties": {
+          "PluginResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponse"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.OrderDeposit": {
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransactionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.ProcessCreditCardInfo": {
+        "type": "object",
+        "properties": {
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "OrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "Deal": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "Totals_Weekly_GrossTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Weekly_Discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Weekly_SubTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Weekly_Tax": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Weekly_GrandTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Period_GrossTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Period_Discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Period_SubTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Period_Tax": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Period_GrandTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Replacement_ReplacementCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Replacement_DepositPercentage": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Replacement_DepositDue": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "Totals_Replacement_PreAuthorization_RequiredAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Replacement_PreAuthorization_CurrentTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "Totals_Replacement_PreAuthorization_AmountDue": {
+            "type": "number",
+            "format": "double"
+          },
+          "Payment_TotalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Payment_AmountToPay": {
+            "type": "number",
+            "format": "double"
+          },
+          "PINPad_Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "PINPad_Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "AgentBarcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes": {
+        "enum": [
+          "Other",
+          "Amex",
+          "Visa",
+          "MasterCard",
+          "Discover"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.UpdatePreAuthorizationStatusCodes": {
+        "enum": [
+          "Approved",
+          "Declined",
+          "FraudDetected"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. (Don't add the prefix Bearer anymore).",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

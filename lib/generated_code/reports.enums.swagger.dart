@@ -5,6 +5,8 @@ enum FwStandardSqlServerFwDataTypes {
   swaggerGeneratedUnknown,
   @JsonValue('Text')
   text,
+  @JsonValue('NonTrimmableText')
+  nontrimmabletext,
   @JsonValue('Date')
   date,
   @JsonValue('Time')
@@ -53,6 +55,7 @@ enum FwStandardSqlServerFwDataTypes {
 
 const $FwStandardSqlServerFwDataTypesMap = {
   FwStandardSqlServerFwDataTypes.text: 'Text',
+  FwStandardSqlServerFwDataTypes.nontrimmabletext: 'NonTrimmableText',
   FwStandardSqlServerFwDataTypes.date: 'Date',
   FwStandardSqlServerFwDataTypes.time: 'Time',
   FwStandardSqlServerFwDataTypes.datetime: 'DateTime',

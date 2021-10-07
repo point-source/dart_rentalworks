@@ -104,6 +104,8 @@ final Map<Type, Object Function(Map<String, dynamic>)>
       FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
   FwStandardSqlServerFwJsonDataTableColumn:
       FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
+  WebApiLogicAppFuncConsignmentSettingsResponse:
+      WebApiLogicAppFuncConsignmentSettingsResponse.fromJsonFactory,
   WebApiLogicAppFuncCustomFieldsResponse:
       WebApiLogicAppFuncCustomFieldsResponse.fromJsonFactory,
   WebApiLogicAppFuncCustomFormModel:
@@ -645,6 +647,93 @@ extension $FwStandardSqlServerFwJsonDataTableColumnExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncConsignmentSettingsResponse {
+  WebApiLogicAppFuncConsignmentSettingsResponse({
+    this.enableConsignment,
+    this.defaultConsignorFeeBasedOn,
+    this.defaultConsignorPercent,
+    this.defaultHousePercent,
+    this.defaultTreatConsignedQtyAsOwned,
+  });
+
+  factory WebApiLogicAppFuncConsignmentSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncConsignmentSettingsResponseFromJson(json);
+
+  @JsonKey(name: 'EnableConsignment', includeIfNull: false)
+  final bool? enableConsignment;
+  @JsonKey(name: 'DefaultConsignorFeeBasedOn', includeIfNull: false)
+  final String? defaultConsignorFeeBasedOn;
+  @JsonKey(name: 'DefaultConsignorPercent', includeIfNull: false)
+  final int? defaultConsignorPercent;
+  @JsonKey(name: 'DefaultHousePercent', includeIfNull: false)
+  final int? defaultHousePercent;
+  @JsonKey(name: 'DefaultTreatConsignedQtyAsOwned', includeIfNull: false)
+  final bool? defaultTreatConsignedQtyAsOwned;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncConsignmentSettingsResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncConsignmentSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncConsignmentSettingsResponseToJson(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncConsignmentSettingsResponse &&
+            (identical(other.enableConsignment, enableConsignment) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableConsignment, enableConsignment)) &&
+            (identical(other.defaultConsignorFeeBasedOn,
+                    defaultConsignorFeeBasedOn) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultConsignorFeeBasedOn,
+                    defaultConsignorFeeBasedOn)) &&
+            (identical(
+                    other.defaultConsignorPercent, defaultConsignorPercent) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultConsignorPercent, defaultConsignorPercent)) &&
+            (identical(other.defaultHousePercent, defaultHousePercent) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultHousePercent, defaultHousePercent)) &&
+            (identical(other.defaultTreatConsignedQtyAsOwned,
+                    defaultTreatConsignedQtyAsOwned) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultTreatConsignedQtyAsOwned,
+                    defaultTreatConsignedQtyAsOwned)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(enableConsignment) ^
+      const DeepCollectionEquality().hash(defaultConsignorFeeBasedOn) ^
+      const DeepCollectionEquality().hash(defaultConsignorPercent) ^
+      const DeepCollectionEquality().hash(defaultHousePercent) ^
+      const DeepCollectionEquality().hash(defaultTreatConsignedQtyAsOwned) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiLogicAppFuncConsignmentSettingsResponseExtension
+    on WebApiLogicAppFuncConsignmentSettingsResponse {
+  WebApiLogicAppFuncConsignmentSettingsResponse copyWith(
+      {bool? enableConsignment,
+      String? defaultConsignorFeeBasedOn,
+      int? defaultConsignorPercent,
+      int? defaultHousePercent,
+      bool? defaultTreatConsignedQtyAsOwned}) {
+    return WebApiLogicAppFuncConsignmentSettingsResponse(
+        enableConsignment: enableConsignment ?? this.enableConsignment,
+        defaultConsignorFeeBasedOn:
+            defaultConsignorFeeBasedOn ?? this.defaultConsignorFeeBasedOn,
+        defaultConsignorPercent:
+            defaultConsignorPercent ?? this.defaultConsignorPercent,
+        defaultHousePercent: defaultHousePercent ?? this.defaultHousePercent,
+        defaultTreatConsignedQtyAsOwned: defaultTreatConsignedQtyAsOwned ??
+            this.defaultTreatConsignedQtyAsOwned);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiLogicAppFuncCustomFieldsResponse {
   WebApiLogicAppFuncCustomFieldsResponse({
     this.moduleNames,
@@ -828,6 +917,8 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
     this.defaultDealBillingCycle,
     this.defaultNonRecurringBillingCycleId,
     this.defaultNonRecurringBillingCycle,
+    this.defaultVendorBillingCycleId,
+    this.defaultVendorBillingCycle,
     this.defaultCustomerPaymentTermsId,
     this.defaultCustomerPaymentTerms,
     this.defaultRank,
@@ -864,6 +955,10 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
   final String? defaultNonRecurringBillingCycleId;
   @JsonKey(name: 'DefaultNonRecurringBillingCycle', includeIfNull: false)
   final String? defaultNonRecurringBillingCycle;
+  @JsonKey(name: 'DefaultVendorBillingCycleId', includeIfNull: false)
+  final String? defaultVendorBillingCycleId;
+  @JsonKey(name: 'DefaultVendorBillingCycle', includeIfNull: false)
+  final String? defaultVendorBillingCycle;
   @JsonKey(name: 'DefaultCustomerPaymentTermsId', includeIfNull: false)
   final String? defaultCustomerPaymentTermsId;
   @JsonKey(name: 'DefaultCustomerPaymentTerms', includeIfNull: false)
@@ -926,10 +1021,12 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
                 const DeepCollectionEquality().equals(
                     other.defaultNonRecurringBillingCycle,
                     defaultNonRecurringBillingCycle)) &&
-            (identical(other.defaultCustomerPaymentTermsId, defaultCustomerPaymentTermsId) ||
+            (identical(other.defaultVendorBillingCycleId, defaultVendorBillingCycleId) ||
                 const DeepCollectionEquality().equals(
-                    other.defaultCustomerPaymentTermsId,
-                    defaultCustomerPaymentTermsId)) &&
+                    other.defaultVendorBillingCycleId,
+                    defaultVendorBillingCycleId)) &&
+            (identical(other.defaultVendorBillingCycle, defaultVendorBillingCycle) || const DeepCollectionEquality().equals(other.defaultVendorBillingCycle, defaultVendorBillingCycle)) &&
+            (identical(other.defaultCustomerPaymentTermsId, defaultCustomerPaymentTermsId) || const DeepCollectionEquality().equals(other.defaultCustomerPaymentTermsId, defaultCustomerPaymentTermsId)) &&
             (identical(other.defaultCustomerPaymentTerms, defaultCustomerPaymentTerms) || const DeepCollectionEquality().equals(other.defaultCustomerPaymentTerms, defaultCustomerPaymentTerms)) &&
             (identical(other.defaultRank, defaultRank) || const DeepCollectionEquality().equals(other.defaultRank, defaultRank)) &&
             (identical(other.defaultCreditStatusId, defaultCreditStatusId) || const DeepCollectionEquality().equals(other.defaultCreditStatusId, defaultCreditStatusId)) &&
@@ -951,6 +1048,8 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
       const DeepCollectionEquality().hash(defaultDealBillingCycle) ^
       const DeepCollectionEquality().hash(defaultNonRecurringBillingCycleId) ^
       const DeepCollectionEquality().hash(defaultNonRecurringBillingCycle) ^
+      const DeepCollectionEquality().hash(defaultVendorBillingCycleId) ^
+      const DeepCollectionEquality().hash(defaultVendorBillingCycle) ^
       const DeepCollectionEquality().hash(defaultCustomerPaymentTermsId) ^
       const DeepCollectionEquality().hash(defaultCustomerPaymentTerms) ^
       const DeepCollectionEquality().hash(defaultRank) ^
@@ -975,6 +1074,8 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
       String? defaultDealBillingCycle,
       String? defaultNonRecurringBillingCycleId,
       String? defaultNonRecurringBillingCycle,
+      String? defaultVendorBillingCycleId,
+      String? defaultVendorBillingCycle,
       String? defaultCustomerPaymentTermsId,
       String? defaultCustomerPaymentTerms,
       String? defaultRank,
@@ -1001,6 +1102,10 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
             this.defaultNonRecurringBillingCycleId,
         defaultNonRecurringBillingCycle: defaultNonRecurringBillingCycle ??
             this.defaultNonRecurringBillingCycle,
+        defaultVendorBillingCycleId:
+            defaultVendorBillingCycleId ?? this.defaultVendorBillingCycleId,
+        defaultVendorBillingCycle:
+            defaultVendorBillingCycle ?? this.defaultVendorBillingCycle,
         defaultCustomerPaymentTermsId:
             defaultCustomerPaymentTermsId ?? this.defaultCustomerPaymentTermsId,
         defaultCustomerPaymentTerms:
@@ -1174,12 +1279,15 @@ class WebApiLogicAppFuncGetSettingsResponse {
     this.customForms,
     this.defaultSettings,
     this.inventorySettings,
+    this.consignmentSettings,
     this.systemSettings,
     this.department,
     this.documentBarcodeSettings,
     this.systemNumbers,
     this.warehouses,
     this.isTraining,
+    this.isQA,
+    this.hasDataWarehouse,
   });
 
   factory WebApiLogicAppFuncGetSettingsResponse.fromJson(
@@ -1196,6 +1304,8 @@ class WebApiLogicAppFuncGetSettingsResponse {
   final WebApiLogicAppFuncDefaultSettingsResponse? defaultSettings;
   @JsonKey(name: 'inventorySettings', includeIfNull: false)
   final WebApiLogicAppFuncInventorySettingsResponse? inventorySettings;
+  @JsonKey(name: 'consignmentSettings', includeIfNull: false)
+  final WebApiLogicAppFuncConsignmentSettingsResponse? consignmentSettings;
   @JsonKey(name: 'systemSettings', includeIfNull: false)
   final WebApiLogicAppFuncSystemSettingsResponse? systemSettings;
   @JsonKey(name: 'department', includeIfNull: false)
@@ -1209,6 +1319,10 @@ class WebApiLogicAppFuncGetSettingsResponse {
   final WebApiLogicAppFuncWarehouseResponse? warehouses;
   @JsonKey(name: 'isTraining', includeIfNull: false)
   final bool? isTraining;
+  @JsonKey(name: 'isQA', includeIfNull: false)
+  final bool? isQA;
+  @JsonKey(name: 'hasDataWarehouse', includeIfNull: false)
+  final bool? hasDataWarehouse;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncGetSettingsResponseFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncGetSettingsResponseToJson;
@@ -1234,6 +1348,9 @@ class WebApiLogicAppFuncGetSettingsResponse {
             (identical(other.inventorySettings, inventorySettings) ||
                 const DeepCollectionEquality()
                     .equals(other.inventorySettings, inventorySettings)) &&
+            (identical(other.consignmentSettings, consignmentSettings) ||
+                const DeepCollectionEquality()
+                    .equals(other.consignmentSettings, consignmentSettings)) &&
             (identical(other.systemSettings, systemSettings) ||
                 const DeepCollectionEquality()
                     .equals(other.systemSettings, systemSettings)) &&
@@ -1252,7 +1369,12 @@ class WebApiLogicAppFuncGetSettingsResponse {
                     .equals(other.warehouses, warehouses)) &&
             (identical(other.isTraining, isTraining) ||
                 const DeepCollectionEquality()
-                    .equals(other.isTraining, isTraining)));
+                    .equals(other.isTraining, isTraining)) &&
+            (identical(other.isQA, isQA) ||
+                const DeepCollectionEquality().equals(other.isQA, isQA)) &&
+            (identical(other.hasDataWarehouse, hasDataWarehouse) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasDataWarehouse, hasDataWarehouse)));
   }
 
   @override
@@ -1262,12 +1384,15 @@ class WebApiLogicAppFuncGetSettingsResponse {
       const DeepCollectionEquality().hash(customForms) ^
       const DeepCollectionEquality().hash(defaultSettings) ^
       const DeepCollectionEquality().hash(inventorySettings) ^
+      const DeepCollectionEquality().hash(consignmentSettings) ^
       const DeepCollectionEquality().hash(systemSettings) ^
       const DeepCollectionEquality().hash(department) ^
       const DeepCollectionEquality().hash(documentBarcodeSettings) ^
       const DeepCollectionEquality().hash(systemNumbers) ^
       const DeepCollectionEquality().hash(warehouses) ^
       const DeepCollectionEquality().hash(isTraining) ^
+      const DeepCollectionEquality().hash(isQA) ^
+      const DeepCollectionEquality().hash(hasDataWarehouse) ^
       runtimeType.hashCode;
 }
 
@@ -1279,26 +1404,32 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
       WebApiLogicAppFuncCustomFormsResponse? customForms,
       WebApiLogicAppFuncDefaultSettingsResponse? defaultSettings,
       WebApiLogicAppFuncInventorySettingsResponse? inventorySettings,
+      WebApiLogicAppFuncConsignmentSettingsResponse? consignmentSettings,
       WebApiLogicAppFuncSystemSettingsResponse? systemSettings,
       WebApiLogicAppFuncDepartmentActivitiesResponse? department,
       WebApiLogicAppFuncDocumentBarcodeSettingsResponse?
           documentBarcodeSettings,
       WebApiLogicAppFuncSystemNumbersResponse? systemNumbers,
       WebApiLogicAppFuncWarehouseResponse? warehouses,
-      bool? isTraining}) {
+      bool? isTraining,
+      bool? isQA,
+      bool? hasDataWarehouse}) {
     return WebApiLogicAppFuncGetSettingsResponse(
         userSettings: userSettings ?? this.userSettings,
         customFields: customFields ?? this.customFields,
         customForms: customForms ?? this.customForms,
         defaultSettings: defaultSettings ?? this.defaultSettings,
         inventorySettings: inventorySettings ?? this.inventorySettings,
+        consignmentSettings: consignmentSettings ?? this.consignmentSettings,
         systemSettings: systemSettings ?? this.systemSettings,
         department: department ?? this.department,
         documentBarcodeSettings:
             documentBarcodeSettings ?? this.documentBarcodeSettings,
         systemNumbers: systemNumbers ?? this.systemNumbers,
         warehouses: warehouses ?? this.warehouses,
-        isTraining: isTraining ?? this.isTraining);
+        isTraining: isTraining ?? this.isTraining,
+        isQA: isQA ?? this.isQA,
+        hasDataWarehouse: hasDataWarehouse ?? this.hasDataWarehouse);
   }
 }
 
@@ -1315,6 +1446,10 @@ class WebApiLogicAppFuncInventorySettingsResponse {
     this.defaultRentalSaleRetiredReason,
     this.defaultLossAndDamageRetiredReasonId,
     this.defaultLossAndDamageRetiredReason,
+    this.fixedAssetTransferFutureDepreciation,
+    this.defaultRentalQuantityInventoryCostCalculation,
+    this.defaultSalesQuantityInventoryCostCalculation,
+    this.defaultPartsQuantityInventoryCostCalculation,
   });
 
   factory WebApiLogicAppFuncInventorySettingsResponse.fromJson(
@@ -1342,6 +1477,20 @@ class WebApiLogicAppFuncInventorySettingsResponse {
   final String? defaultLossAndDamageRetiredReasonId;
   @JsonKey(name: 'DefaultLossAndDamageRetiredReason', includeIfNull: false)
   final String? defaultLossAndDamageRetiredReason;
+  @JsonKey(name: 'FixedAssetTransferFutureDepreciation', includeIfNull: false)
+  final bool? fixedAssetTransferFutureDepreciation;
+  @JsonKey(
+      name: 'DefaultRentalQuantityInventoryCostCalculation',
+      includeIfNull: false)
+  final String? defaultRentalQuantityInventoryCostCalculation;
+  @JsonKey(
+      name: 'DefaultSalesQuantityInventoryCostCalculation',
+      includeIfNull: false)
+  final String? defaultSalesQuantityInventoryCostCalculation;
+  @JsonKey(
+      name: 'DefaultPartsQuantityInventoryCostCalculation',
+      includeIfNull: false)
+  final String? defaultPartsQuantityInventoryCostCalculation;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncInventorySettingsResponseFromJson;
   static const toJsonFactory =
@@ -1362,8 +1511,7 @@ class WebApiLogicAppFuncInventorySettingsResponse {
             (identical(other.enable3WeekPricing, enable3WeekPricing) ||
                 const DeepCollectionEquality()
                     .equals(other.enable3WeekPricing, enable3WeekPricing)) &&
-            (identical(other.autoUpdateInventoryMetricImperialDimensions,
-                    autoUpdateInventoryMetricImperialDimensions) ||
+            (identical(other.autoUpdateInventoryMetricImperialDimensions, autoUpdateInventoryMetricImperialDimensions) ||
                 const DeepCollectionEquality().equals(
                     other.autoUpdateInventoryMetricImperialDimensions,
                     autoUpdateInventoryMetricImperialDimensions)) &&
@@ -1381,14 +1529,21 @@ class WebApiLogicAppFuncInventorySettingsResponse {
                 const DeepCollectionEquality().equals(
                     other.defaultRentalSaleRetiredReason,
                     defaultRentalSaleRetiredReason)) &&
-            (identical(other.defaultLossAndDamageRetiredReasonId,
-                    defaultLossAndDamageRetiredReasonId) ||
+            (identical(other.defaultLossAndDamageRetiredReasonId, defaultLossAndDamageRetiredReasonId) ||
                 const DeepCollectionEquality().equals(
                     other.defaultLossAndDamageRetiredReasonId,
                     defaultLossAndDamageRetiredReasonId)) &&
             (identical(other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason) ||
                 const DeepCollectionEquality().equals(
-                    other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason)));
+                    other.defaultLossAndDamageRetiredReason,
+                    defaultLossAndDamageRetiredReason)) &&
+            (identical(other.fixedAssetTransferFutureDepreciation, fixedAssetTransferFutureDepreciation) ||
+                const DeepCollectionEquality().equals(
+                    other.fixedAssetTransferFutureDepreciation,
+                    fixedAssetTransferFutureDepreciation)) &&
+            (identical(other.defaultRentalQuantityInventoryCostCalculation, defaultRentalQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultRentalQuantityInventoryCostCalculation, defaultRentalQuantityInventoryCostCalculation)) &&
+            (identical(other.defaultSalesQuantityInventoryCostCalculation, defaultSalesQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultSalesQuantityInventoryCostCalculation, defaultSalesQuantityInventoryCostCalculation)) &&
+            (identical(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation)));
   }
 
   @override
@@ -1404,6 +1559,14 @@ class WebApiLogicAppFuncInventorySettingsResponse {
       const DeepCollectionEquality().hash(defaultRentalSaleRetiredReason) ^
       const DeepCollectionEquality().hash(defaultLossAndDamageRetiredReasonId) ^
       const DeepCollectionEquality().hash(defaultLossAndDamageRetiredReason) ^
+      const DeepCollectionEquality()
+          .hash(fixedAssetTransferFutureDepreciation) ^
+      const DeepCollectionEquality()
+          .hash(defaultRentalQuantityInventoryCostCalculation) ^
+      const DeepCollectionEquality()
+          .hash(defaultSalesQuantityInventoryCostCalculation) ^
+      const DeepCollectionEquality()
+          .hash(defaultPartsQuantityInventoryCostCalculation) ^
       runtimeType.hashCode;
 }
 
@@ -1419,7 +1582,11 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
       String? defaultRentalSaleRetiredReasonId,
       String? defaultRentalSaleRetiredReason,
       String? defaultLossAndDamageRetiredReasonId,
-      String? defaultLossAndDamageRetiredReason}) {
+      String? defaultLossAndDamageRetiredReason,
+      bool? fixedAssetTransferFutureDepreciation,
+      String? defaultRentalQuantityInventoryCostCalculation,
+      String? defaultSalesQuantityInventoryCostCalculation,
+      String? defaultPartsQuantityInventoryCostCalculation}) {
     return WebApiLogicAppFuncInventorySettingsResponse(
         iCodeMask: iCodeMask ?? this.iCodeMask,
         userAssignedICodes: userAssignedICodes ?? this.userAssignedICodes,
@@ -1437,7 +1604,19 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
             defaultLossAndDamageRetiredReasonId ??
                 this.defaultLossAndDamageRetiredReasonId,
         defaultLossAndDamageRetiredReason: defaultLossAndDamageRetiredReason ??
-            this.defaultLossAndDamageRetiredReason);
+            this.defaultLossAndDamageRetiredReason,
+        fixedAssetTransferFutureDepreciation:
+            fixedAssetTransferFutureDepreciation ??
+                this.fixedAssetTransferFutureDepreciation,
+        defaultRentalQuantityInventoryCostCalculation:
+            defaultRentalQuantityInventoryCostCalculation ??
+                this.defaultRentalQuantityInventoryCostCalculation,
+        defaultSalesQuantityInventoryCostCalculation:
+            defaultSalesQuantityInventoryCostCalculation ??
+                this.defaultSalesQuantityInventoryCostCalculation,
+        defaultPartsQuantityInventoryCostCalculation:
+            defaultPartsQuantityInventoryCostCalculation ??
+                this.defaultPartsQuantityInventoryCostCalculation);
   }
 }
 
@@ -1547,6 +1726,8 @@ class WebApiLogicAppFuncSessionLocation {
     this.defaultcurrencyid,
     this.defaultcurrencycode,
     this.defaultcurrencysymbol,
+    this.defaulttaxoptionid,
+    this.defaulttaxoption,
     this.countryid,
     this.country,
     this.phone,
@@ -1579,6 +1760,10 @@ class WebApiLogicAppFuncSessionLocation {
   final String? defaultcurrencycode;
   @JsonKey(name: 'defaultcurrencysymbol', includeIfNull: false)
   final String? defaultcurrencysymbol;
+  @JsonKey(name: 'defaulttaxoptionid', includeIfNull: false)
+  final String? defaulttaxoptionid;
+  @JsonKey(name: 'defaulttaxoption', includeIfNull: false)
+  final String? defaulttaxoption;
   @JsonKey(name: 'countryid', includeIfNull: false)
   final String? countryid;
   @JsonKey(name: 'country', includeIfNull: false)
@@ -1629,6 +1814,12 @@ class WebApiLogicAppFuncSessionLocation {
             (identical(other.defaultcurrencysymbol, defaultcurrencysymbol) ||
                 const DeepCollectionEquality().equals(
                     other.defaultcurrencysymbol, defaultcurrencysymbol)) &&
+            (identical(other.defaulttaxoptionid, defaulttaxoptionid) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaulttaxoptionid, defaulttaxoptionid)) &&
+            (identical(other.defaulttaxoption, defaulttaxoption) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaulttaxoption, defaulttaxoption)) &&
             (identical(other.countryid, countryid) ||
                 const DeepCollectionEquality()
                     .equals(other.countryid, countryid)) &&
@@ -1657,6 +1848,8 @@ class WebApiLogicAppFuncSessionLocation {
       const DeepCollectionEquality().hash(defaultcurrencyid) ^
       const DeepCollectionEquality().hash(defaultcurrencycode) ^
       const DeepCollectionEquality().hash(defaultcurrencysymbol) ^
+      const DeepCollectionEquality().hash(defaulttaxoptionid) ^
+      const DeepCollectionEquality().hash(defaulttaxoption) ^
       const DeepCollectionEquality().hash(countryid) ^
       const DeepCollectionEquality().hash(country) ^
       const DeepCollectionEquality().hash(phone) ^
@@ -1678,6 +1871,8 @@ extension $WebApiLogicAppFuncSessionLocationExtension
       String? defaultcurrencyid,
       String? defaultcurrencycode,
       String? defaultcurrencysymbol,
+      String? defaulttaxoptionid,
+      String? defaulttaxoption,
       String? countryid,
       String? country,
       String? phone,
@@ -1695,6 +1890,8 @@ extension $WebApiLogicAppFuncSessionLocationExtension
         defaultcurrencycode: defaultcurrencycode ?? this.defaultcurrencycode,
         defaultcurrencysymbol:
             defaultcurrencysymbol ?? this.defaultcurrencysymbol,
+        defaulttaxoptionid: defaulttaxoptionid ?? this.defaulttaxoptionid,
+        defaulttaxoption: defaulttaxoption ?? this.defaulttaxoption,
         countryid: countryid ?? this.countryid,
         country: country ?? this.country,
         phone: phone ?? this.phone,
@@ -1741,6 +1938,7 @@ class WebApiLogicAppFuncSessionUser {
     this.enablecreatecontract,
     this.qsallowapplyallqtyitems,
     this.allowcontractwithexceptions,
+    this.canInsertIntoActiveOrder,
   });
 
   factory WebApiLogicAppFuncSessionUser.fromJson(Map<String, dynamic> json) =>
@@ -1816,6 +2014,8 @@ class WebApiLogicAppFuncSessionUser {
   final bool? qsallowapplyallqtyitems;
   @JsonKey(name: 'allowcontractwithexceptions', includeIfNull: false)
   final bool? allowcontractwithexceptions;
+  @JsonKey(name: 'CanInsertIntoActiveOrder', includeIfNull: false)
+  final bool? canInsertIntoActiveOrder;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionUserFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionUserToJson;
   Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionUserToJson(this);
@@ -1899,7 +2099,8 @@ class WebApiLogicAppFuncSessionUser {
             (identical(other.iscrew, iscrew) || const DeepCollectionEquality().equals(other.iscrew, iscrew)) &&
             (identical(other.enablecreatecontract, enablecreatecontract) || const DeepCollectionEquality().equals(other.enablecreatecontract, enablecreatecontract)) &&
             (identical(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems) || const DeepCollectionEquality().equals(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems)) &&
-            (identical(other.allowcontractwithexceptions, allowcontractwithexceptions) || const DeepCollectionEquality().equals(other.allowcontractwithexceptions, allowcontractwithexceptions)));
+            (identical(other.allowcontractwithexceptions, allowcontractwithexceptions) || const DeepCollectionEquality().equals(other.allowcontractwithexceptions, allowcontractwithexceptions)) &&
+            (identical(other.canInsertIntoActiveOrder, canInsertIntoActiveOrder) || const DeepCollectionEquality().equals(other.canInsertIntoActiveOrder, canInsertIntoActiveOrder)));
   }
 
   @override
@@ -1939,6 +2140,7 @@ class WebApiLogicAppFuncSessionUser {
       const DeepCollectionEquality().hash(enablecreatecontract) ^
       const DeepCollectionEquality().hash(qsallowapplyallqtyitems) ^
       const DeepCollectionEquality().hash(allowcontractwithexceptions) ^
+      const DeepCollectionEquality().hash(canInsertIntoActiveOrder) ^
       runtimeType.hashCode;
 }
 
@@ -1979,7 +2181,8 @@ extension $WebApiLogicAppFuncSessionUserExtension
       bool? iscrew,
       bool? enablecreatecontract,
       bool? qsallowapplyallqtyitems,
-      bool? allowcontractwithexceptions}) {
+      bool? allowcontractwithexceptions,
+      bool? canInsertIntoActiveOrder}) {
     return WebApiLogicAppFuncSessionUser(
         webusersid: webusersid ?? this.webusersid,
         usersid: usersid ?? this.usersid,
@@ -2031,7 +2234,9 @@ extension $WebApiLogicAppFuncSessionUserExtension
         qsallowapplyallqtyitems:
             qsallowapplyallqtyitems ?? this.qsallowapplyallqtyitems,
         allowcontractwithexceptions:
-            allowcontractwithexceptions ?? this.allowcontractwithexceptions);
+            allowcontractwithexceptions ?? this.allowcontractwithexceptions,
+        canInsertIntoActiveOrder:
+            canInsertIntoActiveOrder ?? this.canInsertIntoActiveOrder);
   }
 }
 
@@ -2046,6 +2251,7 @@ class WebApiLogicAppFuncSessionWarehouse {
     this.storagecontainerstagingenable,
     this.storagecontainerrescanrequired,
     this.quikreceiptenable,
+    this.transferavailabilitydays,
   });
 
   factory WebApiLogicAppFuncSessionWarehouse.fromJson(
@@ -2068,6 +2274,8 @@ class WebApiLogicAppFuncSessionWarehouse {
   final bool? storagecontainerrescanrequired;
   @JsonKey(name: 'quikreceiptenable', includeIfNull: false)
   final bool? quikreceiptenable;
+  @JsonKey(name: 'transferavailabilitydays', includeIfNull: false)
+  final int? transferavailabilitydays;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionWarehouseFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionWarehouseToJson;
   Map<String, dynamic> toJson() =>
@@ -2086,8 +2294,7 @@ class WebApiLogicAppFuncSessionWarehouse {
             (identical(other.warehousecode, warehousecode) ||
                 const DeepCollectionEquality()
                     .equals(other.warehousecode, warehousecode)) &&
-            (identical(other.promptforcheckoutexceptions,
-                    promptforcheckoutexceptions) ||
+            (identical(other.promptforcheckoutexceptions, promptforcheckoutexceptions) ||
                 const DeepCollectionEquality().equals(
                     other.promptforcheckoutexceptions,
                     promptforcheckoutexceptions)) &&
@@ -2107,7 +2314,10 @@ class WebApiLogicAppFuncSessionWarehouse {
                     storagecontainerrescanrequired)) &&
             (identical(other.quikreceiptenable, quikreceiptenable) ||
                 const DeepCollectionEquality()
-                    .equals(other.quikreceiptenable, quikreceiptenable)));
+                    .equals(other.quikreceiptenable, quikreceiptenable)) &&
+            (identical(other.transferavailabilitydays, transferavailabilitydays) ||
+                const DeepCollectionEquality()
+                    .equals(other.transferavailabilitydays, transferavailabilitydays)));
   }
 
   @override
@@ -2120,6 +2330,7 @@ class WebApiLogicAppFuncSessionWarehouse {
       const DeepCollectionEquality().hash(storagecontainerstagingenable) ^
       const DeepCollectionEquality().hash(storagecontainerrescanrequired) ^
       const DeepCollectionEquality().hash(quikreceiptenable) ^
+      const DeepCollectionEquality().hash(transferavailabilitydays) ^
       runtimeType.hashCode;
 }
 
@@ -2133,7 +2344,8 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
       bool? promptforcheckinexceptions,
       bool? storagecontainerstagingenable,
       bool? storagecontainerrescanrequired,
-      bool? quikreceiptenable}) {
+      bool? quikreceiptenable,
+      int? transferavailabilitydays}) {
     return WebApiLogicAppFuncSessionWarehouse(
         warehouseid: warehouseid ?? this.warehouseid,
         warehouse: warehouse ?? this.warehouse,
@@ -2146,7 +2358,9 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
             storagecontainerstagingenable ?? this.storagecontainerstagingenable,
         storagecontainerrescanrequired: storagecontainerrescanrequired ??
             this.storagecontainerrescanrequired,
-        quikreceiptenable: quikreceiptenable ?? this.quikreceiptenable);
+        quikreceiptenable: quikreceiptenable ?? this.quikreceiptenable,
+        transferavailabilitydays:
+            transferavailabilitydays ?? this.transferavailabilitydays);
   }
 }
 
@@ -2369,6 +2583,8 @@ class WebApiLogicAppFuncUserSettingsResponse {
     this.quikActivitySetting,
     this.favoritesJson,
     this.emailSignature,
+    this.availabilityPreference,
+    this.availabilityAllWarehouses,
   });
 
   factory WebApiLogicAppFuncUserSettingsResponse.fromJson(
@@ -2399,6 +2615,10 @@ class WebApiLogicAppFuncUserSettingsResponse {
   final String? favoritesJson;
   @JsonKey(name: 'EmailSignature', includeIfNull: false)
   final String? emailSignature;
+  @JsonKey(name: 'AvailabilityPreference', includeIfNull: false)
+  final String? availabilityPreference;
+  @JsonKey(name: 'AvailabilityAllWarehouses', includeIfNull: false)
+  final bool? availabilityAllWarehouses;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncUserSettingsResponseFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncUserSettingsResponseToJson;
@@ -2415,8 +2635,7 @@ class WebApiLogicAppFuncUserSettingsResponse {
             (identical(other.errorBase64Sound, errorBase64Sound) ||
                 const DeepCollectionEquality()
                     .equals(other.errorBase64Sound, errorBase64Sound)) &&
-            (identical(
-                    other.notificationBase64Sound, notificationBase64Sound) ||
+            (identical(other.notificationBase64Sound, notificationBase64Sound) ||
                 const DeepCollectionEquality().equals(
                     other.notificationBase64Sound, notificationBase64Sound)) &&
             (identical(other.webAdministrator, webAdministrator) ||
@@ -2447,7 +2666,11 @@ class WebApiLogicAppFuncUserSettingsResponse {
                     .equals(other.favoritesJson, favoritesJson)) &&
             (identical(other.emailSignature, emailSignature) ||
                 const DeepCollectionEquality()
-                    .equals(other.emailSignature, emailSignature)));
+                    .equals(other.emailSignature, emailSignature)) &&
+            (identical(other.availabilityPreference, availabilityPreference) ||
+                const DeepCollectionEquality()
+                    .equals(other.availabilityPreference, availabilityPreference)) &&
+            (identical(other.availabilityAllWarehouses, availabilityAllWarehouses) || const DeepCollectionEquality().equals(other.availabilityAllWarehouses, availabilityAllWarehouses)));
   }
 
   @override
@@ -2464,6 +2687,8 @@ class WebApiLogicAppFuncUserSettingsResponse {
       const DeepCollectionEquality().hash(quikActivitySetting) ^
       const DeepCollectionEquality().hash(favoritesJson) ^
       const DeepCollectionEquality().hash(emailSignature) ^
+      const DeepCollectionEquality().hash(availabilityPreference) ^
+      const DeepCollectionEquality().hash(availabilityAllWarehouses) ^
       runtimeType.hashCode;
 }
 
@@ -2481,7 +2706,9 @@ extension $WebApiLogicAppFuncUserSettingsResponseExtension
       bool? mainMenuPinned,
       String? quikActivitySetting,
       String? favoritesJson,
-      String? emailSignature}) {
+      String? emailSignature,
+      String? availabilityPreference,
+      bool? availabilityAllWarehouses}) {
     return WebApiLogicAppFuncUserSettingsResponse(
         successBase64Sound: successBase64Sound ?? this.successBase64Sound,
         errorBase64Sound: errorBase64Sound ?? this.errorBase64Sound,
@@ -2497,7 +2724,11 @@ extension $WebApiLogicAppFuncUserSettingsResponseExtension
         mainMenuPinned: mainMenuPinned ?? this.mainMenuPinned,
         quikActivitySetting: quikActivitySetting ?? this.quikActivitySetting,
         favoritesJson: favoritesJson ?? this.favoritesJson,
-        emailSignature: emailSignature ?? this.emailSignature);
+        emailSignature: emailSignature ?? this.emailSignature,
+        availabilityPreference:
+            availabilityPreference ?? this.availabilityPreference,
+        availabilityAllWarehouses:
+            availabilityAllWarehouses ?? this.availabilityAllWarehouses);
   }
 }
 

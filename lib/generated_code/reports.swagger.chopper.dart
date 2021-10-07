@@ -668,6 +668,637 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardReportingFwReportRenderResponse>>
+      consignedinventoryorderhistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final $url = '/consignedinventoryorderhistoryreport/render';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignedinventoryorderhistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest?
+              body}) {
+    final $url = '/consignedinventoryorderhistoryreport/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+      consignedinventoryorderhistoryreportRunreportPost(
+          {required WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest?
+              body}) {
+    final $url = '/consignedinventoryorderhistoryreport/runreport';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validateinventorytype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validatecategory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validatewarehouse/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validateinventory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validatesubcategory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignedinventoryorderhistoryreport/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportEmptyobjectGet() {
+    final $url = '/consignedinventoryorderhistoryreport/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportPreviewGet() {
+    final $url = '/consignedinventoryorderhistoryreport/preview';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      consignedinventoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final $url = '/consignedinventoryreport/render';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignedinventoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest?
+              body}) {
+    final $url = '/consignedinventoryreport/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> consignedinventoryreportRunreportPost(
+      {required WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest?
+          body}) {
+    final $url = '/consignedinventoryreport/runreport';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validateinventorytype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validatecategory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validatewarehouse/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validateinventory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validatesubcategory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignedinventoryreport/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportEmptyobjectGet() {
+    final $url = '/consignedinventoryreport/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportPreviewGet() {
+    final $url = '/consignedinventoryreport/preview';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      consignorinventorystatusandlocationreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final $url = '/consignorinventorystatusandlocationreport/render';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignorinventorystatusandlocationreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest?
+              body}) {
+    final $url = '/consignorinventorystatusandlocationreport/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+      consignorinventorystatusandlocationreportRunreportPost(
+          {required WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest?
+              body}) {
+    final $url = '/consignorinventorystatusandlocationreport/runreport';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignorinventorystatusandlocationreport/validatewarehouse/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignorinventorystatusandlocationreport/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url =
+        '/consignorinventorystatusandlocationreport/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportEmptyobjectGet() {
+    final $url = '/consignorinventorystatusandlocationreport/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportPreviewGet() {
+    final $url = '/consignorinventorystatusandlocationreport/preview';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      consignoritemsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final $url = '/consignoritemsreport/render';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignoritemsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest?
+              body}) {
+    final $url = '/consignoritemsreport/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> consignoritemsreportRunreportPost(
+      {required WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest?
+          body}) {
+    final $url = '/consignoritemsreport/runreport';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignoritemsreport/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignoritemsreport/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportEmptyobjectGet() {
+    final $url = '/consignoritemsreport/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportPreviewGet() {
+    final $url = '/consignoritemsreport/preview';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      consignorsettlementreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final $url = '/consignorsettlementreport/render';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignorsettlementreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest?
+              body}) {
+    final $url = '/consignorsettlementreport/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> consignorsettlementreportRunreportPost(
+      {required WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest?
+          body}) {
+    final $url = '/consignorsettlementreport/runreport';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignorsettlementreport/validateofficelocation/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignorsettlementreport/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignorsettlementreport/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportEmptyobjectGet() {
+    final $url = '/consignorsettlementreport/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportPreviewGet() {
+    final $url = '/consignorsettlementreport/preview';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      consignorstatementreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final $url = '/consignorstatementreport/render';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignorstatementreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest?
+              body}) {
+    final $url = '/consignorstatementreport/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> consignorstatementreportRunreportPost(
+      {required WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest?
+          body}) {
+    final $url = '/consignorstatementreport/runreport';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignorstatementreport/validateofficelocation/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignorstatementreport/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/consignorstatementreport/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportEmptyobjectGet() {
+    final $url = '/consignorstatementreport/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportPreviewGet() {
+    final $url = '/consignorstatementreport/preview';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
       containerpackinglistRenderPost(
           {required FwStandardReportingFwReportRenderRequest? body}) {
     final $url = '/containerpackinglist/render';

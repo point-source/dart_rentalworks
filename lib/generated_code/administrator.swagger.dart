@@ -651,6 +651,83 @@ abstract class Administrator extends ChopperService {
   Future<chopper.Response> custommoduleKeyfieldnamesGet();
 
   ///
+  @Post(path: '/customreportcss/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportcssBrowsePost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  @Post(path: '/customreportcss/exportexcelxlsx')
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customreportcssExportexcelxlsxPost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  @Get(path: '/customreportcss')
+  Future<
+          chopper.Response<
+              List<
+                  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>>
+      customreportcssGet(
+          {@Query('pageno') int? pageno,
+          @Query('pagesize') int? pagesize,
+          @Query('sort') String? sort});
+
+  ///
+  @Post(path: '/customreportcss')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssPost(
+          {@Body()
+              required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+                  body});
+
+  ///
+  ///@param id
+  @Get(path: '/customreportcss/{id}')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  @Put(path: '/customreportcss/{id}')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssIdPut(
+          {@Path('id')
+              required String? id,
+          @Body()
+              required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+                  body});
+
+  ///
+  ///@param id
+  @Delete(path: '/customreportcss/{id}')
+  Future<chopper.Response<bool>> customreportcssIdDelete(
+      {@Path('id') required String? id});
+
+  ///Get an empty object
+  @Get(path: '/customreportcss/emptyobject')
+  Future<chopper.Response> customreportcssEmptyobjectGet();
+
+  ///Get an empty browse object
+  @Get(path: '/customreportcss/emptybrowseobject')
+  Future<chopper.Response> customreportcssEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  @Get(path: '/customreportcss/keyfieldnames')
+  Future<chopper.Response> customreportcssKeyfieldnamesGet();
+
+  ///
   @Post(path: '/customreportlayout/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       customreportlayoutBrowsePost(
@@ -724,6 +801,12 @@ abstract class Administrator extends ChopperService {
               WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse>>
       customreportlayoutTemplateReportGet(
           {@Path('report') required String? report});
+
+  ///
+  @Post(path: '/customreportlayout/validatecustomcss/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutValidatecustomcssBrowsePost(
+          {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
   @Get(path: '/customreportlayout/emptyobject')
@@ -1755,6 +1838,17 @@ abstract class Administrator extends ChopperService {
       {@Path('id') required String? id});
 
   ///
+  ///@param id
+  @Post(
+      path: '/user/createusersalesrepresentativecontact/{id}',
+      optionalBody: true)
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>>
+      userCreateusersalesrepresentativecontactIdPost(
+          {@Path('id') required String? id});
+
+  ///
   @Post(path: '/user/validategroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       userValidategroupBrowsePost(
@@ -2251,6 +2345,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
   FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic:
       FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
           .fromJsonFactory,
+  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic:
+      FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
+          .fromJsonFactory,
   FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic:
       FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
           .fromJsonFactory,
@@ -2346,6 +2443,9 @@ final Map<Type, Object Function(Map<String, dynamic>)>
           .fromJsonFactory,
   WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog:
       WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
+          .fromJsonFactory,
+  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse:
+      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
           .fromJsonFactory,
   WebApiModulesAdministratorUserUser:
       WebApiModulesAdministratorUserUser.fromJsonFactory,
@@ -5441,6 +5541,7 @@ class FwStandardModulesAdministratorAlertAlertLogic {
     this.inactive,
     this.alertConditionList,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -5477,6 +5578,8 @@ class FwStandardModulesAdministratorAlertAlertLogic {
       alertConditionList;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -5538,6 +5641,9 @@ class FwStandardModulesAdministratorAlertAlertLogic {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -5563,6 +5669,7 @@ class FwStandardModulesAdministratorAlertAlertLogic {
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(alertConditionList) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -5585,6 +5692,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
       List<FwStandardModulesAdministratorAlertAlertCondition>?
           alertConditionList,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -5601,6 +5709,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
         inactive: inactive ?? this.inactive,
         alertConditionList: alertConditionList ?? this.alertConditionList,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -5619,6 +5728,7 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
     this.fieldName2,
     this.value,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -5644,6 +5754,8 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
   final String? value;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -5693,6 +5805,9 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -5714,6 +5829,7 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
       const DeepCollectionEquality().hash(fieldName2) ^
       const DeepCollectionEquality().hash(value) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -5731,6 +5847,7 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
       String? fieldName2,
       String? value,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -5743,6 +5860,7 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
         fieldName2: fieldName2 ?? this.fieldName2,
         value: value ?? this.value,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -5762,6 +5880,7 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
     this.userName,
     this.email,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -5789,6 +5908,8 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
   final String? email;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -5840,6 +5961,9 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -5862,6 +5986,7 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -5880,6 +6005,7 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
       String? userName,
       String? email,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -5893,6 +6019,157 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
         userName: userName ?? this.userName,
         email: email ?? this.email,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
+        recordTitle: recordTitle ?? this.recordTitle,
+        fields: fields ?? this.fields,
+        custom: custom ?? this.custom,
+        defaultFieldAttributes:
+            defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
+  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic({
+    this.customReportCssId,
+    this.description,
+    this.css,
+    this.isGlobal,
+    this.inactive,
+    this.active,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+  });
+
+  factory FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic.fromJson(
+          Map<String, dynamic> json) =>
+      _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicFromJson(
+          json);
+
+  @JsonKey(name: 'CustomReportCssId', includeIfNull: false)
+  final int? customReportCssId;
+  @JsonKey(name: 'Description', includeIfNull: false)
+  final String? description;
+  @JsonKey(name: 'Css', includeIfNull: false)
+  final String? css;
+  @JsonKey(name: 'IsGlobal', includeIfNull: false)
+  final bool? isGlobal;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'Active', includeIfNull: false)
+  final bool? active;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(
+      name: '_Fields',
+      includeIfNull: false,
+      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+      name: '_DefaultFieldAttributes',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  static const fromJsonFactory =
+      _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicFromJson;
+  static const toJsonFactory =
+      _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic &&
+            (identical(other.customReportCssId, customReportCssId) ||
+                const DeepCollectionEquality()
+                    .equals(other.customReportCssId, customReportCssId)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
+            (identical(other.css, css) ||
+                const DeepCollectionEquality().equals(other.css, css)) &&
+            (identical(other.isGlobal, isGlobal) ||
+                const DeepCollectionEquality()
+                    .equals(other.isGlobal, isGlobal)) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality()
+                    .equals(other.inactive, inactive)) &&
+            (identical(other.active, active) ||
+                const DeepCollectionEquality().equals(other.active, active)) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.recordTitle, recordTitle)) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultFieldAttributes, defaultFieldAttributes)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(customReportCssId) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(css) ^
+      const DeepCollectionEquality().hash(isGlobal) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicExtension
+    on FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
+  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic copyWith(
+      {int? customReportCssId,
+      String? description,
+      String? css,
+      bool? isGlobal,
+      bool? inactive,
+      bool? active,
+      String? dateStamp,
+      String? auditNote,
+      String? recordTitle,
+      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+      List<FwStandardDataFwCustomValue>? custom,
+      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic(
+        customReportCssId: customReportCssId ?? this.customReportCssId,
+        description: description ?? this.description,
+        css: css ?? this.css,
+        isGlobal: isGlobal ?? this.isGlobal,
+        inactive: inactive ?? this.inactive,
+        active: active ?? this.active,
+        dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -5911,10 +6188,15 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
     this.description,
     this.category,
     this.html,
+    this.customReportCssIds,
+    this.customReportCssDescriptions,
+    this.customReportCssRules,
+    this.customReportGlobalCssRules,
     this.active,
     this.inactive,
     this.assignTo,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -5940,6 +6222,14 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
   final String? category;
   @JsonKey(name: 'Html', includeIfNull: false)
   final String? html;
+  @JsonKey(name: 'CustomReportCssIds', includeIfNull: false)
+  final String? customReportCssIds;
+  @JsonKey(name: 'CustomReportCssDescriptions', includeIfNull: false)
+  final String? customReportCssDescriptions;
+  @JsonKey(name: 'CustomReportCssRules', includeIfNull: false)
+  final String? customReportCssRules;
+  @JsonKey(name: 'CustomReportGlobalCssRules', includeIfNull: false)
+  final String? customReportGlobalCssRules;
   @JsonKey(name: 'Active', includeIfNull: false)
   final bool? active;
   @JsonKey(name: 'Inactive', includeIfNull: false)
@@ -5948,6 +6238,8 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
   final String? assignTo;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -5997,6 +6289,20 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
                     .equals(other.category, category)) &&
             (identical(other.html, html) ||
                 const DeepCollectionEquality().equals(other.html, html)) &&
+            (identical(other.customReportCssIds, customReportCssIds) ||
+                const DeepCollectionEquality()
+                    .equals(other.customReportCssIds, customReportCssIds)) &&
+            (identical(other.customReportCssDescriptions, customReportCssDescriptions) ||
+                const DeepCollectionEquality().equals(
+                    other.customReportCssDescriptions,
+                    customReportCssDescriptions)) &&
+            (identical(other.customReportCssRules, customReportCssRules) ||
+                const DeepCollectionEquality().equals(
+                    other.customReportCssRules, customReportCssRules)) &&
+            (identical(other.customReportGlobalCssRules, customReportGlobalCssRules) ||
+                const DeepCollectionEquality().equals(
+                    other.customReportGlobalCssRules,
+                    customReportGlobalCssRules)) &&
             (identical(other.active, active) ||
                 const DeepCollectionEquality().equals(other.active, active)) &&
             (identical(other.inactive, inactive) ||
@@ -6005,19 +6311,12 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
             (identical(other.assignTo, assignTo) ||
                 const DeepCollectionEquality()
                     .equals(other.assignTo, assignTo)) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateStamp, dateStamp)) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.recordTitle, recordTitle)) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)));
+            (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
+            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -6029,10 +6328,15 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(html) ^
+      const DeepCollectionEquality().hash(customReportCssIds) ^
+      const DeepCollectionEquality().hash(customReportCssDescriptions) ^
+      const DeepCollectionEquality().hash(customReportCssRules) ^
+      const DeepCollectionEquality().hash(customReportGlobalCssRules) ^
       const DeepCollectionEquality().hash(active) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(assignTo) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -6051,10 +6355,15 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
           String? description,
           String? category,
           String? html,
+          String? customReportCssIds,
+          String? customReportCssDescriptions,
+          String? customReportCssRules,
+          String? customReportGlobalCssRules,
           bool? active,
           bool? inactive,
           String? assignTo,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -6067,10 +6376,17 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
         description: description ?? this.description,
         category: category ?? this.category,
         html: html ?? this.html,
+        customReportCssIds: customReportCssIds ?? this.customReportCssIds,
+        customReportCssDescriptions:
+            customReportCssDescriptions ?? this.customReportCssDescriptions,
+        customReportCssRules: customReportCssRules ?? this.customReportCssRules,
+        customReportGlobalCssRules:
+            customReportGlobalCssRules ?? this.customReportGlobalCssRules,
         active: active ?? this.active,
         inactive: inactive ?? this.inactive,
         assignTo: assignTo ?? this.assignTo,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -6092,6 +6408,7 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
     this.ruleNameColor,
     this.considerBlanks,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.$fields,
     this.custom,
@@ -6123,6 +6440,8 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
   final bool? considerBlanks;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -6181,6 +6500,9 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -6206,6 +6528,7 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
       const DeepCollectionEquality().hash(ruleNameColor) ^
       const DeepCollectionEquality().hash(considerBlanks) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash($fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -6226,6 +6549,7 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
       String? ruleNameColor,
       bool? considerBlanks,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? $fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -6241,6 +6565,7 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
         ruleNameColor: ruleNameColor ?? this.ruleNameColor,
         considerBlanks: considerBlanks ?? this.considerBlanks,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         $fields: $fields ?? this.$fields,
         custom: custom ?? this.custom,
@@ -6261,6 +6586,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
     this.bodyFormat,
     this.emailType,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -6290,6 +6616,8 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
   final String? emailType;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -6346,6 +6674,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -6369,6 +6700,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
       const DeepCollectionEquality().hash(bodyFormat) ^
       const DeepCollectionEquality().hash(emailType) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -6388,6 +6720,7 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
       String? bodyFormat,
       String? emailType,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -6402,6 +6735,7 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
         bodyFormat: bodyFormat ?? this.bodyFormat,
         emailType: emailType ?? this.emailType,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -6554,6 +6888,7 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
     this.status,
     this.errorMessage,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -6584,6 +6919,8 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
   final String? errorMessage;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -6641,6 +6978,9 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -6665,6 +7005,7 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(errorMessage) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -6685,6 +7026,7 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
       String? status,
       String? errorMessage,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -6700,6 +7042,7 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
         status: status ?? this.status,
         errorMessage: errorMessage ?? this.errorMessage,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -6721,6 +7064,7 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
     this.userName,
     this.json,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -6752,6 +7096,8 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
   final String? json;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -6808,6 +7154,9 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -6832,6 +7181,7 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(json) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -6852,6 +7202,7 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
       String? userName,
       String? json,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -6867,6 +7218,7 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
         userName: userName ?? this.userName,
         json: json ?? this.json,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -7352,6 +7704,7 @@ class WebApiModulesAdministratorCustomFieldCustomField {
     this.stringLength,
     this.floatDecimalDigits,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -7382,6 +7735,8 @@ class WebApiModulesAdministratorCustomFieldCustomField {
   final int? floatDecimalDigits;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -7440,6 +7795,9 @@ class WebApiModulesAdministratorCustomFieldCustomField {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -7464,6 +7822,7 @@ class WebApiModulesAdministratorCustomFieldCustomField {
       const DeepCollectionEquality().hash(stringLength) ^
       const DeepCollectionEquality().hash(floatDecimalDigits) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -7484,6 +7843,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
       int? stringLength,
       int? floatDecimalDigits,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -7499,6 +7859,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
         stringLength: stringLength ?? this.stringLength,
         floatDecimalDigits: floatDecimalDigits ?? this.floatDecimalDigits,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -7521,6 +7882,7 @@ class WebApiModulesAdministratorCustomFormCustomForm {
     this.assignTo,
     this.selfAssign,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -7553,6 +7915,8 @@ class WebApiModulesAdministratorCustomFormCustomForm {
   final bool? selfAssign;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -7612,6 +7976,9 @@ class WebApiModulesAdministratorCustomFormCustomForm {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -7637,6 +8004,7 @@ class WebApiModulesAdministratorCustomFormCustomForm {
       const DeepCollectionEquality().hash(assignTo) ^
       const DeepCollectionEquality().hash(selfAssign) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -7658,6 +8026,7 @@ extension $WebApiModulesAdministratorCustomFormCustomFormExtension
       String? assignTo,
       bool? selfAssign,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -7674,6 +8043,7 @@ extension $WebApiModulesAdministratorCustomFormCustomFormExtension
         assignTo: assignTo ?? this.assignTo,
         selfAssign: selfAssign ?? this.selfAssign,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -7686,6 +8056,8 @@ extension $WebApiModulesAdministratorCustomFormCustomFormExtension
 class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse {
   WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse({
     this.reportTemplate,
+    this.webpackReportCss,
+    this.reportCss,
   });
 
   factory WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse.fromJson(
@@ -7695,6 +8067,10 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
 
   @JsonKey(name: 'ReportTemplate', includeIfNull: false)
   final String? reportTemplate;
+  @JsonKey(name: 'WebpackReportCss', includeIfNull: false)
+  final String? webpackReportCss;
+  @JsonKey(name: 'ReportCss', includeIfNull: false)
+  final String? reportCss;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseFromJson;
   static const toJsonFactory =
@@ -7709,21 +8085,34 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
         (other is WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse &&
             (identical(other.reportTemplate, reportTemplate) ||
                 const DeepCollectionEquality()
-                    .equals(other.reportTemplate, reportTemplate)));
+                    .equals(other.reportTemplate, reportTemplate)) &&
+            (identical(other.webpackReportCss, webpackReportCss) ||
+                const DeepCollectionEquality()
+                    .equals(other.webpackReportCss, webpackReportCss)) &&
+            (identical(other.reportCss, reportCss) ||
+                const DeepCollectionEquality()
+                    .equals(other.reportCss, reportCss)));
   }
 
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(reportTemplate) ^
+      const DeepCollectionEquality().hash(webpackReportCss) ^
+      const DeepCollectionEquality().hash(reportCss) ^
       runtimeType.hashCode;
 }
 
 extension $WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponseExtension
     on WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse {
   WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
-      copyWith({String? reportTemplate}) {
+      copyWith(
+          {String? reportTemplate,
+          String? webpackReportCss,
+          String? reportCss}) {
     return WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse(
-        reportTemplate: reportTemplate ?? this.reportTemplate);
+        reportTemplate: reportTemplate ?? this.reportTemplate,
+        webpackReportCss: webpackReportCss ?? this.webpackReportCss,
+        reportCss: reportCss ?? this.reportCss);
   }
 }
 
@@ -7740,6 +8129,7 @@ class WebApiModulesAdministratorDataHealthDataHealth {
     this.notes,
     this.resolved,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -7770,6 +8160,8 @@ class WebApiModulesAdministratorDataHealthDataHealth {
   final bool? resolved;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -7826,6 +8218,9 @@ class WebApiModulesAdministratorDataHealthDataHealth {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -7850,6 +8245,7 @@ class WebApiModulesAdministratorDataHealthDataHealth {
       const DeepCollectionEquality().hash(notes) ^
       const DeepCollectionEquality().hash(resolved) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -7870,6 +8266,7 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
       String? notes,
       bool? resolved,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -7885,6 +8282,7 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
         notes: notes ?? this.notes,
         resolved: resolved ?? this.resolved,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -7910,6 +8308,7 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
     this.title,
     this.relatedToId,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -7948,6 +8347,8 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
   final String? relatedToId;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -8016,6 +8417,9 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -8044,6 +8448,7 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(relatedToId) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -8068,6 +8473,7 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
       String? title,
       String? relatedToId,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -8087,6 +8493,7 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
         title: title ?? this.title,
         relatedToId: relatedToId ?? this.relatedToId,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -8106,6 +8513,7 @@ class WebApiModulesAdministratorGroupGroup {
     this.isMyGroup,
     this.groupColor,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -8132,6 +8540,8 @@ class WebApiModulesAdministratorGroupGroup {
   final String? groupColor;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -8182,6 +8592,9 @@ class WebApiModulesAdministratorGroupGroup {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -8204,6 +8617,7 @@ class WebApiModulesAdministratorGroupGroup {
       const DeepCollectionEquality().hash(isMyGroup) ^
       const DeepCollectionEquality().hash(groupColor) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -8222,6 +8636,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
       bool? isMyGroup,
       String? groupColor,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -8236,6 +8651,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
         isMyGroup: isMyGroup ?? this.isMyGroup,
         groupColor: groupColor ?? this.groupColor,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -8253,6 +8669,7 @@ class WebApiModulesAdministratorHotfixHotfix {
     this.hotfixBegin,
     this.hotfixEnd,
     this.hotfixSeconds,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -8275,6 +8692,8 @@ class WebApiModulesAdministratorHotfixHotfix {
   final String? hotfixEnd;
   @JsonKey(name: 'HotfixSeconds', includeIfNull: false)
   final double? hotfixSeconds;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -8320,6 +8739,9 @@ class WebApiModulesAdministratorHotfixHotfix {
             (identical(other.hotfixSeconds, hotfixSeconds) ||
                 const DeepCollectionEquality()
                     .equals(other.hotfixSeconds, hotfixSeconds)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -8340,6 +8762,7 @@ class WebApiModulesAdministratorHotfixHotfix {
       const DeepCollectionEquality().hash(hotfixBegin) ^
       const DeepCollectionEquality().hash(hotfixEnd) ^
       const DeepCollectionEquality().hash(hotfixSeconds) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -8356,6 +8779,7 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
       String? hotfixBegin,
       String? hotfixEnd,
       double? hotfixSeconds,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -8367,6 +8791,7 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
         hotfixBegin: hotfixBegin ?? this.hotfixBegin,
         hotfixEnd: hotfixEnd ?? this.hotfixEnd,
         hotfixSeconds: hotfixSeconds ?? this.hotfixSeconds,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -8383,6 +8808,7 @@ class WebApiModulesAdministratorPluginPlugin {
     this.description,
     this.settings,
     this.inactive,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -8403,6 +8829,8 @@ class WebApiModulesAdministratorPluginPlugin {
   final String? settings;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -8445,6 +8873,9 @@ class WebApiModulesAdministratorPluginPlugin {
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality()
                     .equals(other.inactive, inactive)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -8464,6 +8895,7 @@ class WebApiModulesAdministratorPluginPlugin {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(settings) ^
       const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -8479,6 +8911,7 @@ extension $WebApiModulesAdministratorPluginPluginExtension
       String? description,
       String? settings,
       bool? inactive,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -8489,6 +8922,7 @@ extension $WebApiModulesAdministratorPluginPluginExtension
         description: description ?? this.description,
         settings: settings ?? this.settings,
         inactive: inactive ?? this.inactive,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -9216,6 +9650,7 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
     this.toVersion,
     this.errorMessage,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -9243,6 +9678,8 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
   final String? errorMessage;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -9296,6 +9733,9 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -9318,6 +9758,7 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
       const DeepCollectionEquality().hash(toVersion) ^
       const DeepCollectionEquality().hash(errorMessage) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -9336,6 +9777,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
       String? toVersion,
       String? errorMessage,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -9350,6 +9792,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
         toVersion: toVersion ?? this.toVersion,
         errorMessage: errorMessage ?? this.errorMessage,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -9365,6 +9808,7 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
     this.systemUpdateHistoryId,
     this.messsage,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -9384,6 +9828,8 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
   final String? messsage;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -9427,6 +9873,9 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -9445,6 +9894,7 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
       const DeepCollectionEquality().hash(systemUpdateHistoryId) ^
       const DeepCollectionEquality().hash(messsage) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -9460,6 +9910,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
           int? systemUpdateHistoryId,
           String? messsage,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -9471,6 +9922,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
             systemUpdateHistoryId ?? this.systemUpdateHistoryId,
         messsage: messsage ?? this.messsage,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -9480,9 +9932,77 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse {
+  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse({
+    this.contactId,
+    this.status,
+    this.success,
+    this.msg,
+  });
+
+  factory WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseFromJson(
+          json);
+
+  @JsonKey(name: 'ContactId', includeIfNull: false)
+  final String? contactId;
+  @JsonKey(name: 'status', includeIfNull: false)
+  final int? status;
+  @JsonKey(name: 'success', includeIfNull: false)
+  final bool? success;
+  @JsonKey(name: 'msg', includeIfNull: false)
+  final String? msg;
+  static const fromJsonFactory =
+      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseFromJson;
+  static const toJsonFactory =
+      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseToJson(
+          this);
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse &&
+            (identical(other.contactId, contactId) ||
+                const DeepCollectionEquality()
+                    .equals(other.contactId, contactId)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality()
+                    .equals(other.success, success)) &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
+  }
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contactId) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseExtension
+    on WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse {
+  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
+      copyWith({String? contactId, int? status, bool? success, String? msg}) {
+    return WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse(
+        contactId: contactId ?? this.contactId,
+        status: status ?? this.status,
+        success: success ?? this.success,
+        msg: msg ?? this.msg);
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesAdministratorUserUser {
   WebApiModulesAdministratorUserUser({
     this.userId,
+    this.contactId,
     this.name,
     this.loginName,
     this.fullName,
@@ -9587,6 +10107,7 @@ class WebApiModulesAdministratorUserUser {
     this.memo,
     this.allowCrossLocationEditAndDelete,
     this.lastLoggedOn,
+    this.disableInsertIntoActiveOrder,
     this.inactive,
     this.dateStamp,
     this.webUserId,
@@ -9611,6 +10132,9 @@ class WebApiModulesAdministratorUserUser {
     this.webQuoteRequest,
     this.emailSignature,
     this.locale,
+    this.availabilityPreference,
+    this.availabilityAllWarehouses,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -9623,6 +10147,8 @@ class WebApiModulesAdministratorUserUser {
 
   @JsonKey(name: 'UserId', includeIfNull: false)
   final String? userId;
+  @JsonKey(name: 'ContactId', includeIfNull: false)
+  final String? contactId;
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(name: 'LoginName', includeIfNull: false)
@@ -9847,6 +10373,8 @@ class WebApiModulesAdministratorUserUser {
   final bool? allowCrossLocationEditAndDelete;
   @JsonKey(name: 'LastLoggedOn', includeIfNull: false)
   final String? lastLoggedOn;
+  @JsonKey(name: 'DisableInsertIntoActiveOrder', includeIfNull: false)
+  final bool? disableInsertIntoActiveOrder;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -9895,6 +10423,12 @@ class WebApiModulesAdministratorUserUser {
   final String? emailSignature;
   @JsonKey(name: 'Locale', includeIfNull: false)
   final String? locale;
+  @JsonKey(name: 'AvailabilityPreference', includeIfNull: false)
+  final String? availabilityPreference;
+  @JsonKey(name: 'AvailabilityAllWarehouses', includeIfNull: false)
+  final bool? availabilityAllWarehouses;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -9923,6 +10457,9 @@ class WebApiModulesAdministratorUserUser {
         (other is WebApiModulesAdministratorUserUser &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.contactId, contactId) ||
+                const DeepCollectionEquality()
+                    .equals(other.contactId, contactId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.loginName, loginName) ||
@@ -9984,10 +10521,8 @@ class WebApiModulesAdministratorUserUser {
             (identical(other.address2, address2) ||
                 const DeepCollectionEquality()
                     .equals(other.address2, address2)) &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)) &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.city, city) || const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.state, state) || const DeepCollectionEquality().equals(other.state, state)) &&
             (identical(other.zipCode, zipCode) || const DeepCollectionEquality().equals(other.zipCode, zipCode)) &&
             (identical(other.countryId, countryId) || const DeepCollectionEquality().equals(other.countryId, countryId)) &&
             (identical(other.country, country) || const DeepCollectionEquality().equals(other.country, country)) &&
@@ -10069,6 +10604,7 @@ class WebApiModulesAdministratorUserUser {
             (identical(other.memo, memo) || const DeepCollectionEquality().equals(other.memo, memo)) &&
             (identical(other.allowCrossLocationEditAndDelete, allowCrossLocationEditAndDelete) || const DeepCollectionEquality().equals(other.allowCrossLocationEditAndDelete, allowCrossLocationEditAndDelete)) &&
             (identical(other.lastLoggedOn, lastLoggedOn) || const DeepCollectionEquality().equals(other.lastLoggedOn, lastLoggedOn)) &&
+            (identical(other.disableInsertIntoActiveOrder, disableInsertIntoActiveOrder) || const DeepCollectionEquality().equals(other.disableInsertIntoActiveOrder, disableInsertIntoActiveOrder)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.webUserId, webUserId) || const DeepCollectionEquality().equals(other.webUserId, webUserId)) &&
@@ -10093,6 +10629,9 @@ class WebApiModulesAdministratorUserUser {
             (identical(other.webQuoteRequest, webQuoteRequest) || const DeepCollectionEquality().equals(other.webQuoteRequest, webQuoteRequest)) &&
             (identical(other.emailSignature, emailSignature) || const DeepCollectionEquality().equals(other.emailSignature, emailSignature)) &&
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.availabilityPreference, availabilityPreference) || const DeepCollectionEquality().equals(other.availabilityPreference, availabilityPreference)) &&
+            (identical(other.availabilityAllWarehouses, availabilityAllWarehouses) || const DeepCollectionEquality().equals(other.availabilityAllWarehouses, availabilityAllWarehouses)) &&
+            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
@@ -10102,6 +10641,7 @@ class WebApiModulesAdministratorUserUser {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(contactId) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(loginName) ^
       const DeepCollectionEquality().hash(fullName) ^
@@ -10216,6 +10756,7 @@ class WebApiModulesAdministratorUserUser {
       const DeepCollectionEquality().hash(memo) ^
       const DeepCollectionEquality().hash(allowCrossLocationEditAndDelete) ^
       const DeepCollectionEquality().hash(lastLoggedOn) ^
+      const DeepCollectionEquality().hash(disableInsertIntoActiveOrder) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(webUserId) ^
@@ -10240,6 +10781,9 @@ class WebApiModulesAdministratorUserUser {
       const DeepCollectionEquality().hash(webQuoteRequest) ^
       const DeepCollectionEquality().hash(emailSignature) ^
       const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(availabilityPreference) ^
+      const DeepCollectionEquality().hash(availabilityAllWarehouses) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -10251,6 +10795,7 @@ extension $WebApiModulesAdministratorUserUserExtension
     on WebApiModulesAdministratorUserUser {
   WebApiModulesAdministratorUserUser copyWith(
       {String? userId,
+      String? contactId,
       String? name,
       String? loginName,
       String? fullName,
@@ -10355,6 +10900,7 @@ extension $WebApiModulesAdministratorUserUserExtension
       String? memo,
       bool? allowCrossLocationEditAndDelete,
       String? lastLoggedOn,
+      bool? disableInsertIntoActiveOrder,
       bool? inactive,
       String? dateStamp,
       String? webUserId,
@@ -10379,12 +10925,16 @@ extension $WebApiModulesAdministratorUserUserExtension
       bool? webQuoteRequest,
       String? emailSignature,
       String? locale,
+      String? availabilityPreference,
+      bool? availabilityAllWarehouses,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
       List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
     return WebApiModulesAdministratorUserUser(
         userId: userId ?? this.userId,
+        contactId: contactId ?? this.contactId,
         name: name ?? this.name,
         loginName: loginName ?? this.loginName,
         fullName: fullName ?? this.fullName,
@@ -10515,6 +11065,7 @@ extension $WebApiModulesAdministratorUserUserExtension
         memo: memo ?? this.memo,
         allowCrossLocationEditAndDelete: allowCrossLocationEditAndDelete ?? this.allowCrossLocationEditAndDelete,
         lastLoggedOn: lastLoggedOn ?? this.lastLoggedOn,
+        disableInsertIntoActiveOrder: disableInsertIntoActiveOrder ?? this.disableInsertIntoActiveOrder,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         webUserId: webUserId ?? this.webUserId,
@@ -10539,6 +11090,9 @@ extension $WebApiModulesAdministratorUserUserExtension
         webQuoteRequest: webQuoteRequest ?? this.webQuoteRequest,
         emailSignature: emailSignature ?? this.emailSignature,
         locale: locale ?? this.locale,
+        availabilityPreference: availabilityPreference ?? this.availabilityPreference,
+        availabilityAllWarehouses: availabilityAllWarehouses ?? this.availabilityAllWarehouses,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -10606,6 +11160,7 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
     this.groupId,
     this.groupName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -10629,6 +11184,8 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
   final String? groupName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -10676,6 +11233,9 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -10696,6 +11256,7 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
       const DeepCollectionEquality().hash(groupId) ^
       const DeepCollectionEquality().hash(groupName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -10712,6 +11273,7 @@ extension $WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupExten
       String? groupId,
       String? groupName,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -10724,6 +11286,7 @@ extension $WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupExten
         groupId: groupId ?? this.groupId,
         groupName: groupName ?? this.groupName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -10742,6 +11305,7 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
     this.userId,
     this.userName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -10767,6 +11331,8 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
   final String? userName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -10816,6 +11382,9 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -10837,6 +11406,7 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -10854,6 +11424,7 @@ extension $WebApiModulesAdministratorControlsCustomFormUserCustomFormUserExtensi
       String? userId,
       String? userName,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -10867,6 +11438,7 @@ extension $WebApiModulesAdministratorControlsCustomFormUserCustomFormUserExtensi
         userId: userId ?? this.userId,
         userName: userName ?? this.userName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -10879,6 +11451,7 @@ extension $WebApiModulesAdministratorControlsCustomFormUserCustomFormUserExtensi
 class WebApiModulesAdministratorControlsCustomModuleCustomModule {
   WebApiModulesAdministratorControlsCustomModuleCustomModule({
     this.moduleName,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -10892,6 +11465,8 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
 
   @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -10923,6 +11498,9 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
             (identical(other.moduleName, moduleName) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleName, moduleName)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -10938,6 +11516,7 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(moduleName) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -10949,12 +11528,14 @@ extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
     on WebApiModulesAdministratorControlsCustomModuleCustomModule {
   WebApiModulesAdministratorControlsCustomModuleCustomModule copyWith(
       {String? moduleName,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
       List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
     return WebApiModulesAdministratorControlsCustomModuleCustomModule(
         moduleName: moduleName ?? this.moduleName,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -10972,6 +11553,7 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
     this.groupId,
     this.groupName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -10995,6 +11577,8 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
   final String? groupName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -11031,8 +11615,7 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
             (identical(other.customReportLayoutId, customReportLayoutId) ||
                 const DeepCollectionEquality().equals(
                     other.customReportLayoutId, customReportLayoutId)) &&
-            (identical(other.customReportLayoutDescription,
-                    customReportLayoutDescription) ||
+            (identical(other.customReportLayoutDescription, customReportLayoutDescription) ||
                 const DeepCollectionEquality().equals(
                     other.customReportLayoutDescription,
                     customReportLayoutDescription)) &&
@@ -11045,6 +11628,9 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -11065,6 +11651,7 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
       const DeepCollectionEquality().hash(groupId) ^
       const DeepCollectionEquality().hash(groupName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -11082,6 +11669,7 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
           String? groupId,
           String? groupName,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -11095,6 +11683,7 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
         groupId: groupId ?? this.groupId,
         groupName: groupName ?? this.groupName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -11110,6 +11699,7 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
     this.duplicateRuleId,
     this.fieldName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -11129,6 +11719,8 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
   final String? fieldName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -11170,6 +11762,9 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -11188,6 +11783,7 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
       const DeepCollectionEquality().hash(duplicateRuleId) ^
       const DeepCollectionEquality().hash(fieldName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -11203,6 +11799,7 @@ extension $WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFiel
           String? duplicateRuleId,
           String? fieldName,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -11212,6 +11809,7 @@ extension $WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFiel
         duplicateRuleId: duplicateRuleId ?? this.duplicateRuleId,
         fieldName: fieldName ?? this.fieldName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -11229,6 +11827,7 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
     this.groupId,
     this.groupName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -11251,6 +11850,8 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
   final String? groupName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -11297,6 +11898,9 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -11317,6 +11921,7 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
       const DeepCollectionEquality().hash(groupId) ^
       const DeepCollectionEquality().hash(groupName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -11333,6 +11938,7 @@ extension $WebApiModulesSettingsWidgetGroupWidgetGroupExtension
       String? groupId,
       String? groupName,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -11344,6 +11950,7 @@ extension $WebApiModulesSettingsWidgetGroupWidgetGroupExtension
         groupId: groupId ?? this.groupId,
         groupName: groupName ?? this.groupName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -11362,6 +11969,7 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
     this.userId,
     this.userName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -11386,6 +11994,8 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
   final String? userName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -11434,6 +12044,9 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -11455,6 +12068,7 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -11472,6 +12086,7 @@ extension $WebApiModulesSettingsWidgetUserWidgetUserExtension
       String? userId,
       String? userName,
       String? dateStamp,
+      String? auditNote,
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
@@ -11484,6 +12099,7 @@ extension $WebApiModulesSettingsWidgetUserWidgetUserExtension
         userId: userId ?? this.userId,
         userName: userName ?? this.userName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
@@ -11502,6 +12118,7 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
     this.userId,
     this.userName,
     this.dateStamp,
+    this.auditNote,
     this.recordTitle,
     this.fields,
     this.custom,
@@ -11527,6 +12144,8 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
   final String? userName;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   @JsonKey(
@@ -11578,6 +12197,9 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
             (identical(other.recordTitle, recordTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.recordTitle, recordTitle)) &&
@@ -11586,8 +12208,7 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
             (identical(other.custom, custom) ||
                 const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)));
+                const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
 
   @override
@@ -11599,6 +12220,7 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
@@ -11617,6 +12239,7 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
           String? userId,
           String? userName,
           String? dateStamp,
+          String? auditNote,
           String? recordTitle,
           List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
           List<FwStandardDataFwCustomValue>? custom,
@@ -11631,6 +12254,7 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
         userId: userId ?? this.userId,
         userName: userName ?? this.userName,
         dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,

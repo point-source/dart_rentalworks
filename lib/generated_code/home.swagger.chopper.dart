@@ -597,15 +597,25 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesBillingBillingCreateInvoiceEstimateResponse>>
-      billingCreateinvoiceestimatePost(
-          {required WebApiModulesBillingBillingCreateInvoiceEstimateRequest?
-              body}) {
-    final $url = '/billing/createinvoiceestimate';
+  Future<Response<WebApiModulesBillingBillingCreateEstimateResponse>>
+      billingCreateestimatePost(
+          {required WebApiModulesBillingBillingCreateEstimateRequest? body}) {
+    final $url = '/billing/createestimate';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<WebApiModulesBillingBillingCreateInvoiceEstimateResponse,
-        WebApiModulesBillingBillingCreateInvoiceEstimateResponse>($request);
+    return client.send<WebApiModulesBillingBillingCreateEstimateResponse,
+        WebApiModulesBillingBillingCreateEstimateResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingBillingCreateInvoiceResponse>>
+      billingCreateinvoicePost(
+          {required WebApiModulesBillingBillingCreateInvoiceRequest? body}) {
+    final $url = '/billing/createinvoice';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiModulesBillingBillingCreateInvoiceResponse,
+        WebApiModulesBillingBillingCreateInvoiceResponse>($request);
   }
 
   @override
@@ -1042,6 +1052,13 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> checkedinitemLegendGet() {
+    final $url = '/checkedinitem/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<Response<dynamic>> checkedinitemEmptyobjectGet() {
     final $url = '/checkedinitem/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -1279,6 +1296,13 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> checkinCheckinquantityitemLegendGet() {
+    final $url = '/checkin/checkinquantityitem/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<Response<dynamic>> checkinEmptyobjectGet() {
     final $url = '/checkin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -1323,6 +1347,13 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
+  }
+
+  @override
+  Future<Response<Object>> checkinexceptionLegendGet() {
+    final $url = '/checkinexception/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
   }
 
   @override
@@ -1752,6 +1783,56 @@ class _$Home extends Home {
     return client.send<
         WebApiModulesWarehouseCheckOutUpdatePickupLocationResponse,
         WebApiModulesWarehouseCheckOutUpdatePickupLocationResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderUserCanInsertResponse>>
+      checkoutUsercanaddtoorderGet({String? orderid}) {
+    final $url = '/checkout/usercanaddtoorder';
+    final $params = <String, dynamic>{'orderid': orderid};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<WebApiModulesAgentOrderUserCanInsertResponse,
+        WebApiModulesAgentOrderUserCanInsertResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      checkoutStageconsignmentitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/checkout/stageconsignmentitem/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<Object>> checkoutStageconsignmentitemLegendGet() {
+    final $url = '/checkout/stageconsignmentitem/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      checkoutStageconsignmentitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/checkout/stageconsignmentitem/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> checkoutStageconsignmentitemEmptyobjectGet() {
+    final $url = '/checkout/stageconsignmentitem/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -5259,21 +5340,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<
-          Response<
-              WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse>>
-      dealcreditRefundPost(
-          {required WebApiModulesBillingReceiptCreditCardRefundRequest? body}) {
-    final $url = '/dealcredit/refund';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<
-            WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse,
-            WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse>(
-        $request);
-  }
-
-  @override
   Future<Response<dynamic>> dealcreditEmptyobjectGet() {
     final $url = '/dealcredit/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -6453,6 +6519,22 @@ class _$Home extends Home {
   @override
   Future<
           Response<
+              WebApiModulesHomeControlsInventoryAvailabilityMinAvailabilityResponse>>
+      inventoryavailabilityGetinventoryminimumavailablePost(
+          {required WebApiModulesHomeControlsInventoryAvailabilityAvailabilityInventoryWarehouseRequest?
+              body}) {
+    final $url = '/inventoryavailability/getinventoryminimumavailable';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            WebApiModulesHomeControlsInventoryAvailabilityMinAvailabilityResponse,
+            WebApiModulesHomeControlsInventoryAvailabilityMinAvailabilityResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
               WebApiModulesHomeControlsInventoryAvailabilityTInventoryAvailabilityCalendarAndScheduleResponse>>
       inventoryavailabilityCalendarandscheduledataPost(
           {required WebApiModulesHomeControlsInventoryAvailabilityAvailabilityCalendarAndScheduleRequest?
@@ -6481,6 +6563,19 @@ class _$Home extends Home {
             List<
                 WebApiModulesHomeControlsInventoryAvailabilityAvailabilityConflictResponseItem>,
             WebApiModulesHomeControlsInventoryAvailabilityAvailabilityConflictResponseItem>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>>
+      inventoryavailabilityPrunecachePost() {
+    final $url = '/inventoryavailability/prunecache';
+    final $request = Request('POST', $url, client.baseUrl);
+    return client.send<
+            WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse,
+            WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>(
         $request);
   }
 
@@ -6789,6 +6884,13 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> inventorycompletekitLegendGet() {
+    final $url = '/inventorycompletekit/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKitLogic>>
@@ -6867,6 +6969,13 @@ class _$Home extends Home {
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<Object>> inventoryconsignorLegendGet() {
+    final $url = '/inventoryconsignor/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
   }
 
   @override
@@ -7194,6 +7303,115 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> inventorylocationtaxKeyfieldnamesGet() {
     final $url = '/inventorylocationtax/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validatewarehouse/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validateinventorytype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validatecategory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validatesubcategory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidaterentalinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validaterentalinventory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidatesalesinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validatesalesinventory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidatepartsinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validatepartsinventory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorylocationutilityValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/inventorylocationutility/validateinventory/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> inventorylocationutilityEmptyobjectGet() {
+    final $url = '/inventorylocationutility/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> inventorylocationutilityEmptybrowseobjectGet() {
+    final $url = '/inventorylocationutility/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> inventorylocationutilityKeyfieldnamesGet() {
+    final $url = '/inventorylocationutility/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
@@ -9263,6 +9481,18 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesHomeControlsInvoiceOrderInvoiceOrder>>
+      invoiceorderIdPut(
+          {required String? id,
+          required WebApiModulesHomeControlsInvoiceOrderInvoiceOrder? body}) {
+    final $url = '/invoiceorder/$id';
+    final $body = body;
+    final $request = Request('PUT', $url, client.baseUrl, body: $body);
+    return client.send<WebApiModulesHomeControlsInvoiceOrderInvoiceOrder,
+        WebApiModulesHomeControlsInvoiceOrderInvoiceOrder>($request);
+  }
+
+  @override
   Future<Response<dynamic>> invoiceorderEmptyobjectGet() {
     final $url = '/invoiceorder/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -9872,6 +10102,17 @@ class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      itemGldistributionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/item/gldistribution/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       itemValidateconditionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/item/validatecondition/browse';
@@ -10457,6 +10698,389 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatedepartment/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatedeal/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateratetypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateratetype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateordertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateordertype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateagent/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateprojectmanagerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateprojectmanager/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateoutsidesalesrepresentativeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateoutsidesalesrepresentative/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatemarkettypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatemarkettype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatemarketsegmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatemarketsegment/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateordergroupBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateordergroup/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatemarketsegmentjobBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatemarketsegmentjob/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatecoverletterBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatecoverletter/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatetermsconditionsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatetermsconditions/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatebillingcycleBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatebillingcycle/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatepaymenttermsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatepaymentterms/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatepaymenttypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatepaymenttype/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatecurrencyBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatecurrency/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatetaxoptionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatetaxoption/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatediscountreasonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatediscountreason/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateissuedtocountryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateissuedtocountry/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateoutdeliverycarrierBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateoutdeliverycarrier/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateoutdeliveryshipviaBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateoutdeliveryshipvia/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateindeliverycarrierBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateindeliverycarrier/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateindeliveryshipviaBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateindeliveryshipvia/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateoutdeliverytocountryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateoutdeliverytocountry/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateindeliverytocountryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateindeliverytocountry/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateofficelocation/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatewarehouse/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidatebilltocountryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validatebilltocountry/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsDepartmentLocationDepartmentLocation>>
+      orderDepartmentDepartmentidLocationLocationidGet(
+          {required String? departmentid, required String? locationid}) {
+    final $url = '/order/department/$departmentid/location/$locationid';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<
+        WebApiModulesSettingsDepartmentLocationDepartmentLocation,
+        WebApiModulesSettingsDepartmentLocationDepartmentLocation>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsOrderSettingsOrderTypeOrderType>>
+      orderOrdertypeOrdertypeidGet({required String? ordertypeid}) {
+    final $url = '/order/ordertype/$ordertypeid';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<WebApiModulesSettingsOrderSettingsOrderTypeOrderType,
+        WebApiModulesSettingsOrderSettingsOrderTypeOrderType>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderOrdertypelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/ordertypelocation/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderValidateorderlocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/order/validateorderlocation/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderCreateInvoiceResponse>>
+      orderOrderidCreateinvoicePost(
+          {required String? orderid,
+          required WebApiModulesAgentOrderCreateInvoiceRequest? body}) {
+    final $url = '/order/$orderid/createinvoice';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<WebApiModulesAgentOrderCreateInvoiceResponse,
+        WebApiModulesAgentOrderCreateInvoiceResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderUserCanInsertResponse>>
+      orderUsercaninsertGet({String? orderid}) {
+    final $url = '/order/usercaninsert';
+    final $params = <String, dynamic>{'orderid': orderid};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<WebApiModulesAgentOrderUserCanInsertResponse,
+        WebApiModulesAgentOrderUserCanInsertResponse>($request);
+  }
+
+  @override
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderItemOrderItemLogic>>
@@ -10954,9 +11578,10 @@ class _$Home extends Home {
 
   @override
   Future<Response<WebApiModulesAgentOrderOrderMessagesResponse>>
-      orderIdMessagesGet({required String? id}) {
-    final $url = '/order/$id/messages';
-    final $request = Request('GET', $url, client.baseUrl);
+      orderMessagesGet({String? orderId, String? dealId}) {
+    final $url = '/order/messages';
+    final $params = <String, dynamic>{'orderId': orderId, 'dealId': dealId};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<WebApiModulesAgentOrderOrderMessagesResponse,
         WebApiModulesAgentOrderOrderMessagesResponse>($request);
   }
@@ -11011,393 +11636,6 @@ class _$Home extends Home {
     final $request = Request('PUT', $url, client.baseUrl, body: $body);
     return client.send<WebApiModulesAgentOrderOrder,
         WebApiModulesAgentOrderOrder>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatedepartmentBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatedepartment/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatedealBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatedeal/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateratetypeBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateratetype/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateordertypeBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateordertype/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateagentBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateagent/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateprojectmanagerBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateprojectmanager/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateoutsidesalesrepresentativeBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateoutsidesalesrepresentative/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatemarkettypeBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatemarkettype/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatemarketsegmentBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatemarketsegment/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateordergroupBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateordergroup/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatemarketsegmentjobBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatemarketsegmentjob/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatecoverletterBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatecoverletter/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatetermsconditionsBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatetermsconditions/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatebillingcycleBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatebillingcycle/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatepaymenttermsBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatepaymentterms/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatepaymenttypeBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatepaymenttype/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatecurrencyBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatecurrency/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatetaxoptionBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatetaxoption/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatediscountreasonBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatediscountreason/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateissuedtocountryBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateissuedtocountry/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateoutdeliverycarrierBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateoutdeliverycarrier/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateoutdeliveryshipviaBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateoutdeliveryshipvia/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateindeliverycarrierBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateindeliverycarrier/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateindeliveryshipviaBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateindeliveryshipvia/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateoutdeliverytocountryBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateoutdeliverytocountry/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateindeliverytocountryBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateindeliverytocountry/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateofficelocationBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateofficelocation/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatewarehouseBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatewarehouse/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidatebilltocountryBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validatebilltocountry/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsDepartmentLocationDepartmentLocation>>
-      orderDepartmentDepartmentidLocationLocationidGet(
-          {required String? departmentid, required String? locationid}) {
-    final $url = '/order/department/$departmentid/location/$locationid';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<
-        WebApiModulesSettingsDepartmentLocationDepartmentLocation,
-        WebApiModulesSettingsDepartmentLocationDepartmentLocation>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsOrderSettingsOrderTypeOrderType>>
-      orderOrdertypeOrdertypeidGet({required String? ordertypeid}) {
-    final $url = '/order/ordertype/$ordertypeid';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<WebApiModulesSettingsOrderSettingsOrderTypeOrderType,
-        WebApiModulesSettingsOrderSettingsOrderTypeOrderType>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderOrdertypelocationBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/ordertypelocation/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      orderValidateorderlocationBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/order/validateorderlocation/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesPluginsProcessCreditCardProcessCreditCardInfo>>
-      orderReceiptProcesscreditcardinfoIdGet({required String? id}) {
-    final $url = '/order/receipt/processcreditcardinfo/$id';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<
-        WebApiModulesPluginsProcessCreditCardProcessCreditCardInfo,
-        WebApiModulesPluginsProcessCreditCardProcessCreditCardInfo>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse>>
-      orderReceiptCreditcarddepletingdepositPost(
-          {required WebApiModulesBillingReceiptCreditCardDepletingDepositRequest?
-              body}) {
-    final $url = '/order/receipt/creditcarddepletingdeposit';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<
-            WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse,
-            WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse>(
-        $request);
   }
 
   @override
@@ -12052,6 +12290,55 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderitemValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/orderitem/validateconsignor/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderitemValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/orderitem/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      orderitemValidatecostorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/orderitem/validatecostorder/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsResponse>>
+      orderitemUpdatecostorderPost(
+          {required WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsRequest?
+              body}) {
+    final $url = '/orderitem/updatecostorder';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsResponse,
+            WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsResponse>(
+        $request);
+  }
+
+  @override
   Future<Response<dynamic>> orderitemEmptyobjectGet() {
     final $url = '/orderitem/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -12462,6 +12749,14 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> orderstatusdetailLegendOrdertypeGet(
+      {required String? orderType}) {
+    final $url = '/orderstatusdetail/legend/{ordertype}';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<Response<dynamic>> orderstatusdetailEmptyobjectGet() {
     final $url = '/orderstatusdetail/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -12592,6 +12887,14 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> orderstatussummaryLegendOrdertypeGet(
+      {required String? orderType}) {
+    final $url = '/orderstatussummary/legend/{ordertype}';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<
           Response<
               List<
@@ -12631,12 +12934,17 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderSummaryOrderSummary>>
-      ordersummaryIdGet({required String? id}) {
-    final $url = '/ordersummary/$id';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<WebApiModulesHomeControlsOrderSummaryOrderSummary,
-        WebApiModulesHomeControlsOrderSummaryOrderSummary>($request);
+  Future<Response<WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse>>
+      ordersummaryGet({String? orderid, String? totaltype}) {
+    final $url = '/ordersummary';
+    final $params = <String, dynamic>{
+      'orderid': orderid,
+      'totaltype': totaltype
+    };
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<
+        WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse,
+        WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse>($request);
   }
 
   @override
@@ -14529,6 +14837,13 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> picklistitemLegendGet() {
+    final $url = '/picklistitem/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPickListItemPickListItemLogic>>
@@ -14620,6 +14935,13 @@ class _$Home extends Home {
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<Object>> picklistutilityitemLegendGet() {
+    final $url = '/picklistutilityitem/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
   }
 
   @override
@@ -15713,9 +16035,10 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<Object>> purchaseorderLegendGet() {
+  Future<Response<Object>> purchaseorderLegendGet({bool? fromOrder}) {
     final $url = '/purchaseorder/legend';
-    final $request = Request('GET', $url, client.baseUrl);
+    final $params = <String, dynamic>{'fromOrder': fromOrder};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<Object, Object>($request);
   }
 
@@ -16043,6 +16366,28 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderOrdertypelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/purchaseorder/ordertypelocation/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/purchaseorder/validateconsignoragreement/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
   Future<Response<dynamic>> purchaseorderEmptyobjectGet() {
     final $url = '/purchaseorder/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
@@ -16059,6 +16404,53 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> purchaseorderKeyfieldnamesGet() {
     final $url = '/purchaseorder/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderconsignorfeeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/purchaseorderconsignorfee/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      purchaseorderconsignorfeeExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/purchaseorderconsignorfee/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> purchaseorderconsignorfeeEmptyobjectGet() {
+    final $url = '/purchaseorderconsignorfee/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> purchaseorderconsignorfeeEmptybrowseobjectGet() {
+    final $url = '/purchaseorderconsignorfee/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> purchaseorderconsignorfeeKeyfieldnamesGet() {
+    final $url = '/purchaseorderconsignorfee/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
@@ -16260,6 +16652,13 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<Object>> purchaseorderreceiveitemLegendGet() {
+    final $url = '/purchaseorderreceiveitem/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
@@ -16427,17 +16826,6 @@ class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderstatusValidatewarehouseBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final $url = '/purchaseorderstatus/validatewarehouse/browse';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       purchaseorderstatusValidatepurchaseorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/purchaseorderstatus/validatepurchaseorder/browse';
@@ -16485,6 +16873,17 @@ class _$Home extends Home {
       purchaseorderstatusValidateicodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/purchaseorderstatus/validateicode/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderstatusValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/purchaseorderstatus/validatewarehouse/browse';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<FwStandardSqlServerFwJsonDataTable,
@@ -17204,9 +17603,10 @@ class _$Home extends Home {
 
   @override
   Future<Response<WebApiModulesAgentOrderOrderMessagesResponse>>
-      quoteIdMessagesGet({required String? id}) {
-    final $url = '/quote/$id/messages';
-    final $request = Request('GET', $url, client.baseUrl);
+      quoteMessagesGet({String? quoteId, String? dealId}) {
+    final $url = '/quote/messages';
+    final $params = <String, dynamic>{'quoteId': quoteId, 'dealId': dealId};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<WebApiModulesAgentOrderOrderMessagesResponse,
         WebApiModulesAgentOrderOrderMessagesResponse>($request);
   }
@@ -17889,22 +18289,6 @@ class _$Home extends Home {
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<WebApiModulesBillingReceiptReceipt,
         WebApiModulesBillingReceiptReceipt>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse>>
-      receiptCreditcarddepletingdepositPost(
-          {required WebApiModulesBillingReceiptCreditCardDepletingDepositRequest?
-              body}) {
-    final $url = '/receipt/creditcarddepletingdeposit';
-    final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<
-            WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse,
-            WebApiModulesPluginsProcessCreditCardProcessCreditCardPaymentResponse>(
-        $request);
   }
 
   @override
@@ -19123,6 +19507,13 @@ class _$Home extends Home {
             WebApiModulesHomeControlsLossAndDamageCreateLossAndDamageOrderFromRepairResponse,
             WebApiModulesHomeControlsLossAndDamageCreateLossAndDamageOrderFromRepairResponse>(
         $request);
+  }
+
+  @override
+  Future<Response<Object>> repairLegendGet() {
+    final $url = '/repair/legend';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<Object, Object>($request);
   }
 
   @override
@@ -21039,21 +21430,29 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesTransfersTransferOrderTransferOrder>>
+  Future<
+          Response<
+              WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>>
       transferorderCancelIdPost({required String? id}) {
     final $url = '/transferorder/cancel/$id';
     final $request = Request('POST', $url, client.baseUrl);
-    return client.send<WebApiModulesTransfersTransferOrderTransferOrder,
-        WebApiModulesTransfersTransferOrderTransferOrder>($request);
+    return client.send<
+            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse,
+            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>(
+        $request);
   }
 
   @override
-  Future<Response<WebApiModulesTransfersTransferOrderTransferOrder>>
+  Future<
+          Response<
+              WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>>
       transferorderUncancelIdPost({required String? id}) {
     final $url = '/transferorder/uncancel/$id';
     final $request = Request('POST', $url, client.baseUrl);
-    return client.send<WebApiModulesTransfersTransferOrderTransferOrder,
-        WebApiModulesTransfersTransferOrderTransferOrder>($request);
+    return client.send<
+            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse,
+            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>(
+        $request);
   }
 
   @override

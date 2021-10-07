@@ -204,6 +204,39 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
   return val;
 }
 
+WebApiLogicAppFuncConsignmentSettingsResponse
+    _$WebApiLogicAppFuncConsignmentSettingsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncConsignmentSettingsResponse(
+          enableConsignment: json['EnableConsignment'] as bool?,
+          defaultConsignorFeeBasedOn:
+              json['DefaultConsignorFeeBasedOn'] as String?,
+          defaultConsignorPercent: json['DefaultConsignorPercent'] as int?,
+          defaultHousePercent: json['DefaultHousePercent'] as int?,
+          defaultTreatConsignedQtyAsOwned:
+              json['DefaultTreatConsignedQtyAsOwned'] as bool?,
+        );
+
+Map<String, dynamic> _$WebApiLogicAppFuncConsignmentSettingsResponseToJson(
+    WebApiLogicAppFuncConsignmentSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('EnableConsignment', instance.enableConsignment);
+  writeNotNull(
+      'DefaultConsignorFeeBasedOn', instance.defaultConsignorFeeBasedOn);
+  writeNotNull('DefaultConsignorPercent', instance.defaultConsignorPercent);
+  writeNotNull('DefaultHousePercent', instance.defaultHousePercent);
+  writeNotNull('DefaultTreatConsignedQtyAsOwned',
+      instance.defaultTreatConsignedQtyAsOwned);
+  return val;
+}
+
 WebApiLogicAppFuncCustomFieldsResponse
     _$WebApiLogicAppFuncCustomFieldsResponseFromJson(
             Map<String, dynamic> json) =>
@@ -303,6 +336,10 @@ WebApiLogicAppFuncDefaultSettingsResponse
               json['DefaultNonRecurringBillingCycleId'] as String?,
           defaultNonRecurringBillingCycle:
               json['DefaultNonRecurringBillingCycle'] as String?,
+          defaultVendorBillingCycleId:
+              json['DefaultVendorBillingCycleId'] as String?,
+          defaultVendorBillingCycle:
+              json['DefaultVendorBillingCycle'] as String?,
           defaultCustomerPaymentTermsId:
               json['DefaultCustomerPaymentTermsId'] as String?,
           defaultCustomerPaymentTerms:
@@ -337,6 +374,9 @@ Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
       instance.defaultNonRecurringBillingCycleId);
   writeNotNull('DefaultNonRecurringBillingCycle',
       instance.defaultNonRecurringBillingCycle);
+  writeNotNull(
+      'DefaultVendorBillingCycleId', instance.defaultVendorBillingCycleId);
+  writeNotNull('DefaultVendorBillingCycle', instance.defaultVendorBillingCycle);
   writeNotNull(
       'DefaultCustomerPaymentTermsId', instance.defaultCustomerPaymentTermsId);
   writeNotNull(
@@ -430,6 +470,10 @@ WebApiLogicAppFuncGetSettingsResponse
               ? null
               : WebApiLogicAppFuncInventorySettingsResponse.fromJson(
                   json['inventorySettings'] as Map<String, dynamic>),
+          consignmentSettings: json['consignmentSettings'] == null
+              ? null
+              : WebApiLogicAppFuncConsignmentSettingsResponse.fromJson(
+                  json['consignmentSettings'] as Map<String, dynamic>),
           systemSettings: json['systemSettings'] == null
               ? null
               : WebApiLogicAppFuncSystemSettingsResponse.fromJson(
@@ -451,6 +495,8 @@ WebApiLogicAppFuncGetSettingsResponse
               : WebApiLogicAppFuncWarehouseResponse.fromJson(
                   json['warehouses'] as Map<String, dynamic>),
           isTraining: json['isTraining'] as bool?,
+          isQA: json['isQA'] as bool?,
+          hasDataWarehouse: json['hasDataWarehouse'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
@@ -468,6 +514,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
   writeNotNull('customForms', instance.customForms?.toJson());
   writeNotNull('defaultSettings', instance.defaultSettings?.toJson());
   writeNotNull('inventorySettings', instance.inventorySettings?.toJson());
+  writeNotNull('consignmentSettings', instance.consignmentSettings?.toJson());
   writeNotNull('systemSettings', instance.systemSettings?.toJson());
   writeNotNull('department', instance.department?.toJson());
   writeNotNull(
@@ -475,6 +522,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
   writeNotNull('systemNumbers', instance.systemNumbers?.toJson());
   writeNotNull('warehouses', instance.warehouses?.toJson());
   writeNotNull('isTraining', instance.isTraining);
+  writeNotNull('isQA', instance.isQA);
+  writeNotNull('hasDataWarehouse', instance.hasDataWarehouse);
   return val;
 }
 
@@ -497,6 +546,14 @@ WebApiLogicAppFuncInventorySettingsResponse
               json['DefaultLossAndDamageRetiredReasonId'] as String?,
           defaultLossAndDamageRetiredReason:
               json['DefaultLossAndDamageRetiredReason'] as String?,
+          fixedAssetTransferFutureDepreciation:
+              json['FixedAssetTransferFutureDepreciation'] as bool?,
+          defaultRentalQuantityInventoryCostCalculation:
+              json['DefaultRentalQuantityInventoryCostCalculation'] as String?,
+          defaultSalesQuantityInventoryCostCalculation:
+              json['DefaultSalesQuantityInventoryCostCalculation'] as String?,
+          defaultPartsQuantityInventoryCostCalculation:
+              json['DefaultPartsQuantityInventoryCostCalculation'] as String?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
@@ -524,6 +581,14 @@ Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
       instance.defaultLossAndDamageRetiredReasonId);
   writeNotNull('DefaultLossAndDamageRetiredReason',
       instance.defaultLossAndDamageRetiredReason);
+  writeNotNull('FixedAssetTransferFutureDepreciation',
+      instance.fixedAssetTransferFutureDepreciation);
+  writeNotNull('DefaultRentalQuantityInventoryCostCalculation',
+      instance.defaultRentalQuantityInventoryCostCalculation);
+  writeNotNull('DefaultSalesQuantityInventoryCostCalculation',
+      instance.defaultSalesQuantityInventoryCostCalculation);
+  writeNotNull('DefaultPartsQuantityInventoryCostCalculation',
+      instance.defaultPartsQuantityInventoryCostCalculation);
   return val;
 }
 
@@ -585,6 +650,8 @@ WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
       defaultcurrencyid: json['defaultcurrencyid'] as String?,
       defaultcurrencycode: json['defaultcurrencycode'] as String?,
       defaultcurrencysymbol: json['defaultcurrencysymbol'] as String?,
+      defaulttaxoptionid: json['defaulttaxoptionid'] as String?,
+      defaulttaxoption: json['defaulttaxoption'] as String?,
       countryid: json['countryid'] as String?,
       country: json['country'] as String?,
       phone: json['phone'] as String?,
@@ -612,6 +679,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
   writeNotNull('defaultcurrencyid', instance.defaultcurrencyid);
   writeNotNull('defaultcurrencycode', instance.defaultcurrencycode);
   writeNotNull('defaultcurrencysymbol', instance.defaultcurrencysymbol);
+  writeNotNull('defaulttaxoptionid', instance.defaulttaxoptionid);
+  writeNotNull('defaulttaxoption', instance.defaulttaxoption);
   writeNotNull('countryid', instance.countryid);
   writeNotNull('country', instance.country);
   writeNotNull('phone', instance.phone);
@@ -660,6 +729,7 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
       enablecreatecontract: json['enablecreatecontract'] as bool?,
       qsallowapplyallqtyitems: json['qsallowapplyallqtyitems'] as bool?,
       allowcontractwithexceptions: json['allowcontractwithexceptions'] as bool?,
+      canInsertIntoActiveOrder: json['CanInsertIntoActiveOrder'] as bool?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
@@ -715,6 +785,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
   writeNotNull('qsallowapplyallqtyitems', instance.qsallowapplyallqtyitems);
   writeNotNull(
       'allowcontractwithexceptions', instance.allowcontractwithexceptions);
+  writeNotNull('CanInsertIntoActiveOrder', instance.canInsertIntoActiveOrder);
   return val;
 }
 
@@ -731,6 +802,7 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
       storagecontainerrescanrequired:
           json['storagecontainerrescanrequired'] as bool?,
       quikreceiptenable: json['quikreceiptenable'] as bool?,
+      transferavailabilitydays: json['transferavailabilitydays'] as int?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
@@ -755,6 +827,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
   writeNotNull('storagecontainerrescanrequired',
       instance.storagecontainerrescanrequired);
   writeNotNull('quikreceiptenable', instance.quikreceiptenable);
+  writeNotNull('transferavailabilitydays', instance.transferavailabilitydays);
   return val;
 }
 
@@ -863,6 +936,8 @@ WebApiLogicAppFuncUserSettingsResponse
           quikActivitySetting: json['QuikActivitySetting'] as String?,
           favoritesJson: json['FavoritesJson'] as String?,
           emailSignature: json['EmailSignature'] as String?,
+          availabilityPreference: json['AvailabilityPreference'] as String?,
+          availabilityAllWarehouses: json['AvailabilityAllWarehouses'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncUserSettingsResponseToJson(
@@ -889,6 +964,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncUserSettingsResponseToJson(
   writeNotNull('QuikActivitySetting', instance.quikActivitySetting);
   writeNotNull('FavoritesJson', instance.favoritesJson);
   writeNotNull('EmailSignature', instance.emailSignature);
+  writeNotNull('AvailabilityPreference', instance.availabilityPreference);
+  writeNotNull('AvailabilityAllWarehouses', instance.availabilityAllWarehouses);
   return val;
 }
 

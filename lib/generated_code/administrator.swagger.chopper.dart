@@ -1000,6 +1000,125 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportcssBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/customreportcss/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customreportcssExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/customreportcss/exportexcelxlsx';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>>
+      customreportcssGet({int? pageno, int? pagesize, String? sort}) {
+    final $url = '/customreportcss';
+    final $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort
+    };
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<
+            List<FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>,
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssPost(
+          {required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+              body}) {
+    final $url = '/customreportcss';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssIdGet({required String? id}) {
+    final $url = '/customreportcss/$id';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+              body}) {
+    final $url = '/customreportcss/$id';
+    final $body = body;
+    final $request = Request('PUT', $url, client.baseUrl, body: $body);
+    return client.send<
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> customreportcssIdDelete({required String? id}) {
+    final $url = '/customreportcss/$id';
+    final $request = Request('DELETE', $url, client.baseUrl);
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> customreportcssEmptyobjectGet() {
+    final $url = '/customreportcss/emptyobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> customreportcssEmptybrowseobjectGet() {
+    final $url = '/customreportcss/emptybrowseobject';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> customreportcssKeyfieldnamesGet() {
+    final $url = '/customreportcss/keyfieldnames';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       customreportlayoutBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/customreportlayout/browse';
@@ -1111,6 +1230,17 @@ class _$Administrator extends Administrator {
             WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse,
             WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse>(
         $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutValidatecustomcssBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final $url = '/customreportlayout/validatecustomcss/browse';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
@@ -2765,6 +2895,19 @@ class _$Administrator extends Administrator {
     final $url = '/user/$id';
     final $request = Request('DELETE', $url, client.baseUrl);
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>>
+      userCreateusersalesrepresentativecontactIdPost({required String? id}) {
+    final $url = '/user/createusersalesrepresentativecontact/$id';
+    final $request = Request('POST', $url, client.baseUrl);
+    return client.send<
+            WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse,
+            WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>(
+        $request);
   }
 
   @override
