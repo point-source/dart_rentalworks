@@ -1,0 +1,526 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RentalWorks  Pages API v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/cardpointepaymentactivelink": {
+      "get": {
+        "tags": [
+          "CardPointePaymentActiveLink"
+        ],
+        "parameters": [
+          {
+            "name": "ActiveLinkToken",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.GetActiveLinkDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointepaymentactivelink/makepayment": {
+      "post": {
+        "tags": [
+          "CardPointePaymentActiveLink"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.AuthorizeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.MakePaymentAsyncResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointepaymentactivelink/emptyobject": {
+      "get": {
+        "tags": [
+          "CardPointePaymentActiveLink"
+        ],
+        "summary": "Get an empty object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointepaymentactivelink/emptybrowseobject": {
+      "get": {
+        "tags": [
+          "CardPointePaymentActiveLink"
+        ],
+        "summary": "Get an empty browse object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointepaymentactivelink/keyfieldnames": {
+      "get": {
+        "tags": [
+          "CardPointePaymentActiveLink"
+        ],
+        "summary": "Get an array of primary key field names",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointetokenizer": {
+      "get": {
+        "tags": [
+          "CardPointeTokenizer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Pages.Plugins.CardPointeTokenizer.GetCardPointeTokenizerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointetokenizer/emptyobject": {
+      "get": {
+        "tags": [
+          "CardPointeTokenizer"
+        ],
+        "summary": "Get an empty object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointetokenizer/emptybrowseobject": {
+      "get": {
+        "tags": [
+          "CardPointeTokenizer"
+        ],
+        "summary": "Get an empty browse object",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cardpointetokenizer/keyfieldnames": {
+      "get": {
+        "tags": [
+          "CardPointeTokenizer"
+        ],
+        "summary": "Get an array of primary key field names",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FwCore.Api.Swashbuckle.BadRequestResponse": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FwStandard.Models.FwApiException": {
+        "type": "object",
+        "properties": {
+          "StatusCode": {
+            "type": "integer"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "StackTrace": {
+            "type": "string"
+          }
+        }
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.AuthorizeRequest": {
+        "required": [
+          "Account",
+          "ActiveLinkToken",
+          "Capture",
+          "ExpirationDate"
+        ],
+        "type": "object",
+        "properties": {
+          "ActiveLinkToken": {
+            "type": "string",
+            "description": "Token for the ActiveLink"
+          },
+          "Account": {
+            "type": "string",
+            "description": "Token for the CreditCard data"
+          },
+          "ExpirationDate": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Card Expiration in either MMYY or YYYYMMDD format. Not required for eCheck (ACH) requests."
+          },
+          "Capture": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.GetActiveLinkDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "Company": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "OfficeLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "AmountToPay": {
+            "type": "number",
+            "format": "double"
+          },
+          "StatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CardPointeSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "Message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.MakePaymentAsyncResponse": {
+        "type": "object",
+        "properties": {
+          "StatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.Plugins.CardPointeTokenizer.GetCardPointeTokenizerResponse": {
+        "type": "object",
+        "properties": {
+          "Site": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. (Don't add the prefix Bearer anymore).",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

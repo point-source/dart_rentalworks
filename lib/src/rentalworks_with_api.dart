@@ -86,6 +86,7 @@ class RentalWorks {
             Exports.create(),
             Home.create(),
             Mobile.create(),
+            Pages.create(),
             Plugins.create(),
             Reports.create(),
             Settings.create(),
