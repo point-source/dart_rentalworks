@@ -1,4 +1,5 @@
-import 'package:args/args.dart';
+import 'dart:io';
+
 import 'package:rentalworks/generated_code/home.swagger.dart';
 import 'package:rentalworks/generated_code/settings.swagger.dart'
     show WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse;
@@ -6,33 +7,16 @@ import 'package:rentalworks/rentalworks.dart';
 import 'package:test/test.dart';
 
 void main(List<String> arguments) {
-  final parser = ArgParser();
-  parser.addOption('baseUrl',
-      abbr: 'b',
-      defaultsTo: '',
-      help: 'Your RentalWorks server api endpoint url');
-  parser.addOption('username',
-      abbr: 'u', defaultsTo: '', help: 'Your RentalWorks username');
-  parser.addOption('password',
-      abbr: 'p', defaultsTo: '', help: 'Your RentalWorks password');
-  //parser.addOption('jwt',
-  //    defaultsTo: '', help: 'A valid RentalWorks json web token (jwt)');
+  Map<String, String> env = Platform.environment;
 
-  final args = parser.parse(arguments);
+  String baseUrl = env['RENTALWORKS_URL'] ?? '';
+  String username = env['RENTALWORKS_USER'] ?? '';
+  String password = env['RENTALWORKS_PASSWORD'] ?? '';
 
-  String baseUrl = args['baseUrl'];
-  String username = args['username'];
-  String password = args['password'];
-  //String jwt = args['jwt'];
-  String? urlSkip;
-  String? authSkip;
-
-  if (baseUrl.isEmpty) urlSkip = 'Base URL was not provided';
-  //if (jwt.isEmpty) {
+  if (baseUrl.isEmpty) throw Exception('Base URL was not provided');
   if (username.isEmpty || password.isEmpty) {
-    authSkip = 'Credentials were not provided.';
+    throw Exception('Credentials were not provided.');
   }
-  //}
 
   group('Create Instance', () {
     test('with JWT token', () {
@@ -52,7 +36,7 @@ void main(List<String> arguments) {
     test('with Credentials', () async {
       rw = RentalWorks.withCredentials(baseUrl, username, password);
       expect(await rw?.jwt ?? '', isNotEmpty);
-    }, skip: urlSkip ?? authSkip);
+    });
   });
 
   group('Fetch:', () {
@@ -67,26 +51,26 @@ void main(List<String> arguments) {
         emptyobject: false,
       ));
       expect(quotes.isSuccessful, isTrue);
-    }, skip: urlSkip ?? authSkip);
+    });
 
     test('/ordersummary', () async {
       final summary =
           await rw!.home.ordersummaryGet(orderid: '304949', totaltype: 'P');
       expect(summary.base.reasonPhrase, 'OK');
       expect(summary.isSuccessful, isTrue);
-    }, skip: urlSkip ?? authSkip);
+    });
 
     test('/warehouse', () async {
       final warehouses = await rw!.settings.warehouseGet(sort: 'Warehouse');
       expect(warehouses.base.reasonPhrase, 'OK');
       expect(warehouses.isSuccessful, isTrue);
-    }, skip: urlSkip ?? authSkip);
+    });
 
     test('/item', () async {
       final asset = await rw!.home.itemBybarcodeGet(barCode: '001152');
       expect(asset.base.reasonPhrase, 'OK');
       expect(asset.isSuccessful, isTrue);
-    }, skip: urlSkip ?? authSkip);
+    });
 
     test('/transferorder', () async {
       final transfers = await rw!.home.transferorderGet(filter: [
@@ -95,7 +79,7 @@ void main(List<String> arguments) {
       ]);
       expect(transfers.base.reasonPhrase, 'OK');
       expect(transfers.isSuccessful, isTrue);
-    }, skip: urlSkip ?? authSkip);
+    });
 
     test('/transferorder', () async {
       final transfers = await rw!.home.transferorderGet(filter: [
@@ -104,7 +88,7 @@ void main(List<String> arguments) {
       ]);
       expect(transfers.base.reasonPhrase, 'OK');
       expect(transfers.isSuccessful, isTrue);
-    }, skip: urlSkip ?? authSkip);
+    });
   });
 
   group('Asset Transfer:', () {
