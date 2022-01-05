@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Run tests
+        env:
+          RENTALWORKS_URL: ${{ secrets.RENTALWORKS_URL }}
+          RENTALWORKS_USER: ${{ secrets.RENTALWORKS_USER }}
+          RENTALWORKS_PASSWORD: ${{ secrets.RENTALWORKS_PASSWORD }}
+        run: dart test

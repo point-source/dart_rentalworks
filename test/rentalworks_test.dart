@@ -6,7 +6,7 @@ import 'package:rentalworks/generated_code/settings.swagger.dart'
 import 'package:rentalworks/rentalworks.dart';
 import 'package:test/test.dart';
 
-void main(List<String> arguments) {
+void main() {
   Map<String, String> env = Platform.environment;
 
   String baseUrl = env['RENTALWORKS_URL'] ?? '';
