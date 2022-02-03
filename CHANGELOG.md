@@ -1,3 +1,7 @@
+## 2.1.1
+
+- Manually fix /pricing/{inventoryId} endpoint
+
 ## 2.1.0
 
 - Add new Pages api and service

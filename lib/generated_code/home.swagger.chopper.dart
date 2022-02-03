@@ -15140,7 +15140,7 @@ class _$Home extends Home {
   @override
   Future<Response<List<WebApiModulesHomeControlsPricingPricing>>>
       pricingInventoryidGet({required String? inventoryId}) {
-    final $url = '/pricing/{inventoryid}';
+    final $url = '/pricing/$inventoryId';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<List<WebApiModulesHomeControlsPricingPricing>,
         WebApiModulesHomeControlsPricingPricing>($request);

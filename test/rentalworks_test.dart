@@ -89,6 +89,14 @@ void main() {
       expect(transfers.base.reasonPhrase, 'OK');
       expect(transfers.isSuccessful, isTrue);
     });
+
+    test('/pricing/{inventoryId}', () async {
+      final pricing =
+          await rw!.home.pricingInventoryidGet(inventoryId: 'A0001R42');
+      expect(pricing.base.reasonPhrase, 'OK');
+      expect(pricing.isSuccessful, isTrue);
+      expect(pricing.body ?? [], isNotEmpty);
+    });
   });
 
   group('Asset Transfer:', () {
