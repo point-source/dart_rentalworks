@@ -13,6 +13,22 @@
             "args": []
         },
         {
+            "name": "tests",
+            "request": "launch",
+            "type": "dart",
+            "program": "test/rentalworks_test.dart",
+            "customTool": "doppler",
+            "customToolReplacesArgs": 8,
+            "toolArgs": [
+                "run",
+                "--",
+                "dart",
+                "--enable-vm-service=0",
+                "--pause_isolates_on_start=true",
+                "--no-serve-devtools",
+            ]
+        },
+        {
             "name": "builder",
             "request": "launch",
             "type": "dart",

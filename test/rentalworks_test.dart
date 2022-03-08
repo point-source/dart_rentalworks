@@ -92,7 +92,7 @@ void main() {
 
     test('/pricing/{inventoryId}', () async {
       final pricing =
-          await rw!.home.pricingInventoryidGet(inventoryId: 'A0001R42');
+          await rw!.home.pricingInventoryidGet(inventoryid: 'A0001R42');
       expect(pricing.base.reasonPhrase, 'OK');
       expect(pricing.isSuccessful, isTrue);
       expect(pricing.body ?? [], isNotEmpty);
@@ -189,12 +189,13 @@ void main() {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
-      final checkInContract = await rw!.home.checkinStartcheckincontractPost(
-          body: WebApiModulesWarehouseCheckInCheckInContractRequest(
+      final checkInContract = await rw!.home.checkinStartsessionPost(
+          body: WebApiModulesWarehouseContractSessionRequest(
               departmentId: departmentId,
-              officeLocationId: officeLocationId,
+              locationId: officeLocationId,
               orderId: transfer!.transferId,
-              warehouseId: transfer!.toWarehouseId));
+              warehouseId: transfer!.toWarehouseId,
+              contractType: 'RECEIPT'));
       expect(checkInContract.isSuccessful, isTrue);
       expect(checkInContract.base.reasonPhrase, 'OK');
       contractId = checkInContract.body?.contractId ?? '';
@@ -207,11 +208,13 @@ void main() {
       expect(transfer, isNotNull);
       expect(contractId, isNotEmpty);
       final checkInItem = await rw!.home.transferinCheckinitemPost(
-          body: WebApiModulesWarehouseCheckInCheckInItemRequest(
-              code: item!.barCode,
+          body: WebApiModulesWarehouseCheckInCheckInItemsRequest(
               contractId: contractId,
               moduleType: 'T',
-              warehouseId: transfer!.toWarehouseId));
+              items: [
+            WebApiModulesWarehouseCheckInCheckInItem(
+                isBarcode: true, barcode: item!.barCode),
+          ]));
       expect(checkInItem.isSuccessful, isTrue);
       expect(checkInItem.base.reasonPhrase, 'OK');
     });
