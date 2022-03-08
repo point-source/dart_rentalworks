@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 
 part 'pages.swagger.chopper.dart';
@@ -13,16 +18,35 @@ part 'pages.swagger.g.dart';
 
 @ChopperApi()
 abstract class Pages extends ChopperService {
-  static Pages create([ChopperClient? client]) {
+  static Pages create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$Pages(client);
     }
 
     final newClient = ChopperClient(
       services: [_$Pages()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Pages(newClient);
+  }
+
+  ///
+  ///@param ActiveLinkToken
+  Future<
+          chopper.Response<
+              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse>>
+      cardpointepaymentactivelinkGet({required String? activeLinkToken}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse,
+        () =>
+            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
+                .fromJsonFactory);
+
+    return _cardpointepaymentactivelinkGet(activeLinkToken: activeLinkToken);
   }
 
   ///
@@ -31,70 +55,110 @@ abstract class Pages extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse>>
-      cardpointepaymentactivelinkGet(
+      _cardpointepaymentactivelinkGet(
           {@Query('ActiveLinkToken') required String? activeLinkToken});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>>
+      cardpointepaymentactivelinkMakepaymentPost(
+          {required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse,
+        () =>
+            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
+                .fromJsonFactory);
+
+    return _cardpointepaymentactivelinkMakepaymentPost(body: body);
+  }
 
   ///
   @Post(path: '/cardpointepaymentactivelink/makepayment')
   Future<
           chopper.Response<
               WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>>
-      cardpointepaymentactivelinkMakepaymentPost(
+      _cardpointepaymentactivelinkMakepaymentPost(
           {@Body()
               required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> cardpointepaymentactivelinkEmptyobjectGet() {
+    return _cardpointepaymentactivelinkEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/cardpointepaymentactivelink/emptyobject')
-  Future<chopper.Response> cardpointepaymentactivelinkEmptyobjectGet();
+  Future<chopper.Response> _cardpointepaymentactivelinkEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> cardpointepaymentactivelinkEmptybrowseobjectGet() {
+    return _cardpointepaymentactivelinkEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/cardpointepaymentactivelink/emptybrowseobject')
-  Future<chopper.Response> cardpointepaymentactivelinkEmptybrowseobjectGet();
+  Future<chopper.Response> _cardpointepaymentactivelinkEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> cardpointepaymentactivelinkKeyfieldnamesGet() {
+    return _cardpointepaymentactivelinkKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/cardpointepaymentactivelink/keyfieldnames')
-  Future<chopper.Response> cardpointepaymentactivelinkKeyfieldnamesGet();
+  Future<chopper.Response> _cardpointepaymentactivelinkKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>>
+      cardpointetokenizerGet() {
+    generatedMapping.putIfAbsent(
+        WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse,
+        () =>
+            WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
+                .fromJsonFactory);
+
+    return _cardpointetokenizerGet();
+  }
 
   ///
   @Get(path: '/cardpointetokenizer')
   Future<
           chopper.Response<
               WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>>
-      cardpointetokenizerGet();
+      _cardpointetokenizerGet();
+
+  ///Get an empty object
+  Future<chopper.Response> cardpointetokenizerEmptyobjectGet() {
+    return _cardpointetokenizerEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/cardpointetokenizer/emptyobject')
-  Future<chopper.Response> cardpointetokenizerEmptyobjectGet();
+  Future<chopper.Response> _cardpointetokenizerEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> cardpointetokenizerEmptybrowseobjectGet() {
+    return _cardpointetokenizerEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/cardpointetokenizer/emptybrowseobject')
-  Future<chopper.Response> cardpointetokenizerEmptybrowseobjectGet();
+  Future<chopper.Response> _cardpointetokenizerEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> cardpointetokenizerKeyfieldnamesGet() {
+    return _cardpointetokenizerKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/cardpointetokenizer/keyfieldnames')
-  Future<chopper.Response> cardpointetokenizerKeyfieldnamesGet();
+  Future<chopper.Response> _cardpointetokenizerKeyfieldnamesGet();
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    PagesJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest:
-      WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
-          .fromJsonFactory,
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse:
-      WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
-          .fromJsonFactory,
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse:
-      WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
-          .fromJsonFactory,
-  WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse:
-      WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
-          .fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -109,6 +173,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -134,6 +201,9 @@ class FwStandardModelsFwApiException {
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -198,6 +268,9 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeReq
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -282,6 +355,9 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLin
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -374,6 +450,9 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentA
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse &&
@@ -422,6 +501,9 @@ class WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -497,7 +579,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(PagesJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

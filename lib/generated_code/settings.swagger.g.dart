@@ -43,8 +43,7 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
             Map<String, dynamic> json) =>
         FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
           name: json['Name'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
         );
 
 Map<String, dynamic>
@@ -153,7 +152,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
-      filterfields: json['filterfields'],
+      filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
@@ -166,7 +165,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      activeviewfields: json['activeviewfields'],
+      activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -7114,8 +7113,8 @@ Map<String, dynamic>
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
         Map<String, dynamic> json) =>
     FwStandardSqlServerFwJsonDataTable(
-      columnIndex: json['ColumnIndex'],
-      totals: json['Totals'],
+      columnIndex: json['ColumnIndex'] as Map<String, dynamic>?,
+      totals: json['Totals'] as Map<String, dynamic>?,
       columns: (json['Columns'] as List<dynamic>?)
               ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
                   e as Map<String, dynamic>))
@@ -7134,7 +7133,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      columnNameByIndex: json['ColumnNameByIndex'],
+      columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -7166,8 +7165,7 @@ FwStandardSqlServerFwJsonDataTableColumn
         FwStandardSqlServerFwJsonDataTableColumn(
           name: json['Name'] as String?,
           dataField: json['DataField'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
           isUniqueId: json['IsUniqueId'] as bool?,
           isVisible: json['IsVisible'] as bool?,
         );

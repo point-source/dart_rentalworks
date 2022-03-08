@@ -43,8 +43,7 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
             Map<String, dynamic> json) =>
         FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
           name: json['Name'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
         );
 
 Map<String, dynamic>
@@ -153,7 +152,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
-      filterfields: json['filterfields'],
+      filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
@@ -166,7 +165,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      activeviewfields: json['activeviewfields'],
+      activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -390,8 +389,8 @@ Map<String, dynamic>
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
         Map<String, dynamic> json) =>
     FwStandardSqlServerFwJsonDataTable(
-      columnIndex: json['ColumnIndex'],
-      totals: json['Totals'],
+      columnIndex: json['ColumnIndex'] as Map<String, dynamic>?,
+      totals: json['Totals'] as Map<String, dynamic>?,
       columns: (json['Columns'] as List<dynamic>?)
               ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
                   e as Map<String, dynamic>))
@@ -410,7 +409,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      columnNameByIndex: json['ColumnNameByIndex'],
+      columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -442,8 +441,7 @@ FwStandardSqlServerFwJsonDataTableColumn
         FwStandardSqlServerFwJsonDataTableColumn(
           name: json['Name'] as String?,
           dataField: json['DataField'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
           isUniqueId: json['IsUniqueId'] as bool?,
           isVisible: json['IsVisible'] as bool?,
         );
@@ -958,7 +956,7 @@ WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 
@@ -990,7 +988,7 @@ WebApiModulesPluginsCreditCardCreditCardDepositRequest
         WebApiModulesPluginsCreditCardCreditCardDepositRequest(
           paymentType:
               webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson(
-                  json['PaymentType'] as String?),
+                  json['PaymentType']),
           orderId: json['OrderId'] as String?,
           amountToPay: (json['AmountToPay'] as num?)?.toDouble(),
           creditCardPinPadId: json['CreditCardPinPadId'] as int?,
@@ -1044,7 +1042,7 @@ WebApiModulesPluginsCreditCardCreditCardDepositResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 
@@ -1167,10 +1165,10 @@ WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           cardType:
               webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
-                  json['CardType'] as String?),
+                  json['CardType']),
           cardEntryMode: json['CardEntryMode'] as String?,
           statusText: json['StatusText'] as String?,
           transactionId: json['TransactionId'] as String?,
@@ -1218,11 +1216,11 @@ WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse
           cardEntryMode: json['CardEntryMode'] as String?,
           cardType:
               webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
-                  json['CardType'] as String?),
+                  json['CardType']),
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 
@@ -1262,13 +1260,13 @@ WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
           transactionId: json['TransactionId'] as String?,
           cardEntryMode: json['CardEntryMode'] as String?,
           cardType:
               webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
-                  json['CardType'] as String?),
+                  json['CardType']),
           amount: (json['Amount'] as num?)?.toDouble(),
         );
 
@@ -1306,7 +1304,7 @@ WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 
@@ -1413,7 +1411,7 @@ WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest
         WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest(
           paymentType:
               webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson(
-                  json['PaymentType'] as String?),
+                  json['PaymentType']),
           orderId: json['OrderId'] as String?,
           amountToPay: (json['AmountToPay'] as num?)?.toDouble(),
           creditCardPinPadId: json['CreditCardPinPadId'] as int?,
@@ -1468,7 +1466,7 @@ WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 
@@ -1531,7 +1529,7 @@ WebApiModulesPluginsCreditCardCreditCardRefundResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 
@@ -1565,7 +1563,7 @@ WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest
           transactionId: json['TransactionId'] as String?,
           status:
               webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
         );
 
 Map<String, dynamic>
@@ -1653,7 +1651,7 @@ WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse
           success: json['Success'] as bool?,
           status:
               webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson(
-                  json['Status'] as String?),
+                  json['Status']),
           statusText: json['StatusText'] as String?,
         );
 

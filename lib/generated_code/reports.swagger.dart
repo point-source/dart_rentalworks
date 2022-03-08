@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 import 'reports.enums.swagger.dart' as enums;
 export 'reports.enums.swagger.dart';
@@ -15,5271 +20,13947 @@ part 'reports.swagger.g.dart';
 
 @ChopperApi()
 abstract class Reports extends ChopperService {
-  static Reports create([ChopperClient? client]) {
+  static Reports create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$Reports(client);
     }
 
     final newClient = ChopperClient(
       services: [_$Reports()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Reports(newClient);
   }
 
   ///
-  @Post(path: '/agentbillingreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
       agentbillingreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _agentbillingreportRenderPost(body: body);
+  }
+
+  ///
+  @Post(path: '/agentbillingreport/render')
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      _agentbillingreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      agentbillingreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _agentbillingreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/agentbillingreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      agentbillingreportExportexcelxlsxPost(
+      _agentbillingreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest?
                   body});
 
   ///
-  @Post(path: '/agentbillingreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> agentbillingreportRunreportPost(
+      {required WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _agentbillingreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/agentbillingreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _agentbillingreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest?
               body});
 
   ///
-  @Post(path: '/agentbillingreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       agentbillingreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/agentbillingreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _agentbillingreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      agentbillingreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/agentbillingreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      agentbillingreportValidateagentBrowsePost(
+      _agentbillingreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      agentbillingreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/agentbillingreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      agentbillingreportValidatedepartmentBrowsePost(
+      _agentbillingreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      agentbillingreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/agentbillingreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      agentbillingreportValidatecustomerBrowsePost(
+      _agentbillingreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      agentbillingreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/agentbillingreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      agentbillingreportValidatedealBrowsePost(
+      _agentbillingreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      agentbillingreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/agentbillingreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      agentbillingreportEmptyobjectGet();
+      _agentbillingreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      agentbillingreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _agentbillingreportPreviewGet();
+  }
 
   ///
   @Get(path: '/agentbillingreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      agentbillingreportPreviewGet();
+      _agentbillingreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      aragingreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _aragingreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/aragingreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      aragingreportRenderPost(
+      _aragingreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      aragingreportExportexcelxlsxPost(
+          {required WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _aragingreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/aragingreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      aragingreportExportexcelxlsxPost(
+      _aragingreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest?
                   body});
 
   ///
-  @Post(path: '/aragingreport/runreport')
   Future<
       chopper
           .Response<WebApiDataAppReportResponse>> aragingreportRunreportPost(
+      {required WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _aragingreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/aragingreport/runreport')
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> _aragingreportRunreportPost(
       {@Body()
           required WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest?
               body});
 
   ///
-  @Post(path: '/aragingreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       aragingreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/aragingreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _aragingreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      aragingreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/aragingreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      aragingreportValidatecustomerBrowsePost(
+      _aragingreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      aragingreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/aragingreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      aragingreportValidatedealtypeBrowsePost(
+      _aragingreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      aragingreportValidatedealcsrBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportValidatedealcsrBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/aragingreport/validatedealcsr/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      aragingreportValidatedealcsrBrowsePost(
+      _aragingreportValidatedealcsrBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      aragingreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/aragingreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      aragingreportValidatedealBrowsePost(
+      _aragingreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      aragingreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/aragingreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      aragingreportEmptyobjectGet();
+      _aragingreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      aragingreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _aragingreportPreviewGet();
+  }
 
   ///
   @Get(path: '/aragingreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      aragingreportPreviewGet();
+      _aragingreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      billinganalysisreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _billinganalysisreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/billinganalysisreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      billinganalysisreportRenderPost(
+      _billinganalysisreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      billinganalysisreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _billinganalysisreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/billinganalysisreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      billinganalysisreportExportexcelxlsxPost(
+      _billinganalysisreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest?
                   body});
 
   ///
-  @Post(path: '/billinganalysisreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> billinganalysisreportRunreportPost(
+      {required WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _billinganalysisreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/billinganalysisreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _billinganalysisreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest?
               body});
 
   ///
-  @Post(path: '/billinganalysisreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       billinganalysisreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/billinganalysisreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _billinganalysisreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billinganalysisreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billinganalysisreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billinganalysisreportValidatecustomerBrowsePost(
+      _billinganalysisreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billinganalysisreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billinganalysisreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billinganalysisreportValidatedealBrowsePost(
+      _billinganalysisreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billinganalysisreportValidateprojectBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportValidateprojectBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billinganalysisreport/validateproject/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billinganalysisreportValidateprojectBrowsePost(
+      _billinganalysisreportValidateprojectBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billinganalysisreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billinganalysisreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billinganalysisreportValidateagentBrowsePost(
+      _billinganalysisreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billinganalysisreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/billinganalysisreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billinganalysisreportEmptyobjectGet();
+      _billinganalysisreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billinganalysisreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billinganalysisreportPreviewGet();
+  }
 
   ///
   @Get(path: '/billinganalysisreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billinganalysisreportPreviewGet();
+      _billinganalysisreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      billingprogressreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _billingprogressreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      billingprogressreportRenderPost(
+      _billingprogressreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      billingprogressreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _billingprogressreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      billingprogressreportExportexcelxlsxPost(
+      _billingprogressreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest?
                   body});
 
   ///
-  @Post(path: '/billingprogressreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> billingprogressreportRunreportPost(
+      {required WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _billingprogressreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/billingprogressreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _billingprogressreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest?
               body});
 
   ///
-  @Post(path: '/billingprogressreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       billingprogressreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/billingprogressreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _billingprogressreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportValidatedepartmentBrowsePost(
+      _billingprogressreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportValidatedealBrowsePost(
+      _billingprogressreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportValidatedealcsrBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidatedealcsrBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/validatedealcsr/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportValidatedealcsrBrowsePost(
+      _billingprogressreportValidatedealcsrBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportValidatecustomerBrowsePost(
+      _billingprogressreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportValidatedealtypeBrowsePost(
+      _billingprogressreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingprogressreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportValidateagentBrowsePost(
+      _billingprogressreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/billingprogressreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportEmptyobjectGet();
+      _billingprogressreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingprogressreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingprogressreportPreviewGet();
+  }
 
   ///
   @Get(path: '/billingprogressreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingprogressreportPreviewGet();
+      _billingprogressreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      billingstatementreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _billingstatementreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/billingstatementreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      billingstatementreportRenderPost(
+      _billingstatementreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      billingstatementreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _billingstatementreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/billingstatementreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      billingstatementreportExportexcelxlsxPost(
+      _billingstatementreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest?
                   body});
 
   ///
-  @Post(path: '/billingstatementreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> billingstatementreportRunreportPost(
+      {required WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _billingstatementreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/billingstatementreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _billingstatementreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest?
               body});
 
   ///
-  @Post(path: '/billingstatementreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       billingstatementreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/billingstatementreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _billingstatementreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingstatementreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingstatementreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingstatementreportValidatecustomerBrowsePost(
+      _billingstatementreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingstatementreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingstatementreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingstatementreportValidatedealBrowsePost(
+      _billingstatementreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingstatementreportValidatedealstatusBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportValidatedealstatusBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingstatementreport/validatedealstatus/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingstatementreportValidatedealstatusBrowsePost(
+      _billingstatementreportValidatedealstatusBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingstatementreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/billingstatementreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingstatementreportValidatedealtypeBrowsePost(
+      _billingstatementreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingstatementreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/billingstatementreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingstatementreportEmptyobjectGet();
+      _billingstatementreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      billingstatementreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _billingstatementreportPreviewGet();
+  }
 
   ///
   @Get(path: '/billingstatementreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      billingstatementreportPreviewGet();
+      _billingstatementreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      changeauditreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _changeauditreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/changeauditreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      changeauditreportRenderPost(
+      _changeauditreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      changeauditreportExportexcelxlsxPost(
+          {required WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _changeauditreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/changeauditreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      changeauditreportExportexcelxlsxPost(
+      _changeauditreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest?
                   body});
 
   ///
-  @Post(path: '/changeauditreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> changeauditreportRunreportPost(
+      {required WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _changeauditreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/changeauditreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _changeauditreportRunreportPost(
       {@Body()
           required WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest?
               body});
 
   ///
-  @Post(path: '/changeauditreport/validatewebusers/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       changeauditreportValidatewebusersBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeauditreportValidatewebusersBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/changeauditreport/validatewebusers/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _changeauditreportValidatewebusersBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      changeauditreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeauditreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/changeauditreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      changeauditreportEmptyobjectGet();
+      _changeauditreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      changeauditreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeauditreportPreviewGet();
+  }
 
   ///
   @Get(path: '/changeauditreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      changeauditreportPreviewGet();
+      _changeauditreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      consignedinventoryorderhistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryorderhistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      consignedinventoryorderhistoryreportRenderPost(
+      _consignedinventoryorderhistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignedinventoryorderhistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryorderhistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      consignedinventoryorderhistoryreportExportexcelxlsxPost(
+      _consignedinventoryorderhistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/consignedinventoryorderhistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       consignedinventoryorderhistoryreportRunreportPost(
+          {required WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignedinventoryorderhistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _consignedinventoryorderhistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/consignedinventoryorderhistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidateinventorytypeBrowsePost(
+      _consignedinventoryorderhistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryorderhistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidatecategoryBrowsePost(
+      _consignedinventoryorderhistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryorderhistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidatewarehouseBrowsePost(
+      _consignedinventoryorderhistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryorderhistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidateinventoryBrowsePost(
+      _consignedinventoryorderhistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/consignedinventoryorderhistoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidatesubcategoryBrowsePost(
+      _consignedinventoryorderhistoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidateconsignoragreementBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/consignedinventoryorderhistoryreport/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidateconsignoragreementBrowsePost(
+      _consignedinventoryorderhistoryreportValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportValidateconsignorBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryorderhistoryreport/validateconsignor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportValidateconsignorBrowsePost(
+      _consignedinventoryorderhistoryreportValidateconsignorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/consignedinventoryorderhistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportEmptyobjectGet();
+      _consignedinventoryorderhistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryorderhistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryorderhistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/consignedinventoryorderhistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryorderhistoryreportPreviewGet();
+      _consignedinventoryorderhistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      consignedinventoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _consignedinventoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      consignedinventoryreportRenderPost(
+      _consignedinventoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignedinventoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _consignedinventoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      consignedinventoryreportExportexcelxlsxPost(
+      _consignedinventoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/consignedinventoryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> consignedinventoryreportRunreportPost(
+      {required WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _consignedinventoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignedinventoryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _consignedinventoryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest?
               body});
 
   ///
-  @Post(path: '/consignedinventoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       consignedinventoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidateinventorytypeBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignedinventoryreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _consignedinventoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportValidatecategoryBrowsePost(
+      _consignedinventoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportValidatewarehouseBrowsePost(
+      _consignedinventoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportValidateinventoryBrowsePost(
+      _consignedinventoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportValidatesubcategoryBrowsePost(
+      _consignedinventoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidateconsignoragreementBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportValidateconsignoragreementBrowsePost(
+      _consignedinventoryreportValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportValidateconsignorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignedinventoryreport/validateconsignor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportValidateconsignorBrowsePost(
+      _consignedinventoryreportValidateconsignorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/consignedinventoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportEmptyobjectGet();
+      _consignedinventoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignedinventoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignedinventoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/consignedinventoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignedinventoryreportPreviewGet();
+      _consignedinventoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      consignorinventorystatusandlocationreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/consignorinventorystatusandlocationreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      consignorinventorystatusandlocationreportRenderPost(
+      _consignorinventorystatusandlocationreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignorinventorystatusandlocationreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportExportexcelxlsxPost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignorinventorystatusandlocationreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      consignorinventorystatusandlocationreportExportexcelxlsxPost(
+      _consignorinventorystatusandlocationreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest?
                   body});
 
   ///
-  @Post(path: '/consignorinventorystatusandlocationreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       consignorinventorystatusandlocationreportRunreportPost(
+          {required WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignorinventorystatusandlocationreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _consignorinventorystatusandlocationreportRunreportPost(
           {@Body()
               required WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/consignorinventorystatusandlocationreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorinventorystatusandlocationreportValidatewarehouseBrowsePost(
+      _consignorinventorystatusandlocationreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportValidateconsignoragreementBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/consignorinventorystatusandlocationreport/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorinventorystatusandlocationreportValidateconsignoragreementBrowsePost(
+      _consignorinventorystatusandlocationreportValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportValidateconsignorBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/consignorinventorystatusandlocationreport/validateconsignor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorinventorystatusandlocationreportValidateconsignorBrowsePost(
+      _consignorinventorystatusandlocationreportValidateconsignorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/consignorinventorystatusandlocationreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorinventorystatusandlocationreportEmptyobjectGet();
+      _consignorinventorystatusandlocationreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorinventorystatusandlocationreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorinventorystatusandlocationreportPreviewGet();
+  }
 
   ///
   @Get(path: '/consignorinventorystatusandlocationreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorinventorystatusandlocationreportPreviewGet();
+      _consignorinventorystatusandlocationreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      consignoritemsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _consignoritemsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/consignoritemsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      consignoritemsreportRenderPost(
+      _consignoritemsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignoritemsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _consignoritemsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/consignoritemsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      consignoritemsreportExportexcelxlsxPost(
+      _consignoritemsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest?
                   body});
 
   ///
-  @Post(path: '/consignoritemsreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> consignoritemsreportRunreportPost(
+      {required WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _consignoritemsreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignoritemsreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _consignoritemsreportRunreportPost(
       {@Body()
           required WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest?
               body});
 
   ///
-  @Post(path: '/consignoritemsreport/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       consignoritemsreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignoritemsreportValidateconsignoragreementBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/consignoritemsreport/validateconsignoragreement/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _consignoritemsreportValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignoritemsreportValidateconsignorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignoritemsreport/validateconsignor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignoritemsreportValidateconsignorBrowsePost(
+      _consignoritemsreportValidateconsignorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignoritemsreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/consignoritemsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignoritemsreportEmptyobjectGet();
+      _consignoritemsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignoritemsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignoritemsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/consignoritemsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignoritemsreportPreviewGet();
+      _consignoritemsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      consignorsettlementreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _consignorsettlementreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/consignorsettlementreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      consignorsettlementreportRenderPost(
+      _consignorsettlementreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignorsettlementreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _consignorsettlementreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/consignorsettlementreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      consignorsettlementreportExportexcelxlsxPost(
+      _consignorsettlementreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest?
                   body});
 
   ///
-  @Post(path: '/consignorsettlementreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> consignorsettlementreportRunreportPost(
+      {required WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _consignorsettlementreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignorsettlementreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _consignorsettlementreportRunreportPost(
       {@Body()
           required WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest?
               body});
 
   ///
-  @Post(path: '/consignorsettlementreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       consignorsettlementreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorsettlementreportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/consignorsettlementreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _consignorsettlementreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorsettlementreportValidateconsignoragreementBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignorsettlementreport/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorsettlementreportValidateconsignoragreementBrowsePost(
+      _consignorsettlementreportValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorsettlementreportValidateconsignorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignorsettlementreport/validateconsignor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorsettlementreportValidateconsignorBrowsePost(
+      _consignorsettlementreportValidateconsignorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorsettlementreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/consignorsettlementreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorsettlementreportEmptyobjectGet();
+      _consignorsettlementreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorsettlementreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorsettlementreportPreviewGet();
+  }
 
   ///
   @Get(path: '/consignorsettlementreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorsettlementreportPreviewGet();
+      _consignorsettlementreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      consignorstatementreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _consignorstatementreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/consignorstatementreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      consignorstatementreportRenderPost(
+      _consignorstatementreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      consignorstatementreportExportexcelxlsxPost(
+          {required WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _consignorstatementreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/consignorstatementreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      consignorstatementreportExportexcelxlsxPost(
+      _consignorstatementreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest?
                   body});
 
   ///
-  @Post(path: '/consignorstatementreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> consignorstatementreportRunreportPost(
+      {required WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _consignorstatementreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/consignorstatementreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _consignorstatementreportRunreportPost(
       {@Body()
           required WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest?
               body});
 
   ///
-  @Post(path: '/consignorstatementreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       consignorstatementreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorstatementreportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/consignorstatementreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _consignorstatementreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorstatementreportValidateconsignoragreementBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/consignorstatementreport/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorstatementreportValidateconsignoragreementBrowsePost(
+      _consignorstatementreportValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorstatementreportValidateconsignorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/consignorstatementreport/validateconsignor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorstatementreportValidateconsignorBrowsePost(
+      _consignorstatementreportValidateconsignorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorstatementreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/consignorstatementreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorstatementreportEmptyobjectGet();
+      _consignorstatementreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      consignorstatementreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _consignorstatementreportPreviewGet();
+  }
 
   ///
   @Get(path: '/consignorstatementreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      consignorstatementreportPreviewGet();
+      _consignorstatementreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      containerpackinglistRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _containerpackinglistRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/containerpackinglist/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      containerpackinglistRenderPost(
+      _containerpackinglistRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      containerpackinglistExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _containerpackinglistExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/containerpackinglist/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      containerpackinglistExportexcelxlsxPost(
+      _containerpackinglistExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest?
                   body});
 
   ///
-  @Post(path: '/containerpackinglist/runreport')
   Future<
       chopper.Response<
           FwStandardSqlServerFwJsonDataTable>> containerpackinglistRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest?
+          body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _containerpackinglistRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/containerpackinglist/runreport')
+  Future<
+      chopper.Response<
+          FwStandardSqlServerFwJsonDataTable>> _containerpackinglistRunreportPost(
       {@Body()
           required WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      containerpackinglistEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _containerpackinglistEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/containerpackinglist/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      containerpackinglistEmptyobjectGet();
+      _containerpackinglistEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      containerpackinglistPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _containerpackinglistPreviewGet();
+  }
 
   ///
   @Get(path: '/containerpackinglist/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      containerpackinglistPreviewGet();
+      _containerpackinglistPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      contractrevisionreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _contractrevisionreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/contractrevisionreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      contractrevisionreportRenderPost(
+      _contractrevisionreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      contractrevisionreportExportexcelxlsxPost(
+          {required WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _contractrevisionreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/contractrevisionreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      contractrevisionreportExportexcelxlsxPost(
+      _contractrevisionreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest?
                   body});
 
   ///
-  @Post(path: '/contractrevisionreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> contractrevisionreportRunreportPost(
+      {required WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _contractrevisionreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/contractrevisionreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _contractrevisionreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest?
               body});
 
   ///
-  @Post(path: '/contractrevisionreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       contractrevisionreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _contractrevisionreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/contractrevisionreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _contractrevisionreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      contractrevisionreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _contractrevisionreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/contractrevisionreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      contractrevisionreportValidatedepartmentBrowsePost(
+      _contractrevisionreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      contractrevisionreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _contractrevisionreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/contractrevisionreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      contractrevisionreportValidatedealBrowsePost(
+      _contractrevisionreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      contractrevisionreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _contractrevisionreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/contractrevisionreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      contractrevisionreportEmptyobjectGet();
+      _contractrevisionreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      contractrevisionreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _contractrevisionreportPreviewGet();
+  }
 
   ///
   @Get(path: '/contractrevisionreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      contractrevisionreportPreviewGet();
+      _contractrevisionreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      createinvoiceprocessreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _createinvoiceprocessreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/createinvoiceprocessreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      createinvoiceprocessreportRenderPost(
+      _createinvoiceprocessreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      createinvoiceprocessreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _createinvoiceprocessreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/createinvoiceprocessreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      createinvoiceprocessreportExportexcelxlsxPost(
+      _createinvoiceprocessreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest?
                   body});
 
   ///
-  @Post(path: '/createinvoiceprocessreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> createinvoiceprocessreportRunreportPost(
+      {required WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _createinvoiceprocessreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/createinvoiceprocessreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _createinvoiceprocessreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest?
               body});
 
   ///
-  @Post(path: '/createinvoiceprocessreport/validateinvoicecreationbatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       createinvoiceprocessreportValidateinvoicecreationbatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _createinvoiceprocessreportValidateinvoicecreationbatchBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/createinvoiceprocessreport/validateinvoicecreationbatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _createinvoiceprocessreportValidateinvoicecreationbatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      createinvoiceprocessreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _createinvoiceprocessreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/createinvoiceprocessreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      createinvoiceprocessreportEmptyobjectGet();
+      _createinvoiceprocessreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      createinvoiceprocessreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _createinvoiceprocessreportPreviewGet();
+  }
 
   ///
   @Get(path: '/createinvoiceprocessreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      createinvoiceprocessreportPreviewGet();
+      _createinvoiceprocessreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      creditsonaccountreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _creditsonaccountreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/creditsonaccountreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      creditsonaccountreportRenderPost(
+      _creditsonaccountreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      creditsonaccountreportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _creditsonaccountreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/creditsonaccountreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      creditsonaccountreportExportexcelxlsxPost(
+      _creditsonaccountreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest?
                   body});
 
   ///
-  @Post(path: '/creditsonaccountreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> creditsonaccountreportRunreportPost(
+      {required WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _creditsonaccountreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/creditsonaccountreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _creditsonaccountreportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest?
               body});
 
   ///
-  @Post(path: '/creditsonaccountreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       creditsonaccountreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _creditsonaccountreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/creditsonaccountreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _creditsonaccountreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      creditsonaccountreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _creditsonaccountreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/creditsonaccountreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      creditsonaccountreportValidatecustomerBrowsePost(
+      _creditsonaccountreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      creditsonaccountreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _creditsonaccountreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/creditsonaccountreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      creditsonaccountreportValidatedealBrowsePost(
+      _creditsonaccountreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      creditsonaccountreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _creditsonaccountreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/creditsonaccountreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      creditsonaccountreportEmptyobjectGet();
+      _creditsonaccountreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      creditsonaccountreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _creditsonaccountreportPreviewGet();
+  }
 
   ///
   @Get(path: '/creditsonaccountreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      creditsonaccountreportPreviewGet();
+      _creditsonaccountreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      crewsigninreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _crewsigninreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/crewsigninreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      crewsigninreportRenderPost(
+      _crewsigninreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      crewsigninreportExportexcelxlsxPost(
+          {required WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _crewsigninreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/crewsigninreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      crewsigninreportExportexcelxlsxPost(
+      _crewsigninreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest?
                   body});
 
   ///
-  @Post(path: '/crewsigninreport/runreport')
   Future<
       chopper
           .Response<WebApiDataAppReportResponse>> crewsigninreportRunreportPost(
+      {required WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _crewsigninreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/crewsigninreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _crewsigninreportRunreportPost(
       {@Body()
           required WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest?
               body});
 
   ///
-  @Post(path: '/crewsigninreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       crewsigninreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/crewsigninreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _crewsigninreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      crewsigninreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/crewsigninreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      crewsigninreportValidatecustomerBrowsePost(
+      _crewsigninreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      crewsigninreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/crewsigninreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      crewsigninreportValidatedealBrowsePost(
+      _crewsigninreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      crewsigninreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/crewsigninreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      crewsigninreportValidateorderBrowsePost(
+      _crewsigninreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      crewsigninreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/crewsigninreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      crewsigninreportValidatedepartmentBrowsePost(
+      _crewsigninreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      crewsigninreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/crewsigninreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      crewsigninreportEmptyobjectGet();
+      _crewsigninreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      crewsigninreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _crewsigninreportPreviewGet();
+  }
 
   ///
   @Get(path: '/crewsigninreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      crewsigninreportPreviewGet();
+      _crewsigninreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      customerrevenuebymonthreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _customerrevenuebymonthreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      customerrevenuebymonthreportRenderPost(
+      _customerrevenuebymonthreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customerrevenuebymonthreportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customerrevenuebymonthreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customerrevenuebymonthreportExportexcelxlsxPost(
+      _customerrevenuebymonthreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest?
                   body});
 
   ///
-  @Post(path: '/customerrevenuebymonthreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> customerrevenuebymonthreportRunreportPost(
+      {required WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _customerrevenuebymonthreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customerrevenuebymonthreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _customerrevenuebymonthreportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest?
               body});
 
   ///
-  @Post(path: '/customerrevenuebymonthreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       customerrevenuebymonthreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/customerrevenuebymonthreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _customerrevenuebymonthreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportValidatecustomerBrowsePost(
+      _customerrevenuebymonthreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportValidatedealBrowsePost(
+      _customerrevenuebymonthreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportValidatecustomertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidatecustomertypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/validatecustomertype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportValidatecustomertypeBrowsePost(
+      _customerrevenuebymonthreportValidatecustomertypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportValidatedepartmentBrowsePost(
+      _customerrevenuebymonthreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportValidatedealtypeBrowsePost(
+      _customerrevenuebymonthreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebymonthreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportValidateinventorytypeBrowsePost(
+      _customerrevenuebymonthreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/customerrevenuebymonthreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportEmptyobjectGet();
+      _customerrevenuebymonthreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebymonthreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebymonthreportPreviewGet();
+  }
 
   ///
   @Get(path: '/customerrevenuebymonthreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebymonthreportPreviewGet();
+      _customerrevenuebymonthreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      customerrevenuebytypereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _customerrevenuebytypereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      customerrevenuebytypereportRenderPost(
+      _customerrevenuebytypereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customerrevenuebytypereportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customerrevenuebytypereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customerrevenuebytypereportExportexcelxlsxPost(
+      _customerrevenuebytypereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest?
                   body});
 
   ///
-  @Post(path: '/customerrevenuebytypereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> customerrevenuebytypereportRunreportPost(
+      {required WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _customerrevenuebytypereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customerrevenuebytypereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _customerrevenuebytypereportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest?
               body});
 
   ///
-  @Post(path: '/customerrevenuebytypereport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       customerrevenuebytypereportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/customerrevenuebytypereport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _customerrevenuebytypereportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportValidatecustomerBrowsePost(
+      _customerrevenuebytypereportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportValidatedealBrowsePost(
+      _customerrevenuebytypereportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportValidatedealtypeBrowsePost(
+      _customerrevenuebytypereportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportValidatedepartmentBrowsePost(
+      _customerrevenuebytypereportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportValidateordertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportValidateordertypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customerrevenuebytypereport/validateordertype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportValidateordertypeBrowsePost(
+      _customerrevenuebytypereportValidateordertypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/customerrevenuebytypereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportEmptyobjectGet();
+      _customerrevenuebytypereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customerrevenuebytypereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customerrevenuebytypereportPreviewGet();
+  }
 
   ///
   @Get(path: '/customerrevenuebytypereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customerrevenuebytypereportPreviewGet();
+      _customerrevenuebytypereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      dailyreceiptsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _dailyreceiptsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/dailyreceiptsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      dailyreceiptsreportRenderPost(
+      _dailyreceiptsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      dailyreceiptsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _dailyreceiptsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/dailyreceiptsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      dailyreceiptsreportExportexcelxlsxPost(
+      _dailyreceiptsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest?
                   body});
 
   ///
-  @Post(path: '/dailyreceiptsreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> dailyreceiptsreportRunreportPost(
+      {required WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _dailyreceiptsreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/dailyreceiptsreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _dailyreceiptsreportRunreportPost(
       {@Body()
           required WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest?
               body});
 
   ///
-  @Post(path: '/dailyreceiptsreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       dailyreceiptsreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dailyreceiptsreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/dailyreceiptsreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _dailyreceiptsreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dailyreceiptsreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dailyreceiptsreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dailyreceiptsreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dailyreceiptsreportValidateofficelocationBrowsePost(
+      _dailyreceiptsreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dailyreceiptsreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dailyreceiptsreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dailyreceiptsreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dailyreceiptsreportValidatecustomerBrowsePost(
+      _dailyreceiptsreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dailyreceiptsreportValidatepaymenttypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dailyreceiptsreportValidatepaymenttypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dailyreceiptsreport/validatepaymenttype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dailyreceiptsreportValidatepaymenttypeBrowsePost(
+      _dailyreceiptsreportValidatepaymenttypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dailyreceiptsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dailyreceiptsreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/dailyreceiptsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dailyreceiptsreportEmptyobjectGet();
+      _dailyreceiptsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dailyreceiptsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dailyreceiptsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/dailyreceiptsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dailyreceiptsreportPreviewGet();
+      _dailyreceiptsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      dealinvoicebatchreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _dealinvoicebatchreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicebatchreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      dealinvoicebatchreportRenderPost(
+      _dealinvoicebatchreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      dealinvoicebatchreportExportexcelxlsxPost(
+          {required WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _dealinvoicebatchreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicebatchreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      dealinvoicebatchreportExportexcelxlsxPost(
+      _dealinvoicebatchreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest?
                   body});
 
   ///
-  @Post(path: '/dealinvoicebatchreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> dealinvoicebatchreportRunreportPost(
+      {required WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _dealinvoicebatchreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/dealinvoicebatchreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _dealinvoicebatchreportRunreportPost(
       {@Body()
           required WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest?
               body});
 
   ///
-  @Post(path: '/dealinvoicebatchreport/validatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       dealinvoicebatchreportValidatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicebatchreportValidatebatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/dealinvoicebatchreport/validatebatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _dealinvoicebatchreportValidatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicebatchreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicebatchreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/dealinvoicebatchreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicebatchreportEmptyobjectGet();
+      _dealinvoicebatchreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicebatchreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicebatchreportPreviewGet();
+  }
 
   ///
   @Get(path: '/dealinvoicebatchreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicebatchreportPreviewGet();
+      _dealinvoicebatchreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      dealinvoicedetailreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _dealinvoicedetailreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicedetailreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      dealinvoicedetailreportRenderPost(
+      _dealinvoicedetailreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      dealinvoicedetailreportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _dealinvoicedetailreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicedetailreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      dealinvoicedetailreportExportexcelxlsxPost(
+      _dealinvoicedetailreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest?
                   body});
 
   ///
-  @Post(path: '/dealinvoicedetailreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> dealinvoicedetailreportRunreportPost(
+      {required WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _dealinvoicedetailreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/dealinvoicedetailreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _dealinvoicedetailreportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest?
               body});
 
   ///
-  @Post(path: '/dealinvoicedetailreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       dealinvoicedetailreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicedetailreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/dealinvoicedetailreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _dealinvoicedetailreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicedetailreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicedetailreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicedetailreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicedetailreportValidateofficelocationBrowsePost(
+      _dealinvoicedetailreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicedetailreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicedetailreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicedetailreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicedetailreportValidatecustomerBrowsePost(
+      _dealinvoicedetailreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicedetailreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicedetailreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealinvoicedetailreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicedetailreportValidatedepartmentBrowsePost(
+      _dealinvoicedetailreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicedetailreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicedetailreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/dealinvoicedetailreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicedetailreportEmptyobjectGet();
+      _dealinvoicedetailreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealinvoicedetailreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealinvoicedetailreportPreviewGet();
+  }
 
   ///
   @Get(path: '/dealinvoicedetailreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealinvoicedetailreportPreviewGet();
+      _dealinvoicedetailreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      dealoutstandingitemsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _dealoutstandingitemsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      dealoutstandingitemsreportRenderPost(
+      _dealoutstandingitemsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      dealoutstandingitemsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _dealoutstandingitemsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      dealoutstandingitemsreportExportexcelxlsxPost(
+      _dealoutstandingitemsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest?
                   body});
 
   ///
-  @Post(path: '/dealoutstandingitemsreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> dealoutstandingitemsreportRunreportPost(
+      {required WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _dealoutstandingitemsreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/dealoutstandingitemsreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _dealoutstandingitemsreportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest?
               body});
 
   ///
-  @Post(path: '/dealoutstandingitemsreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       dealoutstandingitemsreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/dealoutstandingitemsreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _dealoutstandingitemsreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidatecustomerBrowsePost(
+      _dealoutstandingitemsreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidatedealBrowsePost(
+      _dealoutstandingitemsreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidateorderBrowsePost(
+      _dealoutstandingitemsreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidatedepartmentBrowsePost(
+      _dealoutstandingitemsreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidateordertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidateordertypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validateordertype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidateordertypeBrowsePost(
+      _dealoutstandingitemsreportValidateordertypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidateinventorytypeBrowsePost(
+      _dealoutstandingitemsreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidatecategoryBrowsePost(
+      _dealoutstandingitemsreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidatesubcategoryBrowsePost(
+      _dealoutstandingitemsreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/dealoutstandingitemsreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportValidateinventoryBrowsePost(
+      _dealoutstandingitemsreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/dealoutstandingitemsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportEmptyobjectGet();
+      _dealoutstandingitemsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      dealoutstandingitemsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _dealoutstandingitemsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/dealoutstandingitemsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      dealoutstandingitemsreportPreviewGet();
+      _dealoutstandingitemsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      exchangecontractreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _exchangecontractreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/exchangecontractreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      exchangecontractreportRenderPost(
+      _exchangecontractreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> exchangecontractreportRunreportPost(
+      {required WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _exchangecontractreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/exchangecontractreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> exchangecontractreportRunreportPost(
+          WebApiDataAppReportResponse>> _exchangecontractreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest?
               body});
 
   ///
-  @Post(path: '/exchangecontractreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       exchangecontractreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _exchangecontractreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/exchangecontractreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _exchangecontractreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      exchangecontractreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _exchangecontractreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/exchangecontractreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      exchangecontractreportEmptyobjectGet();
+      _exchangecontractreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      exchangecontractreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _exchangecontractreportPreviewGet();
+  }
 
   ///
   @Get(path: '/exchangecontractreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      exchangecontractreportPreviewGet();
+      _exchangecontractreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      fixedassetbookvaluereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _fixedassetbookvaluereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetbookvaluereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      fixedassetbookvaluereportRenderPost(
+      _fixedassetbookvaluereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      fixedassetbookvaluereportExportexcelxlsxPost(
+          {required WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _fixedassetbookvaluereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetbookvaluereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      fixedassetbookvaluereportExportexcelxlsxPost(
+      _fixedassetbookvaluereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest?
                   body});
 
   ///
-  @Post(path: '/fixedassetbookvaluereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> fixedassetbookvaluereportRunreportPost(
+      {required WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _fixedassetbookvaluereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/fixedassetbookvaluereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _fixedassetbookvaluereportRunreportPost(
       {@Body()
           required WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest?
               body});
 
   ///
-  @Post(path: '/fixedassetbookvaluereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       fixedassetbookvaluereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/fixedassetbookvaluereport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _fixedassetbookvaluereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetbookvaluereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetbookvaluereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetbookvaluereportValidatecategoryBrowsePost(
+      _fixedassetbookvaluereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetbookvaluereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetbookvaluereport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetbookvaluereportValidatesubcategoryBrowsePost(
+      _fixedassetbookvaluereportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetbookvaluereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetbookvaluereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetbookvaluereportValidatewarehouseBrowsePost(
+      _fixedassetbookvaluereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetbookvaluereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetbookvaluereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetbookvaluereportValidateinventoryBrowsePost(
+      _fixedassetbookvaluereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetbookvaluereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/fixedassetbookvaluereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetbookvaluereportEmptyobjectGet();
+      _fixedassetbookvaluereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetbookvaluereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetbookvaluereportPreviewGet();
+  }
 
   ///
   @Get(path: '/fixedassetbookvaluereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetbookvaluereportPreviewGet();
+      _fixedassetbookvaluereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      fixedassetdepreciationreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _fixedassetdepreciationreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetdepreciationreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      fixedassetdepreciationreportRenderPost(
+      _fixedassetdepreciationreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      fixedassetdepreciationreportExportexcelxlsxPost(
+          {required WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _fixedassetdepreciationreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetdepreciationreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      fixedassetdepreciationreportExportexcelxlsxPost(
+      _fixedassetdepreciationreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest?
                   body});
 
   ///
-  @Post(path: '/fixedassetdepreciationreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> fixedassetdepreciationreportRunreportPost(
+      {required WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _fixedassetdepreciationreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/fixedassetdepreciationreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _fixedassetdepreciationreportRunreportPost(
       {@Body()
           required WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest?
               body});
 
   ///
-  @Post(path: '/fixedassetdepreciationreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       fixedassetdepreciationreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/fixedassetdepreciationreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _fixedassetdepreciationreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetdepreciationreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetdepreciationreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetdepreciationreportValidatecategoryBrowsePost(
+      _fixedassetdepreciationreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetdepreciationreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/fixedassetdepreciationreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetdepreciationreportValidatesubcategoryBrowsePost(
+      _fixedassetdepreciationreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetdepreciationreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetdepreciationreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetdepreciationreportValidatewarehouseBrowsePost(
+      _fixedassetdepreciationreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetdepreciationreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/fixedassetdepreciationreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetdepreciationreportValidateinventoryBrowsePost(
+      _fixedassetdepreciationreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetdepreciationreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/fixedassetdepreciationreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetdepreciationreportEmptyobjectGet();
+      _fixedassetdepreciationreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      fixedassetdepreciationreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _fixedassetdepreciationreportPreviewGet();
+  }
 
   ///
   @Get(path: '/fixedassetdepreciationreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      fixedassetdepreciationreportPreviewGet();
+      _fixedassetdepreciationreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      gldistributionreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _gldistributionreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/gldistributionreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      gldistributionreportRenderPost(
+      _gldistributionreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      gldistributionreportExportexcelxlsxPost(
+          {required WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _gldistributionreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/gldistributionreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      gldistributionreportExportexcelxlsxPost(
+      _gldistributionreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest?
                   body});
 
   ///
-  @Post(path: '/gldistributionreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> gldistributionreportRunreportPost(
+      {required WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _gldistributionreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/gldistributionreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _gldistributionreportRunreportPost(
       {@Body()
           required WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest?
               body});
 
   ///
-  @Post(path: '/gldistributionreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       gldistributionreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _gldistributionreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/gldistributionreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _gldistributionreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      gldistributionreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _gldistributionreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/gldistributionreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      gldistributionreportValidateofficelocationBrowsePost(
+      _gldistributionreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      gldistributionreportValidateglaccountBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _gldistributionreportValidateglaccountBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/gldistributionreport/validateglaccount/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      gldistributionreportValidateglaccountBrowsePost(
+      _gldistributionreportValidateglaccountBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      gldistributionreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _gldistributionreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/gldistributionreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      gldistributionreportEmptyobjectGet();
+      _gldistributionreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      gldistributionreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _gldistributionreportPreviewGet();
+  }
 
   ///
   @Get(path: '/gldistributionreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      gldistributionreportPreviewGet();
+      _gldistributionreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      incomingdeliveryinstructionsRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _incomingdeliveryinstructionsRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/incomingdeliveryinstructions/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      incomingdeliveryinstructionsRenderPost(
+      _incomingdeliveryinstructionsRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> incomingdeliveryinstructionsRunreportPost(
+      {required WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _incomingdeliveryinstructionsRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/incomingdeliveryinstructions/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> incomingdeliveryinstructionsRunreportPost(
+          WebApiDataAppReportResponse>> _incomingdeliveryinstructionsRunreportPost(
       {@Body()
           required WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      incomingdeliveryinstructionsEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incomingdeliveryinstructionsEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/incomingdeliveryinstructions/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      incomingdeliveryinstructionsEmptyobjectGet();
+      _incomingdeliveryinstructionsEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      incomingdeliveryinstructionsPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incomingdeliveryinstructionsPreviewGet();
+  }
 
   ///
   @Get(path: '/incomingdeliveryinstructions/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      incomingdeliveryinstructionsPreviewGet();
+      _incomingdeliveryinstructionsPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      incomingshippinglabelRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _incomingshippinglabelRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/incomingshippinglabel/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      incomingshippinglabelRenderPost(
+      _incomingshippinglabelRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> incomingshippinglabelRunreportPost(
+      {required WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _incomingshippinglabelRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/incomingshippinglabel/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> incomingshippinglabelRunreportPost(
+          WebApiDataAppReportResponse>> _incomingshippinglabelRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest?
               body});
 
   ///
-  @Post(path: '/incomingshippinglabel/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       incomingshippinglabelValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incomingshippinglabelValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/incomingshippinglabel/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _incomingshippinglabelValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      incomingshippinglabelEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incomingshippinglabelEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/incomingshippinglabel/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      incomingshippinglabelEmptyobjectGet();
+      _incomingshippinglabelEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      incomingshippinglabelPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incomingshippinglabelPreviewGet();
+  }
 
   ///
   @Get(path: '/incomingshippinglabel/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      incomingshippinglabelPreviewGet();
+      _incomingshippinglabelPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      incontractreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _incontractreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/incontractreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      incontractreportRenderPost(
+      _incontractreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> incontractreportRunreportPost(
+      {required WebApiModulesReportsContractReportsInContractReportInContractReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _incontractreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/incontractreport/runreport')
   Future<
-      chopper
-          .Response<WebApiDataAppReportResponse>> incontractreportRunreportPost(
+      chopper.Response<
+          WebApiDataAppReportResponse>> _incontractreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsInContractReportInContractReportRequest?
               body});
 
   ///
-  @Post(path: '/incontractreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       incontractreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incontractreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/incontractreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _incontractreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      incontractreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incontractreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/incontractreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      incontractreportEmptyobjectGet();
+      _incontractreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      incontractreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _incontractreportPreviewGet();
+  }
 
   ///
   @Get(path: '/incontractreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      incontractreportPreviewGet();
+      _incontractreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorychangetransactiontypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorychangetransactiontypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventorychangetransactiontype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorychangetransactiontypeBrowsePost(
+      _inventorychangetransactiontypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      inventorychangetransactiontypeExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _inventorychangetransactiontypeExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorychangetransactiontype/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      inventorychangetransactiontypeExportexcelxlsxPost(
+      _inventorychangetransactiontypeExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> inventorychangetransactiontypeEmptyobjectGet() {
+    return _inventorychangetransactiontypeEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventorychangetransactiontype/emptyobject')
-  Future<chopper.Response> inventorychangetransactiontypeEmptyobjectGet();
+  Future<chopper.Response> _inventorychangetransactiontypeEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response>
+      inventorychangetransactiontypeEmptybrowseobjectGet() {
+    return _inventorychangetransactiontypeEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorychangetransactiontype/emptybrowseobject')
-  Future<chopper.Response> inventorychangetransactiontypeEmptybrowseobjectGet();
+  Future<chopper.Response>
+      _inventorychangetransactiontypeEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorychangetransactiontypeKeyfieldnamesGet() {
+    return _inventorychangetransactiontypeKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorychangetransactiontype/keyfieldnames')
-  Future<chopper.Response> inventorychangetransactiontypeKeyfieldnamesGet();
+  Future<chopper.Response> _inventorychangetransactiontypeKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      invoicediscountreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _invoicediscountreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/invoicediscountreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      invoicediscountreportRenderPost(
+      _invoicediscountreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      invoicediscountreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _invoicediscountreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/invoicediscountreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      invoicediscountreportExportexcelxlsxPost(
+      _invoicediscountreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest?
                   body});
 
   ///
-  @Post(path: '/invoicediscountreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> invoicediscountreportRunreportPost(
+      {required WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _invoicediscountreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/invoicediscountreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _invoicediscountreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest?
               body});
 
   ///
-  @Post(path: '/invoicediscountreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       invoicediscountreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/invoicediscountreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _invoicediscountreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicediscountreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicediscountreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicediscountreportValidateofficelocationBrowsePost(
+      _invoicediscountreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicediscountreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicediscountreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicediscountreportValidatecustomerBrowsePost(
+      _invoicediscountreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicediscountreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicediscountreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicediscountreportValidatedepartmentBrowsePost(
+      _invoicediscountreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicediscountreportValidatediscountreasonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportValidatediscountreasonBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicediscountreport/validatediscountreason/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicediscountreportValidatediscountreasonBrowsePost(
+      _invoicediscountreportValidatediscountreasonBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicediscountreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/invoicediscountreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicediscountreportEmptyobjectGet();
+      _invoicediscountreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicediscountreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicediscountreportPreviewGet();
+  }
 
   ///
   @Get(path: '/invoicediscountreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicediscountreportPreviewGet();
+      _invoicediscountreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      invoicereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _invoicereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/invoicereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      invoicereportRenderPost(
+      _invoicereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> invoicereportRunreportPost(
+      {required WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _invoicereportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/invoicereport/runreport')
   Future<
       chopper
-          .Response<WebApiDataAppReportResponse>> invoicereportRunreportPost(
+          .Response<WebApiDataAppReportResponse>> _invoicereportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest?
               body});
 
   ///
-  @Post(path: '/invoicereport/validateinvoice/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       invoicereportValidateinvoiceBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicereportValidateinvoiceBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/invoicereport/validateinvoice/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _invoicereportValidateinvoiceBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/invoicereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicereportEmptyobjectGet();
+      _invoicereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicereportPreviewGet();
+  }
 
   ///
   @Get(path: '/invoicereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicereportPreviewGet();
+      _invoicereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      invoicesummaryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _invoicesummaryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/invoicesummaryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      invoicesummaryreportRenderPost(
+      _invoicesummaryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      invoicesummaryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _invoicesummaryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/invoicesummaryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      invoicesummaryreportExportexcelxlsxPost(
+      _invoicesummaryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest?
                   body});
 
   ///
-  @Post(path: '/invoicesummaryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> invoicesummaryreportRunreportPost(
+      {required WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _invoicesummaryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/invoicesummaryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _invoicesummaryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest?
               body});
 
   ///
-  @Post(path: '/invoicesummaryreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       invoicesummaryreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicesummaryreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/invoicesummaryreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _invoicesummaryreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicesummaryreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicesummaryreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicesummaryreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicesummaryreportValidateofficelocationBrowsePost(
+      _invoicesummaryreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicesummaryreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicesummaryreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicesummaryreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicesummaryreportValidatedepartmentBrowsePost(
+      _invoicesummaryreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicesummaryreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicesummaryreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoicesummaryreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicesummaryreportValidatecustomerBrowsePost(
+      _invoicesummaryreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicesummaryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicesummaryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/invoicesummaryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicesummaryreportEmptyobjectGet();
+      _invoicesummaryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicesummaryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicesummaryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/invoicesummaryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicesummaryreportPreviewGet();
+      _invoicesummaryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      latereturnsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _latereturnsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      latereturnsreportRenderPost(
+      _latereturnsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      latereturnsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _latereturnsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      latereturnsreportExportexcelxlsxPost(
+      _latereturnsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest?
                   body});
 
   ///
-  @Post(path: '/latereturnsreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> latereturnsreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _latereturnsreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/latereturnsreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _latereturnsreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest?
               body});
 
   ///
-  @Post(path: '/latereturnsreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       latereturnsreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/latereturnsreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _latereturnsreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportValidatewarehouseBrowsePost(
+      _latereturnsreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportValidatedepartmentBrowsePost(
+      _latereturnsreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportValidatecustomerBrowsePost(
+      _latereturnsreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportValidatedealBrowsePost(
+      _latereturnsreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidateinventorytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportValidateinventorytypeBrowsePost(
+      _latereturnsreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportValidatecontactBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/latereturnsreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportValidatecontactBrowsePost(
+      _latereturnsreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/latereturnsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportEmptyobjectGet();
+      _latereturnsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      latereturnsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _latereturnsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/latereturnsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      latereturnsreportPreviewGet();
+      _latereturnsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      lostcontractreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _lostcontractreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/lostcontractreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      lostcontractreportRenderPost(
+      _lostcontractreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> lostcontractreportRunreportPost(
+      {required WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _lostcontractreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/lostcontractreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> lostcontractreportRunreportPost(
+          WebApiDataAppReportResponse>> _lostcontractreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest?
               body});
 
   ///
-  @Post(path: '/lostcontractreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       lostcontractreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _lostcontractreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/lostcontractreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _lostcontractreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      lostcontractreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _lostcontractreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/lostcontractreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      lostcontractreportEmptyobjectGet();
+      _lostcontractreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      lostcontractreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _lostcontractreportPreviewGet();
+  }
 
   ///
   @Get(path: '/lostcontractreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      lostcontractreportPreviewGet();
+      _lostcontractreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      orderconflictreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _orderconflictreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      orderconflictreportRenderPost(
+      _orderconflictreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      orderconflictreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _orderconflictreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      orderconflictreportExportexcelxlsxPost(
+      _orderconflictreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest?
                   body});
 
   ///
-  @Post(path: '/orderconflictreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> orderconflictreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _orderconflictreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/orderconflictreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _orderconflictreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest?
               body});
 
   ///
-  @Post(path: '/orderconflictreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       orderconflictreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/orderconflictreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderconflictreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidatedepartmentBrowsePost(
+      _orderconflictreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidatedealBrowsePost(
+      _orderconflictreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidateorderBrowsePost(
+      _orderconflictreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidateinventorytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidateinventorytypeBrowsePost(
+      _orderconflictreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidatecategoryBrowsePost(
+      _orderconflictreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidatesubcategoryBrowsePost(
+      _orderconflictreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/orderconflictreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportValidateinventoryBrowsePost(
+      _orderconflictreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/orderconflictreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportEmptyobjectGet();
+      _orderconflictreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderconflictreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderconflictreportPreviewGet();
+  }
 
   ///
   @Get(path: '/orderconflictreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderconflictreportPreviewGet();
+      _orderconflictreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      orderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _orderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/orderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      orderreportRenderPost(
+      _orderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> orderreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsOrderReportOrderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _orderreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/orderreport/runreport')
   Future<
       chopper
-          .Response<WebApiDataAppReportResponse>> orderreportRunreportPost(
+          .Response<WebApiDataAppReportResponse>> _orderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsOrderReportOrderReportRequest?
               body});
 
   ///
-  @Post(path: '/orderreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       orderreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderreportValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/orderreport/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/orderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderreportEmptyobjectGet();
+      _orderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/orderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderreportPreviewGet();
+      _orderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      ordersbydealreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _ordersbydealreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      ordersbydealreportRenderPost(
+      _ordersbydealreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      ordersbydealreportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _ordersbydealreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      ordersbydealreportExportexcelxlsxPost(
+      _ordersbydealreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest?
                   body});
 
   ///
-  @Post(path: '/ordersbydealreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> ordersbydealreportRunreportPost(
+      {required WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _ordersbydealreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/ordersbydealreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _ordersbydealreportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest?
               body});
 
   ///
-  @Post(path: '/ordersbydealreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       ordersbydealreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/ordersbydealreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _ordersbydealreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportValidatedepartmentBrowsePost(
+      _ordersbydealreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportValidatecustomerBrowsePost(
+      _ordersbydealreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportValidatedealtypeBrowsePost(
+      _ordersbydealreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportValidatedealstatusBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportValidatedealstatusBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/validatedealstatus/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportValidatedealstatusBrowsePost(
+      _ordersbydealreportValidatedealstatusBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/ordersbydealreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportValidatedealBrowsePost(
+      _ordersbydealreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/ordersbydealreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportEmptyobjectGet();
+      _ordersbydealreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordersbydealreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordersbydealreportPreviewGet();
+  }
 
   ///
   @Get(path: '/ordersbydealreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordersbydealreportPreviewGet();
+      _ordersbydealreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      orderstatusdetailreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _orderstatusdetailreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/orderstatusdetailreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      orderstatusdetailreportRenderPost(
+      _orderstatusdetailreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> orderstatusdetailreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _orderstatusdetailreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/orderstatusdetailreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> orderstatusdetailreportRunreportPost(
+          WebApiDataAppReportResponse>> _orderstatusdetailreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest?
               body});
 
   ///
-  @Post(path: '/orderstatusdetailreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       orderstatusdetailreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderstatusdetailreportValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/orderstatusdetailreport/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderstatusdetailreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderstatusdetailreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderstatusdetailreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/orderstatusdetailreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderstatusdetailreportEmptyobjectGet();
+      _orderstatusdetailreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderstatusdetailreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderstatusdetailreportPreviewGet();
+  }
 
   ///
   @Get(path: '/orderstatusdetailreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderstatusdetailreportPreviewGet();
+      _orderstatusdetailreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      orderstatussummaryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _orderstatussummaryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/orderstatussummaryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      orderstatussummaryreportRenderPost(
+      _orderstatussummaryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> orderstatussummaryreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _orderstatussummaryreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/orderstatussummaryreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> orderstatussummaryreportRunreportPost(
+          WebApiDataAppReportResponse>> _orderstatussummaryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest?
               body});
 
   ///
-  @Post(path: '/orderstatussummaryreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       orderstatussummaryreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderstatussummaryreportValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/orderstatussummaryreport/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderstatussummaryreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderstatussummaryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderstatussummaryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/orderstatussummaryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderstatussummaryreportEmptyobjectGet();
+      _orderstatussummaryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderstatussummaryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderstatussummaryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/orderstatussummaryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderstatussummaryreportPreviewGet();
+      _orderstatussummaryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      ordervaluesheetreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _ordervaluesheetreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/ordervaluesheetreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      ordervaluesheetreportRenderPost(
+      _ordervaluesheetreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> ordervaluesheetreportRunreportPost(
+      {required WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _ordervaluesheetreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/ordervaluesheetreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> ordervaluesheetreportRunreportPost(
+          WebApiDataAppReportResponse>> _ordervaluesheetreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest?
               body});
 
   ///
-  @Post(path: '/ordervaluesheetreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       ordervaluesheetreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordervaluesheetreportValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/ordervaluesheetreport/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _ordervaluesheetreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordervaluesheetreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordervaluesheetreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/ordervaluesheetreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordervaluesheetreportEmptyobjectGet();
+      _ordervaluesheetreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      ordervaluesheetreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _ordervaluesheetreportPreviewGet();
+  }
 
   ///
   @Get(path: '/ordervaluesheetreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      ordervaluesheetreportPreviewGet();
+      _ordervaluesheetreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      outcontractreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _outcontractreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/outcontractreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      outcontractreportRenderPost(
+      _outcontractreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> outcontractreportRunreportPost(
+      {required WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _outcontractreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/outcontractreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> outcontractreportRunreportPost(
+          WebApiDataAppReportResponse>> _outcontractreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest?
               body});
 
   ///
-  @Post(path: '/outcontractreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       outcontractreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outcontractreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/outcontractreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _outcontractreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outcontractreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outcontractreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/outcontractreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outcontractreportEmptyobjectGet();
+      _outcontractreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outcontractreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outcontractreportPreviewGet();
+  }
 
   ///
   @Get(path: '/outcontractreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outcontractreportPreviewGet();
+      _outcontractreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      outgoingdeliveryinstructionsRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _outgoingdeliveryinstructionsRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/outgoingdeliveryinstructions/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      outgoingdeliveryinstructionsRenderPost(
+      _outgoingdeliveryinstructionsRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> outgoingdeliveryinstructionsRunreportPost(
+      {required WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _outgoingdeliveryinstructionsRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/outgoingdeliveryinstructions/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> outgoingdeliveryinstructionsRunreportPost(
+          WebApiDataAppReportResponse>> _outgoingdeliveryinstructionsRunreportPost(
       {@Body()
           required WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outgoingdeliveryinstructionsEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outgoingdeliveryinstructionsEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/outgoingdeliveryinstructions/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outgoingdeliveryinstructionsEmptyobjectGet();
+      _outgoingdeliveryinstructionsEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outgoingdeliveryinstructionsPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outgoingdeliveryinstructionsPreviewGet();
+  }
 
   ///
   @Get(path: '/outgoingdeliveryinstructions/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outgoingdeliveryinstructionsPreviewGet();
+      _outgoingdeliveryinstructionsPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      outgoingshippinglabelRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _outgoingshippinglabelRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/outgoingshippinglabel/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      outgoingshippinglabelRenderPost(
+      _outgoingshippinglabelRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> outgoingshippinglabelRunreportPost(
+      {required WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _outgoingshippinglabelRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/outgoingshippinglabel/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> outgoingshippinglabelRunreportPost(
+          WebApiDataAppReportResponse>> _outgoingshippinglabelRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest?
               body});
 
   ///
-  @Post(path: '/outgoingshippinglabel/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       outgoingshippinglabelValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outgoingshippinglabelValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/outgoingshippinglabel/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _outgoingshippinglabelValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outgoingshippinglabelEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outgoingshippinglabelEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/outgoingshippinglabel/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outgoingshippinglabelEmptyobjectGet();
+      _outgoingshippinglabelEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outgoingshippinglabelPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outgoingshippinglabelPreviewGet();
+  }
 
   ///
   @Get(path: '/outgoingshippinglabel/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outgoingshippinglabelPreviewGet();
+      _outgoingshippinglabelPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      outstandingsubrentalreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _outstandingsubrentalreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      outstandingsubrentalreportRenderPost(
+      _outstandingsubrentalreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      outstandingsubrentalreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _outstandingsubrentalreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      outstandingsubrentalreportExportexcelxlsxPost(
+      _outstandingsubrentalreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest?
                   body});
 
   ///
-  @Post(path: '/outstandingsubrentalreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> outstandingsubrentalreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _outstandingsubrentalreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/outstandingsubrentalreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _outstandingsubrentalreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest?
               body});
 
   ///
-  @Post(path: '/outstandingsubrentalreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       outstandingsubrentalreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/outstandingsubrentalreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingsubrentalreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidatewarehouseBrowsePost(
+      _outstandingsubrentalreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidatedepartmentBrowsePost(
+      _outstandingsubrentalreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidatecustomerBrowsePost(
+      _outstandingsubrentalreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidatedealtypeBrowsePost(
+      _outstandingsubrentalreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidatevendorBrowsePost(
+      _outstandingsubrentalreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidatecategoryBrowsePost(
+      _outstandingsubrentalreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/outstandingsubrentalreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportValidateinventoryBrowsePost(
+      _outstandingsubrentalreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/outstandingsubrentalreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportEmptyobjectGet();
+      _outstandingsubrentalreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      outstandingsubrentalreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _outstandingsubrentalreportPreviewGet();
+  }
 
   ///
   @Get(path: '/outstandingsubrentalreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      outstandingsubrentalreportPreviewGet();
+      _outstandingsubrentalreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      partsinventoryattributesreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _partsinventoryattributesreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      partsinventoryattributesreportRenderPost(
+      _partsinventoryattributesreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      partsinventoryattributesreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _partsinventoryattributesreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      partsinventoryattributesreportExportexcelxlsxPost(
+      _partsinventoryattributesreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      partsinventoryattributesreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _partsinventoryattributesreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      partsinventoryattributesreportRunreportPost(
+      _partsinventoryattributesreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
                   body});
 
   ///
-  @Post(path: '/partsinventoryattributesreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       partsinventoryattributesreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventoryattributesreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _partsinventoryattributesreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryattributesreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryattributesreportValidatecategoryBrowsePost(
+      _partsinventoryattributesreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryattributesreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryattributesreportValidatesubcategoryBrowsePost(
+      _partsinventoryattributesreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryattributesreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryattributesreportValidateinventoryBrowsePost(
+      _partsinventoryattributesreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryattributesreportValidateattributeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportValidateattributeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryattributesreport/validateattribute/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryattributesreportValidateattributeBrowsePost(
+      _partsinventoryattributesreportValidateattributeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryattributesreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/partsinventoryattributesreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryattributesreportEmptyobjectGet();
+      _partsinventoryattributesreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryattributesreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryattributesreportPreviewGet();
+  }
 
   ///
   @Get(path: '/partsinventoryattributesreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryattributesreportPreviewGet();
+      _partsinventoryattributesreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      partsinventorycatalogreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _partsinventorycatalogreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      partsinventorycatalogreportRenderPost(
+      _partsinventorycatalogreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      partsinventorycatalogreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _partsinventorycatalogreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      partsinventorycatalogreportExportexcelxlsxPost(
+      _partsinventorycatalogreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
                   body});
 
   ///
-  @Post(path: '/partsinventorycatalogreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> partsinventorycatalogreportRunreportPost(
+      {required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _partsinventorycatalogreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventorycatalogreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _partsinventorycatalogreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
               body});
 
   ///
-  @Post(path: '/partsinventorycatalogreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       partsinventorycatalogreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventorycatalogreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _partsinventorycatalogreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportValidatecategoryBrowsePost(
+      _partsinventorycatalogreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportValidatesubcategoryBrowsePost(
+      _partsinventorycatalogreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportValidateinventoryBrowsePost(
+      _partsinventorycatalogreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportValidatewarehousecatalogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportValidatewarehousecatalogBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/validatewarehousecatalog/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportValidatewarehousecatalogBrowsePost(
+      _partsinventorycatalogreportValidatewarehousecatalogBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorycatalogreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportValidatewarehouseBrowsePost(
+      _partsinventorycatalogreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/partsinventorycatalogreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportEmptyobjectGet();
+      _partsinventorycatalogreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorycatalogreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorycatalogreportPreviewGet();
+  }
 
   ///
   @Get(path: '/partsinventorycatalogreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorycatalogreportPreviewGet();
+      _partsinventorycatalogreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      partsinventorychangereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _partsinventorychangereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      partsinventorychangereportRenderPost(
+      _partsinventorychangereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      partsinventorychangereportExportexcelxlsxPost(
+          {required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _partsinventorychangereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      partsinventorychangereportExportexcelxlsxPost(
+      _partsinventorychangereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
                   body});
 
   ///
-  @Post(path: '/partsinventorychangereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> partsinventorychangereportRunreportPost(
+      {required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _partsinventorychangereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventorychangereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _partsinventorychangereportRunreportPost(
       {@Body()
           required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
               body});
 
   ///
-  @Post(path: '/partsinventorychangereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       partsinventorychangereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventorychangereport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _partsinventorychangereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportValidatecategoryBrowsePost(
+      _partsinventorychangereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportValidatesubcategoryBrowsePost(
+      _partsinventorychangereportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportValidatetransactiontypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportValidatetransactiontypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/validatetransactiontype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportValidatetransactiontypeBrowsePost(
+      _partsinventorychangereportValidatetransactiontypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportValidatewarehouseBrowsePost(
+      _partsinventorychangereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorychangereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportValidateinventoryBrowsePost(
+      _partsinventorychangereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/partsinventorychangereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportEmptyobjectGet();
+      _partsinventorychangereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorychangereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorychangereportPreviewGet();
+  }
 
   ///
   @Get(path: '/partsinventorychangereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorychangereportPreviewGet();
+      _partsinventorychangereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      partsinventorypurchasehistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorypurchasehistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      partsinventorypurchasehistoryreportRenderPost(
+      _partsinventorypurchasehistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      partsinventorypurchasehistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorypurchasehistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      partsinventorypurchasehistoryreportExportexcelxlsxPost(
+      _partsinventorypurchasehistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/partsinventorypurchasehistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       partsinventorypurchasehistoryreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventorypurchasehistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _partsinventorypurchasehistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/partsinventorypurchasehistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+      _partsinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorypurchasehistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportValidatecategoryBrowsePost(
+      _partsinventorypurchasehistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorypurchasehistoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+      _partsinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorypurchasehistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportValidateinventoryBrowsePost(
+      _partsinventorypurchasehistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorypurchasehistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+      _partsinventorypurchasehistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/partsinventorypurchasehistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportEmptyobjectGet();
+      _partsinventorypurchasehistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorypurchasehistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorypurchasehistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/partsinventorypurchasehistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorypurchasehistoryreportPreviewGet();
+      _partsinventorypurchasehistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      partsinventoryreorderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _partsinventoryreorderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryreorderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      partsinventoryreorderreportRenderPost(
+      _partsinventoryreorderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      partsinventoryreorderreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _partsinventoryreorderreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryreorderreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      partsinventoryreorderreportExportexcelxlsxPost(
+      _partsinventoryreorderreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest?
                   body});
 
   ///
-  @Post(path: '/partsinventoryreorderreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> partsinventoryreorderreportRunreportPost(
+      {required WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _partsinventoryreorderreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventoryreorderreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _partsinventoryreorderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest?
               body});
 
   ///
-  @Post(path: '/partsinventoryreorderreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       partsinventoryreorderreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventoryreorderreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _partsinventoryreorderreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryreorderreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryreorderreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryreorderreportValidatecategoryBrowsePost(
+      _partsinventoryreorderreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryreorderreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryreorderreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryreorderreportValidatesubcategoryBrowsePost(
+      _partsinventoryreorderreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryreorderreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryreorderreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryreorderreportValidateinventoryBrowsePost(
+      _partsinventoryreorderreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryreorderreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventoryreorderreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryreorderreportValidatewarehouseBrowsePost(
+      _partsinventoryreorderreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryreorderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/partsinventoryreorderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryreorderreportEmptyobjectGet();
+      _partsinventoryreorderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventoryreorderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventoryreorderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/partsinventoryreorderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventoryreorderreportPreviewGet();
+      _partsinventoryreorderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      partsinventorytransactionreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _partsinventorytransactionreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      partsinventorytransactionreportRenderPost(
+      _partsinventorytransactionreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      partsinventorytransactionreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _partsinventorytransactionreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      partsinventorytransactionreportExportexcelxlsxPost(
+      _partsinventorytransactionreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      partsinventorytransactionreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _partsinventorytransactionreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      partsinventorytransactionreportRunreportPost(
+      _partsinventorytransactionreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
                   body});
 
   ///
-  @Post(path: '/partsinventorytransactionreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       partsinventorytransactionreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/partsinventorytransactionreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _partsinventorytransactionreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorytransactionreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorytransactionreportValidatecategoryBrowsePost(
+      _partsinventorytransactionreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorytransactionreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorytransactionreportValidatesubcategoryBrowsePost(
+      _partsinventorytransactionreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorytransactionreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorytransactionreportValidateinventoryBrowsePost(
+      _partsinventorytransactionreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorytransactionreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/partsinventorytransactionreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorytransactionreportValidatewarehouseBrowsePost(
+      _partsinventorytransactionreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorytransactionreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/partsinventorytransactionreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorytransactionreportEmptyobjectGet();
+      _partsinventorytransactionreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      partsinventorytransactionreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _partsinventorytransactionreportPreviewGet();
+  }
 
   ///
   @Get(path: '/partsinventorytransactionreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      partsinventorytransactionreportPreviewGet();
+      _partsinventorytransactionreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventorycountsheetreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventorycountsheetreportRenderPost(
+      _physicalinventorycountsheetreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventorycountsheetreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventorycountsheetreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventorycountsheetreportExportexcelxlsxPost(
+      _physicalinventorycountsheetreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventorycountsheetreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       physicalinventorycountsheetreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventorycountsheetreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _physicalinventorycountsheetreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventorycountsheetreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidateofficelocationBrowsePost(
+      _physicalinventorycountsheetreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidatewarehouseBrowsePost(
+      _physicalinventorycountsheetreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidatedepartmentBrowsePost(
+      _physicalinventorycountsheetreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidatecustomerBrowsePost(
+      _physicalinventorycountsheetreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidatedealBrowsePost(
+      _physicalinventorycountsheetreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidateinventorytypeBrowsePost(
+      _physicalinventorycountsheetreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidatecontactBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidatecontactBrowsePost(
+      _physicalinventorycountsheetreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorycountsheetreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportValidatecategoryBrowsePost(
+      _physicalinventorycountsheetreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventorycountsheetreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportEmptyobjectGet();
+      _physicalinventorycountsheetreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorycountsheetreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorycountsheetreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventorycountsheetreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorycountsheetreportPreviewGet();
+      _physicalinventorycountsheetreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventorydiscrepancyreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventorydiscrepancyreportRenderPost(
+      _physicalinventorydiscrepancyreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventorydiscrepancyreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventorydiscrepancyreportExportexcelxlsxPost(
+      _physicalinventorydiscrepancyreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventorydiscrepancyreport/runreport')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       physicalinventorydiscrepancyreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventorydiscrepancyreport/runreport')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _physicalinventorydiscrepancyreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventorydiscrepancyreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidateofficelocationBrowsePost(
+      _physicalinventorydiscrepancyreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidatewarehouseBrowsePost(
+      _physicalinventorydiscrepancyreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidatedepartmentBrowsePost(
+      _physicalinventorydiscrepancyreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidatecustomerBrowsePost(
+      _physicalinventorydiscrepancyreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidatedealBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidatedealBrowsePost(
+      _physicalinventorydiscrepancyreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventorydiscrepancyreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidateinventorytypeBrowsePost(
+      _physicalinventorydiscrepancyreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportValidatecontactBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventorydiscrepancyreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportValidatecontactBrowsePost(
+      _physicalinventorydiscrepancyreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventorydiscrepancyreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportEmptyobjectGet();
+      _physicalinventorydiscrepancyreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventorydiscrepancyreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventorydiscrepancyreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventorydiscrepancyreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventorydiscrepancyreportPreviewGet();
+      _physicalinventorydiscrepancyreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventoryexceptionreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventoryexceptionreportRenderPost(
+      _physicalinventoryexceptionreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventoryexceptionreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventoryexceptionreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventoryexceptionreportExportexcelxlsxPost(
+      _physicalinventoryexceptionreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      physicalinventoryexceptionreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      physicalinventoryexceptionreportRunreportPost(
+      _physicalinventoryexceptionreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventoryexceptionreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       physicalinventoryexceptionreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventoryexceptionreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _physicalinventoryexceptionreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportValidatewarehouseBrowsePost(
+      _physicalinventoryexceptionreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportValidatedepartmentBrowsePost(
+      _physicalinventoryexceptionreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportValidatecustomerBrowsePost(
+      _physicalinventoryexceptionreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportValidatedealBrowsePost(
+      _physicalinventoryexceptionreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportValidateinventorytypeBrowsePost(
+      _physicalinventoryexceptionreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportValidatecontactBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryexceptionreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportValidatecontactBrowsePost(
+      _physicalinventoryexceptionreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryexceptionreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportEmptyobjectGet();
+      _physicalinventoryexceptionreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryexceptionreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryexceptionreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryexceptionreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryexceptionreportPreviewGet();
+      _physicalinventoryexceptionreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventoryprescanprogressreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryprescanprogressreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventoryprescanprogressreportRenderPost(
+      _physicalinventoryprescanprogressreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventoryprescanprogressreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportExportexcelxlsxPost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryprescanprogressreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventoryprescanprogressreportExportexcelxlsxPost(
+      _physicalinventoryprescanprogressreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventoryprescanprogressreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       physicalinventoryprescanprogressreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventoryprescanprogressreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _physicalinventoryprescanprogressreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/physicalinventoryprescanprogressreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidateofficelocationBrowsePost(
+      _physicalinventoryprescanprogressreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventoryprescanprogressreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidatewarehouseBrowsePost(
+      _physicalinventoryprescanprogressreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventoryprescanprogressreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidatedepartmentBrowsePost(
+      _physicalinventoryprescanprogressreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryprescanprogressreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidatecustomerBrowsePost(
+      _physicalinventoryprescanprogressreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidatedealBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryprescanprogressreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidatedealBrowsePost(
+      _physicalinventoryprescanprogressreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/physicalinventoryprescanprogressreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidateinventorytypeBrowsePost(
+      _physicalinventoryprescanprogressreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidatecontactBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryprescanprogressreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidatecontactBrowsePost(
+      _physicalinventoryprescanprogressreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryprescanprogressreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportValidatecategoryBrowsePost(
+      _physicalinventoryprescanprogressreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryprescanprogressreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportEmptyobjectGet();
+      _physicalinventoryprescanprogressreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryprescanprogressreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryprescanprogressreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryprescanprogressreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryprescanprogressreportPreviewGet();
+      _physicalinventoryprescanprogressreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventoryreconciliationreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryreconciliationreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventoryreconciliationreportRenderPost(
+      _physicalinventoryreconciliationreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventoryreconciliationreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportExportexcelxlsxPost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryreconciliationreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventoryreconciliationreportExportexcelxlsxPost(
+      _physicalinventoryreconciliationreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventoryreconciliationreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       physicalinventoryreconciliationreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventoryreconciliationreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _physicalinventoryreconciliationreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryreconciliationreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/physicalinventoryreconciliationreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryreconciliationreportValidateinventorytypeBrowsePost(
+      _physicalinventoryreconciliationreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryreconciliationreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryreconciliationreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryreconciliationreportValidatecategoryBrowsePost(
+      _physicalinventoryreconciliationreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryreconciliationreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportValidatecontactBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryreconciliationreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryreconciliationreportValidatecontactBrowsePost(
+      _physicalinventoryreconciliationreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryreconciliationreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryreconciliationreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryreconciliationreportEmptyobjectGet();
+      _physicalinventoryreconciliationreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryreconciliationreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryreconciliationreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryreconciliationreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryreconciliationreportPreviewGet();
+      _physicalinventoryreconciliationreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventoryrecountanalysisreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryrecountanalysisreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventoryrecountanalysisreportRenderPost(
+      _physicalinventoryrecountanalysisreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventoryrecountanalysisreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportExportexcelxlsxPost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryrecountanalysisreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventoryrecountanalysisreportExportexcelxlsxPost(
+      _physicalinventoryrecountanalysisreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventoryrecountanalysisreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       physicalinventoryrecountanalysisreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventoryrecountanalysisreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _physicalinventoryrecountanalysisreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/physicalinventoryrecountanalysisreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidateofficelocationBrowsePost(
+      _physicalinventoryrecountanalysisreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventoryrecountanalysisreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidatewarehouseBrowsePost(
+      _physicalinventoryrecountanalysisreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/physicalinventoryrecountanalysisreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidatedepartmentBrowsePost(
+      _physicalinventoryrecountanalysisreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryrecountanalysisreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidatecustomerBrowsePost(
+      _physicalinventoryrecountanalysisreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidatedealBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryrecountanalysisreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidatedealBrowsePost(
+      _physicalinventoryrecountanalysisreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/physicalinventoryrecountanalysisreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidateinventorytypeBrowsePost(
+      _physicalinventoryrecountanalysisreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportValidatecontactBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportValidatecontactBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryrecountanalysisreport/validatecontact/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportValidatecontactBrowsePost(
+      _physicalinventoryrecountanalysisreportValidatecontactBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryrecountanalysisreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportEmptyobjectGet();
+      _physicalinventoryrecountanalysisreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryrecountanalysisreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryrecountanalysisreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryrecountanalysisreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryrecountanalysisreportPreviewGet();
+      _physicalinventoryrecountanalysisreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      physicalinventoryresultsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _physicalinventoryresultsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryresultsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      physicalinventoryresultsreportRenderPost(
+      _physicalinventoryresultsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      physicalinventoryresultsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _physicalinventoryresultsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryresultsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      physicalinventoryresultsreportExportexcelxlsxPost(
+      _physicalinventoryresultsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      physicalinventoryresultsreportRunreportPost(
+          {required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _physicalinventoryresultsreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryresultsreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      physicalinventoryresultsreportRunreportPost(
+      _physicalinventoryresultsreportRunreportPost(
           {@Body()
               required WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest?
                   body});
 
   ///
-  @Post(path: '/physicalinventoryresultsreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       physicalinventoryresultsreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryresultsreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/physicalinventoryresultsreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _physicalinventoryresultsreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryresultsreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryresultsreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/physicalinventoryresultsreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryresultsreportValidatecategoryBrowsePost(
+      _physicalinventoryresultsreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryresultsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryresultsreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryresultsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryresultsreportEmptyobjectGet();
+      _physicalinventoryresultsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      physicalinventoryresultsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _physicalinventoryresultsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/physicalinventoryresultsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      physicalinventoryresultsreportPreviewGet();
+      _physicalinventoryresultsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      picklistreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _picklistreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/picklistreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      picklistreportRenderPost(
+      _picklistreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> picklistreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsPickListReportPickListReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _picklistreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/picklistreport/runreport')
   Future<
       chopper
-          .Response<WebApiDataAppReportResponse>> picklistreportRunreportPost(
+          .Response<WebApiDataAppReportResponse>> _picklistreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsPickListReportPickListReportRequest?
               body});
 
   ///
-  @Post(path: '/picklistreport/validatepicklist/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       picklistreportValidatepicklistBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _picklistreportValidatepicklistBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/picklistreport/validatepicklist/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _picklistreportValidatepicklistBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      picklistreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _picklistreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/picklistreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      picklistreportEmptyobjectGet();
+      _picklistreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      picklistreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _picklistreportPreviewGet();
+  }
 
   ///
   @Get(path: '/picklistreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      picklistreportPreviewGet();
+      _picklistreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      profitlossreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _profitlossreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      profitlossreportRenderPost(
+      _profitlossreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      profitlossreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _profitlossreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      profitlossreportExportexcelxlsxPost(
+      _profitlossreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest?
                   body});
 
   ///
-  @Post(path: '/profitlossreport/runreport')
   Future<
       chopper
           .Response<WebApiDataAppReportResponse>> profitlossreportRunreportPost(
+      {required WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _profitlossreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/profitlossreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _profitlossreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest?
               body});
 
   ///
-  @Post(path: '/profitlossreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       profitlossreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/profitlossreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _profitlossreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportValidatedepartmentBrowsePost(
+      _profitlossreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportValidatecustomerBrowsePost(
+      _profitlossreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportValidateagentBrowsePost(
+      _profitlossreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportValidateorderBrowsePost(
+      _profitlossreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/profitlossreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportValidatedealBrowsePost(
+      _profitlossreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/profitlossreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportEmptyobjectGet();
+      _profitlossreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      profitlossreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _profitlossreportPreviewGet();
+  }
 
   ///
   @Get(path: '/profitlossreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      profitlossreportPreviewGet();
+      _profitlossreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      projectmanagerbillingreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _projectmanagerbillingreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/projectmanagerbillingreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      projectmanagerbillingreportRenderPost(
+      _projectmanagerbillingreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      projectmanagerbillingreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _projectmanagerbillingreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/projectmanagerbillingreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      projectmanagerbillingreportExportexcelxlsxPost(
+      _projectmanagerbillingreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest?
                   body});
 
   ///
-  @Post(path: '/projectmanagerbillingreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> projectmanagerbillingreportRunreportPost(
+      {required WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _projectmanagerbillingreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/projectmanagerbillingreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _projectmanagerbillingreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest?
               body});
 
   ///
-  @Post(path: '/projectmanagerbillingreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       projectmanagerbillingreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportValidateofficelocationBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/projectmanagerbillingreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _projectmanagerbillingreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      projectmanagerbillingreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/projectmanagerbillingreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      projectmanagerbillingreportValidatedepartmentBrowsePost(
+      _projectmanagerbillingreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      projectmanagerbillingreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/projectmanagerbillingreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      projectmanagerbillingreportValidatecustomerBrowsePost(
+      _projectmanagerbillingreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      projectmanagerbillingreportValidateprojectmanagerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportValidateprojectmanagerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/projectmanagerbillingreport/validateprojectmanager/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      projectmanagerbillingreportValidateprojectmanagerBrowsePost(
+      _projectmanagerbillingreportValidateprojectmanagerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      projectmanagerbillingreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/projectmanagerbillingreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      projectmanagerbillingreportValidatedealBrowsePost(
+      _projectmanagerbillingreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      projectmanagerbillingreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/projectmanagerbillingreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      projectmanagerbillingreportEmptyobjectGet();
+      _projectmanagerbillingreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      projectmanagerbillingreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _projectmanagerbillingreportPreviewGet();
+  }
 
   ///
   @Get(path: '/projectmanagerbillingreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      projectmanagerbillingreportPreviewGet();
+      _projectmanagerbillingreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      purchaseordermasterreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _purchaseordermasterreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordermasterreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      purchaseordermasterreportRenderPost(
+      _purchaseordermasterreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      purchaseordermasterreportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _purchaseordermasterreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordermasterreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      purchaseordermasterreportExportexcelxlsxPost(
+      _purchaseordermasterreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest?
                   body});
 
   ///
-  @Post(path: '/purchaseordermasterreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> purchaseordermasterreportRunreportPost(
+      {required WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _purchaseordermasterreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseordermasterreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _purchaseordermasterreportRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest?
               body});
 
   ///
-  @Post(path: '/purchaseordermasterreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       purchaseordermasterreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordermasterreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseordermasterreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _purchaseordermasterreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordermasterreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordermasterreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordermasterreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordermasterreportValidatedepartmentBrowsePost(
+      _purchaseordermasterreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordermasterreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordermasterreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordermasterreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordermasterreportValidatevendorBrowsePost(
+      _purchaseordermasterreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordermasterreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordermasterreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/purchaseordermasterreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordermasterreportEmptyobjectGet();
+      _purchaseordermasterreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordermasterreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordermasterreportPreviewGet();
+  }
 
   ///
   @Get(path: '/purchaseordermasterreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordermasterreportPreviewGet();
+      _purchaseordermasterreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      purchaseorderreceivelistRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _purchaseorderreceivelistRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseorderreceivelist/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      purchaseorderreceivelistRenderPost(
+      _purchaseorderreceivelistRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      purchaseorderreceivelistExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _purchaseorderreceivelistExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseorderreceivelist/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      purchaseorderreceivelistExportexcelxlsxPost(
+      _purchaseorderreceivelistExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest?
                   body});
 
   ///
-  @Post(path: '/purchaseorderreceivelist/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> purchaseorderreceivelistRunreportPost(
+      {required WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _purchaseorderreceivelistRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseorderreceivelist/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _purchaseorderreceivelistRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderreceivelistEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreceivelistEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/purchaseorderreceivelist/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderreceivelistEmptyobjectGet();
+      _purchaseorderreceivelistEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderreceivelistPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreceivelistPreviewGet();
+  }
 
   ///
   @Get(path: '/purchaseorderreceivelist/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderreceivelistPreviewGet();
+      _purchaseorderreceivelistPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      purchaseorderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _purchaseorderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseorderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      purchaseorderreportRenderPost(
+      _purchaseorderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> purchaseorderreportRunreportPost(
+      {required WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _purchaseorderreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseorderreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> purchaseorderreportRunreportPost(
+          WebApiDataAppReportResponse>> _purchaseorderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest?
               body});
 
   ///
-  @Post(path: '/purchaseorderreport/validatepurchaseorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       purchaseorderreportValidatepurchaseorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreportValidatepurchaseorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseorderreport/validatepurchaseorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _purchaseorderreportValidatepurchaseorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/purchaseorderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderreportEmptyobjectGet();
+      _purchaseorderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/purchaseorderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderreportPreviewGet();
+      _purchaseorderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      purchaseorderreturnlistRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _purchaseorderreturnlistRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseorderreturnlist/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      purchaseorderreturnlistRenderPost(
+      _purchaseorderreturnlistRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      purchaseorderreturnlistExportexcelxlsxPost(
+          {required WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _purchaseorderreturnlistExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseorderreturnlist/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      purchaseorderreturnlistExportexcelxlsxPost(
+      _purchaseorderreturnlistExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest?
                   body});
 
   ///
-  @Post(path: '/purchaseorderreturnlist/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> purchaseorderreturnlistRunreportPost(
+      {required WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _purchaseorderreturnlistRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseorderreturnlist/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _purchaseorderreturnlistRunreportPost(
       {@Body()
           required WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderreturnlistEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreturnlistEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/purchaseorderreturnlist/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderreturnlistEmptyobjectGet();
+      _purchaseorderreturnlistEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseorderreturnlistPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseorderreturnlistPreviewGet();
+  }
 
   ///
   @Get(path: '/purchaseorderreturnlist/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseorderreturnlistPreviewGet();
+      _purchaseorderreturnlistPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      purchaseordersummaryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _purchaseordersummaryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordersummaryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      purchaseordersummaryreportRenderPost(
+      _purchaseordersummaryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      purchaseordersummaryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _purchaseordersummaryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordersummaryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      purchaseordersummaryreportExportexcelxlsxPost(
+      _purchaseordersummaryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest?
                   body});
 
   ///
-  @Post(path: '/purchaseordersummaryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> purchaseordersummaryreportRunreportPost(
+      {required WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _purchaseordersummaryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseordersummaryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _purchaseordersummaryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest?
               body});
 
   ///
-  @Post(path: '/purchaseordersummaryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       purchaseordersummaryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/purchaseordersummaryreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _purchaseordersummaryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordersummaryreportValidateprojectBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportValidateprojectBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordersummaryreport/validateproject/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordersummaryreportValidateprojectBrowsePost(
+      _purchaseordersummaryreportValidateprojectBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordersummaryreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordersummaryreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordersummaryreportValidatevendorBrowsePost(
+      _purchaseordersummaryreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordersummaryreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/purchaseordersummaryreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordersummaryreportValidatedepartmentBrowsePost(
+      _purchaseordersummaryreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordersummaryreportValidatepoapprovalstatusBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportValidatepoapprovalstatusBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/purchaseordersummaryreport/validatepoapprovalstatus/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordersummaryreportValidatepoapprovalstatusBrowsePost(
+      _purchaseordersummaryreportValidatepoapprovalstatusBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordersummaryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/purchaseordersummaryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordersummaryreportEmptyobjectGet();
+      _purchaseordersummaryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      purchaseordersummaryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _purchaseordersummaryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/purchaseordersummaryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      purchaseordersummaryreportPreviewGet();
+      _purchaseordersummaryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      quikactivityreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _quikactivityreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivityreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      quikactivityreportRenderPost(
+      _quikactivityreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      quikactivityreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _quikactivityreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivityreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      quikactivityreportExportexcelxlsxPost(
+      _quikactivityreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest?
                   body});
 
   ///
-  @Post(path: '/quikactivityreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> quikactivityreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _quikactivityreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikactivityreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _quikactivityreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest?
               body});
 
   ///
-  @Post(path: '/quikactivityreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       quikactivityreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikactivityreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _quikactivityreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportValidateinventorytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivityreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityreportValidateinventorytypeBrowsePost(
+      _quikactivityreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityreportValidateactivitytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportValidateactivitytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivityreport/validateactivitytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityreportValidateactivitytypeBrowsePost(
+      _quikactivityreportValidateactivitytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivityreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityreportValidatedepartmentBrowsePost(
+      _quikactivityreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivityreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityreportValidateagentBrowsePost(
+      _quikactivityreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/quikactivityreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityreportEmptyobjectGet();
+      _quikactivityreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityreportPreviewGet();
+  }
 
   ///
   @Get(path: '/quikactivityreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityreportPreviewGet();
+      _quikactivityreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      quikreceiptreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _quikreceiptreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/quikreceiptreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      quikreceiptreportRenderPost(
+      _quikreceiptreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      quikreceiptreportExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _quikreceiptreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/quikreceiptreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      quikreceiptreportExportexcelxlsxPost(
+      _quikreceiptreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL>>
+      quikreceiptreportRunreportPost(
+          {required WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL,
+        () =>
+            WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
+                .fromJsonFactory);
+
+    return _quikreceiptreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/quikreceiptreport/runreport')
   Future<
           chopper.Response<
               WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL>>
-      quikreceiptreportRunreportPost(
+      _quikreceiptreportRunreportPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikreceiptreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikreceiptreportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/quikreceiptreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikreceiptreportEmptyobjectGet();
+      _quikreceiptreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikreceiptreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikreceiptreportPreviewGet();
+  }
 
   ///
   @Get(path: '/quikreceiptreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikreceiptreportPreviewGet();
+      _quikreceiptreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      quoteordermasterreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _quoteordermasterreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      quoteordermasterreportRenderPost(
+      _quoteordermasterreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      quoteordermasterreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _quoteordermasterreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      quoteordermasterreportExportexcelxlsxPost(
+      _quoteordermasterreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest?
                   body});
 
   ///
-  @Post(path: '/quoteordermasterreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> quoteordermasterreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _quoteordermasterreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quoteordermasterreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _quoteordermasterreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest?
               body});
 
   ///
-  @Post(path: '/quoteordermasterreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       quoteordermasterreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/quoteordermasterreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _quoteordermasterreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportValidatedepartmentBrowsePost(
+      _quoteordermasterreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportValidatecustomerBrowsePost(
+      _quoteordermasterreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportValidatedealtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportValidatedealtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/validatedealtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportValidatedealtypeBrowsePost(
+      _quoteordermasterreportValidatedealtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportValidatedealstatusBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportValidatedealstatusBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/validatedealstatus/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportValidatedealstatusBrowsePost(
+      _quoteordermasterreportValidatedealstatusBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quoteordermasterreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportValidatedealBrowsePost(
+      _quoteordermasterreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/quoteordermasterreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportEmptyobjectGet();
+      _quoteordermasterreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quoteordermasterreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quoteordermasterreportPreviewGet();
+  }
 
   ///
   @Get(path: '/quoteordermasterreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quoteordermasterreportPreviewGet();
+      _quoteordermasterreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      quotereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _quotereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/quotereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      quotereportRenderPost(
+      _quotereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> quotereportRunreportPost(
+      {required WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _quotereportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/quotereport/runreport')
   Future<
       chopper
-          .Response<WebApiDataAppReportResponse>> quotereportRunreportPost(
+          .Response<WebApiDataAppReportResponse>> _quotereportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest?
               body});
 
   ///
-  @Post(path: '/quotereport/validatequote/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       quotereportValidatequoteBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quotereportValidatequoteBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/quotereport/validatequote/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _quotereportValidatequoteBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quotereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quotereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/quotereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quotereportEmptyobjectGet();
+      _quotereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quotereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quotereportPreviewGet();
+  }
 
   ///
   @Get(path: '/quotereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quotereportPreviewGet();
+      _quotereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rateupdatereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rateupdatereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdatereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rateupdatereportRenderPost(
+      _rateupdatereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rateupdatereportExportexcelxlsxPost(
+          {required WebApiModulesReportsRateUpdateReportRateUpdateReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rateupdatereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdatereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rateupdatereportExportexcelxlsxPost(
+      _rateupdatereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRateUpdateReportRateUpdateReportRequest?
                   body});
 
   ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      rateupdatereportRunreportPost(
+          {required WebApiModulesReportsRateUpdateReportRateUpdateReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rateupdatereportRunreportPost(body: body);
+  }
+
+  ///
   @Post(path: '/rateupdatereport/runreport')
   Future<
-      chopper
-          .Response<WebApiDataAppReportResponse>> rateupdatereportRunreportPost(
+      chopper.Response<
+          WebApiDataAppReportResponse>> _rateupdatereportRunreportPost(
       {@Body()
           required WebApiModulesReportsRateUpdateReportRateUpdateReportRequest?
               body});
 
   ///
-  @Post(path: '/rateupdatereport/validatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rateupdatereportValidatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdatereportValidatebatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/rateupdatereport/validatebatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rateupdatereportValidatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdatereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdatereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rateupdatereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdatereportEmptyobjectGet();
+      _rateupdatereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdatereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdatereportPreviewGet();
+  }
 
   ///
   @Get(path: '/rateupdatereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdatereportPreviewGet();
+      _rateupdatereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      receiptbatchreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _receiptbatchreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptbatchreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      receiptbatchreportRenderPost(
+      _receiptbatchreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      receiptbatchreportExportexcelxlsxPost(
+          {required WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _receiptbatchreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptbatchreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      receiptbatchreportExportexcelxlsxPost(
+      _receiptbatchreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest?
                   body});
 
   ///
-  @Post(path: '/receiptbatchreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> receiptbatchreportRunreportPost(
+      {required WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _receiptbatchreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/receiptbatchreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _receiptbatchreportRunreportPost(
       {@Body()
           required WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest?
               body});
 
   ///
-  @Post(path: '/receiptbatchreport/validatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       receiptbatchreportValidatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptbatchreportValidatebatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/receiptbatchreport/validatebatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _receiptbatchreportValidatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receiptbatchreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptbatchreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/receiptbatchreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptbatchreportEmptyobjectGet();
+      _receiptbatchreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receiptbatchreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptbatchreportPreviewGet();
+  }
 
   ///
   @Get(path: '/receiptbatchreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptbatchreportPreviewGet();
+      _receiptbatchreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      receiptreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _receiptreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      receiptreportRenderPost(
+      _receiptreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL>>
+      receiptreportRunreportPost(
+          {required WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL,
+        () =>
+            WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL
+                .fromJsonFactory);
+
+    return _receiptreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptreport/runreport')
   Future<
           chopper.Response<
               WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL>>
-      receiptreportRunreportPost(
+      _receiptreportRunreportPost(
           {@Body()
               required WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest?
                   body});
 
   ///
-  @Post(path: '/receiptreport/validatereceipt/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       receiptreportValidatereceiptBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptreportValidatereceiptBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/receiptreport/validatereceipt/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _receiptreportValidatereceiptBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receiptreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/receiptreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptreportEmptyobjectGet();
+      _receiptreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receiptreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptreportPreviewGet();
+  }
 
   ///
   @Get(path: '/receiptreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptreportPreviewGet();
+      _receiptreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      receivecontractreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _receivecontractreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/receivecontractreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      receivecontractreportRenderPost(
+      _receivecontractreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> receivecontractreportRunreportPost(
+      {required WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _receivecontractreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/receivecontractreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> receivecontractreportRunreportPost(
+          WebApiDataAppReportResponse>> _receivecontractreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest?
               body});
 
   ///
-  @Post(path: '/receivecontractreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       receivecontractreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receivecontractreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/receivecontractreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _receivecontractreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receivecontractreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receivecontractreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/receivecontractreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receivecontractreportEmptyobjectGet();
+      _receivecontractreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receivecontractreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receivecontractreportPreviewGet();
+  }
 
   ///
   @Get(path: '/receivecontractreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receivecontractreportPreviewGet();
+      _receivecontractreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryactivitybydatereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryactivitybydatereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryactivitybydatereportRenderPost(
+      _rentalinventoryactivitybydatereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryactivitybydatereportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryactivitybydatereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryactivitybydatereportExportexcelxlsxPost(
+      _rentalinventoryactivitybydatereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryactivitybydatereport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       rentalinventoryactivitybydatereportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryactivitybydatereport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _rentalinventoryactivitybydatereportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentalinventoryactivitybydatereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportValidateinventorytypeBrowsePost(
+      _rentalinventoryactivitybydatereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryactivitybydatereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportValidatecategoryBrowsePost(
+      _rentalinventoryactivitybydatereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryactivitybydatereport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportValidatesubcategoryBrowsePost(
+      _rentalinventoryactivitybydatereportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryactivitybydatereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportValidateinventoryBrowsePost(
+      _rentalinventoryactivitybydatereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryactivitybydatereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportValidatewarehouseBrowsePost(
+      _rentalinventoryactivitybydatereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryactivitybydatereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportEmptyobjectGet();
+      _rentalinventoryactivitybydatereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryactivitybydatereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryactivitybydatereportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryactivitybydatereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryactivitybydatereportPreviewGet();
+      _rentalinventoryactivitybydatereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryattributesreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryattributesreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryattributesreportRenderPost(
+      _rentalinventoryattributesreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryattributesreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryattributesreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryattributesreportExportexcelxlsxPost(
+      _rentalinventoryattributesreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      rentalinventoryattributesreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryattributesreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      rentalinventoryattributesreportRunreportPost(
+      _rentalinventoryattributesreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryattributesreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventoryattributesreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryattributesreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryattributesreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryattributesreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryattributesreportValidatecategoryBrowsePost(
+      _rentalinventoryattributesreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryattributesreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryattributesreportValidatesubcategoryBrowsePost(
+      _rentalinventoryattributesreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryattributesreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryattributesreportValidateinventoryBrowsePost(
+      _rentalinventoryattributesreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryattributesreportValidateattributeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportValidateattributeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryattributesreport/validateattribute/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryattributesreportValidateattributeBrowsePost(
+      _rentalinventoryattributesreportValidateattributeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryattributesreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryattributesreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryattributesreportEmptyobjectGet();
+      _rentalinventoryattributesreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryattributesreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryattributesreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryattributesreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryattributesreportPreviewGet();
+      _rentalinventoryattributesreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryavailabilityreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryavailabilityreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryavailabilityreportRenderPost(
+      _rentalinventoryavailabilityreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryavailabilityreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryavailabilityreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryavailabilityreportExportexcelxlsxPost(
+      _rentalinventoryavailabilityreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      rentalinventoryavailabilityreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryavailabilityreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      rentalinventoryavailabilityreportRunreportPost(
+      _rentalinventoryavailabilityreportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryavailabilityreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventoryavailabilityreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryavailabilityreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryavailabilityreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryavailabilityreportValidaterentalcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportValidaterentalcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentalinventoryavailabilityreport/validaterentalcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryavailabilityreportValidaterentalcategoryBrowsePost(
+      _rentalinventoryavailabilityreportValidaterentalcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryavailabilityreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryavailabilityreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryavailabilityreportValidatesubcategoryBrowsePost(
+      _rentalinventoryavailabilityreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryavailabilityreportValidaterentalinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportValidaterentalinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentalinventoryavailabilityreport/validaterentalinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryavailabilityreportValidaterentalinventoryBrowsePost(
+      _rentalinventoryavailabilityreportValidaterentalinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryavailabilityreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryavailabilityreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryavailabilityreportValidatewarehouseBrowsePost(
+      _rentalinventoryavailabilityreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryavailabilityreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryavailabilityreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryavailabilityreportEmptyobjectGet();
+      _rentalinventoryavailabilityreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryavailabilityreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryavailabilityreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryavailabilityreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryavailabilityreportPreviewGet();
+      _rentalinventoryavailabilityreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventorycatalogreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventorycatalogreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventorycatalogreportRenderPost(
+      _rentalinventorycatalogreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventorycatalogreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventorycatalogreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventorycatalogreportExportexcelxlsxPost(
+      _rentalinventorycatalogreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventorycatalogreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> rentalinventorycatalogreportRunreportPost(
+      {required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventorycatalogreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorycatalogreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _rentalinventorycatalogreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
               body});
 
   ///
-  @Post(path: '/rentalinventorycatalogreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventorycatalogreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorycatalogreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventorycatalogreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportValidatecategoryBrowsePost(
+      _rentalinventorycatalogreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportValidatesubcategoryBrowsePost(
+      _rentalinventorycatalogreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportValidatewarehousecatalogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportValidatewarehousecatalogBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/validatewarehousecatalog/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportValidatewarehousecatalogBrowsePost(
+      _rentalinventorycatalogreportValidatewarehousecatalogBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportValidatewarehouseBrowsePost(
+      _rentalinventorycatalogreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorycatalogreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportValidateinventoryBrowsePost(
+      _rentalinventorycatalogreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventorycatalogreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportEmptyobjectGet();
+      _rentalinventorycatalogreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorycatalogreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorycatalogreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventorycatalogreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorycatalogreportPreviewGet();
+      _rentalinventorycatalogreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventorychangereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventorychangereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventorychangereportRenderPost(
+      _rentalinventorychangereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventorychangereportExportexcelxlsxPost(
+          {required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventorychangereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventorychangereportExportexcelxlsxPost(
+      _rentalinventorychangereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventorychangereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> rentalinventorychangereportRunreportPost(
+      {required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventorychangereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorychangereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _rentalinventorychangereportRunreportPost(
       {@Body()
           required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
               body});
 
   ///
-  @Post(path: '/rentalinventorychangereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventorychangereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorychangereport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventorychangereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportValidatecategoryBrowsePost(
+      _rentalinventorychangereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportValidatesubcategoryBrowsePost(
+      _rentalinventorychangereportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportValidatetransactiontypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportValidatetransactiontypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/validatetransactiontype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportValidatetransactiontypeBrowsePost(
+      _rentalinventorychangereportValidatetransactiontypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportValidatewarehouseBrowsePost(
+      _rentalinventorychangereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorychangereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportValidateinventoryBrowsePost(
+      _rentalinventorychangereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventorychangereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportEmptyobjectGet();
+      _rentalinventorychangereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorychangereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorychangereportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventorychangereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorychangereportPreviewGet();
+      _rentalinventorychangereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventorymasterreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventorymasterreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymasterreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventorymasterreportRenderPost(
+      _rentalinventorymasterreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventorymasterreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventorymasterreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymasterreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventorymasterreportExportexcelxlsxPost(
+      _rentalinventorymasterreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventorymasterreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> rentalinventorymasterreportRunreportPost(
+      {required WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventorymasterreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorymasterreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _rentalinventorymasterreportRunreportPost(
       {@Body()
           required WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest?
               body});
 
   ///
-  @Post(path: '/rentalinventorymasterreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventorymasterreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorymasterreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventorymasterreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymasterreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymasterreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymasterreportValidatecategoryBrowsePost(
+      _rentalinventorymasterreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymasterreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymasterreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymasterreportValidatesubcategoryBrowsePost(
+      _rentalinventorymasterreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymasterreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymasterreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymasterreportValidatewarehouseBrowsePost(
+      _rentalinventorymasterreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymasterreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymasterreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymasterreportValidateinventoryBrowsePost(
+      _rentalinventorymasterreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymasterreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventorymasterreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymasterreportEmptyobjectGet();
+      _rentalinventorymasterreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymasterreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymasterreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventorymasterreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymasterreportPreviewGet();
+      _rentalinventorymasterreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventorymovementreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventorymovementreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventorymovementreportRenderPost(
+      _rentalinventorymovementreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventorymovementreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventorymovementreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventorymovementreportExportexcelxlsxPost(
+      _rentalinventorymovementreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventorymovementreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> rentalinventorymovementreportRunreportPost(
-      {@Body()
-          required WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest?
-              body});
+      {required WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventorymovementreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorymovementreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _rentalinventorymovementreportRunreportPost(
+          {@Body()
+              required WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest?
+                  body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportValidateinventorytypeBrowsePost(
+      _rentalinventorymovementreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportValidatecategoryBrowsePost(
+      _rentalinventorymovementreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportValidatesubcategoryBrowsePost(
+      _rentalinventorymovementreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportValidatewarehouseBrowsePost(
+      _rentalinventorymovementreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorymovementreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportValidateinventoryBrowsePost(
+      _rentalinventorymovementreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventorymovementreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportEmptyobjectGet();
+      _rentalinventorymovementreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorymovementreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorymovementreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventorymovementreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorymovementreportPreviewGet();
+      _rentalinventorymovementreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventorypurchasehistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorypurchasehistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventorypurchasehistoryreportRenderPost(
+      _rentalinventorypurchasehistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventorypurchasehistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorypurchasehistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventorypurchasehistoryreportExportexcelxlsxPost(
+      _rentalinventorypurchasehistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventorypurchasehistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       rentalinventorypurchasehistoryreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorypurchasehistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _rentalinventorypurchasehistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentalinventorypurchasehistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+      _rentalinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorypurchasehistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportValidatecategoryBrowsePost(
+      _rentalinventorypurchasehistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentalinventorypurchasehistoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+      _rentalinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorypurchasehistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+      _rentalinventorypurchasehistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorypurchasehistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportValidateinventoryBrowsePost(
+      _rentalinventorypurchasehistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventorypurchasehistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportEmptyobjectGet();
+      _rentalinventorypurchasehistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorypurchasehistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorypurchasehistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventorypurchasehistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorypurchasehistoryreportPreviewGet();
+      _rentalinventorypurchasehistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryqcrequiredreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryqcrequiredreportRenderPost(
+      _rentalinventoryqcrequiredreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryqcrequiredreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryqcrequiredreportExportexcelxlsxPost(
+      _rentalinventoryqcrequiredreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      rentalinventoryqcrequiredreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      rentalinventoryqcrequiredreportRunreportPost(
+      _rentalinventoryqcrequiredreportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryqcrequiredreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventoryqcrequiredreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryqcrequiredreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqcrequiredreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryqcrequiredreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryqcrequiredreportValidatecategoryBrowsePost(
+      _rentalinventoryqcrequiredreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryqcrequiredreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryqcrequiredreportValidatesubcategoryBrowsePost(
+      _rentalinventoryqcrequiredreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryqcrequiredreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryqcrequiredreportValidatewarehouseBrowsePost(
+      _rentalinventoryqcrequiredreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryqcrequiredreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryqcrequiredreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryqcrequiredreportValidateinventoryBrowsePost(
+      _rentalinventoryqcrequiredreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryqcrequiredreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryqcrequiredreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryqcrequiredreportEmptyobjectGet();
+      _rentalinventoryqcrequiredreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryqcrequiredreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryqcrequiredreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryqcrequiredreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryqcrequiredreportPreviewGet();
+      _rentalinventoryqcrequiredreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryrepairhistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryrepairhistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryrepairhistoryreportRenderPost(
+      _rentalinventoryrepairhistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryrepairhistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryrepairhistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryrepairhistoryreportExportexcelxlsxPost(
+      _rentalinventoryrepairhistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryrepairhistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       rentalinventoryrepairhistoryreportRunreportPost(
+          {required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryrepairhistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _rentalinventoryrepairhistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentalinventoryrepairhistoryreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportValidateofficelocationBrowsePost(
+      _rentalinventoryrepairhistoryreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryrepairhistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportValidatewarehouseBrowsePost(
+      _rentalinventoryrepairhistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentalinventoryrepairhistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
+      _rentalinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryrepairhistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportValidatecategoryBrowsePost(
+      _rentalinventoryrepairhistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryrepairhistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportValidateinventoryBrowsePost(
+      _rentalinventoryrepairhistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryrepairhistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportEmptyobjectGet();
+      _rentalinventoryrepairhistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryrepairhistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryrepairhistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryrepairhistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryrepairhistoryreportPreviewGet();
+      _rentalinventoryrepairhistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventorystatusandrevenuereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorystatusandrevenuereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventorystatusandrevenuereportRenderPost(
+      _rentalinventorystatusandrevenuereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventorystatusandrevenuereportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportExportexcelxlsxPost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorystatusandrevenuereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventorystatusandrevenuereportExportexcelxlsxPost(
+      _rentalinventorystatusandrevenuereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventorystatusandrevenuereport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       rentalinventorystatusandrevenuereportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventorystatusandrevenuereport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _rentalinventorystatusandrevenuereportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorystatusandrevenuereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentalinventorystatusandrevenuereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorystatusandrevenuereportValidateinventorytypeBrowsePost(
+      _rentalinventorystatusandrevenuereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorystatusandrevenuereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorystatusandrevenuereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorystatusandrevenuereportValidatecategoryBrowsePost(
+      _rentalinventorystatusandrevenuereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorystatusandrevenuereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorystatusandrevenuereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorystatusandrevenuereportValidatewarehouseBrowsePost(
+      _rentalinventorystatusandrevenuereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorystatusandrevenuereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventorystatusandrevenuereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorystatusandrevenuereportValidateinventoryBrowsePost(
+      _rentalinventorystatusandrevenuereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorystatusandrevenuereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventorystatusandrevenuereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorystatusandrevenuereportEmptyobjectGet();
+      _rentalinventorystatusandrevenuereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventorystatusandrevenuereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventorystatusandrevenuereportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventorystatusandrevenuereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventorystatusandrevenuereportPreviewGet();
+      _rentalinventorystatusandrevenuereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryunuseditemsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryunuseditemsreportRenderPost(
+      _rentalinventoryunuseditemsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryunuseditemsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryunuseditemsreportExportexcelxlsxPost(
+      _rentalinventoryunuseditemsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      rentalinventoryunuseditemsreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      rentalinventoryunuseditemsreportRunreportPost(
+      _rentalinventoryunuseditemsreportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryunuseditemsreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventoryunuseditemsreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryunuseditemsreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryunuseditemsreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportValidatecategoryBrowsePost(
+      _rentalinventoryunuseditemsreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportValidatesubcategoryBrowsePost(
+      _rentalinventoryunuseditemsreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportValidatewarehouseBrowsePost(
+      _rentalinventoryunuseditemsreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportValidateinventoryBrowsePost(
+      _rentalinventoryunuseditemsreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportValidatedepartmentBrowsePost(
+      _rentalinventoryunuseditemsreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryunuseditemsreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportValidatedealBrowsePost(
+      _rentalinventoryunuseditemsreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryunuseditemsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportEmptyobjectGet();
+      _rentalinventoryunuseditemsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryunuseditemsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryunuseditemsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryunuseditemsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryunuseditemsreportPreviewGet();
+      _rentalinventoryunuseditemsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryusagereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryusagereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryusagereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryusagereportRenderPost(
+      _rentalinventoryusagereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryusagereportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryusagereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryusagereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryusagereportExportexcelxlsxPost(
+      _rentalinventoryusagereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryusagereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> rentalinventoryusagereportRunreportPost(
+      {required WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryusagereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryusagereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _rentalinventoryusagereportRunreportPost(
       {@Body()
           required WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest?
               body});
 
   ///
-  @Post(path: '/rentalinventoryusagereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventoryusagereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryusagereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryusagereport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryusagereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryusagereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryusagereportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryusagereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryusagereportValidatecategoryBrowsePost(
+      _rentalinventoryusagereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryusagereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryusagereportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryusagereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryusagereportValidatewarehouseBrowsePost(
+      _rentalinventoryusagereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryusagereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryusagereportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryusagereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryusagereportValidateinventoryBrowsePost(
+      _rentalinventoryusagereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryusagereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryusagereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryusagereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryusagereportEmptyobjectGet();
+      _rentalinventoryusagereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryusagereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryusagereportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryusagereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryusagereportPreviewGet();
+      _rentalinventoryusagereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentalinventoryvaluereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentalinventoryvaluereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryvaluereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentalinventoryvaluereportRenderPost(
+      _rentalinventoryvaluereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentalinventoryvaluereportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentalinventoryvaluereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryvaluereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentalinventoryvaluereportExportexcelxlsxPost(
+      _rentalinventoryvaluereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentalinventoryvaluereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> rentalinventoryvaluereportRunreportPost(
+      {required WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentalinventoryvaluereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryvaluereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _rentalinventoryvaluereportRunreportPost(
       {@Body()
           required WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest?
               body});
 
   ///
-  @Post(path: '/rentalinventoryvaluereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rentalinventoryvaluereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/rentalinventoryvaluereport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryvaluereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryvaluereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryvaluereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryvaluereportValidatecategoryBrowsePost(
+      _rentalinventoryvaluereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryvaluereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryvaluereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryvaluereportValidatewarehouseBrowsePost(
+      _rentalinventoryvaluereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryvaluereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryvaluereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryvaluereportValidateinventoryBrowsePost(
+      _rentalinventoryvaluereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryvaluereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rentalinventoryvaluereport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryvaluereportValidatesubcategoryBrowsePost(
+      _rentalinventoryvaluereportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryvaluereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryvaluereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryvaluereportEmptyobjectGet();
+      _rentalinventoryvaluereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentalinventoryvaluereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentalinventoryvaluereportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentalinventoryvaluereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentalinventoryvaluereportPreviewGet();
+      _rentalinventoryvaluereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      rentallostanddamagedbillinghistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/rentallostanddamagedbillinghistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      rentallostanddamagedbillinghistoryreportRenderPost(
+      _rentallostanddamagedbillinghistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rentallostanddamagedbillinghistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportExportexcelxlsxPost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentallostanddamagedbillinghistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rentallostanddamagedbillinghistoryreportExportexcelxlsxPost(
+      _rentallostanddamagedbillinghistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/rentallostanddamagedbillinghistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       rentallostanddamagedbillinghistoryreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rentallostanddamagedbillinghistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _rentallostanddamagedbillinghistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentallostanddamagedbillinghistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidateinventorytypeBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentallostanddamagedbillinghistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidatecategoryBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentallostanddamagedbillinghistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidatewarehouseBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentallostanddamagedbillinghistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidateinventoryBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidateretiredreasonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidateretiredreasonBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentallostanddamagedbillinghistoryreport/validateretiredreason/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidateretiredreasonBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidateretiredreasonBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/rentallostanddamagedbillinghistoryreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidatecustomerBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidateunretiredreasonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidateunretiredreasonBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/rentallostanddamagedbillinghistoryreport/validateunretiredreason/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidateunretiredreasonBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidateunretiredreasonBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportValidatedealBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/rentallostanddamagedbillinghistoryreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportValidatedealBrowsePost(
+      _rentallostanddamagedbillinghistoryreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/rentallostanddamagedbillinghistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportEmptyobjectGet();
+      _rentallostanddamagedbillinghistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rentallostanddamagedbillinghistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rentallostanddamagedbillinghistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/rentallostanddamagedbillinghistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rentallostanddamagedbillinghistoryreportPreviewGet();
+      _rentallostanddamagedbillinghistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      repairorderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _repairorderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      repairorderreportRenderPost(
+      _repairorderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> repairorderreportRunreportPost(
+      {required WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _repairorderreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> repairorderreportRunreportPost(
+          WebApiDataAppReportResponse>> _repairorderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderreportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/repairorderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderreportEmptyobjectGet();
+      _repairorderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/repairorderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderreportPreviewGet();
+      _repairorderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      repairorderstatusreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _repairorderstatusreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      repairorderstatusreportRenderPost(
+      _repairorderstatusreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      repairorderstatusreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _repairorderstatusreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      repairorderstatusreportExportexcelxlsxPost(
+      _repairorderstatusreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest?
                   body});
 
   ///
-  @Post(path: '/repairorderstatusreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> repairorderstatusreportRunreportPost(
+      {required WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _repairorderstatusreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/repairorderstatusreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _repairorderstatusreportRunreportPost(
       {@Body()
           required WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest?
               body});
 
   ///
-  @Post(path: '/repairorderstatusreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       repairorderstatusreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidateinventorytypeBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/repairorderstatusreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _repairorderstatusreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidatecategoryBrowsePost(
+      _repairorderstatusreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidatewarehouseBrowsePost(
+      _repairorderstatusreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidateinventoryBrowsePost(
+      _repairorderstatusreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidatesubcategoryBrowsePost(
+      _repairorderstatusreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidatedepartmentBrowsePost(
+      _repairorderstatusreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidaterepairitemstatusBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidaterepairitemstatusBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validaterepairitemstatus/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidaterepairitemstatusBrowsePost(
+      _repairorderstatusreportValidaterepairitemstatusBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidatevendorBrowsePost(
+      _repairorderstatusreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportValidatevendorrepairitemstatusBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportValidatevendorrepairitemstatusBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/repairorderstatusreport/validatevendorrepairitemstatus/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportValidatevendorrepairitemstatusBrowsePost(
+      _repairorderstatusreportValidatevendorrepairitemstatusBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/repairorderstatusreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportEmptyobjectGet();
+      _repairorderstatusreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairorderstatusreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairorderstatusreportPreviewGet();
+  }
 
   ///
   @Get(path: '/repairorderstatusreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairorderstatusreportPreviewGet();
+      _repairorderstatusreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      repairtagRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _repairtagRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/repairtag/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      repairtagRenderPost(
+      _repairtagRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      repairtagExportexcelxlsxPost(
+          {required WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _repairtagExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/repairtag/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      repairtagExportexcelxlsxPost(
+      _repairtagExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest?
                   body});
 
   ///
-  @Post(path: '/repairtag/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>> repairtagRunreportPost(
+      {required WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _repairtagRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/repairtag/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>> _repairtagRunreportPost(
       {@Body()
           required WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairtagEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairtagEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/repairtag/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairtagEmptyobjectGet();
+      _repairtagEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      repairtagPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _repairtagPreviewGet();
+  }
 
   ///
   @Get(path: '/repairtag/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      repairtagPreviewGet();
+      _repairtagPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      reportsettingsBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _reportsettingsBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/reportsettings/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      reportsettingsBrowsePost(
+      _reportsettingsBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      reportsettingsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _reportsettingsExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/reportsettings/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      reportsettingsExportexcelxlsxPost(
+      _reportsettingsExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic>>
+      reportsettingsGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
+                .fromJsonFactory);
+
+    return _reportsettingsGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -5290,21 +13971,50 @@ abstract class Reports extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic>>
-      reportsettingsGet(
+      _reportsettingsGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/reportsettings')
   Future<
           chopper
               .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
       reportsettingsPost(
+          {required WebApiModulesReportsSharedReportSettingsReportSettings?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesReportsSharedReportSettingsReportSettings,
+        () => WebApiModulesReportsSharedReportSettingsReportSettings
+            .fromJsonFactory);
+
+    return _reportsettingsPost(body: body);
+  }
+
+  ///
+  @Post(path: '/reportsettings')
+  Future<
+          chopper
+              .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
+      _reportsettingsPost(
           {@Body()
               required WebApiModulesReportsSharedReportSettingsReportSettings?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper
+              .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
+      reportsettingsIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesReportsSharedReportSettingsReportSettings,
+        () => WebApiModulesReportsSharedReportSettingsReportSettings
+            .fromJsonFactory);
+
+    return _reportsettingsIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -5312,7 +14022,24 @@ abstract class Reports extends ChopperService {
   Future<
           chopper
               .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
-      reportsettingsIdGet({@Path('id') required String? id});
+      _reportsettingsIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper
+              .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
+      reportsettingsIdPut(
+          {required String? id,
+          required WebApiModulesReportsSharedReportSettingsReportSettings?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesReportsSharedReportSettingsReportSettings,
+        () => WebApiModulesReportsSharedReportSettingsReportSettings
+            .fromJsonFactory);
+
+    return _reportsettingsIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -5320,7 +14047,7 @@ abstract class Reports extends ChopperService {
   Future<
           chopper
               .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
-      reportsettingsIdPut(
+      _reportsettingsIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -5329,2662 +14056,5935 @@ abstract class Reports extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> reportsettingsIdDelete({required String? id}) {
+    return _reportsettingsIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/reportsettings/{id}')
-  Future<chopper.Response<bool>> reportsettingsIdDelete(
+  Future<chopper.Response<bool>> _reportsettingsIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> reportsettingsEmptyobjectGet() {
+    return _reportsettingsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/reportsettings/emptyobject')
-  Future<chopper.Response> reportsettingsEmptyobjectGet();
+  Future<chopper.Response> _reportsettingsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> reportsettingsEmptybrowseobjectGet() {
+    return _reportsettingsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/reportsettings/emptybrowseobject')
-  Future<chopper.Response> reportsettingsEmptybrowseobjectGet();
+  Future<chopper.Response> _reportsettingsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> reportsettingsKeyfieldnamesGet() {
+    return _reportsettingsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/reportsettings/keyfieldnames')
-  Future<chopper.Response> reportsettingsKeyfieldnamesGet();
+  Future<chopper.Response> _reportsettingsKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      retiredrentalinventoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _retiredrentalinventoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      retiredrentalinventoryreportRenderPost(
+      _retiredrentalinventoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      retiredrentalinventoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _retiredrentalinventoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      retiredrentalinventoryreportExportexcelxlsxPost(
+      _retiredrentalinventoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/retiredrentalinventoryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> retiredrentalinventoryreportRunreportPost(
+      {required WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _retiredrentalinventoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/retiredrentalinventoryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _retiredrentalinventoryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest?
               body});
 
   ///
-  @Post(path: '/retiredrentalinventoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       retiredrentalinventoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/retiredrentalinventoryreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _retiredrentalinventoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidatecategoryBrowsePost(
+      _retiredrentalinventoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidatewarehouseBrowsePost(
+      _retiredrentalinventoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidateinventoryBrowsePost(
+      _retiredrentalinventoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidatesubcategoryBrowsePost(
+      _retiredrentalinventoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidateretiredreasonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidateretiredreasonBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validateretiredreason/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidateretiredreasonBrowsePost(
+      _retiredrentalinventoryreportValidateretiredreasonBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidatedealBrowsePost(
+      _retiredrentalinventoryreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/retiredrentalinventoryreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportValidatecustomerBrowsePost(
+      _retiredrentalinventoryreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/retiredrentalinventoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportEmptyobjectGet();
+      _retiredrentalinventoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      retiredrentalinventoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _retiredrentalinventoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/retiredrentalinventoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      retiredrentalinventoryreportPreviewGet();
+      _retiredrentalinventoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      returncontractreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _returncontractreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/returncontractreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      returncontractreportRenderPost(
+      _returncontractreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> returncontractreportRunreportPost(
+      {required WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _returncontractreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/returncontractreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> returncontractreportRunreportPost(
+          WebApiDataAppReportResponse>> _returncontractreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest?
               body});
 
   ///
-  @Post(path: '/returncontractreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       returncontractreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returncontractreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/returncontractreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _returncontractreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returncontractreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returncontractreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/returncontractreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returncontractreportEmptyobjectGet();
+      _returncontractreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returncontractreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returncontractreportPreviewGet();
+  }
 
   ///
   @Get(path: '/returncontractreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returncontractreportPreviewGet();
+      _returncontractreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      returnedtoinventoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _returnedtoinventoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      returnedtoinventoryreportRenderPost(
+      _returnedtoinventoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      returnedtoinventoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _returnedtoinventoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      returnedtoinventoryreportExportexcelxlsxPost(
+      _returnedtoinventoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/returnedtoinventoryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> returnedtoinventoryreportRunreportPost(
+      {required WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _returnedtoinventoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/returnedtoinventoryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _returnedtoinventoryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest?
               body});
 
   ///
-  @Post(path: '/returnedtoinventoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       returnedtoinventoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/returnedtoinventoryreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _returnedtoinventoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportValidatecategoryBrowsePost(
+      _returnedtoinventoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportValidatewarehouseBrowsePost(
+      _returnedtoinventoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportValidateinventoryBrowsePost(
+      _returnedtoinventoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportValidatesubcategoryBrowsePost(
+      _returnedtoinventoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportValidateuserBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidateuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/validateuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportValidateuserBrowsePost(
+      _returnedtoinventoryreportValidateuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnedtoinventoryreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportValidatedealBrowsePost(
+      _returnedtoinventoryreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/returnedtoinventoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportEmptyobjectGet();
+      _returnedtoinventoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnedtoinventoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnedtoinventoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/returnedtoinventoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnedtoinventoryreportPreviewGet();
+      _returnedtoinventoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      returnlistreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _returnlistreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/returnlistreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      returnlistreportRenderPost(
+      _returnlistreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> returnlistreportRunreportPost(
+      {required WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _returnlistreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/returnlistreport/runreport')
   Future<
-      chopper
-          .Response<WebApiDataAppReportResponse>> returnlistreportRunreportPost(
+      chopper.Response<
+          WebApiDataAppReportResponse>> _returnlistreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest?
               body});
 
   ///
-  @Post(path: '/returnlistreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       returnlistreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnlistreportValidateinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/returnlistreport/validateinventory/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _returnlistreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnlistreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnlistreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/returnlistreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnlistreportEmptyobjectGet();
+      _returnlistreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnlistreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnlistreportPreviewGet();
+  }
 
   ///
   @Get(path: '/returnlistreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnlistreportPreviewGet();
+      _returnlistreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetperiodBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetperiodBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetperiod/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetperiodBrowsePost(
+      _returnonassetperiodBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      returnonassetperiodExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _returnonassetperiodExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetperiod/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      returnonassetperiodExportexcelxlsxPost(
+      _returnonassetperiodExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> returnonassetperiodEmptyobjectGet() {
+    return _returnonassetperiodEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/returnonassetperiod/emptyobject')
-  Future<chopper.Response> returnonassetperiodEmptyobjectGet();
+  Future<chopper.Response> _returnonassetperiodEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> returnonassetperiodEmptybrowseobjectGet() {
+    return _returnonassetperiodEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/returnonassetperiod/emptybrowseobject')
-  Future<chopper.Response> returnonassetperiodEmptybrowseobjectGet();
+  Future<chopper.Response> _returnonassetperiodEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> returnonassetperiodKeyfieldnamesGet() {
+    return _returnonassetperiodKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/returnonassetperiod/keyfieldnames')
-  Future<chopper.Response> returnonassetperiodKeyfieldnamesGet();
+  Future<chopper.Response> _returnonassetperiodKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      returnonassetreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _returnonassetreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      returnonassetreportRenderPost(
+      _returnonassetreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      returnonassetreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _returnonassetreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      returnonassetreportExportexcelxlsxPost(
+      _returnonassetreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest?
                   body});
 
   ///
-  @Post(path: '/returnonassetreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> returnonassetreportRunreportPost(
+      {required WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _returnonassetreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/returnonassetreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _returnonassetreportRunreportPost(
       {@Body()
           required WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest?
               body});
 
   ///
-  @Post(path: '/returnonassetreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       returnonassetreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportValidateinventorytypeBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/returnonassetreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _returnonassetreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetreportValidatecategoryBrowsePost(
+      _returnonassetreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetreportValidatewarehouseBrowsePost(
+      _returnonassetreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetreportValidateinventoryBrowsePost(
+      _returnonassetreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetreportValidatesubcategoryBrowsePost(
+      _returnonassetreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/returnonassetreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetreportEmptyobjectGet();
+      _returnonassetreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetreportPreviewGet();
+  }
 
   ///
   @Get(path: '/returnonassetreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetreportPreviewGet();
+      _returnonassetreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnonassetyearBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnonassetyearBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetyear/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnonassetyearBrowsePost(
+      _returnonassetyearBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      returnonassetyearExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _returnonassetyearExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/returnonassetyear/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      returnonassetyearExportexcelxlsxPost(
+      _returnonassetyearExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> returnonassetyearEmptyobjectGet() {
+    return _returnonassetyearEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/returnonassetyear/emptyobject')
-  Future<chopper.Response> returnonassetyearEmptyobjectGet();
+  Future<chopper.Response> _returnonassetyearEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> returnonassetyearEmptybrowseobjectGet() {
+    return _returnonassetyearEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/returnonassetyear/emptybrowseobject')
-  Future<chopper.Response> returnonassetyearEmptybrowseobjectGet();
+  Future<chopper.Response> _returnonassetyearEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> returnonassetyearKeyfieldnamesGet() {
+    return _returnonassetyearKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/returnonassetyear/keyfieldnames')
-  Future<chopper.Response> returnonassetyearKeyfieldnamesGet();
+  Future<chopper.Response> _returnonassetyearKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      returnreceiptreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _returnreceiptreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      returnreceiptreportRenderPost(
+      _returnreceiptreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      returnreceiptreportExportexcelxlsxPost(
+          {required WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _returnreceiptreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      returnreceiptreportExportexcelxlsxPost(
+      _returnreceiptreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest?
                   body});
 
   ///
-  @Post(path: '/returnreceiptreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> returnreceiptreportRunreportPost(
+      {required WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _returnreceiptreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/returnreceiptreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _returnreceiptreportRunreportPost(
       {@Body()
           required WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest?
               body});
 
   ///
-  @Post(path: '/returnreceiptreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       returnreceiptreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/returnreceiptreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _returnreceiptreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportValidatecategoryBrowsePost(
+      _returnreceiptreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportValidateofficelocationBrowsePost(
+      _returnreceiptreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportValidateinventoryBrowsePost(
+      _returnreceiptreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportValidatedepartmentBrowsePost(
+      _returnreceiptreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/returnreceiptreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportValidatecustomerBrowsePost(
+      _returnreceiptreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/returnreceiptreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportEmptyobjectGet();
+      _returnreceiptreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      returnreceiptreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _returnreceiptreportPreviewGet();
+  }
 
   ///
   @Get(path: '/returnreceiptreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      returnreceiptreportPreviewGet();
+      _returnreceiptreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesbackorderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesbackorderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesbackorderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesbackorderreportRenderPost(
+      _salesbackorderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesbackorderreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesbackorderreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesbackorderreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesbackorderreportExportexcelxlsxPost(
+      _salesbackorderreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesbackorderreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salesbackorderreportRunreportPost(
+      {required WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesbackorderreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesbackorderreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salesbackorderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest?
               body});
 
   ///
-  @Post(path: '/salesbackorderreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesbackorderreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportValidateinventorytypeBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesbackorderreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesbackorderreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesbackorderreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesbackorderreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesbackorderreportValidatedealBrowsePost(
+      _salesbackorderreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesbackorderreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesbackorderreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesbackorderreportValidatewarehouseBrowsePost(
+      _salesbackorderreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesbackorderreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesbackorderreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesbackorderreportValidatevendorBrowsePost(
+      _salesbackorderreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesbackorderreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesbackorderreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesbackorderreportValidatecustomerBrowsePost(
+      _salesbackorderreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesbackorderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesbackorderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesbackorderreportEmptyobjectGet();
+      _salesbackorderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesbackorderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesbackorderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesbackorderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesbackorderreportPreviewGet();
+      _salesbackorderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      saleshistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _saleshistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      saleshistoryreportRenderPost(
+      _saleshistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      saleshistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _saleshistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      saleshistoryreportExportexcelxlsxPost(
+      _saleshistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/saleshistoryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> saleshistoryreportRunreportPost(
+      {required WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _saleshistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/saleshistoryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _saleshistoryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest?
               body});
 
   ///
-  @Post(path: '/saleshistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       saleshistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidateinventorytypeBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/saleshistoryreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _saleshistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidatedealBrowsePost(
+      _saleshistoryreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidateorderBrowsePost(
+      _saleshistoryreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidateofficelocationBrowsePost(
+      _saleshistoryreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidatedepartmentBrowsePost(
+      _saleshistoryreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidatecustomerBrowsePost(
+      _saleshistoryreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidatevendorBrowsePost(
+      _saleshistoryreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/saleshistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportValidatewarehouseBrowsePost(
+      _saleshistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/saleshistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportEmptyobjectGet();
+      _saleshistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      saleshistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _saleshistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/saleshistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      saleshistoryreportPreviewGet();
+      _saleshistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventoryattributesreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventoryattributesreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventoryattributesreportRenderPost(
+      _salesinventoryattributesreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventoryattributesreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventoryattributesreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventoryattributesreportExportexcelxlsxPost(
+      _salesinventoryattributesreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      salesinventoryattributesreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventoryattributesreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      salesinventoryattributesreportRunreportPost(
+      _salesinventoryattributesreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventoryattributesreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesinventoryattributesreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventoryattributesreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventoryattributesreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryattributesreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryattributesreportValidatecategoryBrowsePost(
+      _salesinventoryattributesreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryattributesreportValidateattributeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportValidateattributeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/validateattribute/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryattributesreportValidateattributeBrowsePost(
+      _salesinventoryattributesreportValidateattributeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryattributesreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryattributesreportValidateinventoryBrowsePost(
+      _salesinventoryattributesreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryattributesreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryattributesreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryattributesreportValidatesubcategoryBrowsePost(
+      _salesinventoryattributesreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryattributesreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventoryattributesreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryattributesreportEmptyobjectGet();
+      _salesinventoryattributesreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryattributesreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryattributesreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventoryattributesreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryattributesreportPreviewGet();
+      _salesinventoryattributesreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventorycatalogreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventorycatalogreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventorycatalogreportRenderPost(
+      _salesinventorycatalogreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventorycatalogreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventorycatalogreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventorycatalogreportExportexcelxlsxPost(
+      _salesinventorycatalogreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventorycatalogreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salesinventorycatalogreportRunreportPost(
+      {required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventorycatalogreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorycatalogreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salesinventorycatalogreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest?
               body});
 
   ///
-  @Post(path: '/salesinventorycatalogreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesinventorycatalogreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorycatalogreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventorycatalogreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportValidatecategoryBrowsePost(
+      _salesinventorycatalogreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportValidatewarehouseBrowsePost(
+      _salesinventorycatalogreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportValidateinventoryBrowsePost(
+      _salesinventorycatalogreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportValidatesubcategoryBrowsePost(
+      _salesinventorycatalogreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportValidatewarehousecatalogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportValidatewarehousecatalogBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorycatalogreport/validatewarehousecatalog/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportValidatewarehousecatalogBrowsePost(
+      _salesinventorycatalogreportValidatewarehousecatalogBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventorycatalogreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportEmptyobjectGet();
+      _salesinventorycatalogreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorycatalogreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorycatalogreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventorycatalogreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorycatalogreportPreviewGet();
+      _salesinventorycatalogreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventorychangereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventorychangereportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventorychangereportRenderPost(
+      _salesinventorychangereportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventorychangereportExportexcelxlsxPost(
+          {required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventorychangereportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventorychangereportExportexcelxlsxPost(
+      _salesinventorychangereportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventorychangereport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salesinventorychangereportRunreportPost(
+      {required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventorychangereportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorychangereport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salesinventorychangereportRunreportPost(
       {@Body()
           required WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest?
               body});
 
   ///
-  @Post(path: '/salesinventorychangereport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesinventorychangereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorychangereport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventorychangereportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportValidatecategoryBrowsePost(
+      _salesinventorychangereportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportValidatesubcategoryBrowsePost(
+      _salesinventorychangereportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportValidatetransactiontypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportValidatetransactiontypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/validatetransactiontype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportValidatetransactiontypeBrowsePost(
+      _salesinventorychangereportValidatetransactiontypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportValidatewarehouseBrowsePost(
+      _salesinventorychangereportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorychangereport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportValidateinventoryBrowsePost(
+      _salesinventorychangereportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventorychangereport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportEmptyobjectGet();
+      _salesinventorychangereportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorychangereportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorychangereportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventorychangereport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorychangereportPreviewGet();
+      _salesinventorychangereportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventorymasterreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventorymasterreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorymasterreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventorymasterreportRenderPost(
+      _salesinventorymasterreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventorymasterreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventorymasterreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorymasterreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventorymasterreportExportexcelxlsxPost(
+      _salesinventorymasterreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventorymasterreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salesinventorymasterreportRunreportPost(
+      {required WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventorymasterreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorymasterreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salesinventorymasterreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest?
               body});
 
   ///
-  @Post(path: '/salesinventorymasterreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesinventorymasterreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorymasterreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorymasterreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventorymasterreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorymasterreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorymasterreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorymasterreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorymasterreportValidatecategoryBrowsePost(
+      _salesinventorymasterreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorymasterreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorymasterreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorymasterreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorymasterreportValidatewarehouseBrowsePost(
+      _salesinventorymasterreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorymasterreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorymasterreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorymasterreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorymasterreportValidateinventoryBrowsePost(
+      _salesinventorymasterreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorymasterreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorymasterreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventorymasterreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorymasterreportEmptyobjectGet();
+      _salesinventorymasterreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorymasterreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorymasterreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventorymasterreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorymasterreportPreviewGet();
+      _salesinventorymasterreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventorypurchasehistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorypurchasehistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventorypurchasehistoryreportRenderPost(
+      _salesinventorypurchasehistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventorypurchasehistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorypurchasehistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventorypurchasehistoryreportExportexcelxlsxPost(
+      _salesinventorypurchasehistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventorypurchasehistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       salesinventorypurchasehistoryreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorypurchasehistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _salesinventorypurchasehistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/salesinventorypurchasehistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
+      _salesinventorypurchasehistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorypurchasehistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportValidatecategoryBrowsePost(
+      _salesinventorypurchasehistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorypurchasehistoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
+      _salesinventorypurchasehistoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorypurchasehistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportValidatewarehouseBrowsePost(
+      _salesinventorypurchasehistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorypurchasehistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportValidateinventoryBrowsePost(
+      _salesinventorypurchasehistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventorypurchasehistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportEmptyobjectGet();
+      _salesinventorypurchasehistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorypurchasehistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorypurchasehistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventorypurchasehistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorypurchasehistoryreportPreviewGet();
+      _salesinventorypurchasehistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventoryreorderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventoryreorderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryreorderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventoryreorderreportRenderPost(
+      _salesinventoryreorderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventoryreorderreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventoryreorderreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryreorderreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventoryreorderreportExportexcelxlsxPost(
+      _salesinventoryreorderreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventoryreorderreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salesinventoryreorderreportRunreportPost(
+      {required WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventoryreorderreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventoryreorderreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salesinventoryreorderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest?
               body});
 
   ///
-  @Post(path: '/salesinventoryreorderreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesinventoryreorderreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventoryreorderreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventoryreorderreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryreorderreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryreorderreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryreorderreportValidatecategoryBrowsePost(
+      _salesinventoryreorderreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryreorderreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryreorderreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryreorderreportValidatesubcategoryBrowsePost(
+      _salesinventoryreorderreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryreorderreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryreorderreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryreorderreportValidatewarehouseBrowsePost(
+      _salesinventoryreorderreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryreorderreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryreorderreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryreorderreportValidateinventoryBrowsePost(
+      _salesinventoryreorderreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryreorderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventoryreorderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryreorderreportEmptyobjectGet();
+      _salesinventoryreorderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryreorderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryreorderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventoryreorderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryreorderreportPreviewGet();
+      _salesinventoryreorderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventoryrepairhistoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryrepairhistoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventoryrepairhistoryreportRenderPost(
+      _salesinventoryrepairhistoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventoryrepairhistoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryrepairhistoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventoryrepairhistoryreportExportexcelxlsxPost(
+      _salesinventoryrepairhistoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventoryrepairhistoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
       salesinventoryrepairhistoryreportRunreportPost(
+          {required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventoryrepairhistoryreport/runreport')
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      _salesinventoryrepairhistoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path: '/salesinventoryrepairhistoryreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportValidateofficelocationBrowsePost(
+      _salesinventoryrepairhistoryreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryrepairhistoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportValidatewarehouseBrowsePost(
+      _salesinventoryrepairhistoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryrepairhistoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
+      _salesinventoryrepairhistoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryrepairhistoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportValidatecategoryBrowsePost(
+      _salesinventoryrepairhistoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventoryrepairhistoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportValidateinventoryBrowsePost(
+      _salesinventoryrepairhistoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventoryrepairhistoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportEmptyobjectGet();
+      _salesinventoryrepairhistoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventoryrepairhistoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventoryrepairhistoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventoryrepairhistoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventoryrepairhistoryreportPreviewGet();
+      _salesinventoryrepairhistoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesinventorytransactionreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesinventorytransactionreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesinventorytransactionreportRenderPost(
+      _salesinventorytransactionreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesinventorytransactionreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesinventorytransactionreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesinventorytransactionreportExportexcelxlsxPost(
+      _salesinventorytransactionreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      salesinventorytransactionreportRunreportPost(
+          {required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesinventorytransactionreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      salesinventorytransactionreportRunreportPost(
+      _salesinventorytransactionreportRunreportPost(
           {@Body()
               required WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesinventorytransactionreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesinventorytransactionreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/salesinventorytransactionreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventorytransactionreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorytransactionreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorytransactionreportValidatecategoryBrowsePost(
+      _salesinventorytransactionreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorytransactionreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorytransactionreportValidatesubcategoryBrowsePost(
+      _salesinventorytransactionreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorytransactionreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorytransactionreportValidatewarehouseBrowsePost(
+      _salesinventorytransactionreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorytransactionreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesinventorytransactionreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorytransactionreportValidateinventoryBrowsePost(
+      _salesinventorytransactionreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorytransactionreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesinventorytransactionreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorytransactionreportEmptyobjectGet();
+      _salesinventorytransactionreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesinventorytransactionreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesinventorytransactionreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesinventorytransactionreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesinventorytransactionreportPreviewGet();
+      _salesinventorytransactionreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesquotebillingreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesquotebillingreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesquotebillingreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesquotebillingreportRenderPost(
+      _salesquotebillingreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesquotebillingreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesquotebillingreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesquotebillingreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesquotebillingreportExportexcelxlsxPost(
+      _salesquotebillingreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesquotebillingreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salesquotebillingreportRunreportPost(
+      {required WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesquotebillingreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesquotebillingreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salesquotebillingreportRunreportPost(
       {@Body()
           required WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest?
               body});
 
   ///
-  @Post(path: '/salesquotebillingreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesquotebillingreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesquotebillingreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesquotebillingreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesquotebillingreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesquotebillingreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesquotebillingreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesquotebillingreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesquotebillingreportValidateagentBrowsePost(
+      _salesquotebillingreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesquotebillingreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesquotebillingreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salesquotebillingreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesquotebillingreportValidatedealBrowsePost(
+      _salesquotebillingreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesquotebillingreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesquotebillingreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesquotebillingreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesquotebillingreportEmptyobjectGet();
+      _salesquotebillingreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesquotebillingreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesquotebillingreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesquotebillingreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesquotebillingreportPreviewGet();
+      _salesquotebillingreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salesrepresentativebillingreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salesrepresentativebillingreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salesrepresentativebillingreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salesrepresentativebillingreportRenderPost(
+      _salesrepresentativebillingreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salesrepresentativebillingreportExportexcelxlsxPost(
+          {required WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salesrepresentativebillingreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salesrepresentativebillingreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salesrepresentativebillingreportExportexcelxlsxPost(
+      _salesrepresentativebillingreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      salesrepresentativebillingreportRunreportPost(
+          {required WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salesrepresentativebillingreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/salesrepresentativebillingreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      salesrepresentativebillingreportRunreportPost(
+      _salesrepresentativebillingreportRunreportPost(
           {@Body()
               required WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest?
                   body});
 
   ///
-  @Post(path: '/salesrepresentativebillingreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salesrepresentativebillingreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/salesrepresentativebillingreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesrepresentativebillingreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesrepresentativebillingreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesrepresentativebillingreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesrepresentativebillingreportValidateofficelocationBrowsePost(
+      _salesrepresentativebillingreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesrepresentativebillingreportValidatesalesrepresentativeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportValidatesalesrepresentativeBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(
       path:
           '/salesrepresentativebillingreport/validatesalesrepresentative/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesrepresentativebillingreportValidatesalesrepresentativeBrowsePost(
+      _salesrepresentativebillingreportValidatesalesrepresentativeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesrepresentativebillingreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesrepresentativebillingreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesrepresentativebillingreportValidatedepartmentBrowsePost(
+      _salesrepresentativebillingreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesrepresentativebillingreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportValidatecustomerBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/salesrepresentativebillingreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesrepresentativebillingreportValidatecustomerBrowsePost(
+      _salesrepresentativebillingreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesrepresentativebillingreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salesrepresentativebillingreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesrepresentativebillingreportEmptyobjectGet();
+      _salesrepresentativebillingreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salesrepresentativebillingreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salesrepresentativebillingreportPreviewGet();
+  }
 
   ///
   @Get(path: '/salesrepresentativebillingreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salesrepresentativebillingreportPreviewGet();
+      _salesrepresentativebillingreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salestaxcanadareportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salestaxcanadareportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salestaxcanadareport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salestaxcanadareportRenderPost(
+      _salestaxcanadareportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salestaxcanadareportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salestaxcanadareportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salestaxcanadareport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salestaxcanadareportExportexcelxlsxPost(
+      _salestaxcanadareportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
                   body});
 
   ///
-  @Post(path: '/salestaxcanadareport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salestaxcanadareportRunreportPost(
+      {required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salestaxcanadareportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salestaxcanadareport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salestaxcanadareportRunreportPost(
       {@Body()
           required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
               body});
 
   ///
-  @Post(path: '/salestaxcanadareport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salestaxcanadareportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxcanadareportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/salestaxcanadareport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salestaxcanadareportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salestaxcanadareportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxcanadareportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salestaxcanadareport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salestaxcanadareportValidatedepartmentBrowsePost(
+      _salestaxcanadareportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salestaxcanadareportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxcanadareportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salestaxcanadareport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salestaxcanadareportEmptyobjectGet();
+      _salestaxcanadareportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salestaxcanadareportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxcanadareportPreviewGet();
+  }
 
   ///
   @Get(path: '/salestaxcanadareport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salestaxcanadareportPreviewGet();
+      _salestaxcanadareportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      salestaxusareportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _salestaxusareportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/salestaxusareport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      salestaxusareportRenderPost(
+      _salestaxusareportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      salestaxusareportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _salestaxusareportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/salestaxusareport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      salestaxusareportExportexcelxlsxPost(
+      _salestaxusareportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
                   body});
 
   ///
-  @Post(path: '/salestaxusareport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> salestaxusareportRunreportPost(
+      {required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _salestaxusareportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/salestaxusareport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _salestaxusareportRunreportPost(
       {@Body()
           required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
               body});
 
   ///
-  @Post(path: '/salestaxusareport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       salestaxusareportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxusareportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/salestaxusareport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _salestaxusareportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salestaxusareportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxusareportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/salestaxusareport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salestaxusareportValidatedepartmentBrowsePost(
+      _salestaxusareportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salestaxusareportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxusareportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/salestaxusareport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salestaxusareportEmptyobjectGet();
+      _salestaxusareportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      salestaxusareportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _salestaxusareportPreviewGet();
+  }
 
   ///
   @Get(path: '/salestaxusareport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      salestaxusareportPreviewGet();
+      _salestaxusareportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      storagecontainerlabelRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _storagecontainerlabelRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/storagecontainerlabel/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      storagecontainerlabelRenderPost(
+      _storagecontainerlabelRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      storagecontainerlabelExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _storagecontainerlabelExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/storagecontainerlabel/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      storagecontainerlabelExportexcelxlsxPost(
+      _storagecontainerlabelExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest?
                   body});
 
   ///
-  @Post(path: '/storagecontainerlabel/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> storagecontainerlabelRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _storagecontainerlabelRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/storagecontainerlabel/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _storagecontainerlabelRunreportPost(
       {@Body()
           required WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      storagecontainerlabelEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _storagecontainerlabelEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/storagecontainerlabel/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      storagecontainerlabelEmptyobjectGet();
+      _storagecontainerlabelEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      storagecontainerlabelPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _storagecontainerlabelPreviewGet();
+  }
 
   ///
   @Get(path: '/storagecontainerlabel/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      storagecontainerlabelPreviewGet();
+      _storagecontainerlabelPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      subitemstatusreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _subitemstatusreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      subitemstatusreportRenderPost(
+      _subitemstatusreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      subitemstatusreportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _subitemstatusreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      subitemstatusreportExportexcelxlsxPost(
+      _subitemstatusreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest?
                   body});
 
   ///
-  @Post(path: '/subitemstatusreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> subitemstatusreportRunreportPost(
+      {required WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _subitemstatusreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/subitemstatusreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _subitemstatusreportRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest?
               body});
 
   ///
-  @Post(path: '/subitemstatusreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       subitemstatusreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/subitemstatusreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _subitemstatusreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportValidateofficelocationBrowsePost(
+      _subitemstatusreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportValidatecustomerBrowsePost(
+      _subitemstatusreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportValidateorderBrowsePost(
+      _subitemstatusreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportValidatevendorBrowsePost(
+      _subitemstatusreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportValidatepoclassificationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportValidatepoclassificationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subitemstatusreport/validatepoclassification/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportValidatepoclassificationBrowsePost(
+      _subitemstatusreportValidatepoclassificationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/subitemstatusreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportEmptyobjectGet();
+      _subitemstatusreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subitemstatusreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subitemstatusreportPreviewGet();
+  }
 
   ///
   @Get(path: '/subitemstatusreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subitemstatusreportPreviewGet();
+      _subitemstatusreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      subprofitabilityreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _subprofitabilityreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      subprofitabilityreportRenderPost(
+      _subprofitabilityreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      subprofitabilityreportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _subprofitabilityreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      subprofitabilityreportExportexcelxlsxPost(
+      _subprofitabilityreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest?
                   body});
 
   ///
-  @Post(path: '/subprofitabilityreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> subprofitabilityreportRunreportPost(
+      {required WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _subprofitabilityreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/subprofitabilityreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _subprofitabilityreportRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest?
               body});
 
   ///
-  @Post(path: '/subprofitabilityreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       subprofitabilityreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/subprofitabilityreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _subprofitabilityreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportValidateofficelocationBrowsePost(
+      _subprofitabilityreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportValidatecustomerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportValidatecustomerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/validatecustomer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportValidatecustomerBrowsePost(
+      _subprofitabilityreportValidatecustomerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportValidateorderBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportValidateorderBrowsePost(
+      _subprofitabilityreportValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportValidatevendorBrowsePost(
+      _subprofitabilityreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportValidatepoclassificationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportValidatepoclassificationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/subprofitabilityreport/validatepoclassification/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportValidatepoclassificationBrowsePost(
+      _subprofitabilityreportValidatepoclassificationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/subprofitabilityreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportEmptyobjectGet();
+      _subprofitabilityreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subprofitabilityreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subprofitabilityreportPreviewGet();
+  }
 
   ///
   @Get(path: '/subprofitabilityreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subprofitabilityreportPreviewGet();
+      _subprofitabilityreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      subrentalbillinganalysisreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      subrentalbillinganalysisreportRenderPost(
+      _subrentalbillinganalysisreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      subrentalbillinganalysisreportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _subrentalbillinganalysisreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      subrentalbillinganalysisreportExportexcelxlsxPost(
+      _subrentalbillinganalysisreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      subrentalbillinganalysisreportRunreportPost(
+          {required WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      subrentalbillinganalysisreportRunreportPost(
+      _subrentalbillinganalysisreportRunreportPost(
           {@Body()
               required WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest?
                   body});
 
   ///
-  @Post(path: '/subrentalbillinganalysisreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       subrentalbillinganalysisreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/subrentalbillinganalysisreport/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _subrentalbillinganalysisreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportValidateofficelocationBrowsePost(
+      _subrentalbillinganalysisreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportValidatepurchaseorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidatepurchaseorderBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/validatepurchaseorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportValidatepurchaseorderBrowsePost(
+      _subrentalbillinganalysisreportValidatepurchaseorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportValidatepoclassificationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidatepoclassificationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/validatepoclassification/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportValidatepoclassificationBrowsePost(
+      _subrentalbillinganalysisreportValidatepoclassificationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportValidatevendorBrowsePost(
+      _subrentalbillinganalysisreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidatedepartmentBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportValidatedepartmentBrowsePost(
+      _subrentalbillinganalysisreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/subrentalbillinganalysisreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportValidateinventoryBrowsePost(
+      _subrentalbillinganalysisreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/subrentalbillinganalysisreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportEmptyobjectGet();
+      _subrentalbillinganalysisreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subrentalbillinganalysisreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subrentalbillinganalysisreportPreviewGet();
+  }
 
   ///
   @Get(path: '/subrentalbillinganalysisreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subrentalbillinganalysisreportPreviewGet();
+      _subrentalbillinganalysisreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      subsalesstageditemsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _subsalesstageditemsreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/subsalesstageditemsreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      subsalesstageditemsreportRenderPost(
+      _subsalesstageditemsreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      subsalesstageditemsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _subsalesstageditemsreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/subsalesstageditemsreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      subsalesstageditemsreportExportexcelxlsxPost(
+      _subsalesstageditemsreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest?
                   body});
 
   ///
-  @Post(path: '/subsalesstageditemsreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> subsalesstageditemsreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _subsalesstageditemsreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/subsalesstageditemsreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _subsalesstageditemsreportRunreportPost(
       {@Body()
           required WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest?
               body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subsalesstageditemsreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subsalesstageditemsreportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/subsalesstageditemsreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subsalesstageditemsreportEmptyobjectGet();
+      _subsalesstageditemsreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      subsalesstageditemsreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _subsalesstageditemsreportPreviewGet();
+  }
 
   ///
   @Get(path: '/subsalesstageditemsreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      subsalesstageditemsreportPreviewGet();
+      _subsalesstageditemsreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      taxespaidreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _taxespaidreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/taxespaidreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      taxespaidreportRenderPost(
+      _taxespaidreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      taxespaidreportExportexcelxlsxPost(
+          {required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _taxespaidreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/taxespaidreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      taxespaidreportExportexcelxlsxPost(
+      _taxespaidreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
                   body});
 
   ///
-  @Post(path: '/taxespaidreport/runreport')
   Future<
       chopper
           .Response<WebApiDataAppReportResponse>> taxespaidreportRunreportPost(
+      {required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _taxespaidreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/taxespaidreport/runreport')
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> _taxespaidreportRunreportPost(
       {@Body()
           required WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest?
               body});
 
   ///
-  @Post(path: '/taxespaidreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       taxespaidreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _taxespaidreportValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/taxespaidreport/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _taxespaidreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      taxespaidreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _taxespaidreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/taxespaidreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      taxespaidreportValidatedepartmentBrowsePost(
+      _taxespaidreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      taxespaidreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _taxespaidreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/taxespaidreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      taxespaidreportEmptyobjectGet();
+      _taxespaidreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      taxespaidreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _taxespaidreportPreviewGet();
+  }
 
   ///
   @Get(path: '/taxespaidreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      taxespaidreportPreviewGet();
+      _taxespaidreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      transfermanifestreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _transfermanifestreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/transfermanifestreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      transfermanifestreportRenderPost(
+      _transfermanifestreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> transfermanifestreportRunreportPost(
+      {required WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _transfermanifestreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/transfermanifestreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> transfermanifestreportRunreportPost(
+          WebApiDataAppReportResponse>> _transfermanifestreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest?
               body});
 
   ///
-  @Post(path: '/transfermanifestreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       transfermanifestreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transfermanifestreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/transfermanifestreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _transfermanifestreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transfermanifestreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transfermanifestreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/transfermanifestreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transfermanifestreportEmptyobjectGet();
+      _transfermanifestreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transfermanifestreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transfermanifestreportPreviewGet();
+  }
 
   ///
   @Get(path: '/transfermanifestreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transfermanifestreportPreviewGet();
+      _transfermanifestreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      transferorderreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _transferorderreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/transferorderreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      transferorderreportRenderPost(
+      _transferorderreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> transferorderreportRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _transferorderreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/transferorderreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> transferorderreportRunreportPost(
+          WebApiDataAppReportResponse>> _transferorderreportRunreportPost(
       {@Body()
           required WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest?
               body});
 
   ///
-  @Post(path: '/transferorderreport/validatetransferorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       transferorderreportValidatetransferorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferorderreportValidatetransferorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/transferorderreport/validatetransferorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _transferorderreportValidatetransferorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferorderreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferorderreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/transferorderreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferorderreportEmptyobjectGet();
+      _transferorderreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferorderreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferorderreportPreviewGet();
+  }
 
   ///
   @Get(path: '/transferorderreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferorderreportPreviewGet();
+      _transferorderreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      transferreceiptreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _transferreceiptreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/transferreceiptreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      transferreceiptreportRenderPost(
+      _transferreceiptreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> transferreceiptreportRunreportPost(
+      {required WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _transferreceiptreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/transferreceiptreport/runreport')
   Future<
       chopper.Response<
-          WebApiDataAppReportResponse>> transferreceiptreportRunreportPost(
+          WebApiDataAppReportResponse>> _transferreceiptreportRunreportPost(
       {@Body()
           required WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest?
               body});
 
   ///
-  @Post(path: '/transferreceiptreport/validatecontract/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       transferreceiptreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreceiptreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/transferreceiptreport/validatecontract/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _transferreceiptreportValidatecontractBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreceiptreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreceiptreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/transferreceiptreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreceiptreportEmptyobjectGet();
+      _transferreceiptreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreceiptreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreceiptreportPreviewGet();
+  }
 
   ///
   @Get(path: '/transferreceiptreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreceiptreportPreviewGet();
+      _transferreceiptreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      transferreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _transferreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      transferreportRenderPost(
+      _transferreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      transferreportExportexcelxlsxPost(
+          {required WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _transferreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      transferreportExportexcelxlsxPost(
+      _transferreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest?
                   body});
 
   ///
-  @Post(path: '/transferreport/runreport')
   Future<
       chopper
           .Response<WebApiDataAppReportResponse>> transferreportRunreportPost(
+      {required WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _transferreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/transferreport/runreport')
+  Future<
+      chopper
+          .Response<WebApiDataAppReportResponse>> _transferreportRunreportPost(
       {@Body()
           required WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest?
               body});
 
   ///
-  @Post(path: '/transferreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       transferreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidateinventorytypeBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/transferreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _transferreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidatecategoryBrowsePost(
+      _transferreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidatesubcategoryBrowsePost(
+      _transferreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidateinventoryBrowsePost(
+      _transferreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidatetransferBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidatetransferBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validatetransfer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidatetransferBrowsePost(
+      _transferreportValidatetransferBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidatetowarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidatetowarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validatetowarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidatetowarehouseBrowsePost(
+      _transferreportValidatetowarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidatefromwarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidatefromwarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validatefromwarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidatefromwarehouseBrowsePost(
+      _transferreportValidatefromwarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/transferreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportValidatedepartmentBrowsePost(
+      _transferreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/transferreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportEmptyobjectGet();
+      _transferreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      transferreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _transferreportPreviewGet();
+  }
 
   ///
   @Get(path: '/transferreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      transferreportPreviewGet();
+      _transferreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      unretiredrentalinventoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      unretiredrentalinventoryreportRenderPost(
+      _unretiredrentalinventoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      unretiredrentalinventoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _unretiredrentalinventoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      unretiredrentalinventoryreportExportexcelxlsxPost(
+      _unretiredrentalinventoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      unretiredrentalinventoryreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      unretiredrentalinventoryreportRunreportPost(
+      _unretiredrentalinventoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/unretiredrentalinventoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       unretiredrentalinventoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/unretiredrentalinventoryreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _unretiredrentalinventoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportValidatecategoryBrowsePost(
+      _unretiredrentalinventoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportValidatesubcategoryBrowsePost(
+      _unretiredrentalinventoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportValidateinventoryBrowsePost(
+      _unretiredrentalinventoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportValidateunretiredreasonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportValidateunretiredreasonBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/validateunretiredreason/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportValidateunretiredreasonBrowsePost(
+      _unretiredrentalinventoryreportValidateunretiredreasonBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/unretiredrentalinventoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportValidatewarehouseBrowsePost(
+      _unretiredrentalinventoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/unretiredrentalinventoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportEmptyobjectGet();
+      _unretiredrentalinventoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredrentalinventoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredrentalinventoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/unretiredrentalinventoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredrentalinventoryreportPreviewGet();
+      _unretiredrentalinventoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      valueofoutrentalinventoryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      valueofoutrentalinventoryreportRenderPost(
+      _valueofoutrentalinventoryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      valueofoutrentalinventoryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      valueofoutrentalinventoryreportExportexcelxlsxPost(
+      _valueofoutrentalinventoryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest?
                   body});
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+      valueofoutrentalinventoryreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportRunreportPost(body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/runreport')
   Future<chopper.Response<WebApiDataAppReportResponse>>
-      valueofoutrentalinventoryreportRunreportPost(
+      _valueofoutrentalinventoryreportRunreportPost(
           {@Body()
               required WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest?
                   body});
 
   ///
-  @Post(path: '/valueofoutrentalinventoryreport/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       valueofoutrentalinventoryreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportValidateinventorytypeBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/valueofoutrentalinventoryreport/validateinventorytype/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _valueofoutrentalinventoryreportValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      valueofoutrentalinventoryreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportValidatecategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      valueofoutrentalinventoryreportValidatecategoryBrowsePost(
+      _valueofoutrentalinventoryreportValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      valueofoutrentalinventoryreportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportValidatesubcategoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      valueofoutrentalinventoryreportValidatesubcategoryBrowsePost(
+      _valueofoutrentalinventoryreportValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      valueofoutrentalinventoryreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportValidateinventoryBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      valueofoutrentalinventoryreportValidateinventoryBrowsePost(
+      _valueofoutrentalinventoryreportValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      valueofoutrentalinventoryreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportValidatewarehouseBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/valueofoutrentalinventoryreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      valueofoutrentalinventoryreportValidatewarehouseBrowsePost(
+      _valueofoutrentalinventoryreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      valueofoutrentalinventoryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/valueofoutrentalinventoryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      valueofoutrentalinventoryreportEmptyobjectGet();
+      _valueofoutrentalinventoryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      valueofoutrentalinventoryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _valueofoutrentalinventoryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/valueofoutrentalinventoryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      valueofoutrentalinventoryreportPreviewGet();
+      _valueofoutrentalinventoryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      vendorinvoicebatchreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _vendorinvoicebatchreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicebatchreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      vendorinvoicebatchreportRenderPost(
+      _vendorinvoicebatchreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      vendorinvoicebatchreportExportexcelxlsxPost(
+          {required WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _vendorinvoicebatchreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicebatchreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      vendorinvoicebatchreportExportexcelxlsxPost(
+      _vendorinvoicebatchreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest?
                   body});
 
   ///
-  @Post(path: '/vendorinvoicebatchreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> vendorinvoicebatchreportRunreportPost(
+      {required WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _vendorinvoicebatchreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/vendorinvoicebatchreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _vendorinvoicebatchreportRunreportPost(
       {@Body()
           required WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest?
               body});
 
   ///
-  @Post(path: '/vendorinvoicebatchreport/validatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       vendorinvoicebatchreportValidatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicebatchreportValidatebatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/vendorinvoicebatchreport/validatebatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _vendorinvoicebatchreportValidatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicebatchreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicebatchreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/vendorinvoicebatchreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicebatchreportEmptyobjectGet();
+      _vendorinvoicebatchreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicebatchreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicebatchreportPreviewGet();
+  }
 
   ///
   @Get(path: '/vendorinvoicebatchreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicebatchreportPreviewGet();
+      _vendorinvoicebatchreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      vendorinvoicesummaryreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicesummaryreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      vendorinvoicesummaryreportRenderPost(
+      _vendorinvoicesummaryreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      vendorinvoicesummaryreportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _vendorinvoicesummaryreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicesummaryreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      vendorinvoicesummaryreportExportexcelxlsxPost(
+      _vendorinvoicesummaryreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest?
                   body});
 
   ///
-  @Post(path: '/vendorinvoicesummaryreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> vendorinvoicesummaryreportRunreportPost(
+      {required WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/vendorinvoicesummaryreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _vendorinvoicesummaryreportRunreportPost(
       {@Body()
           required WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest?
               body});
 
   ///
-  @Post(path: '/vendorinvoicesummaryreport/validatepurchaseorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       vendorinvoicesummaryreportValidatepurchaseorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportValidatepurchaseorderBrowsePost(
+        body: body);
+  }
+
+  ///
+  @Post(path: '/vendorinvoicesummaryreport/validatepurchaseorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _vendorinvoicesummaryreportValidatepurchaseorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicesummaryreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportValidateofficelocationBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicesummaryreport/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicesummaryreportValidateofficelocationBrowsePost(
+      _vendorinvoicesummaryreportValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicesummaryreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicesummaryreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicesummaryreportValidatedepartmentBrowsePost(
+      _vendorinvoicesummaryreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicesummaryreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportValidatedealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicesummaryreport/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicesummaryreportValidatedealBrowsePost(
+      _vendorinvoicesummaryreportValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicesummaryreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportValidatevendorBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicesummaryreport/validatevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicesummaryreportValidatevendorBrowsePost(
+      _vendorinvoicesummaryreportValidatevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicesummaryreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/vendorinvoicesummaryreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicesummaryreportEmptyobjectGet();
+      _vendorinvoicesummaryreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicesummaryreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicesummaryreportPreviewGet();
+  }
 
   ///
   @Get(path: '/vendorinvoicesummaryreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicesummaryreportPreviewGet();
+      _vendorinvoicesummaryreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      warehousedispatchreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _warehousedispatchreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/warehousedispatchreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      warehousedispatchreportRenderPost(
+      _warehousedispatchreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      warehousedispatchreportExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _warehousedispatchreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/warehousedispatchreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      warehousedispatchreportExportexcelxlsxPost(
+      _warehousedispatchreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest?
                   body});
 
   ///
-  @Post(path: '/warehousedispatchreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> warehousedispatchreportRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _warehousedispatchreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/warehousedispatchreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _warehousedispatchreportRunreportPost(
       {@Body()
           required WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest?
               body});
 
   ///
-  @Post(path: '/warehousedispatchreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       warehousedispatchreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehousedispatchreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/warehousedispatchreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _warehousedispatchreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehousedispatchreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehousedispatchreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehousedispatchreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehousedispatchreportValidatedepartmentBrowsePost(
+      _warehousedispatchreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehousedispatchreportValidateactivitytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehousedispatchreportValidateactivitytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehousedispatchreport/validateactivitytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehousedispatchreportValidateactivitytypeBrowsePost(
+      _warehousedispatchreportValidateactivitytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehousedispatchreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehousedispatchreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehousedispatchreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehousedispatchreportValidateagentBrowsePost(
+      _warehousedispatchreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehousedispatchreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehousedispatchreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/warehousedispatchreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehousedispatchreportEmptyobjectGet();
+      _warehousedispatchreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehousedispatchreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehousedispatchreportPreviewGet();
+  }
 
   ///
   @Get(path: '/warehousedispatchreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehousedispatchreportPreviewGet();
+      _warehousedispatchreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      warehouseinboundreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _warehouseinboundreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseinboundreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      warehouseinboundreportRenderPost(
+      _warehouseinboundreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      warehouseinboundreportExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _warehouseinboundreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseinboundreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      warehouseinboundreportExportexcelxlsxPost(
+      _warehouseinboundreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest?
                   body});
 
   ///
-  @Post(path: '/warehouseinboundreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> warehouseinboundreportRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _warehouseinboundreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/warehouseinboundreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _warehouseinboundreportRunreportPost(
       {@Body()
           required WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest?
               body});
 
   ///
-  @Post(path: '/warehouseinboundreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       warehouseinboundreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseinboundreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/warehouseinboundreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _warehouseinboundreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseinboundreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseinboundreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseinboundreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseinboundreportValidatedepartmentBrowsePost(
+      _warehouseinboundreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseinboundreportValidateactivitytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseinboundreportValidateactivitytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseinboundreport/validateactivitytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseinboundreportValidateactivitytypeBrowsePost(
+      _warehouseinboundreportValidateactivitytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseinboundreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseinboundreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseinboundreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseinboundreportValidateagentBrowsePost(
+      _warehouseinboundreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseinboundreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseinboundreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/warehouseinboundreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseinboundreportEmptyobjectGet();
+      _warehouseinboundreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseinboundreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseinboundreportPreviewGet();
+  }
 
   ///
   @Get(path: '/warehouseinboundreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseinboundreportPreviewGet();
+      _warehouseinboundreportPreviewGet();
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+      warehouseoutboundreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardReportingFwReportRenderResponse,
+        () => FwStandardReportingFwReportRenderResponse.fromJsonFactory);
+
+    return _warehouseoutboundreportRenderPost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseoutboundreport/render')
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
-      warehouseoutboundreportRenderPost(
+      _warehouseoutboundreportRenderPost(
           {@Body() required FwStandardReportingFwReportRenderRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      warehouseoutboundreportExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _warehouseoutboundreportExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseoutboundreport/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      warehouseoutboundreportExportexcelxlsxPost(
+      _warehouseoutboundreportExportexcelxlsxPost(
           {@Body()
               required WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest?
                   body});
 
   ///
-  @Post(path: '/warehouseoutboundreport/runreport')
   Future<
       chopper.Response<
           WebApiDataAppReportResponse>> warehouseoutboundreportRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiDataAppReportResponse,
+        () => WebApiDataAppReportResponse.fromJsonFactory);
+
+    return _warehouseoutboundreportRunreportPost(body: body);
+  }
+
+  ///
+  @Post(path: '/warehouseoutboundreport/runreport')
+  Future<
+      chopper.Response<
+          WebApiDataAppReportResponse>> _warehouseoutboundreportRunreportPost(
       {@Body()
           required WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest?
               body});
 
   ///
-  @Post(path: '/warehouseoutboundreport/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       warehouseoutboundreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseoutboundreportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/warehouseoutboundreport/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _warehouseoutboundreportValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseoutboundreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseoutboundreportValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseoutboundreport/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseoutboundreportValidatedepartmentBrowsePost(
+      _warehouseoutboundreportValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseoutboundreportValidateactivitytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseoutboundreportValidateactivitytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseoutboundreport/validateactivitytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseoutboundreportValidateactivitytypeBrowsePost(
+      _warehouseoutboundreportValidateactivitytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseoutboundreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseoutboundreportValidateagentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/warehouseoutboundreport/validateagent/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseoutboundreportValidateagentBrowsePost(
+      _warehouseoutboundreportValidateagentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseoutboundreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseoutboundreportEmptyobjectGet();
+  }
 
   ///
   @Get(path: '/warehouseoutboundreport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseoutboundreportEmptyobjectGet();
+      _warehouseoutboundreportEmptyobjectGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      warehouseoutboundreportPreviewGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _warehouseoutboundreportPreviewGet();
+  }
 
   ///
   @Get(path: '/warehouseoutboundreport/preview')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      warehouseoutboundreportPreviewGet();
+      _warehouseoutboundreportPreviewGet();
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    ReportsJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult:
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-          .fromJsonFactory,
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition:
-      FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJsonFactory,
-  FwStandardDataFwCustomValue: FwStandardDataFwCustomValue.fromJsonFactory,
-  FwStandardDataFwDefaultAttribute:
-      FwStandardDataFwDefaultAttribute.fromJsonFactory,
-  FwStandardDataFwReportLoader: FwStandardDataFwReportLoader.fromJsonFactory,
-  FwStandardModelsBrowseRequest: FwStandardModelsBrowseRequest.fromJsonFactory,
-  FwStandardModelsCheckBoxListItem:
-      FwStandardModelsCheckBoxListItem.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardModelsFwQueryFilter: FwStandardModelsFwQueryFilter.fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
-          .fromJsonFactory,
-  FwStandardModelsSelectedCheckBoxListItem:
-      FwStandardModelsSelectedCheckBoxListItem.fromJsonFactory,
-  FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader:
-      FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
-          .fromJsonFactory,
-  FwStandardReportingFwReportEmailInfo:
-      FwStandardReportingFwReportEmailInfo.fromJsonFactory,
-  FwStandardReportingFwReportRenderRequest:
-      FwStandardReportingFwReportRenderRequest.fromJsonFactory,
-  FwStandardReportingFwReportRenderRequestEmailImageOptions:
-      FwStandardReportingFwReportRenderRequestEmailImageOptions.fromJsonFactory,
-  FwStandardReportingFwReportRenderResponse:
-      FwStandardReportingFwReportRenderResponse.fromJsonFactory,
-  FwStandardSqlServerFwDateTime: FwStandardSqlServerFwDateTime.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTable:
-      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTableColumn:
-      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
-  WebApiDataAppReportResponse: WebApiDataAppReportResponse.fromJsonFactory,
-  WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest:
-      WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest:
-      WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest:
-      WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest:
-      WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest:
-      WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest:
-      WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest:
-      WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest:
-      WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest:
-      WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest:
-      WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest:
-      WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest:
-      WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest:
-      WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest:
-      WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest:
-      WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest:
-      WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest:
-      WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest:
-      WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest:
-      WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest:
-      WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest:
-      WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest:
-      WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest:
-      WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest:
-      WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest:
-      WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest:
-      WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest:
-      WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsInContractReportInContractReportRequest:
-      WebApiModulesReportsContractReportsInContractReportInContractReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest:
-      WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest:
-      WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest:
-      WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest:
-      WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest:
-      WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest:
-      WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest:
-      WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest:
-      WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest:
-      WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest:
-      WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest:
-      WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest:
-      WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest:
-      WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest:
-      WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest:
-      WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest:
-      WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
-          .fromJsonFactory,
-  WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest:
-      WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest:
-      WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest
-          .fromJsonFactory,
-  WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest:
-      WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest:
-      WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest:
-      WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL:
-      WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL
-          .fromJsonFactory,
-  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL:
-      WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL
-          .fromJsonFactory,
-  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL:
-      WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL
-          .fromJsonFactory,
-  WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL:
-      WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL
-          .fromJsonFactory,
-  WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest:
-      WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest:
-      WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest:
-      WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest:
-      WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsOrderReportOrderReportRequest:
-      WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest:
-      WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest:
-      WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest:
-      WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest:
-      WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsPickListReportPickListReportRequest:
-      WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest:
-      WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest:
-      WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest:
-      WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest:
-      WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest:
-      WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest:
-      WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest:
-      WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest:
-      WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest:
-      WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRateUpdateReportRateUpdateReportRequest:
-      WebApiModulesReportsRateUpdateReportRateUpdateReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest:
-      WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest:
-      WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest:
-      WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest:
-      WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest:
-      WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest:
-      WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest:
-      WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
-          .fromJsonFactory,
-  WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest:
-      WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest:
-      WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest:
-      WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest:
-      WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest:
-      WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest:
-      WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest:
-      WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest:
-      WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest:
-      WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsSharedReportSettingsReportSettings:
-      WebApiModulesReportsSharedReportSettingsReportSettings.fromJsonFactory,
-  WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest:
-      WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest:
-      WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest:
-      WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest:
-      WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest:
-      WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest:
-      WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest:
-      WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest:
-      WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest:
-      WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest:
-      WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData:
-      WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL:
-      WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL:
-      WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest:
-      WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest:
-      WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest:
-      WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest:
-      WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest:
-      WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest
-          .fromJsonFactory,
-  WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest:
-      WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest
-          .fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -7999,6 +19999,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -8024,6 +20027,9 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
   Map<String, dynamic> toJson() =>
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8075,6 +20081,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardBusinessLogicFwBusinessLogicFieldDefinition &&
@@ -8121,6 +20130,9 @@ class FwStandardDataFwCustomValue {
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8177,6 +20189,9 @@ class FwStandardDataFwDefaultAttribute {
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardDataFwDefaultAttributeToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8247,6 +20262,9 @@ class FwStandardDataFwReportLoader {
   static const fromJsonFactory = _$FwStandardDataFwReportLoaderFromJson;
   static const toJsonFactory = _$FwStandardDataFwReportLoaderToJson;
   Map<String, dynamic> toJson() => _$FwStandardDataFwReportLoaderToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8379,7 +20397,7 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic boundids;
   @JsonKey(name: 'filterfields', includeIfNull: false)
-  final Object? filterfields;
+  final Map<String, dynamic>? filterfields;
   @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
   @JsonKey(name: 'emptyobject', includeIfNull: false)
@@ -8394,10 +20412,13 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
-  final Object? activeviewfields;
+  final Map<String, dynamic>? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8521,13 +20542,13 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchconjunctions,
       dynamic? uniqueids,
       dynamic? boundids,
-      Object? filterfields,
+      Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
       bool? forexcel,
       List<FwStandardModelsCheckBoxListItem>? excelfields,
       List<String>? totalfields,
-      Object? activeviewfields}) {
+      Map<String, dynamic>? activeviewfields}) {
     return FwStandardModelsBrowseRequest(
         miscfields: miscfields ?? this.miscfields,
         module: module ?? this.module,
@@ -8578,6 +20599,9 @@ class FwStandardModelsCheckBoxListItem {
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsCheckBoxListItemToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8633,6 +20657,9 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -8686,6 +20713,9 @@ class FwStandardModelsFwQueryFilter {
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8755,6 +20785,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsRep
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic &&
@@ -8817,6 +20850,9 @@ class FwStandardModelsSelectedCheckBoxListItem {
   static const toJsonFactory = _$FwStandardModelsSelectedCheckBoxListItemToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsSelectedCheckBoxListItemToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8885,6 +20921,9 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8980,6 +21019,9 @@ class FwStandardReportingFwReportEmailInfo {
       _$FwStandardReportingFwReportEmailInfoToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardReportingFwReportEmailInfo &&
@@ -9036,7 +21078,7 @@ class FwStandardReportingFwReportRenderRequest {
   @JsonKey(name: 'renderMode', includeIfNull: false)
   final String? renderMode;
   @JsonKey(name: 'parameters', includeIfNull: false)
-  final Object? parameters;
+  final Map<String, dynamic>? parameters;
   @JsonKey(name: 'email', includeIfNull: false)
   final FwStandardReportingFwReportEmailInfo? email;
   @JsonKey(name: 'downloadPdfAsAttachment', includeIfNull: false)
@@ -9049,6 +21091,9 @@ class FwStandardReportingFwReportRenderRequest {
   static const toJsonFactory = _$FwStandardReportingFwReportRenderRequestToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardReportingFwReportRenderRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9085,7 +21130,7 @@ extension $FwStandardReportingFwReportRenderRequestExtension
     on FwStandardReportingFwReportRenderRequest {
   FwStandardReportingFwReportRenderRequest copyWith(
       {String? renderMode,
-      Object? parameters,
+      Map<String, dynamic>? parameters,
       FwStandardReportingFwReportEmailInfo? email,
       bool? downloadPdfAsAttachment,
       FwStandardReportingFwReportRenderRequestEmailImageOptions?
@@ -9121,6 +21166,9 @@ class FwStandardReportingFwReportRenderRequestEmailImageOptions {
       _$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9175,6 +21223,9 @@ class FwStandardReportingFwReportRenderResponse {
       _$FwStandardReportingFwReportRenderResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardReportingFwReportRenderResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9234,6 +21285,9 @@ class FwStandardSqlServerFwDateTime {
   Map<String, dynamic> toJson() => _$FwStandardSqlServerFwDateTimeToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardSqlServerFwDateTime &&
@@ -9273,9 +21327,9 @@ class FwStandardSqlServerFwJsonDataTable {
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
-  final Object? columnIndex;
+  final Map<String, dynamic>? columnIndex;
   @JsonKey(name: 'Totals', includeIfNull: false)
-  final Object? totals;
+  final Map<String, dynamic>? totals;
   @JsonKey(
       name: 'Columns',
       includeIfNull: false,
@@ -9294,11 +21348,14 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
-  final Object? columnNameByIndex;
+  final Map<String, dynamic>? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9351,8 +21408,8 @@ class FwStandardSqlServerFwJsonDataTable {
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
   FwStandardSqlServerFwJsonDataTable copyWith(
-      {Object? columnIndex,
-      Object? totals,
+      {Map<String, dynamic>? columnIndex,
+      Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
       List<List<Object>>? rows,
       int? pageNo,
@@ -9360,7 +21417,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Object? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -9408,6 +21465,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9494,6 +21554,9 @@ class WebApiDataAppReportResponse {
   static const fromJsonFactory = _$WebApiDataAppReportResponseFromJson;
   static const toJsonFactory = _$WebApiDataAppReportResponseToJson;
   Map<String, dynamic> toJson() => _$WebApiDataAppReportResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9617,6 +21680,9 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9772,6 +21838,9 @@ class WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsRepor
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9931,6 +22000,9 @@ class WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10100,6 +22172,9 @@ class WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10299,6 +22374,9 @@ class WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportReque
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10507,6 +22585,9 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest &&
@@ -10701,6 +22782,9 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest &&
@@ -10868,6 +22952,9 @@ class WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessR
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest &&
@@ -11002,6 +23089,9 @@ class WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportReque
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11155,6 +23245,9 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest &&
@@ -11284,6 +23377,9 @@ class WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11467,6 +23563,9 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest &&
@@ -11646,6 +23745,9 @@ class WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillin
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest &&
@@ -11812,6 +23914,9 @@ class WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportR
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest &&
@@ -11967,6 +24072,9 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12133,6 +24241,9 @@ class WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRe
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest &&
@@ -12267,6 +24378,9 @@ class WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoi
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest &&
@@ -12390,6 +24504,9 @@ class WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchR
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest &&
@@ -12511,6 +24628,9 @@ class WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorI
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12652,6 +24772,9 @@ class WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventory
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12823,6 +24946,9 @@ class WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportReques
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest &&
@@ -12967,6 +25093,9 @@ class WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsRe
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest &&
@@ -13082,6 +25211,9 @@ class WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInve
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -13211,6 +25343,9 @@ class WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequ
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -13351,6 +25486,9 @@ class WebApiModulesReportsConsignorStatementReportConsignorStatementReportReques
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -13508,6 +25646,9 @@ class WebApiModulesReportsContractReportsContractRevisionReportContractRevisionR
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest &&
@@ -13658,6 +25799,9 @@ class WebApiModulesReportsContractReportsExchangeContractReportExchangeContractR
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest &&
@@ -13764,6 +25908,9 @@ class WebApiModulesReportsContractReportsInContractReportInContractReportRequest
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -13880,6 +26027,9 @@ class WebApiModulesReportsContractReportsLostContractReportLostContractReportReq
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest &&
@@ -13992,6 +26142,9 @@ class WebApiModulesReportsContractReportsOutContractReportOutContractReportReque
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -14108,6 +26261,9 @@ class WebApiModulesReportsContractReportsReceiveContractReportReceiveContractRep
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest &&
@@ -14220,6 +26376,9 @@ class WebApiModulesReportsContractReportsReturnContractReportReturnContractRepor
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -14376,6 +26535,9 @@ class WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -14562,6 +26724,9 @@ class WebApiModulesReportsContractReportsTransferManifestReportTransferManifestR
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest &&
@@ -14674,6 +26839,9 @@ class WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -14803,6 +26971,9 @@ class WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -14951,6 +27122,9 @@ class WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountRepor
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -15103,6 +27277,9 @@ class WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenue
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -15283,6 +27460,9 @@ class WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueB
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -15473,6 +27653,9 @@ class WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -15701,6 +27884,9 @@ class WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingIt
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -15977,6 +28163,9 @@ class WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest &&
@@ -16209,6 +28398,9 @@ class WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportReque
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest &&
@@ -16385,6 +28577,9 @@ class WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -16565,6 +28760,9 @@ class WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationRepo
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest &&
@@ -16716,6 +28914,9 @@ class WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructio
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest &&
@@ -16859,6 +29060,9 @@ class WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -17065,6 +29269,9 @@ class WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryRepo
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest &&
@@ -17262,6 +29469,9 @@ class WebApiModulesReportsMultiLocationReportsTransferReportTransferReportReques
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest &&
@@ -17442,6 +29652,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL &&
@@ -17594,6 +29807,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceLToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -17768,6 +29984,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderLToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -18042,6 +30261,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportLToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -18325,6 +30547,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest &&
@@ -18428,6 +30653,9 @@ class WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabel
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -18560,6 +30788,9 @@ class WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest 
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -18767,6 +30998,9 @@ class WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequ
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -18997,6 +31231,9 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderReportOrderReportRequest &&
@@ -19175,6 +31412,9 @@ class WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailRe
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest &&
@@ -19280,6 +31520,9 @@ class WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummary
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest &&
@@ -19383,6 +31626,9 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -19512,6 +31758,9 @@ class WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRe
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -19667,6 +31916,9 @@ class WebApiModulesReportsOrderReportsPickListReportPickListReportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsPickListReportPickListReportRequest &&
@@ -19793,6 +32045,9 @@ class WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportReques
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -19993,6 +32248,9 @@ class WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterRepo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -20221,6 +32479,9 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -20452,6 +32713,9 @@ class WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedIte
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest &&
@@ -20639,6 +32903,9 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest &&
@@ -20754,6 +33021,9 @@ class WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructio
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -20877,6 +33147,9 @@ class WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsI
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -21060,6 +33333,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -21269,6 +33545,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyRe
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest &&
@@ -21456,6 +33735,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionRepo
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest &&
@@ -21628,6 +33910,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgre
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -21829,6 +34114,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliatio
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -22044,6 +34332,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalys
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest &&
@@ -22222,6 +34513,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReport
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest &&
@@ -22377,6 +34671,9 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest &&
@@ -22488,6 +34785,9 @@ class WebApiModulesReportsRateUpdateReportRateUpdateReportRequest {
       _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -22644,6 +34944,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -22862,6 +35165,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityRepor
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest &&
@@ -23076,6 +35382,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRenta
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest &&
@@ -23268,6 +35577,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRen
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest &&
@@ -23439,6 +35751,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportR
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -23616,6 +35931,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueR
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -23829,6 +36147,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReport
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest &&
@@ -24032,6 +36353,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRental
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -24255,6 +36579,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRental
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest &&
@@ -24470,6 +36797,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHisto
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest &&
@@ -24671,6 +37001,9 @@ class WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportReti
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest &&
@@ -24858,6 +37191,9 @@ class WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturne
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -25056,6 +37392,9 @@ class WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAsset
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -25257,6 +37596,9 @@ class WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUn
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest &&
@@ -25441,6 +37783,9 @@ class WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportV
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -25660,6 +38005,9 @@ class WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderSt
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest &&
@@ -25854,6 +38202,9 @@ class WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest &&
@@ -25956,6 +38307,9 @@ class WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -26073,6 +38427,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorde
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -26240,6 +38597,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -26444,6 +38804,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesIn
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest &&
@@ -26622,6 +38985,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesI
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest &&
@@ -26792,6 +39158,9 @@ class WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesRepo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -26980,6 +39349,9 @@ class WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequ
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -27179,6 +39551,9 @@ class WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseH
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest &&
@@ -27364,6 +39739,9 @@ class WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionRe
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest &&
@@ -27529,6 +39907,9 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
       _$WebApiModulesReportsSharedReportSettingsReportSettingsToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedReportSettingsReportSettings &&
@@ -27675,6 +40056,9 @@ class WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -27834,6 +40218,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMas
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest &&
@@ -27977,6 +40364,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderRece
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest &&
@@ -28098,6 +40488,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportReq
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -28242,6 +40635,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSu
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -28423,6 +40819,9 @@ class WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportReq
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -28619,6 +41018,9 @@ class WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityRep
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest &&
@@ -28812,6 +41214,9 @@ class WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBi
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -29018,6 +41423,9 @@ class WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSu
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest &&
@@ -29190,6 +41598,9 @@ class WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingLi
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest &&
@@ -29292,6 +41703,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData &&
@@ -29392,6 +41806,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -29745,6 +42162,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -30192,6 +42612,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequ
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest &&
@@ -30307,6 +42730,9 @@ class WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerL
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -30434,6 +42860,9 @@ class WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReport
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -30573,6 +43002,9 @@ class WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispat
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -30747,6 +43179,9 @@ class WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInbound
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest &&
@@ -30919,6 +43354,9 @@ class WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutbou
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest &&
@@ -31028,19 +43466,32 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    String? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes == null) {
-    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+    Object? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes is int) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toString(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums.$FwStandardSqlServerFwDataTypesMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              fwStandardSqlServerFwDataTypes.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
-      .key;
+  if (fwStandardSqlServerFwDataTypes is String) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -31073,19 +43524,30 @@ String? webApiIncludeExcludeAllToJson(
 }
 
 enums.WebApiIncludeExcludeAll webApiIncludeExcludeAllFromJson(
-    String? webApiIncludeExcludeAll) {
-  if (webApiIncludeExcludeAll == null) {
-    return enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown;
+    Object? webApiIncludeExcludeAll) {
+  if (webApiIncludeExcludeAll is int) {
+    return enums.$WebApiIncludeExcludeAllMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                webApiIncludeExcludeAll.toString(),
+            orElse: () => const MapEntry(
+                enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown, ''))
+        .key;
   }
 
-  return enums.$WebApiIncludeExcludeAllMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              webApiIncludeExcludeAll.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown, ''))
-      .key;
+  if (webApiIncludeExcludeAll is String) {
+    return enums.$WebApiIncludeExcludeAllMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                webApiIncludeExcludeAll.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown, ''))
+        .key;
+  }
+
+  return enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown;
 }
 
 List<String> webApiIncludeExcludeAllListToJson(
@@ -31119,24 +43581,39 @@ String? webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
 
 enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
     webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-        String? webApiModulesReportsOrderReportsOrderReportReportViewType) {
-  if (webApiModulesReportsOrderReportsOrderReportReportViewType == null) {
-    return enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
-        .swaggerGeneratedUnknown;
+        Object? webApiModulesReportsOrderReportsOrderReportReportViewType) {
+  if (webApiModulesReportsOrderReportsOrderReportReportViewType is int) {
+    return enums
+        .$WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                webApiModulesReportsOrderReportsOrderReportReportViewType
+                    .toString(),
+            orElse: () => const MapEntry(
+                enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
+                    .swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums
-      .$WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              webApiModulesReportsOrderReportsOrderReportReportViewType
-                  .toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
-                  .swaggerGeneratedUnknown,
-              ''))
-      .key;
+  if (webApiModulesReportsOrderReportsOrderReportReportViewType is String) {
+    return enums
+        .$WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                webApiModulesReportsOrderReportsOrderReportReportViewType
+                    .toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
+                    .swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
+      .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -31219,7 +43696,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(ReportsJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

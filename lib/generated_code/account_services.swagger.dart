@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 import 'account_services.enums.swagger.dart' as enums;
 export 'account_services.enums.swagger.dart';
@@ -15,16 +20,35 @@ part 'account_services.swagger.g.dart';
 
 @ChopperApi()
 abstract class AccountServices extends ChopperService {
-  static AccountServices create([ChopperClient? client]) {
+  static AccountServices create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$AccountServices(client);
     }
 
     final newClient = ChopperClient(
       services: [_$AccountServices()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$AccountServices(newClient);
+  }
+
+  ///
+  ///@param applicationId
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
+      accountSessionGet({String? applicationId}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse,
+        () =>
+            WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+                .fromJsonFactory);
+
+    return _accountSessionGet(applicationId: applicationId);
   }
 
   ///
@@ -33,7 +57,28 @@ abstract class AccountServices extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
-      accountSessionGet({@Query('applicationId') String? applicationId});
+      _accountSessionGet({@Query('applicationId') String? applicationId});
+
+  ///
+  ///@param locationid
+  ///@param warehouseid
+  ///@param departmentid
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>>
+      accountOfficelocationGet(
+          {String? locationid, String? warehouseid, String? departmentid}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse,
+        () =>
+            WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+                .fromJsonFactory);
+
+    return _accountOfficelocationGet(
+        locationid: locationid,
+        warehouseid: warehouseid,
+        departmentid: departmentid);
+  }
 
   ///
   ///@param locationid
@@ -43,124 +88,110 @@ abstract class AccountServices extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>>
-      accountOfficelocationGet(
+      _accountOfficelocationGet(
           {@Query('locationid') String? locationid,
           @Query('warehouseid') String? warehouseid,
           @Query('departmentid') String? departmentid});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesAccountResetPasswordResponse>>
+      accountResetpasswordPost(
+          {required WebApiModulesAccountServicesAccountResetPasswordRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAccountServicesAccountResetPasswordResponse,
+        () => WebApiModulesAccountServicesAccountResetPasswordResponse
+            .fromJsonFactory);
+
+    return _accountResetpasswordPost(body: body);
+  }
 
   ///
   @Post(path: '/account/resetpassword')
   Future<
           chopper.Response<
               WebApiModulesAccountServicesAccountResetPasswordResponse>>
-      accountResetpasswordPost(
+      _accountResetpasswordPost(
           {@Body()
               required WebApiModulesAccountServicesAccountResetPasswordRequest?
                   body});
 
   ///
-  @Post(path: '/account/getsettings')
   Future<chopper.Response<WebApiLogicAppFuncGetSettingsResponse>>
       accountGetsettingsPost(
+          {required WebApiModulesAccountServicesAccountGetSettingsRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiLogicAppFuncGetSettingsResponse,
+        () => WebApiLogicAppFuncGetSettingsResponse.fromJsonFactory);
+
+    return _accountGetsettingsPost(body: body);
+  }
+
+  ///
+  @Post(path: '/account/getsettings')
+  Future<chopper.Response<WebApiLogicAppFuncGetSettingsResponse>>
+      _accountGetsettingsPost(
           {@Body()
               required WebApiModulesAccountServicesAccountGetSettingsRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      jwtPost({required FwStandardModelsFwApplicationUser? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwJwtControllerJwtResponseModel,
+        () => FwCoreControllersFwJwtControllerJwtResponseModel.fromJsonFactory);
+
+    return _jwtPost(body: body);
+  }
+
+  ///
   @Post(path: '/jwt')
   Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      jwtPost({@Body() required FwStandardModelsFwApplicationUser? body});
+      _jwtPost({@Body() required FwStandardModelsFwApplicationUser? body});
+
+  ///
+  Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      jwtOktaPost({required WebApiModulesAccountServicesJwtOktaRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwJwtControllerJwtResponseModel,
+        () => FwCoreControllersFwJwtControllerJwtResponseModel.fromJsonFactory);
+
+    return _jwtOktaPost(body: body);
+  }
 
   ///
   @Post(path: '/jwt/okta')
   Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      jwtOktaPost(
+      _jwtOktaPost(
           {@Body() required WebApiModulesAccountServicesJwtOktaRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
+      jwtOktaverifyPost(
+          {required WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAccountServicesJwtOktaSessionResponseModel,
+        () => WebApiModulesAccountServicesJwtOktaSessionResponseModel
+            .fromJsonFactory);
+
+    return _jwtOktaverifyPost(body: body);
+  }
 
   ///
   @Post(path: '/jwt/oktaverify')
   Future<
           chopper.Response<
               WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
-      jwtOktaverifyPost(
+      _jwtOktaverifyPost(
           {@Body()
               required WebApiModulesAccountServicesJwtOktaSessionRequest?
                   body});
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    AccountServicesJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwCoreControllersFwJwtControllerJwtResponseModel:
-      FwCoreControllersFwJwtControllerJwtResponseModel.fromJsonFactory,
-  FwStandardAppManagerFwAmSecurityTreeNode:
-      FwStandardAppManagerFwAmSecurityTreeNode.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardModelsFwApplicationUser:
-      FwStandardModelsFwApplicationUser.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTable:
-      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTableColumn:
-      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
-  WebApiLogicAppFuncConsignmentSettingsResponse:
-      WebApiLogicAppFuncConsignmentSettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncCustomFieldsResponse:
-      WebApiLogicAppFuncCustomFieldsResponse.fromJsonFactory,
-  WebApiLogicAppFuncCustomFormModel:
-      WebApiLogicAppFuncCustomFormModel.fromJsonFactory,
-  WebApiLogicAppFuncCustomFormsResponse:
-      WebApiLogicAppFuncCustomFormsResponse.fromJsonFactory,
-  WebApiLogicAppFuncDefaultSettingsResponse:
-      WebApiLogicAppFuncDefaultSettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncDepartmentActivitiesResponse:
-      WebApiLogicAppFuncDepartmentActivitiesResponse.fromJsonFactory,
-  WebApiLogicAppFuncDocumentBarcodeSettingsResponse:
-      WebApiLogicAppFuncDocumentBarcodeSettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncGetSettingsResponse:
-      WebApiLogicAppFuncGetSettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncInventorySettingsResponse:
-      WebApiLogicAppFuncInventorySettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncSessionDeal: WebApiLogicAppFuncSessionDeal.fromJsonFactory,
-  WebApiLogicAppFuncSessionDepartment:
-      WebApiLogicAppFuncSessionDepartment.fromJsonFactory,
-  WebApiLogicAppFuncSessionLocation:
-      WebApiLogicAppFuncSessionLocation.fromJsonFactory,
-  WebApiLogicAppFuncSessionUser: WebApiLogicAppFuncSessionUser.fromJsonFactory,
-  WebApiLogicAppFuncSessionWarehouse:
-      WebApiLogicAppFuncSessionWarehouse.fromJsonFactory,
-  WebApiLogicAppFuncSystemNumbersModel:
-      WebApiLogicAppFuncSystemNumbersModel.fromJsonFactory,
-  WebApiLogicAppFuncSystemNumbersResponse:
-      WebApiLogicAppFuncSystemNumbersResponse.fromJsonFactory,
-  WebApiLogicAppFuncSystemSettingsResponse:
-      WebApiLogicAppFuncSystemSettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncUserSettingsResponse:
-      WebApiLogicAppFuncUserSettingsResponse.fromJsonFactory,
-  WebApiLogicAppFuncWarehouseResponse:
-      WebApiLogicAppFuncWarehouseResponse.fromJsonFactory,
-  WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse:
-      WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
-          .fromJsonFactory,
-  WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse:
-      WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
-          .fromJsonFactory,
-  WebApiModulesAccountServicesAccountGetSettingsRequest:
-      WebApiModulesAccountServicesAccountGetSettingsRequest.fromJsonFactory,
-  WebApiModulesAccountServicesAccountResetPasswordRequest:
-      WebApiModulesAccountServicesAccountResetPasswordRequest.fromJsonFactory,
-  WebApiModulesAccountServicesAccountResetPasswordResponse:
-      WebApiModulesAccountServicesAccountResetPasswordResponse.fromJsonFactory,
-  WebApiModulesAccountServicesAccountSystemSettingsResponse:
-      WebApiModulesAccountServicesAccountSystemSettingsResponse.fromJsonFactory,
-  WebApiModulesAccountServicesJwtOktaRequest:
-      WebApiModulesAccountServicesJwtOktaRequest.fromJsonFactory,
-  WebApiModulesAccountServicesJwtOktaSessionRequest:
-      WebApiModulesAccountServicesJwtOktaSessionRequest.fromJsonFactory,
-  WebApiModulesAccountServicesJwtOktaSessionResponseModel:
-      WebApiModulesAccountServicesJwtOktaSessionResponseModel.fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -175,6 +206,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -210,6 +244,9 @@ class FwCoreControllersFwJwtControllerJwtResponseModel {
       _$FwCoreControllersFwJwtControllerJwtResponseModelToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -280,7 +317,7 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
   @JsonKey(name: 'nodetype', includeIfNull: false)
   final String? nodetype;
   @JsonKey(name: 'properties', includeIfNull: false)
-  final Object? properties;
+  final Map<String, dynamic>? properties;
   @JsonKey(
       name: 'children',
       includeIfNull: false,
@@ -291,6 +328,9 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
   static const toJsonFactory = _$FwStandardAppManagerFwAmSecurityTreeNodeToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -328,7 +368,7 @@ extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
       {String? id,
       String? caption,
       String? nodetype,
-      Object? properties,
+      Map<String, dynamic>? properties,
       List<FwStandardAppManagerFwAmSecurityTreeNode>? children}) {
     return FwStandardAppManagerFwAmSecurityTreeNode(
         id: id ?? this.id,
@@ -359,6 +399,9 @@ class FwStandardModelsFwApiException {
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -415,6 +458,9 @@ class FwStandardModelsFwApplicationUser {
       _$FwStandardModelsFwApplicationUserToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApplicationUser &&
@@ -463,9 +509,9 @@ class FwStandardSqlServerFwJsonDataTable {
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
-  final Object? columnIndex;
+  final Map<String, dynamic>? columnIndex;
   @JsonKey(name: 'Totals', includeIfNull: false)
-  final Object? totals;
+  final Map<String, dynamic>? totals;
   @JsonKey(
       name: 'Columns',
       includeIfNull: false,
@@ -484,11 +530,14 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
-  final Object? columnNameByIndex;
+  final Map<String, dynamic>? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -541,8 +590,8 @@ class FwStandardSqlServerFwJsonDataTable {
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
   FwStandardSqlServerFwJsonDataTable copyWith(
-      {Object? columnIndex,
-      Object? totals,
+      {Map<String, dynamic>? columnIndex,
+      Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
       List<List<Object>>? rows,
       int? pageNo,
@@ -550,7 +599,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Object? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -598,6 +647,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -678,6 +730,9 @@ class WebApiLogicAppFuncConsignmentSettingsResponse {
       _$WebApiLogicAppFuncConsignmentSettingsResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncConsignmentSettingsResponse &&
@@ -752,6 +807,9 @@ class WebApiLogicAppFuncCustomFieldsResponse {
       _$WebApiLogicAppFuncCustomFieldsResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncCustomFieldsResponse &&
@@ -804,6 +862,9 @@ class WebApiLogicAppFuncCustomFormModel {
   static const toJsonFactory = _$WebApiLogicAppFuncCustomFormModelToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncCustomFormModelToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -878,6 +939,9 @@ class WebApiLogicAppFuncCustomFormsResponse {
   static const toJsonFactory = _$WebApiLogicAppFuncCustomFormsResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncCustomFormsResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -977,6 +1041,9 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
       _$WebApiLogicAppFuncDefaultSettingsResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncDefaultSettingsResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1156,6 +1223,9 @@ class WebApiLogicAppFuncDepartmentActivitiesResponse {
       _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncDepartmentActivitiesResponse &&
@@ -1247,6 +1317,9 @@ class WebApiLogicAppFuncDocumentBarcodeSettingsResponse {
       _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncDocumentBarcodeSettingsResponse &&
@@ -1328,6 +1401,9 @@ class WebApiLogicAppFuncGetSettingsResponse {
   static const toJsonFactory = _$WebApiLogicAppFuncGetSettingsResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncGetSettingsResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1499,6 +1575,9 @@ class WebApiLogicAppFuncInventorySettingsResponse {
       _$WebApiLogicAppFuncInventorySettingsResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncInventorySettingsResponse &&
@@ -1639,6 +1718,9 @@ class WebApiLogicAppFuncSessionDeal {
   Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionDealToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncSessionDeal &&
@@ -1682,6 +1764,9 @@ class WebApiLogicAppFuncSessionDepartment {
   static const toJsonFactory = _$WebApiLogicAppFuncSessionDepartmentToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncSessionDepartmentToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1776,6 +1861,9 @@ class WebApiLogicAppFuncSessionLocation {
   static const toJsonFactory = _$WebApiLogicAppFuncSessionLocationToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncSessionLocationToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2019,6 +2107,9 @@ class WebApiLogicAppFuncSessionUser {
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionUserFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncSessionUserToJson;
   Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionUserToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2282,6 +2373,9 @@ class WebApiLogicAppFuncSessionWarehouse {
       _$WebApiLogicAppFuncSessionWarehouseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncSessionWarehouse &&
@@ -2385,6 +2479,9 @@ class WebApiLogicAppFuncSystemNumbersModel {
       _$WebApiLogicAppFuncSystemNumbersModelToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncSystemNumbersModel &&
@@ -2432,6 +2529,9 @@ class WebApiLogicAppFuncSystemNumbersResponse {
   static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncSystemNumbersResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2494,6 +2594,9 @@ class WebApiLogicAppFuncSystemSettingsResponse {
   static const toJsonFactory = _$WebApiLogicAppFuncSystemSettingsResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncSystemSettingsResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2626,6 +2729,9 @@ class WebApiLogicAppFuncUserSettingsResponse {
       _$WebApiLogicAppFuncUserSettingsResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncUserSettingsResponse &&
@@ -2750,6 +2856,9 @@ class WebApiLogicAppFuncWarehouseResponse {
       _$WebApiLogicAppFuncWarehouseResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicAppFuncWarehouseResponse &&
@@ -2798,6 +2907,9 @@ class WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationRespo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2887,6 +2999,9 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2998,6 +3113,9 @@ class WebApiModulesAccountServicesAccountGetSettingsRequest {
       _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesAccountGetSettingsRequest &&
@@ -3051,6 +3169,9 @@ class WebApiModulesAccountServicesAccountResetPasswordRequest {
       _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesAccountResetPasswordRequest &&
@@ -3094,6 +3215,9 @@ class WebApiModulesAccountServicesAccountResetPasswordResponse {
       _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3154,6 +3278,9 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
       _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3233,6 +3360,9 @@ class WebApiModulesAccountServicesJwtOktaRequest {
       _$WebApiModulesAccountServicesJwtOktaRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesJwtOktaRequest &&
@@ -3281,6 +3411,9 @@ class WebApiModulesAccountServicesJwtOktaSessionRequest {
       _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesJwtOktaSessionRequest &&
@@ -3326,6 +3459,9 @@ class WebApiModulesAccountServicesJwtOktaSessionResponseModel {
       _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesJwtOktaSessionResponseModel &&
@@ -3354,19 +3490,32 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    String? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes == null) {
-    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+    Object? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes is int) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toString(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums.$FwStandardSqlServerFwDataTypesMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              fwStandardSqlServerFwDataTypes.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
-      .key;
+  if (fwStandardSqlServerFwDataTypes is String) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -3445,7 +3594,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(AccountServicesJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

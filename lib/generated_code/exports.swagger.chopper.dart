@@ -6,7 +6,7 @@ part of 'exports.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations
+// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
 class _$Exports extends Exports {
   _$Exports([ChopperClient? client]) {
     if (client == null) return;
@@ -20,7 +20,7 @@ class _$Exports extends Exports {
   Future<
           Response<
               WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse>>
-      invoicebatchexportExportPost(
+      _invoicebatchexportExportPost(
           {required WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest?
               body}) {
     final $url = '/invoicebatchexport/export';
@@ -34,7 +34,7 @@ class _$Exports extends Exports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicebatchexportEmptyobjectGet() {
+      _invoicebatchexportEmptyobjectGet() {
     final $url = '/invoicebatchexport/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<FwStandardSqlServerFwJsonDataTable,
@@ -45,7 +45,7 @@ class _$Exports extends Exports {
   Future<
           Response<
               WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse>>
-      receiptbatchexportExportPost(
+      _receiptbatchexportExportPost(
           {required WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest?
               body}) {
     final $url = '/receiptbatchexport/export';
@@ -59,7 +59,7 @@ class _$Exports extends Exports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptbatchexportEmptyobjectGet() {
+      _receiptbatchexportEmptyobjectGet() {
     final $url = '/receiptbatchexport/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<FwStandardSqlServerFwJsonDataTable,
@@ -70,7 +70,7 @@ class _$Exports extends Exports {
   Future<
           Response<
               WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse>>
-      vendorinvoicebatchexportExportPost(
+      _vendorinvoicebatchexportExportPost(
           {required WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest?
               body}) {
     final $url = '/vendorinvoicebatchexport/export';
@@ -84,7 +84,7 @@ class _$Exports extends Exports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicebatchexportEmptyobjectGet() {
+      _vendorinvoicebatchexportEmptyobjectGet() {
     final $url = '/vendorinvoicebatchexport/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<FwStandardSqlServerFwJsonDataTable,

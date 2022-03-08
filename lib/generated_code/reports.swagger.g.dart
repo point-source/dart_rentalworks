@@ -43,8 +43,7 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
             Map<String, dynamic> json) =>
         FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
           name: json['Name'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
         );
 
 Map<String, dynamic>
@@ -196,7 +195,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
-      filterfields: json['filterfields'],
+      filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
@@ -209,7 +208,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      activeviewfields: json['activeviewfields'],
+      activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -459,7 +458,7 @@ FwStandardReportingFwReportRenderRequest
             Map<String, dynamic> json) =>
         FwStandardReportingFwReportRenderRequest(
           renderMode: json['renderMode'] as String?,
-          parameters: json['parameters'],
+          parameters: json['parameters'] as Map<String, dynamic>?,
           email: json['email'] == null
               ? null
               : FwStandardReportingFwReportEmailInfo.fromJson(
@@ -563,8 +562,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwDateTimeToJson(
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
         Map<String, dynamic> json) =>
     FwStandardSqlServerFwJsonDataTable(
-      columnIndex: json['ColumnIndex'],
-      totals: json['Totals'],
+      columnIndex: json['ColumnIndex'] as Map<String, dynamic>?,
+      totals: json['Totals'] as Map<String, dynamic>?,
       columns: (json['Columns'] as List<dynamic>?)
               ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
                   e as Map<String, dynamic>))
@@ -583,7 +582,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      columnNameByIndex: json['ColumnNameByIndex'],
+      columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -615,8 +614,7 @@ FwStandardSqlServerFwJsonDataTableColumn
         FwStandardSqlServerFwJsonDataTableColumn(
           name: json['Name'] as String?,
           dataField: json['DataField'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
           isUniqueId: json['IsUniqueId'] as bool?,
           isVisible: json['IsVisible'] as bool?,
         );
@@ -3408,8 +3406,7 @@ WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           transactionType: json['TransactionType'] as String?,
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           ranks: (json['Ranks'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -3486,8 +3483,7 @@ WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequ
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           ranks: (json['Ranks'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -4199,7 +4195,7 @@ WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
           orderId: json['OrderId'] as String?,
           reportView:
               webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-                  json['ReportView'] as String?),
+                  json['ReportView']),
           printInventoryType: json['PrintInventoryType'] as bool?,
           printCategory: json['PrintCategory'] as bool?,
           printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
@@ -4668,7 +4664,7 @@ WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
           quoteId: json['QuoteId'] as String?,
           reportView:
               webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-                  json['ReportView'] as String?),
+                  json['ReportView']),
           printInventoryType: json['PrintInventoryType'] as bool?,
           printCategory: json['PrintCategory'] as bool?,
           printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
@@ -5576,8 +5572,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRen
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -5683,8 +5678,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRenta
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
           isSummary: json['IsSummary'] as bool?,
           includeSubHeadingsAndSubTotals:
@@ -5766,8 +5760,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInven
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           includeRetiredSerializedItems:
               json['IncludeRetiredSerializedItems'] as bool?,
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
@@ -6657,8 +6650,7 @@ WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOf
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
           isSummary: json['IsSummary'] as bool?,
           includeSubHeadingsAndSubTotals:
@@ -7146,8 +7138,7 @@ WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequ
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           attributeId: json['AttributeId'] as String?,
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           ranks: (json['Ranks'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -7221,8 +7212,7 @@ WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          fixedAsset:
-              webApiIncludeExcludeAllFromJson(json['FixedAsset'] as String?),
+          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
           warehouseId: json['WarehouseId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
@@ -7669,7 +7659,7 @@ WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
           purchaseOrderId: json['PurchaseOrderId'] as String?,
           reportView:
               webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-                  json['ReportView'] as String?),
+                  json['ReportView']),
           excludeZeroConsignorFee: json['ExcludeZeroConsignorFee'] as bool?,
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
           isSummary: json['IsSummary'] as bool?,
@@ -8533,7 +8523,7 @@ WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportReques
           transferId: json['TransferId'] as String?,
           reportView:
               webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-                  json['ReportView'] as String?),
+                  json['ReportView']),
           customReportLayoutId: json['CustomReportLayoutId'] as String?,
           isSummary: json['IsSummary'] as bool?,
           includeSubHeadingsAndSubTotals:

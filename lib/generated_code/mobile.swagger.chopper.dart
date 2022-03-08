@@ -6,7 +6,7 @@ part of 'mobile.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations
+// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
 class _$Mobile extends Mobile {
   _$Mobile([ChopperClient? client]) {
     if (client == null) return;
@@ -20,7 +20,7 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>>
-      quikscanAssetdispositionLookupretiredreasonGet(
+      _quikscanAssetdispositionLookupretiredreasonGet(
           {String? retiredReasonId,
           String? retiredReason,
           required String? reasonType,
@@ -44,105 +44,105 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssetdispositionEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanAssetdispositionEmptyobjectGet() {
     final $url = '/quikscan/assetdisposition/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssetdispositionEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanAssetdispositionEmptybrowseobjectGet() {
     final $url = '/quikscan/assetdisposition/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssetdispositionKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanAssetdispositionKeyfieldnamesGet() {
     final $url = '/quikscan/assetdisposition/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssetsetlocationEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanAssetsetlocationEmptyobjectGet() {
     final $url = '/quikscan/assetsetlocation/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssetsetlocationEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanAssetsetlocationEmptybrowseobjectGet() {
     final $url = '/quikscan/assetsetlocation/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssetsetlocationKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanAssetsetlocationKeyfieldnamesGet() {
     final $url = '/quikscan/assetsetlocation/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssignitemsEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanAssignitemsEmptyobjectGet() {
     final $url = '/quikscan/assignitems/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssignitemsEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanAssignitemsEmptybrowseobjectGet() {
     final $url = '/quikscan/assignitems/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanAssignitemsKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanAssignitemsKeyfieldnamesGet() {
     final $url = '/quikscan/assignitems/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanBarcodelabelEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanBarcodelabelEmptyobjectGet() {
     final $url = '/quikscan/barcodelabel/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanBarcodelabelEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanBarcodelabelEmptybrowseobjectGet() {
     final $url = '/quikscan/barcodelabel/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanBarcodelabelKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanBarcodelabelKeyfieldnamesGet() {
     final $url = '/quikscan/barcodelabel/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanCheckinEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanCheckinEmptyobjectGet() {
     final $url = '/quikscan/checkin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanCheckinEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanCheckinEmptybrowseobjectGet() {
     final $url = '/quikscan/checkin/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanCheckinKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanCheckinKeyfieldnamesGet() {
     final $url = '/quikscan/checkin/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -150,7 +150,7 @@ class _$Mobile extends Mobile {
 
   @override
   Future<Response<WebApiLogicTSpStatusResponse>>
-      quikscanExchangeCancelcontractPost(
+      _quikscanExchangeCancelcontractPost(
           {required WebApiModulesWarehouseContractCancelContractRequest?
               body}) {
     final $url = '/quikscan/exchange/cancelcontract';
@@ -161,21 +161,21 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanExchangeEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanExchangeEmptyobjectGet() {
     final $url = '/quikscan/exchange/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanExchangeEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanExchangeEmptybrowseobjectGet() {
     final $url = '/quikscan/exchange/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanExchangeKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanExchangeKeyfieldnamesGet() {
     final $url = '/quikscan/exchange/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -185,14 +185,14 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
-      quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
+      _quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
           {required String? scannableinventoryid,
           int? pageno,
           int? pagesize,
           String? sort,
           List<FwStandardModelsFwQueryFilter>? filter}) {
     final $url =
-        '/quikscan/fillcontainer/scannableitem/$scannableinventoryid/lookuprentalinventory';
+        '/quikscan/fillcontainer/scannableitem/${scannableinventoryid}/lookuprentalinventory';
     final $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -207,70 +207,70 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanFillcontainerEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanFillcontainerEmptyobjectGet() {
     final $url = '/quikscan/fillcontainer/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanFillcontainerEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanFillcontainerEmptybrowseobjectGet() {
     final $url = '/quikscan/fillcontainer/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanFillcontainerKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanFillcontainerKeyfieldnamesGet() {
     final $url = '/quikscan/fillcontainer/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanInventorywebimageEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanInventorywebimageEmptyobjectGet() {
     final $url = '/quikscan/inventorywebimage/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanInventorywebimageEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanInventorywebimageEmptybrowseobjectGet() {
     final $url = '/quikscan/inventorywebimage/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanInventorywebimageKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanInventorywebimageKeyfieldnamesGet() {
     final $url = '/quikscan/inventorywebimage/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanItemstatusEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanItemstatusEmptyobjectGet() {
     final $url = '/quikscan/itemstatus/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanItemstatusEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanItemstatusEmptybrowseobjectGet() {
     final $url = '/quikscan/itemstatus/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanItemstatusKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanItemstatusKeyfieldnamesGet() {
     final $url = '/quikscan/itemstatus/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<Object>> mobilePost({String? path}) {
+  Future<Response<Object>> _mobilePost({String? path}) {
     final $url = '/mobile';
     final $params = <String, dynamic>{'path': path};
     final $request = Request('POST', $url, client.baseUrl, parameters: $params);
@@ -278,126 +278,126 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanMovebclocationEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanMovebclocationEmptyobjectGet() {
     final $url = '/quikscan/movebclocation/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanMovebclocationEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanMovebclocationEmptybrowseobjectGet() {
     final $url = '/quikscan/movebclocation/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanMovebclocationKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanMovebclocationKeyfieldnamesGet() {
     final $url = '/quikscan/movebclocation/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPackagetruckEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanPackagetruckEmptyobjectGet() {
     final $url = '/quikscan/packagetruck/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPackagetruckEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanPackagetruckEmptybrowseobjectGet() {
     final $url = '/quikscan/packagetruck/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPackagetruckKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanPackagetruckKeyfieldnamesGet() {
     final $url = '/quikscan/packagetruck/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPhysicalinventoryEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanPhysicalinventoryEmptyobjectGet() {
     final $url = '/quikscan/physicalinventory/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPhysicalinventoryEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanPhysicalinventoryEmptybrowseobjectGet() {
     final $url = '/quikscan/physicalinventory/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPhysicalinventoryKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanPhysicalinventoryKeyfieldnamesGet() {
     final $url = '/quikscan/physicalinventory/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPoreceiveEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanPoreceiveEmptyobjectGet() {
     final $url = '/quikscan/poreceive/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPoreceiveEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanPoreceiveEmptybrowseobjectGet() {
     final $url = '/quikscan/poreceive/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPoreceiveKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanPoreceiveKeyfieldnamesGet() {
     final $url = '/quikscan/poreceive/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPoreturnEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanPoreturnEmptyobjectGet() {
     final $url = '/quikscan/poreturn/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPoreturnEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanPoreturnEmptybrowseobjectGet() {
     final $url = '/quikscan/poreturn/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanPoreturnKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanPoreturnKeyfieldnamesGet() {
     final $url = '/quikscan/poreturn/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQcEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanQcEmptyobjectGet() {
     final $url = '/quikscan/qc/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQcEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanQcEmptybrowseobjectGet() {
     final $url = '/quikscan/qc/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQcKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanQcKeyfieldnamesGet() {
     final $url = '/quikscan/qc/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -405,7 +405,7 @@ class _$Mobile extends Mobile {
 
   @override
   Future<Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      quikscanQuikassetPost(
+      _quikscanQuikassetPost(
           {required WebApiModulesInventoryRentalInventoryRentalInventory?
               body}) {
     final $url = '/quikscan/quikasset';
@@ -418,7 +418,7 @@ class _$Mobile extends Mobile {
   @override
   Future<
       Response<
-          WebApiLogicTSpStatusResponse>> quikscanQuikassetUpdateunitvaluePost(
+          WebApiLogicTSpStatusResponse>> _quikscanQuikassetUpdateunitvaluePost(
       {required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
           body}) {
     final $url = '/quikscan/quikasset/updateunitvalue';
@@ -430,11 +430,11 @@ class _$Mobile extends Mobile {
 
   @override
   Future<Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      quikscanQuikassetIdPut(
+      _quikscanQuikassetIdPut(
           {required String? id,
           required WebApiModulesInventoryRentalInventoryRentalInventory?
               body}) {
-    final $url = '/quikscan/quikasset/$id';
+    final $url = '/quikscan/quikasset/${id}';
     final $body = body;
     final $request = Request('PUT', $url, client.baseUrl, body: $body);
     return client.send<WebApiModulesInventoryRentalInventoryRentalInventory,
@@ -443,7 +443,7 @@ class _$Mobile extends Mobile {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      quikscanQuikassetInventorypurchaseitembrowsePost(
+      _quikscanQuikassetInventorypurchaseitembrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/quikscan/quikasset/inventorypurchaseitembrowse';
     final $body = body;
@@ -456,11 +456,11 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
-      quikscanQuikassetInventorypurchaseitemIdPut(
+      _quikscanQuikassetInventorypurchaseitemIdPut(
           {required String? id,
           required WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem?
               body}) {
-    final $url = '/quikscan/quikasset/inventorypurchaseitem/$id';
+    final $url = '/quikscan/quikasset/inventorypurchaseitem/${id}';
     final $body = body;
     final $request = Request('PUT', $url, client.baseUrl, body: $body);
     return client.send<
@@ -473,7 +473,7 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
-      quikscanQuikassetStartsessionPost(
+      _quikscanQuikassetStartsessionPost(
           {required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
               body}) {
     final $url = '/quikscan/quikasset/startsession';
@@ -489,7 +489,7 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
-      quikscanQuikassetUpdatesessionPost(
+      _quikscanQuikassetUpdatesessionPost(
           {required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
               body}) {
     final $url = '/quikscan/quikasset/updatesession';
@@ -505,7 +505,7 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse>>
-      quikscanQuikassetInsertimagePost(
+      _quikscanQuikassetInsertimagePost(
           {required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
               body}) {
     final $url = '/quikscan/quikasset/insertimage';
@@ -519,7 +519,7 @@ class _$Mobile extends Mobile {
 
   @override
   Future<Response<WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
-      quikscanQuikassetGetimagesPost(
+      _quikscanQuikassetGetimagesPost(
           {required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
               body}) {
     final $url = '/quikscan/quikasset/getimages';
@@ -532,7 +532,7 @@ class _$Mobile extends Mobile {
 
   @override
   Future<Response<WebApiLogicTSpStatusResponse>>
-      quikscanQuikassetDeleteimagePost(
+      _quikscanQuikassetDeleteimagePost(
           {required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
               body}) {
     final $url = '/quikscan/quikasset/deleteimage';
@@ -546,7 +546,7 @@ class _$Mobile extends Mobile {
   Future<
           Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
-      quikscanQuikassetCompletesessionPost(
+      _quikscanQuikassetCompletesessionPost(
           {required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
               body}) {
     final $url = '/quikscan/quikasset/completesession';
@@ -559,7 +559,7 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetInventorydepartmentPost(
+  Future<Response<dynamic>> _quikscanQuikassetInventorydepartmentPost(
       {required String? body}) {
     final $url = '/quikscan/quikasset/inventorydepartment';
     final $body = body;
@@ -568,7 +568,7 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetCategoryPost(
+  Future<Response<dynamic>> _quikscanQuikassetCategoryPost(
       {required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest?
           body}) {
     final $url = '/quikscan/quikasset/category';
@@ -578,7 +578,7 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetSubcategoryPost(
+  Future<Response<dynamic>> _quikscanQuikassetSubcategoryPost(
       {required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
           body}) {
     final $url = '/quikscan/quikasset/subcategory';
@@ -588,21 +588,21 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetDealsPost() {
+  Future<Response<dynamic>> _quikscanQuikassetDealsPost() {
     final $url = '/quikscan/quikasset/deals';
     final $request = Request('POST', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetVendorPost() {
+  Future<Response<dynamic>> _quikscanQuikassetVendorPost() {
     final $url = '/quikscan/quikasset/vendor';
     final $request = Request('POST', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetSearchitemsbydescPost(
+  Future<Response<dynamic>> _quikscanQuikassetSearchitemsbydescPost(
       {required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
           body}) {
     final $url = '/quikscan/quikasset/searchitemsbydesc';
@@ -612,210 +612,210 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanQuikassetEmptyobjectGet() {
     final $url = '/quikscan/quikasset/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanQuikassetEmptybrowseobjectGet() {
     final $url = '/quikscan/quikasset/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikassetKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanQuikassetKeyfieldnamesGet() {
     final $url = '/quikscan/quikasset/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikpickEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanQuikpickEmptyobjectGet() {
     final $url = '/quikscan/quikpick/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikpickEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanQuikpickEmptybrowseobjectGet() {
     final $url = '/quikscan/quikpick/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanQuikpickKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanQuikpickKeyfieldnamesGet() {
     final $url = '/quikscan/quikpick/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanReceiveonsetEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanReceiveonsetEmptyobjectGet() {
     final $url = '/quikscan/receiveonset/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanReceiveonsetEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanReceiveonsetEmptybrowseobjectGet() {
     final $url = '/quikscan/receiveonset/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanReceiveonsetKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanReceiveonsetKeyfieldnamesGet() {
     final $url = '/quikscan/receiveonset/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRepairEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanRepairEmptyobjectGet() {
     final $url = '/quikscan/repair/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRepairEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanRepairEmptybrowseobjectGet() {
     final $url = '/quikscan/repair/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRepairKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanRepairKeyfieldnamesGet() {
     final $url = '/quikscan/repair/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRfidcheckinEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanRfidcheckinEmptyobjectGet() {
     final $url = '/quikscan/rfidcheckin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRfidcheckinEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanRfidcheckinEmptybrowseobjectGet() {
     final $url = '/quikscan/rfidcheckin/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRfidcheckinKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanRfidcheckinKeyfieldnamesGet() {
     final $url = '/quikscan/rfidcheckin/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRfidstagingEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanRfidstagingEmptyobjectGet() {
     final $url = '/quikscan/rfidstaging/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRfidstagingEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanRfidstagingEmptybrowseobjectGet() {
     final $url = '/quikscan/rfidstaging/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanRfidstagingKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanRfidstagingKeyfieldnamesGet() {
     final $url = '/quikscan/rfidstaging/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanStagingEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanStagingEmptyobjectGet() {
     final $url = '/quikscan/staging/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanStagingEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanStagingEmptybrowseobjectGet() {
     final $url = '/quikscan/staging/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanStagingKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanStagingKeyfieldnamesGet() {
     final $url = '/quikscan/staging/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTimelogEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanTimelogEmptyobjectGet() {
     final $url = '/quikscan/timelog/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTimelogEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanTimelogEmptybrowseobjectGet() {
     final $url = '/quikscan/timelog/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTimelogKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanTimelogKeyfieldnamesGet() {
     final $url = '/quikscan/timelog/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTransferinEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanTransferinEmptyobjectGet() {
     final $url = '/quikscan/transferin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTransferinEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanTransferinEmptybrowseobjectGet() {
     final $url = '/quikscan/transferin/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTransferinKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanTransferinKeyfieldnamesGet() {
     final $url = '/quikscan/transferin/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTransferoutEmptyobjectGet() {
+  Future<Response<dynamic>> _quikscanTransferoutEmptyobjectGet() {
     final $url = '/quikscan/transferout/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTransferoutEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _quikscanTransferoutEmptybrowseobjectGet() {
     final $url = '/quikscan/transferout/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> quikscanTransferoutKeyfieldnamesGet() {
+  Future<Response<dynamic>> _quikscanTransferoutKeyfieldnamesGet() {
     final $url = '/quikscan/transferout/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);

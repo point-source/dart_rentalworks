@@ -80,8 +80,7 @@ const $FwStandardSqlServerFwDataTypesMap = {
   FwStandardSqlServerFwDataTypes.oletohtmlcolor: 'OleToHtmlColor',
   FwStandardSqlServerFwDataTypes.integer: 'Integer',
   FwStandardSqlServerFwDataTypes.jpgdataurl: 'JpgDataUrl',
-  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime',
-  FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown: ''
+  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime'
 };
 
 enum WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes {
@@ -109,9 +108,7 @@ const $WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesMap = {
   WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes.webpay:
       'WEBPAY',
   WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes.pinpad:
-      'PINPAD',
-  WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
-      .swaggerGeneratedUnknown: ''
+      'PINPAD'
 };
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes {
@@ -144,9 +141,7 @@ const $WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCode
   WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
       .error: 'Error',
   WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .sent: 'Sent',
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .swaggerGeneratedUnknown: ''
+      .sent: 'Sent'
 };
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes {
@@ -191,9 +186,7 @@ const $WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesM
   WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
       .error: 'Error',
   WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .internalservererror: 'InternalServerError',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .swaggerGeneratedUnknown: ''
+      .internalservererror: 'InternalServerError'
 };
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes {
@@ -218,9 +211,7 @@ const $WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesMa
   WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
       .declined: 'Declined',
   WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes.error:
-      'Error',
-  WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-      .swaggerGeneratedUnknown: ''
+      'Error'
 };
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes {
@@ -245,9 +236,7 @@ const $WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesMap 
   WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
       .declined: 'Declined',
   WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes.error:
-      'Error',
-  WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-      .swaggerGeneratedUnknown: ''
+      'Error'
 };
 
 enum WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes {
@@ -276,9 +265,7 @@ const $WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTyp
   WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
       .email: 'EMAIL',
   WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .webpay: 'WEBPAY',
-  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .swaggerGeneratedUnknown: ''
+      .webpay: 'WEBPAY'
 };
 
 enum WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes {
@@ -304,9 +291,7 @@ const $WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesMap = {
   WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.mastercard:
       'MasterCard',
   WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.discover:
-      'Discover',
-  WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
-      .swaggerGeneratedUnknown: ''
+      'Discover'
 };
 
 enum WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes {
@@ -326,7 +311,5 @@ const $WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesMap = {
   WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes.declined:
       'Declined',
   WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes.frauddetected:
-      'FraudDetected',
-  WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
-      .swaggerGeneratedUnknown: ''
+      'FraudDetected'
 };

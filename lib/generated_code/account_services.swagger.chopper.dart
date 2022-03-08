@@ -6,7 +6,7 @@ part of 'account_services.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations
+// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
 class _$AccountServices extends AccountServices {
   _$AccountServices([ChopperClient? client]) {
     if (client == null) return;
@@ -20,7 +20,7 @@ class _$AccountServices extends AccountServices {
   Future<
           Response<
               WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
-      accountSessionGet({String? applicationId}) {
+      _accountSessionGet({String? applicationId}) {
     final $url = '/account/session';
     final $params = <String, dynamic>{'applicationId': applicationId};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
@@ -34,7 +34,7 @@ class _$AccountServices extends AccountServices {
   Future<
           Response<
               WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>>
-      accountOfficelocationGet(
+      _accountOfficelocationGet(
           {String? locationid, String? warehouseid, String? departmentid}) {
     final $url = '/account/officelocation';
     final $params = <String, dynamic>{
@@ -51,7 +51,7 @@ class _$AccountServices extends AccountServices {
 
   @override
   Future<Response<WebApiModulesAccountServicesAccountResetPasswordResponse>>
-      accountResetpasswordPost(
+      _accountResetpasswordPost(
           {required WebApiModulesAccountServicesAccountResetPasswordRequest?
               body}) {
     final $url = '/account/resetpassword';
@@ -63,7 +63,7 @@ class _$AccountServices extends AccountServices {
 
   @override
   Future<Response<WebApiLogicAppFuncGetSettingsResponse>>
-      accountGetsettingsPost(
+      _accountGetsettingsPost(
           {required WebApiModulesAccountServicesAccountGetSettingsRequest?
               body}) {
     final $url = '/account/getsettings';
@@ -74,7 +74,7 @@ class _$AccountServices extends AccountServices {
   }
 
   @override
-  Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> jwtPost(
+  Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> _jwtPost(
       {required FwStandardModelsFwApplicationUser? body}) {
     final $url = '/jwt';
     final $body = body;
@@ -85,7 +85,8 @@ class _$AccountServices extends AccountServices {
 
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      jwtOktaPost({required WebApiModulesAccountServicesJwtOktaRequest? body}) {
+      _jwtOktaPost(
+          {required WebApiModulesAccountServicesJwtOktaRequest? body}) {
     final $url = '/jwt/okta';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
@@ -95,7 +96,7 @@ class _$AccountServices extends AccountServices {
 
   @override
   Future<Response<WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
-      jwtOktaverifyPost(
+      _jwtOktaverifyPost(
           {required WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
     final $url = '/jwt/oktaverify';
     final $body = body;

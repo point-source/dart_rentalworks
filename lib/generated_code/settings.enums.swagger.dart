@@ -80,6 +80,5 @@ const $FwStandardSqlServerFwDataTypesMap = {
   FwStandardSqlServerFwDataTypes.oletohtmlcolor: 'OleToHtmlColor',
   FwStandardSqlServerFwDataTypes.integer: 'Integer',
   FwStandardSqlServerFwDataTypes.jpgdataurl: 'JpgDataUrl',
-  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime',
-  FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown: ''
+  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime'
 };

@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 import 'exports.enums.swagger.dart' as enums;
 export 'exports.enums.swagger.dart';
@@ -15,16 +20,35 @@ part 'exports.swagger.g.dart';
 
 @ChopperApi()
 abstract class Exports extends ChopperService {
-  static Exports create([ChopperClient? client]) {
+  static Exports create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$Exports(client);
     }
 
     final newClient = ChopperClient(
       services: [_$Exports()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Exports(newClient);
+  }
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse>>
+      invoicebatchexportExportPost(
+          {required WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse,
+        () => WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
+            .fromJsonFactory);
+
+    return _invoicebatchexportExportPost(body: body);
   }
 
   ///
@@ -32,76 +56,104 @@ abstract class Exports extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse>>
-      invoicebatchexportExportPost(
+      _invoicebatchexportExportPost(
           {@Body()
               required WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoicebatchexportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoicebatchexportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/invoicebatchexport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoicebatchexportEmptyobjectGet();
+      _invoicebatchexportEmptyobjectGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse>>
+      receiptbatchexportExportPost(
+          {required WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse,
+        () => WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
+            .fromJsonFactory);
+
+    return _receiptbatchexportExportPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptbatchexport/export')
   Future<
           chopper.Response<
               WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse>>
-      receiptbatchexportExportPost(
+      _receiptbatchexportExportPost(
           {@Body()
               required WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receiptbatchexportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptbatchexportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/receiptbatchexport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptbatchexportEmptyobjectGet();
+      _receiptbatchexportEmptyobjectGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse>>
+      vendorinvoicebatchexportExportPost(
+          {required WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse,
+        () =>
+            WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
+                .fromJsonFactory);
+
+    return _vendorinvoicebatchexportExportPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoicebatchexport/export')
   Future<
           chopper.Response<
               WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse>>
-      vendorinvoicebatchexportExportPost(
+      _vendorinvoicebatchexportExportPost(
           {@Body()
               required WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      vendorinvoicebatchexportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoicebatchexportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/vendorinvoicebatchexport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      vendorinvoicebatchexportEmptyobjectGet();
+      _vendorinvoicebatchexportEmptyobjectGet();
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    ExportsJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTable:
-      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTableColumn:
-      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
-  WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest:
-      WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
-          .fromJsonFactory,
-  WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse:
-      WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
-          .fromJsonFactory,
-  WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest:
-      WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
-          .fromJsonFactory,
-  WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse:
-      WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
-          .fromJsonFactory,
-  WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest:
-      WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
-          .fromJsonFactory,
-  WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse:
-      WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
-          .fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -116,6 +168,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -141,6 +196,9 @@ class FwStandardModelsFwApiException {
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -196,9 +254,9 @@ class FwStandardSqlServerFwJsonDataTable {
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
-  final Object? columnIndex;
+  final Map<String, dynamic>? columnIndex;
   @JsonKey(name: 'Totals', includeIfNull: false)
-  final Object? totals;
+  final Map<String, dynamic>? totals;
   @JsonKey(
       name: 'Columns',
       includeIfNull: false,
@@ -217,11 +275,14 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
-  final Object? columnNameByIndex;
+  final Map<String, dynamic>? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -274,8 +335,8 @@ class FwStandardSqlServerFwJsonDataTable {
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
   FwStandardSqlServerFwJsonDataTable copyWith(
-      {Object? columnIndex,
-      Object? totals,
+      {Map<String, dynamic>? columnIndex,
+      Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
       List<List<Object>>? rows,
       int? pageNo,
@@ -283,7 +344,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Object? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -331,6 +392,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -404,6 +468,9 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest &&
@@ -458,6 +525,9 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -518,6 +588,9 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest &&
@@ -572,6 +645,9 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -632,6 +708,9 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest &&
@@ -688,6 +767,9 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse &&
@@ -728,19 +810,32 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    String? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes == null) {
-    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+    Object? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes is int) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toString(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums.$FwStandardSqlServerFwDataTypesMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              fwStandardSqlServerFwDataTypes.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
-      .key;
+  if (fwStandardSqlServerFwDataTypes is String) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -819,7 +914,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(ExportsJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

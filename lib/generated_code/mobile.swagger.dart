@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 import 'mobile.enums.swagger.dart' as enums;
 export 'mobile.enums.swagger.dart';
@@ -15,16 +20,52 @@ part 'mobile.swagger.g.dart';
 
 @ChopperApi()
 abstract class Mobile extends ChopperService {
-  static Mobile create([ChopperClient? client]) {
+  static Mobile create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$Mobile(client);
     }
 
     final newClient = ChopperClient(
       services: [_$Mobile()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Mobile(newClient);
+  }
+
+  ///Get a list of valid Retired Reasons
+  ///@param RetiredReasonId Retired Reason Identifier [Key|Filter]
+  ///@param RetiredReason Reason for retiring an item. [Filter|Sort]
+  ///@param ReasonType Category to use for filtering Retired Reasons for different purposes. [Filter|Sort] {OTHER|INVENTORY|CHANGECODE|LOST|STOLEN|DONATED|SOLD}
+  ///@param PageNo The page number in the result set starting from 1.  PageNo is required when the PageSize is specified.
+  ///@param PageSize Limit result set to the specified amount.
+  ///@param Sort A sort expression to use of the form: Field1:asc,Field2:desc
+  Future<
+          chopper.Response<
+              FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>>
+      quikscanAssetdispositionLookupretiredreasonGet(
+          {String? retiredReasonId,
+          String? retiredReason,
+          required String? reasonType,
+          int? pageNo,
+          int? pageSize,
+          String? sort}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse,
+        () =>
+            FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
+                .fromJsonFactory);
+
+    return _quikscanAssetdispositionLookupretiredreasonGet(
+        retiredReasonId: retiredReasonId,
+        retiredReason: retiredReason,
+        reasonType: reasonType,
+        pageNo: pageNo,
+        pageSize: pageSize,
+        sort: sort);
   }
 
   ///Get a list of valid Retired Reasons
@@ -38,7 +79,7 @@ abstract class Mobile extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>>
-      quikscanAssetdispositionLookupretiredreasonGet(
+      _quikscanAssetdispositionLookupretiredreasonGet(
           {@Query('RetiredReasonId') String? retiredReasonId,
           @Query('RetiredReason') String? retiredReason,
           @Query('ReasonType') required String? reasonType,
@@ -47,84 +88,214 @@ abstract class Mobile extends ChopperService {
           @Query('Sort') String? sort});
 
   ///Get an empty object
+  Future<chopper.Response> quikscanAssetdispositionEmptyobjectGet() {
+    return _quikscanAssetdispositionEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/quikscan/assetdisposition/emptyobject')
-  Future<chopper.Response> quikscanAssetdispositionEmptyobjectGet();
+  Future<chopper.Response> _quikscanAssetdispositionEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanAssetdispositionEmptybrowseobjectGet() {
+    return _quikscanAssetdispositionEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/assetdisposition/emptybrowseobject')
-  Future<chopper.Response> quikscanAssetdispositionEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanAssetdispositionEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanAssetdispositionKeyfieldnamesGet() {
+    return _quikscanAssetdispositionKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/assetdisposition/keyfieldnames')
-  Future<chopper.Response> quikscanAssetdispositionKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanAssetdispositionKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanAssetsetlocationEmptyobjectGet() {
+    return _quikscanAssetsetlocationEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/assetsetlocation/emptyobject')
-  Future<chopper.Response> quikscanAssetsetlocationEmptyobjectGet();
+  Future<chopper.Response> _quikscanAssetsetlocationEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanAssetsetlocationEmptybrowseobjectGet() {
+    return _quikscanAssetsetlocationEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/assetsetlocation/emptybrowseobject')
-  Future<chopper.Response> quikscanAssetsetlocationEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanAssetsetlocationEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanAssetsetlocationKeyfieldnamesGet() {
+    return _quikscanAssetsetlocationKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/assetsetlocation/keyfieldnames')
-  Future<chopper.Response> quikscanAssetsetlocationKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanAssetsetlocationKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanAssignitemsEmptyobjectGet() {
+    return _quikscanAssignitemsEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/assignitems/emptyobject')
-  Future<chopper.Response> quikscanAssignitemsEmptyobjectGet();
+  Future<chopper.Response> _quikscanAssignitemsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanAssignitemsEmptybrowseobjectGet() {
+    return _quikscanAssignitemsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/assignitems/emptybrowseobject')
-  Future<chopper.Response> quikscanAssignitemsEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanAssignitemsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanAssignitemsKeyfieldnamesGet() {
+    return _quikscanAssignitemsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/assignitems/keyfieldnames')
-  Future<chopper.Response> quikscanAssignitemsKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanAssignitemsKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanBarcodelabelEmptyobjectGet() {
+    return _quikscanBarcodelabelEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/barcodelabel/emptyobject')
-  Future<chopper.Response> quikscanBarcodelabelEmptyobjectGet();
+  Future<chopper.Response> _quikscanBarcodelabelEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanBarcodelabelEmptybrowseobjectGet() {
+    return _quikscanBarcodelabelEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/barcodelabel/emptybrowseobject')
-  Future<chopper.Response> quikscanBarcodelabelEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanBarcodelabelEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanBarcodelabelKeyfieldnamesGet() {
+    return _quikscanBarcodelabelKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/barcodelabel/keyfieldnames')
-  Future<chopper.Response> quikscanBarcodelabelKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanBarcodelabelKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanCheckinEmptyobjectGet() {
+    return _quikscanCheckinEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/checkin/emptyobject')
-  Future<chopper.Response> quikscanCheckinEmptyobjectGet();
+  Future<chopper.Response> _quikscanCheckinEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanCheckinEmptybrowseobjectGet() {
+    return _quikscanCheckinEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/checkin/emptybrowseobject')
-  Future<chopper.Response> quikscanCheckinEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanCheckinEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanCheckinKeyfieldnamesGet() {
+    return _quikscanCheckinKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/checkin/keyfieldnames')
-  Future<chopper.Response> quikscanCheckinKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanCheckinKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<WebApiLogicTSpStatusResponse>>
+      quikscanExchangeCancelcontractPost(
+          {required WebApiModulesWarehouseContractCancelContractRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiLogicTSpStatusResponse,
+        () => WebApiLogicTSpStatusResponse.fromJsonFactory);
+
+    return _quikscanExchangeCancelcontractPost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/exchange/cancelcontract')
   Future<chopper.Response<WebApiLogicTSpStatusResponse>>
-      quikscanExchangeCancelcontractPost(
+      _quikscanExchangeCancelcontractPost(
           {@Body()
               required WebApiModulesWarehouseContractCancelContractRequest?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> quikscanExchangeEmptyobjectGet() {
+    return _quikscanExchangeEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/quikscan/exchange/emptyobject')
-  Future<chopper.Response> quikscanExchangeEmptyobjectGet();
+  Future<chopper.Response> _quikscanExchangeEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanExchangeEmptybrowseobjectGet() {
+    return _quikscanExchangeEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/exchange/emptybrowseobject')
-  Future<chopper.Response> quikscanExchangeEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanExchangeEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanExchangeKeyfieldnamesGet() {
+    return _quikscanExchangeKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/exchange/keyfieldnames')
-  Future<chopper.Response> quikscanExchangeKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanExchangeKeyfieldnamesGet();
+
+  ///Get a list of valid Container Descriptions.
+  ///@param scannableinventoryid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
+      quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
+          {required String? scannableinventoryid,
+          int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+                .fromJsonFactory);
+
+    return _quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
+        scannableinventoryid: scannableinventoryid,
+        pageno: pageno,
+        pagesize: pagesize,
+        sort: sort,
+        filter: filter);
+  }
 
   ///Get a list of valid Container Descriptions.
   ///@param scannableinventoryid
@@ -138,7 +309,7 @@ abstract class Mobile extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
-      quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
+      _quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
           {@Path('scannableinventoryid') required String? scannableinventoryid,
           @Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
@@ -146,140 +317,321 @@ abstract class Mobile extends ChopperService {
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///Get an empty object
+  Future<chopper.Response> quikscanFillcontainerEmptyobjectGet() {
+    return _quikscanFillcontainerEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/quikscan/fillcontainer/emptyobject')
-  Future<chopper.Response> quikscanFillcontainerEmptyobjectGet();
+  Future<chopper.Response> _quikscanFillcontainerEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanFillcontainerEmptybrowseobjectGet() {
+    return _quikscanFillcontainerEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/fillcontainer/emptybrowseobject')
-  Future<chopper.Response> quikscanFillcontainerEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanFillcontainerEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanFillcontainerKeyfieldnamesGet() {
+    return _quikscanFillcontainerKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/fillcontainer/keyfieldnames')
-  Future<chopper.Response> quikscanFillcontainerKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanFillcontainerKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanInventorywebimageEmptyobjectGet() {
+    return _quikscanInventorywebimageEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/inventorywebimage/emptyobject')
-  Future<chopper.Response> quikscanInventorywebimageEmptyobjectGet();
+  Future<chopper.Response> _quikscanInventorywebimageEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanInventorywebimageEmptybrowseobjectGet() {
+    return _quikscanInventorywebimageEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/inventorywebimage/emptybrowseobject')
-  Future<chopper.Response> quikscanInventorywebimageEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanInventorywebimageEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanInventorywebimageKeyfieldnamesGet() {
+    return _quikscanInventorywebimageKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/inventorywebimage/keyfieldnames')
-  Future<chopper.Response> quikscanInventorywebimageKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanInventorywebimageKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanItemstatusEmptyobjectGet() {
+    return _quikscanItemstatusEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/itemstatus/emptyobject')
-  Future<chopper.Response> quikscanItemstatusEmptyobjectGet();
+  Future<chopper.Response> _quikscanItemstatusEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanItemstatusEmptybrowseobjectGet() {
+    return _quikscanItemstatusEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/itemstatus/emptybrowseobject')
-  Future<chopper.Response> quikscanItemstatusEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanItemstatusEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanItemstatusKeyfieldnamesGet() {
+    return _quikscanItemstatusKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/itemstatus/keyfieldnames')
-  Future<chopper.Response> quikscanItemstatusKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanItemstatusKeyfieldnamesGet();
+
+  ///
+  ///@param path
+  Future<chopper.Response<Object>> mobilePost({String? path}) {
+    return _mobilePost(path: path);
+  }
 
   ///
   ///@param path
   @Post(path: '/mobile', optionalBody: true)
-  Future<chopper.Response<Object>> mobilePost({@Query('path') String? path});
+  Future<chopper.Response<Object>> _mobilePost({@Query('path') String? path});
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanMovebclocationEmptyobjectGet() {
+    return _quikscanMovebclocationEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/movebclocation/emptyobject')
-  Future<chopper.Response> quikscanMovebclocationEmptyobjectGet();
+  Future<chopper.Response> _quikscanMovebclocationEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanMovebclocationEmptybrowseobjectGet() {
+    return _quikscanMovebclocationEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/movebclocation/emptybrowseobject')
-  Future<chopper.Response> quikscanMovebclocationEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanMovebclocationEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanMovebclocationKeyfieldnamesGet() {
+    return _quikscanMovebclocationKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/movebclocation/keyfieldnames')
-  Future<chopper.Response> quikscanMovebclocationKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanMovebclocationKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanPackagetruckEmptyobjectGet() {
+    return _quikscanPackagetruckEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/packagetruck/emptyobject')
-  Future<chopper.Response> quikscanPackagetruckEmptyobjectGet();
+  Future<chopper.Response> _quikscanPackagetruckEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanPackagetruckEmptybrowseobjectGet() {
+    return _quikscanPackagetruckEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/packagetruck/emptybrowseobject')
-  Future<chopper.Response> quikscanPackagetruckEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanPackagetruckEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanPackagetruckKeyfieldnamesGet() {
+    return _quikscanPackagetruckKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/packagetruck/keyfieldnames')
-  Future<chopper.Response> quikscanPackagetruckKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanPackagetruckKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanPhysicalinventoryEmptyobjectGet() {
+    return _quikscanPhysicalinventoryEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/physicalinventory/emptyobject')
-  Future<chopper.Response> quikscanPhysicalinventoryEmptyobjectGet();
+  Future<chopper.Response> _quikscanPhysicalinventoryEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanPhysicalinventoryEmptybrowseobjectGet() {
+    return _quikscanPhysicalinventoryEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/physicalinventory/emptybrowseobject')
-  Future<chopper.Response> quikscanPhysicalinventoryEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanPhysicalinventoryEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanPhysicalinventoryKeyfieldnamesGet() {
+    return _quikscanPhysicalinventoryKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/physicalinventory/keyfieldnames')
-  Future<chopper.Response> quikscanPhysicalinventoryKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanPhysicalinventoryKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanPoreceiveEmptyobjectGet() {
+    return _quikscanPoreceiveEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/poreceive/emptyobject')
-  Future<chopper.Response> quikscanPoreceiveEmptyobjectGet();
+  Future<chopper.Response> _quikscanPoreceiveEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanPoreceiveEmptybrowseobjectGet() {
+    return _quikscanPoreceiveEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/poreceive/emptybrowseobject')
-  Future<chopper.Response> quikscanPoreceiveEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanPoreceiveEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanPoreceiveKeyfieldnamesGet() {
+    return _quikscanPoreceiveKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/poreceive/keyfieldnames')
-  Future<chopper.Response> quikscanPoreceiveKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanPoreceiveKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanPoreturnEmptyobjectGet() {
+    return _quikscanPoreturnEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/poreturn/emptyobject')
-  Future<chopper.Response> quikscanPoreturnEmptyobjectGet();
+  Future<chopper.Response> _quikscanPoreturnEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanPoreturnEmptybrowseobjectGet() {
+    return _quikscanPoreturnEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/poreturn/emptybrowseobject')
-  Future<chopper.Response> quikscanPoreturnEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanPoreturnEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanPoreturnKeyfieldnamesGet() {
+    return _quikscanPoreturnKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/poreturn/keyfieldnames')
-  Future<chopper.Response> quikscanPoreturnKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanPoreturnKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanQcEmptyobjectGet() {
+    return _quikscanQcEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/qc/emptyobject')
-  Future<chopper.Response> quikscanQcEmptyobjectGet();
+  Future<chopper.Response> _quikscanQcEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanQcEmptybrowseobjectGet() {
+    return _quikscanQcEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/qc/emptybrowseobject')
-  Future<chopper.Response> quikscanQcEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanQcEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanQcKeyfieldnamesGet() {
+    return _quikscanQcKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/qc/keyfieldnames')
-  Future<chopper.Response> quikscanQcKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanQcKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
+      quikscanQuikassetPost(
+          {required WebApiModulesInventoryRentalInventoryRentalInventory?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesInventoryRentalInventoryRentalInventory,
+        () => WebApiModulesInventoryRentalInventoryRentalInventory
+            .fromJsonFactory);
+
+    return _quikscanQuikassetPost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/quikasset')
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      quikscanQuikassetPost(
+      _quikscanQuikassetPost(
           {@Body()
               required WebApiModulesInventoryRentalInventoryRentalInventory?
                   body});
 
   ///
-  @Post(path: '/quikscan/quikasset/updateunitvalue')
   Future<
       chopper.Response<
           WebApiLogicTSpStatusResponse>> quikscanQuikassetUpdateunitvaluePost(
+      {required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiLogicTSpStatusResponse,
+        () => WebApiLogicTSpStatusResponse.fromJsonFactory);
+
+    return _quikscanQuikassetUpdateunitvaluePost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikscan/quikasset/updateunitvalue')
+  Future<
+      chopper.Response<
+          WebApiLogicTSpStatusResponse>> _quikscanQuikassetUpdateunitvaluePost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
               body});
 
   ///
   ///@param id
-  @Put(path: '/quikscan/quikasset/{id}')
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
       quikscanQuikassetIdPut(
+          {required String? id,
+          required WebApiModulesInventoryRentalInventoryRentalInventory?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesInventoryRentalInventoryRentalInventory,
+        () => WebApiModulesInventoryRentalInventoryRentalInventory
+            .fromJsonFactory);
+
+    return _quikscanQuikassetIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @Put(path: '/quikscan/quikasset/{id}')
+  Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
+      _quikscanQuikassetIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -287,10 +639,38 @@ abstract class Mobile extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/quikscan/quikasset/inventorypurchaseitembrowse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       quikscanQuikassetInventorypurchaseitembrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikscanQuikassetInventorypurchaseitembrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikscan/quikasset/inventorypurchaseitembrowse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _quikscanQuikassetInventorypurchaseitembrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
+      quikscanQuikassetInventorypurchaseitemIdPut(
+          {required String? id,
+          required WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem,
+        () =>
+            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
+                .fromJsonFactory);
+
+    return _quikscanQuikassetInventorypurchaseitemIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -298,7 +678,7 @@ abstract class Mobile extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
-      quikscanQuikassetInventorypurchaseitemIdPut(
+      _quikscanQuikassetInventorypurchaseitemIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -306,305 +686,495 @@ abstract class Mobile extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/quikscan/quikasset/startsession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
       quikscanQuikassetStartsessionPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+                .fromJsonFactory);
+
+    return _quikscanQuikassetStartsessionPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikscan/quikasset/startsession')
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
+      _quikscanQuikassetStartsessionPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
+      quikscanQuikassetUpdatesessionPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+                .fromJsonFactory);
+
+    return _quikscanQuikassetUpdatesessionPost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/quikasset/updatesession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
-      quikscanQuikassetUpdatesessionPost(
+      _quikscanQuikassetUpdatesessionPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse>>
+      quikscanQuikassetInsertimagePost(
+          {required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse,
+        () =>
+            WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
+                .fromJsonFactory);
+
+    return _quikscanQuikassetInsertimagePost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/quikasset/insertimage')
   Future<
           chopper.Response<
               WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse>>
-      quikscanQuikassetInsertimagePost(
+      _quikscanQuikassetInsertimagePost(
           {@Body()
               required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
+      quikscanQuikassetGetimagesPost(
+          {required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse,
+        () => WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse
+            .fromJsonFactory);
+
+    return _quikscanQuikassetGetimagesPost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/quikasset/getimages')
   Future<
           chopper.Response<
               WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
-      quikscanQuikassetGetimagesPost(
+      _quikscanQuikassetGetimagesPost(
           {@Body()
               required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
                   body});
 
   ///
+  Future<chopper.Response<WebApiLogicTSpStatusResponse>>
+      quikscanQuikassetDeleteimagePost(
+          {required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
+              body}) {
+    generatedMapping.putIfAbsent(WebApiLogicTSpStatusResponse,
+        () => WebApiLogicTSpStatusResponse.fromJsonFactory);
+
+    return _quikscanQuikassetDeleteimagePost(body: body);
+  }
+
+  ///
   @Post(path: '/quikscan/quikasset/deleteimage')
   Future<
       chopper.Response<
-          WebApiLogicTSpStatusResponse>> quikscanQuikassetDeleteimagePost(
+          WebApiLogicTSpStatusResponse>> _quikscanQuikassetDeleteimagePost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
               body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
+      quikscanQuikassetCompletesessionPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+                .fromJsonFactory);
+
+    return _quikscanQuikassetCompletesessionPost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/quikasset/completesession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
-      quikscanQuikassetCompletesessionPost(
+      _quikscanQuikassetCompletesessionPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
                   body});
 
   ///
-  @Post(path: '/quikscan/quikasset/inventorydepartment')
   Future<chopper.Response> quikscanQuikassetInventorydepartmentPost(
+      {required String? body}) {
+    return _quikscanQuikassetInventorydepartmentPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikscan/quikasset/inventorydepartment')
+  Future<chopper.Response> _quikscanQuikassetInventorydepartmentPost(
       {@Body() required String? body});
 
   ///
-  @Post(path: '/quikscan/quikasset/category')
   Future<chopper.Response> quikscanQuikassetCategoryPost(
+      {required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest?
+          body}) {
+    return _quikscanQuikassetCategoryPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikscan/quikasset/category')
+  Future<chopper.Response> _quikscanQuikassetCategoryPost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest?
               body});
 
   ///
-  @Post(path: '/quikscan/quikasset/subcategory')
   Future<chopper.Response> quikscanQuikassetSubcategoryPost(
+      {required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
+          body}) {
+    return _quikscanQuikassetSubcategoryPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikscan/quikasset/subcategory')
+  Future<chopper.Response> _quikscanQuikassetSubcategoryPost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
               body});
 
   ///
+  Future<chopper.Response> quikscanQuikassetDealsPost() {
+    return _quikscanQuikassetDealsPost();
+  }
+
+  ///
   @Post(path: '/quikscan/quikasset/deals', optionalBody: true)
-  Future<chopper.Response> quikscanQuikassetDealsPost();
+  Future<chopper.Response> _quikscanQuikassetDealsPost();
+
+  ///
+  Future<chopper.Response> quikscanQuikassetVendorPost() {
+    return _quikscanQuikassetVendorPost();
+  }
 
   ///
   @Post(path: '/quikscan/quikasset/vendor', optionalBody: true)
-  Future<chopper.Response> quikscanQuikassetVendorPost();
+  Future<chopper.Response> _quikscanQuikassetVendorPost();
+
+  ///
+  Future<chopper.Response> quikscanQuikassetSearchitemsbydescPost(
+      {required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
+          body}) {
+    return _quikscanQuikassetSearchitemsbydescPost(body: body);
+  }
 
   ///
   @Post(path: '/quikscan/quikasset/searchitemsbydesc')
-  Future<chopper.Response> quikscanQuikassetSearchitemsbydescPost(
+  Future<chopper.Response> _quikscanQuikassetSearchitemsbydescPost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
               body});
 
   ///Get an empty object
+  Future<chopper.Response> quikscanQuikassetEmptyobjectGet() {
+    return _quikscanQuikassetEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/quikscan/quikasset/emptyobject')
-  Future<chopper.Response> quikscanQuikassetEmptyobjectGet();
+  Future<chopper.Response> _quikscanQuikassetEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanQuikassetEmptybrowseobjectGet() {
+    return _quikscanQuikassetEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/quikasset/emptybrowseobject')
-  Future<chopper.Response> quikscanQuikassetEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanQuikassetEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanQuikassetKeyfieldnamesGet() {
+    return _quikscanQuikassetKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/quikasset/keyfieldnames')
-  Future<chopper.Response> quikscanQuikassetKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanQuikassetKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanQuikpickEmptyobjectGet() {
+    return _quikscanQuikpickEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/quikpick/emptyobject')
-  Future<chopper.Response> quikscanQuikpickEmptyobjectGet();
+  Future<chopper.Response> _quikscanQuikpickEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanQuikpickEmptybrowseobjectGet() {
+    return _quikscanQuikpickEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/quikpick/emptybrowseobject')
-  Future<chopper.Response> quikscanQuikpickEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanQuikpickEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanQuikpickKeyfieldnamesGet() {
+    return _quikscanQuikpickKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/quikpick/keyfieldnames')
-  Future<chopper.Response> quikscanQuikpickKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanQuikpickKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanReceiveonsetEmptyobjectGet() {
+    return _quikscanReceiveonsetEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/receiveonset/emptyobject')
-  Future<chopper.Response> quikscanReceiveonsetEmptyobjectGet();
+  Future<chopper.Response> _quikscanReceiveonsetEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanReceiveonsetEmptybrowseobjectGet() {
+    return _quikscanReceiveonsetEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/receiveonset/emptybrowseobject')
-  Future<chopper.Response> quikscanReceiveonsetEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanReceiveonsetEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanReceiveonsetKeyfieldnamesGet() {
+    return _quikscanReceiveonsetKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/receiveonset/keyfieldnames')
-  Future<chopper.Response> quikscanReceiveonsetKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanReceiveonsetKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanRepairEmptyobjectGet() {
+    return _quikscanRepairEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/repair/emptyobject')
-  Future<chopper.Response> quikscanRepairEmptyobjectGet();
+  Future<chopper.Response> _quikscanRepairEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanRepairEmptybrowseobjectGet() {
+    return _quikscanRepairEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/repair/emptybrowseobject')
-  Future<chopper.Response> quikscanRepairEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanRepairEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanRepairKeyfieldnamesGet() {
+    return _quikscanRepairKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/repair/keyfieldnames')
-  Future<chopper.Response> quikscanRepairKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanRepairKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanRfidcheckinEmptyobjectGet() {
+    return _quikscanRfidcheckinEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/rfidcheckin/emptyobject')
-  Future<chopper.Response> quikscanRfidcheckinEmptyobjectGet();
+  Future<chopper.Response> _quikscanRfidcheckinEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanRfidcheckinEmptybrowseobjectGet() {
+    return _quikscanRfidcheckinEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/rfidcheckin/emptybrowseobject')
-  Future<chopper.Response> quikscanRfidcheckinEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanRfidcheckinEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanRfidcheckinKeyfieldnamesGet() {
+    return _quikscanRfidcheckinKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/rfidcheckin/keyfieldnames')
-  Future<chopper.Response> quikscanRfidcheckinKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanRfidcheckinKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanRfidstagingEmptyobjectGet() {
+    return _quikscanRfidstagingEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/rfidstaging/emptyobject')
-  Future<chopper.Response> quikscanRfidstagingEmptyobjectGet();
+  Future<chopper.Response> _quikscanRfidstagingEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanRfidstagingEmptybrowseobjectGet() {
+    return _quikscanRfidstagingEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/rfidstaging/emptybrowseobject')
-  Future<chopper.Response> quikscanRfidstagingEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanRfidstagingEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanRfidstagingKeyfieldnamesGet() {
+    return _quikscanRfidstagingKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/rfidstaging/keyfieldnames')
-  Future<chopper.Response> quikscanRfidstagingKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanRfidstagingKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanStagingEmptyobjectGet() {
+    return _quikscanStagingEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/staging/emptyobject')
-  Future<chopper.Response> quikscanStagingEmptyobjectGet();
+  Future<chopper.Response> _quikscanStagingEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanStagingEmptybrowseobjectGet() {
+    return _quikscanStagingEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/staging/emptybrowseobject')
-  Future<chopper.Response> quikscanStagingEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanStagingEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanStagingKeyfieldnamesGet() {
+    return _quikscanStagingKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/staging/keyfieldnames')
-  Future<chopper.Response> quikscanStagingKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanStagingKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanTimelogEmptyobjectGet() {
+    return _quikscanTimelogEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/timelog/emptyobject')
-  Future<chopper.Response> quikscanTimelogEmptyobjectGet();
+  Future<chopper.Response> _quikscanTimelogEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanTimelogEmptybrowseobjectGet() {
+    return _quikscanTimelogEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/timelog/emptybrowseobject')
-  Future<chopper.Response> quikscanTimelogEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanTimelogEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanTimelogKeyfieldnamesGet() {
+    return _quikscanTimelogKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/timelog/keyfieldnames')
-  Future<chopper.Response> quikscanTimelogKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanTimelogKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanTransferinEmptyobjectGet() {
+    return _quikscanTransferinEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/transferin/emptyobject')
-  Future<chopper.Response> quikscanTransferinEmptyobjectGet();
+  Future<chopper.Response> _quikscanTransferinEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanTransferinEmptybrowseobjectGet() {
+    return _quikscanTransferinEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/transferin/emptybrowseobject')
-  Future<chopper.Response> quikscanTransferinEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanTransferinEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanTransferinKeyfieldnamesGet() {
+    return _quikscanTransferinKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/transferin/keyfieldnames')
-  Future<chopper.Response> quikscanTransferinKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanTransferinKeyfieldnamesGet();
+
+  ///Get an empty object
+  Future<chopper.Response> quikscanTransferoutEmptyobjectGet() {
+    return _quikscanTransferoutEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/quikscan/transferout/emptyobject')
-  Future<chopper.Response> quikscanTransferoutEmptyobjectGet();
+  Future<chopper.Response> _quikscanTransferoutEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikscanTransferoutEmptybrowseobjectGet() {
+    return _quikscanTransferoutEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikscan/transferout/emptybrowseobject')
-  Future<chopper.Response> quikscanTransferoutEmptybrowseobjectGet();
+  Future<chopper.Response> _quikscanTransferoutEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikscanTransferoutKeyfieldnamesGet() {
+    return _quikscanTransferoutKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikscan/transferout/keyfieldnames')
-  Future<chopper.Response> quikscanTransferoutKeyfieldnamesGet();
+  Future<chopper.Response> _quikscanTransferoutKeyfieldnamesGet();
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    MobileJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition:
-      FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJsonFactory,
-  FwStandardDataFwCustomValue: FwStandardDataFwCustomValue.fromJsonFactory,
-  FwStandardDataFwDefaultAttribute:
-      FwStandardDataFwDefaultAttribute.fromJsonFactory,
-  FwStandardModelsBrowseRequest: FwStandardModelsBrowseRequest.fromJsonFactory,
-  FwStandardModelsCheckBoxListItem:
-      FwStandardModelsCheckBoxListItem.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardModelsFwQueryFilter: FwStandardModelsFwQueryFilter.fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse:
-      FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-          .fromJsonFactory,
-  FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse:
-      FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-          .fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTable:
-      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTableColumn:
-      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
-  WebApiLogicTSpStatusResponse: WebApiLogicTSpStatusResponse.fromJsonFactory,
-  WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse:
-      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-          .fromJsonFactory,
-  WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem:
-      WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
-          .fromJsonFactory,
-  WebApiModulesInventoryRentalInventoryRentalInventory:
-      WebApiModulesInventoryRentalInventoryRentalInventory.fromJsonFactory,
-  WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse:
-      WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel:
-      WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel.fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest.fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse:
-      WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse:
-      WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
-          .fromJsonFactory,
-  WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest:
-      WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-          .fromJsonFactory,
-  WebApiModulesWarehouseContractCancelContractRequest:
-      WebApiModulesWarehouseContractCancelContractRequest.fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -619,6 +1189,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -649,6 +1222,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -697,6 +1273,9 @@ class FwStandardDataFwCustomValue {
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -753,6 +1332,9 @@ class FwStandardDataFwDefaultAttribute {
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardDataFwDefaultAttributeToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -865,7 +1447,7 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic boundids;
   @JsonKey(name: 'filterfields', includeIfNull: false)
-  final Object? filterfields;
+  final Map<String, dynamic>? filterfields;
   @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
   @JsonKey(name: 'emptyobject', includeIfNull: false)
@@ -880,10 +1462,13 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
-  final Object? activeviewfields;
+  final Map<String, dynamic>? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1007,13 +1592,13 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchconjunctions,
       dynamic? uniqueids,
       dynamic? boundids,
-      Object? filterfields,
+      Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
       bool? forexcel,
       List<FwStandardModelsCheckBoxListItem>? excelfields,
       List<String>? totalfields,
-      Object? activeviewfields}) {
+      Map<String, dynamic>? activeviewfields}) {
     return FwStandardModelsBrowseRequest(
         miscfields: miscfields ?? this.miscfields,
         module: module ?? this.module,
@@ -1064,6 +1649,9 @@ class FwStandardModelsCheckBoxListItem {
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsCheckBoxListItemToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1119,6 +1707,9 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -1172,6 +1763,9 @@ class FwStandardModelsFwQueryFilter {
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1239,6 +1833,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1323,6 +1920,9 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
@@ -1389,9 +1989,9 @@ class FwStandardSqlServerFwJsonDataTable {
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
-  final Object? columnIndex;
+  final Map<String, dynamic>? columnIndex;
   @JsonKey(name: 'Totals', includeIfNull: false)
-  final Object? totals;
+  final Map<String, dynamic>? totals;
   @JsonKey(
       name: 'Columns',
       includeIfNull: false,
@@ -1410,11 +2010,14 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
-  final Object? columnNameByIndex;
+  final Map<String, dynamic>? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1467,8 +2070,8 @@ class FwStandardSqlServerFwJsonDataTable {
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
   FwStandardSqlServerFwJsonDataTable copyWith(
-      {Object? columnIndex,
-      Object? totals,
+      {Map<String, dynamic>? columnIndex,
+      Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
       List<List<Object>>? rows,
       int? pageNo,
@@ -1476,7 +2079,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Object? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -1524,6 +2127,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1594,6 +2200,9 @@ class WebApiLogicTSpStatusResponse {
   Map<String, dynamic> toJson() => _$WebApiLogicTSpStatusResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiLogicTSpStatusResponse &&
@@ -1648,6 +2257,9 @@ class WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
   Map<String, dynamic> toJson() =>
       _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1746,6 +2358,9 @@ class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2575,6 +3190,9 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3648,6 +4266,9 @@ class WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
@@ -3697,6 +4318,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest &&
@@ -3738,6 +4362,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3791,6 +4418,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3849,6 +4479,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest &&
@@ -3895,6 +4528,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse &&
@@ -3936,6 +4572,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3989,6 +4628,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4059,6 +4701,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4134,6 +4779,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest &&
@@ -4194,6 +4842,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4315,6 +4966,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4495,6 +5149,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse &&
@@ -4571,6 +5228,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest &&
@@ -4621,6 +5281,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse &&
@@ -4669,6 +5332,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4732,6 +5398,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse &&
@@ -4783,6 +5452,9 @@ class WebApiModulesWarehouseContractCancelContractRequest {
       _$WebApiModulesWarehouseContractCancelContractRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesWarehouseContractCancelContractRequest &&
@@ -4812,19 +5484,32 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    String? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes == null) {
-    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+    Object? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes is int) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toString(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums.$FwStandardSqlServerFwDataTypesMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              fwStandardSqlServerFwDataTypes.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
-      .key;
+  if (fwStandardSqlServerFwDataTypes is String) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -4903,7 +5588,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(MobileJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

@@ -43,8 +43,7 @@ FwStandardBusinessLogicFwBusinessLogicFieldDefinition
             Map<String, dynamic> json) =>
         FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
           name: json['Name'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
         );
 
 Map<String, dynamic>
@@ -313,7 +312,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
-      filterfields: json['filterfields'],
+      filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
@@ -326,7 +325,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      activeviewfields: json['activeviewfields'],
+      activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -3479,6 +3478,78 @@ Map<String, dynamic>
   return val;
 }
 
+FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesUtilitiesGLDistributionGLDistribution
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
+
+Map<String, dynamic>
+    _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogicToJson(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
+
+FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInReconcileCheckInReconcile
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
+
+Map<String, dynamic>
+    _$FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogicToJson(
+        FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
+  return val;
+}
+
 FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContainerGridLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContainerGridLogicFromJson(
             Map<String, dynamic> json) =>
@@ -3845,8 +3916,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwDateTimeToJson(
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
         Map<String, dynamic> json) =>
     FwStandardSqlServerFwJsonDataTable(
-      columnIndex: json['ColumnIndex'],
-      totals: json['Totals'],
+      columnIndex: json['ColumnIndex'] as Map<String, dynamic>?,
+      totals: json['Totals'] as Map<String, dynamic>?,
       columns: (json['Columns'] as List<dynamic>?)
               ?.map((e) => FwStandardSqlServerFwJsonDataTableColumn.fromJson(
                   e as Map<String, dynamic>))
@@ -3854,7 +3925,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
           [],
       rows: (json['Rows'] as List<dynamic>?)
               ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
+                  (e) => (e as List<dynamic>).toList())
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -3865,7 +3936,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
-      columnNameByIndex: json['ColumnNameByIndex'],
+      columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -3897,8 +3968,7 @@ FwStandardSqlServerFwJsonDataTableColumn
         FwStandardSqlServerFwJsonDataTableColumn(
           name: json['Name'] as String?,
           dataField: json['DataField'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(
-              json['DataType'] as String?),
+          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
           isUniqueId: json['IsUniqueId'] as bool?,
           isVisible: json['IsVisible'] as bool?,
         );
@@ -3992,6 +4062,37 @@ Map<String, dynamic>
   return val;
 }
 
+MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic
+    _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogicFromJson(
+            Map<String, dynamic> json) =>
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic(
+          result: json['Result'] == null
+              ? null
+              : MicrosoftAspNetCoreMvcActionResult.fromJson(
+                  json['Result'] as Map<String, dynamic>),
+          value: json['Value'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
+                  .fromJson(json['Value'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogicToJson(
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Result', instance.result?.toJson());
+  writeNotNull('Value', instance.value?.toJson());
+  return val;
+}
+
 MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic
     _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogicFromJson(
             Map<String, dynamic> json) =>
@@ -4054,6 +4155,37 @@ Map<String, dynamic>
   return val;
 }
 
+MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogic
+    _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogicFromJson(
+            Map<String, dynamic> json) =>
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogic(
+          result: json['Result'] == null
+              ? null
+              : MicrosoftAspNetCoreMvcActionResult.fromJson(
+                  json['Result'] as Map<String, dynamic>),
+          value: json['Value'] == null
+              ? null
+              : WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem
+                  .fromJson(json['Value'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogicToJson(
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Result', instance.result?.toJson());
+  writeNotNull('Value', instance.value?.toJson());
+  return val;
+}
+
 MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic
     _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogicFromJson(
             Map<String, dynamic> json) =>
@@ -4071,6 +4203,37 @@ MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic
 Map<String, dynamic>
     _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogicToJson(
         MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Result', instance.result?.toJson());
+  writeNotNull('Value', instance.value?.toJson());
+  return val;
+}
+
+MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
+    _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogicFromJson(
+            Map<String, dynamic> json) =>
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic(
+          result: json['Result'] == null
+              ? null
+              : MicrosoftAspNetCoreMvcActionResult.fromJson(
+                  json['Result'] as Map<String, dynamic>),
+          value: json['Value'] == null
+              ? null
+              : WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+                  .fromJson(json['Value'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogicToJson(
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
             instance) {
   final val = <String, dynamic>{};
 
@@ -4122,6 +4285,7 @@ WebApiApplyBottomLineDaysPerWeekRequest
         WebApiApplyBottomLineDaysPerWeekRequest(
           orderId: json['OrderId'] as String?,
           purchaseOrderId: json['PurchaseOrderId'] as String?,
+          invoiceId: json['InvoiceId'] as String?,
           recType: json['RecType'] as String?,
           subs: json['Subs'] as bool?,
           daysPerWeek: (json['DaysPerWeek'] as num?)?.toDouble(),
@@ -4139,6 +4303,7 @@ Map<String, dynamic> _$WebApiApplyBottomLineDaysPerWeekRequestToJson(
 
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
+  writeNotNull('InvoiceId', instance.invoiceId);
   writeNotNull('RecType', instance.recType);
   writeNotNull('Subs', instance.subs);
   writeNotNull('DaysPerWeek', instance.daysPerWeek);
@@ -4151,6 +4316,7 @@ WebApiApplyBottomLineDiscountPercentRequest
         WebApiApplyBottomLineDiscountPercentRequest(
           orderId: json['OrderId'] as String?,
           purchaseOrderId: json['PurchaseOrderId'] as String?,
+          invoiceId: json['InvoiceId'] as String?,
           recType: json['RecType'] as String?,
           subs: json['Subs'] as bool?,
           discountPercent: (json['DiscountPercent'] as num?)?.toDouble(),
@@ -4168,6 +4334,7 @@ Map<String, dynamic> _$WebApiApplyBottomLineDiscountPercentRequestToJson(
 
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
+  writeNotNull('InvoiceId', instance.invoiceId);
   writeNotNull('RecType', instance.recType);
   writeNotNull('Subs', instance.subs);
   writeNotNull('DiscountPercent', instance.discountPercent);
@@ -4179,6 +4346,7 @@ WebApiApplyBottomLineTotalRequest _$WebApiApplyBottomLineTotalRequestFromJson(
     WebApiApplyBottomLineTotalRequest(
       orderId: json['OrderId'] as String?,
       purchaseOrderId: json['PurchaseOrderId'] as String?,
+      invoiceId: json['InvoiceId'] as String?,
       recType: json['RecType'] as String?,
       subs: json['Subs'] as bool?,
       totalType: json['TotalType'] as String?,
@@ -4198,6 +4366,7 @@ Map<String, dynamic> _$WebApiApplyBottomLineTotalRequestToJson(
 
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
+  writeNotNull('InvoiceId', instance.invoiceId);
   writeNotNull('RecType', instance.recType);
   writeNotNull('Subs', instance.subs);
   writeNotNull('TotalType', instance.totalType);
@@ -4251,6 +4420,58 @@ Map<String, dynamic> _$WebApiLogicTSpStatusResponseToJson(
   writeNotNull('status', instance.status);
   writeNotNull('success', instance.success);
   writeNotNull('msg', instance.msg);
+  return val;
+}
+
+WebApiModulesAgentClipboardItemClipboardItem
+    _$WebApiModulesAgentClipboardItemClipboardItemFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAgentClipboardItemClipboardItem(
+          id: json['Id'] as int?,
+          usersId: json['UsersId'] as String?,
+          orderItemId: json['OrderItemId'] as String?,
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
+
+Map<String, dynamic> _$WebApiModulesAgentClipboardItemClipboardItemToJson(
+    WebApiModulesAgentClipboardItemClipboardItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Id', instance.id);
+  writeNotNull('UsersId', instance.usersId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -4445,6 +4666,7 @@ WebApiModulesAgentContactContactDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -4498,6 +4720,7 @@ Map<String, dynamic> _$WebApiModulesAgentContactContactDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -4945,6 +5168,7 @@ WebApiModulesAgentCustomerCustomerDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -4998,6 +5222,7 @@ Map<String, dynamic> _$WebApiModulesAgentCustomerCustomerDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -5555,6 +5780,7 @@ WebApiModulesAgentDealDealDocument _$WebApiModulesAgentDealDealDocumentFromJson(
       inputBy: json['InputBy'] as String?,
       hasImage: json['HasImage'] as bool?,
       hasFile: json['HasFile'] as bool?,
+      appImageCount: json['AppImageCount'] as int?,
       fileIsModified: json['FileIsModified'] as bool?,
       fileDataUrl: json['FileDataUrl'] as String?,
       filePath: json['FilePath'] as String?,
@@ -5607,6 +5833,7 @@ Map<String, dynamic> _$WebApiModulesAgentDealDealDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -5727,6 +5954,9 @@ WebApiModulesAgentOrderChangeOrderOfficeLocationRequest
         WebApiModulesAgentOrderChangeOrderOfficeLocationRequest(
           officeLocationId: json['OfficeLocationId'] as String?,
           warehouseId: json['WarehouseId'] as String?,
+          currencyId: json['CurrencyId'] as String?,
+          confirmUpdateAllRatesToNewCurrency:
+              json['ConfirmUpdateAllRatesToNewCurrency'] as String?,
         );
 
 Map<String, dynamic>
@@ -5742,6 +5972,9 @@ Map<String, dynamic>
 
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('CurrencyId', instance.currencyId);
+  writeNotNull('ConfirmUpdateAllRatesToNewCurrency',
+      instance.confirmUpdateAllRatesToNewCurrency);
   return val;
 }
 
@@ -5889,9 +6122,12 @@ WebApiModulesAgentOrderCopyQuoteOrderRequest
           copyToType: json['CopyToType'] as String?,
           locationId: json['LocationId'] as String?,
           warehouseId: json['WarehouseId'] as String?,
+          newDescription: json['NewDescription'] as String?,
           copyLineItemNotes: json['CopyLineItemNotes'] as bool?,
           copyOrderNotes: json['CopyOrderNotes'] as bool?,
+          combineSubs: json['CombineSubs'] as bool?,
           copyDocuments: json['CopyDocuments'] as bool?,
+          copyCarrierShipVia: json['CopyCarrierShipVia'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
@@ -5907,9 +6143,12 @@ Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
   writeNotNull('CopyToType', instance.copyToType);
   writeNotNull('LocationId', instance.locationId);
   writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('NewDescription', instance.newDescription);
   writeNotNull('CopyLineItemNotes', instance.copyLineItemNotes);
   writeNotNull('CopyOrderNotes', instance.copyOrderNotes);
+  writeNotNull('CombineSubs', instance.combineSubs);
   writeNotNull('CopyDocuments', instance.copyDocuments);
+  writeNotNull('CopyCarrierShipVia', instance.copyCarrierShipVia);
   return val;
 }
 
@@ -5993,57 +6232,6 @@ Map<String, dynamic> _$WebApiModulesAgentOrderCopyTemplateResponseToJson(
   writeNotNull('status', instance.status);
   writeNotNull('success', instance.success);
   writeNotNull('msg', instance.msg);
-  return val;
-}
-
-WebApiModulesAgentOrderCreateInvoiceRequest
-    _$WebApiModulesAgentOrderCreateInvoiceRequestFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesAgentOrderCreateInvoiceRequest(
-          orderId: json['OrderId'] as String?,
-          asOf: json['AsOf'] == null
-              ? null
-              : DateTime.parse(json['AsOf'] as String),
-        );
-
-Map<String, dynamic> _$WebApiModulesAgentOrderCreateInvoiceRequestToJson(
-    WebApiModulesAgentOrderCreateInvoiceRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('AsOf', instance.asOf?.toIso8601String());
-  return val;
-}
-
-WebApiModulesAgentOrderCreateInvoiceResponse
-    _$WebApiModulesAgentOrderCreateInvoiceResponseFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesAgentOrderCreateInvoiceResponse(
-          invoiceId: json['InvoiceId'] as String?,
-          invoice: json['Invoice'] == null
-              ? null
-              : WebApiModulesBillingInvoiceInvoice.fromJson(
-                  json['Invoice'] as Map<String, dynamic>),
-        );
-
-Map<String, dynamic> _$WebApiModulesAgentOrderCreateInvoiceResponseToJson(
-    WebApiModulesAgentOrderCreateInvoiceResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('InvoiceId', instance.invoiceId);
-  writeNotNull('Invoice', instance.invoice?.toJson());
   return val;
 }
 
@@ -6688,6 +6876,7 @@ WebApiModulesAgentOrderGetOrderResponse
           hasInvoices: json['HasInvoices'] as bool?,
           hasBillingWorksheets: json['HasBillingWorksheets'] as bool?,
           hasMultiOrderInvoices: json['HasMultiOrderInvoices'] as bool?,
+          hasSnapshots: json['HasSnapshots'] as bool?,
           totalReplacementCost:
               (json['TotalReplacementCost'] as num?)?.toDouble(),
           presentationLayerId: json['PresentationLayerId'] as String?,
@@ -7185,6 +7374,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   writeNotNull('HasInvoices', instance.hasInvoices);
   writeNotNull('HasBillingWorksheets', instance.hasBillingWorksheets);
   writeNotNull('HasMultiOrderInvoices', instance.hasMultiOrderInvoices);
+  writeNotNull('HasSnapshots', instance.hasSnapshots);
   writeNotNull('TotalReplacementCost', instance.totalReplacementCost);
   writeNotNull('PresentationLayerId', instance.presentationLayerId);
   writeNotNull('PresentationLayer', instance.presentationLayer);
@@ -7736,6 +7926,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
       hasInvoices: json['HasInvoices'] as bool?,
       hasBillingWorksheets: json['HasBillingWorksheets'] as bool?,
       hasMultiOrderInvoices: json['HasMultiOrderInvoices'] as bool?,
+      hasSnapshots: json['HasSnapshots'] as bool?,
       totalReplacementCost: (json['TotalReplacementCost'] as num?)?.toDouble(),
       presentationLayerId: json['PresentationLayerId'] as String?,
       presentationLayer: json['PresentationLayer'] as String?,
@@ -8224,6 +8415,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   writeNotNull('HasInvoices', instance.hasInvoices);
   writeNotNull('HasBillingWorksheets', instance.hasBillingWorksheets);
   writeNotNull('HasMultiOrderInvoices', instance.hasMultiOrderInvoices);
+  writeNotNull('HasSnapshots', instance.hasSnapshots);
   writeNotNull('TotalReplacementCost', instance.totalReplacementCost);
   writeNotNull('PresentationLayerId', instance.presentationLayerId);
   writeNotNull('PresentationLayer', instance.presentationLayer);
@@ -8681,6 +8873,7 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
       hasInvoices: json['HasInvoices'] as bool?,
       hasBillingWorksheets: json['HasBillingWorksheets'] as bool?,
       hasMultiOrderInvoices: json['HasMultiOrderInvoices'] as bool?,
+      hasSnapshots: json['HasSnapshots'] as bool?,
       totalReplacementCost: (json['TotalReplacementCost'] as num?)?.toDouble(),
       presentationLayerId: json['PresentationLayerId'] as String?,
       presentationLayer: json['PresentationLayer'] as String?,
@@ -9162,6 +9355,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
   writeNotNull('HasInvoices', instance.hasInvoices);
   writeNotNull('HasBillingWorksheets', instance.hasBillingWorksheets);
   writeNotNull('HasMultiOrderInvoices', instance.hasMultiOrderInvoices);
+  writeNotNull('HasSnapshots', instance.hasSnapshots);
   writeNotNull('TotalReplacementCost', instance.totalReplacementCost);
   writeNotNull('PresentationLayerId', instance.presentationLayerId);
   writeNotNull('PresentationLayer', instance.presentationLayer);
@@ -9221,6 +9415,7 @@ WebApiModulesAgentOrderOrderDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -9274,6 +9469,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -9411,6 +9607,36 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderMessagesResponseToJson(
   return val;
 }
 
+WebApiModulesAgentOrderOrderOnHoldResponse
+    _$WebApiModulesAgentOrderOrderOnHoldResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAgentOrderOrderOnHoldResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          order: json['order'] == null
+              ? null
+              : WebApiModulesAgentOrderOrder.fromJson(
+                  json['order'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$WebApiModulesAgentOrderOrderOnHoldResponseToJson(
+    WebApiModulesAgentOrderOrderOnHoldResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('order', instance.order?.toJson());
+  return val;
+}
+
 WebApiModulesAgentOrderPoWorksheetSessionTotalsResponse
     _$WebApiModulesAgentOrderPoWorksheetSessionTotalsResponseFromJson(
             Map<String, dynamic> json) =>
@@ -9444,6 +9670,68 @@ Map<String, dynamic>
   writeNotNull('status', instance.status);
   writeNotNull('success', instance.success);
   writeNotNull('msg', instance.msg);
+  return val;
+}
+
+WebApiModulesAgentOrderQuikSaleRequest
+    _$WebApiModulesAgentOrderQuikSaleRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAgentOrderQuikSaleRequest(
+          orderId: json['OrderId'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesAgentOrderQuikSaleRequestToJson(
+    WebApiModulesAgentOrderQuikSaleRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  return val;
+}
+
+WebApiModulesAgentOrderQuikSaleResponse
+    _$WebApiModulesAgentOrderQuikSaleResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAgentOrderQuikSaleResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          contractId: json['ContractId'] as String?,
+          invoiceId: json['InvoiceId'] as String?,
+          chgBatchId: json['ChgBatchId'] as String?,
+          invoice: json['Invoice'] == null
+              ? null
+              : WebApiModulesBillingInvoiceInvoice.fromJson(
+                  json['Invoice'] as Map<String, dynamic>),
+          contract: json['Contract'] == null
+              ? null
+              : WebApiModulesWarehouseContractContract.fromJson(
+                  json['Contract'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$WebApiModulesAgentOrderQuikSaleResponseToJson(
+    WebApiModulesAgentOrderQuikSaleResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('InvoiceId', instance.invoiceId);
+  writeNotNull('ChgBatchId', instance.chgBatchId);
+  writeNotNull('Invoice', instance.invoice?.toJson());
+  writeNotNull('Contract', instance.contract?.toJson());
   return val;
 }
 
@@ -9860,6 +10148,7 @@ WebApiModulesAgentProjectProjectDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -9913,6 +10202,7 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -10639,6 +10929,7 @@ WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponse
           descriptionColor: json['DescriptionColor'] as String?,
           expensePOColor: json['ExpensePOColor'] as String?,
           hasConsignorFee: json['HasConsignorFee'] as bool?,
+          hasOrdertran: json['HasOrdertran'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -11073,6 +11364,7 @@ Map<String, dynamic>
   writeNotNull('DescriptionColor', instance.descriptionColor);
   writeNotNull('ExpensePOColor', instance.expensePOColor);
   writeNotNull('HasConsignorFee', instance.hasConsignorFee);
+  writeNotNull('HasOrdertran', instance.hasOrdertran);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -11559,6 +11851,7 @@ WebApiModulesAgentPurchaseOrderPurchaseOrder
           descriptionColor: json['DescriptionColor'] as String?,
           expensePOColor: json['ExpensePOColor'] as String?,
           hasConsignorFee: json['HasConsignorFee'] as bool?,
+          hasOrdertran: json['HasOrdertran'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -11986,6 +12279,7 @@ Map<String, dynamic> _$WebApiModulesAgentPurchaseOrderPurchaseOrderToJson(
   writeNotNull('DescriptionColor', instance.descriptionColor);
   writeNotNull('ExpensePOColor', instance.expensePOColor);
   writeNotNull('HasConsignorFee', instance.hasConsignorFee);
+  writeNotNull('HasOrdertran', instance.hasOrdertran);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -12019,6 +12313,7 @@ WebApiModulesAgentPurchaseOrderPurchaseOrderDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -12073,6 +12368,7 @@ Map<String, dynamic>
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -12621,6 +12917,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
       versionNumber: json['VersionNumber'] as int?,
       convertedToOrderId: json['ConvertedToOrderId'] as String?,
       convertedToOrderNumber: json['ConvertedToOrderNumber'] as String?,
+      convertedToOrder: json['ConvertedToOrder'] as bool?,
       description: json['Description'] as String?,
       officeLocationId: json['OfficeLocationId'] as String?,
       officeLocation: json['OfficeLocation'] as String?,
@@ -13038,6 +13335,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
       hasInvoices: json['HasInvoices'] as bool?,
       hasBillingWorksheets: json['HasBillingWorksheets'] as bool?,
       hasMultiOrderInvoices: json['HasMultiOrderInvoices'] as bool?,
+      hasSnapshots: json['HasSnapshots'] as bool?,
       totalReplacementCost: (json['TotalReplacementCost'] as num?)?.toDouble(),
       presentationLayerId: json['PresentationLayerId'] as String?,
       presentationLayer: json['PresentationLayer'] as String?,
@@ -13101,6 +13399,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   writeNotNull('VersionNumber', instance.versionNumber);
   writeNotNull('ConvertedToOrderId', instance.convertedToOrderId);
   writeNotNull('ConvertedToOrderNumber', instance.convertedToOrderNumber);
+  writeNotNull('ConvertedToOrder', instance.convertedToOrder);
   writeNotNull('Description', instance.description);
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('OfficeLocation', instance.officeLocation);
@@ -13525,6 +13824,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   writeNotNull('HasInvoices', instance.hasInvoices);
   writeNotNull('HasBillingWorksheets', instance.hasBillingWorksheets);
   writeNotNull('HasMultiOrderInvoices', instance.hasMultiOrderInvoices);
+  writeNotNull('HasSnapshots', instance.hasSnapshots);
   writeNotNull('TotalReplacementCost', instance.totalReplacementCost);
   writeNotNull('PresentationLayerId', instance.presentationLayerId);
   writeNotNull('PresentationLayer', instance.presentationLayer);
@@ -13584,6 +13884,7 @@ WebApiModulesAgentQuoteQuoteDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -13637,6 +13938,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -13965,6 +14267,7 @@ WebApiModulesAgentVendorVendorDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -14018,6 +14321,7 @@ Map<String, dynamic> _$WebApiModulesAgentVendorVendorDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -14627,6 +14931,100 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequest
+    _$WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequest(
+          orderId: json['OrderId'] as String?,
+          startDate: json['StartDate'] == null
+              ? null
+              : DateTime.parse(json['StartDate'] as String),
+          endDate: json['EndDate'] == null
+              ? null
+              : DateTime.parse(json['EndDate'] as String),
+          billPeriodEvent: json['BillPeriodEvent'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequestToJson(
+        WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('StartDate', instance.startDate?.toIso8601String());
+  writeNotNull('EndDate', instance.endDate?.toIso8601String());
+  writeNotNull('BillPeriodEvent', instance.billPeriodEvent);
+  return val;
+}
+
+WebApiModulesBillingBillingGetPreviewInvoiceTotalsResponse
+    _$WebApiModulesBillingBillingGetPreviewInvoiceTotalsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesBillingBillingGetPreviewInvoiceTotalsResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+          currencyId: json['CurrencyId'] as String?,
+          currency: json['Currency'] as String?,
+          currencyCode: json['CurrencyCode'] as String?,
+          currencySymbol: json['CurrencySymbol'] as String?,
+          grossTotal: (json['GrossTotal'] as num?)?.toDouble(),
+          grossTotalString: json['GrossTotalString'] as String?,
+          discountAmount: (json['DiscountAmount'] as num?)?.toDouble(),
+          discountAmountString: json['DiscountAmountString'] as String?,
+          subTotal: (json['SubTotal'] as num?)?.toDouble(),
+          subTotalString: json['SubTotalString'] as String?,
+          tax1: (json['Tax1'] as num?)?.toDouble(),
+          tax1String: json['Tax1String'] as String?,
+          tax2: (json['Tax2'] as num?)?.toDouble(),
+          tax2String: json['Tax2String'] as String?,
+          tax: (json['Tax'] as num?)?.toDouble(),
+          taxString: json['TaxString'] as String?,
+          total: (json['Total'] as num?)?.toDouble(),
+          totalString: json['TotalString'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesBillingBillingGetPreviewInvoiceTotalsResponseToJson(
+        WebApiModulesBillingBillingGetPreviewInvoiceTotalsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  writeNotNull('CurrencyId', instance.currencyId);
+  writeNotNull('Currency', instance.currency);
+  writeNotNull('CurrencyCode', instance.currencyCode);
+  writeNotNull('CurrencySymbol', instance.currencySymbol);
+  writeNotNull('GrossTotal', instance.grossTotal);
+  writeNotNull('GrossTotalString', instance.grossTotalString);
+  writeNotNull('DiscountAmount', instance.discountAmount);
+  writeNotNull('DiscountAmountString', instance.discountAmountString);
+  writeNotNull('SubTotal', instance.subTotal);
+  writeNotNull('SubTotalString', instance.subTotalString);
+  writeNotNull('Tax1', instance.tax1);
+  writeNotNull('Tax1String', instance.tax1String);
+  writeNotNull('Tax2', instance.tax2);
+  writeNotNull('Tax2String', instance.tax2String);
+  writeNotNull('Tax', instance.tax);
+  writeNotNull('TaxString', instance.taxString);
+  writeNotNull('Total', instance.total);
+  writeNotNull('TotalString', instance.totalString);
+  return val;
+}
+
 WebApiModulesBillingBillingPopulateBillingRequest
     _$WebApiModulesBillingBillingPopulateBillingRequestFromJson(
             Map<String, dynamic> json) =>
@@ -15163,8 +15561,13 @@ WebApiModulesBillingInvoiceInvoice _$WebApiModulesBillingInvoiceInvoiceFromJson(
       invoiceTax2: (json['InvoiceTax2'] as num?)?.toDouble(),
       invoiceTax: (json['InvoiceTax'] as num?)?.toDouble(),
       invoiceTotal: (json['InvoiceTotal'] as num?)?.toDouble(),
+      remainingTotal: (json['RemainingTotal'] as num?)?.toDouble(),
       isStandAloneInvoice: json['IsStandAloneInvoice'] as bool?,
       warehouseId: json['WarehouseId'] as String?,
+      termsConditionsId: json['TermsConditionsId'] as String?,
+      termsConditions: json['TermsConditions'] as String?,
+      sourceId: json['SourceId'] as String?,
+      sourceDate: json['SourceDate'] as String?,
       auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
       fields: (json['_Fields'] as List<dynamic>?)
@@ -15345,8 +15748,13 @@ Map<String, dynamic> _$WebApiModulesBillingInvoiceInvoiceToJson(
   writeNotNull('InvoiceTax2', instance.invoiceTax2);
   writeNotNull('InvoiceTax', instance.invoiceTax);
   writeNotNull('InvoiceTotal', instance.invoiceTotal);
+  writeNotNull('RemainingTotal', instance.remainingTotal);
   writeNotNull('IsStandAloneInvoice', instance.isStandAloneInvoice);
   writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('TermsConditionsId', instance.termsConditionsId);
+  writeNotNull('TermsConditions', instance.termsConditions);
+  writeNotNull('SourceId', instance.sourceId);
+  writeNotNull('SourceDate', instance.sourceDate);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
@@ -15568,6 +15976,7 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
       dealId: json['DealId'] as String?,
       deal: json['Deal'] as String?,
       paymentBy: json['PaymentBy'] as String?,
+      customerDealId: json['CustomerDealId'] as String?,
       customerDeal: json['CustomerDeal'] as String?,
       paymentTypeId: json['PaymentTypeId'] as String?,
       paymentType: json['PaymentType'] as String?,
@@ -15654,6 +16063,7 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   writeNotNull('DealId', instance.dealId);
   writeNotNull('Deal', instance.deal);
   writeNotNull('PaymentBy', instance.paymentBy);
+  writeNotNull('CustomerDealId', instance.customerDealId);
   writeNotNull('CustomerDeal', instance.customerDeal);
   writeNotNull('PaymentTypeId', instance.paymentTypeId);
   writeNotNull('PaymentType', instance.paymentType);
@@ -16630,7 +17040,6 @@ WebApiModulesHomeControlsContainerItemContainerItem
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsContainerItemContainerItem(
           itemId: json['ItemId'] as String?,
-          containerItemId: json['ContainerItemId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           iCode: json['ICode'] as String?,
@@ -16651,6 +17060,9 @@ WebApiModulesHomeControlsContainerItemContainerItem
               json['ContainerPackingListBehavior'] as String?,
           containerStatus: json['ContainerStatus'] as String?,
           containerStatusColor: json['ContainerStatusColor'] as String?,
+          containerItemId: json['ContainerItemId'] as String?,
+          containerItemItemId: json['ContainerItemItemId'] as String?,
+          containerBarCode: json['ContainerBarCode'] as String?,
           containerStatusDate: json['ContainerStatusDate'] as String?,
           fixedAsset: json['FixedAsset'] as bool?,
           rank: json['Rank'] as String?,
@@ -16677,6 +17089,8 @@ WebApiModulesHomeControlsContainerItemContainerItem
           inspectionVendor: json['InspectionVendor'] as String?,
           manufacturerModelNumber: json['ManufacturerModelNumber'] as String?,
           purchaseId: json['PurchaseId'] as String?,
+          rootOriginalPurchaseId: json['RootOriginalPurchaseId'] as String?,
+          rootOriginalPurchase: json['RootOriginalPurchase'] as String?,
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           spaceId: json['SpaceId'] as String?,
@@ -16720,6 +17134,14 @@ WebApiModulesHomeControlsContainerItemContainerItem
           purchaseCurrencyCode: json['PurchaseCurrencyCode'] as String?,
           purchaseCurrency: json['PurchaseCurrency'] as String?,
           purchaseCurrencySymbol: json['PurchaseCurrencySymbol'] as String?,
+          purchaseWarehouseCurrencyId:
+              json['PurchaseWarehouseCurrencyId'] as String?,
+          purchaseWarehouseCurrencyCode:
+              json['PurchaseWarehouseCurrencyCode'] as String?,
+          purchaseWarehouseCurrency:
+              json['PurchaseWarehouseCurrency'] as String?,
+          purchaseWarehouseCurrencySymbol:
+              json['PurchaseWarehouseCurrencySymbol'] as String?,
           warehouseCurrencyId: json['WarehouseCurrencyId'] as String?,
           warehouseCurrencyCode: json['WarehouseCurrencyCode'] as String?,
           warehouseCurrency: json['WarehouseCurrency'] as String?,
@@ -16728,12 +17150,16 @@ WebApiModulesHomeControlsContainerItemContainerItem
               (json['PurchaseCurrencyExchangeRate'] as num?)?.toDouble(),
           unitCost: (json['UnitCost'] as num?)?.toDouble(),
           unitCostWithTax: (json['UnitCostWithTax'] as num?)?.toDouble(),
+          additionalLoadCost: (json['AdditionalLoadCost'] as num?)?.toDouble(),
+          loadedUnitCost: (json['LoadedUnitCost'] as num?)?.toDouble(),
           unitCostCurrencyConverted:
               (json['UnitCostCurrencyConverted'] as num?)?.toDouble(),
           unitCostWithTaxCurrencyConverted:
               (json['UnitCostWithTaxCurrencyConverted'] as num?)?.toDouble(),
           originalEquipmentCost:
               (json['OriginalEquipmentCost'] as num?)?.toDouble(),
+          monthlyUnitDepreciation:
+              (json['MonthlyUnitDepreciation'] as num?)?.toDouble(),
           depreciation: (json['Depreciation'] as num?)?.toDouble(),
           bookValue: (json['BookValue'] as num?)?.toDouble(),
           salvageValue: (json['SalvageValue'] as num?)?.toDouble(),
@@ -16847,11 +17273,17 @@ WebApiModulesHomeControlsContainerItemContainerItem
           depreciationWarehouse: json['DepreciationWarehouse'] as String?,
           depreciationWarehouseCode:
               json['DepreciationWarehouseCode'] as String?,
+          depreciationCurrencyId: json['DepreciationCurrencyId'] as String?,
+          depreciationCurrencyCode: json['DepreciationCurrencyCode'] as String?,
+          depreciationCurrency: json['DepreciationCurrency'] as String?,
+          depreciationCurrencySymbol:
+              json['DepreciationCurrencySymbol'] as String?,
           inactive: json['Inactive'] as bool?,
           inputDate: json['InputDate'] as String?,
           inputByUsersId: json['InputByUsersId'] as String?,
           outOrderId: json['OutOrderId'] as String?,
           originalWarehouseId: json['OriginalWarehouseId'] as String?,
+          hasFixedAssetTransfer: json['HasFixedAssetTransfer'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -16886,7 +17318,6 @@ Map<String, dynamic>
   }
 
   writeNotNull('ItemId', instance.itemId);
-  writeNotNull('ContainerItemId', instance.containerItemId);
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('ICode', instance.iCode);
@@ -16907,6 +17338,9 @@ Map<String, dynamic>
       'ContainerPackingListBehavior', instance.containerPackingListBehavior);
   writeNotNull('ContainerStatus', instance.containerStatus);
   writeNotNull('ContainerStatusColor', instance.containerStatusColor);
+  writeNotNull('ContainerItemId', instance.containerItemId);
+  writeNotNull('ContainerItemItemId', instance.containerItemItemId);
+  writeNotNull('ContainerBarCode', instance.containerBarCode);
   writeNotNull('ContainerStatusDate', instance.containerStatusDate);
   writeNotNull('FixedAsset', instance.fixedAsset);
   writeNotNull('Rank', instance.rank);
@@ -16933,6 +17367,8 @@ Map<String, dynamic>
   writeNotNull('InspectionVendor', instance.inspectionVendor);
   writeNotNull('ManufacturerModelNumber', instance.manufacturerModelNumber);
   writeNotNull('PurchaseId', instance.purchaseId);
+  writeNotNull('RootOriginalPurchaseId', instance.rootOriginalPurchaseId);
+  writeNotNull('RootOriginalPurchase', instance.rootOriginalPurchase);
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('SpaceId', instance.spaceId);
@@ -16976,6 +17412,13 @@ Map<String, dynamic>
   writeNotNull('PurchaseCurrencyCode', instance.purchaseCurrencyCode);
   writeNotNull('PurchaseCurrency', instance.purchaseCurrency);
   writeNotNull('PurchaseCurrencySymbol', instance.purchaseCurrencySymbol);
+  writeNotNull(
+      'PurchaseWarehouseCurrencyId', instance.purchaseWarehouseCurrencyId);
+  writeNotNull(
+      'PurchaseWarehouseCurrencyCode', instance.purchaseWarehouseCurrencyCode);
+  writeNotNull('PurchaseWarehouseCurrency', instance.purchaseWarehouseCurrency);
+  writeNotNull('PurchaseWarehouseCurrencySymbol',
+      instance.purchaseWarehouseCurrencySymbol);
   writeNotNull('WarehouseCurrencyId', instance.warehouseCurrencyId);
   writeNotNull('WarehouseCurrencyCode', instance.warehouseCurrencyCode);
   writeNotNull('WarehouseCurrency', instance.warehouseCurrency);
@@ -16984,10 +17427,13 @@ Map<String, dynamic>
       'PurchaseCurrencyExchangeRate', instance.purchaseCurrencyExchangeRate);
   writeNotNull('UnitCost', instance.unitCost);
   writeNotNull('UnitCostWithTax', instance.unitCostWithTax);
+  writeNotNull('AdditionalLoadCost', instance.additionalLoadCost);
+  writeNotNull('LoadedUnitCost', instance.loadedUnitCost);
   writeNotNull('UnitCostCurrencyConverted', instance.unitCostCurrencyConverted);
   writeNotNull('UnitCostWithTaxCurrencyConverted',
       instance.unitCostWithTaxCurrencyConverted);
   writeNotNull('OriginalEquipmentCost', instance.originalEquipmentCost);
+  writeNotNull('MonthlyUnitDepreciation', instance.monthlyUnitDepreciation);
   writeNotNull('Depreciation', instance.depreciation);
   writeNotNull('BookValue', instance.bookValue);
   writeNotNull('SalvageValue', instance.salvageValue);
@@ -17100,11 +17546,17 @@ Map<String, dynamic>
   writeNotNull('DepreciationWarehouseId', instance.depreciationWarehouseId);
   writeNotNull('DepreciationWarehouse', instance.depreciationWarehouse);
   writeNotNull('DepreciationWarehouseCode', instance.depreciationWarehouseCode);
+  writeNotNull('DepreciationCurrencyId', instance.depreciationCurrencyId);
+  writeNotNull('DepreciationCurrencyCode', instance.depreciationCurrencyCode);
+  writeNotNull('DepreciationCurrency', instance.depreciationCurrency);
+  writeNotNull(
+      'DepreciationCurrencySymbol', instance.depreciationCurrencySymbol);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('OutOrderId', instance.outOrderId);
   writeNotNull('OriginalWarehouseId', instance.originalWarehouseId);
+  writeNotNull('HasFixedAssetTransfer', instance.hasFixedAssetTransfer);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -17175,6 +17627,8 @@ WebApiModulesHomeControlsContainerItemInstantiateContainerItemResponse
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsContainerItemInstantiateContainerItemResponse(
           containerItemId: json['ContainerItemId'] as String?,
+          contractId: json['ContractId'] as String?,
+          itemId: json['ItemId'] as String?,
           status: json['status'] as int?,
           success: json['success'] as bool?,
           msg: json['msg'] as String?,
@@ -17193,6 +17647,8 @@ Map<String, dynamic>
   }
 
   writeNotNull('ContainerItemId', instance.containerItemId);
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('ItemId', instance.itemId);
   writeNotNull('status', instance.status);
   writeNotNull('success', instance.success);
   writeNotNull('msg', instance.msg);
@@ -17447,6 +17903,7 @@ WebApiModulesHomeControlsContractItemDetailContractItemDetail
           nestingLevel: json['NestingLevel'] as int?,
           vendorConsignorId: json['VendorConsignorId'] as String?,
           vendorConsignor: json['VendorConsignor'] as String?,
+          exception: json['Exception'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
@@ -17531,6 +17988,7 @@ Map<String, dynamic>
   writeNotNull('NestingLevel', instance.nestingLevel);
   writeNotNull('VendorConsignorId', instance.vendorConsignorId);
   writeNotNull('VendorConsignor', instance.vendorConsignor);
+  writeNotNull('Exception', instance.exception);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
@@ -17720,38 +18178,6 @@ Map<String, dynamic> _$WebApiModulesHomeControlsDealNoteDealNoteToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-WebApiModulesHomeControlsDealOrderDealOrderRecordOrderOnHoldResponse
-    _$WebApiModulesHomeControlsDealOrderDealOrderRecordOrderOnHoldResponseFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesHomeControlsDealOrderDealOrderRecordOrderOnHoldResponse(
-          status: json['status'] as int?,
-          success: json['success'] as bool?,
-          msg: json['msg'] as String?,
-          order: json['order'] == null
-              ? null
-              : WebApiModulesAgentOrderOrder.fromJson(
-                  json['order'] as Map<String, dynamic>),
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesHomeControlsDealOrderDealOrderRecordOrderOnHoldResponseToJson(
-        WebApiModulesHomeControlsDealOrderDealOrderRecordOrderOnHoldResponse
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('status', instance.status);
-  writeNotNull('success', instance.success);
-  writeNotNull('msg', instance.msg);
-  writeNotNull('order', instance.order?.toJson());
   return val;
 }
 
@@ -18741,7 +19167,7 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryAvailabilityCalendarDate
               : DateTime.parse(json['TheDate'] as String),
           reservations: (json['Reservations'] as List<dynamic>?)
                   ?.map((e) =>
-                      WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityReservation
+                      WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityCalendarReservation
                           .fromJson(e as Map<String, dynamic>))
                   .toList() ??
               [],
@@ -18813,6 +19239,9 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryAvailabilityScheduleEven
           warehouseId: json['WarehouseId'] as String?,
           start: json['start'] as String?,
           end: json['end'] as String?,
+          estimatedStopDate: json['estimatedStopDate'] as String?,
+          late: json['late'] as bool?,
+          lateButReturning: json['lateButReturning'] as bool?,
           startdisplay: json['startdisplay'] as String?,
           enddisplay: json['enddisplay'] as String?,
           text: json['text'] as String?,
@@ -18855,6 +19284,9 @@ Map<String, dynamic>
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('start', instance.start);
   writeNotNull('end', instance.end);
+  writeNotNull('estimatedStopDate', instance.estimatedStopDate);
+  writeNotNull('late', instance.late);
+  writeNotNull('lateButReturning', instance.lateButReturning);
   writeNotNull('startdisplay', instance.startdisplay);
   writeNotNull('enddisplay', instance.enddisplay);
   writeNotNull('text', instance.text);
@@ -19034,6 +19466,10 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailability
               ? null
               : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
                   .fromJson(json['Late'] as Map<String, dynamic>),
+          lateButReturning: json['LateButReturning'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['LateButReturning'] as Map<String, dynamic>),
           inventoryWarehouse: json['InventoryWarehouse'] == null
               ? null
               : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouse
@@ -19060,7 +19496,8 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailability
                           .fromJson(e as Map<String, dynamic>))
                   .toList() ??
               [],
-          availabilityDatesAndTimes: json['AvailabilityDatesAndTimes'],
+          availabilityDatesAndTimes:
+              json['AvailabilityDatesAndTimes'] as Map<String, dynamic>?,
           hasPositiveConflict: json['HasPositiveConflict'] as bool?,
           hasNegativeConflict: json['HasNegativeConflict'] as bool?,
           isRegion: json['IsRegion'] as bool?,
@@ -19090,6 +19527,7 @@ Map<String, dynamic>
   writeNotNull('OnTruck', instance.onTruck?.toJson());
   writeNotNull('QcRequired', instance.qcRequired?.toJson());
   writeNotNull('Late', instance.late?.toJson());
+  writeNotNull('LateButReturning', instance.lateButReturning?.toJson());
   writeNotNull('InventoryWarehouse', instance.inventoryWarehouse?.toJson());
   writeNotNull(
       'CalculatedDateTime', instance.calculatedDateTime?.toIso8601String());
@@ -19110,6 +19548,185 @@ Map<String, dynamic>
   writeNotNull('IsRegion', instance.isRegion);
   writeNotNull('IsAllWarehouses', instance.isAllWarehouses);
   writeNotNull('KeepInCache', instance.keepInCache);
+  return val;
+}
+
+WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityCalendarReservation
+    _$WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityCalendarReservationFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityCalendarReservation(
+          quantityReserved: json['QuantityReserved'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['QuantityReserved'] as Map<String, dynamic>),
+          quantityStaged: json['QuantityStaged'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['QuantityStaged'] as Map<String, dynamic>),
+          quantityOut: json['QuantityOut'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['QuantityOut'] as Map<String, dynamic>),
+          quantityIn: json['QuantityIn'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['QuantityIn'] as Map<String, dynamic>),
+          quantityInRepair: json['QuantityInRepair'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['QuantityInRepair'] as Map<String, dynamic>),
+          quantityLate: json['QuantityLate'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(json['QuantityLate'] as Map<String, dynamic>),
+          quantityLateButReturning: json['QuantityLateButReturning'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(
+                      json['QuantityLateButReturning'] as Map<String, dynamic>),
+          isFuture: json['IsFuture'] as bool?,
+          inventoryId: json['InventoryId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          warehouseCode: json['WarehouseCode'] as String?,
+          warehouse: json['Warehouse'] as String?,
+          returnToWarehouseId: json['ReturnToWarehouseId'] as String?,
+          returnToWarehouseCode: json['ReturnToWarehouseCode'] as String?,
+          returnToWarehouse: json['ReturnToWarehouse'] as String?,
+          orderId: json['OrderId'] as String?,
+          orderItemId: json['OrderItemId'] as String?,
+          recType: json['RecType'] as String?,
+          orderType: json['OrderType'] as String?,
+          orderTypeDescription: json['OrderTypeDescription'] as String?,
+          orderNumber: json['OrderNumber'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          orderStatus: json['OrderStatus'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          department: json['Department'] as String?,
+          dealId: json['DealId'] as String?,
+          deal: json['Deal'] as String?,
+          fromDateTime: json['FromDateTime'] == null
+              ? null
+              : DateTime.parse(json['FromDateTime'] as String),
+          fromDateTimeDisplay: json['FromDateTimeDisplay'] as String?,
+          toDateTime: json['ToDateTime'] == null
+              ? null
+              : DateTime.parse(json['ToDateTime'] as String),
+          estimatedStopDate: json['EstimatedStopDate'] == null
+              ? null
+              : DateTime.parse(json['EstimatedStopDate'] as String),
+          toDateTimeDisplay: json['ToDateTimeDisplay'] as String?,
+          roundTripRental: json['RoundTripRental'] as bool?,
+          late: json['Late'] as bool?,
+          lateButReturning: json['LateButReturning'] as bool?,
+          qcRequired: json['QcRequired'] as bool?,
+          enableQcDelay: json['EnableQcDelay'] as bool?,
+          qcDelayDays: json['QcDelayDays'] as int?,
+          qcDelayExcludeWeekend: json['QcDelayExcludeWeekend'] as bool?,
+          qcDelayExcludeHoliday: json['QcDelayExcludeHoliday'] as bool?,
+          qcDelayIndefinite: json['QcDelayIndefinite'] as bool?,
+          qcDelayFromDateTime: json['QcDelayFromDateTime'] == null
+              ? null
+              : DateTime.parse(json['QcDelayFromDateTime'] as String),
+          qcDelayToDateTime: json['QcDelayToDateTime'] == null
+              ? null
+              : DateTime.parse(json['QcDelayToDateTime'] as String),
+          qcQuantity: (json['QcQuantity'] as num?)?.toDouble(),
+          containerBarCode: json['ContainerBarCode'] as String?,
+          availableWhileInContainer: json['AvailableWhileInContainer'] as bool?,
+          contractId: json['ContractId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignor: json['Consignor'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          consignorAgreementNumber: json['ConsignorAgreementNumber'] as String?,
+          quantityOrdered: (json['QuantityOrdered'] as num?)?.toDouble(),
+          quantitySub: (json['QuantitySub'] as num?)?.toDouble(),
+          quantityConsigned: (json['QuantityConsigned'] as num?)?.toDouble(),
+          isPositiveConflict: json['IsPositiveConflict'] as bool?,
+          isNegativeConflict: json['IsNegativeConflict'] as bool?,
+          subPurchaseOrderId: json['SubPurchaseOrderId'] as String?,
+          subPurchaseOrderNumber: json['SubPurchaseOrderNumber'] as String?,
+          subPurchaseOrderDescription:
+              json['SubPurchaseOrderDescription'] as String?,
+          subPurchaseOrderVendor: json['SubPurchaseOrderVendor'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityCalendarReservationToJson(
+        WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityCalendarReservation
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('QuantityReserved', instance.quantityReserved?.toJson());
+  writeNotNull('QuantityStaged', instance.quantityStaged?.toJson());
+  writeNotNull('QuantityOut', instance.quantityOut?.toJson());
+  writeNotNull('QuantityIn', instance.quantityIn?.toJson());
+  writeNotNull('QuantityInRepair', instance.quantityInRepair?.toJson());
+  writeNotNull('QuantityLate', instance.quantityLate?.toJson());
+  writeNotNull(
+      'QuantityLateButReturning', instance.quantityLateButReturning?.toJson());
+  writeNotNull('IsFuture', instance.isFuture);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull('Warehouse', instance.warehouse);
+  writeNotNull('ReturnToWarehouseId', instance.returnToWarehouseId);
+  writeNotNull('ReturnToWarehouseCode', instance.returnToWarehouseCode);
+  writeNotNull('ReturnToWarehouse', instance.returnToWarehouse);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('RecType', instance.recType);
+  writeNotNull('OrderType', instance.orderType);
+  writeNotNull('OrderTypeDescription', instance.orderTypeDescription);
+  writeNotNull('OrderNumber', instance.orderNumber);
+  writeNotNull('OrderDescription', instance.orderDescription);
+  writeNotNull('OrderStatus', instance.orderStatus);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('Department', instance.department);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('Deal', instance.deal);
+  writeNotNull('FromDateTime', instance.fromDateTime?.toIso8601String());
+  writeNotNull('FromDateTimeDisplay', instance.fromDateTimeDisplay);
+  writeNotNull('ToDateTime', instance.toDateTime?.toIso8601String());
+  writeNotNull(
+      'EstimatedStopDate', instance.estimatedStopDate?.toIso8601String());
+  writeNotNull('ToDateTimeDisplay', instance.toDateTimeDisplay);
+  writeNotNull('RoundTripRental', instance.roundTripRental);
+  writeNotNull('Late', instance.late);
+  writeNotNull('LateButReturning', instance.lateButReturning);
+  writeNotNull('QcRequired', instance.qcRequired);
+  writeNotNull('EnableQcDelay', instance.enableQcDelay);
+  writeNotNull('QcDelayDays', instance.qcDelayDays);
+  writeNotNull('QcDelayExcludeWeekend', instance.qcDelayExcludeWeekend);
+  writeNotNull('QcDelayExcludeHoliday', instance.qcDelayExcludeHoliday);
+  writeNotNull('QcDelayIndefinite', instance.qcDelayIndefinite);
+  writeNotNull(
+      'QcDelayFromDateTime', instance.qcDelayFromDateTime?.toIso8601String());
+  writeNotNull(
+      'QcDelayToDateTime', instance.qcDelayToDateTime?.toIso8601String());
+  writeNotNull('QcQuantity', instance.qcQuantity);
+  writeNotNull('ContainerBarCode', instance.containerBarCode);
+  writeNotNull('AvailableWhileInContainer', instance.availableWhileInContainer);
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('Consignor', instance.consignor);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('ConsignorAgreementNumber', instance.consignorAgreementNumber);
+  writeNotNull('QuantityOrdered', instance.quantityOrdered);
+  writeNotNull('QuantitySub', instance.quantitySub);
+  writeNotNull('QuantityConsigned', instance.quantityConsigned);
+  writeNotNull('IsPositiveConflict', instance.isPositiveConflict);
+  writeNotNull('IsNegativeConflict', instance.isNegativeConflict);
+  writeNotNull('SubPurchaseOrderId', instance.subPurchaseOrderId);
+  writeNotNull('SubPurchaseOrderNumber', instance.subPurchaseOrderNumber);
+  writeNotNull(
+      'SubPurchaseOrderDescription', instance.subPurchaseOrderDescription);
+  writeNotNull('SubPurchaseOrderVendor', instance.subPurchaseOrderVendor);
   return val;
 }
 
@@ -19261,6 +19878,11 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityRes
               ? null
               : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
                   .fromJson(json['QuantityLate'] as Map<String, dynamic>),
+          quantityLateButReturning: json['QuantityLateButReturning'] == null
+              ? null
+              : WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityQuantity
+                  .fromJson(
+                      json['QuantityLateButReturning'] as Map<String, dynamic>),
           inventoryId: json['InventoryId'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           warehouseCode: json['WarehouseCode'] as String?,
@@ -19287,6 +19909,9 @@ WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailabilityRes
           toDateTime: json['ToDateTime'] == null
               ? null
               : DateTime.parse(json['ToDateTime'] as String),
+          estimatedStopDate: json['EstimatedStopDate'] == null
+              ? null
+              : DateTime.parse(json['EstimatedStopDate'] as String),
           toDateTimeDisplay: json['ToDateTimeDisplay'] as String?,
           roundTripRental: json['RoundTripRental'] as bool?,
           late: json['Late'] as bool?,
@@ -19341,6 +19966,8 @@ Map<String, dynamic>
   writeNotNull('QuantityIn', instance.quantityIn?.toJson());
   writeNotNull('QuantityInRepair', instance.quantityInRepair?.toJson());
   writeNotNull('QuantityLate', instance.quantityLate?.toJson());
+  writeNotNull(
+      'QuantityLateButReturning', instance.quantityLateButReturning?.toJson());
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('WarehouseCode', instance.warehouseCode);
@@ -19363,6 +19990,8 @@ Map<String, dynamic>
   writeNotNull('FromDateTime', instance.fromDateTime?.toIso8601String());
   writeNotNull('FromDateTimeDisplay', instance.fromDateTimeDisplay);
   writeNotNull('ToDateTime', instance.toDateTime?.toIso8601String());
+  writeNotNull(
+      'EstimatedStopDate', instance.estimatedStopDate?.toIso8601String());
   writeNotNull('ToDateTimeDisplay', instance.toDateTimeDisplay);
   writeNotNull('RoundTripRental', instance.roundTripRental);
   writeNotNull('Late', instance.late);
@@ -20781,6 +21410,7 @@ WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse(
           inventoryId: json['InventoryId'] as String?,
+          currencyId: json['CurrencyId'] as String?,
           hourlyRate: (json['HourlyRate'] as num?)?.toDouble(),
           hourlyCost: (json['HourlyCost'] as num?)?.toDouble(),
           dailyRate: (json['DailyRate'] as num?)?.toDouble(),
@@ -20830,6 +21460,7 @@ WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse
           replacementCostMarkupPercent:
               (json['ReplacementCostMarkupPercent'] as num?)?.toDouble(),
           isWarehouseSpecific: json['IsWarehouseSpecific'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
           itemDescription: json['ItemDescription'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           warehouseCode: json['WarehouseCode'] as String?,
@@ -20869,6 +21500,7 @@ Map<String, dynamic>
   }
 
   writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('CurrencyId', instance.currencyId);
   writeNotNull('HourlyRate', instance.hourlyRate);
   writeNotNull('HourlyCost', instance.hourlyCost);
   writeNotNull('DailyRate', instance.dailyRate);
@@ -20918,6 +21550,7 @@ Map<String, dynamic>
   writeNotNull(
       'ReplacementCostMarkupPercent', instance.replacementCostMarkupPercent);
   writeNotNull('IsWarehouseSpecific', instance.isWarehouseSpecific);
+  writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ItemDescription', instance.itemDescription);
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('WarehouseCode', instance.warehouseCode);
@@ -22044,6 +22677,8 @@ WebApiModulesHomeControlsManifestManifest
           warehouseId: json['WarehouseId'] as String?,
           warehouse: json['Warehouse'] as String?,
           warehouseCode: json['WarehouseCode'] as String?,
+          fixedAssetTransferOwnership:
+              json['FixedAssetTransferOwnership'] as bool?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
@@ -22096,6 +22731,8 @@ Map<String, dynamic> _$WebApiModulesHomeControlsManifestManifestToJson(
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('Warehouse', instance.warehouse);
   writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull(
+      'FixedAssetTransferOwnership', instance.fixedAssetTransferOwnership);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
@@ -22325,6 +22962,59 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardRequest
+    _$WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardRequest(
+          orderItemIds: (json['OrderItemIds'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardRequestToJson(
+        WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderItemIds', instance.orderItemIds);
+  return val;
+}
+
+WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardResponse
+    _$WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardResponseToJson(
+        WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
+
 WebApiModulesHomeControlsOrderItemInsertLineItemRequest
     _$WebApiModulesHomeControlsOrderItemInsertLineItemRequestFromJson(
             Map<String, dynamic> json) =>
@@ -22412,6 +23102,7 @@ WebApiModulesHomeControlsOrderItemOrderItem
           subQuantityColor: json['SubQuantityColor'] as String?,
           consignQuantity: json['ConsignQuantity'] as int?,
           consignQuantityColor: json['ConsignQuantityColor'] as String?,
+          containerColor: json['ContainerColor'] as String?,
           reservedItemQuantity: json['ReservedItemQuantity'] as int?,
           availableQuantity: (json['AvailableQuantity'] as num?)?.toDouble(),
           availabilityState: json['AvailabilityState'] as String?,
@@ -22573,6 +23264,8 @@ WebApiModulesHomeControlsOrderItemOrderItem
           transferAvailabilityDays: json['TransferAvailabilityDays'] as int?,
           costOrderId: json['CostOrderId'] as String?,
           costOrderNumber: json['CostOrderNumber'] as String?,
+          includeInCost: json['IncludeInCost'] as bool?,
+          loadedUnitCost: (json['LoadedUnitCost'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
           inactive: json['Inactive'] as bool?,
           auditNote: json['AuditNote'] as String?,
@@ -22632,6 +23325,7 @@ Map<String, dynamic> _$WebApiModulesHomeControlsOrderItemOrderItemToJson(
   writeNotNull('SubQuantityColor', instance.subQuantityColor);
   writeNotNull('ConsignQuantity', instance.consignQuantity);
   writeNotNull('ConsignQuantityColor', instance.consignQuantityColor);
+  writeNotNull('ContainerColor', instance.containerColor);
   writeNotNull('ReservedItemQuantity', instance.reservedItemQuantity);
   writeNotNull('AvailableQuantity', instance.availableQuantity);
   writeNotNull('AvailabilityState', instance.availabilityState);
@@ -22780,6 +23474,8 @@ Map<String, dynamic> _$WebApiModulesHomeControlsOrderItemOrderItemToJson(
   writeNotNull('TransferAvailabilityDays', instance.transferAvailabilityDays);
   writeNotNull('CostOrderId', instance.costOrderId);
   writeNotNull('CostOrderNumber', instance.costOrderNumber);
+  writeNotNull('IncludeInCost', instance.includeInCost);
+  writeNotNull('LoadedUnitCost', instance.loadedUnitCost);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('AuditNote', instance.auditNote);
@@ -22788,6 +23484,56 @@ Map<String, dynamic> _$WebApiModulesHomeControlsOrderItemOrderItemToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardRequest
+    _$WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardRequest(
+          orderId: json['OrderId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardRequestToJson(
+        WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  return val;
+}
+
+WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardResponse
+    _$WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardResponseToJson(
+        WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
   return val;
 }
 
@@ -23803,6 +24549,7 @@ WebApiModulesHomeControlsPickListUtilityItemCompleteSessionRequest
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsPickListUtilityItemCompleteSessionRequest(
           sessionId: json['SessionId'] as String?,
+          notes: json['Notes'] as String?,
         );
 
 Map<String, dynamic>
@@ -23818,6 +24565,7 @@ Map<String, dynamic>
   }
 
   writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('Notes', instance.notes);
   return val;
 }
 
@@ -25463,6 +26211,7 @@ WebApiModulesHomeControlsSuspendedSessionSuspendedSession
           contractTime: json['ContractTime'] as String?,
           dealId: json['DealId'] as String?,
           departmentId: json['DepartmentId'] as String?,
+          department: json['Department'] as String?,
           officeLocationId: json['OfficeLocationId'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           warehouse: json['Warehouse'] as String?,
@@ -25520,6 +26269,7 @@ Map<String, dynamic>
   writeNotNull('ContractTime', instance.contractTime);
   writeNotNull('DealId', instance.dealId);
   writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('Department', instance.department);
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('Warehouse', instance.warehouse);
@@ -25928,6 +26678,7 @@ WebApiModulesInventoryAssetAssetDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -25981,6 +26732,7 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetAssetDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -26091,6 +26843,8 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
       containerStatus: json['ContainerStatus'] as String?,
       containerStatusColor: json['ContainerStatusColor'] as String?,
       containerItemId: json['ContainerItemId'] as String?,
+      containerItemItemId: json['ContainerItemItemId'] as String?,
+      containerBarCode: json['ContainerBarCode'] as String?,
       containerStatusDate: json['ContainerStatusDate'] as String?,
       fixedAsset: json['FixedAsset'] as bool?,
       rank: json['Rank'] as String?,
@@ -26117,6 +26871,8 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
       inspectionVendor: json['InspectionVendor'] as String?,
       manufacturerModelNumber: json['ManufacturerModelNumber'] as String?,
       purchaseId: json['PurchaseId'] as String?,
+      rootOriginalPurchaseId: json['RootOriginalPurchaseId'] as String?,
+      rootOriginalPurchase: json['RootOriginalPurchase'] as String?,
       aisleLocation: json['AisleLocation'] as String?,
       shelfLocation: json['ShelfLocation'] as String?,
       spaceId: json['SpaceId'] as String?,
@@ -26159,6 +26915,13 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
       purchaseCurrencyCode: json['PurchaseCurrencyCode'] as String?,
       purchaseCurrency: json['PurchaseCurrency'] as String?,
       purchaseCurrencySymbol: json['PurchaseCurrencySymbol'] as String?,
+      purchaseWarehouseCurrencyId:
+          json['PurchaseWarehouseCurrencyId'] as String?,
+      purchaseWarehouseCurrencyCode:
+          json['PurchaseWarehouseCurrencyCode'] as String?,
+      purchaseWarehouseCurrency: json['PurchaseWarehouseCurrency'] as String?,
+      purchaseWarehouseCurrencySymbol:
+          json['PurchaseWarehouseCurrencySymbol'] as String?,
       warehouseCurrencyId: json['WarehouseCurrencyId'] as String?,
       warehouseCurrencyCode: json['WarehouseCurrencyCode'] as String?,
       warehouseCurrency: json['WarehouseCurrency'] as String?,
@@ -26167,12 +26930,16 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
           (json['PurchaseCurrencyExchangeRate'] as num?)?.toDouble(),
       unitCost: (json['UnitCost'] as num?)?.toDouble(),
       unitCostWithTax: (json['UnitCostWithTax'] as num?)?.toDouble(),
+      additionalLoadCost: (json['AdditionalLoadCost'] as num?)?.toDouble(),
+      loadedUnitCost: (json['LoadedUnitCost'] as num?)?.toDouble(),
       unitCostCurrencyConverted:
           (json['UnitCostCurrencyConverted'] as num?)?.toDouble(),
       unitCostWithTaxCurrencyConverted:
           (json['UnitCostWithTaxCurrencyConverted'] as num?)?.toDouble(),
       originalEquipmentCost:
           (json['OriginalEquipmentCost'] as num?)?.toDouble(),
+      monthlyUnitDepreciation:
+          (json['MonthlyUnitDepreciation'] as num?)?.toDouble(),
       depreciation: (json['Depreciation'] as num?)?.toDouble(),
       bookValue: (json['BookValue'] as num?)?.toDouble(),
       salvageValue: (json['SalvageValue'] as num?)?.toDouble(),
@@ -26285,11 +27052,16 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
       depreciationWarehouseId: json['DepreciationWarehouseId'] as String?,
       depreciationWarehouse: json['DepreciationWarehouse'] as String?,
       depreciationWarehouseCode: json['DepreciationWarehouseCode'] as String?,
+      depreciationCurrencyId: json['DepreciationCurrencyId'] as String?,
+      depreciationCurrencyCode: json['DepreciationCurrencyCode'] as String?,
+      depreciationCurrency: json['DepreciationCurrency'] as String?,
+      depreciationCurrencySymbol: json['DepreciationCurrencySymbol'] as String?,
       inactive: json['Inactive'] as bool?,
       inputDate: json['InputDate'] as String?,
       inputByUsersId: json['InputByUsersId'] as String?,
       outOrderId: json['OutOrderId'] as String?,
       originalWarehouseId: json['OriginalWarehouseId'] as String?,
+      hasFixedAssetTransfer: json['HasFixedAssetTransfer'] as bool?,
       dateStamp: json['DateStamp'] as String?,
       auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
@@ -26343,6 +27115,8 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   writeNotNull('ContainerStatus', instance.containerStatus);
   writeNotNull('ContainerStatusColor', instance.containerStatusColor);
   writeNotNull('ContainerItemId', instance.containerItemId);
+  writeNotNull('ContainerItemItemId', instance.containerItemItemId);
+  writeNotNull('ContainerBarCode', instance.containerBarCode);
   writeNotNull('ContainerStatusDate', instance.containerStatusDate);
   writeNotNull('FixedAsset', instance.fixedAsset);
   writeNotNull('Rank', instance.rank);
@@ -26369,6 +27143,8 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   writeNotNull('InspectionVendor', instance.inspectionVendor);
   writeNotNull('ManufacturerModelNumber', instance.manufacturerModelNumber);
   writeNotNull('PurchaseId', instance.purchaseId);
+  writeNotNull('RootOriginalPurchaseId', instance.rootOriginalPurchaseId);
+  writeNotNull('RootOriginalPurchase', instance.rootOriginalPurchase);
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('SpaceId', instance.spaceId);
@@ -26412,6 +27188,13 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   writeNotNull('PurchaseCurrencyCode', instance.purchaseCurrencyCode);
   writeNotNull('PurchaseCurrency', instance.purchaseCurrency);
   writeNotNull('PurchaseCurrencySymbol', instance.purchaseCurrencySymbol);
+  writeNotNull(
+      'PurchaseWarehouseCurrencyId', instance.purchaseWarehouseCurrencyId);
+  writeNotNull(
+      'PurchaseWarehouseCurrencyCode', instance.purchaseWarehouseCurrencyCode);
+  writeNotNull('PurchaseWarehouseCurrency', instance.purchaseWarehouseCurrency);
+  writeNotNull('PurchaseWarehouseCurrencySymbol',
+      instance.purchaseWarehouseCurrencySymbol);
   writeNotNull('WarehouseCurrencyId', instance.warehouseCurrencyId);
   writeNotNull('WarehouseCurrencyCode', instance.warehouseCurrencyCode);
   writeNotNull('WarehouseCurrency', instance.warehouseCurrency);
@@ -26420,10 +27203,13 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
       'PurchaseCurrencyExchangeRate', instance.purchaseCurrencyExchangeRate);
   writeNotNull('UnitCost', instance.unitCost);
   writeNotNull('UnitCostWithTax', instance.unitCostWithTax);
+  writeNotNull('AdditionalLoadCost', instance.additionalLoadCost);
+  writeNotNull('LoadedUnitCost', instance.loadedUnitCost);
   writeNotNull('UnitCostCurrencyConverted', instance.unitCostCurrencyConverted);
   writeNotNull('UnitCostWithTaxCurrencyConverted',
       instance.unitCostWithTaxCurrencyConverted);
   writeNotNull('OriginalEquipmentCost', instance.originalEquipmentCost);
+  writeNotNull('MonthlyUnitDepreciation', instance.monthlyUnitDepreciation);
   writeNotNull('Depreciation', instance.depreciation);
   writeNotNull('BookValue', instance.bookValue);
   writeNotNull('SalvageValue', instance.salvageValue);
@@ -26536,11 +27322,17 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   writeNotNull('DepreciationWarehouseId', instance.depreciationWarehouseId);
   writeNotNull('DepreciationWarehouse', instance.depreciationWarehouse);
   writeNotNull('DepreciationWarehouseCode', instance.depreciationWarehouseCode);
+  writeNotNull('DepreciationCurrencyId', instance.depreciationCurrencyId);
+  writeNotNull('DepreciationCurrencyCode', instance.depreciationCurrencyCode);
+  writeNotNull('DepreciationCurrency', instance.depreciationCurrency);
+  writeNotNull(
+      'DepreciationCurrencySymbol', instance.depreciationCurrencySymbol);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
   writeNotNull('OutOrderId', instance.outOrderId);
   writeNotNull('OriginalWarehouseId', instance.originalWarehouseId);
+  writeNotNull('HasFixedAssetTransfer', instance.hasFixedAssetTransfer);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -26819,6 +27611,56 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequest
+    _$WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequest(
+          inventoryId: json['InventoryId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequestToJson(
+        WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryId', instance.inventoryId);
+  return val;
+}
+
+WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryResponse
+    _$WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryResponse(
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryResponseToJson(
+        WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
+
 WebApiModulesInventoryInventoryRentalInventoryQcRequiredAllWarehousesRequest
     _$WebApiModulesInventoryInventoryRentalInventoryQcRequiredAllWarehousesRequestFromJson(
             Map<String, dynamic> json) =>
@@ -27026,6 +27868,7 @@ WebApiModulesInventoryPartsInventoryPartsInventory
           wardrobeDetailedDescription:
               json['WardrobeDetailedDescription'] as String?,
           webDetailedDescription: json['WebDetailedDescription'] as String?,
+          technicalNotes: json['TechnicalNotes'] as String?,
           overrideSystemDefaultRevenueAllocationBehavior:
               json['OverrideSystemDefaultRevenueAllocationBehavior'] as bool?,
           allocateRevenueForAccessories:
@@ -27047,6 +27890,8 @@ WebApiModulesInventoryPartsInventoryPartsInventory
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           taxable: json['Taxable'] as bool?,
+          dateOfLastPhysicalInventory:
+              json['DateOfLastPhysicalInventory'] as String?,
           iCode: json['ICode'] as String?,
           description: json['Description'] as String?,
           availFor: json['AvailFor'] as String?,
@@ -27140,6 +27985,9 @@ WebApiModulesInventoryPartsInventoryPartsInventory
           originalShowId: json['OriginalShowId'] as String?,
           inputDate: json['InputDate'] as String?,
           inputByUsersId: json['InputByUsersId'] as String?,
+          category2: json['Category2'] as String?,
+          class2: json['Class2'] as String?,
+          stockClass: json['StockClass'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
@@ -27326,6 +28174,7 @@ Map<String, dynamic> _$WebApiModulesInventoryPartsInventoryPartsInventoryToJson(
   writeNotNull(
       'WardrobeDetailedDescription', instance.wardrobeDetailedDescription);
   writeNotNull('WebDetailedDescription', instance.webDetailedDescription);
+  writeNotNull('TechnicalNotes', instance.technicalNotes);
   writeNotNull('OverrideSystemDefaultRevenueAllocationBehavior',
       instance.overrideSystemDefaultRevenueAllocationBehavior);
   writeNotNull(
@@ -27346,6 +28195,8 @@ Map<String, dynamic> _$WebApiModulesInventoryPartsInventoryPartsInventoryToJson(
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('Taxable', instance.taxable);
+  writeNotNull(
+      'DateOfLastPhysicalInventory', instance.dateOfLastPhysicalInventory);
   writeNotNull('ICode', instance.iCode);
   writeNotNull('Description', instance.description);
   writeNotNull('AvailFor', instance.availFor);
@@ -27436,6 +28287,9 @@ Map<String, dynamic> _$WebApiModulesInventoryPartsInventoryPartsInventoryToJson(
   writeNotNull('OriginalShowId', instance.originalShowId);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
+  writeNotNull('Category2', instance.category2);
+  writeNotNull('Class2', instance.class2);
+  writeNotNull('StockClass', instance.stockClass);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
@@ -27472,6 +28326,7 @@ WebApiModulesInventoryPartsInventoryPartsInventoryDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -27526,6 +28381,7 @@ Map<String, dynamic>
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -29050,6 +29906,7 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           monthlyRate: (json['MonthlyRate'] as num?)?.toDouble(),
           unitValue: (json['UnitValue'] as num?)?.toDouble(),
           replacementCost: (json['ReplacementCost'] as num?)?.toDouble(),
+          sourceId: json['SourceId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           inventoryType: json['InventoryType'] as String?,
@@ -29198,6 +30055,7 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           wardrobeDetailedDescription:
               json['WardrobeDetailedDescription'] as String?,
           webDetailedDescription: json['WebDetailedDescription'] as String?,
+          technicalNotes: json['TechnicalNotes'] as String?,
           overrideSystemDefaultRevenueAllocationBehavior:
               json['OverrideSystemDefaultRevenueAllocationBehavior'] as bool?,
           allocateRevenueForAccessories:
@@ -29219,6 +30077,8 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           taxable: json['Taxable'] as bool?,
+          dateOfLastPhysicalInventory:
+              json['DateOfLastPhysicalInventory'] as String?,
           iCode: json['ICode'] as String?,
           description: json['Description'] as String?,
           availFor: json['AvailFor'] as String?,
@@ -29312,6 +30172,9 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           originalShowId: json['OriginalShowId'] as String?,
           inputDate: json['InputDate'] as String?,
           inputByUsersId: json['InputByUsersId'] as String?,
+          category2: json['Category2'] as String?,
+          class2: json['Class2'] as String?,
+          stockClass: json['StockClass'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
@@ -29373,6 +30236,7 @@ Map<String, dynamic>
   writeNotNull('MonthlyRate', instance.monthlyRate);
   writeNotNull('UnitValue', instance.unitValue);
   writeNotNull('ReplacementCost', instance.replacementCost);
+  writeNotNull('SourceId', instance.sourceId);
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('InventoryTypeId', instance.inventoryTypeId);
   writeNotNull('InventoryType', instance.inventoryType);
@@ -29521,6 +30385,7 @@ Map<String, dynamic>
   writeNotNull(
       'WardrobeDetailedDescription', instance.wardrobeDetailedDescription);
   writeNotNull('WebDetailedDescription', instance.webDetailedDescription);
+  writeNotNull('TechnicalNotes', instance.technicalNotes);
   writeNotNull('OverrideSystemDefaultRevenueAllocationBehavior',
       instance.overrideSystemDefaultRevenueAllocationBehavior);
   writeNotNull(
@@ -29541,6 +30406,8 @@ Map<String, dynamic>
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('Taxable', instance.taxable);
+  writeNotNull(
+      'DateOfLastPhysicalInventory', instance.dateOfLastPhysicalInventory);
   writeNotNull('ICode', instance.iCode);
   writeNotNull('Description', instance.description);
   writeNotNull('AvailFor', instance.availFor);
@@ -29631,6 +30498,9 @@ Map<String, dynamic>
   writeNotNull('OriginalShowId', instance.originalShowId);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
+  writeNotNull('Category2', instance.category2);
+  writeNotNull('Class2', instance.class2);
+  writeNotNull('StockClass', instance.stockClass);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
@@ -29673,6 +30543,7 @@ WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponse
           monthlyRate: (json['MonthlyRate'] as num?)?.toDouble(),
           unitValue: (json['UnitValue'] as num?)?.toDouble(),
           replacementCost: (json['ReplacementCost'] as num?)?.toDouble(),
+          sourceId: json['SourceId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           inventoryType: json['InventoryType'] as String?,
@@ -29821,6 +30692,7 @@ WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponse
           wardrobeDetailedDescription:
               json['WardrobeDetailedDescription'] as String?,
           webDetailedDescription: json['WebDetailedDescription'] as String?,
+          technicalNotes: json['TechnicalNotes'] as String?,
           overrideSystemDefaultRevenueAllocationBehavior:
               json['OverrideSystemDefaultRevenueAllocationBehavior'] as bool?,
           allocateRevenueForAccessories:
@@ -29842,6 +30714,8 @@ WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponse
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           taxable: json['Taxable'] as bool?,
+          dateOfLastPhysicalInventory:
+              json['DateOfLastPhysicalInventory'] as String?,
           iCode: json['ICode'] as String?,
           description: json['Description'] as String?,
           availFor: json['AvailFor'] as String?,
@@ -29935,6 +30809,9 @@ WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponse
           originalShowId: json['OriginalShowId'] as String?,
           inputDate: json['InputDate'] as String?,
           inputByUsersId: json['InputByUsersId'] as String?,
+          category2: json['Category2'] as String?,
+          class2: json['Class2'] as String?,
+          stockClass: json['StockClass'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
@@ -30003,6 +30880,7 @@ Map<String, dynamic>
   writeNotNull('MonthlyRate', instance.monthlyRate);
   writeNotNull('UnitValue', instance.unitValue);
   writeNotNull('ReplacementCost', instance.replacementCost);
+  writeNotNull('SourceId', instance.sourceId);
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('InventoryTypeId', instance.inventoryTypeId);
   writeNotNull('InventoryType', instance.inventoryType);
@@ -30151,6 +31029,7 @@ Map<String, dynamic>
   writeNotNull(
       'WardrobeDetailedDescription', instance.wardrobeDetailedDescription);
   writeNotNull('WebDetailedDescription', instance.webDetailedDescription);
+  writeNotNull('TechnicalNotes', instance.technicalNotes);
   writeNotNull('OverrideSystemDefaultRevenueAllocationBehavior',
       instance.overrideSystemDefaultRevenueAllocationBehavior);
   writeNotNull(
@@ -30171,6 +31050,8 @@ Map<String, dynamic>
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('Taxable', instance.taxable);
+  writeNotNull(
+      'DateOfLastPhysicalInventory', instance.dateOfLastPhysicalInventory);
   writeNotNull('ICode', instance.iCode);
   writeNotNull('Description', instance.description);
   writeNotNull('AvailFor', instance.availFor);
@@ -30261,6 +31142,9 @@ Map<String, dynamic>
   writeNotNull('OriginalShowId', instance.originalShowId);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
+  writeNotNull('Category2', instance.category2);
+  writeNotNull('Class2', instance.class2);
+  writeNotNull('StockClass', instance.stockClass);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
@@ -30299,6 +31183,7 @@ WebApiModulesInventoryRentalInventoryRentalInventoryDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -30353,6 +31238,7 @@ Map<String, dynamic>
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -30438,6 +31324,138 @@ Map<String, dynamic>
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
+  return val;
+}
+
+WebApiModulesInventoryRepairCancelRepairRequest
+    _$WebApiModulesInventoryRepairCancelRepairRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesInventoryRepairCancelRepairRequest(
+          repairId: json['RepairId'] as String?,
+          contractId: json['ContractId'] as String?,
+          orderId: json['OrderId'] as String?,
+          orderItemId: json['OrderItemId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          assetId: json['AssetId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          quantity: json['Quantity'] as int?,
+        );
+
+Map<String, dynamic> _$WebApiModulesInventoryRepairCancelRepairRequestToJson(
+    WebApiModulesInventoryRepairCancelRepairRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RepairId', instance.repairId);
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('AssetId', instance.assetId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
+
+WebApiModulesInventoryRepairCancelRepairResponse
+    _$WebApiModulesInventoryRepairCancelRepairResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesInventoryRepairCancelRepairResponse(
+          repair: json['repair'] == null
+              ? null
+              : WebApiModulesInventoryRepairRepair.fromJson(
+                  json['repair'] as Map<String, dynamic>),
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesInventoryRepairCancelRepairResponseToJson(
+    WebApiModulesInventoryRepairCancelRepairResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('repair', instance.repair?.toJson());
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
+  return val;
+}
+
+WebApiModulesInventoryRepairCreateRepairRequest
+    _$WebApiModulesInventoryRepairCreateRepairRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesInventoryRepairCreateRepairRequest(
+          contractId: json['ContractId'] as String?,
+          orderId: json['OrderId'] as String?,
+          orderItemId: json['OrderItemId'] as String?,
+          assetId: json['AssetId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          quantity: json['Quantity'] as int?,
+        );
+
+Map<String, dynamic> _$WebApiModulesInventoryRepairCreateRepairRequestToJson(
+    WebApiModulesInventoryRepairCreateRepairRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('AssetId', instance.assetId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
+
+WebApiModulesInventoryRepairCreateRepairResponse
+    _$WebApiModulesInventoryRepairCreateRepairResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesInventoryRepairCreateRepairResponse(
+          repairId: json['RepairId'] as String?,
+          repair: json['repair'] == null
+              ? null
+              : WebApiModulesInventoryRepairRepair.fromJson(
+                  json['repair'] as Map<String, dynamic>),
+          status: json['status'] as int?,
+          success: json['success'] as bool?,
+          msg: json['msg'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesInventoryRepairCreateRepairResponseToJson(
+    WebApiModulesInventoryRepairCreateRepairResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RepairId', instance.repairId);
+  writeNotNull('repair', instance.repair?.toJson());
+  writeNotNull('status', instance.status);
+  writeNotNull('success', instance.success);
+  writeNotNull('msg', instance.msg);
   return val;
 }
 
@@ -30535,6 +31553,7 @@ WebApiModulesInventoryRepairRepair _$WebApiModulesInventoryRepairRepairFromJson(
       completeDate: json['CompleteDate'] as String?,
       inputDate: json['InputDate'] as String?,
       inputByUserId: json['InputByUserId'] as String?,
+      inputByUserName: json['InputByUserName'] as String?,
       repairItemStatusId: json['RepairItemStatusId'] as String?,
       repairItemStatus: json['RepairItemStatus'] as String?,
       currencyId: json['CurrencyId'] as String?,
@@ -30682,6 +31701,7 @@ Map<String, dynamic> _$WebApiModulesInventoryRepairRepairToJson(
   writeNotNull('CompleteDate', instance.completeDate);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUserId', instance.inputByUserId);
+  writeNotNull('InputByUserName', instance.inputByUserName);
   writeNotNull('RepairItemStatusId', instance.repairItemStatusId);
   writeNotNull('RepairItemStatus', instance.repairItemStatus);
   writeNotNull('CurrencyId', instance.currencyId);
@@ -30739,6 +31759,7 @@ WebApiModulesInventoryRepairRepairDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -30792,6 +31813,7 @@ Map<String, dynamic> _$WebApiModulesInventoryRepairRepairDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -31038,6 +32060,9 @@ WebApiModulesInventoryRetiredRetired
           lostPhone: json['LostPhone'] as String?,
           lostCountryId: json['LostCountryId'] as String?,
           lostCountry: json['LostCountry'] as String?,
+          soldToOrderDescription: json['SoldToOrderDescription'] as String?,
+          soldToOrderReferenceNumber:
+              json['SoldToOrderReferenceNumber'] as String?,
           soldToOrderId: json['SoldToOrderId'] as String?,
           soldToOrderItemId: json['SoldToOrderItemId'] as String?,
           soldToOrderNumber: json['SoldToOrderNumber'] as String?,
@@ -31059,6 +32084,12 @@ WebApiModulesInventoryRetiredRetired
           inventoryTypeId: json['InventoryTypeId'] as String?,
           replacementInventoryId: json['ReplacementInventoryId'] as String?,
           replacementItemId: json['ReplacementItemId'] as String?,
+          replacementItemICode: json['ReplacementItemICode'] as String?,
+          replacementItemDescription:
+              json['ReplacementItemDescription'] as String?,
+          replacementItemBarCode: json['ReplacementItemBarCode'] as String?,
+          replacementItemSerialNumber:
+              json['ReplacementItemSerialNumber'] as String?,
           changeICode: json['ChangeICode'] as bool?,
           donatedOrderId: json['DonatedOrderId'] as String?,
           donatedOrderNumber: json['DonatedOrderNumber'] as String?,
@@ -31141,6 +32172,9 @@ Map<String, dynamic> _$WebApiModulesInventoryRetiredRetiredToJson(
   writeNotNull('LostPhone', instance.lostPhone);
   writeNotNull('LostCountryId', instance.lostCountryId);
   writeNotNull('LostCountry', instance.lostCountry);
+  writeNotNull('SoldToOrderDescription', instance.soldToOrderDescription);
+  writeNotNull(
+      'SoldToOrderReferenceNumber', instance.soldToOrderReferenceNumber);
   writeNotNull('SoldToOrderId', instance.soldToOrderId);
   writeNotNull('SoldToOrderItemId', instance.soldToOrderItemId);
   writeNotNull('SoldToOrderNumber', instance.soldToOrderNumber);
@@ -31162,6 +32196,12 @@ Map<String, dynamic> _$WebApiModulesInventoryRetiredRetiredToJson(
   writeNotNull('InventoryTypeId', instance.inventoryTypeId);
   writeNotNull('ReplacementInventoryId', instance.replacementInventoryId);
   writeNotNull('ReplacementItemId', instance.replacementItemId);
+  writeNotNull('ReplacementItemICode', instance.replacementItemICode);
+  writeNotNull(
+      'ReplacementItemDescription', instance.replacementItemDescription);
+  writeNotNull('ReplacementItemBarCode', instance.replacementItemBarCode);
+  writeNotNull(
+      'ReplacementItemSerialNumber', instance.replacementItemSerialNumber);
   writeNotNull('ChangeICode', instance.changeICode);
   writeNotNull('DonatedOrderId', instance.donatedOrderId);
   writeNotNull('DonatedOrderNumber', instance.donatedOrderNumber);
@@ -31343,6 +32383,7 @@ WebApiModulesInventorySalesInventorySalesInventory
           wardrobeDetailedDescription:
               json['WardrobeDetailedDescription'] as String?,
           webDetailedDescription: json['WebDetailedDescription'] as String?,
+          technicalNotes: json['TechnicalNotes'] as String?,
           overrideSystemDefaultRevenueAllocationBehavior:
               json['OverrideSystemDefaultRevenueAllocationBehavior'] as bool?,
           allocateRevenueForAccessories:
@@ -31364,6 +32405,8 @@ WebApiModulesInventorySalesInventorySalesInventory
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           taxable: json['Taxable'] as bool?,
+          dateOfLastPhysicalInventory:
+              json['DateOfLastPhysicalInventory'] as String?,
           iCode: json['ICode'] as String?,
           description: json['Description'] as String?,
           availFor: json['AvailFor'] as String?,
@@ -31457,6 +32500,9 @@ WebApiModulesInventorySalesInventorySalesInventory
           originalShowId: json['OriginalShowId'] as String?,
           inputDate: json['InputDate'] as String?,
           inputByUsersId: json['InputByUsersId'] as String?,
+          category2: json['Category2'] as String?,
+          class2: json['Class2'] as String?,
+          stockClass: json['StockClass'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
@@ -31643,6 +32689,7 @@ Map<String, dynamic> _$WebApiModulesInventorySalesInventorySalesInventoryToJson(
   writeNotNull(
       'WardrobeDetailedDescription', instance.wardrobeDetailedDescription);
   writeNotNull('WebDetailedDescription', instance.webDetailedDescription);
+  writeNotNull('TechnicalNotes', instance.technicalNotes);
   writeNotNull('OverrideSystemDefaultRevenueAllocationBehavior',
       instance.overrideSystemDefaultRevenueAllocationBehavior);
   writeNotNull(
@@ -31663,6 +32710,8 @@ Map<String, dynamic> _$WebApiModulesInventorySalesInventorySalesInventoryToJson(
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('Taxable', instance.taxable);
+  writeNotNull(
+      'DateOfLastPhysicalInventory', instance.dateOfLastPhysicalInventory);
   writeNotNull('ICode', instance.iCode);
   writeNotNull('Description', instance.description);
   writeNotNull('AvailFor', instance.availFor);
@@ -31753,6 +32802,9 @@ Map<String, dynamic> _$WebApiModulesInventorySalesInventorySalesInventoryToJson(
   writeNotNull('OriginalShowId', instance.originalShowId);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
+  writeNotNull('Category2', instance.category2);
+  writeNotNull('Class2', instance.class2);
+  writeNotNull('StockClass', instance.stockClass);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
@@ -31789,6 +32841,7 @@ WebApiModulesInventorySalesInventorySalesInventoryDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -31843,6 +32896,7 @@ Map<String, dynamic>
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -31928,65 +32982,6 @@ Map<String, dynamic>
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
-  return val;
-}
-
-WebApiModulesSettingsDepartmentLocationDepartmentLocation
-    _$WebApiModulesSettingsDepartmentLocationDepartmentLocationFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesSettingsDepartmentLocationDepartmentLocation(
-          departmentId: json['DepartmentId'] as String?,
-          locationId: json['LocationId'] as String?,
-          department: json['Department'] as String?,
-          location: json['Location'] as String?,
-          defaultOrderTypeId: json['DefaultOrderTypeId'] as String?,
-          defaultOrderType: json['DefaultOrderType'] as String?,
-          inactive: json['Inactive'] as bool?,
-          auditNote: json['AuditNote'] as String?,
-          recordTitle: json['RecordTitle'] as String?,
-          fields: (json['_Fields'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
-                          .fromJson(e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          custom: (json['_Custom'] as List<dynamic>?)
-                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
-                      e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          defaultFieldAttributes:
-              (json['_DefaultFieldAttributes'] as List<dynamic>?)
-                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                          e as Map<String, dynamic>))
-                      .toList() ??
-                  [],
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(
-        WebApiModulesSettingsDepartmentLocationDepartmentLocation instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('LocationId', instance.locationId);
-  writeNotNull('Department', instance.department);
-  writeNotNull('Location', instance.location);
-  writeNotNull('DefaultOrderTypeId', instance.defaultOrderTypeId);
-  writeNotNull('DefaultOrderType', instance.defaultOrderType);
-  writeNotNull('Inactive', instance.inactive);
-  writeNotNull('AuditNote', instance.auditNote);
-  writeNotNull('RecordTitle', instance.recordTitle);
-  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -32144,6 +33139,7 @@ WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation
               json['AutoApplyDepletingDepositToInvoice'] as bool?,
           depositReplacmentValuePercent:
               (json['DepositReplacmentValuePercent'] as num?)?.toDouble(),
+          paymentBy: json['PaymentBy'] as String?,
           invoiceMessage: json['InvoiceMessage'] as String?,
           taxable: json['Taxable'] as bool?,
           useOrderLocationByDefault: json['UseOrderLocationByDefault'] as bool?,
@@ -32152,6 +33148,12 @@ WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation
           hoursOffset: json['HoursOffset'] as int?,
           currentServerTime: json['CurrentServerTime'] as String?,
           currentLocationTime: json['CurrentLocationTime'] as String?,
+          invoiceWithoutLineItemRateId:
+              json['InvoiceWithoutLineItemRateId'] as String?,
+          invoiceWithoutLineItemICode:
+              json['InvoiceWithoutLineItemICode'] as String?,
+          invoiceWithoutLineItemDescription:
+              json['InvoiceWithoutLineItemDescription'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
@@ -32254,6 +33256,7 @@ Map<String, dynamic>
       instance.autoApplyDepletingDepositToInvoice);
   writeNotNull(
       'DepositReplacmentValuePercent', instance.depositReplacmentValuePercent);
+  writeNotNull('PaymentBy', instance.paymentBy);
   writeNotNull('InvoiceMessage', instance.invoiceMessage);
   writeNotNull('Taxable', instance.taxable);
   writeNotNull('UseOrderLocationByDefault', instance.useOrderLocationByDefault);
@@ -32262,6 +33265,12 @@ Map<String, dynamic>
   writeNotNull('HoursOffset', instance.hoursOffset);
   writeNotNull('CurrentServerTime', instance.currentServerTime);
   writeNotNull('CurrentLocationTime', instance.currentLocationTime);
+  writeNotNull(
+      'InvoiceWithoutLineItemRateId', instance.invoiceWithoutLineItemRateId);
+  writeNotNull(
+      'InvoiceWithoutLineItemICode', instance.invoiceWithoutLineItemICode);
+  writeNotNull('InvoiceWithoutLineItemDescription',
+      instance.invoiceWithoutLineItemDescription);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
@@ -32294,7 +33303,6 @@ WebApiModulesSettingsOrderSettingsOrderTypeOrderType
               json['DetermineQuantitiesToBillBasedOn'] as String?,
           useEstimatedDatesForBilling:
               json['UseEstimatedDatesForBilling'] as bool?,
-          allowNesting: json['AllowNesting'] as bool?,
           rentalShowICode: json['RentalShowICode'] as bool?,
           rentalICodeWidth: json['RentalICodeWidth'] as int?,
           rentalShowDescription: json['RentalShowDescription'] as bool?,
@@ -32623,6 +33631,8 @@ WebApiModulesSettingsOrderSettingsOrderTypeOrderType
               json['LossAndDamageShowWarehouse'] as bool?,
           lossAndDamageShowTaxable: json['LossAndDamageShowTaxable'] as bool?,
           lossAndDamageShowNotes: json['LossAndDamageShowNotes'] as bool?,
+          lossAndDamageShowConsignor:
+              json['LossAndDamageShowConsignor'] as bool?,
           lossAndDamageDateStamp: json['LossAndDamageDateStamp'] as String?,
           addInstallationAndStrikeFee:
               json['AddInstallationAndStrikeFee'] as bool?,
@@ -32748,7 +33758,6 @@ Map<String, dynamic>
       instance.determineQuantitiesToBillBasedOn);
   writeNotNull(
       'UseEstimatedDatesForBilling', instance.useEstimatedDatesForBilling);
-  writeNotNull('AllowNesting', instance.allowNesting);
   writeNotNull('RentalShowICode', instance.rentalShowICode);
   writeNotNull('RentalICodeWidth', instance.rentalICodeWidth);
   writeNotNull('RentalShowDescription', instance.rentalShowDescription);
@@ -33077,6 +34086,8 @@ Map<String, dynamic>
       'LossAndDamageShowWarehouse', instance.lossAndDamageShowWarehouse);
   writeNotNull('LossAndDamageShowTaxable', instance.lossAndDamageShowTaxable);
   writeNotNull('LossAndDamageShowNotes', instance.lossAndDamageShowNotes);
+  writeNotNull(
+      'LossAndDamageShowConsignor', instance.lossAndDamageShowConsignor);
   writeNotNull('LossAndDamageDateStamp', instance.lossAndDamageDateStamp);
   writeNotNull(
       'AddInstallationAndStrikeFee', instance.addInstallationAndStrikeFee);
@@ -33250,8 +34261,8 @@ WebApiModulesTransfersTransferOrderTransferOrder
           hasSalesItem: json['HasSalesItem'] as bool?,
           agentId: json['AgentId'] as String?,
           agent: json['Agent'] as String?,
-          fixedAssetTransferFutureDepreciation:
-              json['FixedAssetTransferFutureDepreciation'] as bool?,
+          fixedAssetTransferOwnership:
+              json['FixedAssetTransferOwnership'] as bool?,
           relatedToOrderId: json['RelatedToOrderId'] as String?,
           relatedToOrderNumber: json['RelatedToOrderNumber'] as String?,
           officeLocationId: json['OfficeLocationId'] as String?,
@@ -33333,6 +34344,10 @@ WebApiModulesTransfersTransferOrderTransferOrder
               json['OutDeliveryBillPoFreightOnOrder'] as bool?,
           outDeliveryOnlineOrderNumber:
               json['OutDeliveryOnlineOrderNumber'] as String?,
+          outDeliveryWarehouseId: json['OutDeliveryWarehouseId'] as String?,
+          outDeliveryWarehouse: json['OutDeliveryWarehouse'] as String?,
+          outDeliveryVenueId: json['OutDeliveryVenueId'] as String?,
+          outDeliveryVenue: json['OutDeliveryVenue'] as String?,
           outDeliveryDateStamp: json['OutDeliveryDateStamp'] as String?,
           inDeliveryId: json['InDeliveryId'] as String?,
           inDeliveryDeliveryType: json['InDeliveryDeliveryType'] as String?,
@@ -33402,6 +34417,10 @@ WebApiModulesTransfersTransferOrderTransferOrder
           inDeliveryOnlineOrderStatus:
               json['InDeliveryOnlineOrderStatus'] as String?,
           inDeliveryDateStamp: json['InDeliveryDateStamp'] as String?,
+          stagedQty: (json['StagedQty'] as num?)?.toDouble(),
+          outQty: (json['OutQty'] as num?)?.toDouble(),
+          inQty: (json['InQty'] as num?)?.toDouble(),
+          orderedQuantity: (json['OrderedQuantity'] as num?)?.toDouble(),
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -33454,8 +34473,8 @@ Map<String, dynamic> _$WebApiModulesTransfersTransferOrderTransferOrderToJson(
   writeNotNull('HasSalesItem', instance.hasSalesItem);
   writeNotNull('AgentId', instance.agentId);
   writeNotNull('Agent', instance.agent);
-  writeNotNull('FixedAssetTransferFutureDepreciation',
-      instance.fixedAssetTransferFutureDepreciation);
+  writeNotNull(
+      'FixedAssetTransferOwnership', instance.fixedAssetTransferOwnership);
   writeNotNull('RelatedToOrderId', instance.relatedToOrderId);
   writeNotNull('RelatedToOrderNumber', instance.relatedToOrderNumber);
   writeNotNull('OfficeLocationId', instance.officeLocationId);
@@ -33532,6 +34551,10 @@ Map<String, dynamic> _$WebApiModulesTransfersTransferOrderTransferOrderToJson(
       instance.outDeliveryBillPoFreightOnOrder);
   writeNotNull(
       'OutDeliveryOnlineOrderNumber', instance.outDeliveryOnlineOrderNumber);
+  writeNotNull('OutDeliveryWarehouseId', instance.outDeliveryWarehouseId);
+  writeNotNull('OutDeliveryWarehouse', instance.outDeliveryWarehouse);
+  writeNotNull('OutDeliveryVenueId', instance.outDeliveryVenueId);
+  writeNotNull('OutDeliveryVenue', instance.outDeliveryVenue);
   writeNotNull('OutDeliveryDateStamp', instance.outDeliveryDateStamp);
   writeNotNull('InDeliveryId', instance.inDeliveryId);
   writeNotNull('InDeliveryDeliveryType', instance.inDeliveryDeliveryType);
@@ -33600,7 +34623,85 @@ Map<String, dynamic> _$WebApiModulesTransfersTransferOrderTransferOrderToJson(
   writeNotNull(
       'InDeliveryOnlineOrderStatus', instance.inDeliveryOnlineOrderStatus);
   writeNotNull('InDeliveryDateStamp', instance.inDeliveryDateStamp);
+  writeNotNull('StagedQty', instance.stagedQty);
+  writeNotNull('OutQty', instance.outQty);
+  writeNotNull('InQty', instance.inQty);
+  writeNotNull('OrderedQuantity', instance.orderedQuantity);
   writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesUtilitiesGLDistributionGLDistribution
+    _$WebApiModulesUtilitiesGLDistributionGLDistributionFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesUtilitiesGLDistributionGLDistribution(
+          date: json['Date'] as String?,
+          glAccountNo: json['GlAccountNo'] as String?,
+          glAccountDescription: json['GlAccountDescription'] as String?,
+          debit: (json['Debit'] as num?)?.toDouble(),
+          credit: (json['Credit'] as num?)?.toDouble(),
+          glAccountId: json['GlAccountId'] as String?,
+          groupHeading: json['GroupHeading'] as String?,
+          orderBy: json['OrderBy'] as int?,
+          groupHeadingOrder: json['GroupHeadingOrder'] as int?,
+          currencyId: json['CurrencyId'] as String?,
+          currencyCode: json['CurrencyCode'] as String?,
+          currency: json['Currency'] as String?,
+          currencySymbol: json['CurrencySymbol'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          officeLocation: json['OfficeLocation'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
+
+Map<String, dynamic> _$WebApiModulesUtilitiesGLDistributionGLDistributionToJson(
+    WebApiModulesUtilitiesGLDistributionGLDistribution instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Date', instance.date);
+  writeNotNull('GlAccountNo', instance.glAccountNo);
+  writeNotNull('GlAccountDescription', instance.glAccountDescription);
+  writeNotNull('Debit', instance.debit);
+  writeNotNull('Credit', instance.credit);
+  writeNotNull('GlAccountId', instance.glAccountId);
+  writeNotNull('GroupHeading', instance.groupHeading);
+  writeNotNull('OrderBy', instance.orderBy);
+  writeNotNull('GroupHeadingOrder', instance.groupHeadingOrder);
+  writeNotNull('CurrencyId', instance.currencyId);
+  writeNotNull('CurrencyCode', instance.currencyCode);
+  writeNotNull('Currency', instance.currency);
+  writeNotNull('CurrencySymbol', instance.currencySymbol);
+  writeNotNull('OfficeLocationId', instance.officeLocationId);
+  writeNotNull('OfficeLocation', instance.officeLocation);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
@@ -33664,10 +34765,668 @@ Map<String, dynamic>
   return val;
 }
 
-WebApiModulesWarehouseCheckInCancelCheckInItemRequest
-    _$WebApiModulesWarehouseCheckInCancelCheckInItemRequestFromJson(
+WebApiModulesWarehouseCheckInCheckInAddOrder
+    _$WebApiModulesWarehouseCheckInCheckInAddOrderFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInCancelCheckInItemRequest(
+        WebApiModulesWarehouseCheckInCheckInAddOrder(
+          session: json['Session'] == null
+              ? null
+              : WebApiModulesWarehouseCheckInCheckInSession.fromJson(
+                  json['Session'] as Map<String, dynamic>),
+          forceNewSession: json['ForceNewSession'] as bool?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInAddOrderToJson(
+    WebApiModulesWarehouseCheckInCheckInAddOrder instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Session', instance.session?.toJson());
+  writeNotNull('ForceNewSession', instance.forceNewSession);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInAddOrderResponse
+    _$WebApiModulesWarehouseCheckInCheckInAddOrderResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInAddOrderResponse(
+          sessionInfo: json['SessionInfo'] == null
+              ? null
+              : WebApiModulesWarehouseCheckInCheckInSessionInfo.fromJson(
+                  json['SessionInfo'] as Map<String, dynamic>),
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+          orders: (json['Orders'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInCheckInOrder.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          suspendedSessions: (json['SuspendedSessions'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInSuspendedSession.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInCheckInAddOrderResponseToJson(
+        WebApiModulesWarehouseCheckInCheckInAddOrderResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionInfo', instance.sessionInfo?.toJson());
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  writeNotNull('Orders', instance.orders?.map((e) => e.toJson()).toList());
+  writeNotNull('SuspendedSessions',
+      instance.suspendedSessions?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInItem
+    _$WebApiModulesWarehouseCheckInCheckInItemFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInItem(
+          addOrderToContract: json['AddOrderToContract'] as bool?,
+          aisle: json['Aisle'] as String?,
+          availFromDateTime: json['AvailFromDateTime'] as String?,
+          availToDateTime: json['AvailToDateTime'] as String?,
+          barcode: json['Barcode'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          canSwap: json['CanSwap'] as bool?,
+          containerNo: json['ContainerNo'] as String?,
+          contractType: json['ContractType'] as String?,
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          description: json['Description'] as String?,
+          doSwap: json['DoSwap'] as bool?,
+          exchangeContractId: json['ExchangeContractId'] as String?,
+          errorNumber: json['ErrorNumber'] as int?,
+          errorMessage: json['ErrorMessage'] as String?,
+          facilitiesTypeId: json['FacilitiesTypeId'] as String?,
+          hasMultipleContainers: json['HasMultipleContainers'] as String?,
+          itemClass: json['ItemClass'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          isBarcode: json['IsBarcode'] as bool?,
+          isContainer: json['IsContainer'] as bool?,
+          itemInContainer: json['ItemInContainer'] as bool?,
+          internalChar: json['InternalChar'] as String?,
+          location: json['Location'] as String?,
+          moduleType: json['ModuleType'] as String?,
+          masterId: json['MasterId'] as String?,
+          message: json['Message'] as String?,
+          iCode: json['ICode'] as String?,
+          newOrder: json['NewOrder'] as bool?,
+          nestedMasteritemId: json['NestedMasteritemId'] as String?,
+          newContainerInstantiated: json['NewContainerInstantiated'] as bool?,
+          orderTranId: json['OrderTranId'] as int?,
+          outOrderId: json['OutOrderId'] as String?,
+          orderNo: json['OrderNo'] as String?,
+          orderId: json['OrderId'] as String?,
+          orderItemId: json['OrderItemId'] as String?,
+          orderBy: json['OrderBy'] as String?,
+          packageId: json['PackageId'] as String?,
+          parentId: json['ParentId'] as String?,
+          pendingRepairId: json['PendingRepairId'] as String?,
+          pendingOrderId: json['PendingOrderId'] as String?,
+          pendingMasterItemId: json['PendingMasterItemId'] as String?,
+          pONo: json['PONo'] as String?,
+          pending: json['Pending'] as bool?,
+          pOId: json['POId'] as String?,
+          qcRequired: json['QcRequired'] as bool?,
+          quantity: json['Quantity'] as int?,
+          quikinContractId: json['QuikinContractId'] as String?,
+          quikinItemId: json['QuikinItemId'] as int?,
+          quikinInternalChar: json['QuikinInternalChar'] as String?,
+          quantityOrdered: json['QuantityOrdered'] as String?,
+          rentalItemId: json['RentalItemId'] as String?,
+          inQuantity: json['InQuantity'] as String?,
+          scannableMasterId: json['ScannableMasterId'] as String?,
+          shelf: json['Shelf'] as String?,
+          spaceId: json['SpaceId'] as String?,
+          spaceTypeId: json['SpaceTypeId'] as String?,
+          spaceLocation: json['SpaceLocation'] as String?,
+          stillOut: json['StillOut'] as String?,
+          status: json['Status'] as int?,
+          statusType: json['StatusType'] as String?,
+          swapItem: json['SwapItem'] as bool?,
+          subQuantity: json['SubQuantity'] as String?,
+          totalIn: json['TotalIn'] as String?,
+          tranType: json['TranType'] as String?,
+          trackedBy: json['TrackedBy'] as String?,
+          useContainerNo: json['UseContainerNo'] as bool?,
+          unretireSalesItem: json['UnretireSalesItem'] as bool?,
+          vendorId: json['VendorId'] as String?,
+          vendor: json['Vendor'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          wHCode: json['WHCode'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInItemToJson(
+    WebApiModulesWarehouseCheckInCheckInItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AddOrderToContract', instance.addOrderToContract);
+  writeNotNull('Aisle', instance.aisle);
+  writeNotNull('AvailFromDateTime', instance.availFromDateTime);
+  writeNotNull('AvailToDateTime', instance.availToDateTime);
+  writeNotNull('Barcode', instance.barcode);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('CanSwap', instance.canSwap);
+  writeNotNull('ContainerNo', instance.containerNo);
+  writeNotNull('ContractType', instance.contractType);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('DoSwap', instance.doSwap);
+  writeNotNull('ExchangeContractId', instance.exchangeContractId);
+  writeNotNull('ErrorNumber', instance.errorNumber);
+  writeNotNull('ErrorMessage', instance.errorMessage);
+  writeNotNull('FacilitiesTypeId', instance.facilitiesTypeId);
+  writeNotNull('HasMultipleContainers', instance.hasMultipleContainers);
+  writeNotNull('ItemClass', instance.itemClass);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('IsBarcode', instance.isBarcode);
+  writeNotNull('IsContainer', instance.isContainer);
+  writeNotNull('ItemInContainer', instance.itemInContainer);
+  writeNotNull('InternalChar', instance.internalChar);
+  writeNotNull('Location', instance.location);
+  writeNotNull('ModuleType', instance.moduleType);
+  writeNotNull('MasterId', instance.masterId);
+  writeNotNull('Message', instance.message);
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('NewOrder', instance.newOrder);
+  writeNotNull('NestedMasteritemId', instance.nestedMasteritemId);
+  writeNotNull('NewContainerInstantiated', instance.newContainerInstantiated);
+  writeNotNull('OrderTranId', instance.orderTranId);
+  writeNotNull('OutOrderId', instance.outOrderId);
+  writeNotNull('OrderNo', instance.orderNo);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('OrderBy', instance.orderBy);
+  writeNotNull('PackageId', instance.packageId);
+  writeNotNull('ParentId', instance.parentId);
+  writeNotNull('PendingRepairId', instance.pendingRepairId);
+  writeNotNull('PendingOrderId', instance.pendingOrderId);
+  writeNotNull('PendingMasterItemId', instance.pendingMasterItemId);
+  writeNotNull('PONo', instance.pONo);
+  writeNotNull('Pending', instance.pending);
+  writeNotNull('POId', instance.pOId);
+  writeNotNull('QcRequired', instance.qcRequired);
+  writeNotNull('Quantity', instance.quantity);
+  writeNotNull('QuikinContractId', instance.quikinContractId);
+  writeNotNull('QuikinItemId', instance.quikinItemId);
+  writeNotNull('QuikinInternalChar', instance.quikinInternalChar);
+  writeNotNull('QuantityOrdered', instance.quantityOrdered);
+  writeNotNull('RentalItemId', instance.rentalItemId);
+  writeNotNull('InQuantity', instance.inQuantity);
+  writeNotNull('ScannableMasterId', instance.scannableMasterId);
+  writeNotNull('Shelf', instance.shelf);
+  writeNotNull('SpaceId', instance.spaceId);
+  writeNotNull('SpaceTypeId', instance.spaceTypeId);
+  writeNotNull('SpaceLocation', instance.spaceLocation);
+  writeNotNull('StillOut', instance.stillOut);
+  writeNotNull('Status', instance.status);
+  writeNotNull('StatusType', instance.statusType);
+  writeNotNull('SwapItem', instance.swapItem);
+  writeNotNull('SubQuantity', instance.subQuantity);
+  writeNotNull('TotalIn', instance.totalIn);
+  writeNotNull('TranType', instance.tranType);
+  writeNotNull('TrackedBy', instance.trackedBy);
+  writeNotNull('UseContainerNo', instance.useContainerNo);
+  writeNotNull('UnretireSalesItem', instance.unretireSalesItem);
+  writeNotNull('VendorId', instance.vendorId);
+  writeNotNull('Vendor', instance.vendor);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('WHCode', instance.wHCode);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInItemsRequest
+    _$WebApiModulesWarehouseCheckInCheckInItemsRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInItemsRequest(
+          contractId: json['ContractId'] as String?,
+          containerId: json['ContainerId'] as String?,
+          containerItemId: json['ContainerItemId'] as String?,
+          containerOutContractId: json['ContainerOutContractId'] as String?,
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          locationId: json['LocationId'] as String?,
+          moduleType: json['ModuleType'] as String?,
+          contractType: json['ContractType'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          forceNewSession: json['ForceNewSession'] as bool?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInCheckInItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInItemsRequestToJson(
+    WebApiModulesWarehouseCheckInCheckInItemsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('ContainerId', instance.containerId);
+  writeNotNull('ContainerItemId', instance.containerItemId);
+  writeNotNull('ContainerOutContractId', instance.containerOutContractId);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('ModuleType', instance.moduleType);
+  writeNotNull('ContractType', instance.contractType);
+  writeNotNull('UserWarehouseId', instance.userWarehouseId);
+  writeNotNull('ForceNewSession', instance.forceNewSession);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInItemsResponse
+    _$WebApiModulesWarehouseCheckInCheckInItemsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInItemsResponse(
+          sessionInfo: json['SessionInfo'] == null
+              ? null
+              : WebApiModulesWarehouseCheckInCheckInSessionInfo.fromJson(
+                  json['SessionInfo'] as Map<String, dynamic>),
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+          forceNewSession: json['ForceNewSession'] as bool?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInCheckInItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          orders: json['Orders'] == null
+              ? null
+              : WebApiModulesWarehouseCheckInCheckInAddOrderResponse.fromJson(
+                  json['Orders'] as Map<String, dynamic>),
+          suspendedSessions: (json['SuspendedSessions'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInSuspendedSession.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInItemsResponseToJson(
+    WebApiModulesWarehouseCheckInCheckInItemsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('SessionInfo', instance.sessionInfo?.toJson());
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  writeNotNull('ForceNewSession', instance.forceNewSession);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('Orders', instance.orders?.toJson());
+  writeNotNull('SuspendedSessions',
+      instance.suspendedSessions?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInOrder
+    _$WebApiModulesWarehouseCheckInCheckInOrderFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInOrder(
+          orderId: json['OrderId'] as String?,
+          orderNo: json['OrderNo'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          priority: json['Priority'] as int?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInOrderToJson(
+    WebApiModulesWarehouseCheckInCheckInOrder instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderNo', instance.orderNo);
+  writeNotNull('OrderDescription', instance.orderDescription);
+  writeNotNull('Priority', instance.priority);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInOrdersResponse
+    _$WebApiModulesWarehouseCheckInCheckInOrdersResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInOrdersResponse(
+          orders: (json['Orders'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInCheckInOrder.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInOrdersResponseToJson(
+    WebApiModulesWarehouseCheckInCheckInOrdersResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Orders', instance.orders?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInRemoveOrderRequest
+    _$WebApiModulesWarehouseCheckInCheckInRemoveOrderRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInRemoveOrderRequest(
+          contractId: json['ContractId'] as String?,
+          orderId: json['OrderId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInCheckInRemoveOrderRequestToJson(
+        WebApiModulesWarehouseCheckInCheckInRemoveOrderRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('OrderId', instance.orderId);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInRemoveOrderResponse
+    _$WebApiModulesWarehouseCheckInCheckInRemoveOrderResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInRemoveOrderResponse(
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+          orders: (json['Orders'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInCheckInOrder.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInCheckInRemoveOrderResponseToJson(
+        WebApiModulesWarehouseCheckInCheckInRemoveOrderResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  writeNotNull('Orders', instance.orders?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInSession
+    _$WebApiModulesWarehouseCheckInCheckInSessionFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInSession(
+          contractId: json['ContractId'] as String?,
+          contractType: json['ContractType'] as String?,
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          locationId: json['LocationId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          moduleType: json['ModuleType'] as String?,
+          orderIds: (json['OrderIds'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInSessionToJson(
+    WebApiModulesWarehouseCheckInCheckInSession instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('ContractType', instance.contractType);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('ModuleType', instance.moduleType);
+  writeNotNull('OrderIds', instance.orderIds);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInCheckInSessionInfo
+    _$WebApiModulesWarehouseCheckInCheckInSessionInfoFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInCheckInSessionInfo(
+          contractId: json['ContractId'] as String?,
+          sessionNumber: json['SessionNumber'] as int?,
+          dealId: json['DealId'] as String?,
+          deal: json['Deal'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          department: json['Department'] as String?,
+          hasSales: json['HasSales'] as bool?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInSessionInfoToJson(
+    WebApiModulesWarehouseCheckInCheckInSessionInfo instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('SessionNumber', instance.sessionNumber);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('Deal', instance.deal);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('Department', instance.department);
+  writeNotNull('HasSales', instance.hasSales);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInLoadSerialNumbersResponse
+    _$WebApiModulesWarehouseCheckInLoadSerialNumbersResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInLoadSerialNumbersResponse(
+          serialNumbers: (json['SerialNumbers'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInSerialNumbers.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInLoadSerialNumbersResponseToJson(
+        WebApiModulesWarehouseCheckInLoadSerialNumbersResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'SerialNumbers', instance.serialNumbers?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInQuikInItem
+    _$WebApiModulesWarehouseCheckInQuikInItemFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInQuikInItem(
+          barcode: json['Barcode'] as String?,
+          iCode: json['ICode'] as String?,
+          description: json['Description'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          assetId: json['AssetId'] as String?,
+          itemClass: json['ItemClass'] as String?,
+          packageId: json['PackageId'] as String?,
+          packageItemId: json['PackageItemId'] as String?,
+          orderBy: json['OrderBy'] as String?,
+          vendorId: json['VendorId'] as String?,
+          nestedMasterItemId: json['NestedMasterItemId'] as String?,
+          quantity: json['Quantity'] as int?,
+          quikInItemId: json['QuikInItemId'] as int?,
+          internalChar: json['InternalChar'] as String?,
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInQuikInItemToJson(
+    WebApiModulesWarehouseCheckInQuikInItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Barcode', instance.barcode);
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('Description', instance.description);
+  writeNotNull('InventoryId', instance.inventoryId);
+  writeNotNull('AssetId', instance.assetId);
+  writeNotNull('ItemClass', instance.itemClass);
+  writeNotNull('PackageId', instance.packageId);
+  writeNotNull('PackageItemId', instance.packageItemId);
+  writeNotNull('OrderBy', instance.orderBy);
+  writeNotNull('VendorId', instance.vendorId);
+  writeNotNull('NestedMasterItemId', instance.nestedMasterItemId);
+  writeNotNull('Quantity', instance.quantity);
+  writeNotNull('QuikInItemId', instance.quikInItemId);
+  writeNotNull('InternalChar', instance.internalChar);
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInQuikInItemsRequest
+    _$WebApiModulesWarehouseCheckInQuikInItemsRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInQuikInItemsRequest(
+          contractId: json['ContractId'] as String?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesWarehouseCheckInQuikInItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInQuikInItemsRequestToJson(
+    WebApiModulesWarehouseCheckInQuikInItemsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInQuikInItemsResponse
+    _$WebApiModulesWarehouseCheckInQuikInItemsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInQuikInItemsResponse(
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+          success: json['Success'] as bool?,
+          successes: (json['Successes'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesWarehouseCheckInQuikInItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          errors: (json['Errors'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesWarehouseCheckInQuikInItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInQuikInItemsResponseToJson(
+    WebApiModulesWarehouseCheckInQuikInItemsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  writeNotNull('Success', instance.success);
+  writeNotNull(
+      'Successes', instance.successes?.map((e) => e.toJson()).toList());
+  writeNotNull('Errors', instance.errors?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInSelectedItemRequest
+    _$WebApiModulesWarehouseCheckInSelectedItemRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInSelectedItemRequest(
           orderTranId: json['OrderTranId'] as int?,
           internalChar: json['InternalChar'] as String?,
           contractId: json['ContractId'] as String?,
@@ -33676,12 +35435,17 @@ WebApiModulesWarehouseCheckInCancelCheckInItemRequest
           inventoryId: json['InventoryId'] as String?,
           vendorId: json['VendorId'] as String?,
           description: json['Description'] as String?,
+          quantityIn: json['QuantityIn'] as int?,
+          quantityInRepair: json['QuantityInRepair'] as int?,
           quantity: json['Quantity'] as int?,
+          assetId: json['AssetId'] as String?,
+          consignorId: json['ConsignorId'] as String?,
+          consignorAgreementId: json['ConsignorAgreementId'] as String?,
+          repairId: json['RepairId'] as String?,
         );
 
-Map<String, dynamic>
-    _$WebApiModulesWarehouseCheckInCancelCheckInItemRequestToJson(
-        WebApiModulesWarehouseCheckInCancelCheckInItemRequest instance) {
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSelectedItemRequestToJson(
+    WebApiModulesWarehouseCheckInSelectedItemRequest instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33698,22 +35462,27 @@ Map<String, dynamic>
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('VendorId', instance.vendorId);
   writeNotNull('Description', instance.description);
+  writeNotNull('QuantityIn', instance.quantityIn);
+  writeNotNull('QuantityInRepair', instance.quantityInRepair);
   writeNotNull('Quantity', instance.quantity);
+  writeNotNull('AssetId', instance.assetId);
+  writeNotNull('ConsignorId', instance.consignorId);
+  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
+  writeNotNull('RepairId', instance.repairId);
   return val;
 }
 
-WebApiModulesWarehouseCheckInCancelCheckInItemResponse
-    _$WebApiModulesWarehouseCheckInCancelCheckInItemResponseFromJson(
+WebApiModulesWarehouseCheckInSelectedItemResponse
+    _$WebApiModulesWarehouseCheckInSelectedItemResponseFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInCancelCheckInItemResponse(
-          status: json['status'] as int?,
-          success: json['success'] as bool?,
-          msg: json['msg'] as String?,
+        WebApiModulesWarehouseCheckInSelectedItemResponse(
+          description: json['Description'] as String?,
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
         );
 
-Map<String, dynamic>
-    _$WebApiModulesWarehouseCheckInCancelCheckInItemResponseToJson(
-        WebApiModulesWarehouseCheckInCancelCheckInItemResponse instance) {
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSelectedItemResponseToJson(
+    WebApiModulesWarehouseCheckInSelectedItemResponse instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33722,26 +35491,26 @@ Map<String, dynamic>
     }
   }
 
-  writeNotNull('status', instance.status);
-  writeNotNull('success', instance.success);
-  writeNotNull('msg', instance.msg);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
   return val;
 }
 
-WebApiModulesWarehouseCheckInCheckInContractRequest
-    _$WebApiModulesWarehouseCheckInCheckInContractRequestFromJson(
+WebApiModulesWarehouseCheckInSelectedItemsRequest
+    _$WebApiModulesWarehouseCheckInSelectedItemsRequestFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInCheckInContractRequest(
-          orderId: json['OrderId'] as String?,
-          dealId: json['DealId'] as String?,
-          departmentId: json['DepartmentId'] as String?,
-          officeLocationId: json['OfficeLocationId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+        WebApiModulesWarehouseCheckInSelectedItemsRequest(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInSelectedItemRequest.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
-Map<String, dynamic>
-    _$WebApiModulesWarehouseCheckInCheckInContractRequestToJson(
-        WebApiModulesWarehouseCheckInCheckInContractRequest instance) {
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSelectedItemsRequestToJson(
+    WebApiModulesWarehouseCheckInSelectedItemsRequest instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33750,24 +35519,24 @@ Map<String, dynamic>
     }
   }
 
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
   return val;
 }
 
-WebApiModulesWarehouseCheckInCheckInContractResponse
-    _$WebApiModulesWarehouseCheckInCheckInContractResponseFromJson(
+WebApiModulesWarehouseCheckInSelectedItemsResponse
+    _$WebApiModulesWarehouseCheckInSelectedItemsResponseFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInCheckInContractResponse(
-          contractId: json['ContractId'] as String?,
+        WebApiModulesWarehouseCheckInSelectedItemsResponse(
+          success: json['Success'] as bool?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesWarehouseCheckInSelectedItemResponse
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
-Map<String, dynamic>
-    _$WebApiModulesWarehouseCheckInCheckInContractResponseToJson(
-        WebApiModulesWarehouseCheckInCheckInContractResponse instance) {
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSelectedItemsResponseToJson(
+    WebApiModulesWarehouseCheckInSelectedItemsResponse instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33776,28 +35545,31 @@ Map<String, dynamic>
     }
   }
 
-  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('Success', instance.success);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
   return val;
 }
 
-WebApiModulesWarehouseCheckInCheckInItemRequest
-    _$WebApiModulesWarehouseCheckInCheckInItemRequestFromJson(
+WebApiModulesWarehouseCheckInSerialNumbers
+    _$WebApiModulesWarehouseCheckInSerialNumbersFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInCheckInItemRequest(
-          moduleType: json['ModuleType'] as String?,
-          contractId: json['ContractId'] as String?,
-          code: json['Code'] as String?,
+        WebApiModulesWarehouseCheckInSerialNumbers(
+          serialNumber: json['SerialNumber'] as String?,
+          itemStatus: json['ItemStatus'] as String?,
+          inSession: json['InSession'] as bool?,
+          qCRequired: json['QCRequired'] as bool?,
+          orderTranId: json['OrderTranId'] as int?,
+          internalChar: json['InternalChar'] as String?,
           orderId: json['OrderId'] as String?,
           orderItemId: json['OrderItemId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
           vendorId: json['VendorId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          description: json['Description'] as String?,
           quantity: json['Quantity'] as int?,
-          addOrderToContract: json['AddOrderToContract'] as bool?,
-          swapItem: json['SwapItem'] as bool?,
         );
 
-Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInItemRequestToJson(
-    WebApiModulesWarehouseCheckInCheckInItemRequest instance) {
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSerialNumbersToJson(
+    WebApiModulesWarehouseCheckInSerialNumbers instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33806,57 +35578,112 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInItemRequestToJson(
     }
   }
 
-  writeNotNull('ModuleType', instance.moduleType);
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('Code', instance.code);
+  writeNotNull('SerialNumber', instance.serialNumber);
+  writeNotNull('ItemStatus', instance.itemStatus);
+  writeNotNull('InSession', instance.inSession);
+  writeNotNull('QCRequired', instance.qCRequired);
+  writeNotNull('OrderTranId', instance.orderTranId);
+  writeNotNull('InternalChar', instance.internalChar);
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('Description', instance.description);
   writeNotNull('Quantity', instance.quantity);
-  writeNotNull('AddOrderToContract', instance.addOrderToContract);
-  writeNotNull('SwapItem', instance.swapItem);
   return val;
 }
 
-WebApiModulesWarehouseCheckInHasQuikReceiptRequest
-    _$WebApiModulesWarehouseCheckInHasQuikReceiptRequestFromJson(
+WebApiModulesWarehouseCheckInSessionSettingsResponse
+    _$WebApiModulesWarehouseCheckInSessionSettingsResponseFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInHasQuikReceiptRequest(
-          contractId: json['ContractId'] as String?,
-        );
-
-Map<String, dynamic> _$WebApiModulesWarehouseCheckInHasQuikReceiptRequestToJson(
-    WebApiModulesWarehouseCheckInHasQuikReceiptRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  return val;
-}
-
-WebApiModulesWarehouseCheckInOrderInventoryStatusCheckIn
-    _$WebApiModulesWarehouseCheckInOrderInventoryStatusCheckInFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInOrderInventoryStatusCheckIn(
-          iCode: json['ICode'] as String?,
-          description: json['Description'] as String?,
-          quantityOrdered: json['QuantityOrdered'] as int?,
-          quantitySub: json['QuantitySub'] as int?,
-          quantityStaged: json['QuantityStaged'] as int?,
-          quantityOut: json['QuantityOut'] as int?,
-          quantityIn: json['QuantityIn'] as int?,
-          quantityRemaining: json['QuantityRemaining'] as int?,
+        WebApiModulesWarehouseCheckInSessionSettingsResponse(
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          locationId: json['LocationId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          hasPendingExchange: json['HasPendingExchange'] as bool?,
+          hasException: json['HasException'] as bool?,
+          orders: (json['Orders'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInCheckInOrder.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
-    _$WebApiModulesWarehouseCheckInOrderInventoryStatusCheckInToJson(
-        WebApiModulesWarehouseCheckInOrderInventoryStatusCheckIn instance) {
+    _$WebApiModulesWarehouseCheckInSessionSettingsResponseToJson(
+        WebApiModulesWarehouseCheckInSessionSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('HasPendingExchange', instance.hasPendingExchange);
+  writeNotNull('HasException', instance.hasException);
+  writeNotNull('Orders', instance.orders?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInSuspendedSession
+    _$WebApiModulesWarehouseCheckInSuspendedSessionFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInSuspendedSession(
+          contractId: json['ContractId'] as String?,
+          date: json['Date'] as String?,
+          time: json['Time'] as String?,
+          sessionNumber: json['SessionNumber'] as int?,
+          dealVendor: json['DealVendor'] as String?,
+          orderNumber: json['OrderNumber'] as String?,
+          description: json['Description'] as String?,
+          user: json['User'] as String?,
+          status: json['Status'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSuspendedSessionToJson(
+    WebApiModulesWarehouseCheckInSuspendedSession instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('Date', instance.date);
+  writeNotNull('Time', instance.time);
+  writeNotNull('SessionNumber', instance.sessionNumber);
+  writeNotNull('DealVendor', instance.dealVendor);
+  writeNotNull('OrderNumber', instance.orderNumber);
+  writeNotNull('Description', instance.description);
+  writeNotNull('User', instance.user);
+  writeNotNull('Status', instance.status);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInSwapItem
+    _$WebApiModulesWarehouseCheckInSwapItemFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInSwapItem(
+          iCode: json['ICode'] as String?,
+          description: json['Description'] as String?,
+          inBarcode: json['InBarcode'] as String?,
+          inOrder: json['InOrder'] as String?,
+          swappedWithBarcode: json['SwappedWithBarcode'] as String?,
+          swappedWithOrder: json['SwappedWithOrder'] as String?,
+          scannedBy: json['ScannedBy'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSwapItemToJson(
+    WebApiModulesWarehouseCheckInSwapItem instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33867,45 +35694,51 @@ Map<String, dynamic>
 
   writeNotNull('ICode', instance.iCode);
   writeNotNull('Description', instance.description);
-  writeNotNull('QuantityOrdered', instance.quantityOrdered);
-  writeNotNull('QuantitySub', instance.quantitySub);
-  writeNotNull('QuantityStaged', instance.quantityStaged);
-  writeNotNull('QuantityOut', instance.quantityOut);
-  writeNotNull('QuantityIn', instance.quantityIn);
-  writeNotNull('QuantityRemaining', instance.quantityRemaining);
+  writeNotNull('InBarcode', instance.inBarcode);
+  writeNotNull('InOrder', instance.inOrder);
+  writeNotNull('SwappedWithBarcode', instance.swappedWithBarcode);
+  writeNotNull('SwappedWithOrder', instance.swappedWithOrder);
+  writeNotNull('ScannedBy', instance.scannedBy);
   return val;
 }
 
-WebApiModulesWarehouseCheckInTCheckInItemResponse
-    _$WebApiModulesWarehouseCheckInTCheckInItemResponseFromJson(
+WebApiModulesWarehouseCheckInSwapResponse
+    _$WebApiModulesWarehouseCheckInSwapResponseFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesWarehouseCheckInTCheckInItemResponse(
-          contractId: json['ContractId'] as String?,
-          orderId: json['OrderId'] as String?,
-          orderNumber: json['OrderNumber'] as String?,
-          orderDescription: json['OrderDescription'] as String?,
-          dealId: json['DealId'] as String?,
-          deal: json['Deal'] as String?,
-          departmentId: json['DepartmentId'] as String?,
-          department: json['Department'] as String?,
-          inventoryId: json['InventoryId'] as String?,
-          inventoryClass: json['InventoryClass'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
-          orderItemId: json['OrderItemId'] as String?,
-          vendorId: json['VendorId'] as String?,
-          inventoryStatus: json['InventoryStatus'] == null
-              ? null
-              : WebApiModulesWarehouseCheckInOrderInventoryStatusCheckIn
-                  .fromJson(json['InventoryStatus'] as Map<String, dynamic>),
-          showNewOrder: json['ShowNewOrder'] as bool?,
-          showSwap: json['ShowSwap'] as bool?,
-          status: json['status'] as int?,
-          success: json['success'] as bool?,
-          msg: json['msg'] as String?,
+        WebApiModulesWarehouseCheckInSwapResponse(
+          swaps: (json['Swaps'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesWarehouseCheckInSwapItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
-Map<String, dynamic> _$WebApiModulesWarehouseCheckInTCheckInItemResponseToJson(
-    WebApiModulesWarehouseCheckInTCheckInItemResponse instance) {
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInSwapResponseToJson(
+    WebApiModulesWarehouseCheckInSwapResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Swaps', instance.swaps?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequest
+    _$WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequest(
+          contractId: json['ContractId'] as String?,
+          orderId: json['OrderId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequestToJson(
+        WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequest
+            instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33916,23 +35749,419 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckInTCheckInItemResponseToJson(
 
   writeNotNull('ContractId', instance.contractId);
   writeNotNull('OrderId', instance.orderId);
-  writeNotNull('OrderNumber', instance.orderNumber);
-  writeNotNull('OrderDescription', instance.orderDescription);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileAssignByOrderOrdersRequest
+    _$WebApiModulesWarehouseCheckInReconcileAssignByOrderOrdersRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileAssignByOrderOrdersRequest(
+          contractId: json['ContractId'] as String?,
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileAssignByOrderOrdersRequestToJson(
+        WebApiModulesWarehouseCheckInReconcileAssignByOrderOrdersRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileCheckInReconcile
+    _$WebApiModulesWarehouseCheckInReconcileCheckInReconcileFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileCheckInReconcile(
+          contractId: json['ContractId'] as String?,
+          contractDate: json['ContractDate'] as String?,
+          contractNumber: json['ContractNumber'] as String?,
+          contractType: json['ContractType'] as String?,
+          contractTime: json['ContractTime'] as String?,
+          locationId: json['LocationId'] as String?,
+          locationCode: json['LocationCode'] as String?,
+          location: json['Location'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          warehouseCode: json['WarehouseCode'] as String?,
+          warehouse: json['Warehouse'] as String?,
+          dealId: json['DealId'] as String?,
+          deal: json['Deal'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          department: json['Department'] as String?,
+          quikInOneOrderPerContract:
+              json['QuikInOneOrderPerContract'] as String?,
+          hasAssigned: json['HasAssigned'] as bool?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileCheckInReconcileToJson(
+        WebApiModulesWarehouseCheckInReconcileCheckInReconcile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('ContractDate', instance.contractDate);
+  writeNotNull('ContractNumber', instance.contractNumber);
+  writeNotNull('ContractType', instance.contractType);
+  writeNotNull('ContractTime', instance.contractTime);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('LocationCode', instance.locationCode);
+  writeNotNull('Location', instance.location);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('WarehouseCode', instance.warehouseCode);
+  writeNotNull('Warehouse', instance.warehouse);
   writeNotNull('DealId', instance.dealId);
   writeNotNull('Deal', instance.deal);
   writeNotNull('DepartmentId', instance.departmentId);
   writeNotNull('Department', instance.department);
+  writeNotNull('QuikInOneOrderPerContract', instance.quikInOneOrderPerContract);
+  writeNotNull('HasAssigned', instance.hasAssigned);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileCreateContractsRequest
+    _$WebApiModulesWarehouseCheckInReconcileCreateContractsRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileCreateContractsRequest(
+          contractId: json['ContractId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileCreateContractsRequestToJson(
+        WebApiModulesWarehouseCheckInReconcileCreateContractsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileOneOrderPerContractRequest
+    _$WebApiModulesWarehouseCheckInReconcileOneOrderPerContractRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileOneOrderPerContractRequest(
+          contractId: json['ContractId'] as String?,
+          oneOrderPerContract: json['OneOrderPerContract'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileOneOrderPerContractRequestToJson(
+        WebApiModulesWarehouseCheckInReconcileOneOrderPerContractRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('OneOrderPerContract', instance.oneOrderPerContract);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileReconcileICode
+    _$WebApiModulesWarehouseCheckInReconcileReconcileICodeFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileReconcileICode(
+          iCode: json['ICode'] as String?,
+          inventoryDescription: json['InventoryDescription'] as String?,
+          orderId: json['OrderId'] as String?,
+          orderDescription: json['OrderDescription'] as String?,
+          dueDate: json['DueDate'] as String?,
+          contractId: json['ContractId'] as String?,
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          crossVendor: json['CrossVendor'] as String?,
+          vendor: json['Vendor'] as String?,
+          unassigned: (json['Unassigned'] as num?)?.toDouble(),
+          inventoryId: json['InventoryId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          itemClass: json['ItemClass'] as String?,
+          nestedMasterItemId: json['NestedMasterItemId'] as String?,
+          packageId: json['PackageId'] as String?,
+          packageItemId: json['PackageItemId'] as String?,
+          trackedBy: json['TrackedBy'] as String?,
+          scannedBy: json['ScannedBy'] as String?,
+          orderNumber: json['OrderNumber'] as String?,
+          barcode: json['Barcode'] as String?,
+          exception: json['Exception'] as String?,
+          inContractId: json['InContractId'] as String?,
+          orderItemId: json['OrderItemId'] as String?,
+          returnToReceipt: json['ReturnToReceipt'] as bool?,
+          orderTranId: (json['OrderTranId'] as num?)?.toDouble(),
+          internalChar: json['InternalChar'] as String?,
+          quikInItemId: (json['QuikInItemId'] as num?)?.toDouble(),
+          quikInInternalChar: json['QuikInInternalChar'] as String?,
+          inContractNumber: json['InContractNumber'] as String?,
+          sessionNumber: (json['SessionNumber'] as num?)?.toDouble(),
+          ordered: (json['Ordered'] as num?)?.toDouble(),
+          stillOut: (json['StillOut'] as num?)?.toDouble(),
+          counted: (json['Counted'] as num?)?.toDouble(),
+          quantity: (json['Quantity'] as num?)?.toDouble(),
+          sessionIn: (json['SessionIn'] as num?)?.toDouble(),
+          remaining: (json['Remaining'] as num?)?.toDouble(),
+          status: (json['Status'] as num?)?.toDouble(),
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileReconcileICodeToJson(
+        WebApiModulesWarehouseCheckInReconcileReconcileICode instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ICode', instance.iCode);
+  writeNotNull('InventoryDescription', instance.inventoryDescription);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('OrderDescription', instance.orderDescription);
+  writeNotNull('DueDate', instance.dueDate);
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('CrossVendor', instance.crossVendor);
+  writeNotNull('Vendor', instance.vendor);
+  writeNotNull('Unassigned', instance.unassigned);
   writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('InventoryClass', instance.inventoryClass);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('OrderItemId', instance.orderItemId);
   writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('InventoryStatus', instance.inventoryStatus?.toJson());
-  writeNotNull('ShowNewOrder', instance.showNewOrder);
-  writeNotNull('ShowSwap', instance.showSwap);
-  writeNotNull('status', instance.status);
-  writeNotNull('success', instance.success);
-  writeNotNull('msg', instance.msg);
+  writeNotNull('ItemClass', instance.itemClass);
+  writeNotNull('NestedMasterItemId', instance.nestedMasterItemId);
+  writeNotNull('PackageId', instance.packageId);
+  writeNotNull('PackageItemId', instance.packageItemId);
+  writeNotNull('TrackedBy', instance.trackedBy);
+  writeNotNull('ScannedBy', instance.scannedBy);
+  writeNotNull('OrderNumber', instance.orderNumber);
+  writeNotNull('Barcode', instance.barcode);
+  writeNotNull('Exception', instance.exception);
+  writeNotNull('InContractId', instance.inContractId);
+  writeNotNull('OrderItemId', instance.orderItemId);
+  writeNotNull('ReturnToReceipt', instance.returnToReceipt);
+  writeNotNull('OrderTranId', instance.orderTranId);
+  writeNotNull('InternalChar', instance.internalChar);
+  writeNotNull('QuikInItemId', instance.quikInItemId);
+  writeNotNull('QuikInInternalChar', instance.quikInInternalChar);
+  writeNotNull('InContractNumber', instance.inContractNumber);
+  writeNotNull('SessionNumber', instance.sessionNumber);
+  writeNotNull('Ordered', instance.ordered);
+  writeNotNull('StillOut', instance.stillOut);
+  writeNotNull('Counted', instance.counted);
+  writeNotNull('Quantity', instance.quantity);
+  writeNotNull('SessionIn', instance.sessionIn);
+  writeNotNull('Remaining', instance.remaining);
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileReconcileItemError
+    _$WebApiModulesWarehouseCheckInReconcileReconcileItemErrorFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileReconcileItemError(
+          description: json['Description'] as String?,
+          vendorId: json['VendorId'] as String?,
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileReconcileItemErrorToJson(
+        WebApiModulesWarehouseCheckInReconcileReconcileItemError instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Description', instance.description);
+  writeNotNull('VendorId', instance.vendorId);
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileReconcileItemsRequest
+    _$WebApiModulesWarehouseCheckInReconcileReconcileItemsRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileReconcileItemsRequest(
+          quikInContractId: json['QuikInContractId'] as String?,
+          crossVendor: json['CrossVendor'] as bool?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInReconcileReconcileICode
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileReconcileItemsRequestToJson(
+        WebApiModulesWarehouseCheckInReconcileReconcileItemsRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('QuikInContractId', instance.quikInContractId);
+  writeNotNull('CrossVendor', instance.crossVendor);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileReconcileItemsResponse
+    _$WebApiModulesWarehouseCheckInReconcileReconcileItemsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileReconcileItemsResponse(
+          success: json['Success'] as bool?,
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInReconcileReconcileICode
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          errors: (json['Errors'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInReconcileReconcileItemError
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileReconcileItemsResponseToJson(
+        WebApiModulesWarehouseCheckInReconcileReconcileItemsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('Errors', instance.errors?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileReconcileOrder
+    _$WebApiModulesWarehouseCheckInReconcileReconcileOrderFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileReconcileOrder(
+          orderNumber: json['OrderNumber'] as String?,
+          description: json['Description'] as String?,
+          dueDate: json['DueDate'] as String?,
+          count: json['Count'] as int?,
+          stillOut: json['StillOut'] as int?,
+          vendor: json['Vendor'] as String?,
+          orderId: json['OrderId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          quantity: json['Quantity'] as int?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileReconcileOrderToJson(
+        WebApiModulesWarehouseCheckInReconcileReconcileOrder instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderNumber', instance.orderNumber);
+  writeNotNull('Description', instance.description);
+  writeNotNull('DueDate', instance.dueDate);
+  writeNotNull('Count', instance.count);
+  writeNotNull('StillOut', instance.stillOut);
+  writeNotNull('Vendor', instance.vendor);
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('VendorId', instance.vendorId);
+  writeNotNull('Quantity', instance.quantity);
+  return val;
+}
+
+WebApiModulesWarehouseCheckInReconcileReconcileOrdersResponse
+    _$WebApiModulesWarehouseCheckInReconcileReconcileOrdersResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseCheckInReconcileReconcileOrdersResponse(
+          orders: (json['Orders'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseCheckInReconcileReconcileOrder
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseCheckInReconcileReconcileOrdersResponseToJson(
+        WebApiModulesWarehouseCheckInReconcileReconcileOrdersResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Orders', instance.orders?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -35248,6 +37477,7 @@ WebApiModulesWarehouseContractContract
           vendorId: json['VendorId'] as String?,
           vendor: json['Vendor'] as String?,
           isMigrated: json['IsMigrated'] as bool?,
+          unassigned: json['Unassigned'] as bool?,
           needReconcile: json['NeedReconcile'] as bool?,
           pendingExchange: json['PendingExchange'] as bool?,
           exchangeContractId: json['ExchangeContractId'] as String?,
@@ -35264,6 +37494,7 @@ WebApiModulesWarehouseContractContract
               json['LastBillingDateChangeReason'] as String?,
           billingDateAdjusted: json['BillingDateAdjusted'] as bool?,
           hasVoId: json['HasVoId'] as bool?,
+          hasTransfer: json['HasTransfer'] as bool?,
           sessionId: json['SessionId'] as String?,
           orderDescription: json['OrderDescription'] as String?,
           poOrderDescription: json['PoOrderDescription'] as String?,
@@ -35349,6 +37580,7 @@ WebApiModulesWarehouseContractContract
           containerDescription: json['ContainerDescription'] as String?,
           containerScannableBarCode:
               json['ContainerScannableBarCode'] as String?,
+          containerScannableItemId: json['ContainerScannableItemId'] as String?,
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -35406,6 +37638,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
   writeNotNull('VendorId', instance.vendorId);
   writeNotNull('Vendor', instance.vendor);
   writeNotNull('IsMigrated', instance.isMigrated);
+  writeNotNull('Unassigned', instance.unassigned);
   writeNotNull('NeedReconcile', instance.needReconcile);
   writeNotNull('PendingExchange', instance.pendingExchange);
   writeNotNull('ExchangeContractId', instance.exchangeContractId);
@@ -35422,6 +37655,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
       'LastBillingDateChangeReason', instance.lastBillingDateChangeReason);
   writeNotNull('BillingDateAdjusted', instance.billingDateAdjusted);
   writeNotNull('HasVoId', instance.hasVoId);
+  writeNotNull('HasTransfer', instance.hasTransfer);
   writeNotNull('SessionId', instance.sessionId);
   writeNotNull('OrderDescription', instance.orderDescription);
   writeNotNull('PoOrderDescription', instance.poOrderDescription);
@@ -35503,6 +37737,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
   writeNotNull('ContainerItemId', instance.containerItemId);
   writeNotNull('ContainerDescription', instance.containerDescription);
   writeNotNull('ContainerScannableBarCode', instance.containerScannableBarCode);
+  writeNotNull('ContainerScannableItemId', instance.containerScannableItemId);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -35542,6 +37777,7 @@ WebApiModulesWarehouseContractContractDetailResponse
           vendorId: json['VendorId'] as String?,
           vendor: json['Vendor'] as String?,
           isMigrated: json['IsMigrated'] as bool?,
+          unassigned: json['Unassigned'] as bool?,
           needReconcile: json['NeedReconcile'] as bool?,
           pendingExchange: json['PendingExchange'] as bool?,
           exchangeContractId: json['ExchangeContractId'] as String?,
@@ -35558,6 +37794,7 @@ WebApiModulesWarehouseContractContractDetailResponse
               json['LastBillingDateChangeReason'] as String?,
           billingDateAdjusted: json['BillingDateAdjusted'] as bool?,
           hasVoId: json['HasVoId'] as bool?,
+          hasTransfer: json['HasTransfer'] as bool?,
           sessionId: json['SessionId'] as String?,
           orderDescription: json['OrderDescription'] as String?,
           poOrderDescription: json['PoOrderDescription'] as String?,
@@ -35643,6 +37880,7 @@ WebApiModulesWarehouseContractContractDetailResponse
           containerDescription: json['ContainerDescription'] as String?,
           containerScannableBarCode:
               json['ContainerScannableBarCode'] as String?,
+          containerScannableItemId: json['ContainerScannableItemId'] as String?,
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -35707,6 +37945,7 @@ Map<String, dynamic>
   writeNotNull('VendorId', instance.vendorId);
   writeNotNull('Vendor', instance.vendor);
   writeNotNull('IsMigrated', instance.isMigrated);
+  writeNotNull('Unassigned', instance.unassigned);
   writeNotNull('NeedReconcile', instance.needReconcile);
   writeNotNull('PendingExchange', instance.pendingExchange);
   writeNotNull('ExchangeContractId', instance.exchangeContractId);
@@ -35723,6 +37962,7 @@ Map<String, dynamic>
       'LastBillingDateChangeReason', instance.lastBillingDateChangeReason);
   writeNotNull('BillingDateAdjusted', instance.billingDateAdjusted);
   writeNotNull('HasVoId', instance.hasVoId);
+  writeNotNull('HasTransfer', instance.hasTransfer);
   writeNotNull('SessionId', instance.sessionId);
   writeNotNull('OrderDescription', instance.orderDescription);
   writeNotNull('PoOrderDescription', instance.poOrderDescription);
@@ -35804,6 +38044,7 @@ Map<String, dynamic>
   writeNotNull('ContainerItemId', instance.containerItemId);
   writeNotNull('ContainerDescription', instance.containerDescription);
   writeNotNull('ContainerScannableBarCode', instance.containerScannableBarCode);
+  writeNotNull('ContainerScannableItemId', instance.containerScannableItemId);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -35838,6 +38079,7 @@ WebApiModulesWarehouseContractContractDocument
           inputBy: json['InputBy'] as String?,
           hasImage: json['HasImage'] as bool?,
           hasFile: json['HasFile'] as bool?,
+          appImageCount: json['AppImageCount'] as int?,
           fileIsModified: json['FileIsModified'] as bool?,
           fileDataUrl: json['FileDataUrl'] as String?,
           filePath: json['FilePath'] as String?,
@@ -35891,6 +38133,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractDocumentToJson(
   writeNotNull('InputBy', instance.inputBy);
   writeNotNull('HasImage', instance.hasImage);
   writeNotNull('HasFile', instance.hasFile);
+  writeNotNull('AppImageCount', instance.appImageCount);
   writeNotNull('FileIsModified', instance.fileIsModified);
   writeNotNull('FileDataUrl', instance.fileDataUrl);
   writeNotNull('FilePath', instance.filePath);
@@ -35977,6 +38220,82 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesWarehouseContractExceptionItem
+    _$WebApiModulesWarehouseContractExceptionItemFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseContractExceptionItem(
+          date: json['Date'] as String?,
+          time: json['Time'] as String?,
+          user: json['User'] as String?,
+          description: json['Description'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseContractExceptionItemToJson(
+    WebApiModulesWarehouseContractExceptionItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Date', instance.date);
+  writeNotNull('Time', instance.time);
+  writeNotNull('User', instance.user);
+  writeNotNull('Description', instance.description);
+  return val;
+}
+
+WebApiModulesWarehouseContractExceptionsResponse
+    _$WebApiModulesWarehouseContractExceptionsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseContractExceptionsResponse(
+          exceptions: (json['Exceptions'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesWarehouseContractExceptionItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseContractExceptionsResponseToJson(
+    WebApiModulesWarehouseContractExceptionsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'Exceptions', instance.exceptions?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesWarehouseContractForceSuspendSessionRequest
+    _$WebApiModulesWarehouseContractForceSuspendSessionRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseContractForceSuspendSessionRequest(
+          contractId: json['ContractId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesWarehouseContractForceSuspendSessionRequestToJson(
+        WebApiModulesWarehouseContractForceSuspendSessionRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  return val;
+}
+
 WebApiModulesWarehouseContractHasQuikReceiptRequest
     _$WebApiModulesWarehouseContractHasQuikReceiptRequestFromJson(
             Map<String, dynamic> json) =>
@@ -35996,6 +38315,64 @@ Map<String, dynamic>
   }
 
   writeNotNull('ContractId', instance.contractId);
+  return val;
+}
+
+WebApiModulesWarehouseContractSessionRequest
+    _$WebApiModulesWarehouseContractSessionRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseContractSessionRequest(
+          orderId: json['OrderId'] as String?,
+          dealId: json['DealId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          locationId: json['LocationId'] as String?,
+          warehouseId: json['WarehouseId'] as String?,
+          contractType: json['ContractType'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseContractSessionRequestToJson(
+    WebApiModulesWarehouseContractSessionRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('DepartmentId', instance.departmentId);
+  writeNotNull('LocationId', instance.locationId);
+  writeNotNull('WarehouseId', instance.warehouseId);
+  writeNotNull('ContractType', instance.contractType);
+  return val;
+}
+
+WebApiModulesWarehouseContractSessionResponse
+    _$WebApiModulesWarehouseContractSessionResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesWarehouseContractSessionResponse(
+          contractId: json['ContractId'] as String?,
+          sessionNumber: json['SessionNumber'] as int?,
+          status: json['Status'] as int?,
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesWarehouseContractSessionResponseToJson(
+    WebApiModulesWarehouseContractSessionResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContractId', instance.contractId);
+  writeNotNull('SessionNumber', instance.sessionNumber);
+  writeNotNull('Status', instance.status);
+  writeNotNull('Message', instance.message);
   return val;
 }
 
@@ -36396,6 +38773,8 @@ WebApiModulesWarehousePickListPickList
           orderedBy: json['OrderedBy'] as String?,
           orderedById: json['OrderedById'] as String?,
           requestedBy: json['RequestedBy'] as String?,
+          inputByUsersId: json['InputByUsersId'] as String?,
+          inputBy: json['InputBy'] as String?,
           inputDate: json['InputDate'] as String?,
           inputTime: json['InputTime'] as String?,
           inputDateTime: json['InputDateTime'] as String?,
@@ -36467,6 +38846,8 @@ Map<String, dynamic> _$WebApiModulesWarehousePickListPickListToJson(
   writeNotNull('OrderedBy', instance.orderedBy);
   writeNotNull('OrderedById', instance.orderedById);
   writeNotNull('RequestedBy', instance.requestedBy);
+  writeNotNull('InputByUsersId', instance.inputByUsersId);
+  writeNotNull('InputBy', instance.inputBy);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputTime', instance.inputTime);
   writeNotNull('InputDateTime', instance.inputDateTime);

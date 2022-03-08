@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 import 'utilities.enums.swagger.dart' as enums;
 export 'utilities.enums.swagger.dart';
@@ -15,14 +20,18 @@ part 'utilities.swagger.g.dart';
 
 @ChopperApi()
 abstract class Utilities extends ChopperService {
-  static Utilities create([ChopperClient? client]) {
+  static Utilities create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$Utilities(client);
     }
 
     final newClient = ChopperClient(
       services: [_$Utilities()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Utilities(newClient);
   }
@@ -33,9 +42,33 @@ abstract class Utilities extends ChopperService {
   ///@param uniqueid3
   ///@param description
   ///@param rectype
-  @Get(path: '/appimage/getimages')
   Future<chopper.Response<List<FwStandardModelsFwAppImageModel>>>
       appimageGetimagesGet(
+          {String? uniqueid1,
+          String? uniqueid2,
+          String? uniqueid3,
+          String? description,
+          String? rectype}) {
+    generatedMapping.putIfAbsent(FwStandardModelsFwAppImageModel,
+        () => FwStandardModelsFwAppImageModel.fromJsonFactory);
+
+    return _appimageGetimagesGet(
+        uniqueid1: uniqueid1,
+        uniqueid2: uniqueid2,
+        uniqueid3: uniqueid3,
+        description: description,
+        rectype: rectype);
+  }
+
+  ///
+  ///@param uniqueid1
+  ///@param uniqueid2
+  ///@param uniqueid3
+  ///@param description
+  ///@param rectype
+  @Get(path: '/appimage/getimages')
+  Future<chopper.Response<List<FwStandardModelsFwAppImageModel>>>
+      _appimageGetimagesGet(
           {@Query('uniqueid1') String? uniqueid1,
           @Query('uniqueid2') String? uniqueid2,
           @Query('uniqueid3') String? uniqueid3,
@@ -46,9 +79,23 @@ abstract class Utilities extends ChopperService {
   ///@param appimageid
   ///@param thumbnail
   ///@param download
-  @Get(path: '/appimage/getimage')
   Future<chopper.Response<List<FwStandardModelsFwAppImageModel>>>
       appimageGetimageGet(
+          {String? appimageid, bool? thumbnail, bool? download}) {
+    generatedMapping.putIfAbsent(FwStandardModelsFwAppImageModel,
+        () => FwStandardModelsFwAppImageModel.fromJsonFactory);
+
+    return _appimageGetimageGet(
+        appimageid: appimageid, thumbnail: thumbnail, download: download);
+  }
+
+  ///
+  ///@param appimageid
+  ///@param thumbnail
+  ///@param download
+  @Get(path: '/appimage/getimage')
+  Future<chopper.Response<List<FwStandardModelsFwAppImageModel>>>
+      _appimageGetimageGet(
           {@Query('appimageid') String? appimageid,
           @Query('thumbnail') bool? thumbnail,
           @Query('download') bool? download});
@@ -60,9 +107,36 @@ abstract class Utilities extends ChopperService {
   ///@param uniqueid3
   ///@param orderby
   ///@param download
-  @Get(path: '/appimage/getimagefor')
   Future<chopper.Response<List<FwStandardModelsFwAppImageModel>>>
       appimageGetimageforGet(
+          {bool? thumbnail,
+          String? uniqueid1,
+          String? uniqueid2,
+          String? uniqueid3,
+          String? orderby,
+          bool? download}) {
+    generatedMapping.putIfAbsent(FwStandardModelsFwAppImageModel,
+        () => FwStandardModelsFwAppImageModel.fromJsonFactory);
+
+    return _appimageGetimageforGet(
+        thumbnail: thumbnail,
+        uniqueid1: uniqueid1,
+        uniqueid2: uniqueid2,
+        uniqueid3: uniqueid3,
+        orderby: orderby,
+        download: download);
+  }
+
+  ///
+  ///@param thumbnail
+  ///@param uniqueid1
+  ///@param uniqueid2
+  ///@param uniqueid3
+  ///@param orderby
+  ///@param download
+  @Get(path: '/appimage/getimagefor')
+  Future<chopper.Response<List<FwStandardModelsFwAppImageModel>>>
+      _appimageGetimageforGet(
           {@Query('thumbnail') bool? thumbnail,
           @Query('uniqueid1') String? uniqueid1,
           @Query('uniqueid2') String? uniqueid2,
@@ -71,57 +145,147 @@ abstract class Utilities extends ChopperService {
           @Query('download') bool? download});
 
   ///
-  @Post(path: '/appimage/repositionimage')
   Future<chopper.Response> appimageRepositionimagePost(
+      {required WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest?
+          body}) {
+    return _appimageRepositionimagePost(body: body);
+  }
+
+  ///
+  @Post(path: '/appimage/repositionimage')
+  Future<chopper.Response> _appimageRepositionimagePost(
       {@Body()
           required WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest?
               body});
 
   ///
-  @Post(path: '/appimage')
   Future<chopper.Response> appimagePost(
+      {required WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest?
+          body}) {
+    return _appimagePost(body: body);
+  }
+
+  ///
+  @Post(path: '/appimage')
+  Future<chopper.Response> _appimagePost(
       {@Body()
           required WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest?
               body});
 
   ///
-  @Delete(path: '/appimage')
   Future<chopper.Response> appimageDelete(
+      {required WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest?
+          body}) {
+    return _appimageDelete(body: body);
+  }
+
+  ///
+  @Delete(path: '/appimage')
+  Future<chopper.Response> _appimageDelete(
       {@Body()
           required WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest?
               body});
 
   ///
-  @Post(path: '/appimage/email')
   Future<chopper.Response> appimageEmailPost(
+      {required FwStandardBusinessLogicFwAppImageLogicEmailRequest? body}) {
+    return _appimageEmailPost(body: body);
+  }
+
+  ///
+  @Post(path: '/appimage/email')
+  Future<chopper.Response> _appimageEmailPost(
       {@Body()
           required FwStandardBusinessLogicFwAppImageLogicEmailRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> blankhomepageEmptyobjectGet() {
+    return _blankhomepageEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/blankhomepage/emptyobject')
-  Future<chopper.Response> blankhomepageEmptyobjectGet();
+  Future<chopper.Response> _blankhomepageEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> blankhomepageEmptybrowseobjectGet() {
+    return _blankhomepageEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/blankhomepage/emptybrowseobject')
-  Future<chopper.Response> blankhomepageEmptybrowseobjectGet();
+  Future<chopper.Response> _blankhomepageEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> blankhomepageKeyfieldnamesGet() {
+    return _blankhomepageKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/blankhomepage/keyfieldnames')
-  Future<chopper.Response> blankhomepageKeyfieldnamesGet();
+  Future<chopper.Response> _blankhomepageKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      browseactiveviewfieldsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _browseactiveviewfieldsBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/browseactiveviewfields/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      browseactiveviewfieldsBrowsePost(
+      _browseactiveviewfieldsBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      browseactiveviewfieldsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _browseactiveviewfieldsExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/browseactiveviewfields/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      browseactiveviewfieldsExportexcelxlsxPost(
+      _browseactiveviewfieldsExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic>>
+      browseactiveviewfieldsGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic
+                .fromJsonFactory);
+
+    return _browseactiveviewfieldsGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -132,21 +296,52 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic>>
-      browseactiveviewfieldsGet(
+      _browseactiveviewfieldsGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/browseactiveviewfields')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields>>
       browseactiveviewfieldsPost(
+          {required WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields,
+        () =>
+            WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
+                .fromJsonFactory);
+
+    return _browseactiveviewfieldsPost(body: body);
+  }
+
+  ///
+  @Post(path: '/browseactiveviewfields')
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields>>
+      _browseactiveviewfieldsPost(
           {@Body()
               required WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields>>
+      browseactiveviewfieldsIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields,
+        () =>
+            WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
+                .fromJsonFactory);
+
+    return _browseactiveviewfieldsIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -154,7 +349,25 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields>>
-      browseactiveviewfieldsIdGet({@Path('id') required String? id});
+      _browseactiveviewfieldsIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields>>
+      browseactiveviewfieldsIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields,
+        () =>
+            WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
+                .fromJsonFactory);
+
+    return _browseactiveviewfieldsIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -162,7 +375,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields>>
-      browseactiveviewfieldsIdPut(
+      _browseactiveviewfieldsIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -171,110 +384,287 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/browseactiveviewfields/{id}')
   Future<chopper.Response<bool>> browseactiveviewfieldsIdDelete(
+      {required String? id}) {
+    return _browseactiveviewfieldsIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/browseactiveviewfields/{id}')
+  Future<chopper.Response<bool>> _browseactiveviewfieldsIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> browseactiveviewfieldsEmptyobjectGet() {
+    return _browseactiveviewfieldsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/browseactiveviewfields/emptyobject')
-  Future<chopper.Response> browseactiveviewfieldsEmptyobjectGet();
+  Future<chopper.Response> _browseactiveviewfieldsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> browseactiveviewfieldsEmptybrowseobjectGet() {
+    return _browseactiveviewfieldsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/browseactiveviewfields/emptybrowseobject')
-  Future<chopper.Response> browseactiveviewfieldsEmptybrowseobjectGet();
+  Future<chopper.Response> _browseactiveviewfieldsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> browseactiveviewfieldsKeyfieldnamesGet() {
+    return _browseactiveviewfieldsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/browseactiveviewfields/keyfieldnames')
-  Future<chopper.Response> browseactiveviewfieldsKeyfieldnamesGet();
+  Future<chopper.Response> _browseactiveviewfieldsKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<WebApiModulesInventoryInventoryChangeICodeResponse>>
+      changeicodeutilityChangeicodePost(
+          {required WebApiModulesInventoryInventoryChangeICodeRequest? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesInventoryInventoryChangeICodeResponse,
+        () =>
+            WebApiModulesInventoryInventoryChangeICodeResponse.fromJsonFactory);
+
+    return _changeicodeutilityChangeicodePost(body: body);
+  }
 
   ///
   @Post(path: '/changeicodeutility/changeicode')
   Future<chopper.Response<WebApiModulesInventoryInventoryChangeICodeResponse>>
-      changeicodeutilityChangeicodePost(
+      _changeicodeutilityChangeicodePost(
           {@Body()
               required WebApiModulesInventoryInventoryChangeICodeRequest?
                   body});
 
   ///
-  @Post(path: '/changeicodeutility/validaterentalinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       changeicodeutilityValidaterentalinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeicodeutilityValidaterentalinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/changeicodeutility/validaterentalinventory/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _changeicodeutilityValidaterentalinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      changeicodeutilityValidatesalesinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeicodeutilityValidatesalesinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/changeicodeutility/validatesalesinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      changeicodeutilityValidatesalesinventoryBrowsePost(
+      _changeicodeutilityValidatesalesinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      changeicodeutilityValidateitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeicodeutilityValidateitemBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/changeicodeutility/validateitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      changeicodeutilityValidateitemBrowsePost(
+      _changeicodeutilityValidateitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> changeicodeutilityEmptyobjectGet() {
+    return _changeicodeutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/changeicodeutility/emptyobject')
-  Future<chopper.Response> changeicodeutilityEmptyobjectGet();
+  Future<chopper.Response> _changeicodeutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> changeicodeutilityEmptybrowseobjectGet() {
+    return _changeicodeutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/changeicodeutility/emptybrowseobject')
-  Future<chopper.Response> changeicodeutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _changeicodeutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> changeicodeutilityKeyfieldnamesGet() {
+    return _changeicodeutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/changeicodeutility/keyfieldnames')
-  Future<chopper.Response> changeicodeutilityKeyfieldnamesGet();
+  Future<chopper.Response> _changeicodeutilityKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<WebApiModulesAgentOrderChangeOrderStatusResponse>>
+      changeorderstatusChangestatusPost(
+          {required WebApiModulesAgentOrderChangeOrderStatusRequest? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAgentOrderChangeOrderStatusResponse,
+        () => WebApiModulesAgentOrderChangeOrderStatusResponse.fromJsonFactory);
+
+    return _changeorderstatusChangestatusPost(body: body);
+  }
 
   ///
   @Post(path: '/changeorderstatus/changestatus')
   Future<chopper.Response<WebApiModulesAgentOrderChangeOrderStatusResponse>>
-      changeorderstatusChangestatusPost(
+      _changeorderstatusChangestatusPost(
           {@Body()
               required WebApiModulesAgentOrderChangeOrderStatusRequest? body});
 
   ///
-  @Post(path: '/changeorderstatus/validateorder/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       changeorderstatusValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _changeorderstatusValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/changeorderstatus/validateorder/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _changeorderstatusValidateorderBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> changeorderstatusEmptyobjectGet() {
+    return _changeorderstatusEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/changeorderstatus/emptyobject')
-  Future<chopper.Response> changeorderstatusEmptyobjectGet();
+  Future<chopper.Response> _changeorderstatusEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> changeorderstatusEmptybrowseobjectGet() {
+    return _changeorderstatusEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/changeorderstatus/emptybrowseobject')
-  Future<chopper.Response> changeorderstatusEmptybrowseobjectGet();
+  Future<chopper.Response> _changeorderstatusEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> changeorderstatusKeyfieldnamesGet() {
+    return _changeorderstatusKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/changeorderstatus/keyfieldnames')
-  Future<chopper.Response> changeorderstatusKeyfieldnamesGet();
+  Future<chopper.Response> _changeorderstatusKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      currencymissingBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _currencymissingBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/currencymissing/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      currencymissingBrowsePost(
+      _currencymissingBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      currencymissingExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _currencymissingExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/currencymissing/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      currencymissingExportexcelxlsxPost(
+      _currencymissingExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> currencymissingEmptyobjectGet() {
+    return _currencymissingEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/currencymissing/emptyobject')
-  Future<chopper.Response> currencymissingEmptyobjectGet();
+  Future<chopper.Response> _currencymissingEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> currencymissingEmptybrowseobjectGet() {
+    return _currencymissingEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/currencymissing/emptybrowseobject')
-  Future<chopper.Response> currencymissingEmptybrowseobjectGet();
+  Future<chopper.Response> _currencymissingEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> currencymissingKeyfieldnamesGet() {
+    return _currencymissingKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/currencymissing/keyfieldnames')
-  Future<chopper.Response> currencymissingKeyfieldnamesGet();
+  Future<chopper.Response> _currencymissingKeyfieldnamesGet();
+
+  ///
+  ///@param request
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse>>
+      currencymissingutilityApplyproposedcurrenciesPost(
+          {WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest?
+              request}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest,
+        () =>
+            WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest
+                .fromJsonFactory);
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse,
+        () =>
+            WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse
+                .fromJsonFactory);
+
+    return _currencymissingutilityApplyproposedcurrenciesPost(request: request);
+  }
 
   ///
   ///@param request
@@ -284,22 +674,77 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse>>
-      currencymissingutilityApplyproposedcurrenciesPost(
+      _currencymissingutilityApplyproposedcurrenciesPost(
           {@Query('request')
               WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest?
                   request});
 
   ///Get an empty object
+  Future<chopper.Response> currencymissingutilityEmptyobjectGet() {
+    return _currencymissingutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/currencymissingutility/emptyobject')
-  Future<chopper.Response> currencymissingutilityEmptyobjectGet();
+  Future<chopper.Response> _currencymissingutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> currencymissingutilityEmptybrowseobjectGet() {
+    return _currencymissingutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/currencymissingutility/emptybrowseobject')
-  Future<chopper.Response> currencymissingutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _currencymissingutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> currencymissingutilityKeyfieldnamesGet() {
+    return _currencymissingutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/currencymissingutility/keyfieldnames')
-  Future<chopper.Response> currencymissingutilityKeyfieldnamesGet();
+  Future<chopper.Response> _currencymissingutilityKeyfieldnamesGet();
+
+  ///
+  ///@param widgetApiName
+  ///@param dataPoints
+  ///@param locationId
+  ///@param warehouseId
+  ///@param departmentId
+  ///@param dateBehaviorId
+  ///@param dateField
+  ///@param fromDate
+  ///@param toDate
+  ///@param stacked
+  Future<chopper.Response<WebApiModulesSettingsWidgetSettingsWidgetWidget2>>
+      dashboardLoadwidgetbynameWidgetapinameGet(
+          {required String? widgetApiName,
+          int? dataPoints,
+          String? locationId,
+          String? warehouseId,
+          String? departmentId,
+          String? dateBehaviorId,
+          String? dateField,
+          String? fromDate,
+          String? toDate,
+          bool? stacked}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesSettingsWidgetSettingsWidgetWidget2,
+        () => WebApiModulesSettingsWidgetSettingsWidgetWidget2.fromJsonFactory);
+
+    return _dashboardLoadwidgetbynameWidgetapinameGet(
+        widgetApiName: widgetApiName,
+        dataPoints: dataPoints,
+        locationId: locationId,
+        warehouseId: warehouseId,
+        departmentId: departmentId,
+        dateBehaviorId: dateBehaviorId,
+        dateField: dateField,
+        fromDate: fromDate,
+        toDate: toDate,
+        stacked: stacked);
+  }
 
   ///
   ///@param widgetApiName
@@ -314,7 +759,7 @@ abstract class Utilities extends ChopperService {
   ///@param stacked
   @Get(path: '/dashboard/loadwidgetbyname/{widgetapiname}')
   Future<chopper.Response<WebApiModulesSettingsWidgetSettingsWidgetWidget2>>
-      dashboardLoadwidgetbynameWidgetapinameGet(
+      _dashboardLoadwidgetbynameWidgetapinameGet(
           {@Path('widgetApiName') required String? widgetApiName,
           @Query('dataPoints') int? dataPoints,
           @Query('locationId') String? locationId,
@@ -327,16 +772,45 @@ abstract class Utilities extends ChopperService {
           @Query('stacked') bool? stacked});
 
   ///Get an empty object
+  Future<chopper.Response> dashboardEmptyobjectGet() {
+    return _dashboardEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/dashboard/emptyobject')
-  Future<chopper.Response> dashboardEmptyobjectGet();
+  Future<chopper.Response> _dashboardEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> dashboardEmptybrowseobjectGet() {
+    return _dashboardEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/dashboard/emptybrowseobject')
-  Future<chopper.Response> dashboardEmptybrowseobjectGet();
+  Future<chopper.Response> _dashboardEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> dashboardKeyfieldnamesGet() {
+    return _dashboardKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/dashboard/keyfieldnames')
-  Future<chopper.Response> dashboardKeyfieldnamesGet();
+  Future<chopper.Response> _dashboardKeyfieldnamesGet();
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesDashboardSettingsDashboardSettings>>
+      dashboardsettingsIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesDashboardSettingsDashboardSettings,
+        () => WebApiModulesUtilitiesDashboardSettingsDashboardSettings
+            .fromJsonFactory);
+
+    return _dashboardsettingsIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -344,7 +818,24 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesDashboardSettingsDashboardSettings>>
-      dashboardsettingsIdGet({@Path('id') required String? id});
+      _dashboardsettingsIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesDashboardSettingsDashboardSettings>>
+      dashboardsettingsIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesDashboardSettingsDashboardSettings?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesDashboardSettingsDashboardSettings,
+        () => WebApiModulesUtilitiesDashboardSettingsDashboardSettings
+            .fromJsonFactory);
+
+    return _dashboardsettingsIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -352,7 +843,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesDashboardSettingsDashboardSettings>>
-      dashboardsettingsIdPut(
+      _dashboardsettingsIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -360,81 +851,201 @@ abstract class Utilities extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/dashboardsettings')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesDashboardSettingsDashboardSettings>>
       dashboardsettingsPost(
+          {required WebApiModulesUtilitiesDashboardSettingsDashboardSettings?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesDashboardSettingsDashboardSettings,
+        () => WebApiModulesUtilitiesDashboardSettingsDashboardSettings
+            .fromJsonFactory);
+
+    return _dashboardsettingsPost(body: body);
+  }
+
+  ///
+  @Post(path: '/dashboardsettings')
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesDashboardSettingsDashboardSettings>>
+      _dashboardsettingsPost(
           {@Body()
               required WebApiModulesUtilitiesDashboardSettingsDashboardSettings?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> dashboardsettingsEmptyobjectGet() {
+    return _dashboardsettingsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/dashboardsettings/emptyobject')
-  Future<chopper.Response> dashboardsettingsEmptyobjectGet();
+  Future<chopper.Response> _dashboardsettingsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> dashboardsettingsEmptybrowseobjectGet() {
+    return _dashboardsettingsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/dashboardsettings/emptybrowseobject')
-  Future<chopper.Response> dashboardsettingsEmptybrowseobjectGet();
+  Future<chopper.Response> _dashboardsettingsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> dashboardsettingsKeyfieldnamesGet() {
+    return _dashboardsettingsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/dashboardsettings/keyfieldnames')
-  Future<chopper.Response> dashboardsettingsKeyfieldnamesGet();
+  Future<chopper.Response> _dashboardsettingsKeyfieldnamesGet();
+
+  ///
+  ///@param date
+  ///@param Days
+  Future<chopper.Response> datefunctionsAdddaysGet({String? date, int? days}) {
+    return _datefunctionsAdddaysGet(date: date, days: days);
+  }
 
   ///
   ///@param date
   ///@param Days
   @Get(path: '/datefunctions/adddays')
-  Future<chopper.Response> datefunctionsAdddaysGet(
+  Future<chopper.Response> _datefunctionsAdddaysGet(
       {@Query('date') String? date, @Query('Days') int? days});
 
   ///
   ///@param date
   ///@param Months
-  @Get(path: '/datefunctions/addmonths')
   Future<chopper.Response> datefunctionsAddmonthsGet(
+      {String? date, int? months}) {
+    return _datefunctionsAddmonthsGet(date: date, months: months);
+  }
+
+  ///
+  ///@param date
+  ///@param Months
+  @Get(path: '/datefunctions/addmonths')
+  Future<chopper.Response> _datefunctionsAddmonthsGet(
       {@Query('date') String? date, @Query('Months') int? months});
 
   ///
   ///@param fromDate
   ///@param toDate
-  @Get(path: '/datefunctions/numberofmonths')
   Future<chopper.Response> datefunctionsNumberofmonthsGet(
+      {String? fromDate, String? toDate}) {
+    return _datefunctionsNumberofmonthsGet(fromDate: fromDate, toDate: toDate);
+  }
+
+  ///
+  ///@param fromDate
+  ///@param toDate
+  @Get(path: '/datefunctions/numberofmonths')
+  Future<chopper.Response> _datefunctionsNumberofmonthsGet(
       {@Query('fromDate') String? fromDate, @Query('toDate') String? toDate});
 
   ///Get an empty object
+  Future<chopper.Response> datefunctionsEmptyobjectGet() {
+    return _datefunctionsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/datefunctions/emptyobject')
-  Future<chopper.Response> datefunctionsEmptyobjectGet();
+  Future<chopper.Response> _datefunctionsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> datefunctionsEmptybrowseobjectGet() {
+    return _datefunctionsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/datefunctions/emptybrowseobject')
-  Future<chopper.Response> datefunctionsEmptybrowseobjectGet();
+  Future<chopper.Response> _datefunctionsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> datefunctionsKeyfieldnamesGet() {
+    return _datefunctionsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/datefunctions/keyfieldnames')
-  Future<chopper.Response> datefunctionsKeyfieldnamesGet();
+  Future<chopper.Response> _datefunctionsKeyfieldnamesGet();
+
+  ///
+  ///@param filename
+  ///@param downloadasfilename
+  Future<chopper.Response> downloadFilenameGet(
+      {required String? filename, String? downloadasfilename}) {
+    return _downloadFilenameGet(
+        filename: filename, downloadasfilename: downloadasfilename);
+  }
 
   ///
   ///@param filename
   ///@param downloadasfilename
   @Get(path: '/download/{filename}')
-  Future<chopper.Response> downloadFilenameGet(
+  Future<chopper.Response> _downloadFilenameGet(
       {@Path('filename') required String? filename,
       @Query('downloadasfilename') String? downloadasfilename});
 
   ///
-  @Post(path: '/inventorylocationitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       inventorylocationitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorylocationitemBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/inventorylocationitem/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventorylocationitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      inventorylocationitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _inventorylocationitemExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorylocationitem/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      inventorylocationitemExportexcelxlsxPost(
+      _inventorylocationitemExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  Future<
+          chopper.Response<
+              List<
+                  WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>>
+      inventorylocationitemGet({int? pageno, int? pagesize, String? sort}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem,
+        () => WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem
+            .fromJsonFactory);
+
+    return _inventorylocationitemGet(
+        pageno: pageno, pagesize: pagesize, sort: sort);
+  }
 
   ///
   ///@param pageno
@@ -445,10 +1056,24 @@ abstract class Utilities extends ChopperService {
           chopper.Response<
               List<
                   WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>>
-      inventorylocationitemGet(
+      _inventorylocationitemGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>
+      inventorylocationitemIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem,
+        () => WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem
+            .fromJsonFactory);
+
+    return _inventorylocationitemIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -456,7 +1081,24 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>
-      inventorylocationitemIdGet({@Path('id') required String? id});
+      _inventorylocationitemIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>
+      inventorylocationitemIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem,
+        () => WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem
+            .fromJsonFactory);
+
+    return _inventorylocationitemIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -464,7 +1106,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>>
-      inventorylocationitemIdPut(
+      _inventorylocationitemIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -472,54 +1114,137 @@ abstract class Utilities extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/inventorylocationitem/many')
   Future<
           chopper.Response<
               List<
                   MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic>>>
       inventorylocationitemManyPost(
+          {required List<
+                  WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>?
+              body}) {
+    generatedMapping.putIfAbsent(
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic,
+        () =>
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic
+                .fromJsonFactory);
+
+    return _inventorylocationitemManyPost(body: body);
+  }
+
+  ///
+  @Post(path: '/inventorylocationitem/many')
+  Future<
+          chopper.Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic>>>
+      _inventorylocationitemManyPost(
           {@Body()
               required List<
                       WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem>?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> inventorylocationitemEmptyobjectGet() {
+    return _inventorylocationitemEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventorylocationitem/emptyobject')
-  Future<chopper.Response> inventorylocationitemEmptyobjectGet();
+  Future<chopper.Response> _inventorylocationitemEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventorylocationitemEmptybrowseobjectGet() {
+    return _inventorylocationitemEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorylocationitem/emptybrowseobject')
-  Future<chopper.Response> inventorylocationitemEmptybrowseobjectGet();
+  Future<chopper.Response> _inventorylocationitemEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorylocationitemKeyfieldnamesGet() {
+    return _inventorylocationitemKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorylocationitem/keyfieldnames')
-  Future<chopper.Response> inventorylocationitemKeyfieldnamesGet();
+  Future<chopper.Response> _inventorylocationitemKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorymergeBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorymergeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventorymerge/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorymergeBrowsePost(
+      _inventorymergeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      inventorymergeExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _inventorymergeExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorymerge/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      inventorymergeExportexcelxlsxPost(
+      _inventorymergeExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesInventoryMergeInventoryMerge>>
+      inventorymergeIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryMergeInventoryMerge,
+        () =>
+            WebApiModulesUtilitiesInventoryMergeInventoryMerge.fromJsonFactory);
+
+    return _inventorymergeIdGet(id: id);
+  }
 
   ///
   ///@param id
   @Get(path: '/inventorymerge/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesInventoryMergeInventoryMerge>>
-      inventorymergeIdGet({@Path('id') required String? id});
+      _inventorymergeIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesInventoryMergeInventoryMerge>>
+      inventorymergeIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesInventoryMergeInventoryMerge? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryMergeInventoryMerge,
+        () =>
+            WebApiModulesUtilitiesInventoryMergeInventoryMerge.fromJsonFactory);
+
+    return _inventorymergeIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/inventorymerge/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesInventoryMergeInventoryMerge>>
-      inventorymergeIdPut(
+      _inventorymergeIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -528,376 +1253,953 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> inventorymergeIdDelete({required String? id}) {
+    return _inventorymergeIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/inventorymerge/{id}')
-  Future<chopper.Response<bool>> inventorymergeIdDelete(
+  Future<chopper.Response<bool>> _inventorymergeIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<WebApiModulesUtilitiesInventoryMergeInventoryMerge>>
+      inventorymergePost(
+          {required WebApiModulesUtilitiesInventoryMergeInventoryMerge? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryMergeInventoryMerge,
+        () =>
+            WebApiModulesUtilitiesInventoryMergeInventoryMerge.fromJsonFactory);
+
+    return _inventorymergePost(body: body);
+  }
 
   ///
   @Post(path: '/inventorymerge')
   Future<chopper.Response<WebApiModulesUtilitiesInventoryMergeInventoryMerge>>
-      inventorymergePost(
+      _inventorymergePost(
           {@Body()
               required WebApiModulesUtilitiesInventoryMergeInventoryMerge?
                   body});
 
   ///
-  @Post(path: '/inventorymerge/validateitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       inventorymergeValidateitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorymergeValidateitemBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/inventorymerge/validateitem/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventorymergeValidateitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> inventorymergeEmptyobjectGet() {
+    return _inventorymergeEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventorymerge/emptyobject')
-  Future<chopper.Response> inventorymergeEmptyobjectGet();
+  Future<chopper.Response> _inventorymergeEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventorymergeEmptybrowseobjectGet() {
+    return _inventorymergeEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorymerge/emptybrowseobject')
-  Future<chopper.Response> inventorymergeEmptybrowseobjectGet();
+  Future<chopper.Response> _inventorymergeEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorymergeKeyfieldnamesGet() {
+    return _inventorymergeKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorymerge/keyfieldnames')
-  Future<chopper.Response> inventorymergeKeyfieldnamesGet();
+  Future<chopper.Response> _inventorymergeKeyfieldnamesGet();
+
+  ///
+  Future<
+      chopper.Response<
+          WebApiLogicTSpStatusResponse>> inventorymergeutilityMergeinventoryPost(
+      {required WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest?
+          body}) {
+    generatedMapping.putIfAbsent(WebApiLogicTSpStatusResponse,
+        () => WebApiLogicTSpStatusResponse.fromJsonFactory);
+
+    return _inventorymergeutilityMergeinventoryPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorymergeutility/mergeinventory')
   Future<
       chopper.Response<
-          WebApiLogicTSpStatusResponse>> inventorymergeutilityMergeinventoryPost(
+          WebApiLogicTSpStatusResponse>> _inventorymergeutilityMergeinventoryPost(
       {@Body()
           required WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest?
               body});
 
   ///Get an empty object
+  Future<chopper.Response> inventorymergeutilityEmptyobjectGet() {
+    return _inventorymergeutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventorymergeutility/emptyobject')
-  Future<chopper.Response> inventorymergeutilityEmptyobjectGet();
+  Future<chopper.Response> _inventorymergeutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventorymergeutilityEmptybrowseobjectGet() {
+    return _inventorymergeutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorymergeutility/emptybrowseobject')
-  Future<chopper.Response> inventorymergeutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _inventorymergeutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorymergeutilityKeyfieldnamesGet() {
+    return _inventorymergeutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorymergeutility/keyfieldnames')
-  Future<chopper.Response> inventorymergeutilityKeyfieldnamesGet();
+  Future<chopper.Response> _inventorymergeutilityKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorypurchasesessionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorypurchasesessionBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchasesession/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorypurchasesessionBrowsePost(
+      _inventorypurchasesessionBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      inventorypurchasesessionExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _inventorypurchasesessionExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchasesession/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      inventorypurchasesessionExportexcelxlsxPost(
+      _inventorypurchasesessionExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///
   ///@param id
-  @Delete(path: '/inventorypurchasesession/{id}')
   Future<chopper.Response<bool>> inventorypurchasesessionIdDelete(
+      {required String? id}) {
+    return _inventorypurchasesessionIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/inventorypurchasesession/{id}')
+  Future<chopper.Response<bool>> _inventorypurchasesessionIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> inventorypurchasesessionEmptyobjectGet() {
+    return _inventorypurchasesessionEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventorypurchasesession/emptyobject')
-  Future<chopper.Response> inventorypurchasesessionEmptyobjectGet();
+  Future<chopper.Response> _inventorypurchasesessionEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventorypurchasesessionEmptybrowseobjectGet() {
+    return _inventorypurchasesessionEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorypurchasesession/emptybrowseobject')
-  Future<chopper.Response> inventorypurchasesessionEmptybrowseobjectGet();
+  Future<chopper.Response> _inventorypurchasesessionEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorypurchasesessionKeyfieldnamesGet() {
+    return _inventorypurchasesessionKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorypurchasesession/keyfieldnames')
-  Future<chopper.Response> inventorypurchasesessionKeyfieldnamesGet();
+  Future<chopper.Response> _inventorypurchasesessionKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
+      inventorypurchaseutilityStartsessionPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+                .fromJsonFactory);
+
+    return _inventorypurchaseutilityStartsessionPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/startsession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
-      inventorypurchaseutilityStartsessionPost(
+      _inventorypurchaseutilityStartsessionPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
+      inventorypurchaseutilityUpdatesessionPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+                .fromJsonFactory);
+
+    return _inventorypurchaseutilityUpdatesessionPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/updatesession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
-      inventorypurchaseutilityUpdatesessionPost(
+      _inventorypurchaseutilityUpdatesessionPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse>>
+      inventorypurchaseutilityAssignbarcodesPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse
+                .fromJsonFactory);
+
+    return _inventorypurchaseutilityAssignbarcodesPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/assignbarcodes')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse>>
-      inventorypurchaseutilityAssignbarcodesPost(
+      _inventorypurchaseutilityAssignbarcodesPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
+      inventorypurchaseutilityCompletesessionPost(
+          {required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse,
+        () =>
+            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+                .fromJsonFactory);
+
+    return _inventorypurchaseutilityCompletesessionPost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/completesession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
-      inventorypurchaseutilityCompletesessionPost(
+      _inventorypurchaseutilityCompletesessionPost(
           {@Body()
               required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
                   body});
 
   ///
-  @Post(path: '/inventorypurchaseutility/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       inventorypurchaseutilityValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorypurchaseutilityValidateinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/inventorypurchaseutility/validateinventory/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventorypurchaseutilityValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorypurchaseutilityValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorypurchaseutilityValidatewarehouseBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorypurchaseutilityValidatewarehouseBrowsePost(
+      _inventorypurchaseutilityValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorypurchaseutilityValidatemanufacturervendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorypurchaseutilityValidatemanufacturervendorBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/validatemanufacturervendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorypurchaseutilityValidatemanufacturervendorBrowsePost(
+      _inventorypurchaseutilityValidatemanufacturervendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorypurchaseutilityValidatecountryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorypurchaseutilityValidatecountryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/validatecountry/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorypurchaseutilityValidatecountryBrowsePost(
+      _inventorypurchaseutilityValidatecountryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventorypurchaseutilityValidatepurchasevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventorypurchaseutilityValidatepurchasevendorBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/inventorypurchaseutility/validatepurchasevendor/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventorypurchaseutilityValidatepurchasevendorBrowsePost(
+      _inventorypurchaseutilityValidatepurchasevendorBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> inventorypurchaseutilityEmptyobjectGet() {
+    return _inventorypurchaseutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventorypurchaseutility/emptyobject')
-  Future<chopper.Response> inventorypurchaseutilityEmptyobjectGet();
+  Future<chopper.Response> _inventorypurchaseutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventorypurchaseutilityEmptybrowseobjectGet() {
+    return _inventorypurchaseutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorypurchaseutility/emptybrowseobject')
-  Future<chopper.Response> inventorypurchaseutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _inventorypurchaseutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorypurchaseutilityKeyfieldnamesGet() {
+    return _inventorypurchaseutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorypurchaseutility/keyfieldnames')
-  Future<chopper.Response> inventorypurchaseutilityKeyfieldnamesGet();
+  Future<chopper.Response> _inventorypurchaseutilityKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper
+              .Response<WebApiModulesInventoryInventoryRetireInventoryResponse>>
+      inventoryretireutilityRetireinventoryPost(
+          {required WebApiModulesInventoryInventoryRetireInventoryRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesInventoryInventoryRetireInventoryResponse,
+        () => WebApiModulesInventoryInventoryRetireInventoryResponse
+            .fromJsonFactory);
+
+    return _inventoryretireutilityRetireinventoryPost(body: body);
+  }
 
   ///
   @Post(path: '/inventoryretireutility/retireinventory')
   Future<
           chopper
               .Response<WebApiModulesInventoryInventoryRetireInventoryResponse>>
-      inventoryretireutilityRetireinventoryPost(
+      _inventoryretireutilityRetireinventoryPost(
           {@Body()
               required WebApiModulesInventoryInventoryRetireInventoryRequest?
                   body});
 
   ///
-  @Post(path: '/inventoryretireutility/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       inventoryretireutilityValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventoryretireutilityValidateinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/inventoryretireutility/validateinventory/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryretireutilityValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventoryretireutilityValidateitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventoryretireutilityValidateitemBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventoryretireutility/validateitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventoryretireutilityValidateitemBrowsePost(
+      _inventoryretireutilityValidateitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventoryretireutilityValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventoryretireutilityValidateconsignoragreementBrowsePost(
+        body: body);
+  }
 
   ///
   @Post(path: '/inventoryretireutility/validateconsignoragreement/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventoryretireutilityValidateconsignoragreementBrowsePost(
+      _inventoryretireutilityValidateconsignoragreementBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> inventoryretireutilityEmptyobjectGet() {
+    return _inventoryretireutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventoryretireutility/emptyobject')
-  Future<chopper.Response> inventoryretireutilityEmptyobjectGet();
+  Future<chopper.Response> _inventoryretireutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventoryretireutilityEmptybrowseobjectGet() {
+    return _inventoryretireutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventoryretireutility/emptybrowseobject')
-  Future<chopper.Response> inventoryretireutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _inventoryretireutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventoryretireutilityKeyfieldnamesGet() {
+    return _inventoryretireutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventoryretireutility/keyfieldnames')
-  Future<chopper.Response> inventoryretireutilityKeyfieldnamesGet();
+  Future<chopper.Response> _inventoryretireutilityKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<bool>> inventorysequenceutilityDonothingPost() {
+    return _inventorysequenceutilityDonothingPost();
+  }
 
   ///
   @Post(path: '/inventorysequenceutility/donothing')
-  Future<chopper.Response<bool>> inventorysequenceutilityDonothingPost();
+  Future<chopper.Response<bool>> _inventorysequenceutilityDonothingPost();
+
+  ///Get an empty object
+  Future<chopper.Response> inventorysequenceutilityEmptyobjectGet() {
+    return _inventorysequenceutilityEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/inventorysequenceutility/emptyobject')
-  Future<chopper.Response> inventorysequenceutilityEmptyobjectGet();
+  Future<chopper.Response> _inventorysequenceutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventorysequenceutilityEmptybrowseobjectGet() {
+    return _inventorysequenceutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventorysequenceutility/emptybrowseobject')
-  Future<chopper.Response> inventorysequenceutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _inventorysequenceutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventorysequenceutilityKeyfieldnamesGet() {
+    return _inventorysequenceutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventorysequenceutility/keyfieldnames')
-  Future<chopper.Response> inventorysequenceutilityKeyfieldnamesGet();
+  Future<chopper.Response> _inventorysequenceutilityKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper
+              .Response<WebApiModulesInventoryInventoryRetireInventoryResponse>>
+      inventoryunretireutilityUnretireinventoryPost(
+          {required WebApiModulesInventoryInventoryUnretireInventoryRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesInventoryInventoryRetireInventoryResponse,
+        () => WebApiModulesInventoryInventoryRetireInventoryResponse
+            .fromJsonFactory);
+
+    return _inventoryunretireutilityUnretireinventoryPost(body: body);
+  }
 
   ///
   @Post(path: '/inventoryunretireutility/unretireinventory')
   Future<
           chopper
               .Response<WebApiModulesInventoryInventoryRetireInventoryResponse>>
-      inventoryunretireutilityUnretireinventoryPost(
+      _inventoryunretireutilityUnretireinventoryPost(
           {@Body()
               required WebApiModulesInventoryInventoryUnretireInventoryRequest?
                   body});
 
   ///
-  @Post(path: '/inventoryunretireutility/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       inventoryunretireutilityValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventoryunretireutilityValidateinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/inventoryunretireutility/validateinventory/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryunretireutilityValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      inventoryunretireutilityValidateitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _inventoryunretireutilityValidateitemBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/inventoryunretireutility/validateitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      inventoryunretireutilityValidateitemBrowsePost(
+      _inventoryunretireutilityValidateitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> inventoryunretireutilityEmptyobjectGet() {
+    return _inventoryunretireutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/inventoryunretireutility/emptyobject')
-  Future<chopper.Response> inventoryunretireutilityEmptyobjectGet();
+  Future<chopper.Response> _inventoryunretireutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> inventoryunretireutilityEmptybrowseobjectGet() {
+    return _inventoryunretireutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/inventoryunretireutility/emptybrowseobject')
-  Future<chopper.Response> inventoryunretireutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _inventoryunretireutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> inventoryunretireutilityKeyfieldnamesGet() {
+    return _inventoryunretireutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/inventoryunretireutility/keyfieldnames')
-  Future<chopper.Response> inventoryunretireutilityKeyfieldnamesGet();
+  Future<chopper.Response> _inventoryunretireutilityKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse>>
+      invoiceprocessbatchCreatebatchPost(
+          {required WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse,
+        () =>
+            WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse
+                .fromJsonFactory);
+
+    return _invoiceprocessbatchCreatebatchPost(body: body);
+  }
 
   ///
   @Post(path: '/invoiceprocessbatch/createbatch')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse>>
-      invoiceprocessbatchCreatebatchPost(
+      _invoiceprocessbatchCreatebatchPost(
           {@Body()
               required WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest?
                   body});
 
   ///
-  @Post(path: '/invoiceprocessbatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       invoiceprocessbatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoiceprocessbatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/invoiceprocessbatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _invoiceprocessbatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      invoiceprocessbatchExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _invoiceprocessbatchExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/invoiceprocessbatch/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      invoiceprocessbatchExportexcelxlsxPost(
+      _invoiceprocessbatchExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      invoiceprocessbatchValidatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _invoiceprocessbatchValidatebatchBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/invoiceprocessbatch/validatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      invoiceprocessbatchValidatebatchBrowsePost(
+      _invoiceprocessbatchValidatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> invoiceprocessbatchEmptyobjectGet() {
+    return _invoiceprocessbatchEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/invoiceprocessbatch/emptyobject')
-  Future<chopper.Response> invoiceprocessbatchEmptyobjectGet();
+  Future<chopper.Response> _invoiceprocessbatchEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> invoiceprocessbatchEmptybrowseobjectGet() {
+    return _invoiceprocessbatchEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/invoiceprocessbatch/emptybrowseobject')
-  Future<chopper.Response> invoiceprocessbatchEmptybrowseobjectGet();
+  Future<chopper.Response> _invoiceprocessbatchEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> invoiceprocessbatchKeyfieldnamesGet() {
+    return _invoiceprocessbatchKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/invoiceprocessbatch/keyfieldnames')
-  Future<chopper.Response> invoiceprocessbatchKeyfieldnamesGet();
+  Future<chopper.Response> _invoiceprocessbatchKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesMigrateStartMigrateSessionResponse>>
+      migrateStartsessionPost(
+          {required WebApiModulesUtilitiesMigrateStartMigrateSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesMigrateStartMigrateSessionResponse,
+        () => WebApiModulesUtilitiesMigrateStartMigrateSessionResponse
+            .fromJsonFactory);
+
+    return _migrateStartsessionPost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/startsession')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesMigrateStartMigrateSessionResponse>>
-      migrateStartsessionPost(
+      _migrateStartsessionPost(
           {@Body()
               required WebApiModulesUtilitiesMigrateStartMigrateSessionRequest?
                   body});
+
+  ///
+  Future<
+          chopper
+              .Response<WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse>>
+      migrateUpdateitemPost(
+          {required WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse,
+        () => WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse
+            .fromJsonFactory);
+
+    return _migrateUpdateitemPost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/updateitem')
   Future<
           chopper
               .Response<WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse>>
-      migrateUpdateitemPost(
+      _migrateUpdateitemPost(
           {@Body()
               required WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse>>
+      migrateSelectallPost(
+          {required WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse,
+        () => WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
+            .fromJsonFactory);
+
+    return _migrateSelectallPost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/selectall')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse>>
-      migrateSelectallPost(
+      _migrateSelectallPost(
           {@Body()
               required WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse>>
+      migrateSelectnonePost(
+          {required WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse,
+        () => WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
+            .fromJsonFactory);
+
+    return _migrateSelectnonePost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/selectnone')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse>>
-      migrateSelectnonePost(
+      _migrateSelectnonePost(
           {@Body()
               required WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse>>
+      migrateCompletesession2Post(
+          {required WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse,
+        () => WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
+            .fromJsonFactory);
+
+    return _migrateCompletesession2Post(body: body);
+  }
 
   ///
   @Post(path: '/migrate/completesession2')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse>>
-      migrateCompletesession2Post(
+      _migrateCompletesession2Post(
           {@Body()
               required WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest?
                   body});
 
   ///
-  @Post(path: '/migrate/validatedeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       migrateValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _migrateValidatedealBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/migrate/validatedeal/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _migrateValidatedealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      migrateValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _migrateValidatedepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/validatedepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      migrateValidatedepartmentBrowsePost(
+      _migrateValidatedepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      migrateValidatecreatenewdealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _migrateValidatecreatenewdealBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/validatecreatenewdeal/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      migrateValidatecreatenewdealBrowsePost(
+      _migrateValidatecreatenewdealBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      migrateValidateratetypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _migrateValidateratetypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/migrate/validateratetype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      migrateValidateratetypeBrowsePost(
+      _migrateValidateratetypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param departmentid
+  ///@param locationid
+  Future<
+          chopper.Response<
+              WebApiModulesSettingsDepartmentLocationDepartmentLocation>>
+      migrateDepartmentDepartmentidLocationLocationidGet(
+          {required String? departmentid, required String? locationid}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesSettingsDepartmentLocationDepartmentLocation,
+        () => WebApiModulesSettingsDepartmentLocationDepartmentLocation
+            .fromJsonFactory);
+
+    return _migrateDepartmentDepartmentidLocationLocationidGet(
+        departmentid: departmentid, locationid: locationid);
+  }
 
   ///
   ///@param departmentid
@@ -906,61 +2208,163 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesSettingsDepartmentLocationDepartmentLocation>>
-      migrateDepartmentDepartmentidLocationLocationidGet(
+      _migrateDepartmentDepartmentidLocationLocationidGet(
           {@Path('departmentid') required String? departmentid,
           @Path('locationid') required String? locationid});
 
   ///Get an empty object
+  Future<chopper.Response> migrateEmptyobjectGet() {
+    return _migrateEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/migrate/emptyobject')
-  Future<chopper.Response> migrateEmptyobjectGet();
+  Future<chopper.Response> _migrateEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> migrateEmptybrowseobjectGet() {
+    return _migrateEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/migrate/emptybrowseobject')
-  Future<chopper.Response> migrateEmptybrowseobjectGet();
+  Future<chopper.Response> _migrateEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> migrateKeyfieldnamesGet() {
+    return _migrateKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/migrate/keyfieldnames')
-  Future<chopper.Response> migrateKeyfieldnamesGet();
+  Future<chopper.Response> _migrateKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      migrateitemBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _migrateitemBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/migrateitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      migrateitemBrowsePost(
+      _migrateitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      migrateitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _migrateitemExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/migrateitem/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      migrateitemExportexcelxlsxPost(
+      _migrateitemExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> migrateitemEmptyobjectGet() {
+    return _migrateitemEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/migrateitem/emptyobject')
-  Future<chopper.Response> migrateitemEmptyobjectGet();
+  Future<chopper.Response> _migrateitemEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> migrateitemEmptybrowseobjectGet() {
+    return _migrateitemEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/migrateitem/emptybrowseobject')
-  Future<chopper.Response> migrateitemEmptybrowseobjectGet();
+  Future<chopper.Response> _migrateitemEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> migrateitemKeyfieldnamesGet() {
+    return _migrateitemKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/migrateitem/keyfieldnames')
-  Future<chopper.Response> migrateitemKeyfieldnamesGet();
+  Future<chopper.Response> _migrateitemKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      onlineordertrackingBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _onlineordertrackingBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/onlineordertracking/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      onlineordertrackingBrowsePost(
+      _onlineordertrackingBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      onlineordertrackingExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _onlineordertrackingExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/onlineordertracking/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      onlineordertrackingExportexcelxlsxPost(
+      _onlineordertrackingExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic>>
+      onlineordertrackingGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic
+                .fromJsonFactory);
+
+    return _onlineordertrackingGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -971,21 +2375,50 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic>>
-      onlineordertrackingGet(
+      _onlineordertrackingGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/onlineordertracking')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking>>
       onlineordertrackingPost(
+          {required WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking,
+        () => WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
+            .fromJsonFactory);
+
+    return _onlineordertrackingPost(body: body);
+  }
+
+  ///
+  @Post(path: '/onlineordertracking')
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking>>
+      _onlineordertrackingPost(
           {@Body()
               required WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking>>
+      onlineordertrackingIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking,
+        () => WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
+            .fromJsonFactory);
+
+    return _onlineordertrackingIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -993,7 +2426,24 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking>>
-      onlineordertrackingIdGet({@Path('id') required String? id});
+      _onlineordertrackingIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking>>
+      onlineordertrackingIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking,
+        () => WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
+            .fromJsonFactory);
+
+    return _onlineordertrackingIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -1001,7 +2451,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking>>
-      onlineordertrackingIdPut(
+      _onlineordertrackingIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -1010,186 +2460,477 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/onlineordertracking/{id}')
   Future<chopper.Response<bool>> onlineordertrackingIdDelete(
+      {required String? id}) {
+    return _onlineordertrackingIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/onlineordertracking/{id}')
+  Future<chopper.Response<bool>> _onlineordertrackingIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> onlineordertrackingEmptyobjectGet() {
+    return _onlineordertrackingEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/onlineordertracking/emptyobject')
-  Future<chopper.Response> onlineordertrackingEmptyobjectGet();
+  Future<chopper.Response> _onlineordertrackingEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> onlineordertrackingEmptybrowseobjectGet() {
+    return _onlineordertrackingEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/onlineordertracking/emptybrowseobject')
-  Future<chopper.Response> onlineordertrackingEmptybrowseobjectGet();
+  Future<chopper.Response> _onlineordertrackingEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> onlineordertrackingKeyfieldnamesGet() {
+    return _onlineordertrackingKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/onlineordertracking/keyfieldnames')
-  Future<chopper.Response> onlineordertrackingKeyfieldnamesGet();
+  Future<chopper.Response> _onlineordertrackingKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse>>
+      onlineordertrackingexportExportPost(
+          {required WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse,
+        () =>
+            WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse
+                .fromJsonFactory);
+
+    return _onlineordertrackingexportExportPost(body: body);
+  }
 
   ///
   @Post(path: '/onlineordertrackingexport/export')
   Future<
           chopper.Response<
               WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse>>
-      onlineordertrackingexportExportPost(
+      _onlineordertrackingexportExportPost(
           {@Body()
               required WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      onlineordertrackingexportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _onlineordertrackingexportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/onlineordertrackingexport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      onlineordertrackingexportEmptyobjectGet();
+      _onlineordertrackingexportEmptyobjectGet();
+
+  ///Get an empty object
+  Future<chopper.Response> onlineordertrackingexportutilityEmptyobjectGet() {
+    return _onlineordertrackingexportutilityEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/onlineordertrackingexportutility/emptyobject')
-  Future<chopper.Response> onlineordertrackingexportutilityEmptyobjectGet();
+  Future<chopper.Response> _onlineordertrackingexportutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response>
+      onlineordertrackingexportutilityEmptybrowseobjectGet() {
+    return _onlineordertrackingexportutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/onlineordertrackingexportutility/emptybrowseobject')
   Future<chopper.Response>
-      onlineordertrackingexportutilityEmptybrowseobjectGet();
+      _onlineordertrackingexportutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> onlineordertrackingexportutilityKeyfieldnamesGet() {
+    return _onlineordertrackingexportutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/onlineordertrackingexportutility/keyfieldnames')
-  Future<chopper.Response> onlineordertrackingexportutilityKeyfieldnamesGet();
+  Future<chopper.Response> _onlineordertrackingexportutilityKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<WebApiModulesExportsOrderExportOrderExportResponse>>
+      orderexportExportPost(
+          {required WebApiModulesExportsOrderExportOrderExportRequest? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesExportsOrderExportOrderExportResponse,
+        () =>
+            WebApiModulesExportsOrderExportOrderExportResponse.fromJsonFactory);
+
+    return _orderexportExportPost(body: body);
+  }
 
   ///
   @Post(path: '/orderexport/export')
   Future<chopper.Response<WebApiModulesExportsOrderExportOrderExportResponse>>
-      orderexportExportPost(
+      _orderexportExportPost(
           {@Body()
               required WebApiModulesExportsOrderExportOrderExportRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      orderexportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderexportEmptyobjectGet();
+  }
+
+  ///
   @Get(path: '/orderexport/emptyobject')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      orderexportEmptyobjectGet();
+      _orderexportEmptyobjectGet();
+
+  ///Get an empty object
+  Future<chopper.Response> orderexportutilityEmptyobjectGet() {
+    return _orderexportutilityEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/orderexportutility/emptyobject')
-  Future<chopper.Response> orderexportutilityEmptyobjectGet();
+  Future<chopper.Response> _orderexportutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> orderexportutilityEmptybrowseobjectGet() {
+    return _orderexportutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/orderexportutility/emptybrowseobject')
-  Future<chopper.Response> orderexportutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _orderexportutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> orderexportutilityKeyfieldnamesGet() {
+    return _orderexportutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/orderexportutility/keyfieldnames')
-  Future<chopper.Response> orderexportutilityKeyfieldnamesGet();
+  Future<chopper.Response> _orderexportutilityKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse>>
+      orderlocationscheduleScheduledataPost(
+          {required WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse,
+        () =>
+            WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
+                .fromJsonFactory);
+
+    return _orderlocationscheduleScheduledataPost(body: body);
+  }
 
   ///
   @Post(path: '/orderlocationschedule/scheduledata')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse>>
-      orderlocationscheduleScheduledataPost(
+      _orderlocationscheduleScheduledataPost(
           {@Body()
               required WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest?
                   body});
 
   ///
-  @Post(path: '/orderlocationschedule/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       orderlocationscheduleValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _orderlocationscheduleValidateofficelocationBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/orderlocationschedule/validateofficelocation/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderlocationscheduleValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> orderlocationscheduleEmptyobjectGet() {
+    return _orderlocationscheduleEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/orderlocationschedule/emptyobject')
-  Future<chopper.Response> orderlocationscheduleEmptyobjectGet();
+  Future<chopper.Response> _orderlocationscheduleEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> orderlocationscheduleEmptybrowseobjectGet() {
+    return _orderlocationscheduleEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/orderlocationschedule/emptybrowseobject')
-  Future<chopper.Response> orderlocationscheduleEmptybrowseobjectGet();
+  Future<chopper.Response> _orderlocationscheduleEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> orderlocationscheduleKeyfieldnamesGet() {
+    return _orderlocationscheduleKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/orderlocationschedule/keyfieldnames')
-  Future<chopper.Response> orderlocationscheduleKeyfieldnamesGet();
+  Future<chopper.Response> _orderlocationscheduleKeyfieldnamesGet();
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesProgressMeterProgressMeter>>
+      progressmeterIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesProgressMeterProgressMeter,
+        () => WebApiModulesUtilitiesProgressMeterProgressMeter.fromJsonFactory);
+
+    return _progressmeterIdGet(id: id);
+  }
 
   ///
   ///@param id
   @Get(path: '/progressmeter/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesProgressMeterProgressMeter>>
-      progressmeterIdGet({@Path('id') required String? id});
+      _progressmeterIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> progressmeterEmptyobjectGet() {
+    return _progressmeterEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/progressmeter/emptyobject')
-  Future<chopper.Response> progressmeterEmptyobjectGet();
+  Future<chopper.Response> _progressmeterEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> progressmeterEmptybrowseobjectGet() {
+    return _progressmeterEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/progressmeter/emptybrowseobject')
-  Future<chopper.Response> progressmeterEmptybrowseobjectGet();
+  Future<chopper.Response> _progressmeterEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> progressmeterKeyfieldnamesGet() {
+    return _progressmeterKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/progressmeter/keyfieldnames')
-  Future<chopper.Response> progressmeterKeyfieldnamesGet();
+  Future<chopper.Response> _progressmeterKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse>>
+      quikactivityCalendardataPost(
+          {required WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse,
+        () =>
+            WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse
+                .fromJsonFactory);
+
+    return _quikactivityCalendardataPost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivity/calendardata')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse>>
-      quikactivityCalendardataPost(
+      _quikactivityCalendardataPost(
           {@Body()
               required WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest?
                   body});
 
   ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivityBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityBrowsePost(body: body);
+  }
+
+  ///
   @Post(path: '/quikactivity/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivityBrowsePost(
+      _quikactivityBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      quikactivityExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _quikactivityExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivity/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      quikactivityExportexcelxlsxPost(
+      _quikactivityExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesQuikActivityQuikActivity>>
+      quikactivityIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesQuikActivityQuikActivity? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesUtilitiesQuikActivityQuikActivity,
+        () => WebApiModulesUtilitiesQuikActivityQuikActivity.fromJsonFactory);
+
+    return _quikactivityIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/quikactivity/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesQuikActivityQuikActivity>>
-      quikactivityIdPut(
+      _quikactivityIdPut(
           {@Path('id')
               required String? id,
           @Body()
               required WebApiModulesUtilitiesQuikActivityQuikActivity? body});
 
   ///
-  @Post(path: '/quikactivity/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       quikactivityValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivityValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikactivity/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _quikactivityValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> quikactivityEmptyobjectGet() {
+    return _quikactivityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/quikactivity/emptyobject')
-  Future<chopper.Response> quikactivityEmptyobjectGet();
+  Future<chopper.Response> _quikactivityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikactivityEmptybrowseobjectGet() {
+    return _quikactivityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikactivity/emptybrowseobject')
-  Future<chopper.Response> quikactivityEmptybrowseobjectGet();
+  Future<chopper.Response> _quikactivityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikactivityKeyfieldnamesGet() {
+    return _quikactivityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikactivity/keyfieldnames')
-  Future<chopper.Response> quikactivityKeyfieldnamesGet();
+  Future<chopper.Response> _quikactivityKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      quikactivitysettingsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _quikactivitysettingsBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivitysettings/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikactivitysettingsBrowsePost(
+      _quikactivitysettingsBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      quikactivitysettingsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _quikactivitysettingsExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/quikactivitysettings/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      quikactivitysettingsExportexcelxlsxPost(
+      _quikactivitysettingsExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic>>
+      quikactivitysettingsGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic
+                .fromJsonFactory);
+
+    return _quikactivitysettingsGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1200,21 +2941,52 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic>>
-      quikactivitysettingsGet(
+      _quikactivitysettingsGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/quikactivitysettings')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings>>
       quikactivitysettingsPost(
+          {required WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings,
+        () =>
+            WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
+                .fromJsonFactory);
+
+    return _quikactivitysettingsPost(body: body);
+  }
+
+  ///
+  @Post(path: '/quikactivitysettings')
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings>>
+      _quikactivitysettingsPost(
           {@Body()
               required WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings>>
+      quikactivitysettingsIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings,
+        () =>
+            WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
+                .fromJsonFactory);
+
+    return _quikactivitysettingsIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -1222,7 +2994,25 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings>>
-      quikactivitysettingsIdGet({@Path('id') required String? id});
+      _quikactivitysettingsIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings>>
+      quikactivitysettingsIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings,
+        () =>
+            WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
+                .fromJsonFactory);
+
+    return _quikactivitysettingsIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -1230,7 +3020,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings>>
-      quikactivitysettingsIdPut(
+      _quikactivitysettingsIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -1239,35 +3029,105 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/quikactivitysettings/{id}')
   Future<chopper.Response<bool>> quikactivitysettingsIdDelete(
+      {required String? id}) {
+    return _quikactivitysettingsIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/quikactivitysettings/{id}')
+  Future<chopper.Response<bool>> _quikactivitysettingsIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> quikactivitysettingsEmptyobjectGet() {
+    return _quikactivitysettingsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/quikactivitysettings/emptyobject')
-  Future<chopper.Response> quikactivitysettingsEmptyobjectGet();
+  Future<chopper.Response> _quikactivitysettingsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> quikactivitysettingsEmptybrowseobjectGet() {
+    return _quikactivitysettingsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/quikactivitysettings/emptybrowseobject')
-  Future<chopper.Response> quikactivitysettingsEmptybrowseobjectGet();
+  Future<chopper.Response> _quikactivitysettingsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> quikactivitysettingsKeyfieldnamesGet() {
+    return _quikactivitysettingsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/quikactivitysettings/keyfieldnames')
-  Future<chopper.Response> quikactivitysettingsKeyfieldnamesGet();
+  Future<chopper.Response> _quikactivitysettingsKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdatebatchBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdatebatchBrowsePost(
+      _rateupdatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rateupdatebatchExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rateupdatebatchExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdatebatch/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rateupdatebatchExportexcelxlsxPost(
+      _rateupdatebatchExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic>>
+      rateupdatebatchGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic
+                .fromJsonFactory);
+
+    return _rateupdatebatchGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1278,7 +3138,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic>>
-      rateupdatebatchGet(
+      _rateupdatebatchGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1286,35 +3146,110 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch>>
+      rateupdatebatchIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch,
+        () => WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch
+            .fromJsonFactory);
+
+    return _rateupdatebatchIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/rateupdatebatch/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch>>
-      rateupdatebatchIdGet({@Path('id') required String? id});
+      _rateupdatebatchIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> rateupdatebatchEmptyobjectGet() {
+    return _rateupdatebatchEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/rateupdatebatch/emptyobject')
-  Future<chopper.Response> rateupdatebatchEmptyobjectGet();
+  Future<chopper.Response> _rateupdatebatchEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> rateupdatebatchEmptybrowseobjectGet() {
+    return _rateupdatebatchEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/rateupdatebatch/emptybrowseobject')
-  Future<chopper.Response> rateupdatebatchEmptybrowseobjectGet();
+  Future<chopper.Response> _rateupdatebatchEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> rateupdatebatchKeyfieldnamesGet() {
+    return _rateupdatebatchKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/rateupdatebatch/keyfieldnames')
-  Future<chopper.Response> rateupdatebatchKeyfieldnamesGet();
+  Future<chopper.Response> _rateupdatebatchKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdatebatchitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdatebatchitemBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdatebatchitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdatebatchitemBrowsePost(
+      _rateupdatebatchitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rateupdatebatchitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rateupdatebatchitemExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdatebatchitem/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rateupdatebatchitemExportexcelxlsxPost(
+      _rateupdatebatchitemExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic>>
+      rateupdatebatchitemGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic
+                .fromJsonFactory);
+
+    return _rateupdatebatchitemGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1325,7 +3260,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic>>
-      rateupdatebatchitemGet(
+      _rateupdatebatchitemGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1333,41 +3268,122 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem>>
+      rateupdatebatchitemIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem,
+        () => WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem
+            .fromJsonFactory);
+
+    return _rateupdatebatchitemIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/rateupdatebatchitem/{id}')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem>>
-      rateupdatebatchitemIdGet({@Path('id') required String? id});
+      _rateupdatebatchitemIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> rateupdatebatchitemEmptyobjectGet() {
+    return _rateupdatebatchitemEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/rateupdatebatchitem/emptyobject')
-  Future<chopper.Response> rateupdatebatchitemEmptyobjectGet();
+  Future<chopper.Response> _rateupdatebatchitemEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> rateupdatebatchitemEmptybrowseobjectGet() {
+    return _rateupdatebatchitemEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/rateupdatebatchitem/emptybrowseobject')
-  Future<chopper.Response> rateupdatebatchitemEmptybrowseobjectGet();
+  Future<chopper.Response> _rateupdatebatchitemEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> rateupdatebatchitemKeyfieldnamesGet() {
+    return _rateupdatebatchitemKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/rateupdatebatchitem/keyfieldnames')
-  Future<chopper.Response> rateupdatebatchitemKeyfieldnamesGet();
+  Future<chopper.Response> _rateupdatebatchitemKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<Object>> rateupdateitemLegendGet() {
+    return _rateupdateitemLegendGet();
+  }
 
   ///
   @Get(path: '/rateupdateitem/legend')
-  Future<chopper.Response<Object>> rateupdateitemLegendGet();
+  Future<chopper.Response<Object>> _rateupdateitemLegendGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateitemBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateitemBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateitem/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateitemBrowsePost(
+      _rateupdateitemBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      rateupdateitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _rateupdateitemExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateitem/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      rateupdateitemExportexcelxlsxPost(
+      _rateupdateitemExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic>>
+      rateupdateitemGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
+                .fromJsonFactory);
+
+    return _rateupdateitemGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1378,7 +3394,7 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic>>
-      rateupdateitemGet(
+      _rateupdateitemGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1386,15 +3402,41 @@ abstract class Utilities extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesRateUpdateItemRateUpdateItem>>
+      rateupdateitemIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesRateUpdateItemRateUpdateItem,
+        () =>
+            WebApiModulesUtilitiesRateUpdateItemRateUpdateItem.fromJsonFactory);
+
+    return _rateupdateitemIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/rateupdateitem/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesRateUpdateItemRateUpdateItem>>
-      rateupdateitemIdGet({@Path('id') required String? id});
+      _rateupdateitemIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesRateUpdateItemRateUpdateItem>>
+      rateupdateitemIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesRateUpdateItemRateUpdateItem? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesRateUpdateItemRateUpdateItem,
+        () =>
+            WebApiModulesUtilitiesRateUpdateItemRateUpdateItem.fromJsonFactory);
+
+    return _rateupdateitemIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/rateupdateitem/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesRateUpdateItemRateUpdateItem>>
-      rateupdateitemIdPut(
+      _rateupdateitemIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -1402,133 +3444,347 @@ abstract class Utilities extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/rateupdateitem/many')
   Future<
           chopper.Response<
               List<
                   MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic>>>
       rateupdateitemManyPost(
+          {required List<WebApiModulesUtilitiesRateUpdateItemRateUpdateItem>?
+              body}) {
+    generatedMapping.putIfAbsent(
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic,
+        () =>
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
+                .fromJsonFactory);
+
+    return _rateupdateitemManyPost(body: body);
+  }
+
+  ///
+  @Post(path: '/rateupdateitem/many')
+  Future<
+          chopper.Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic>>>
+      _rateupdateitemManyPost(
           {@Body()
               required List<WebApiModulesUtilitiesRateUpdateItemRateUpdateItem>?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> rateupdateitemEmptyobjectGet() {
+    return _rateupdateitemEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/rateupdateitem/emptyobject')
-  Future<chopper.Response> rateupdateitemEmptyobjectGet();
+  Future<chopper.Response> _rateupdateitemEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> rateupdateitemEmptybrowseobjectGet() {
+    return _rateupdateitemEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/rateupdateitem/emptybrowseobject')
-  Future<chopper.Response> rateupdateitemEmptybrowseobjectGet();
+  Future<chopper.Response> _rateupdateitemEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> rateupdateitemKeyfieldnamesGet() {
+    return _rateupdateitemKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/rateupdateitem/keyfieldnames')
-  Future<chopper.Response> rateupdateitemKeyfieldnamesGet();
+  Future<chopper.Response> _rateupdateitemKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse>>
+      rateupdateutilityApplyPost(
+          {required WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse,
+        () =>
+            WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
+                .fromJsonFactory);
+
+    return _rateupdateutilityApplyPost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/apply')
   Future<
           chopper.Response<
               WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse>>
-      rateupdateutilityApplyPost(
+      _rateupdateutilityApplyPost(
           {@Body()
               required WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest?
                   body});
 
   ///
-  @Post(path: '/rateupdateutility/validatewarehouse/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       rateupdateutilityValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/rateupdateutility/validatewarehouse/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _rateupdateutilityValidatewarehouseBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateutilityValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidateinventorytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/validateinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateutilityValidateinventorytypeBrowsePost(
+      _rateupdateutilityValidateinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateutilityValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidatecategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/validatecategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateutilityValidatecategoryBrowsePost(
+      _rateupdateutilityValidatecategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateutilityValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidatesubcategoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/validatesubcategory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateutilityValidatesubcategoryBrowsePost(
+      _rateupdateutilityValidatesubcategoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateutilityValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidateinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/validateinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateutilityValidateinventoryBrowsePost(
+      _rateupdateutilityValidateinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateutilityValidateunitBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidateunitBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/validateunit/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateutilityValidateunitBrowsePost(
+      _rateupdateutilityValidateunitBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      rateupdateutilityValidatemanufacturerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _rateupdateutilityValidatemanufacturerBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/rateupdateutility/validatemanufacturer/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      rateupdateutilityValidatemanufacturerBrowsePost(
+      _rateupdateutilityValidatemanufacturerBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> rateupdateutilityEmptyobjectGet() {
+    return _rateupdateutilityEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/rateupdateutility/emptyobject')
-  Future<chopper.Response> rateupdateutilityEmptyobjectGet();
+  Future<chopper.Response> _rateupdateutilityEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> rateupdateutilityEmptybrowseobjectGet() {
+    return _rateupdateutilityEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/rateupdateutility/emptybrowseobject')
-  Future<chopper.Response> rateupdateutilityEmptybrowseobjectGet();
+  Future<chopper.Response> _rateupdateutilityEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> rateupdateutilityKeyfieldnamesGet() {
+    return _rateupdateutilityKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/rateupdateutility/keyfieldnames')
-  Future<chopper.Response> rateupdateutilityKeyfieldnamesGet();
+  Future<chopper.Response> _rateupdateutilityKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse>>
+      receiptprocessbatchCreatebatchPost(
+          {required WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse,
+        () =>
+            WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse
+                .fromJsonFactory);
+
+    return _receiptprocessbatchCreatebatchPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptprocessbatch/createbatch')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse>>
-      receiptprocessbatchCreatebatchPost(
+      _receiptprocessbatchCreatebatchPost(
           {@Body()
               required WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest?
                   body});
 
   ///
-  @Post(path: '/receiptprocessbatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       receiptprocessbatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptprocessbatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/receiptprocessbatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _receiptprocessbatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      receiptprocessbatchExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _receiptprocessbatchExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/receiptprocessbatch/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      receiptprocessbatchExportexcelxlsxPost(
+      _receiptprocessbatchExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      receiptprocessbatchValidatebatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _receiptprocessbatchValidatebatchBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/receiptprocessbatch/validatebatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      receiptprocessbatchValidatebatchBrowsePost(
+      _receiptprocessbatchValidatebatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> receiptprocessbatchEmptyobjectGet() {
+    return _receiptprocessbatchEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/receiptprocessbatch/emptyobject')
-  Future<chopper.Response> receiptprocessbatchEmptyobjectGet();
+  Future<chopper.Response> _receiptprocessbatchEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> receiptprocessbatchEmptybrowseobjectGet() {
+    return _receiptprocessbatchEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/receiptprocessbatch/emptybrowseobject')
-  Future<chopper.Response> receiptprocessbatchEmptybrowseobjectGet();
+  Future<chopper.Response> _receiptprocessbatchEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> receiptprocessbatchKeyfieldnamesGet() {
+    return _receiptprocessbatchKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/receiptprocessbatch/keyfieldnames')
-  Future<chopper.Response> receiptprocessbatchKeyfieldnamesGet();
+  Future<chopper.Response> _receiptprocessbatchKeyfieldnamesGet();
+
+  ///
+  ///@param controlid
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader>>
+      securitysettingsControlidGet({required String? controlid}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader,
+        () =>
+            FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+                .fromJsonFactory);
+
+    return _securitysettingsControlidGet(controlid: controlid);
+  }
 
   ///
   ///@param controlid
@@ -1536,13 +3792,22 @@ abstract class Utilities extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader>>
-      securitysettingsControlidGet(
+      _securitysettingsControlidGet(
           {@Path('controlid') required String? controlid});
 
   ///
   ///@param id
-  @Put(path: '/securitysettings/{id}')
   Future<chopper.Response> securitysettingsIdPut(
+      {required String? id,
+      required FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader?
+          body}) {
+    return _securitysettingsIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @Put(path: '/securitysettings/{id}')
+  Future<chopper.Response> _securitysettingsIdPut(
       {@Path('id')
           required String? id,
       @Body()
@@ -1550,82 +3815,208 @@ abstract class Utilities extends ChopperService {
               body});
 
   ///Get an empty object
+  Future<chopper.Response> securitysettingsEmptyobjectGet() {
+    return _securitysettingsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/securitysettings/emptyobject')
-  Future<chopper.Response> securitysettingsEmptyobjectGet();
+  Future<chopper.Response> _securitysettingsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> securitysettingsEmptybrowseobjectGet() {
+    return _securitysettingsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/securitysettings/emptybrowseobject')
-  Future<chopper.Response> securitysettingsEmptybrowseobjectGet();
+  Future<chopper.Response> _securitysettingsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> securitysettingsKeyfieldnamesGet() {
+    return _securitysettingsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/securitysettings/keyfieldnames')
-  Future<chopper.Response> securitysettingsKeyfieldnamesGet();
+  Future<chopper.Response> _securitysettingsKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      unretiredBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _unretiredBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/unretired/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      unretiredBrowsePost(
+      _unretiredBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      unretiredExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _unretiredExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/unretired/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      unretiredExportexcelxlsxPost(
+      _unretiredExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> unretiredEmptyobjectGet() {
+    return _unretiredEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/unretired/emptyobject')
-  Future<chopper.Response> unretiredEmptyobjectGet();
+  Future<chopper.Response> _unretiredEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> unretiredEmptybrowseobjectGet() {
+    return _unretiredEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/unretired/emptybrowseobject')
-  Future<chopper.Response> unretiredEmptybrowseobjectGet();
+  Future<chopper.Response> _unretiredEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> unretiredKeyfieldnamesGet() {
+    return _unretiredKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/unretired/keyfieldnames')
-  Future<chopper.Response> unretiredKeyfieldnamesGet();
+  Future<chopper.Response> _unretiredKeyfieldnamesGet();
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesUserProfileUserProfile>>
+      userprofileIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesUtilitiesUserProfileUserProfile,
+        () => WebApiModulesUtilitiesUserProfileUserProfile.fromJsonFactory);
+
+    return _userprofileIdGet(id: id);
+  }
 
   ///
   ///@param id
   @Get(path: '/userprofile/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesUserProfileUserProfile>>
-      userprofileIdGet({@Path('id') required String? id});
+      _userprofileIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesUtilitiesUserProfileUserProfile>>
+      userprofileIdPut(
+          {required String? id,
+          required WebApiModulesUtilitiesUserProfileUserProfile? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesUtilitiesUserProfileUserProfile,
+        () => WebApiModulesUtilitiesUserProfileUserProfile.fromJsonFactory);
+
+    return _userprofileIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/userprofile/{id}')
   Future<chopper.Response<WebApiModulesUtilitiesUserProfileUserProfile>>
-      userprofileIdPut(
+      _userprofileIdPut(
           {@Path('id') required String? id,
           @Body() required WebApiModulesUtilitiesUserProfileUserProfile? body});
 
   ///
-  @Post(path: '/userprofile')
   Future<chopper.Response<WebApiModulesUtilitiesUserProfileUserProfile>>
       userprofilePost(
+          {required WebApiModulesUtilitiesUserProfileUserProfile? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesUtilitiesUserProfileUserProfile,
+        () => WebApiModulesUtilitiesUserProfileUserProfile.fromJsonFactory);
+
+    return _userprofilePost(body: body);
+  }
+
+  ///
+  @Post(path: '/userprofile')
+  Future<chopper.Response<WebApiModulesUtilitiesUserProfileUserProfile>>
+      _userprofilePost(
           {@Body()
               required WebApiModulesUtilitiesUserProfileUserProfile? body});
 
   ///Get an empty object
+  Future<chopper.Response> userprofileEmptyobjectGet() {
+    return _userprofileEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/userprofile/emptyobject')
-  Future<chopper.Response> userprofileEmptyobjectGet();
+  Future<chopper.Response> _userprofileEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> userprofileEmptybrowseobjectGet() {
+    return _userprofileEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/userprofile/emptybrowseobject')
-  Future<chopper.Response> userprofileEmptybrowseobjectGet();
+  Future<chopper.Response> _userprofileEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> userprofileKeyfieldnamesGet() {
+    return _userprofileKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/userprofile/keyfieldnames')
-  Future<chopper.Response> userprofileKeyfieldnamesGet();
+  Future<chopper.Response> _userprofileKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse>>
+      utilityfunctionsNewsessionidGet() {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse,
+        () => WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse
+            .fromJsonFactory);
+
+    return _utilityfunctionsNewsessionidGet();
+  }
 
   ///
   @Get(path: '/utilityfunctions/newsessionid')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse>>
-      utilityfunctionsNewsessionidGet();
+      _utilityfunctionsNewsessionidGet();
+
+  ///
+  ///@param from
+  ///@param to
+  ///@param cc
+  ///@param subject
+  ///@param body
+  Future<chopper.Response<bool>> utilityfunctionsSendmailPost(
+      {String? from, String? to, String? cc, String? subject, String? body}) {
+    return _utilityfunctionsSendmailPost(
+        from: from, to: to, cc: cc, subject: subject, body: body);
+  }
 
   ///
   ///@param from
@@ -1634,7 +4025,7 @@ abstract class Utilities extends ChopperService {
   ///@param subject
   ///@param body
   @Post(path: '/utilityfunctions/sendmail', optionalBody: true)
-  Future<chopper.Response<bool>> utilityfunctionsSendmailPost(
+  Future<chopper.Response<bool>> _utilityfunctionsSendmailPost(
       {@Query('from') String? from,
       @Query('to') String? to,
       @Query('cc') String? cc,
@@ -1642,310 +4033,124 @@ abstract class Utilities extends ChopperService {
       @Query('body') String? body});
 
   ///Get an empty object
+  Future<chopper.Response> utilityfunctionsEmptyobjectGet() {
+    return _utilityfunctionsEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/utilityfunctions/emptyobject')
-  Future<chopper.Response> utilityfunctionsEmptyobjectGet();
+  Future<chopper.Response> _utilityfunctionsEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> utilityfunctionsEmptybrowseobjectGet() {
+    return _utilityfunctionsEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/utilityfunctions/emptybrowseobject')
-  Future<chopper.Response> utilityfunctionsEmptybrowseobjectGet();
+  Future<chopper.Response> _utilityfunctionsEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> utilityfunctionsKeyfieldnamesGet() {
+    return _utilityfunctionsKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/utilityfunctions/keyfieldnames')
-  Future<chopper.Response> utilityfunctionsKeyfieldnamesGet();
+  Future<chopper.Response> _utilityfunctionsKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse>>
+      vendorinvoiceprocessbatchCreatebatchPost(
+          {required WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse,
+        () =>
+            WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse
+                .fromJsonFactory);
+
+    return _vendorinvoiceprocessbatchCreatebatchPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoiceprocessbatch/createbatch')
   Future<
           chopper.Response<
               WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse>>
-      vendorinvoiceprocessbatchCreatebatchPost(
+      _vendorinvoiceprocessbatchCreatebatchPost(
           {@Body()
               required WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest?
                   body});
 
   ///
-  @Post(path: '/vendorinvoiceprocessbatch/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       vendorinvoiceprocessbatchBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _vendorinvoiceprocessbatchBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/vendorinvoiceprocessbatch/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _vendorinvoiceprocessbatchBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      vendorinvoiceprocessbatchExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _vendorinvoiceprocessbatchExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/vendorinvoiceprocessbatch/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      vendorinvoiceprocessbatchExportexcelxlsxPost(
+      _vendorinvoiceprocessbatchExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> vendorinvoiceprocessbatchEmptyobjectGet() {
+    return _vendorinvoiceprocessbatchEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/vendorinvoiceprocessbatch/emptyobject')
-  Future<chopper.Response> vendorinvoiceprocessbatchEmptyobjectGet();
+  Future<chopper.Response> _vendorinvoiceprocessbatchEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> vendorinvoiceprocessbatchEmptybrowseobjectGet() {
+    return _vendorinvoiceprocessbatchEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/vendorinvoiceprocessbatch/emptybrowseobject')
-  Future<chopper.Response> vendorinvoiceprocessbatchEmptybrowseobjectGet();
+  Future<chopper.Response> _vendorinvoiceprocessbatchEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> vendorinvoiceprocessbatchKeyfieldnamesGet() {
+    return _vendorinvoiceprocessbatchKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/vendorinvoiceprocessbatch/keyfieldnames')
-  Future<chopper.Response> vendorinvoiceprocessbatchKeyfieldnamesGet();
+  Future<chopper.Response> _vendorinvoiceprocessbatchKeyfieldnamesGet();
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    UtilitiesJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult:
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-          .fromJsonFactory,
-  FwStandardBusinessLogicFwAppImageLogicEmailRequest:
-      FwStandardBusinessLogicFwAppImageLogicEmailRequest.fromJsonFactory,
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition:
-      FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJsonFactory,
-  FwStandardDataFwCustomValue: FwStandardDataFwCustomValue.fromJsonFactory,
-  FwStandardDataFwDefaultAttribute:
-      FwStandardDataFwDefaultAttribute.fromJsonFactory,
-  FwStandardModelsBrowseRequest: FwStandardModelsBrowseRequest.fromJsonFactory,
-  FwStandardModelsCheckBoxListItem:
-      FwStandardModelsCheckBoxListItem.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardModelsFwAppImageModel:
-      FwStandardModelsFwAppImageModel.fromJsonFactory,
-  FwStandardModelsFwQueryFilter: FwStandardModelsFwQueryFilter.fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader:
-      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
-          .fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTable:
-      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTableColumn:
-      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
-  MicrosoftAspNetCoreMvcActionResult:
-      MicrosoftAspNetCoreMvcActionResult.fromJsonFactory,
-  MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic:
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic
-          .fromJsonFactory,
-  MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic:
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic
-          .fromJsonFactory,
-  WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest:
-      WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
-          .fromJsonFactory,
-  WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest:
-      WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
-          .fromJsonFactory,
-  WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest:
-      WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
-          .fromJsonFactory,
-  WebApiLogicTSpStatusResponse: WebApiLogicTSpStatusResponse.fromJsonFactory,
-  WebApiModulesAgentOrderChangeOrderStatusRequest:
-      WebApiModulesAgentOrderChangeOrderStatusRequest.fromJsonFactory,
-  WebApiModulesAgentOrderChangeOrderStatusResponse:
-      WebApiModulesAgentOrderChangeOrderStatusResponse.fromJsonFactory,
-  WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest:
-      WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequest
-          .fromJsonFactory,
-  WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse:
-      WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse
-          .fromJsonFactory,
-  WebApiModulesExportsOrderExportOrderExportRequest:
-      WebApiModulesExportsOrderExportOrderExportRequest.fromJsonFactory,
-  WebApiModulesExportsOrderExportOrderExportResponse:
-      WebApiModulesExportsOrderExportOrderExportResponse.fromJsonFactory,
-  WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest:
-      WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest
-          .fromJsonFactory,
-  WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse:
-      WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
-          .fromJsonFactory,
-  WebApiModulesInventoryInventoryChangeICodeRequest:
-      WebApiModulesInventoryInventoryChangeICodeRequest.fromJsonFactory,
-  WebApiModulesInventoryInventoryChangeICodeResponse:
-      WebApiModulesInventoryInventoryChangeICodeResponse.fromJsonFactory,
-  WebApiModulesInventoryInventoryRetireInventoryRequest:
-      WebApiModulesInventoryInventoryRetireInventoryRequest.fromJsonFactory,
-  WebApiModulesInventoryInventoryRetireInventoryResponse:
-      WebApiModulesInventoryInventoryRetireInventoryResponse.fromJsonFactory,
-  WebApiModulesInventoryInventoryUnretireInventoryRequest:
-      WebApiModulesInventoryInventoryUnretireInventoryRequest.fromJsonFactory,
-  WebApiModulesSettingsAvailableWidgetAvailableWidget:
-      WebApiModulesSettingsAvailableWidgetAvailableWidget.fromJsonFactory,
-  WebApiModulesSettingsDepartmentLocationDepartmentLocation:
-      WebApiModulesSettingsDepartmentLocationDepartmentLocation.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidget2:
-      WebApiModulesSettingsWidgetSettingsWidgetWidget2.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetData:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetData.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetScales:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetScales.fromJsonFactory,
-  WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle:
-      WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle.fromJsonFactory,
-  WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest:
-      WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse:
-      WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesDashboardSettingsDashboardSettings:
-      WebApiModulesUtilitiesDashboardSettingsDashboardSettings.fromJsonFactory,
-  WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSetting:
-      WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSetting
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem:
-      WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryMergeInventoryMerge:
-      WebApiModulesUtilitiesInventoryMergeInventoryMerge.fromJsonFactory,
-  WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest:
-      WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse:
-      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch:
-      WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest:
-      WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse:
-      WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest:
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse:
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest:
-      WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse:
-      WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesMigrateStartMigrateSessionRequest:
-      WebApiModulesUtilitiesMigrateStartMigrateSessionRequest.fromJsonFactory,
-  WebApiModulesUtilitiesMigrateStartMigrateSessionResponse:
-      WebApiModulesUtilitiesMigrateStartMigrateSessionResponse.fromJsonFactory,
-  WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest:
-      WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest.fromJsonFactory,
-  WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse:
-      WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse.fromJsonFactory,
-  WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking:
-      WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking
-          .fromJsonFactory,
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent:
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
-          .fromJsonFactory,
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest:
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource:
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
-          .fromJsonFactory,
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse:
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesProgressMeterProgressMeter:
-      WebApiModulesUtilitiesProgressMeterProgressMeter.fromJsonFactory,
-  WebApiModulesUtilitiesQuikActivityQuikActivity:
-      WebApiModulesUtilitiesQuikActivityQuikActivity.fromJsonFactory,
-  WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent:
-      WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent
-          .fromJsonFactory,
-  WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest:
-      WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse:
-      WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch:
-      WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch.fromJsonFactory,
-  WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem:
-      WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem
-          .fromJsonFactory,
-  WebApiModulesUtilitiesRateUpdateItemRateUpdateItem:
-      WebApiModulesUtilitiesRateUpdateItemRateUpdateItem.fromJsonFactory,
-  WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch:
-      WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch
-          .fromJsonFactory,
-  WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest:
-      WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse:
-      WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesUserProfileUserProfile:
-      WebApiModulesUtilitiesUserProfileUserProfile.fromJsonFactory,
-  WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch:
-      WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch
-          .fromJsonFactory,
-  WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest:
-      WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest
-          .fromJsonFactory,
-  WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse:
-      WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse
-          .fromJsonFactory,
-  WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields:
-      WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
-          .fromJsonFactory,
-  WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings:
-      WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings
-          .fromJsonFactory,
-  WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse:
-      WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse
-          .fromJsonFactory,
-  WebApiModulesWarehouseContractContract:
-      WebApiModulesWarehouseContractContract.fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -1960,6 +4165,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -1985,6 +4193,9 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
   Map<String, dynamic> toJson() =>
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2045,6 +4256,9 @@ class FwStandardBusinessLogicFwAppImageLogicEmailRequest {
       _$FwStandardBusinessLogicFwAppImageLogicEmailRequestToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardBusinessLogicFwAppImageLogicEmailRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2129,6 +4343,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardBusinessLogicFwBusinessLogicFieldDefinition &&
@@ -2175,6 +4392,9 @@ class FwStandardDataFwCustomValue {
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2231,6 +4451,9 @@ class FwStandardDataFwDefaultAttribute {
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardDataFwDefaultAttributeToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2343,7 +4566,7 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic boundids;
   @JsonKey(name: 'filterfields', includeIfNull: false)
-  final Object? filterfields;
+  final Map<String, dynamic>? filterfields;
   @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
   @JsonKey(name: 'emptyobject', includeIfNull: false)
@@ -2358,10 +4581,13 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
-  final Object? activeviewfields;
+  final Map<String, dynamic>? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2485,13 +4711,13 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchconjunctions,
       dynamic? uniqueids,
       dynamic? boundids,
-      Object? filterfields,
+      Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
       bool? forexcel,
       List<FwStandardModelsCheckBoxListItem>? excelfields,
       List<String>? totalfields,
-      Object? activeviewfields}) {
+      Map<String, dynamic>? activeviewfields}) {
     return FwStandardModelsBrowseRequest(
         miscfields: miscfields ?? this.miscfields,
         module: module ?? this.module,
@@ -2542,6 +4768,9 @@ class FwStandardModelsCheckBoxListItem {
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsCheckBoxListItemToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2595,6 +4824,9 @@ class FwStandardModelsFwApiException {
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2675,6 +4907,9 @@ class FwStandardModelsFwAppImageModel {
   static const toJsonFactory = _$FwStandardModelsFwAppImageModelToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwAppImageModelToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2779,6 +5014,9 @@ class FwStandardModelsFwQueryFilter {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryFilter &&
@@ -2843,6 +5081,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOn
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2928,6 +5169,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUp
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic &&
@@ -3007,6 +5251,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRa
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3092,6 +5339,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpd
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
@@ -3172,6 +5422,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveV
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3255,6 +5508,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivityS
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3346,7 +5602,7 @@ class FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader {
   @JsonKey(name: 'lockuserafterfailedattemptsnumber', includeIfNull: false)
   final int? lockuserafterfailedattemptsnumber;
   @JsonKey(name: 'epochlastsynced', includeIfNull: false)
-  final int? epochlastsynced;
+  final num? epochlastsynced;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
   final String? recordTitle;
   static const fromJsonFactory =
@@ -3356,6 +5612,9 @@ class FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader {
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3428,7 +5687,7 @@ extension $FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderE
       int? autologoutminutes,
       String? lockuserafterfailedattempts,
       int? lockuserafterfailedattemptsnumber,
-      int? epochlastsynced,
+      num? epochlastsynced,
       String? recordTitle}) {
     return FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader(
         requireminlengthpassword:
@@ -3471,9 +5730,9 @@ class FwStandardSqlServerFwJsonDataTable {
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
-  final Object? columnIndex;
+  final Map<String, dynamic>? columnIndex;
   @JsonKey(name: 'Totals', includeIfNull: false)
-  final Object? totals;
+  final Map<String, dynamic>? totals;
   @JsonKey(
       name: 'Columns',
       includeIfNull: false,
@@ -3492,11 +5751,14 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
-  final Object? columnNameByIndex;
+  final Map<String, dynamic>? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3549,8 +5811,8 @@ class FwStandardSqlServerFwJsonDataTable {
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
   FwStandardSqlServerFwJsonDataTable copyWith(
-      {Object? columnIndex,
-      Object? totals,
+      {Map<String, dynamic>? columnIndex,
+      Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
       List<List<Object>>? rows,
       int? pageNo,
@@ -3558,7 +5820,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Object? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -3606,6 +5868,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3668,6 +5933,9 @@ class MicrosoftAspNetCoreMvcActionResult {
       _$MicrosoftAspNetCoreMvcActionResultToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode => runtimeType.hashCode;
 }
 
@@ -3694,6 +5962,9 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationI
   Map<String, dynamic> toJson() =>
       _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3747,6 +6018,9 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRate
   Map<String, dynamic> toJson() =>
       _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3814,6 +6088,9 @@ class WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3898,6 +6175,9 @@ class WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncReques
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest &&
@@ -3943,6 +6223,9 @@ class WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRe
   Map<String, dynamic> toJson() =>
       _$WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3992,6 +6275,9 @@ class WebApiLogicTSpStatusResponse {
   static const fromJsonFactory = _$WebApiLogicTSpStatusResponseFromJson;
   static const toJsonFactory = _$WebApiLogicTSpStatusResponseToJson;
   Map<String, dynamic> toJson() => _$WebApiLogicTSpStatusResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4048,6 +6334,9 @@ class WebApiModulesAgentOrderChangeOrderStatusRequest {
       _$WebApiModulesAgentOrderChangeOrderStatusRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAgentOrderChangeOrderStatusRequest &&
@@ -4100,6 +6389,9 @@ class WebApiModulesAgentOrderChangeOrderStatusResponse {
       _$WebApiModulesAgentOrderChangeOrderStatusResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAgentOrderChangeOrderStatusResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4162,6 +6454,9 @@ class WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequ
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4236,6 +6531,9 @@ class WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResp
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse &&
@@ -4293,6 +6591,9 @@ class WebApiModulesExportsOrderExportOrderExportRequest {
       _$WebApiModulesExportsOrderExportOrderExportRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsOrderExportOrderExportRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4353,6 +6654,9 @@ class WebApiModulesExportsOrderExportOrderExportResponse {
       _$WebApiModulesExportsOrderExportOrderExportResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesExportsOrderExportOrderExportResponse &&
@@ -4408,6 +6712,9 @@ class WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest 
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest &&
@@ -4460,6 +6767,9 @@ class WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponse
   Map<String, dynamic> toJson() =>
       _$WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4526,6 +6836,9 @@ class WebApiModulesInventoryInventoryChangeICodeRequest {
       _$WebApiModulesInventoryInventoryChangeICodeRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesInventoryInventoryChangeICodeRequest &&
@@ -4577,6 +6890,9 @@ class WebApiModulesInventoryInventoryChangeICodeResponse {
       _$WebApiModulesInventoryInventoryChangeICodeResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesInventoryInventoryChangeICodeResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4652,6 +6968,9 @@ class WebApiModulesInventoryInventoryRetireInventoryRequest {
       _$WebApiModulesInventoryInventoryRetireInventoryRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesInventoryInventoryRetireInventoryRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4753,6 +7072,9 @@ class WebApiModulesInventoryInventoryRetireInventoryResponse {
       _$WebApiModulesInventoryInventoryRetireInventoryResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesInventoryInventoryRetireInventoryResponse &&
@@ -4819,6 +7141,9 @@ class WebApiModulesInventoryInventoryUnretireInventoryRequest {
       _$WebApiModulesInventoryInventoryUnretireInventoryRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesInventoryInventoryUnretireInventoryRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4917,6 +7242,9 @@ class WebApiModulesSettingsAvailableWidgetAvailableWidget {
       _$WebApiModulesSettingsAvailableWidgetAvailableWidgetToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsAvailableWidgetAvailableWidgetToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5046,6 +7374,9 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
       _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5216,6 +7547,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidget2 {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidget2ToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetSettingsWidgetWidget2 &&
@@ -5381,6 +7715,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetSettingsWidgetWidgetAxis &&
@@ -5425,6 +7762,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicks {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicksToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetAxisTicksToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5473,6 +7813,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetData {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5533,6 +7876,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSet {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSetToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetDataSetToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5600,6 +7946,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetLegendToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetSettingsWidgetWidgetLegend &&
@@ -5651,6 +8000,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetOptions {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetOptionsToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetOptionsToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5726,6 +8078,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetScales {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetScalesToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetSettingsWidgetWidgetScales &&
@@ -5778,6 +8133,9 @@ class WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle {
       _$WebApiModulesSettingsWidgetSettingsWidgetWidgetTitleToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetSettingsWidgetWidgetTitle &&
@@ -5828,6 +8186,9 @@ class WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRequest
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode => runtimeType.hashCode;
 }
 
@@ -5857,6 +8218,9 @@ class WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesRespons
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesCurrencyMissingUtilityApplyProposedCurrenciesResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5948,6 +8312,9 @@ class WebApiModulesUtilitiesDashboardSettingsDashboardSettings {
       _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6158,6 +8525,9 @@ class WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboard
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSettingToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6469,6 +8839,9 @@ class WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem &&
@@ -6681,6 +9054,9 @@ class WebApiModulesUtilitiesInventoryMergeInventoryMerge {
       _$WebApiModulesUtilitiesInventoryMergeInventoryMergeToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryMergeInventoryMerge &&
@@ -6818,6 +9194,9 @@ class WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryMergeUtilityMergeInventoryRequest &&
@@ -6881,6 +9260,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6961,6 +9343,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseAssignBarCodesResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7080,6 +9465,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7260,6 +9648,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse &&
@@ -7336,6 +9727,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest &&
@@ -7386,6 +9780,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse &&
@@ -7434,6 +9831,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7495,6 +9895,9 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7605,6 +10008,9 @@ class WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7750,6 +10156,9 @@ class WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchRequest &&
@@ -7810,6 +10219,9 @@ class WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7962,6 +10374,9 @@ class WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest {
       _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8174,6 +10589,9 @@ class WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse {
       _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse &&
@@ -8241,6 +10659,9 @@ class WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest &&
@@ -8289,6 +10710,9 @@ class WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8346,6 +10770,9 @@ class WebApiModulesUtilitiesMigrateStartMigrateSessionRequest {
       _$WebApiModulesUtilitiesMigrateStartMigrateSessionRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesMigrateStartMigrateSessionRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8407,6 +10834,9 @@ class WebApiModulesUtilitiesMigrateStartMigrateSessionResponse {
       _$WebApiModulesUtilitiesMigrateStartMigrateSessionResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesMigrateStartMigrateSessionResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8475,6 +10905,9 @@ class WebApiModulesUtilitiesMigrateUpdateMigrateItemRequest {
       _$WebApiModulesUtilitiesMigrateUpdateMigrateItemRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesMigrateUpdateMigrateItemRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8551,6 +10984,9 @@ class WebApiModulesUtilitiesMigrateUpdateMigrateItemResponse {
       _$WebApiModulesUtilitiesMigrateUpdateMigrateItemResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesMigrateUpdateMigrateItemResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8684,6 +11120,9 @@ class WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTracking {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8898,6 +11337,9 @@ class WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent &&
@@ -9058,6 +11500,9 @@ class WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest &&
@@ -9159,6 +11604,9 @@ class WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource &&
@@ -9227,6 +11675,9 @@ class WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9320,6 +11771,9 @@ class WebApiModulesUtilitiesProgressMeterProgressMeter {
       _$WebApiModulesUtilitiesProgressMeterProgressMeterToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesProgressMeterProgressMeterToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9524,6 +11978,9 @@ class WebApiModulesUtilitiesQuikActivityQuikActivity {
       _$WebApiModulesUtilitiesQuikActivityQuikActivityToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesQuikActivityQuikActivityToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9755,6 +12212,9 @@ class WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEven
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarEvent &&
@@ -9858,6 +12318,9 @@ class WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequ
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesQuikActivityQuikActivityFuncQuikActivityCalendarRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9964,6 +12427,9 @@ class WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarRes
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesQuikActivityQuikActivityFuncTQuikActivityCalendarResponse &&
@@ -10055,6 +12521,9 @@ class WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatch {
       _$WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10366,6 +12835,9 @@ class WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItem {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10907,6 +13379,9 @@ class WebApiModulesUtilitiesRateUpdateItemRateUpdateItem {
       _$WebApiModulesUtilitiesRateUpdateItemRateUpdateItemToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesRateUpdateItemRateUpdateItem &&
@@ -11307,6 +13782,9 @@ class WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatch &&
@@ -11453,6 +13931,9 @@ class WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchRequest &&
@@ -11514,6 +13995,9 @@ class WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11686,6 +14170,9 @@ class WebApiModulesUtilitiesUserProfileUserProfile {
       _$WebApiModulesUtilitiesUserProfileUserProfileToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesUserProfileUserProfileToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11975,6 +14462,9 @@ class WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatch &&
@@ -12116,6 +14606,9 @@ class WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRe
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRequest &&
@@ -12168,6 +14661,9 @@ class WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRe
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12269,6 +14765,9 @@ class WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFields
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12411,6 +14910,9 @@ class WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettings &&
@@ -12507,6 +15009,9 @@ class WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12905,6 +15410,9 @@ class WebApiModulesWarehouseContractContract {
   static const toJsonFactory = _$WebApiModulesWarehouseContractContractToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesWarehouseContractContractToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -13470,19 +15978,32 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    String? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes == null) {
-    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+    Object? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes is int) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toString(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums.$FwStandardSqlServerFwDataTypesMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              fwStandardSqlServerFwDataTypes.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
-      .key;
+  if (fwStandardSqlServerFwDataTypes is String) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -13561,7 +16082,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(UtilitiesJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

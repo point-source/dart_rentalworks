@@ -80,8 +80,7 @@ const $FwStandardSqlServerFwDataTypesMap = {
   FwStandardSqlServerFwDataTypes.oletohtmlcolor: 'OleToHtmlColor',
   FwStandardSqlServerFwDataTypes.integer: 'Integer',
   FwStandardSqlServerFwDataTypes.jpgdataurl: 'JpgDataUrl',
-  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime',
-  FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown: ''
+  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime'
 };
 
 enum WebApiIncludeExcludeAll {
@@ -98,8 +97,7 @@ enum WebApiIncludeExcludeAll {
 const $WebApiIncludeExcludeAllMap = {
   WebApiIncludeExcludeAll.all: 'All',
   WebApiIncludeExcludeAll.includeonly: 'IncludeOnly',
-  WebApiIncludeExcludeAll.exclude: 'Exclude',
-  WebApiIncludeExcludeAll.swaggerGeneratedUnknown: ''
+  WebApiIncludeExcludeAll.exclude: 'Exclude'
 };
 
 enum WebApiModulesReportsOrderReportsOrderReportReportViewType {
@@ -116,7 +114,5 @@ enum WebApiModulesReportsOrderReportsOrderReportReportViewType {
 const $WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap = {
   WebApiModulesReportsOrderReportsOrderReportReportViewType.summary: 'Summary',
   WebApiModulesReportsOrderReportsOrderReportReportViewType.detail: 'Detail',
-  WebApiModulesReportsOrderReportsOrderReportReportViewType.header: 'Header',
-  WebApiModulesReportsOrderReportsOrderReportReportViewType
-      .swaggerGeneratedUnknown: ''
+  WebApiModulesReportsOrderReportsOrderReportReportViewType.header: 'Header'
 };

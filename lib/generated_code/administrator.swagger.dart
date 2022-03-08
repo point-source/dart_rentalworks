@@ -1,7 +1,12 @@
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
 import 'package:chopper/chopper.dart';
+import 'dart:convert';
+
+import 'client_mapping.dart';
 import 'package:chopper/chopper.dart' as chopper;
 import 'administrator.enums.swagger.dart' as enums;
 export 'administrator.enums.swagger.dart';
@@ -15,30 +20,80 @@ part 'administrator.swagger.g.dart';
 
 @ChopperApi()
 abstract class Administrator extends ChopperService {
-  static Administrator create([ChopperClient? client]) {
+  static Administrator create(
+      {ChopperClient? client,
+      String? baseUrl,
+      Iterable<dynamic>? interceptors}) {
     if (client != null) {
       return _$Administrator(client);
     }
 
     final newClient = ChopperClient(
       services: [_$Administrator()],
-      converter: $JsonSerializableConverter(), /*baseUrl: YOUR_BASE_URL*/
+      converter: $JsonSerializableConverter(),
+      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Administrator(newClient);
   }
 
   ///
-  @Post(path: '/alert/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> alertBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _alertBrowsePost(body: body);
+  }
+
+  ///
+  @Post(path: '/alert/browse')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> _alertBrowsePost(
       {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      alertExportexcelxlsxPost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _alertExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/alert/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      alertExportexcelxlsxPost(
+      _alertExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic>>
+      alertGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
+                .fromJsonFactory);
+
+    return _alertGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -49,30 +104,62 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic>>
-      alertGet(
+      _alertGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/alert')
   Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
       alertPost(
+          {required FwStandardModulesAdministratorAlertAlertLogic? body}) {
+    generatedMapping.putIfAbsent(FwStandardModulesAdministratorAlertAlertLogic,
+        () => FwStandardModulesAdministratorAlertAlertLogic.fromJsonFactory);
+
+    return _alertPost(body: body);
+  }
+
+  ///
+  @Post(path: '/alert')
+  Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
+      _alertPost(
           {@Body()
               required FwStandardModulesAdministratorAlertAlertLogic? body});
 
   ///
   ///@param id
+  Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
+      alertIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(FwStandardModulesAdministratorAlertAlertLogic,
+        () => FwStandardModulesAdministratorAlertAlertLogic.fromJsonFactory);
+
+    return _alertIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/alert/{id}')
   Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
-      alertIdGet({@Path('id') required String? id});
+      _alertIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
+      alertIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorAlertAlertLogic? body}) {
+    generatedMapping.putIfAbsent(FwStandardModulesAdministratorAlertAlertLogic,
+        () => FwStandardModulesAdministratorAlertAlertLogic.fromJsonFactory);
+
+    return _alertIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/alert/{id}')
   Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
-      alertIdPut(
+      _alertIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -80,35 +167,103 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> alertIdDelete({required String? id}) {
+    return _alertIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/alert/{id}')
-  Future<chopper.Response<bool>> alertIdDelete(
+  Future<chopper.Response<bool>> _alertIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> alertEmptyobjectGet() {
+    return _alertEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/alert/emptyobject')
-  Future<chopper.Response> alertEmptyobjectGet();
+  Future<chopper.Response> _alertEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> alertEmptybrowseobjectGet() {
+    return _alertEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/alert/emptybrowseobject')
-  Future<chopper.Response> alertEmptybrowseobjectGet();
+  Future<chopper.Response> _alertEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> alertKeyfieldnamesGet() {
+    return _alertKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/alert/keyfieldnames')
-  Future<chopper.Response> alertKeyfieldnamesGet();
+  Future<chopper.Response> _alertKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      alertconditionBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _alertconditionBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/alertcondition/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      alertconditionBrowsePost(
+      _alertconditionBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      alertconditionExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _alertconditionExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/alertcondition/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      alertconditionExportexcelxlsxPost(
+      _alertconditionExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
+      alertconditionGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
+                .fromJsonFactory);
+
+    return _alertconditionGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -119,21 +274,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      alertconditionGet(
+      _alertconditionGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/alertcondition')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
       alertconditionPost(
+          {required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorAlertConditionAlertConditionLogic,
+        () => FwStandardModulesAdministratorAlertConditionAlertConditionLogic
+            .fromJsonFactory);
+
+    return _alertconditionPost(body: body);
+  }
+
+  ///
+  @Post(path: '/alertcondition')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
+      _alertconditionPost(
           {@Body()
               required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
+      alertconditionIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorAlertConditionAlertConditionLogic,
+        () => FwStandardModulesAdministratorAlertConditionAlertConditionLogic
+            .fromJsonFactory);
+
+    return _alertconditionIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -141,7 +325,24 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      alertconditionIdGet({@Path('id') required String? id});
+      _alertconditionIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
+      alertconditionIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorAlertConditionAlertConditionLogic,
+        () => FwStandardModulesAdministratorAlertConditionAlertConditionLogic
+            .fromJsonFactory);
+
+    return _alertconditionIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -149,7 +350,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      alertconditionIdPut(
+      _alertconditionIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -158,35 +359,103 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> alertconditionIdDelete({required String? id}) {
+    return _alertconditionIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/alertcondition/{id}')
-  Future<chopper.Response<bool>> alertconditionIdDelete(
+  Future<chopper.Response<bool>> _alertconditionIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> alertconditionEmptyobjectGet() {
+    return _alertconditionEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/alertcondition/emptyobject')
-  Future<chopper.Response> alertconditionEmptyobjectGet();
+  Future<chopper.Response> _alertconditionEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> alertconditionEmptybrowseobjectGet() {
+    return _alertconditionEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/alertcondition/emptybrowseobject')
-  Future<chopper.Response> alertconditionEmptybrowseobjectGet();
+  Future<chopper.Response> _alertconditionEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> alertconditionKeyfieldnamesGet() {
+    return _alertconditionKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/alertcondition/keyfieldnames')
-  Future<chopper.Response> alertconditionKeyfieldnamesGet();
+  Future<chopper.Response> _alertconditionKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      alertwebusersBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _alertwebusersBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/alertwebusers/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      alertwebusersBrowsePost(
+      _alertwebusersBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      alertwebusersExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _alertwebusersExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/alertwebusers/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      alertwebusersExportexcelxlsxPost(
+      _alertwebusersExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
+      alertwebusersGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+                .fromJsonFactory);
+
+    return _alertwebusersGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -197,21 +466,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      alertwebusersGet(
+      _alertwebusersGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/alertwebusers')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
       alertwebusersPost(
+          {required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic,
+        () => FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+            .fromJsonFactory);
+
+    return _alertwebusersPost(body: body);
+  }
+
+  ///
+  @Post(path: '/alertwebusers')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
+      _alertwebusersPost(
           {@Body()
               required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
+      alertwebusersIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic,
+        () => FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+            .fromJsonFactory);
+
+    return _alertwebusersIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -219,7 +517,24 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      alertwebusersIdGet({@Path('id') required String? id});
+      _alertwebusersIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
+      alertwebusersIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic,
+        () => FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+            .fromJsonFactory);
+
+    return _alertwebusersIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -227,7 +542,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      alertwebusersIdPut(
+      _alertwebusersIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -236,67 +551,185 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> alertwebusersIdDelete({required String? id}) {
+    return _alertwebusersIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/alertwebusers/{id}')
-  Future<chopper.Response<bool>> alertwebusersIdDelete(
+  Future<chopper.Response<bool>> _alertwebusersIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      alertwebusersValidateuserBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _alertwebusersValidateuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/alertwebusers/validateuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      alertwebusersValidateuserBrowsePost(
+      _alertwebusersValidateuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> alertwebusersEmptyobjectGet() {
+    return _alertwebusersEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/alertwebusers/emptyobject')
-  Future<chopper.Response> alertwebusersEmptyobjectGet();
+  Future<chopper.Response> _alertwebusersEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> alertwebusersEmptybrowseobjectGet() {
+    return _alertwebusersEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/alertwebusers/emptybrowseobject')
-  Future<chopper.Response> alertwebusersEmptybrowseobjectGet();
+  Future<chopper.Response> _alertwebusersEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> alertwebusersKeyfieldnamesGet() {
+    return _alertwebusersKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/alertwebusers/keyfieldnames')
-  Future<chopper.Response> alertwebusersKeyfieldnamesGet();
+  Future<chopper.Response> _alertwebusersKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      assignedcustomformBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _assignedcustomformBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/assignedcustomform/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      assignedcustomformBrowsePost(
+      _assignedcustomformBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      assignedcustomformExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _assignedcustomformExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/assignedcustomform/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      assignedcustomformExportexcelxlsxPost(
+      _assignedcustomformExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> assignedcustomformEmptyobjectGet() {
+    return _assignedcustomformEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/assignedcustomform/emptyobject')
-  Future<chopper.Response> assignedcustomformEmptyobjectGet();
+  Future<chopper.Response> _assignedcustomformEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> assignedcustomformEmptybrowseobjectGet() {
+    return _assignedcustomformEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/assignedcustomform/emptybrowseobject')
-  Future<chopper.Response> assignedcustomformEmptybrowseobjectGet();
+  Future<chopper.Response> _assignedcustomformEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> assignedcustomformKeyfieldnamesGet() {
+    return _assignedcustomformKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/assignedcustomform/keyfieldnames')
-  Future<chopper.Response> assignedcustomformKeyfieldnamesGet();
+  Future<chopper.Response> _assignedcustomformKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customfieldBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customfieldBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customfield/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customfieldBrowsePost(
+      _customfieldBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customfieldExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customfieldExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customfield/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customfieldExportexcelxlsxPost(
+      _customfieldExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic>>
+      customfieldGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
+                .fromJsonFactory);
+
+    return _customfieldGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -307,30 +740,65 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic>>
-      customfieldGet(
+      _customfieldGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customfield')
   Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
       customfieldPost(
+          {required WebApiModulesAdministratorCustomFieldCustomField? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorCustomFieldCustomField,
+        () => WebApiModulesAdministratorCustomFieldCustomField.fromJsonFactory);
+
+    return _customfieldPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customfield')
+  Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
+      _customfieldPost(
           {@Body()
               required WebApiModulesAdministratorCustomFieldCustomField? body});
 
   ///
   ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
+      customfieldIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorCustomFieldCustomField,
+        () => WebApiModulesAdministratorCustomFieldCustomField.fromJsonFactory);
+
+    return _customfieldIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/customfield/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
-      customfieldIdGet({@Path('id') required String? id});
+      _customfieldIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
+      customfieldIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorCustomFieldCustomField? body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorCustomFieldCustomField,
+        () => WebApiModulesAdministratorCustomFieldCustomField.fromJsonFactory);
+
+    return _customfieldIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/customfield/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
-      customfieldIdPut(
+      _customfieldIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -338,35 +806,103 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> customfieldIdDelete({required String? id}) {
+    return _customfieldIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/customfield/{id}')
-  Future<chopper.Response<bool>> customfieldIdDelete(
+  Future<chopper.Response<bool>> _customfieldIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> customfieldEmptyobjectGet() {
+    return _customfieldEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customfield/emptyobject')
-  Future<chopper.Response> customfieldEmptyobjectGet();
+  Future<chopper.Response> _customfieldEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customfieldEmptybrowseobjectGet() {
+    return _customfieldEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customfield/emptybrowseobject')
-  Future<chopper.Response> customfieldEmptybrowseobjectGet();
+  Future<chopper.Response> _customfieldEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customfieldKeyfieldnamesGet() {
+    return _customfieldKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customfield/keyfieldnames')
-  Future<chopper.Response> customfieldKeyfieldnamesGet();
+  Future<chopper.Response> _customfieldKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customformBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customformBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customform/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customformBrowsePost(
+      _customformBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customformExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customformExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customform/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customformExportexcelxlsxPost(
+      _customformExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic>>
+      customformGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
+                .fromJsonFactory);
+
+    return _customformGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -377,30 +913,62 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic>>
-      customformGet(
+      _customformGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customform')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
       customformPost(
+          {required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
+        () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
+
+    return _customformPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customform')
+  Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
+      _customformPost(
           {@Body()
               required WebApiModulesAdministratorCustomFormCustomForm? body});
 
   ///
   ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
+      customformIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
+        () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
+
+    return _customformIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/customform/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      customformIdGet({@Path('id') required String? id});
+      _customformIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
+      customformIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
+        () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
+
+    return _customformIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/customform/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      customformIdPut(
+      _customformIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -408,52 +976,143 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> customformIdDelete({required String? id}) {
+    return _customformIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/customform/{id}')
-  Future<chopper.Response<bool>> customformIdDelete(
+  Future<chopper.Response<bool>> _customformIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
+      customformSelfassignPost(
+          {required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
+        () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
+
+    return _customformSelfassignPost(body: body);
+  }
 
   ///
   @Post(path: '/customform/selfassign')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      customformSelfassignPost(
+      _customformSelfassignPost(
           {@Body()
               required WebApiModulesAdministratorCustomFormCustomForm? body});
 
   ///
   ///@param id
-  @Put(path: '/customform/selfassign/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
       customformSelfassignIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
+        () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
+
+    return _customformSelfassignIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @Put(path: '/customform/selfassign/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
+      _customformSelfassignIdPut(
           {@Path('id')
               required String? id,
           @Body()
               required WebApiModulesAdministratorCustomFormCustomForm? body});
 
   ///Get an empty object
+  Future<chopper.Response> customformEmptyobjectGet() {
+    return _customformEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customform/emptyobject')
-  Future<chopper.Response> customformEmptyobjectGet();
+  Future<chopper.Response> _customformEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customformEmptybrowseobjectGet() {
+    return _customformEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customform/emptybrowseobject')
-  Future<chopper.Response> customformEmptybrowseobjectGet();
+  Future<chopper.Response> _customformEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customformKeyfieldnamesGet() {
+    return _customformKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customform/keyfieldnames')
-  Future<chopper.Response> customformKeyfieldnamesGet();
+  Future<chopper.Response> _customformKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customformgroupBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customformgroupBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customformgroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customformgroupBrowsePost(
+      _customformgroupBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customformgroupExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customformgroupExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customformgroup/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customformgroupExportexcelxlsxPost(
+      _customformgroupExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic>>
+      customformgroupGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
+                .fromJsonFactory);
+
+    return _customformgroupGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -464,21 +1123,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic>>
-      customformgroupGet(
+      _customformgroupGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customformgroup')
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
       customformgroupPost(
+          {required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
+        () => WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
+            .fromJsonFactory);
+
+    return _customformgroupPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customformgroup')
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
+      _customformgroupPost(
           {@Body()
               required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
+      customformgroupIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
+        () => WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
+            .fromJsonFactory);
+
+    return _customformgroupIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -486,7 +1174,24 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
-      customformgroupIdGet({@Path('id') required String? id});
+      _customformgroupIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
+      customformgroupIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
+        () => WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
+            .fromJsonFactory);
+
+    return _customformgroupIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -494,7 +1199,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
-      customformgroupIdPut(
+      _customformgroupIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -503,41 +1208,120 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/customformgroup/{id}')
   Future<chopper.Response<bool>> customformgroupIdDelete(
+      {required String? id}) {
+    return _customformgroupIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/customformgroup/{id}')
+  Future<chopper.Response<bool>> _customformgroupIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customformgroupValidategroupnameBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customformgroupValidategroupnameBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customformgroup/validategroupname/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customformgroupValidategroupnameBrowsePost(
+      _customformgroupValidategroupnameBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> customformgroupEmptyobjectGet() {
+    return _customformgroupEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customformgroup/emptyobject')
-  Future<chopper.Response> customformgroupEmptyobjectGet();
+  Future<chopper.Response> _customformgroupEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customformgroupEmptybrowseobjectGet() {
+    return _customformgroupEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customformgroup/emptybrowseobject')
-  Future<chopper.Response> customformgroupEmptybrowseobjectGet();
+  Future<chopper.Response> _customformgroupEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customformgroupKeyfieldnamesGet() {
+    return _customformgroupKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customformgroup/keyfieldnames')
-  Future<chopper.Response> customformgroupKeyfieldnamesGet();
+  Future<chopper.Response> _customformgroupKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customformuserBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customformuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customformuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customformuserBrowsePost(
+      _customformuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customformuserExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customformuserExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customformuser/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customformuserExportexcelxlsxPost(
+      _customformuserExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic>>
+      customformuserGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
+                .fromJsonFactory);
+
+    return _customformuserGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -548,21 +1332,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic>>
-      customformuserGet(
+      _customformuserGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customformuser')
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
       customformuserPost(
+          {required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
+        () => WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
+            .fromJsonFactory);
+
+    return _customformuserPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customformuser')
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
+      _customformuserPost(
           {@Body()
               required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
+      customformuserIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
+        () => WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
+            .fromJsonFactory);
+
+    return _customformuserIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -570,7 +1383,24 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
-      customformuserIdGet({@Path('id') required String? id});
+      _customformuserIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
+      customformuserIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
+        () => WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
+            .fromJsonFactory);
+
+    return _customformuserIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -578,7 +1408,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
-      customformuserIdPut(
+      _customformuserIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -587,41 +1417,119 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> customformuserIdDelete({required String? id}) {
+    return _customformuserIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/customformuser/{id}')
-  Future<chopper.Response<bool>> customformuserIdDelete(
+  Future<chopper.Response<bool>> _customformuserIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customformuserValidateuserBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customformuserValidateuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customformuser/validateuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customformuserValidateuserBrowsePost(
+      _customformuserValidateuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> customformuserEmptyobjectGet() {
+    return _customformuserEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customformuser/emptyobject')
-  Future<chopper.Response> customformuserEmptyobjectGet();
+  Future<chopper.Response> _customformuserEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customformuserEmptybrowseobjectGet() {
+    return _customformuserEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customformuser/emptybrowseobject')
-  Future<chopper.Response> customformuserEmptybrowseobjectGet();
+  Future<chopper.Response> _customformuserEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customformuserKeyfieldnamesGet() {
+    return _customformuserKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customformuser/keyfieldnames')
-  Future<chopper.Response> customformuserKeyfieldnamesGet();
+  Future<chopper.Response> _customformuserKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      custommoduleBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _custommoduleBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/custommodule/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      custommoduleBrowsePost(
+      _custommoduleBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      custommoduleExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _custommoduleExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/custommodule/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      custommoduleExportexcelxlsxPost(
+      _custommoduleExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic>>
+      custommoduleGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
+                .fromJsonFactory);
+
+    return _custommoduleGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -632,37 +1540,94 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic>>
-      custommoduleGet(
+      _custommoduleGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///Get an empty object
+  Future<chopper.Response> custommoduleEmptyobjectGet() {
+    return _custommoduleEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/custommodule/emptyobject')
-  Future<chopper.Response> custommoduleEmptyobjectGet();
+  Future<chopper.Response> _custommoduleEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> custommoduleEmptybrowseobjectGet() {
+    return _custommoduleEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/custommodule/emptybrowseobject')
-  Future<chopper.Response> custommoduleEmptybrowseobjectGet();
+  Future<chopper.Response> _custommoduleEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> custommoduleKeyfieldnamesGet() {
+    return _custommoduleKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/custommodule/keyfieldnames')
-  Future<chopper.Response> custommoduleKeyfieldnamesGet();
+  Future<chopper.Response> _custommoduleKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportcssBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportcssBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportcss/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportcssBrowsePost(
+      _customreportcssBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customreportcssExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customreportcssExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customreportcss/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customreportcssExportexcelxlsxPost(
+      _customreportcssExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  Future<
+          chopper.Response<
+              List<
+                  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>>
+      customreportcssGet({int? pageno, int? pagesize, String? sort}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+        () => FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
+            .fromJsonFactory);
+
+    return _customreportcssGet(pageno: pageno, pagesize: pagesize, sort: sort);
+  }
 
   ///
   ///@param pageno
@@ -673,20 +1638,49 @@ abstract class Administrator extends ChopperService {
           chopper.Response<
               List<
                   FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>>
-      customreportcssGet(
+      _customreportcssGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort});
+
+  ///
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssPost(
+          {required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+        () => FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
+            .fromJsonFactory);
+
+    return _customreportcssPost(body: body);
+  }
 
   ///
   @Post(path: '/customreportcss')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
-      customreportcssPost(
+      _customreportcssPost(
           {@Body()
               required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+        () => FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
+            .fromJsonFactory);
+
+    return _customreportcssIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -694,7 +1688,24 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
-      customreportcssIdGet({@Path('id') required String? id});
+      _customreportcssIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
+      customreportcssIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
+        () => FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
+            .fromJsonFactory);
+
+    return _customreportcssIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -702,7 +1713,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
-      customreportcssIdPut(
+      _customreportcssIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -711,35 +1722,105 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/customreportcss/{id}')
   Future<chopper.Response<bool>> customreportcssIdDelete(
+      {required String? id}) {
+    return _customreportcssIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/customreportcss/{id}')
+  Future<chopper.Response<bool>> _customreportcssIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> customreportcssEmptyobjectGet() {
+    return _customreportcssEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customreportcss/emptyobject')
-  Future<chopper.Response> customreportcssEmptyobjectGet();
+  Future<chopper.Response> _customreportcssEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customreportcssEmptybrowseobjectGet() {
+    return _customreportcssEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customreportcss/emptybrowseobject')
-  Future<chopper.Response> customreportcssEmptybrowseobjectGet();
+  Future<chopper.Response> _customreportcssEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customreportcssKeyfieldnamesGet() {
+    return _customreportcssKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customreportcss/keyfieldnames')
-  Future<chopper.Response> customreportcssKeyfieldnamesGet();
+  Future<chopper.Response> _customreportcssKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportlayoutBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayout/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportlayoutBrowsePost(
+      _customreportlayoutBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customreportlayoutExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customreportlayoutExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayout/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customreportlayoutExportexcelxlsxPost(
+      _customreportlayoutExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
+      customreportlayoutGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+                .fromJsonFactory);
+
+    return _customreportlayoutGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -750,21 +1831,52 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      customreportlayoutGet(
+      _customreportlayoutGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customreportlayout')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
       customreportlayoutPost(
+          {required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic,
+        () =>
+            FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+                .fromJsonFactory);
+
+    return _customreportlayoutPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customreportlayout')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
+      _customreportlayoutPost(
           {@Body()
               required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
+      customreportlayoutIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic,
+        () =>
+            FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+                .fromJsonFactory);
+
+    return _customreportlayoutIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -772,7 +1884,25 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      customreportlayoutIdGet({@Path('id') required String? id});
+      _customreportlayoutIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
+      customreportlayoutIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic,
+        () =>
+            FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+                .fromJsonFactory);
+
+    return _customreportlayoutIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -780,7 +1910,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      customreportlayoutIdPut(
+      _customreportlayoutIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -789,9 +1919,31 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/customreportlayout/{id}')
   Future<chopper.Response<bool>> customreportlayoutIdDelete(
+      {required String? id}) {
+    return _customreportlayoutIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/customreportlayout/{id}')
+  Future<chopper.Response<bool>> _customreportlayoutIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  ///@param report
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse>>
+      customreportlayoutTemplateReportGet({required String? report}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse,
+        () =>
+            WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
+                .fromJsonFactory);
+
+    return _customreportlayoutTemplateReportGet(report: report);
+  }
 
   ///
   ///@param report
@@ -799,40 +1951,113 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse>>
-      customreportlayoutTemplateReportGet(
+      _customreportlayoutTemplateReportGet(
           {@Path('report') required String? report});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutValidatecustomcssBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportlayoutValidatecustomcssBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayout/validatecustomcss/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportlayoutValidatecustomcssBrowsePost(
+      _customreportlayoutValidatecustomcssBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> customreportlayoutEmptyobjectGet() {
+    return _customreportlayoutEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customreportlayout/emptyobject')
-  Future<chopper.Response> customreportlayoutEmptyobjectGet();
+  Future<chopper.Response> _customreportlayoutEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customreportlayoutEmptybrowseobjectGet() {
+    return _customreportlayoutEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customreportlayout/emptybrowseobject')
-  Future<chopper.Response> customreportlayoutEmptybrowseobjectGet();
+  Future<chopper.Response> _customreportlayoutEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customreportlayoutKeyfieldnamesGet() {
+    return _customreportlayoutKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customreportlayout/keyfieldnames')
-  Future<chopper.Response> customreportlayoutKeyfieldnamesGet();
+  Future<chopper.Response> _customreportlayoutKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutgroupBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportlayoutgroupBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayoutgroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportlayoutgroupBrowsePost(
+      _customreportlayoutgroupBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customreportlayoutgroupExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customreportlayoutgroupExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayoutgroup/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customreportlayoutgroupExportexcelxlsxPost(
+      _customreportlayoutgroupExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic>>
+      customreportlayoutgroupGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
+                .fromJsonFactory);
+
+    return _customreportlayoutgroupGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -843,21 +2068,52 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic>>
-      customreportlayoutgroupGet(
+      _customreportlayoutgroupGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customreportlayoutgroup')
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
       customreportlayoutgroupPost(
+          {required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup,
+        () =>
+            WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
+                .fromJsonFactory);
+
+    return _customreportlayoutgroupPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customreportlayoutgroup')
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
+      _customreportlayoutgroupPost(
           {@Body()
               required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
+      customreportlayoutgroupIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup,
+        () =>
+            WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
+                .fromJsonFactory);
+
+    return _customreportlayoutgroupIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -865,7 +2121,25 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
-      customreportlayoutgroupIdGet({@Path('id') required String? id});
+      _customreportlayoutgroupIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
+      customreportlayoutgroupIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup,
+        () =>
+            WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
+                .fromJsonFactory);
+
+    return _customreportlayoutgroupIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -873,7 +2147,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
-      customreportlayoutgroupIdPut(
+      _customreportlayoutgroupIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -882,41 +2156,121 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/customreportlayoutgroup/{id}')
   Future<chopper.Response<bool>> customreportlayoutgroupIdDelete(
+      {required String? id}) {
+    return _customreportlayoutgroupIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/customreportlayoutgroup/{id}')
+  Future<chopper.Response<bool>> _customreportlayoutgroupIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutgroupValidategroupnameBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportlayoutgroupValidategroupnameBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayoutgroup/validategroupname/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportlayoutgroupValidategroupnameBrowsePost(
+      _customreportlayoutgroupValidategroupnameBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> customreportlayoutgroupEmptyobjectGet() {
+    return _customreportlayoutgroupEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customreportlayoutgroup/emptyobject')
-  Future<chopper.Response> customreportlayoutgroupEmptyobjectGet();
+  Future<chopper.Response> _customreportlayoutgroupEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customreportlayoutgroupEmptybrowseobjectGet() {
+    return _customreportlayoutgroupEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customreportlayoutgroup/emptybrowseobject')
-  Future<chopper.Response> customreportlayoutgroupEmptybrowseobjectGet();
+  Future<chopper.Response> _customreportlayoutgroupEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customreportlayoutgroupKeyfieldnamesGet() {
+    return _customreportlayoutgroupKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customreportlayoutgroup/keyfieldnames')
-  Future<chopper.Response> customreportlayoutgroupKeyfieldnamesGet();
+  Future<chopper.Response> _customreportlayoutgroupKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutuserBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportlayoutuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayoutuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportlayoutuserBrowsePost(
+      _customreportlayoutuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      customreportlayoutuserExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _customreportlayoutuserExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayoutuser/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      customreportlayoutuserExportexcelxlsxPost(
+      _customreportlayoutuserExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic>>
+      customreportlayoutuserGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
+                .fromJsonFactory);
+
+    return _customreportlayoutuserGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -927,21 +2281,52 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic>>
-      customreportlayoutuserGet(
+      _customreportlayoutuserGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/customreportlayoutuser')
   Future<
           chopper.Response<
               WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
       customreportlayoutuserPost(
+          {required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser,
+        () =>
+            WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
+                .fromJsonFactory);
+
+    return _customreportlayoutuserPost(body: body);
+  }
+
+  ///
+  @Post(path: '/customreportlayoutuser')
+  Future<
+          chopper.Response<
+              WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
+      _customreportlayoutuserPost(
           {@Body()
               required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
+      customreportlayoutuserIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser,
+        () =>
+            WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
+                .fromJsonFactory);
+
+    return _customreportlayoutuserIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -949,7 +2334,25 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
-      customreportlayoutuserIdGet({@Path('id') required String? id});
+      _customreportlayoutuserIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
+      customreportlayoutuserIdPut(
+          {required String? id,
+          required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser,
+        () =>
+            WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
+                .fromJsonFactory);
+
+    return _customreportlayoutuserIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -957,7 +2360,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
-      customreportlayoutuserIdPut(
+      _customreportlayoutuserIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -966,45 +2369,129 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/customreportlayoutuser/{id}')
   Future<chopper.Response<bool>> customreportlayoutuserIdDelete(
+      {required String? id}) {
+    return _customreportlayoutuserIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/customreportlayoutuser/{id}')
+  Future<chopper.Response<bool>> _customreportlayoutuserIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      customreportlayoutuserValidateuserBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _customreportlayoutuserValidateuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/customreportlayoutuser/validateuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      customreportlayoutuserValidateuserBrowsePost(
+      _customreportlayoutuserValidateuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> customreportlayoutuserEmptyobjectGet() {
+    return _customreportlayoutuserEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/customreportlayoutuser/emptyobject')
-  Future<chopper.Response> customreportlayoutuserEmptyobjectGet();
+  Future<chopper.Response> _customreportlayoutuserEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> customreportlayoutuserEmptybrowseobjectGet() {
+    return _customreportlayoutuserEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/customreportlayoutuser/emptybrowseobject')
-  Future<chopper.Response> customreportlayoutuserEmptybrowseobjectGet();
+  Future<chopper.Response> _customreportlayoutuserEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> customreportlayoutuserKeyfieldnamesGet() {
+    return _customreportlayoutuserKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/customreportlayoutuser/keyfieldnames')
-  Future<chopper.Response> customreportlayoutuserKeyfieldnamesGet();
+  Future<chopper.Response> _customreportlayoutuserKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<Object>> datahealthLegendGet() {
+    return _datahealthLegendGet();
+  }
 
   ///
   @Get(path: '/datahealth/legend')
-  Future<chopper.Response<Object>> datahealthLegendGet();
+  Future<chopper.Response<Object>> _datahealthLegendGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      datahealthBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _datahealthBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/datahealth/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      datahealthBrowsePost(
+      _datahealthBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      datahealthExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _datahealthExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/datahealth/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      datahealthExportexcelxlsxPost(
+      _datahealthExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic>>
+      datahealthGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
+                .fromJsonFactory);
+
+    return _datahealthGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1015,7 +2502,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic>>
-      datahealthGet(
+      _datahealthGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1023,45 +2510,129 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorDataHealthDataHealth>>
+      datahealthIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorDataHealthDataHealth,
+        () => WebApiModulesAdministratorDataHealthDataHealth.fromJsonFactory);
+
+    return _datahealthIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/datahealth/{id}')
   Future<chopper.Response<WebApiModulesAdministratorDataHealthDataHealth>>
-      datahealthIdGet({@Path('id') required String? id});
+      _datahealthIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorDataHealthDataHealth>>
+      datahealthIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorDataHealthDataHealth? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorDataHealthDataHealth,
+        () => WebApiModulesAdministratorDataHealthDataHealth.fromJsonFactory);
+
+    return _datahealthIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/datahealth/{id}')
   Future<chopper.Response<WebApiModulesAdministratorDataHealthDataHealth>>
-      datahealthIdPut(
+      _datahealthIdPut(
           {@Path('id')
               required String? id,
           @Body()
               required WebApiModulesAdministratorDataHealthDataHealth? body});
 
   ///Get an empty object
+  Future<chopper.Response> datahealthEmptyobjectGet() {
+    return _datahealthEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/datahealth/emptyobject')
-  Future<chopper.Response> datahealthEmptyobjectGet();
+  Future<chopper.Response> _datahealthEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> datahealthEmptybrowseobjectGet() {
+    return _datahealthEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/datahealth/emptybrowseobject')
-  Future<chopper.Response> datahealthEmptybrowseobjectGet();
+  Future<chopper.Response> _datahealthEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> datahealthKeyfieldnamesGet() {
+    return _datahealthKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/datahealth/keyfieldnames')
-  Future<chopper.Response> datahealthKeyfieldnamesGet();
+  Future<chopper.Response> _datahealthKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      duplicateruleBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _duplicateruleBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/duplicaterule/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      duplicateruleBrowsePost(
+      _duplicateruleBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      duplicateruleExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _duplicateruleExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/duplicaterule/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      duplicateruleExportexcelxlsxPost(
+      _duplicateruleExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
+      duplicateruleGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+                .fromJsonFactory);
+
+    return _duplicateruleGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1072,21 +2643,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      duplicateruleGet(
+      _duplicateruleGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/duplicaterule')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
       duplicaterulePost(
+          {required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic,
+        () => FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+            .fromJsonFactory);
+
+    return _duplicaterulePost(body: body);
+  }
+
+  ///
+  @Post(path: '/duplicaterule')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
+      _duplicaterulePost(
           {@Body()
               required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
+      duplicateruleIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic,
+        () => FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+            .fromJsonFactory);
+
+    return _duplicateruleIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -1094,7 +2694,24 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      duplicateruleIdGet({@Path('id') required String? id});
+      _duplicateruleIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
+      duplicateruleIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic,
+        () => FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+            .fromJsonFactory);
+
+    return _duplicateruleIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -1102,7 +2719,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      duplicateruleIdPut(
+      _duplicateruleIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -1111,35 +2728,104 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> duplicateruleIdDelete({required String? id}) {
+    return _duplicateruleIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/duplicaterule/{id}')
-  Future<chopper.Response<bool>> duplicateruleIdDelete(
+  Future<chopper.Response<bool>> _duplicateruleIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> duplicateruleEmptyobjectGet() {
+    return _duplicateruleEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/duplicaterule/emptyobject')
-  Future<chopper.Response> duplicateruleEmptyobjectGet();
+  Future<chopper.Response> _duplicateruleEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> duplicateruleEmptybrowseobjectGet() {
+    return _duplicateruleEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/duplicaterule/emptybrowseobject')
-  Future<chopper.Response> duplicateruleEmptybrowseobjectGet();
+  Future<chopper.Response> _duplicateruleEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> duplicateruleKeyfieldnamesGet() {
+    return _duplicateruleKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/duplicaterule/keyfieldnames')
-  Future<chopper.Response> duplicateruleKeyfieldnamesGet();
+  Future<chopper.Response> _duplicateruleKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      duplicaterulefieldBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _duplicaterulefieldBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/duplicaterulefield/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      duplicaterulefieldBrowsePost(
+      _duplicaterulefieldBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      duplicaterulefieldExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _duplicaterulefieldExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/duplicaterulefield/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      duplicaterulefieldExportexcelxlsxPost(
+      _duplicaterulefieldExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic>>
+      duplicaterulefieldGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+                .fromJsonFactory);
+
+    return _duplicaterulefieldGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1150,21 +2836,52 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic>>
-      duplicaterulefieldGet(
+      _duplicaterulefieldGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/duplicaterulefield')
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
       duplicaterulefieldPost(
+          {required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
+        () =>
+            WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+                .fromJsonFactory);
+
+    return _duplicaterulefieldPost(body: body);
+  }
+
+  ///
+  @Post(path: '/duplicaterulefield')
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
+      _duplicaterulefieldPost(
           {@Body()
               required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
+      duplicaterulefieldIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
+        () =>
+            WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+                .fromJsonFactory);
+
+    return _duplicaterulefieldIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -1172,7 +2889,25 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
-      duplicaterulefieldIdGet({@Path('id') required String? id});
+      _duplicaterulefieldIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
+      duplicaterulefieldIdPut(
+          {required String? id,
+          required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
+        () =>
+            WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+                .fromJsonFactory);
+
+    return _duplicaterulefieldIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -1180,7 +2915,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
-      duplicaterulefieldIdPut(
+      _duplicaterulefieldIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -1189,35 +2924,104 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Delete(path: '/duplicaterulefield/{id}')
   Future<chopper.Response<bool>> duplicaterulefieldIdDelete(
+      {required String? id}) {
+    return _duplicaterulefieldIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
+  @Delete(path: '/duplicaterulefield/{id}')
+  Future<chopper.Response<bool>> _duplicaterulefieldIdDelete(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> duplicaterulefieldEmptyobjectGet() {
+    return _duplicaterulefieldEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/duplicaterulefield/emptyobject')
-  Future<chopper.Response> duplicaterulefieldEmptyobjectGet();
+  Future<chopper.Response> _duplicaterulefieldEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> duplicaterulefieldEmptybrowseobjectGet() {
+    return _duplicaterulefieldEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/duplicaterulefield/emptybrowseobject')
-  Future<chopper.Response> duplicaterulefieldEmptybrowseobjectGet();
+  Future<chopper.Response> _duplicaterulefieldEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> duplicaterulefieldKeyfieldnamesGet() {
+    return _duplicaterulefieldKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/duplicaterulefield/keyfieldnames')
-  Future<chopper.Response> duplicaterulefieldKeyfieldnamesGet();
+  Future<chopper.Response> _duplicaterulefieldKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      emailhistoryBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _emailhistoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/emailhistory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      emailhistoryBrowsePost(
+      _emailhistoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      emailhistoryExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _emailhistoryExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/emailhistory/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      emailhistoryExportexcelxlsxPost(
+      _emailhistoryExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic>>
+      emailhistoryGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
+                .fromJsonFactory);
+
+    return _emailhistoryGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1228,7 +3032,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic>>
-      emailhistoryGet(
+      _emailhistoryGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1236,27 +3040,86 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorEmailHistoryEmailHistory>>
+      emailhistoryIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorEmailHistoryEmailHistory,
+        () =>
+            WebApiModulesAdministratorEmailHistoryEmailHistory.fromJsonFactory);
+
+    return _emailhistoryIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/emailhistory/{id}')
   Future<chopper.Response<WebApiModulesAdministratorEmailHistoryEmailHistory>>
-      emailhistoryIdGet({@Path('id') required String? id});
+      _emailhistoryIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> emailhistoryEmptyobjectGet() {
+    return _emailhistoryEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/emailhistory/emptyobject')
-  Future<chopper.Response> emailhistoryEmptyobjectGet();
+  Future<chopper.Response> _emailhistoryEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> emailhistoryEmptybrowseobjectGet() {
+    return _emailhistoryEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/emailhistory/emptybrowseobject')
-  Future<chopper.Response> emailhistoryEmptybrowseobjectGet();
+  Future<chopper.Response> _emailhistoryEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> emailhistoryKeyfieldnamesGet() {
+    return _emailhistoryKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/emailhistory/keyfieldnames')
-  Future<chopper.Response> emailhistoryKeyfieldnamesGet();
+  Future<chopper.Response> _emailhistoryKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      emailtemplateBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _emailtemplateBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/emailtemplate/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      emailtemplateBrowsePost(
+      _emailtemplateBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
+      emailtemplateGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+                .fromJsonFactory);
+
+    return _emailtemplateGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1267,21 +3130,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      emailtemplateGet(
+      _emailtemplateGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/emailtemplate')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
       emailtemplatePost(
+          {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic,
+        () => FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+            .fromJsonFactory);
+
+    return _emailtemplatePost(body: body);
+  }
+
+  ///
+  @Post(path: '/emailtemplate')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
+      _emailtemplatePost(
           {@Body()
               required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
+      emailtemplateIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic,
+        () => FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+            .fromJsonFactory);
+
+    return _emailtemplateIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -1289,13 +3181,36 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      emailtemplateIdGet({@Path('id') required String? id});
+      _emailtemplateIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<bool>> emailtemplateIdDelete({required String? id}) {
+    return _emailtemplateIdDelete(id: id);
+  }
 
   ///
   ///@param id
   @Delete(path: '/emailtemplate/{id}')
-  Future<chopper.Response<bool>> emailtemplateIdDelete(
+  Future<chopper.Response<bool>> _emailtemplateIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
+      emailtemplateIdPut(
+          {required String? id,
+          required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic,
+        () => FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+            .fromJsonFactory);
+
+    return _emailtemplateIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
@@ -1303,7 +3218,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      emailtemplateIdPut(
+      _emailtemplateIdPut(
           {@Path('id')
               required String? id,
           @Body()
@@ -1311,49 +3226,142 @@ abstract class Administrator extends ChopperService {
                   body});
 
   ///
-  @Post(path: '/emailtemplate/templatecategories')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse>>
       emailtemplateTemplatecategoriesPost(
+          {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse,
+        () =>
+            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
+                .fromJsonFactory);
+
+    return _emailtemplateTemplatecategoriesPost(body: body);
+  }
+
+  ///
+  @Post(path: '/emailtemplate/templatecategories')
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse>>
+      _emailtemplateTemplatecategoriesPost(
           {@Body()
               required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse>>
+      emailtemplateTemplatefieldsPost(
+          {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse,
+        () =>
+            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
+                .fromJsonFactory);
+
+    return _emailtemplateTemplatefieldsPost(body: body);
+  }
 
   ///
   @Post(path: '/emailtemplate/templatefields')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse>>
-      emailtemplateTemplatefieldsPost(
+      _emailtemplateTemplatefieldsPost(
           {@Body()
               required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> emailtemplateEmptyobjectGet() {
+    return _emailtemplateEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/emailtemplate/emptyobject')
-  Future<chopper.Response> emailtemplateEmptyobjectGet();
+  Future<chopper.Response> _emailtemplateEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> emailtemplateEmptybrowseobjectGet() {
+    return _emailtemplateEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/emailtemplate/emptybrowseobject')
-  Future<chopper.Response> emailtemplateEmptybrowseobjectGet();
+  Future<chopper.Response> _emailtemplateEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> emailtemplateKeyfieldnamesGet() {
+    return _emailtemplateKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/emailtemplate/keyfieldnames')
-  Future<chopper.Response> emailtemplateKeyfieldnamesGet();
+  Future<chopper.Response> _emailtemplateKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> groupBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _groupBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/group/browse')
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> groupBrowsePost(
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> _groupBrowsePost(
       {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      groupExportexcelxlsxPost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _groupExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/group/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      groupExportexcelxlsxPost(
+      _groupExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic>>
+      groupGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
+                .fromJsonFactory);
+
+    return _groupGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1364,49 +3372,135 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic>>
-      groupGet(
+      _groupGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/group')
   Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> groupPost(
+      {required WebApiModulesAdministratorGroupGroup? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorGroupGroup,
+        () => WebApiModulesAdministratorGroupGroup.fromJsonFactory);
+
+    return _groupPost(body: body);
+  }
+
+  ///
+  @Post(path: '/group')
+  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> _groupPost(
       {@Body() required WebApiModulesAdministratorGroupGroup? body});
 
   ///
   ///@param id
-  @Get(path: '/group/{id}')
   Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> groupIdGet(
+      {required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorGroupGroup,
+        () => WebApiModulesAdministratorGroupGroup.fromJsonFactory);
+
+    return _groupIdGet(id: id);
+  }
+
+  ///
+  ///@param id
+  @Get(path: '/group/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> _groupIdGet(
       {@Path('id') required String? id});
 
   ///
   ///@param id
-  @Put(path: '/group/{id}')
   Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> groupIdPut(
+      {required String? id,
+      required WebApiModulesAdministratorGroupGroup? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorGroupGroup,
+        () => WebApiModulesAdministratorGroupGroup.fromJsonFactory);
+
+    return _groupIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @Put(path: '/group/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> _groupIdPut(
       {@Path('id') required String? id,
       @Body() required WebApiModulesAdministratorGroupGroup? body});
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> groupIdDelete({required String? id}) {
+    return _groupIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/group/{id}')
-  Future<chopper.Response<bool>> groupIdDelete(
+  Future<chopper.Response<bool>> _groupIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<FwStandardAppManagerFwAmSecurityTreeNode>>
+      groupApplicationtreeIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(FwStandardAppManagerFwAmSecurityTreeNode,
+        () => FwStandardAppManagerFwAmSecurityTreeNode.fromJsonFactory);
+
+    return _groupApplicationtreeIdGet(id: id);
+  }
 
   ///
   ///@param id
   @Get(path: '/group/applicationtree/{id}')
   Future<chopper.Response<FwStandardAppManagerFwAmSecurityTreeNode>>
-      groupApplicationtreeIdGet({@Path('id') required String? id});
+      _groupApplicationtreeIdGet({@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardAppManagerFwAmSecurityTreeNode>>
+      groupCopysecuritynodePost(
+          {required FwCoreModulesAdministratorGroupCopySecurityNodeRequest?
+              body}) {
+    generatedMapping.putIfAbsent(FwStandardAppManagerFwAmSecurityTreeNode,
+        () => FwStandardAppManagerFwAmSecurityTreeNode.fromJsonFactory);
+
+    return _groupCopysecuritynodePost(body: body);
+  }
 
   ///
   @Post(path: '/group/copysecuritynode')
   Future<chopper.Response<FwStandardAppManagerFwAmSecurityTreeNode>>
-      groupCopysecuritynodePost(
+      _groupCopysecuritynodePost(
           {@Body()
               required FwCoreModulesAdministratorGroupCopySecurityNodeRequest?
                   body});
+
+  ///
+  ///@param GroupId Identifier [Key|Filter|Sort]
+  ///@param Name Name of Group [Filter|Sort]
+  ///@param PageNo The page number in the result set starting from 1.  PageNo is required when the PageSize is specified.
+  ///@param PageSize Limit result set to the specified amount.
+  ///@param Sort A sort expression to use of the form: Field1:asc,Field2:desc
+  Future<
+          chopper.Response<
+              FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse>>
+      groupLookupgroupGet(
+          {String? groupId,
+          String? name,
+          int? pageNo,
+          int? pageSize,
+          String? sort}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse,
+        () =>
+            FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+                .fromJsonFactory);
+
+    return _groupLookupgroupGet(
+        groupId: groupId,
+        name: name,
+        pageNo: pageNo,
+        pageSize: pageSize,
+        sort: sort);
+  }
 
   ///
   ///@param GroupId Identifier [Key|Filter|Sort]
@@ -1418,7 +3512,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse>>
-      groupLookupgroupGet(
+      _groupLookupgroupGet(
           {@Query('GroupId') String? groupId,
           @Query('Name') String? name,
           @Query('PageNo') int? pageNo,
@@ -1426,33 +3520,100 @@ abstract class Administrator extends ChopperService {
           @Query('Sort') String? sort});
 
   ///
+  Future<chopper.Response<Object>> groupLegendGet() {
+    return _groupLegendGet();
+  }
+
+  ///
   @Get(path: '/group/legend')
-  Future<chopper.Response<Object>> groupLegendGet();
+  Future<chopper.Response<Object>> _groupLegendGet();
+
+  ///Get an empty object
+  Future<chopper.Response> groupEmptyobjectGet() {
+    return _groupEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/group/emptyobject')
-  Future<chopper.Response> groupEmptyobjectGet();
+  Future<chopper.Response> _groupEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> groupEmptybrowseobjectGet() {
+    return _groupEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/group/emptybrowseobject')
-  Future<chopper.Response> groupEmptybrowseobjectGet();
+  Future<chopper.Response> _groupEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> groupKeyfieldnamesGet() {
+    return _groupKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/group/keyfieldnames')
-  Future<chopper.Response> groupKeyfieldnamesGet();
+  Future<chopper.Response> _groupKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> hotfixBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _hotfixBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/hotfix/browse')
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> hotfixBrowsePost(
-      {@Body() required FwStandardModelsBrowseRequest? body});
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _hotfixBrowsePost({@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      hotfixExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _hotfixExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/hotfix/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      hotfixExportexcelxlsxPost(
+      _hotfixExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic>>
+      hotfixGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
+                .fromJsonFactory);
+
+    return _hotfixGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1463,7 +3624,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic>>
-      hotfixGet(
+      _hotfixGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1471,102 +3632,264 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Get(path: '/hotfix/{id}')
   Future<chopper.Response<WebApiModulesAdministratorHotfixHotfix>> hotfixIdGet(
+      {required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorHotfixHotfix,
+        () => WebApiModulesAdministratorHotfixHotfix.fromJsonFactory);
+
+    return _hotfixIdGet(id: id);
+  }
+
+  ///
+  ///@param id
+  @Get(path: '/hotfix/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorHotfixHotfix>> _hotfixIdGet(
       {@Path('id') required String? id});
 
   ///Get an empty object
+  Future<chopper.Response> hotfixEmptyobjectGet() {
+    return _hotfixEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/hotfix/emptyobject')
-  Future<chopper.Response> hotfixEmptyobjectGet();
+  Future<chopper.Response> _hotfixEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> hotfixEmptybrowseobjectGet() {
+    return _hotfixEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/hotfix/emptybrowseobject')
-  Future<chopper.Response> hotfixEmptybrowseobjectGet();
+  Future<chopper.Response> _hotfixEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> hotfixKeyfieldnamesGet() {
+    return _hotfixKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/hotfix/keyfieldnames')
-  Future<chopper.Response> hotfixKeyfieldnamesGet();
+  Future<chopper.Response> _hotfixKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<String>> hubspotAllcontactsPost(
+      {required WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest?
+          body}) {
+    return _hubspotAllcontactsPost(body: body);
+  }
 
   ///
   @Post(path: '/hubspot/allcontacts')
-  Future<chopper.Response<String>> hubspotAllcontactsPost(
+  Future<chopper.Response<String>> _hubspotAllcontactsPost(
       {@Body()
           required WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest?
               body});
 
   ///
-  @Post(path: '/hubspot/newcontact')
   Future<chopper.Response<String>> hubspotNewcontactPost(
+      {required WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest?
+          body}) {
+    return _hubspotNewcontactPost(body: body);
+  }
+
+  ///
+  @Post(path: '/hubspot/newcontact')
+  Future<chopper.Response<String>> _hubspotNewcontactPost(
       {@Body()
           required WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest?
               body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAccountServicesHubSpotGetWriteTokensResponse>>
+      hubspotGettokensPost(
+          {required WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAccountServicesHubSpotGetWriteTokensResponse,
+        () => WebApiModulesAccountServicesHubSpotGetWriteTokensResponse
+            .fromJsonFactory);
+
+    return _hubspotGettokensPost(body: body);
+  }
 
   ///
   @Post(path: '/hubspot/gettokens')
   Future<
           chopper.Response<
               WebApiModulesAccountServicesHubSpotGetWriteTokensResponse>>
-      hubspotGettokensPost(
+      _hubspotGettokensPost(
           {@Body()
               required WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest?
                   body});
 
   ///
-  @Post(path: '/hubspot/getcontactsepoch')
   Future<chopper.Response> hubspotGetcontactsepochPost(
+      {required WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest?
+          body}) {
+    return _hubspotGetcontactsepochPost(body: body);
+  }
+
+  ///
+  @Post(path: '/hubspot/getcontactsepoch')
+  Future<chopper.Response> _hubspotGetcontactsepochPost(
       {@Body()
           required WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest?
               body});
 
   ///Get an empty object
+  Future<chopper.Response> hubspotEmptyobjectGet() {
+    return _hubspotEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/hubspot/emptyobject')
-  Future<chopper.Response> hubspotEmptyobjectGet();
+  Future<chopper.Response> _hubspotEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> hubspotEmptybrowseobjectGet() {
+    return _hubspotEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/hubspot/emptybrowseobject')
-  Future<chopper.Response> hubspotEmptybrowseobjectGet();
+  Future<chopper.Response> _hubspotEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> hubspotKeyfieldnamesGet() {
+    return _hubspotKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/hubspot/keyfieldnames')
-  Future<chopper.Response> hubspotKeyfieldnamesGet();
+  Future<chopper.Response> _hubspotKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> personBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _personBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/person/browse')
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> personBrowsePost(
-      {@Body() required FwStandardModelsBrowseRequest? body});
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _personBrowsePost({@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      personExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _personExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/person/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      personExportexcelxlsxPost(
+      _personExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> personEmptyobjectGet() {
+    return _personEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/person/emptyobject')
-  Future<chopper.Response> personEmptyobjectGet();
+  Future<chopper.Response> _personEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> personEmptybrowseobjectGet() {
+    return _personEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/person/emptybrowseobject')
-  Future<chopper.Response> personEmptybrowseobjectGet();
+  Future<chopper.Response> _personEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> personKeyfieldnamesGet() {
+    return _personKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/person/keyfieldnames')
-  Future<chopper.Response> personKeyfieldnamesGet();
+  Future<chopper.Response> _personKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> pluginBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _pluginBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/plugin/browse')
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> pluginBrowsePost(
-      {@Body() required FwStandardModelsBrowseRequest? body});
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      _pluginBrowsePost({@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      pluginExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _pluginExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/plugin/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      pluginExportexcelxlsxPost(
+      _pluginExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic>>
+      pluginGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
+                .fromJsonFactory);
+
+    return _pluginGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1577,7 +3900,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic>>
-      pluginGet(
+      _pluginGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1585,111 +3908,296 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  @Get(path: '/plugin/{id}')
   Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> pluginIdGet(
+      {required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorPluginPlugin,
+        () => WebApiModulesAdministratorPluginPlugin.fromJsonFactory);
+
+    return _pluginIdGet(id: id);
+  }
+
+  ///
+  ///@param id
+  @Get(path: '/plugin/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> _pluginIdGet(
       {@Path('id') required String? id});
 
   ///
   ///@param id
-  @Put(path: '/plugin/{id}')
   Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> pluginIdPut(
+      {required String? id,
+      required WebApiModulesAdministratorPluginPlugin? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorPluginPlugin,
+        () => WebApiModulesAdministratorPluginPlugin.fromJsonFactory);
+
+    return _pluginIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @Put(path: '/plugin/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> _pluginIdPut(
       {@Path('id') required String? id,
       @Body() required WebApiModulesAdministratorPluginPlugin? body});
 
   ///
   ///@param description
+  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>>
+      pluginDescriptionDescriptionGet({required String? description}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorPluginPlugin,
+        () => WebApiModulesAdministratorPluginPlugin.fromJsonFactory);
+
+    return _pluginDescriptionDescriptionGet(description: description);
+  }
+
+  ///
+  ///@param description
   @Get(path: '/plugin/description/{description}')
   Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>>
-      pluginDescriptionDescriptionGet(
+      _pluginDescriptionDescriptionGet(
           {@Path('description') required String? description});
 
   ///Get an empty object
+  Future<chopper.Response> pluginEmptyobjectGet() {
+    return _pluginEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/plugin/emptyobject')
-  Future<chopper.Response> pluginEmptyobjectGet();
+  Future<chopper.Response> _pluginEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> pluginEmptybrowseobjectGet() {
+    return _pluginEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/plugin/emptybrowseobject')
-  Future<chopper.Response> pluginEmptybrowseobjectGet();
+  Future<chopper.Response> _pluginEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> pluginKeyfieldnamesGet() {
+    return _pluginKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/plugin/keyfieldnames')
-  Future<chopper.Response> pluginKeyfieldnamesGet();
+  Future<chopper.Response> _pluginKeyfieldnamesGet();
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse>>
+      systemupdateVersionhotfixPost(
+          {required WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse,
+        () => WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
+            .fromJsonFactory);
+
+    return _systemupdateVersionhotfixPost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdate/versionhotfix')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse>>
-      systemupdateVersionhotfixPost(
+      _systemupdateVersionhotfixPost(
           {@Body()
               required WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse>>
+      systemupdateAvailableversionsPost(
+          {required WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse,
+        () => WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
+            .fromJsonFactory);
+
+    return _systemupdateAvailableversionsPost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdate/availableversions')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse>>
-      systemupdateAvailableversionsPost(
+      _systemupdateAvailableversionsPost(
           {@Body()
               required WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse>>
+      systemupdateBuilddocumentsPost(
+          {required WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse,
+        () => WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse
+            .fromJsonFactory);
+
+    return _systemupdateBuilddocumentsPost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdate/builddocuments')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse>>
-      systemupdateBuilddocumentsPost(
+      _systemupdateBuilddocumentsPost(
           {@Body()
               required WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse>>
+      systemupdateDownloadbuilddocumentPost(
+          {required WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse,
+        () =>
+            WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
+                .fromJsonFactory);
+
+    return _systemupdateDownloadbuilddocumentPost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdate/downloadbuilddocument')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse>>
-      systemupdateDownloadbuilddocumentPost(
+      _systemupdateDownloadbuilddocumentPost(
           {@Body()
               required WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest?
                   body});
+
+  ///
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateApplyUpdateResponse>>
+      systemupdateApplyupdatePost(
+          {required WebApiModulesAdministratorSystemUpdateApplyUpdateRequest?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateApplyUpdateResponse,
+        () => WebApiModulesAdministratorSystemUpdateApplyUpdateResponse
+            .fromJsonFactory);
+
+    return _systemupdateApplyupdatePost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdate/applyupdate')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateApplyUpdateResponse>>
-      systemupdateApplyupdatePost(
+      _systemupdateApplyupdatePost(
           {@Body()
               required WebApiModulesAdministratorSystemUpdateApplyUpdateRequest?
                   body});
 
   ///Get an empty object
+  Future<chopper.Response> systemupdateEmptyobjectGet() {
+    return _systemupdateEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/systemupdate/emptyobject')
-  Future<chopper.Response> systemupdateEmptyobjectGet();
+  Future<chopper.Response> _systemupdateEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> systemupdateEmptybrowseobjectGet() {
+    return _systemupdateEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/systemupdate/emptybrowseobject')
-  Future<chopper.Response> systemupdateEmptybrowseobjectGet();
+  Future<chopper.Response> _systemupdateEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> systemupdateKeyfieldnamesGet() {
+    return _systemupdateKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/systemupdate/keyfieldnames')
-  Future<chopper.Response> systemupdateKeyfieldnamesGet();
+  Future<chopper.Response> _systemupdateKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      systemupdatehistoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _systemupdatehistoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdatehistory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      systemupdatehistoryBrowsePost(
+      _systemupdatehistoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      systemupdatehistoryExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _systemupdatehistoryExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdatehistory/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      systemupdatehistoryExportexcelxlsxPost(
+      _systemupdatehistoryExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic>>
+      systemupdatehistoryGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
+                .fromJsonFactory);
+
+    return _systemupdatehistoryGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1700,21 +4208,50 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic>>
-      systemupdatehistoryGet(
+      _systemupdatehistoryGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/systemupdatehistory')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>>
       systemupdatehistoryPost(
+          {required WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory?
+              body}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory,
+        () => WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
+            .fromJsonFactory);
+
+    return _systemupdatehistoryPost(body: body);
+  }
+
+  ///
+  @Post(path: '/systemupdatehistory')
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>>
+      _systemupdatehistoryPost(
           {@Body()
               required WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory?
                   body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>>
+      systemupdatehistoryIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory,
+        () => WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
+            .fromJsonFactory);
+
+    return _systemupdatehistoryIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -1722,33 +4259,96 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>>
-      systemupdatehistoryIdGet({@Path('id') required String? id});
+      _systemupdatehistoryIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> systemupdatehistoryEmptyobjectGet() {
+    return _systemupdatehistoryEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/systemupdatehistory/emptyobject')
-  Future<chopper.Response> systemupdatehistoryEmptyobjectGet();
+  Future<chopper.Response> _systemupdatehistoryEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> systemupdatehistoryEmptybrowseobjectGet() {
+    return _systemupdatehistoryEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/systemupdatehistory/emptybrowseobject')
-  Future<chopper.Response> systemupdatehistoryEmptybrowseobjectGet();
+  Future<chopper.Response> _systemupdatehistoryEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> systemupdatehistoryKeyfieldnamesGet() {
+    return _systemupdatehistoryKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/systemupdatehistory/keyfieldnames')
-  Future<chopper.Response> systemupdatehistoryKeyfieldnamesGet();
+  Future<chopper.Response> _systemupdatehistoryKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      systemupdatehistorylogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _systemupdatehistorylogBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdatehistorylog/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      systemupdatehistorylogBrowsePost(
+      _systemupdatehistorylogBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      systemupdatehistorylogExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _systemupdatehistorylogExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/systemupdatehistorylog/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      systemupdatehistorylogExportexcelxlsxPost(
+      _systemupdatehistorylogExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic>>
+      systemupdatehistorylogGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
+                .fromJsonFactory);
+
+    return _systemupdatehistorylogGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1759,7 +4359,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic>>
-      systemupdatehistorylogGet(
+      _systemupdatehistorylogGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -1767,36 +4367,112 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog>>
+      systemupdatehistorylogIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog,
+        () =>
+            WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
+                .fromJsonFactory);
+
+    return _systemupdatehistorylogIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/systemupdatehistorylog/{id}')
   Future<
           chopper.Response<
               WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog>>
-      systemupdatehistorylogIdGet({@Path('id') required String? id});
+      _systemupdatehistorylogIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> systemupdatehistorylogEmptyobjectGet() {
+    return _systemupdatehistorylogEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/systemupdatehistorylog/emptyobject')
-  Future<chopper.Response> systemupdatehistorylogEmptyobjectGet();
+  Future<chopper.Response> _systemupdatehistorylogEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> systemupdatehistorylogEmptybrowseobjectGet() {
+    return _systemupdatehistorylogEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/systemupdatehistorylog/emptybrowseobject')
-  Future<chopper.Response> systemupdatehistorylogEmptybrowseobjectGet();
+  Future<chopper.Response> _systemupdatehistorylogEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> systemupdatehistorylogKeyfieldnamesGet() {
+    return _systemupdatehistorylogKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/systemupdatehistorylog/keyfieldnames')
-  Future<chopper.Response> systemupdatehistorylogKeyfieldnamesGet();
+  Future<chopper.Response> _systemupdatehistorylogKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> userBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/browse')
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> userBrowsePost(
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> _userBrowsePost(
       {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      userExportexcelxlsxPost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _userExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/user/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      userExportexcelxlsxPost(
+      _userExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic>>
+      userGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
+                .fromJsonFactory);
+
+    return _userGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -1807,35 +4483,86 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic>>
-      userGet(
+      _userGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/user')
   Future<chopper.Response<WebApiModulesAdministratorUserUser>> userPost(
+      {required WebApiModulesAdministratorUserUser? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorUserUser,
+        () => WebApiModulesAdministratorUserUser.fromJsonFactory);
+
+    return _userPost(body: body);
+  }
+
+  ///
+  @Post(path: '/user')
+  Future<chopper.Response<WebApiModulesAdministratorUserUser>> _userPost(
       {@Body() required WebApiModulesAdministratorUserUser? body});
 
   ///
   ///@param id
-  @Get(path: '/user/{id}')
   Future<chopper.Response<WebApiModulesAdministratorUserUser>> userIdGet(
+      {required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorUserUser,
+        () => WebApiModulesAdministratorUserUser.fromJsonFactory);
+
+    return _userIdGet(id: id);
+  }
+
+  ///
+  ///@param id
+  @Get(path: '/user/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorUserUser>> _userIdGet(
       {@Path('id') required String? id});
 
   ///
   ///@param id
-  @Put(path: '/user/{id}')
   Future<chopper.Response<WebApiModulesAdministratorUserUser>> userIdPut(
+      {required String? id,
+      required WebApiModulesAdministratorUserUser? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesAdministratorUserUser,
+        () => WebApiModulesAdministratorUserUser.fromJsonFactory);
+
+    return _userIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @Put(path: '/user/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorUserUser>> _userIdPut(
       {@Path('id') required String? id,
       @Body() required WebApiModulesAdministratorUserUser? body});
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> userIdDelete({required String? id}) {
+    return _userIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/user/{id}')
-  Future<chopper.Response<bool>> userIdDelete(
+  Future<chopper.Response<bool>> _userIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>>
+      userCreateusersalesrepresentativecontactIdPost({required String? id}) {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse,
+        () =>
+            WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
+                .fromJsonFactory);
+
+    return _userCreateusersalesrepresentativecontactIdPost(id: id);
+  }
 
   ///
   ///@param id
@@ -1845,177 +4572,479 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>>
-      userCreateusersalesrepresentativecontactIdPost(
+      _userCreateusersalesrepresentativecontactIdPost(
           {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidategroupBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidategroupBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validategroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidategroupBrowsePost(
+      _userValidategroupBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidateusertitleBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidateusertitleBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validateusertitle/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidateusertitleBrowsePost(
+      _userValidateusertitleBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidateofficelocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validateofficelocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidateofficelocationBrowsePost(
+      _userValidateofficelocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatewarehouselocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatewarehouselocationBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatewarehouselocation/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatewarehouselocationBrowsePost(
+      _userValidatewarehouselocationBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatestateBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatestateBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatestate/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatestateBrowsePost(
+      _userValidatestateBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatecountryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatecountryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatecountry/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatecountryBrowsePost(
+      _userValidatecountryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidaterentaldepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidaterentaldepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validaterentaldepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidaterentaldepartmentBrowsePost(
+      _userValidaterentaldepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatesalesdepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatesalesdepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatesalesdepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatesalesdepartmentBrowsePost(
+      _userValidatesalesdepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatelabordepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatelabordepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatelabordepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatelabordepartmentBrowsePost(
+      _userValidatelabordepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatemiscdepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatemiscdepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatemiscdepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatemiscdepartmentBrowsePost(
+      _userValidatemiscdepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatepartsdepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatepartsdepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatepartsdepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatepartsdepartmentBrowsePost(
+      _userValidatepartsdepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatefacilitydepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatefacilitydepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatefacilitydepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatefacilitydepartmentBrowsePost(
+      _userValidatefacilitydepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatetransportationdepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatetransportationdepartmentBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatetransportationdepartment/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatetransportationdepartmentBrowsePost(
+      _userValidatetransportationdepartmentBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidaterentalinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidaterentalinventoryBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validaterentalinventory/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidaterentalinventoryBrowsePost(
+      _userValidaterentalinventoryBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatesalesinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatesalesinventorytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatesalesinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatesalesinventorytypeBrowsePost(
+      _userValidatesalesinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatepartsinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatepartsinventorytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatepartsinventorytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatepartsinventorytypeBrowsePost(
+      _userValidatepartsinventorytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatetransportationtypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatetransportationtypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatetransportationtype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatetransportationtypeBrowsePost(
+      _userValidatetransportationtypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatelabortypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatelabortypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatelabortype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatelabortypeBrowsePost(
+      _userValidatelabortypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatemisctypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatemisctypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatemisctype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatemisctypeBrowsePost(
+      _userValidatemisctypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatefacilitytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatefacilitytypeBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatefacilitytype/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatefacilitytypeBrowsePost(
+      _userValidatefacilitytypeBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatesuccesssoundBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatesuccesssoundBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatesuccesssound/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatesuccesssoundBrowsePost(
+      _userValidatesuccesssoundBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidateerrorsoundBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidateerrorsoundBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validateerrorsound/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidateerrorsoundBrowsePost(
+      _userValidateerrorsoundBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      userValidatenotificationsoundBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _userValidatenotificationsoundBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/user/validatenotificationsound/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      userValidatenotificationsoundBrowsePost(
+      _userValidatenotificationsoundBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<chopper.Response<WebApiModulesAdministratorUserUserCountResponse>>
+      userGetusercountsGet() {
+    generatedMapping.putIfAbsent(
+        WebApiModulesAdministratorUserUserCountResponse,
+        () => WebApiModulesAdministratorUserUserCountResponse.fromJsonFactory);
+
+    return _userGetusercountsGet();
+  }
 
   ///
   @Get(path: '/user/getusercounts')
   Future<chopper.Response<WebApiModulesAdministratorUserUserCountResponse>>
-      userGetusercountsGet();
+      _userGetusercountsGet();
+
+  ///Get an empty object
+  Future<chopper.Response> userEmptyobjectGet() {
+    return _userEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/user/emptyobject')
-  Future<chopper.Response> userEmptyobjectGet();
+  Future<chopper.Response> _userEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> userEmptybrowseobjectGet() {
+    return _userEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/user/emptybrowseobject')
-  Future<chopper.Response> userEmptybrowseobjectGet();
+  Future<chopper.Response> _userEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> userKeyfieldnamesGet() {
+    return _userKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/user/keyfieldnames')
-  Future<chopper.Response> userKeyfieldnamesGet();
+  Future<chopper.Response> _userKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      webalertlogBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _webalertlogBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/webalertlog/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      webalertlogBrowsePost(
+      _webalertlogBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      webalertlogExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _webalertlogExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/webalertlog/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      webalertlogExportexcelxlsxPost(
+      _webalertlogExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
+      webalertlogGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic,
+        () =>
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
+                .fromJsonFactory);
+
+    return _webalertlogGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -2026,7 +5055,7 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
-      webalertlogGet(
+      _webalertlogGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
@@ -2034,37 +5063,104 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
+      webalertlogIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic,
+        () => FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
+            .fromJsonFactory);
+
+    return _webalertlogIdGet(id: id);
+  }
+
+  ///
+  ///@param id
   @Get(path: '/webalertlog/{id}')
   Future<
           chopper.Response<
               FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
-      webalertlogIdGet({@Path('id') required String? id});
+      _webalertlogIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> webalertlogEmptyobjectGet() {
+    return _webalertlogEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/webalertlog/emptyobject')
-  Future<chopper.Response> webalertlogEmptyobjectGet();
+  Future<chopper.Response> _webalertlogEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> webalertlogEmptybrowseobjectGet() {
+    return _webalertlogEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/webalertlog/emptybrowseobject')
-  Future<chopper.Response> webalertlogEmptybrowseobjectGet();
+  Future<chopper.Response> _webalertlogEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> webalertlogKeyfieldnamesGet() {
+    return _webalertlogKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/webalertlog/keyfieldnames')
-  Future<chopper.Response> webalertlogKeyfieldnamesGet();
+  Future<chopper.Response> _webalertlogKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      webauditjsonBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _webauditjsonBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/webauditjson/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      webauditjsonBrowsePost(
+      _webauditjsonBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      webauditjsonExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _webauditjsonExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/webauditjson/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      webauditjsonExportexcelxlsxPost(
+      _webauditjsonExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param id
+  Future<
+          chopper.Response<
+              FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic>>
+      webauditjsonIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic,
+        () => FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
+            .fromJsonFactory);
+
+    return _webauditjsonIdGet(id: id);
+  }
 
   ///
   ///@param id
@@ -2072,33 +5168,95 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic>>
-      webauditjsonIdGet({@Path('id') required String? id});
+      _webauditjsonIdGet({@Path('id') required String? id});
+
+  ///Get an empty object
+  Future<chopper.Response> webauditjsonEmptyobjectGet() {
+    return _webauditjsonEmptyobjectGet();
+  }
 
   ///Get an empty object
   @Get(path: '/webauditjson/emptyobject')
-  Future<chopper.Response> webauditjsonEmptyobjectGet();
+  Future<chopper.Response> _webauditjsonEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> webauditjsonEmptybrowseobjectGet() {
+    return _webauditjsonEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/webauditjson/emptybrowseobject')
-  Future<chopper.Response> webauditjsonEmptybrowseobjectGet();
+  Future<chopper.Response> _webauditjsonEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> webauditjsonKeyfieldnamesGet() {
+    return _webauditjsonKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/webauditjson/keyfieldnames')
-  Future<chopper.Response> webauditjsonKeyfieldnamesGet();
+  Future<chopper.Response> _webauditjsonKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      widgetgroupBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _widgetgroupBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/widgetgroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      widgetgroupBrowsePost(
+      _widgetgroupBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      widgetgroupExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _widgetgroupExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/widgetgroup/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      widgetgroupExportexcelxlsxPost(
+      _widgetgroupExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic>>
+      widgetgroupGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
+                .fromJsonFactory);
+
+    return _widgetgroupGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -2109,69 +5267,179 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic>>
-      widgetgroupGet(
+      _widgetgroupGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/widgetgroup')
   Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
       widgetgroupPost(
+          {required WebApiModulesSettingsWidgetGroupWidgetGroup? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetGroupWidgetGroup,
+        () => WebApiModulesSettingsWidgetGroupWidgetGroup.fromJsonFactory);
+
+    return _widgetgroupPost(body: body);
+  }
+
+  ///
+  @Post(path: '/widgetgroup')
+  Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
+      _widgetgroupPost(
           {@Body() required WebApiModulesSettingsWidgetGroupWidgetGroup? body});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
+      widgetgroupIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetGroupWidgetGroup,
+        () => WebApiModulesSettingsWidgetGroupWidgetGroup.fromJsonFactory);
+
+    return _widgetgroupIdGet(id: id);
+  }
 
   ///
   ///@param id
   @Get(path: '/widgetgroup/{id}')
   Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
-      widgetgroupIdGet({@Path('id') required String? id});
+      _widgetgroupIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
+      widgetgroupIdPut(
+          {required String? id,
+          required WebApiModulesSettingsWidgetGroupWidgetGroup? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetGroupWidgetGroup,
+        () => WebApiModulesSettingsWidgetGroupWidgetGroup.fromJsonFactory);
+
+    return _widgetgroupIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/widgetgroup/{id}')
   Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
-      widgetgroupIdPut(
+      _widgetgroupIdPut(
           {@Path('id') required String? id,
           @Body() required WebApiModulesSettingsWidgetGroupWidgetGroup? body});
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> widgetgroupIdDelete({required String? id}) {
+    return _widgetgroupIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/widgetgroup/{id}')
-  Future<chopper.Response<bool>> widgetgroupIdDelete(
+  Future<chopper.Response<bool>> _widgetgroupIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      widgetgroupValidategroupBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _widgetgroupValidategroupBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/widgetgroup/validategroup/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      widgetgroupValidategroupBrowsePost(
+      _widgetgroupValidategroupBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> widgetgroupEmptyobjectGet() {
+    return _widgetgroupEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/widgetgroup/emptyobject')
-  Future<chopper.Response> widgetgroupEmptyobjectGet();
+  Future<chopper.Response> _widgetgroupEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> widgetgroupEmptybrowseobjectGet() {
+    return _widgetgroupEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/widgetgroup/emptybrowseobject')
-  Future<chopper.Response> widgetgroupEmptybrowseobjectGet();
+  Future<chopper.Response> _widgetgroupEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> widgetgroupKeyfieldnamesGet() {
+    return _widgetgroupKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/widgetgroup/keyfieldnames')
-  Future<chopper.Response> widgetgroupKeyfieldnamesGet();
+  Future<chopper.Response> _widgetgroupKeyfieldnamesGet();
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      widgetuserBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _widgetuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/widgetuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      widgetuserBrowsePost(
+      _widgetuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  Future<
+          chopper.Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      widgetuserExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+        () =>
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                .fromJsonFactory);
+
+    return _widgetuserExportexcelxlsxPost(body: body);
+  }
 
   ///
   @Post(path: '/widgetuser/exportexcelxlsx')
   Future<
           chopper.Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      widgetuserExportexcelxlsxPost(
+      _widgetuserExportexcelxlsxPost(
           {@Body() required FwStandardModelsBrowseRequest? body});
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+          chopper.Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic>>
+      widgetuserGet(
+          {int? pageno,
+          int? pagesize,
+          String? sort,
+          List<FwStandardModelsFwQueryFilter>? filter}) {
+    generatedMapping.putIfAbsent(
+        FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic,
+        () =>
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
+                .fromJsonFactory);
+
+    return _widgetuserGet(
+        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+  }
 
   ///
   ///@param pageno
@@ -2182,298 +5450,119 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic>>
-      widgetuserGet(
+      _widgetuserGet(
           {@Query('pageno') int? pageno,
           @Query('pagesize') int? pagesize,
           @Query('sort') String? sort,
           @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
 
   ///
-  @Post(path: '/widgetuser')
   Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
       widgetuserPost(
+          {required WebApiModulesSettingsWidgetUserWidgetUser? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetUserWidgetUser,
+        () => WebApiModulesSettingsWidgetUserWidgetUser.fromJsonFactory);
+
+    return _widgetuserPost(body: body);
+  }
+
+  ///
+  @Post(path: '/widgetuser')
+  Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
+      _widgetuserPost(
           {@Body() required WebApiModulesSettingsWidgetUserWidgetUser? body});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
+      widgetuserIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetUserWidgetUser,
+        () => WebApiModulesSettingsWidgetUserWidgetUser.fromJsonFactory);
+
+    return _widgetuserIdGet(id: id);
+  }
 
   ///
   ///@param id
   @Get(path: '/widgetuser/{id}')
   Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
-      widgetuserIdGet({@Path('id') required String? id});
+      _widgetuserIdGet({@Path('id') required String? id});
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
+      widgetuserIdPut(
+          {required String? id,
+          required WebApiModulesSettingsWidgetUserWidgetUser? body}) {
+    generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetUserWidgetUser,
+        () => WebApiModulesSettingsWidgetUserWidgetUser.fromJsonFactory);
+
+    return _widgetuserIdPut(id: id, body: body);
+  }
 
   ///
   ///@param id
   @Put(path: '/widgetuser/{id}')
   Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
-      widgetuserIdPut(
+      _widgetuserIdPut(
           {@Path('id') required String? id,
           @Body() required WebApiModulesSettingsWidgetUserWidgetUser? body});
 
   ///
   ///@param id
+  Future<chopper.Response<bool>> widgetuserIdDelete({required String? id}) {
+    return _widgetuserIdDelete(id: id);
+  }
+
+  ///
+  ///@param id
   @Delete(path: '/widgetuser/{id}')
-  Future<chopper.Response<bool>> widgetuserIdDelete(
+  Future<chopper.Response<bool>> _widgetuserIdDelete(
       {@Path('id') required String? id});
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+      widgetuserValidateuserBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
+        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+
+    return _widgetuserValidateuserBrowsePost(body: body);
+  }
 
   ///
   @Post(path: '/widgetuser/validateuser/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      widgetuserValidateuserBrowsePost(
+      _widgetuserValidateuserBrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
 
   ///Get an empty object
+  Future<chopper.Response> widgetuserEmptyobjectGet() {
+    return _widgetuserEmptyobjectGet();
+  }
+
+  ///Get an empty object
   @Get(path: '/widgetuser/emptyobject')
-  Future<chopper.Response> widgetuserEmptyobjectGet();
+  Future<chopper.Response> _widgetuserEmptyobjectGet();
+
+  ///Get an empty browse object
+  Future<chopper.Response> widgetuserEmptybrowseobjectGet() {
+    return _widgetuserEmptybrowseobjectGet();
+  }
 
   ///Get an empty browse object
   @Get(path: '/widgetuser/emptybrowseobject')
-  Future<chopper.Response> widgetuserEmptybrowseobjectGet();
+  Future<chopper.Response> _widgetuserEmptybrowseobjectGet();
+
+  ///Get an array of primary key field names
+  Future<chopper.Response> widgetuserKeyfieldnamesGet() {
+    return _widgetuserKeyfieldnamesGet();
+  }
 
   ///Get an array of primary key field names
   @Get(path: '/widgetuser/keyfieldnames')
-  Future<chopper.Response> widgetuserKeyfieldnamesGet();
+  Future<chopper.Response> _widgetuserKeyfieldnamesGet();
 }
-
-final Map<Type, Object Function(Map<String, dynamic>)>
-    AdministratorJsonDecoderMappings = {
-  FwCoreApiSwashbuckleBadRequestResponse:
-      FwCoreApiSwashbuckleBadRequestResponse.fromJsonFactory,
-  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult:
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-          .fromJsonFactory,
-  FwCoreModulesAdministratorGroupCopySecurityNodeRequest:
-      FwCoreModulesAdministratorGroupCopySecurityNodeRequest.fromJsonFactory,
-  FwCoreModulesAdministratorGroupLookupGroupResponse:
-      FwCoreModulesAdministratorGroupLookupGroupResponse.fromJsonFactory,
-  FwStandardAppManagerFwAmSecurityTreeNode:
-      FwStandardAppManagerFwAmSecurityTreeNode.fromJsonFactory,
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition:
-      FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJsonFactory,
-  FwStandardDataFwCustomValue: FwStandardDataFwCustomValue.fromJsonFactory,
-  FwStandardDataFwDefaultAttribute:
-      FwStandardDataFwDefaultAttribute.fromJsonFactory,
-  FwStandardModelsBrowseRequest: FwStandardModelsBrowseRequest.fromJsonFactory,
-  FwStandardModelsCheckBoxListItem:
-      FwStandardModelsCheckBoxListItem.fromJsonFactory,
-  FwStandardModelsFwApiException:
-      FwStandardModelsFwApiException.fromJsonFactory,
-  FwStandardModelsFwQueryFilter: FwStandardModelsFwQueryFilter.fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic:
-      FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
-          .fromJsonFactory,
-  FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic:
-      FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
-          .fromJsonFactory,
-  FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse:
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
-          .fromJsonFactory,
-  FwStandardModulesAdministratorAlertAlertCondition:
-      FwStandardModulesAdministratorAlertAlertCondition.fromJsonFactory,
-  FwStandardModulesAdministratorAlertAlertLogic:
-      FwStandardModulesAdministratorAlertAlertLogic.fromJsonFactory,
-  FwStandardModulesAdministratorAlertConditionAlertConditionLogic:
-      FwStandardModulesAdministratorAlertConditionAlertConditionLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic:
-      FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic:
-      FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic:
-      FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic:
-      FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic:
-      FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
-          .fromJsonFactory,
-  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest:
-      FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest
-          .fromJsonFactory,
-  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse:
-      FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
-          .fromJsonFactory,
-  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse:
-      FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
-          .fromJsonFactory,
-  FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic:
-      FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic.fromJsonFactory,
-  FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic:
-      FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
-          .fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTable:
-      FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-  FwStandardSqlServerFwJsonDataTableColumn:
-      FwStandardSqlServerFwJsonDataTableColumn.fromJsonFactory,
-  WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest:
-      WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest
-          .fromJsonFactory,
-  WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest:
-      WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest
-          .fromJsonFactory,
-  WebApiModulesAccountServicesHubSpotGetWriteTokensResponse:
-      WebApiModulesAccountServicesHubSpotGetWriteTokensResponse.fromJsonFactory,
-  WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest:
-      WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest
-          .fromJsonFactory,
-  WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest:
-      WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
-          .fromJsonFactory,
-  WebApiModulesAdministratorCustomFieldCustomField:
-      WebApiModulesAdministratorCustomFieldCustomField.fromJsonFactory,
-  WebApiModulesAdministratorCustomFormCustomForm:
-      WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory,
-  WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse:
-      WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
-          .fromJsonFactory,
-  WebApiModulesAdministratorDataHealthDataHealth:
-      WebApiModulesAdministratorDataHealthDataHealth.fromJsonFactory,
-  WebApiModulesAdministratorEmailHistoryEmailHistory:
-      WebApiModulesAdministratorEmailHistoryEmailHistory.fromJsonFactory,
-  WebApiModulesAdministratorGroupGroup:
-      WebApiModulesAdministratorGroupGroup.fromJsonFactory,
-  WebApiModulesAdministratorHotfixHotfix:
-      WebApiModulesAdministratorHotfixHotfix.fromJsonFactory,
-  WebApiModulesAdministratorPluginPlugin:
-      WebApiModulesAdministratorPluginPlugin.fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateApplyUpdateRequest:
-      WebApiModulesAdministratorSystemUpdateApplyUpdateRequest.fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateApplyUpdateResponse:
-      WebApiModulesAdministratorSystemUpdateApplyUpdateResponse.fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateAvailableVersion:
-      WebApiModulesAdministratorSystemUpdateAvailableVersion.fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest:
-      WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse:
-      WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateBuildDocument:
-      WebApiModulesAdministratorSystemUpdateBuildDocument.fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest:
-      WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse:
-      WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest:
-      WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse:
-      WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest:
-      WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse:
-      WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory:
-      WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
-          .fromJsonFactory,
-  WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog:
-      WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
-          .fromJsonFactory,
-  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse:
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-          .fromJsonFactory,
-  WebApiModulesAdministratorUserUser:
-      WebApiModulesAdministratorUserUser.fromJsonFactory,
-  WebApiModulesAdministratorUserUserCountResponse:
-      WebApiModulesAdministratorUserUserCountResponse.fromJsonFactory,
-  WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup:
-      WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
-          .fromJsonFactory,
-  WebApiModulesAdministratorControlsCustomFormUserCustomFormUser:
-      WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
-          .fromJsonFactory,
-  WebApiModulesAdministratorControlsCustomModuleCustomModule:
-      WebApiModulesAdministratorControlsCustomModuleCustomModule
-          .fromJsonFactory,
-  WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup:
-      WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
-          .fromJsonFactory,
-  WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField:
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-          .fromJsonFactory,
-  WebApiModulesSettingsWidgetGroupWidgetGroup:
-      WebApiModulesSettingsWidgetGroupWidgetGroup.fromJsonFactory,
-  WebApiModulesSettingsWidgetUserWidgetUser:
-      WebApiModulesSettingsWidgetUserWidgetUser.fromJsonFactory,
-  WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser:
-      WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
-          .fromJsonFactory,
-};
 
 @JsonSerializable(explicitToJson: true)
 class FwCoreApiSwashbuckleBadRequestResponse {
@@ -2488,6 +5577,9 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -2513,6 +5605,9 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
   Map<String, dynamic> toJson() =>
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2561,6 +5656,9 @@ class FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
       _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2619,6 +5717,9 @@ class FwCoreModulesAdministratorGroupLookupGroupResponse {
       _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwCoreModulesAdministratorGroupLookupGroupResponse &&
@@ -2666,7 +5767,7 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
   @JsonKey(name: 'nodetype', includeIfNull: false)
   final String? nodetype;
   @JsonKey(name: 'properties', includeIfNull: false)
-  final Object? properties;
+  final Map<String, dynamic>? properties;
   @JsonKey(
       name: 'children',
       includeIfNull: false,
@@ -2677,6 +5778,9 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
   static const toJsonFactory = _$FwStandardAppManagerFwAmSecurityTreeNodeToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2714,7 +5818,7 @@ extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
       {String? id,
       String? caption,
       String? nodetype,
-      Object? properties,
+      Map<String, dynamic>? properties,
       List<FwStandardAppManagerFwAmSecurityTreeNode>? children}) {
     return FwStandardAppManagerFwAmSecurityTreeNode(
         id: id ?? this.id,
@@ -2750,6 +5854,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2798,6 +5905,9 @@ class FwStandardDataFwCustomValue {
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
   static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2854,6 +5964,9 @@ class FwStandardDataFwDefaultAttribute {
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardDataFwDefaultAttributeToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2966,7 +6079,7 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'boundids', includeIfNull: false)
   final dynamic boundids;
   @JsonKey(name: 'filterfields', includeIfNull: false)
-  final Object? filterfields;
+  final Map<String, dynamic>? filterfields;
   @JsonKey(name: 'activeview', includeIfNull: false)
   final String? activeview;
   @JsonKey(name: 'emptyobject', includeIfNull: false)
@@ -2981,10 +6094,13 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
-  final Object? activeviewfields;
+  final Map<String, dynamic>? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
   static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3108,13 +6224,13 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchconjunctions,
       dynamic? uniqueids,
       dynamic? boundids,
-      Object? filterfields,
+      Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
       bool? forexcel,
       List<FwStandardModelsCheckBoxListItem>? excelfields,
       List<String>? totalfields,
-      Object? activeviewfields}) {
+      Map<String, dynamic>? activeviewfields}) {
     return FwStandardModelsBrowseRequest(
         miscfields: miscfields ?? this.miscfields,
         module: module ?? this.module,
@@ -3165,6 +6281,9 @@ class FwStandardModelsCheckBoxListItem {
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsCheckBoxListItemToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3220,6 +6339,9 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -3273,6 +6395,9 @@ class FwStandardModelsFwQueryFilter {
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3340,6 +6465,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLog
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3423,6 +6551,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditio
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic &&
@@ -3503,6 +6634,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsers
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3588,6 +6722,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportL
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic &&
@@ -3668,6 +6805,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRule
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3752,6 +6892,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplate
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic &&
@@ -3831,6 +6974,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWe
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3916,6 +7062,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustom
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic &&
@@ -3996,6 +7145,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomF
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4080,6 +7232,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHea
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic &&
@@ -4160,6 +7315,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmail
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4244,6 +7402,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic &&
@@ -4324,6 +7485,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4408,6 +7572,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic &&
@@ -4487,6 +7654,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4572,6 +7742,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic &&
@@ -4655,6 +7828,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic &&
@@ -4734,6 +7910,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4818,6 +7997,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic &&
@@ -4897,6 +8079,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomMod
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4982,6 +8167,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomRep
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic &&
@@ -5063,6 +8251,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicate
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5148,6 +8339,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroup
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic &&
@@ -5230,6 +8424,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLo
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic &&
@@ -5310,6 +8507,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayo
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5395,6 +8595,9 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse &&
@@ -5473,6 +8676,9 @@ class FwStandardModulesAdministratorAlertAlertCondition {
       _$FwStandardModulesAdministratorAlertAlertConditionToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorAlertAlertConditionToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5603,6 +8809,9 @@ class FwStandardModulesAdministratorAlertAlertLogic {
       _$FwStandardModulesAdministratorAlertAlertLogicToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorAlertAlertLogicToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5782,6 +8991,9 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorAlertConditionAlertConditionLogic &&
@@ -5934,6 +9146,9 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6090,6 +9305,9 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6264,6 +9482,9 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogicToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6468,6 +9689,9 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic &&
@@ -6644,6 +9868,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic &&
@@ -6766,6 +9993,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFi
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest &&
@@ -6810,6 +10040,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCateg
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse &&
@@ -6852,6 +10085,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateField
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6944,6 +10180,9 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
       _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7123,6 +10362,9 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
       _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic &&
@@ -7247,9 +10489,9 @@ class FwStandardSqlServerFwJsonDataTable {
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
-  final Object? columnIndex;
+  final Map<String, dynamic>? columnIndex;
   @JsonKey(name: 'Totals', includeIfNull: false)
-  final Object? totals;
+  final Map<String, dynamic>? totals;
   @JsonKey(
       name: 'Columns',
       includeIfNull: false,
@@ -7268,11 +10510,14 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'DateFields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
-  final Object? columnNameByIndex;
+  final Map<String, dynamic>? columnNameByIndex;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7325,8 +10570,8 @@ class FwStandardSqlServerFwJsonDataTable {
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
   FwStandardSqlServerFwJsonDataTable copyWith(
-      {Object? columnIndex,
-      Object? totals,
+      {Map<String, dynamic>? columnIndex,
+      Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
       List<List<Object>>? rows,
       int? pageNo,
@@ -7334,7 +10579,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Object? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -7382,6 +10627,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7452,6 +10700,9 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest &&
@@ -7495,6 +10746,9 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest {
       _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest &&
@@ -7536,6 +10790,9 @@ class WebApiModulesAccountServicesHubSpotGetWriteTokensResponse {
       _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7588,6 +10845,9 @@ class WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7656,6 +10916,9 @@ class WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodReques
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7760,6 +11023,9 @@ class WebApiModulesAdministratorCustomFieldCustomField {
       _$WebApiModulesAdministratorCustomFieldCustomFieldToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -7942,6 +11208,9 @@ class WebApiModulesAdministratorCustomFormCustomForm {
       _$WebApiModulesAdministratorCustomFormCustomFormToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorCustomFormCustomForm &&
@@ -8080,6 +11349,9 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse &&
@@ -8185,6 +11457,9 @@ class WebApiModulesAdministratorDataHealthDataHealth {
       _$WebApiModulesAdministratorDataHealthDataHealthToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorDataHealthDataHealthToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8372,6 +11647,9 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
       _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -8565,6 +11843,9 @@ class WebApiModulesAdministratorGroupGroup {
       _$WebApiModulesAdministratorGroupGroupToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorGroupGroup &&
@@ -8718,6 +11999,9 @@ class WebApiModulesAdministratorHotfixHotfix {
       _$WebApiModulesAdministratorHotfixHotfixToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorHotfixHotfix &&
@@ -8855,6 +12139,9 @@ class WebApiModulesAdministratorPluginPlugin {
       _$WebApiModulesAdministratorPluginPluginToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorPluginPlugin &&
@@ -8954,6 +12241,9 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateRequest {
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateApplyUpdateRequest &&
@@ -9006,6 +12296,9 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateResponse {
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9068,6 +12361,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersion {
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateAvailableVersion &&
@@ -9127,6 +12423,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9193,6 +12492,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse &&
@@ -9255,6 +12557,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocument {
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateBuildDocument &&
@@ -9305,6 +12610,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest {
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9375,6 +12683,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse &&
@@ -9442,6 +12753,9 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest &&
@@ -9492,6 +12806,9 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9552,6 +12869,9 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest &&
@@ -9602,6 +12922,9 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9704,6 +13027,9 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -9856,6 +13182,9 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog &&
@@ -9960,6 +13289,9 @@ class WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10450,6 +13782,9 @@ class WebApiModulesAdministratorUserUser {
   static const toJsonFactory = _$WebApiModulesAdministratorUserUserToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorUserUserToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11123,6 +14458,9 @@ class WebApiModulesAdministratorUserUserCountResponse {
       _$WebApiModulesAdministratorUserUserCountResponseToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorUserUserCountResponse &&
@@ -11210,6 +14548,9 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11359,6 +14700,9 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsCustomFormUserCustomFormUser &&
@@ -11492,6 +14836,9 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
       _$WebApiModulesAdministratorControlsCustomModuleCustomModuleToJson(this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsCustomModuleCustomModule &&
@@ -11603,6 +14950,9 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupToJson(
           this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -11747,6 +15097,9 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField &&
@@ -11875,6 +15228,9 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
       _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12019,6 +15375,9 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
       _$WebApiModulesSettingsWidgetUserWidgetUserToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesSettingsWidgetUserWidgetUserToJson(this);
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -12172,6 +15531,9 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
           this);
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser &&
@@ -12270,19 +15632,32 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    String? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes == null) {
-    return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+    Object? fwStandardSqlServerFwDataTypes) {
+  if (fwStandardSqlServerFwDataTypes is int) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toString(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
   }
 
-  return enums.$FwStandardSqlServerFwDataTypesMap.entries
-      .firstWhere(
-          (element) =>
-              element.value.toLowerCase() ==
-              fwStandardSqlServerFwDataTypes.toLowerCase(),
-          orElse: () => const MapEntry(
-              enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown, ''))
-      .key;
+  if (fwStandardSqlServerFwDataTypes is String) {
+    return enums.$FwStandardSqlServerFwDataTypesMap.entries
+        .firstWhere(
+            (element) =>
+                element.value.toLowerCase() ==
+                fwStandardSqlServerFwDataTypes.toLowerCase(),
+            orElse: () => const MapEntry(
+                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
+                ''))
+        .key;
+  }
+
+  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -12361,7 +15736,7 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
   }
 }
 
-final $jsonDecoder = $CustomJsonDecoder(AdministratorJsonDecoderMappings);
+final $jsonDecoder = $CustomJsonDecoder(generatedMapping);
 
 // ignore: unused_element
 String? _dateToJson(DateTime? date) {

@@ -6,7 +6,7 @@ part of 'plugins.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations
+// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
 class _$Plugins extends Plugins {
   _$Plugins([ChopperClient? client]) {
     if (client == null) return;
@@ -18,7 +18,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsAzureADGetAzureADGroupsResponse>>
-      azureadpluginLoadadgroupsPost(
+      _azureadpluginLoadadgroupsPost(
           {required WebApiModulesPluginsAzureADGetAzureADGroupsRequest? body}) {
     final $url = '/azureadplugin/loadadgroups';
     final $body = body;
@@ -29,7 +29,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsAzureADImportGroupResponse>>
-      azureadpluginImportgroupPost(
+      _azureadpluginImportgroupPost(
           {required WebApiModulesPluginsAzureADImportGroupRequest? body}) {
     final $url = '/azureadplugin/importgroup';
     final $body = body;
@@ -39,21 +39,21 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> azureadpluginEmptyobjectGet() {
+  Future<Response<dynamic>> _azureadpluginEmptyobjectGet() {
     final $url = '/azureadplugin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> azureadpluginEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _azureadpluginEmptybrowseobjectGet() {
     final $url = '/azureadplugin/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> azureadpluginKeyfieldnamesGet() {
+  Future<Response<dynamic>> _azureadpluginKeyfieldnamesGet() {
     final $url = '/azureadplugin/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -63,7 +63,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic>>
-      creditcardpluginLogGet(
+      _creditcardpluginLogGet(
           {int? pageno,
           int? pagesize,
           String? sort,
@@ -84,7 +84,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      creditcardpluginLogBrowsePost(
+      _creditcardpluginLogBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/creditcardplugin/log/browse';
     final $body = body;
@@ -97,7 +97,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      creditcardpluginLogExportexcelxlsxPost(
+      _creditcardpluginLogExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/creditcardplugin/log/exportexcelxlsx';
     final $body = body;
@@ -109,14 +109,14 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> creditcardpluginLogEmptyobjectGet() {
+  Future<Response<dynamic>> _creditcardpluginLogEmptyobjectGet() {
     final $url = '/creditcardplugin/log/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<bool>> creditcardpluginLogOrderOrderidHasrecordsGet(
+  Future<Response<bool>> _creditcardpluginLogOrderOrderidHasrecordsGet(
       {required String? orderId}) {
     final $url = '/creditcardplugin/log/order/{orderid}/hasrecords';
     final $request = Request('GET', $url, client.baseUrl);
@@ -127,7 +127,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic>>
-      creditcardpluginPreauthorizationGet(
+      _creditcardpluginPreauthorizationGet(
           {int? pageno,
           int? pagesize,
           String? sort,
@@ -150,7 +150,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse>>
-      creditcardpluginPreauthorizationPost(
+      _creditcardpluginPreauthorizationPost(
           {required WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest?
               body}) {
     final $url = '/creditcardplugin/preauthorization';
@@ -164,7 +164,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      creditcardpluginPreauthorizationBrowsePost(
+      _creditcardpluginPreauthorizationBrowsePost(
           {required String? orderId,
           required FwStandardModelsBrowseRequest? body}) {
     final $url = '/creditcardplugin/preauthorization/browse';
@@ -178,7 +178,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      creditcardpluginPreauthorizationExportexcelxlsxPost(
+      _creditcardpluginPreauthorizationExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/creditcardplugin/preauthorization/exportexcelxlsx';
     final $body = body;
@@ -190,7 +190,7 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> creditcardpluginPreauthorizationEmptyobjectGet() {
+  Future<Response<dynamic>> _creditcardpluginPreauthorizationEmptyobjectGet() {
     final $url = '/creditcardplugin/preauthorization/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -198,7 +198,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<num>>
-      creditcardpluginPreauthorizationOrderOrderidTotalpreauthorizationamountGet(
+      _creditcardpluginPreauthorizationOrderOrderidTotalpreauthorizationamountGet(
           {required String? orderId}) {
     final $url =
         '/creditcardplugin/preauthorization/order/{orderid}/totalpreauthorizationamount';
@@ -208,7 +208,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<bool>>
-      creditcardpluginPreauthorizationOrderOrderidHaspreauthorizationrecordsGet(
+      _creditcardpluginPreauthorizationOrderOrderidHaspreauthorizationrecordsGet(
           {required String? orderId}) {
     final $url =
         '/creditcardplugin/preauthorization/order/{orderid}/haspreauthorizationrecords';
@@ -220,12 +220,12 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse>>
-      creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost(
+      _creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost(
           {required String? orderid,
           required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest?
               body}) {
     final $url =
-        '/creditcardplugin/preauthorization/order/$orderid/capturepreauthorizations';
+        '/creditcardplugin/preauthorization/order/${orderid}/capturepreauthorizations';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<
@@ -238,12 +238,12 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse>>
-      creditcardpluginPreauthorizationPreauthorizationidCapturePost(
+      _creditcardpluginPreauthorizationPreauthorizationidCapturePost(
           {required String? preauthorizationid,
           required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest?
               body}) {
     final $url =
-        '/creditcardplugin/preauthorization/$preauthorizationid/capture';
+        '/creditcardplugin/preauthorization/${preauthorizationid}/capture';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<
@@ -256,12 +256,12 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse>>
-      creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost(
+      _creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost(
           {required String? preauthorizationid,
           required WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest?
               body}) {
     final $url =
-        '/creditcardplugin/preauthorization/$preauthorizationid/updatestatus';
+        '/creditcardplugin/preauthorization/${preauthorizationid}/updatestatus';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<
@@ -274,11 +274,12 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse>>
-      creditcardpluginPreauthorizationPreauthorizationidVoidPost(
+      _creditcardpluginPreauthorizationPreauthorizationidVoidPost(
           {required String? preauthorizationid,
           required WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest?
               body}) {
-    final $url = '/creditcardplugin/preauthorization/$preauthorizationid/void';
+    final $url =
+        '/creditcardplugin/preauthorization/${preauthorizationid}/void';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<
@@ -291,7 +292,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic>>
-      creditcardpluginDepositGet(
+      _creditcardpluginDepositGet(
           {int? pageno,
           int? pagesize,
           String? sort,
@@ -312,7 +313,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsCreditCardCreditCardDepositResponse>>
-      creditcardpluginDepositPost(
+      _creditcardpluginDepositPost(
           {required WebApiModulesPluginsCreditCardCreditCardDepositRequest?
               body}) {
     final $url = '/creditcardplugin/deposit';
@@ -324,7 +325,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      creditcardpluginDepositBrowsePost(
+      _creditcardpluginDepositBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/creditcardplugin/deposit/browse';
     final $body = body;
@@ -337,7 +338,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      creditcardpluginDepositExportexcelxlsxPost(
+      _creditcardpluginDepositExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
     final $url = '/creditcardplugin/deposit/exportexcelxlsx';
     final $body = body;
@@ -349,7 +350,7 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> creditcardpluginDepositEmptyobjectGet() {
+  Future<Response<dynamic>> _creditcardpluginDepositEmptyobjectGet() {
     final $url = '/creditcardplugin/deposit/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -357,11 +358,11 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsCreditCardCreditCardRefundResponse>>
-      creditcardpluginDepositReceiptidRefundPost(
+      _creditcardpluginDepositReceiptidRefundPost(
           {required String? receiptid,
           required WebApiModulesPluginsCreditCardCreditCardRefundRequest?
               body}) {
-    final $url = '/creditcardplugin/deposit/$receiptid/refund';
+    final $url = '/creditcardplugin/deposit/${receiptid}/refund';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<WebApiModulesPluginsCreditCardCreditCardRefundResponse,
@@ -370,7 +371,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<bool>>
-      creditcardpluginDepositOrderOrderidHasdepositrecordsGet(
+      _creditcardpluginDepositOrderOrderidHasdepositrecordsGet(
           {required String? orderId}) {
     final $url = '/creditcardplugin/deposit/order/{orderid}/hasdepositrecords';
     final $request = Request('GET', $url, client.baseUrl);
@@ -379,7 +380,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsCreditCardProcessCreditCardInfo>>
-      creditcardpluginProcesscreditcardinfoOrderidGet(
+      _creditcardpluginProcesscreditcardinfoOrderidGet(
           {required String? orderId}) {
     final $url = '/creditcardplugin/processcreditcardinfo/{orderid}';
     final $request = Request('GET', $url, client.baseUrl);
@@ -388,21 +389,21 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> creditcardpluginEmptyobjectGet() {
+  Future<Response<dynamic>> _creditcardpluginEmptyobjectGet() {
     final $url = '/creditcardplugin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> creditcardpluginEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _creditcardpluginEmptybrowseobjectGet() {
     final $url = '/creditcardplugin/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> creditcardpluginKeyfieldnamesGet() {
+  Future<Response<dynamic>> _creditcardpluginKeyfieldnamesGet() {
     final $url = '/creditcardplugin/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
@@ -412,7 +413,7 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool>>
-      hubspotpluginHashubspotrefreshtokenPost() {
+      _hubspotpluginHashubspotrefreshtokenPost() {
     final $url = '/hubspotplugin/hashubspotrefreshtoken';
     final $request = Request('POST', $url, client.baseUrl);
     return client.send<
@@ -423,7 +424,7 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens>>
-      hubspotpluginDeletehubspottokensPost() {
+      _hubspotpluginDeletehubspottokensPost() {
     final $url = '/hubspotplugin/deletehubspottokens';
     final $request = Request('POST', $url, client.baseUrl);
     return client.send<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens,
@@ -431,21 +432,21 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> hubspotpluginEmptyobjectGet() {
+  Future<Response<dynamic>> _hubspotpluginEmptyobjectGet() {
     final $url = '/hubspotplugin/emptyobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> hubspotpluginEmptybrowseobjectGet() {
+  Future<Response<dynamic>> _hubspotpluginEmptybrowseobjectGet() {
     final $url = '/hubspotplugin/emptybrowseobject';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> hubspotpluginKeyfieldnamesGet() {
+  Future<Response<dynamic>> _hubspotpluginKeyfieldnamesGet() {
     final $url = '/hubspotplugin/keyfieldnames';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
