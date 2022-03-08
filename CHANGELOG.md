@@ -1,3 +1,9 @@
+## 3.0.0
+
+- Update home.swagger to support RW v2019.1.2.216A
+- Upgrade dependencies
+- Fix tests for new version
+
 ## 2.1.1
 
 - Manually fix /pricing/{inventoryId} endpoint
