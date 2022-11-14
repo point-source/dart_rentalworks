@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:rentalworks/generated_code/home.swagger.dart';
+import 'package:rentalworks/generated_code/utilities.swagger.dart' as u;
 import 'package:rentalworks/generated_code/settings.swagger.dart'
     show WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse;
 import 'package:rentalworks/rentalworks.dart';
@@ -118,6 +119,8 @@ void main() {
             field: 'StatusType', op: '<>', value: 'INTRANSIT'),
         FwStandardModelsFwQueryFilter(
             field: 'StatusType', op: '<>', value: 'STAGED'),
+        FwStandardModelsFwQueryFilter(
+            field: 'StatusType', op: '<>', value: 'INCONTAINER'),
       ]);
       expect(items.isSuccessful, isTrue);
       expect(items.base.reasonPhrase, 'OK');
@@ -183,9 +186,11 @@ void main() {
               warehouseId: warehouse!.warehouseId));
       expect(checkoutStaged.isSuccessful, isTrue);
       expect(checkoutStaged.base.reasonPhrase, 'OK');
+      contractId = checkoutStaged.body?.contractId ?? '';
+      expect(contractId, isNotEmpty);
     });
 
-    test('create contract', () async {
+/*     test('create contract', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
@@ -200,7 +205,7 @@ void main() {
       expect(checkInContract.base.reasonPhrase, 'OK');
       contractId = checkInContract.body?.contractId ?? '';
       expect(contractId, isNotEmpty);
-    });
+    }); */
 
     test('check-in item', () async {
       expect(item, isNotNull);
@@ -225,6 +230,64 @@ void main() {
           .transferinCompletecheckincontractIdPost(id: contractId);
       expect(checkInReceipt.isSuccessful, isTrue);
       expect(checkInReceipt.base.reasonPhrase, 'OK');
+    });
+  });
+
+  group('Change ICode: ', () async {
+    WebApiModulesInventoryAssetItem? item;
+    String originalInventoryId = '';
+
+    setUp(() async {
+      final asset = await rw!.home.itemBybarcodeGet(barCode: '001152');
+      item = asset.body?.item;
+      originalInventoryId = item?.inventoryId ?? '';
+    });
+
+    test('Get inventory ID', () async {
+      expect(item?.iCode, isNotNull);
+      final r = await rw!.utilities
+          .changeicodeutilityValidaterentalinventoryBrowsePost(
+        body: u.FwStandardModelsBrowseRequest(
+          pageno: 1,
+          pagesize: 1,
+          searchfieldoperators: ['like', '<>'],
+          searchfields: ['ICode', 'Inactive'],
+          searchfieldvalues: [item!.iCode!, 'T'],
+          searchfieldtypes: ['text', 'text'],
+          searchseparators: [','],
+          searchcondition: ['and'],
+
+          /// TODO(andrew): Include "fields" filter to reduce response size
+          /* "fields": [
+        {
+            "value": "InventoryId",
+            "text": "InventoryId",
+            "selected": true
+        } 
+        ]*/
+        ),
+      );
+
+      originalInventoryId = r.body?.rows?.first.first.toString() ?? '';
+      expect(originalInventoryId, isNotEmpty);
+    });
+
+    test('Change ICode', () async {
+      expect(item?.itemId, isNotNull);
+      final r = await rw!.utilities.changeicodeutilityChangeicodePost(
+        body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
+          itemId: item!.itemId!,
+          inventoryId: '00005CMS',
+        ),
+      );
+      expect(r.isSuccessful, isTrue);
+      expect(r.body?.success, isTrue);
+      await rw!.utilities.changeicodeutilityChangeicodePost(
+        body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
+          itemId: item!.itemId!,
+          inventoryId: originalInventoryId,
+        ),
+      );
     });
   });
 }

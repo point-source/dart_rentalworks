@@ -41,8 +41,12 @@ enum FwStandardSqlServerFwDataTypes {
   phoneus,
   @JsonValue('ZipcodeUS')
   zipcodeus,
-  @JsonValue('Percentage')
-  percentage,
+  @JsonValue('PercentageWholeNumber')
+  percentagewholenumber,
+  @JsonValue('Percentage2Digits')
+  percentage2digits,
+  @JsonValue('Percentage4Digits')
+  percentage4digits,
   @JsonValue('OleToHtmlColor')
   oletohtmlcolor,
   @JsonValue('Integer')
@@ -76,7 +80,9 @@ const $FwStandardSqlServerFwDataTypesMap = {
       'CurrencyStringNoDollarSignNoDecimalPlaces',
   FwStandardSqlServerFwDataTypes.phoneus: 'PhoneUS',
   FwStandardSqlServerFwDataTypes.zipcodeus: 'ZipcodeUS',
-  FwStandardSqlServerFwDataTypes.percentage: 'Percentage',
+  FwStandardSqlServerFwDataTypes.percentagewholenumber: 'PercentageWholeNumber',
+  FwStandardSqlServerFwDataTypes.percentage2digits: 'Percentage2Digits',
+  FwStandardSqlServerFwDataTypes.percentage4digits: 'Percentage4Digits',
   FwStandardSqlServerFwDataTypes.oletohtmlcolor: 'OleToHtmlColor',
   FwStandardSqlServerFwDataTypes.integer: 'Integer',
   FwStandardSqlServerFwDataTypes.jpgdataurl: 'JpgDataUrl',
