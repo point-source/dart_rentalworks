@@ -256,15 +256,13 @@ void main() {
           searchfieldtypes: ['text', 'text'],
           searchseparators: [','],
           searchcondition: ['and'],
-
-          /// TODO(andrew): Include "fields" filter to reduce response size
-          /* "fields": [
-        {
-            "value": "InventoryId",
-            "text": "InventoryId",
-            "selected": true
-        } 
-        ]*/
+          fields: [
+            u.FwStandardModelsCheckBoxListItem(
+              value: "InventoryId",
+              text: "InventoryId",
+              selected: true,
+            ),
+          ],
         ),
       );
 

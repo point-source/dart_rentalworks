@@ -137,39 +137,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _addressEmptyobjectGet() {
-    final String $url = '/address/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _addressEmptybrowseobjectGet() {
-    final String $url = '/address/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _addressKeyfieldnamesGet() {
-    final String $url = '/address/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _alternativedescriptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -308,36 +275,127 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _alternativedescriptionEmptyobjectGet() {
-    final String $url = '/alternativedescription/emptyobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _assetcertificationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/assetcertification/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _alternativedescriptionEmptybrowseobjectGet() {
-    final String $url = '/alternativedescription/emptybrowseobject';
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _assetcertificationExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/assetcertification/exportexcelxlsx';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _alternativedescriptionKeyfieldnamesGet() {
-    final String $url = '/alternativedescription/keyfieldnames';
+  Future<
+          Response<
+              List<WebApiModulesInventoryAssetCertificationAssetCertification>>>
+      _assetcertificationGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
+    final String $url = '/assetcertification';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+        List<WebApiModulesInventoryAssetCertificationAssetCertification>,
+        WebApiModulesInventoryAssetCertificationAssetCertification>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryAssetCertificationAssetCertification>>
+      _assetcertificationPost(
+          {required WebApiModulesInventoryAssetCertificationAssetCertification?
+              body}) {
+    final String $url = '/assetcertification';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryAssetCertificationAssetCertification,
+        WebApiModulesInventoryAssetCertificationAssetCertification>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryAssetCertificationAssetCertification>>
+      _assetcertificationIdGet({required String? id}) {
+    final String $url = '/assetcertification/${id}';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+        WebApiModulesInventoryAssetCertificationAssetCertification,
+        WebApiModulesInventoryAssetCertificationAssetCertification>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryAssetCertificationAssetCertification>>
+      _assetcertificationIdPut({
+    required String? id,
+    required WebApiModulesInventoryAssetCertificationAssetCertification? body,
+  }) {
+    final String $url = '/assetcertification/${id}';
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryAssetCertificationAssetCertification,
+        WebApiModulesInventoryAssetCertificationAssetCertification>($request);
+  }
+
+  @override
+  Future<Response<bool>> _assetcertificationIdDelete({required String? id}) {
+    final String $url = '/assetcertification/${id}';
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -412,39 +470,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _assignbarcodesEmptyobjectGet() {
-    final String $url = '/assignbarcodes/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _assignbarcodesEmptybrowseobjectGet() {
-    final String $url = '/assignbarcodes/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _assignbarcodesKeyfieldnamesGet() {
-    final String $url = '/assignbarcodes/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -557,39 +582,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _availabilityconflictsEmptyobjectGet() {
-    final String $url = '/availabilityconflicts/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _availabilityconflictsEmptybrowseobjectGet() {
-    final String $url = '/availabilityconflicts/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _availabilityconflictsKeyfieldnamesGet() {
-    final String $url = '/availabilityconflicts/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -711,39 +703,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _bankaccountEmptyobjectGet() {
-    final String $url = '/bankaccount/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _bankaccountEmptybrowseobjectGet() {
-    final String $url = '/bankaccount/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _bankaccountKeyfieldnamesGet() {
-    final String $url = '/bankaccount/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -871,6 +830,22 @@ class _$Home extends Home {
       _billingCreateinvoicePost(
           {required WebApiModulesBillingBillingCreateInvoiceRequest? body}) {
     final String $url = '/billing/createinvoice';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesBillingBillingCreateInvoiceResponse,
+        WebApiModulesBillingBillingCreateInvoiceResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingBillingCreateInvoiceResponse>>
+      _billingCreatepreviewinvoicePost(
+          {required WebApiModulesBillingBillingCreateInvoiceRequest? body}) {
+    final String $url = '/billing/createpreviewinvoice';
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1013,39 +988,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _billingEmptyobjectGet() {
-    final String $url = '/billing/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingEmptybrowseobjectGet() {
-    final String $url = '/billing/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingKeyfieldnamesGet() {
-    final String $url = '/billing/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingmessageBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -1079,39 +1021,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingmessageEmptyobjectGet() {
-    final String $url = '/billingmessage/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingmessageEmptybrowseobjectGet() {
-    final String $url = '/billingmessage/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingmessageKeyfieldnamesGet() {
-    final String $url = '/billingmessage/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -1502,39 +1411,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _billingworksheetEmptyobjectGet() {
-    final String $url = '/billingworksheet/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingworksheetEmptybrowseobjectGet() {
-    final String $url = '/billingworksheet/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _billingworksheetKeyfieldnamesGet() {
-    final String $url = '/billingworksheet/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkedoutitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -1571,39 +1447,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _checkedoutitemEmptyobjectGet() {
-    final String $url = '/checkedoutitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkedoutitemEmptybrowseobjectGet() {
-    final String $url = '/checkedoutitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkedoutitemKeyfieldnamesGet() {
-    final String $url = '/checkedoutitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<bool>> _checkinSuspendedsessionsexistGet(
       {String? warehouseId}) {
     final String $url = '/checkin/suspendedsessionsexist';
@@ -1636,7 +1479,7 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesWarehouseContractContract>>
+  Future<Response<WebApiModulesWarehouseContractCreateCheckInContractResponse>>
       _checkinCompletecheckincontractIdPost({required String? id}) {
     final String $url = '/checkin/completecheckincontract/${id}';
     final Request $request = Request(
@@ -1644,8 +1487,9 @@ class _$Home extends Home {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesWarehouseContractContract,
-        WebApiModulesWarehouseContractContract>($request);
+    return client.send<
+        WebApiModulesWarehouseContractCreateCheckInContractResponse,
+        WebApiModulesWarehouseContractCreateCheckInContractResponse>($request);
   }
 
   @override
@@ -2043,39 +1887,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _checkinEmptyobjectGet() {
-    final String $url = '/checkin/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinEmptybrowseobjectGet() {
-    final String $url = '/checkin/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinKeyfieldnamesGet() {
-    final String $url = '/checkin/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _checkinorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/checkinorder/browse';
@@ -2108,39 +1919,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinorderEmptyobjectGet() {
-    final String $url = '/checkinorder/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinorderEmptybrowseobjectGet() {
-    final String $url = '/checkinorder/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinorderKeyfieldnamesGet() {
-    final String $url = '/checkinorder/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -2467,39 +2245,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _checkinreconcileEmptyobjectGet() {
-    final String $url = '/checkinreconcile/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinreconcileEmptybrowseobjectGet() {
-    final String $url = '/checkinreconcile/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkinreconcileKeyfieldnamesGet() {
-    final String $url = '/checkinreconcile/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<bool>> _checkoutSuspendedsessionsexistGet(
       {String? warehouseId}) {
     final String $url = '/checkout/suspendedsessionsexist';
@@ -2691,12 +2436,18 @@ class _$Home extends Home {
 
   @override
   Future<Response<WebApiModulesWarehouseContractContract>>
-      _checkoutCompletecheckoutcontractIdPost({required String? id}) {
-    final String $url = '/checkout/completecheckoutcontract/${id}';
+      _checkoutCompletecheckoutcontractPost({
+    required String? id,
+    required WebApiModulesWarehouseCheckOutCompleteCheckOutContractRequest?
+        body,
+  }) {
+    final String $url = '/checkout/completecheckoutcontract';
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<WebApiModulesWarehouseContractContract,
         WebApiModulesWarehouseContractContract>($request);
@@ -3112,6 +2863,24 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesWarehouseCheckOutConvertSubToPurchaseResponse>>
+      _checkoutStageholdingitemConvertsubstopurchasePost(
+          {required WebApiModulesWarehouseCheckOutConvertSubToPurchaseRequest?
+              body}) {
+    final String $url = '/checkout/stageholdingitem/convertsubstopurchase';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesWarehouseCheckOutConvertSubToPurchaseResponse,
+        WebApiModulesWarehouseCheckOutConvertSubToPurchaseResponse>($request);
+  }
+
+  @override
   Future<Response<dynamic>> _checkoutStageholdingitemEmptyobjectGet() {
     final String $url = '/checkout/stageholdingitem/emptyobject';
     final Request $request = Request(
@@ -3479,39 +3248,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _checkoutEmptyobjectGet() {
-    final String $url = '/checkout/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkoutEmptybrowseobjectGet() {
-    final String $url = '/checkout/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkoutKeyfieldnamesGet() {
-    final String $url = '/checkout/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutpendingitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -3556,39 +3292,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<Object, Object>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkoutpendingitemEmptyobjectGet() {
-    final String $url = '/checkoutpendingitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkoutpendingitemEmptybrowseobjectGet() {
-    final String $url = '/checkoutpendingitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _checkoutpendingitemKeyfieldnamesGet() {
-    final String $url = '/checkoutpendingitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -3708,39 +3411,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _clipboarditemEmptyobjectGet() {
-    final String $url = '/clipboarditem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _clipboarditemEmptybrowseobjectGet() {
-    final String $url = '/clipboarditem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _clipboarditemKeyfieldnamesGet() {
-    final String $url = '/clipboarditem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _companyBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/company/browse';
@@ -3815,39 +3485,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesHomeControlsCompanyCompany,
         WebApiModulesHomeControlsCompanyCompany>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companyEmptyobjectGet() {
-    final String $url = '/company/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companyEmptybrowseobjectGet() {
-    final String $url = '/company/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companyKeyfieldnamesGet() {
-    final String $url = '/company/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -4034,39 +3671,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _companycontactEmptyobjectGet() {
-    final String $url = '/companycontact/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companycontactEmptybrowseobjectGet() {
-    final String $url = '/companycontact/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companycontactKeyfieldnamesGet() {
-    final String $url = '/companycontact/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companytaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -4207,39 +3811,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companytaxoptionEmptyobjectGet() {
-    final String $url = '/companytaxoption/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companytaxoptionEmptybrowseobjectGet() {
-    final String $url = '/companytaxoption/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companytaxoptionKeyfieldnamesGet() {
-    final String $url = '/companytaxoption/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -4386,39 +3957,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _companytaxresaleEmptyobjectGet() {
-    final String $url = '/companytaxresale/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companytaxresaleEmptybrowseobjectGet() {
-    final String $url = '/companytaxresale/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _companytaxresaleKeyfieldnamesGet() {
-    final String $url = '/companytaxresale/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<WebApiModulesInventoryCompleteQcCompleteQcItemResponse>>
       _completeqcCompleteqcitemPost(
           {required WebApiModulesInventoryCompleteQcCompleteQcItemRequest?
@@ -4450,39 +3988,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesInventoryCompleteQcUpdateQcItemResponse,
         WebApiModulesInventoryCompleteQcUpdateQcItemResponse>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _completeqcEmptyobjectGet() {
-    final String $url = '/completeqc/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _completeqcEmptybrowseobjectGet() {
-    final String $url = '/completeqc/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _completeqcKeyfieldnamesGet() {
-    final String $url = '/completeqc/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -5044,39 +4549,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _contactEmptyobjectGet() {
-    final String $url = '/contact/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contactEmptybrowseobjectGet() {
-    final String $url = '/contact/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contactKeyfieldnamesGet() {
-    final String $url = '/contact/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _contactnoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/contactnote/browse';
@@ -5215,39 +4687,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _contactnoteEmptyobjectGet() {
-    final String $url = '/contactnote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contactnoteEmptybrowseobjectGet() {
-    final String $url = '/contactnote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contactnoteKeyfieldnamesGet() {
-    final String $url = '/contactnote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _containerBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/container/browse';
@@ -5322,39 +4761,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesContainersContainerContainer,
         WebApiModulesContainersContainerContainer>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerEmptyobjectGet() {
-    final String $url = '/container/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerEmptybrowseobjectGet() {
-    final String $url = '/container/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerKeyfieldnamesGet() {
-    final String $url = '/container/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -5532,39 +4938,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _containeritemEmptyobjectGet() {
-    final String $url = '/containeritem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containeritemEmptybrowseobjectGet() {
-    final String $url = '/containeritem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containeritemKeyfieldnamesGet() {
-    final String $url = '/containeritem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerstatusValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -5642,39 +5015,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerstatusEmptyobjectGet() {
-    final String $url = '/containerstatus/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerstatusEmptybrowseobjectGet() {
-    final String $url = '/containerstatus/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerstatusKeyfieldnamesGet() {
-    final String $url = '/containerstatus/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -5801,39 +5141,6 @@ class _$Home extends Home {
             WebApiModulesHomeControlsContainerWarehouseContainerWarehouse,
             WebApiModulesHomeControlsContainerWarehouseContainerWarehouse>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerwarehouseEmptyobjectGet() {
-    final String $url = '/containerwarehouse/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerwarehouseEmptybrowseobjectGet() {
-    final String $url = '/containerwarehouse/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _containerwarehouseKeyfieldnamesGet() {
-    final String $url = '/containerwarehouse/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -6364,39 +5671,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _contractEmptyobjectGet() {
-    final String $url = '/contract/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractEmptybrowseobjectGet() {
-    final String $url = '/contract/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractKeyfieldnamesGet() {
-    final String $url = '/contract/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractitemdetailBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -6462,39 +5736,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _contractitemdetailEmptyobjectGet() {
-    final String $url = '/contractitemdetail/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractitemdetailEmptybrowseobjectGet() {
-    final String $url = '/contractitemdetail/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractitemdetailKeyfieldnamesGet() {
-    final String $url = '/contractitemdetail/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractitemsummaryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -6528,39 +5769,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractitemsummaryEmptyobjectGet() {
-    final String $url = '/contractitemsummary/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractitemsummaryEmptybrowseobjectGet() {
-    final String $url = '/contractitemsummary/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contractitemsummaryKeyfieldnamesGet() {
-    final String $url = '/contractitemsummary/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -7197,39 +6405,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _customerEmptyobjectGet() {
-    final String $url = '/customer/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customerEmptybrowseobjectGet() {
-    final String $url = '/customer/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customerKeyfieldnamesGet() {
-    final String $url = '/customer/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customercreditBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -7263,39 +6438,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customercreditEmptyobjectGet() {
-    final String $url = '/customercredit/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customercreditEmptybrowseobjectGet() {
-    final String $url = '/customercredit/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customercreditKeyfieldnamesGet() {
-    final String $url = '/customercredit/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -7434,39 +6576,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customernoteEmptyobjectGet() {
-    final String $url = '/customernote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customernoteEmptybrowseobjectGet() {
-    final String $url = '/customernote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customernoteKeyfieldnamesGet() {
-    final String $url = '/customernote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -8226,36 +7335,63 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _dealEmptyobjectGet() {
-    final String $url = '/deal/emptyobject';
+  Future<Response<WebApiModulesAgentDealCreateEpisodeBillScheduleResponse>>
+      _dealCreatebillschedulePost(
+          {required WebApiModulesAgentDealCreateEpisodeBillScheduleRequest?
+              body}) {
+    final String $url = '/deal/createbillschedule';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<WebApiModulesAgentDealCreateEpisodeBillScheduleResponse,
+        WebApiModulesAgentDealCreateEpisodeBillScheduleResponse>($request);
   }
 
   @override
-  Future<Response<dynamic>> _dealEmptybrowseobjectGet() {
-    final String $url = '/deal/emptybrowseobject';
+  Future<Response<WebApiModulesAgentDealNewBillEpisodeResponse>>
+      _dealNewbillepisodePost(
+          {required WebApiModulesAgentDealNewBillEpisodeRequest? body}) {
+    final String $url = '/deal/newbillepisode';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<WebApiModulesAgentDealNewBillEpisodeResponse,
+        WebApiModulesAgentDealNewBillEpisodeResponse>($request);
   }
 
   @override
-  Future<Response<dynamic>> _dealKeyfieldnamesGet() {
-    final String $url = '/deal/keyfieldnames';
+  Future<Response<WebApiModulesAgentDealNewHiatusPeriodResponse>>
+      _dealNewhiatusperiodPost(
+          {required WebApiModulesAgentDealNewHiatusPeriodRequest? body}) {
+    final String $url = '/deal/newhiatusperiod';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentDealNewHiatusPeriodResponse,
+        WebApiModulesAgentDealNewHiatusPeriodResponse>($request);
+  }
+
+  @override
+  Future<Response<Object>> _dealEpisodicscheduleLegendGet() {
+    final String $url = '/deal/episodicschedule/legend';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<Object, Object>($request);
   }
 
   @override
@@ -8291,39 +7427,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealcreditEmptyobjectGet() {
-    final String $url = '/dealcredit/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealcreditEmptybrowseobjectGet() {
-    final String $url = '/dealcredit/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealcreditKeyfieldnamesGet() {
-    final String $url = '/dealcredit/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -8460,39 +7563,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealnoteEmptyobjectGet() {
-    final String $url = '/dealnote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealnoteEmptybrowseobjectGet() {
-    final String $url = '/dealnote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealnoteKeyfieldnamesGet() {
-    final String $url = '/dealnote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -8650,39 +7720,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _dealshipperEmptyobjectGet() {
-    final String $url = '/dealshipper/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealshipperEmptybrowseobjectGet() {
-    final String $url = '/dealshipper/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _dealshipperKeyfieldnamesGet() {
-    final String $url = '/dealshipper/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _deliveryBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/delivery/browse';
@@ -8803,39 +7840,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _deliveryEmptyobjectGet() {
-    final String $url = '/delivery/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _deliveryEmptybrowseobjectGet() {
-    final String $url = '/delivery/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _deliveryKeyfieldnamesGet() {
-    final String $url = '/delivery/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _depositpaymentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -8911,39 +7915,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesHomeControlsDepositPaymentDepositPayment,
         WebApiModulesHomeControlsDepositPaymentDepositPayment>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _depositpaymentEmptyobjectGet() {
-    final String $url = '/depositpayment/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _depositpaymentEmptybrowseobjectGet() {
-    final String $url = '/depositpayment/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _depositpaymentKeyfieldnamesGet() {
-    final String $url = '/depositpayment/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -9069,39 +8040,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _depreciationEmptyobjectGet() {
-    final String $url = '/depreciation/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _depreciationEmptybrowseobjectGet() {
-    final String $url = '/depreciation/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _depreciationKeyfieldnamesGet() {
-    final String $url = '/depreciation/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _emptycontainerValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -9115,39 +8053,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emptycontainerEmptyobjectGet() {
-    final String $url = '/emptycontainer/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emptycontainerEmptybrowseobjectGet() {
-    final String $url = '/emptycontainer/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emptycontainerKeyfieldnamesGet() {
-    final String $url = '/emptycontainer/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -9276,39 +8181,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _exchangeEmptyobjectGet() {
-    final String $url = '/exchange/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _exchangeEmptybrowseobjectGet() {
-    final String $url = '/exchange/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _exchangeKeyfieldnamesGet() {
-    final String $url = '/exchange/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _exchangeitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/exchangeitem/browse';
@@ -9352,72 +8224,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<Object, Object>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _exchangeitemEmptyobjectGet() {
-    final String $url = '/exchangeitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _exchangeitemEmptybrowseobjectGet() {
-    final String $url = '/exchangeitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _exchangeitemKeyfieldnamesGet() {
-    final String $url = '/exchangeitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _fillcontainerEmptyobjectGet() {
-    final String $url = '/fillcontainer/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _fillcontainerEmptybrowseobjectGet() {
-    final String $url = '/fillcontainer/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _fillcontainerKeyfieldnamesGet() {
-    final String $url = '/fillcontainer/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -9469,39 +8275,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiLogicSortItemsResponse,
         WebApiLogicSortItemsResponse>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _generalitemEmptyobjectGet() {
-    final String $url = '/generalitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _generalitemEmptybrowseobjectGet() {
-    final String $url = '/generalitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _generalitemKeyfieldnamesGet() {
-    final String $url = '/generalitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -9585,39 +8358,6 @@ class _$Home extends Home {
     return client.send<
         WebApiModulesUtilitiesGLDistributionRefreshGLHistoryResponse,
         WebApiModulesUtilitiesGLDistributionRefreshGLHistoryResponse>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _gldistributionEmptyobjectGet() {
-    final String $url = '/gldistribution/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _gldistributionEmptybrowseobjectGet() {
-    final String $url = '/gldistribution/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _gldistributionKeyfieldnamesGet() {
-    final String $url = '/gldistribution/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -9770,39 +8510,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _glmanualEmptyobjectGet() {
-    final String $url = '/glmanual/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _glmanualEmptybrowseobjectGet() {
-    final String $url = '/glmanual/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _glmanualKeyfieldnamesGet() {
-    final String $url = '/glmanual/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -9977,44 +8684,11 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventoryattributevalueEmptyobjectGet() {
-    final String $url = '/inventoryattributevalue/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryattributevalueEmptybrowseobjectGet() {
-    final String $url = '/inventoryattributevalue/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryattributevalueKeyfieldnamesGet() {
-    final String $url = '/inventoryattributevalue/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<
           Response<
-              WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailability>>
+              WebApiServicesAvailabilityServiceTInventoryWarehouseAvailability>>
       _inventoryavailabilityGetinventoryavailabilityPost(
-          {required WebApiModulesHomeControlsInventoryAvailabilityAvailabilityInventoryWarehouseRequest?
+          {required WebApiServicesAvailabilityServiceAvailabilityInventoryWarehouseRequest?
               body}) {
     final String $url = '/inventoryavailability/getinventoryavailability';
     final $body = body;
@@ -10025,17 +8699,15 @@ class _$Home extends Home {
       body: $body,
     );
     return client.send<
-            WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailability,
-            WebApiModulesHomeControlsInventoryAvailabilityTInventoryWarehouseAvailability>(
+            WebApiServicesAvailabilityServiceTInventoryWarehouseAvailability,
+            WebApiServicesAvailabilityServiceTInventoryWarehouseAvailability>(
         $request);
   }
 
   @override
-  Future<
-          Response<
-              WebApiModulesHomeControlsInventoryAvailabilityMinAvailabilityResponse>>
+  Future<Response<WebApiServicesAvailabilityServiceMinAvailabilityResponse>>
       _inventoryavailabilityGetinventoryminimumavailablePost(
-          {required WebApiModulesHomeControlsInventoryAvailabilityAvailabilityInventoryWarehouseRequest?
+          {required WebApiServicesAvailabilityServiceAvailabilityInventoryWarehouseRequest?
               body}) {
     final String $url = '/inventoryavailability/getinventoryminimumavailable';
     final $body = body;
@@ -10045,18 +8717,38 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
+    return client.send<WebApiServicesAvailabilityServiceMinAvailabilityResponse,
+        WebApiServicesAvailabilityServiceMinAvailabilityResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiServicesAvailabilityServiceMultiMinAvailabilityResponse>>
+      _inventoryavailabilityGetmultiinventoryminimumavailablePost(
+          {required WebApiServicesAvailabilityServiceMultiAvailabilityInventoryWarehouseRequest?
+              body}) {
+    final String $url =
+        '/inventoryavailability/getmultiinventoryminimumavailable';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<
-            WebApiModulesHomeControlsInventoryAvailabilityMinAvailabilityResponse,
-            WebApiModulesHomeControlsInventoryAvailabilityMinAvailabilityResponse>(
+            WebApiServicesAvailabilityServiceMultiMinAvailabilityResponse,
+            WebApiServicesAvailabilityServiceMultiMinAvailabilityResponse>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesHomeControlsInventoryAvailabilityTInventoryAvailabilityCalendarAndScheduleResponse>>
+              WebApiServicesAvailabilityServiceTInventoryAvailabilityCalendarAndScheduleResponse>>
       _inventoryavailabilityCalendarandscheduledataPost(
-          {required WebApiModulesHomeControlsInventoryAvailabilityAvailabilityCalendarAndScheduleRequest?
+          {required WebApiServicesAvailabilityServiceAvailabilityCalendarAndScheduleRequest?
               body}) {
     final String $url = '/inventoryavailability/calendarandscheduledata';
     final $body = body;
@@ -10067,8 +8759,8 @@ class _$Home extends Home {
       body: $body,
     );
     return client.send<
-            WebApiModulesHomeControlsInventoryAvailabilityTInventoryAvailabilityCalendarAndScheduleResponse,
-            WebApiModulesHomeControlsInventoryAvailabilityTInventoryAvailabilityCalendarAndScheduleResponse>(
+            WebApiServicesAvailabilityServiceTInventoryAvailabilityCalendarAndScheduleResponse,
+            WebApiServicesAvailabilityServiceTInventoryAvailabilityCalendarAndScheduleResponse>(
         $request);
   }
 
@@ -10076,9 +8768,9 @@ class _$Home extends Home {
   Future<
           Response<
               List<
-                  WebApiModulesHomeControlsInventoryAvailabilityAvailabilityConflictResponseItem>>>
+                  WebApiServicesAvailabilityServiceAvailabilityConflictResponseItem>>>
       _inventoryavailabilityConflictsPost(
-          {required WebApiModulesHomeControlsInventoryAvailabilityAvailabilityConflictRequest?
+          {required WebApiServicesAvailabilityServiceAvailabilityConflictRequest?
               body}) {
     final String $url = '/inventoryavailability/conflicts';
     final $body = body;
@@ -10089,16 +8781,13 @@ class _$Home extends Home {
       body: $body,
     );
     return client.send<
-            List<
-                WebApiModulesHomeControlsInventoryAvailabilityAvailabilityConflictResponseItem>,
-            WebApiModulesHomeControlsInventoryAvailabilityAvailabilityConflictResponseItem>(
+            List<WebApiServicesAvailabilityServiceAvailabilityConflictResponseItem>,
+            WebApiServicesAvailabilityServiceAvailabilityConflictResponseItem>(
         $request);
   }
 
   @override
-  Future<
-          Response<
-              WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>>
+  Future<Response<WebApiServicesAvailabilityServicePruneCacheResponse>>
       _inventoryavailabilityPrunecachePost() {
     final String $url = '/inventoryavailability/prunecache';
     final Request $request = Request(
@@ -10106,43 +8795,146 @@ class _$Home extends Home {
       $url,
       client.baseUrl,
     );
+    return client.send<WebApiServicesAvailabilityServicePruneCacheResponse,
+        WebApiServicesAvailabilityServicePruneCacheResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventorycertificationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/inventorycertification/browse';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventorycertificationExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/inventorycertification/exportexcelxlsx';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<
-            WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse,
-            WebApiModulesHomeControlsInventoryAvailabilityPruneCacheResponse>(
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
   }
 
   @override
-  Future<Response<dynamic>> _inventoryavailabilityEmptyobjectGet() {
-    final String $url = '/inventoryavailability/emptyobject';
+  Future<
+          Response<
+              List<
+                  WebApiModulesInventoryInventoryCertificationInventoryCertification>>>
+      _inventorycertificationGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
+    final String $url = '/inventorycertification';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+    };
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      parameters: $params,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            List<
+                WebApiModulesInventoryInventoryCertificationInventoryCertification>,
+            WebApiModulesInventoryInventoryCertificationInventoryCertification>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _inventoryavailabilityEmptybrowseobjectGet() {
-    final String $url = '/inventoryavailability/emptybrowseobject';
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryCertificationInventoryCertification>>
+      _inventorycertificationPost(
+          {required WebApiModulesInventoryInventoryCertificationInventoryCertification?
+              body}) {
+    final String $url = '/inventorycertification';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            WebApiModulesInventoryInventoryCertificationInventoryCertification,
+            WebApiModulesInventoryInventoryCertificationInventoryCertification>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _inventoryavailabilityKeyfieldnamesGet() {
-    final String $url = '/inventoryavailability/keyfieldnames';
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryCertificationInventoryCertification>>
+      _inventorycertificationIdGet({required String? id}) {
+    final String $url = '/inventorycertification/${id}';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            WebApiModulesInventoryInventoryCertificationInventoryCertification,
+            WebApiModulesInventoryInventoryCertificationInventoryCertification>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryCertificationInventoryCertification>>
+      _inventorycertificationIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryCertificationInventoryCertification?
+        body,
+  }) {
+    final String $url = '/inventorycertification/${id}';
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryCertificationInventoryCertification,
+            WebApiModulesInventoryInventoryCertificationInventoryCertification>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _inventorycertificationIdDelete(
+      {required String? id}) {
+    final String $url = '/inventorycertification/${id}';
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -10267,39 +9059,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycolorEmptyobjectGet() {
-    final String $url = '/inventorycolor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycolorEmptybrowseobjectGet() {
-    final String $url = '/inventorycolor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycolorKeyfieldnamesGet() {
-    final String $url = '/inventorycolor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -10474,39 +9233,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorycompatibleEmptyobjectGet() {
-    final String $url = '/inventorycompatible/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycompatibleEmptybrowseobjectGet() {
-    final String $url = '/inventorycompatible/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycompatibleKeyfieldnamesGet() {
-    final String $url = '/inventorycompatible/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycompletekitBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -10617,39 +9343,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorycompletekitEmptyobjectGet() {
-    final String $url = '/inventorycompletekit/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycompletekitEmptybrowseobjectGet() {
-    final String $url = '/inventorycompletekit/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycompletekitKeyfieldnamesGet() {
-    final String $url = '/inventorycompletekit/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryconsignorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -10740,39 +9433,6 @@ class _$Home extends Home {
             WebApiModulesHomeControlsInventoryConsignorInventoryConsignor,
             WebApiModulesHomeControlsInventoryConsignorInventoryConsignor>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryconsignorEmptyobjectGet() {
-    final String $url = '/inventoryconsignor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryconsignorEmptybrowseobjectGet() {
-    final String $url = '/inventoryconsignor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryconsignorKeyfieldnamesGet() {
-    final String $url = '/inventoryconsignor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -10932,39 +9592,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorycontaineritemEmptyobjectGet() {
-    final String $url = '/inventorycontaineritem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycontaineritemEmptybrowseobjectGet() {
-    final String $url = '/inventorycontaineritem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorycontaineritemKeyfieldnamesGet() {
-    final String $url = '/inventorycontaineritem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationtaxBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -11102,39 +9729,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorylocationtaxEmptyobjectGet() {
-    final String $url = '/inventorylocationtax/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorylocationtaxEmptybrowseobjectGet() {
-    final String $url = '/inventorylocationtax/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorylocationtaxKeyfieldnamesGet() {
-    final String $url = '/inventorylocationtax/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -11267,39 +9861,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorylocationutilityEmptyobjectGet() {
-    final String $url = '/inventorylocationutility/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorylocationutilityEmptybrowseobjectGet() {
-    final String $url = '/inventorylocationutility/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorylocationutilityKeyfieldnamesGet() {
-    final String $url = '/inventorylocationutility/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorymaterialBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -11424,39 +9985,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorymaterialEmptyobjectGet() {
-    final String $url = '/inventorymaterial/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorymaterialEmptybrowseobjectGet() {
-    final String $url = '/inventorymaterial/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorymaterialKeyfieldnamesGet() {
-    final String $url = '/inventorymaterial/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -11627,39 +10155,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorypackageinventoryEmptyobjectGet() {
-    final String $url = '/inventorypackageinventory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorypackageinventoryEmptybrowseobjectGet() {
-    final String $url = '/inventorypackageinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorypackageinventoryKeyfieldnamesGet() {
-    final String $url = '/inventorypackageinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _inventoryprepBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/inventoryprep/browse';
@@ -11799,201 +10294,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventoryprepEmptyobjectGet() {
-    final String $url = '/inventoryprep/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryprepEmptybrowseobjectGet() {
-    final String $url = '/inventoryprep/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryprepKeyfieldnamesGet() {
-    final String $url = '/inventoryprep/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _inventorypurchaseitemBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorypurchaseitem/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _inventorypurchaseitemExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorypurchaseitem/exportexcelxlsx';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic>>
-      _inventorypurchaseitemGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    final String $url = '/inventorypurchaseitem';
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
-      _inventorypurchaseitemIdGet({required String? id}) {
-    final String $url = '/inventorypurchaseitem/${id}';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<
-            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem,
-            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
-      _inventorypurchaseitemIdPut({
-    required String? id,
-    required WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem?
-        body,
-  }) {
-    final String $url = '/inventorypurchaseitem/${id}';
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem,
-            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              List<
-                  MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic>>>
-      _inventorypurchaseitemManyPost(
-          {required List<
-                  WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>?
-              body}) {
-    final String $url = '/inventorypurchaseitem/many';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            List<
-                MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic>,
-            MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemLogic>(
-        $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorypurchaseitemEmptyobjectGet() {
-    final String $url = '/inventorypurchaseitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorypurchaseitemEmptybrowseobjectGet() {
-    final String $url = '/inventorypurchaseitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorypurchaseitemKeyfieldnamesGet() {
-    final String $url = '/inventorypurchaseitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<
       Response<
           FwStandardSqlServerFwJsonDataTable>> _inventorysearchSearchPost(
@@ -12109,39 +10409,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorysearchEmptyobjectGet() {
-    final String $url = '/inventorysearch/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysearchEmptybrowseobjectGet() {
-    final String $url = '/inventorysearch/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysearchKeyfieldnamesGet() {
-    final String $url = '/inventorysearch/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysearchpreviewBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -12211,39 +10478,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysearchpreviewEmptyobjectGet() {
-    final String $url = '/inventorysearchpreview/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysearchpreviewEmptybrowseobjectGet() {
-    final String $url = '/inventorysearchpreview/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysearchpreviewKeyfieldnamesGet() {
-    final String $url = '/inventorysearchpreview/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -12435,39 +10669,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorysubstituteEmptyobjectGet() {
-    final String $url = '/inventorysubstitute/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysubstituteEmptybrowseobjectGet() {
-    final String $url = '/inventorysubstitute/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysubstituteKeyfieldnamesGet() {
-    final String $url = '/inventorysubstitute/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysummaryoutBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -12515,39 +10716,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorysummaryoutEmptyobjectGet() {
-    final String $url = '/inventorysummaryout/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysummaryoutEmptybrowseobjectGet() {
-    final String $url = '/inventorysummaryout/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysummaryoutKeyfieldnamesGet() {
-    final String $url = '/inventorysummaryout/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysummaryphysicalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -12584,41 +10752,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorysummaryphysicalinventoryEmptyobjectGet() {
-    final String $url = '/inventorysummaryphysicalinventory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _inventorysummaryphysicalinventoryEmptybrowseobjectGet() {
-    final String $url = '/inventorysummaryphysicalinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _inventorysummaryphysicalinventoryKeyfieldnamesGet() {
-    final String $url = '/inventorysummaryphysicalinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysummaryretiredhistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -12652,40 +10785,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysummaryretiredhistoryEmptyobjectGet() {
-    final String $url = '/inventorysummaryretiredhistory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _inventorysummaryretiredhistoryEmptybrowseobjectGet() {
-    final String $url = '/inventorysummaryretiredhistory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorysummaryretiredhistoryKeyfieldnamesGet() {
-    final String $url = '/inventorysummaryretiredhistory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -12826,39 +10925,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryvendorEmptyobjectGet() {
-    final String $url = '/inventoryvendor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryvendorEmptybrowseobjectGet() {
-    final String $url = '/inventoryvendor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventoryvendorKeyfieldnamesGet() {
-    final String $url = '/inventoryvendor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -13023,39 +11089,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorywarehouseEmptyobjectGet() {
-    final String $url = '/inventorywarehouse/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorywarehouseEmptybrowseobjectGet() {
-    final String $url = '/inventorywarehouse/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorywarehouseKeyfieldnamesGet() {
-    final String $url = '/inventorywarehouse/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorywarehousespecificBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -13194,39 +11227,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _inventorywarehousespecificEmptyobjectGet() {
-    final String $url = '/inventorywarehousespecific/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorywarehousespecificEmptybrowseobjectGet() {
-    final String $url = '/inventorywarehousespecific/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _inventorywarehousespecificKeyfieldnamesGet() {
-    final String $url = '/inventorywarehousespecific/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoiceBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/invoice/browse';
@@ -13358,28 +11358,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<
-          Response<
-              List<
-                  MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingInvoiceInvoiceLogic>>>
-      _invoiceManyPost(
-          {required List<WebApiModulesBillingInvoiceInvoice>? body}) {
-    final String $url = '/invoice/many';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            List<
-                MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingInvoiceInvoiceLogic>,
-            MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingInvoiceInvoiceLogic>(
-        $request);
-  }
-
-  @override
   Future<Response<WebApiModulesBillingInvoiceInvoice>> _invoiceIdVoidPost(
       {required String? id}) {
     final String $url = '/invoice/${id}/void';
@@ -13432,6 +11410,23 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse,
         WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesBillingInvoiceRestoreInvoiceChargeCodesToDefaultResponse>>
+      _invoiceIdRestoredefaultchargecodesPost({required String? id}) {
+    final String $url = '/invoice/${id}/restoredefaultchargecodes';
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesBillingInvoiceRestoreInvoiceChargeCodesToDefaultResponse,
+            WebApiModulesBillingInvoiceRestoreInvoiceChargeCodesToDefaultResponse>(
+        $request);
   }
 
   @override
@@ -13654,39 +11649,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _invoiceEmptyobjectGet() {
-    final String $url = '/invoice/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceEmptybrowseobjectGet() {
-    final String $url = '/invoice/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceKeyfieldnamesGet() {
-    final String $url = '/invoice/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoicebatchBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/invoicebatch/browse';
@@ -13719,39 +11681,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicebatchEmptyobjectGet() {
-    final String $url = '/invoicebatch/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicebatchEmptybrowseobjectGet() {
-    final String $url = '/invoicebatch/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicebatchKeyfieldnamesGet() {
-    final String $url = '/invoicebatch/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -13788,39 +11717,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicecontactEmptyobjectGet() {
-    final String $url = '/invoicecontact/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicecontactEmptybrowseobjectGet() {
-    final String $url = '/invoicecontact/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicecontactKeyfieldnamesGet() {
-    final String $url = '/invoicecontact/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -13903,39 +11799,6 @@ class _$Home extends Home {
             WebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatch,
             WebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatch>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicecreationbatchEmptyobjectGet() {
-    final String $url = '/invoicecreationbatch/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicecreationbatchEmptybrowseobjectGet() {
-    final String $url = '/invoicecreationbatch/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicecreationbatchKeyfieldnamesGet() {
-    final String $url = '/invoicecreationbatch/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -14093,39 +11956,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _invoiceitemEmptyobjectGet() {
-    final String $url = '/invoiceitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceitemEmptybrowseobjectGet() {
-    final String $url = '/invoiceitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceitemKeyfieldnamesGet() {
-    final String $url = '/invoiceitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoicenoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/invoicenote/browse';
@@ -14248,39 +12078,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _invoicenoteEmptyobjectGet() {
-    final String $url = '/invoicenote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicenoteEmptybrowseobjectGet() {
-    final String $url = '/invoicenote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicenoteKeyfieldnamesGet() {
-    final String $url = '/invoicenote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoiceorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/invoiceorder/browse';
@@ -14331,39 +12128,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesHomeControlsInvoiceOrderInvoiceOrder,
         WebApiModulesHomeControlsInvoiceOrderInvoiceOrder>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceorderEmptyobjectGet() {
-    final String $url = '/invoiceorder/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceorderEmptybrowseobjectGet() {
-    final String $url = '/invoiceorder/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoiceorderKeyfieldnamesGet() {
-    final String $url = '/invoiceorder/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -14491,39 +12255,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _invoicereceiptEmptyobjectGet() {
-    final String $url = '/invoicereceipt/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicereceiptEmptybrowseobjectGet() {
-    final String $url = '/invoicereceipt/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicereceiptKeyfieldnamesGet() {
-    final String $url = '/invoicereceipt/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicerevenueBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -14571,39 +12302,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _invoicerevenueEmptyobjectGet() {
-    final String $url = '/invoicerevenue/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicerevenueEmptybrowseobjectGet() {
-    final String $url = '/invoicerevenue/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicerevenueKeyfieldnamesGet() {
-    final String $url = '/invoicerevenue/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicestatushistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -14637,39 +12335,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatushistoryEmptyobjectGet() {
-    final String $url = '/invoicestatushistory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatushistoryEmptybrowseobjectGet() {
-    final String $url = '/invoicestatushistory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatushistoryKeyfieldnamesGet() {
-    final String $url = '/invoicestatushistory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -14709,39 +12374,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _invoicestatusitemEmptyobjectGet() {
-    final String $url = '/invoicestatusitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatusitemEmptybrowseobjectGet() {
-    final String $url = '/invoicestatusitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatusitemKeyfieldnamesGet() {
-    final String $url = '/invoicestatusitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicestatusitemdetailBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -14775,39 +12407,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatusitemdetailEmptyobjectGet() {
-    final String $url = '/invoicestatusitemdetail/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatusitemdetailEmptybrowseobjectGet() {
-    final String $url = '/invoicestatusitemdetail/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _invoicestatusitemdetailKeyfieldnamesGet() {
-    final String $url = '/invoicestatusitemdetail/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -15326,39 +12925,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _itemEmptyobjectGet() {
-    final String $url = '/item/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _itemEmptybrowseobjectGet() {
-    final String $url = '/item/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _itemKeyfieldnamesGet() {
-    final String $url = '/item/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemattributevalueBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -15528,36 +13094,123 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _itemattributevalueEmptyobjectGet() {
-    final String $url = '/itemattributevalue/emptyobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _itemchargeBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/itemcharge/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _itemattributevalueEmptybrowseobjectGet() {
-    final String $url = '/itemattributevalue/emptybrowseobject';
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _itemchargeExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/itemcharge/exportexcelxlsx';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _itemattributevalueKeyfieldnamesGet() {
-    final String $url = '/itemattributevalue/keyfieldnames';
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeItemChargeItemChargeLogic>>
+      _itemchargeGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final String $url = '/itemcharge';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeItemChargeItemChargeLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeItemChargeItemChargeLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeItemChargeItemCharge>> _itemchargePost(
+      {required WebApiModulesHomeItemChargeItemCharge? body}) {
+    final String $url = '/itemcharge';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeItemChargeItemCharge,
+        WebApiModulesHomeItemChargeItemCharge>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeItemChargeItemCharge>> _itemchargeIdGet(
+      {required String? id}) {
+    final String $url = '/itemcharge/${id}';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<WebApiModulesHomeItemChargeItemCharge,
+        WebApiModulesHomeItemChargeItemCharge>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeItemChargeItemCharge>> _itemchargeIdPut({
+    required String? id,
+    required WebApiModulesHomeItemChargeItemCharge? body,
+  }) {
+    final String $url = '/itemcharge/${id}';
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeItemChargeItemCharge,
+        WebApiModulesHomeItemChargeItemCharge>($request);
+  }
+
+  @override
+  Future<Response<bool>> _itemchargeIdDelete({required String? id}) {
+    final String $url = '/itemcharge/${id}';
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -15667,39 +13320,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesHomeControlsItemQcItemQc,
         WebApiModulesHomeControlsItemQcItemQc>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _itemqcEmptyobjectGet() {
-    final String $url = '/itemqc/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _itemqcEmptybrowseobjectGet() {
-    final String $url = '/itemqc/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _itemqcKeyfieldnamesGet() {
-    final String $url = '/itemqc/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -15829,39 +13449,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _lossanddamageEmptyobjectGet() {
-    final String $url = '/lossanddamage/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _lossanddamageEmptybrowseobjectGet() {
-    final String $url = '/lossanddamage/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _lossanddamageKeyfieldnamesGet() {
-    final String $url = '/lossanddamage/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _lossanddamageitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -15895,39 +13482,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _lossanddamageitemEmptyobjectGet() {
-    final String $url = '/lossanddamageitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _lossanddamageitemEmptybrowseobjectGet() {
-    final String $url = '/lossanddamageitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _lossanddamageitemKeyfieldnamesGet() {
-    final String $url = '/lossanddamageitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -16059,39 +13613,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _manifestEmptyobjectGet() {
-    final String $url = '/manifest/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _manifestEmptybrowseobjectGet() {
-    final String $url = '/manifest/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _manifestKeyfieldnamesGet() {
-    final String $url = '/manifest/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -16595,6 +14116,24 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesAgentOrderCreateLossAndDamageResponse>>
+      _orderIdCreatelossanddamagePost({
+    required String? id,
+    required WebApiModulesAgentOrderCreateLossAndDamageRequest? body,
+  }) {
+    final String $url = '/order/${id}/createlossanddamage';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentOrderCreateLossAndDamageResponse,
+        WebApiModulesAgentOrderCreateLossAndDamageResponse>($request);
+  }
+
+  @override
   Future<Response<WebApiModulesAgentOrderCopyOrderItemsResponse>>
       _orderCopyorderitemsPost(
           {required WebApiModulesAgentOrderCopyOrderItemsRequest? body}) {
@@ -16691,7 +14230,7 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<bool>> _orderApplybottomlinetotalPost(
+  Future<Response<WebApiLogicTSpStatusResponse>> _orderApplybottomlinetotalPost(
       {required WebApiApplyBottomLineTotalRequest? body}) {
     final String $url = '/order/applybottomlinetotal';
     final $body = body;
@@ -16701,7 +14240,8 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
-    return client.send<bool, bool>($request);
+    return client.send<WebApiLogicTSpStatusResponse,
+        WebApiLogicTSpStatusResponse>($request);
   }
 
   @override
@@ -16819,6 +14359,23 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesAgentOrderChangeOrderOfficeLocationResponse,
         WebApiModulesAgentOrderChangeOrderOfficeLocationResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderSendContactConfirmationResponse>>
+      _orderSendcontactconfirmationPost(
+          {required WebApiModulesAgentOrderSendContactConfirmationRequest?
+              body}) {
+    final String $url = '/order/sendcontactconfirmation';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentOrderSendContactConfirmationResponse,
+        WebApiModulesAgentOrderSendContactConfirmationResponse>($request);
   }
 
   @override
@@ -17444,9 +15001,15 @@ class _$Home extends Home {
 
   @override
   Future<Response<WebApiModulesAgentOrderUserCanInsertResponse>>
-      _orderUsercaninsertGet({String? orderid}) {
+      _orderUsercaninsertGet({
+    String? orderid,
+    String? itemClass,
+  }) {
     final String $url = '/order/usercaninsert';
-    final Map<String, dynamic> $params = <String, dynamic>{'orderid': orderid};
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'orderid': orderid,
+      'itemClass': itemClass,
+    };
     final Request $request = Request(
       'GET',
       $url,
@@ -17458,36 +15021,119 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _orderEmptyobjectGet() {
-    final String $url = '/order/emptyobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderapprovalBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/orderapproval/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _orderEmptybrowseobjectGet() {
-    final String $url = '/order/emptybrowseobject';
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _orderapprovalExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/orderapproval/exportexcelxlsx';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _orderKeyfieldnamesGet() {
-    final String $url = '/order/keyfieldnames';
+  Future<Response<List<WebApiModulesHomeOrderApprovalOrderApproval>>>
+      _orderapprovalGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
+    final String $url = '/orderapproval';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<List<WebApiModulesHomeOrderApprovalOrderApproval>,
+        WebApiModulesHomeOrderApprovalOrderApproval>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeOrderApprovalOrderApproval>>
+      _orderapprovalPost(
+          {required WebApiModulesHomeOrderApprovalOrderApproval? body}) {
+    final String $url = '/orderapproval';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeOrderApprovalOrderApproval,
+        WebApiModulesHomeOrderApprovalOrderApproval>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeOrderApprovalOrderApproval>>
+      _orderapprovalIdGet({required String? id}) {
+    final String $url = '/orderapproval/${id}';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<WebApiModulesHomeOrderApprovalOrderApproval,
+        WebApiModulesHomeOrderApprovalOrderApproval>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeOrderApprovalOrderApproval>>
+      _orderapprovalIdPut({
+    required String? id,
+    required WebApiModulesHomeOrderApprovalOrderApproval? body,
+  }) {
+    final String $url = '/orderapproval/${id}';
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeOrderApprovalOrderApproval,
+        WebApiModulesHomeOrderApprovalOrderApproval>($request);
+  }
+
+  @override
+  Future<Response<bool>> _orderapprovalIdDelete({required String? id}) {
+    final String $url = '/orderapproval/${id}';
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -17538,36 +15184,122 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _orderbillingscheduleEmptyobjectGet() {
-    final String $url = '/orderbillingschedule/emptyobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderconfirmationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/orderconfirmation/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _orderbillingscheduleEmptybrowseobjectGet() {
-    final String $url = '/orderbillingschedule/emptybrowseobject';
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _orderconfirmationExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/orderconfirmation/exportexcelxlsx';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _orderbillingscheduleKeyfieldnamesGet() {
-    final String $url = '/orderbillingschedule/keyfieldnames';
+  Future<Response<List<WebApiModulesHomeOrderConfirmationOrderConfirmation>>>
+      _orderconfirmationGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
+    final String $url = '/orderconfirmation';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+        List<WebApiModulesHomeOrderConfirmationOrderConfirmation>,
+        WebApiModulesHomeOrderConfirmationOrderConfirmation>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeOrderConfirmationOrderConfirmation>>
+      _orderconfirmationPost(
+          {required WebApiModulesHomeOrderConfirmationOrderConfirmation?
+              body}) {
+    final String $url = '/orderconfirmation';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeOrderConfirmationOrderConfirmation,
+        WebApiModulesHomeOrderConfirmationOrderConfirmation>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeOrderConfirmationOrderConfirmation>>
+      _orderconfirmationIdGet({required String? id}) {
+    final String $url = '/orderconfirmation/${id}';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<WebApiModulesHomeOrderConfirmationOrderConfirmation,
+        WebApiModulesHomeOrderConfirmationOrderConfirmation>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesHomeOrderConfirmationOrderConfirmation>>
+      _orderconfirmationIdPut({
+    required String? id,
+    required WebApiModulesHomeOrderConfirmationOrderConfirmation? body,
+  }) {
+    final String $url = '/orderconfirmation/${id}';
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeOrderConfirmationOrderConfirmation,
+        WebApiModulesHomeOrderConfirmationOrderConfirmation>($request);
+  }
+
+  @override
+  Future<Response<bool>> _orderconfirmationIdDelete({required String? id}) {
+    final String $url = '/orderconfirmation/${id}';
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -17743,39 +15475,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _ordercontactEmptyobjectGet() {
-    final String $url = '/ordercontact/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordercontactEmptybrowseobjectGet() {
-    final String $url = '/ordercontact/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordercontactKeyfieldnamesGet() {
-    final String $url = '/ordercontact/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderdatesBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/orderdates/browse';
@@ -17808,39 +15507,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderdatesEmptyobjectGet() {
-    final String $url = '/orderdates/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderdatesEmptybrowseobjectGet() {
-    final String $url = '/orderdates/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderdatesKeyfieldnamesGet() {
-    final String $url = '/orderdates/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -18054,6 +15720,8 @@ class _$Home extends Home {
   Future<Response<dynamic>> _orderitemCalculateextendedGet({
     String? rateType,
     String? recType,
+    String? orderType,
+    bool? isSub,
     String? fromDate,
     String? toDate,
     String? billingFromDate,
@@ -18076,6 +15744,8 @@ class _$Home extends Home {
     final Map<String, dynamic> $params = <String, dynamic>{
       'RateType': rateType,
       'RecType': recType,
+      'OrderType': orderType,
+      'IsSub': isSub,
       'FromDate': fromDate,
       'ToDate': toDate,
       'BillingFromDate': billingFromDate,
@@ -18107,6 +15777,8 @@ class _$Home extends Home {
   Future<Response<dynamic>> _orderitemCalculatediscountpercentGet({
     String? rateType,
     String? recType,
+    String? orderType,
+    bool? isSub,
     String? fromDate,
     String? toDate,
     String? billingFromDate,
@@ -18122,6 +15794,8 @@ class _$Home extends Home {
     num? unitDiscountAmount,
     num? unitExtended,
     num? weeklyDiscountAmount,
+    num? discountAmount,
+    num? extended,
     num? weeklyExtended,
     num? monthlyDiscountAmount,
     num? monthlyExtended,
@@ -18136,6 +15810,8 @@ class _$Home extends Home {
     final Map<String, dynamic> $params = <String, dynamic>{
       'RateType': rateType,
       'RecType': recType,
+      'OrderType': orderType,
+      'IsSub': isSub,
       'FromDate': fromDate,
       'ToDate': toDate,
       'BillingFromDate': billingFromDate,
@@ -18151,6 +15827,8 @@ class _$Home extends Home {
       'UnitDiscountAmount': unitDiscountAmount,
       'UnitExtended': unitExtended,
       'WeeklyDiscountAmount': weeklyDiscountAmount,
+      'DiscountAmount': discountAmount,
+      'Extended': extended,
       'WeeklyExtended': weeklyExtended,
       'MonthlyDiscountAmount': monthlyDiscountAmount,
       'MonthlyExtended': monthlyExtended,
@@ -18212,13 +15890,16 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiLogicTSpStatusResponse>>
-      _orderitemCancelmanualsortIdPost({required String? id}) {
-    final String $url = '/orderitem/cancelmanualsort/${id}';
+  Future<Response<WebApiLogicTSpStatusResponse>> _orderitemCancelmanualsortPost(
+      {required WebApiModulesHomeControlsOrderItemCancelManualSortRequest?
+          body}) {
+    final String $url = '/orderitem/cancelmanualsort';
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<WebApiLogicTSpStatusResponse,
         WebApiLogicTSpStatusResponse>($request);
@@ -18459,6 +16140,38 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderitemValidatemanufacturerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/orderitem/validatemanufacturer/browse';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderitemValidaterepairorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/orderitem/validaterepairorder/browse';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
   Future<
           Response<
               WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsResponse>>
@@ -18477,39 +16190,6 @@ class _$Home extends Home {
             WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsResponse,
             WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsResponse>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderitemEmptyobjectGet() {
-    final String $url = '/orderitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderitemEmptybrowseobjectGet() {
-    final String $url = '/orderitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderitemKeyfieldnamesGet() {
-    final String $url = '/orderitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -18650,39 +16330,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _ordernoteEmptyobjectGet() {
-    final String $url = '/ordernote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordernoteEmptybrowseobjectGet() {
-    final String $url = '/ordernote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordernoteKeyfieldnamesGet() {
-    final String $url = '/ordernote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _ordersnapshotBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/ordersnapshot/browse';
@@ -18715,39 +16362,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordersnapshotEmptyobjectGet() {
-    final String $url = '/ordersnapshot/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordersnapshotEmptybrowseobjectGet() {
-    final String $url = '/ordersnapshot/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordersnapshotKeyfieldnamesGet() {
-    final String $url = '/ordersnapshot/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -19001,36 +16615,17 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _orderstatusEmptyobjectGet() {
-    final String $url = '/orderstatus/emptyobject';
+  Future<Response<WebApiModulesWarehouseOrderStatusOrderStatusHeaderResponse>>
+      _orderstatusHeaderdetailIdGet({required String? id}) {
+    final String $url = '/orderstatus/headerdetail/${id}';
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatusEmptybrowseobjectGet() {
-    final String $url = '/orderstatus/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatusKeyfieldnamesGet() {
-    final String $url = '/orderstatus/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+        WebApiModulesWarehouseOrderStatusOrderStatusHeaderResponse,
+        WebApiModulesWarehouseOrderStatusOrderStatusHeaderResponse>($request);
   }
 
   @override
@@ -19079,39 +16674,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<Object, Object>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatusdetailEmptyobjectGet() {
-    final String $url = '/orderstatusdetail/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatusdetailEmptybrowseobjectGet() {
-    final String $url = '/orderstatusdetail/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatusdetailKeyfieldnamesGet() {
-    final String $url = '/orderstatusdetail/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -19197,39 +16759,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _orderstatushistoryEmptyobjectGet() {
-    final String $url = '/orderstatushistory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatushistoryEmptybrowseobjectGet() {
-    final String $url = '/orderstatushistory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatushistoryKeyfieldnamesGet() {
-    final String $url = '/orderstatushistory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatussummaryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -19304,39 +16833,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _orderstatussummaryEmptyobjectGet() {
-    final String $url = '/orderstatussummary/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatussummaryEmptybrowseobjectGet() {
-    final String $url = '/orderstatussummary/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderstatussummaryKeyfieldnamesGet() {
-    final String $url = '/orderstatussummary/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse>>
       _ordersummaryGet({
     String? orderid,
@@ -19356,39 +16852,6 @@ class _$Home extends Home {
     return client.send<
         WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse,
         WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordersummaryEmptyobjectGet() {
-    final String $url = '/ordersummary/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordersummaryEmptybrowseobjectGet() {
-    final String $url = '/ordersummary/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _ordersummaryKeyfieldnamesGet() {
-    final String $url = '/ordersummary/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -20088,36 +17551,26 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _partsinventoryEmptyobjectGet() {
-    final String $url = '/partsinventory/emptyobject';
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPartsInventoryPartsInventoryLogic>>>
+      _partsinventoryManyPost(
+          {required List<WebApiModulesInventoryPartsInventoryPartsInventory>?
+              body}) {
+    final String $url = '/partsinventory/many';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _partsinventoryEmptybrowseobjectGet() {
-    final String $url = '/partsinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _partsinventoryKeyfieldnamesGet() {
-    final String $url = '/partsinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPartsInventoryPartsInventoryLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPartsInventoryPartsInventoryLogic>(
+        $request);
   }
 
   @override
@@ -20284,39 +17737,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _paymentEmptyobjectGet() {
-    final String $url = '/payment/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _paymentEmptybrowseobjectGet() {
-    final String $url = '/payment/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _paymentKeyfieldnamesGet() {
-    final String $url = '/payment/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _paymentvendorinvoiceBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -20350,39 +17770,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _paymentvendorinvoiceEmptyobjectGet() {
-    final String $url = '/paymentvendorinvoice/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _paymentvendorinvoiceEmptybrowseobjectGet() {
-    final String $url = '/paymentvendorinvoice/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _paymentvendorinvoiceKeyfieldnamesGet() {
-    final String $url = '/paymentvendorinvoice/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -20522,39 +17909,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _personaleventEmptyobjectGet() {
-    final String $url = '/personalevent/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _personaleventEmptybrowseobjectGet() {
-    final String $url = '/personalevent/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _personaleventKeyfieldnamesGet() {
-    final String $url = '/personalevent/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -21429,39 +18783,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _physicalinventoryEmptyobjectGet() {
-    final String $url = '/physicalinventory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _physicalinventoryEmptybrowseobjectGet() {
-    final String $url = '/physicalinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _physicalinventoryKeyfieldnamesGet() {
-    final String $url = '/physicalinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorycycleinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -21668,40 +18989,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _physicalinventorycycleinventoryEmptyobjectGet() {
-    final String $url = '/physicalinventorycycleinventory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _physicalinventorycycleinventoryEmptybrowseobjectGet() {
-    final String $url = '/physicalinventorycycleinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _physicalinventorycycleinventoryKeyfieldnamesGet() {
-    final String $url = '/physicalinventorycycleinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -21840,39 +19127,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _physicalinventoryinventoryEmptyobjectGet() {
-    final String $url = '/physicalinventoryinventory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _physicalinventoryinventoryEmptybrowseobjectGet() {
-    final String $url = '/physicalinventoryinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _physicalinventoryinventoryKeyfieldnamesGet() {
-    final String $url = '/physicalinventoryinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _picklistBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/picklist/browse';
@@ -21990,39 +19244,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistEmptyobjectGet() {
-    final String $url = '/picklist/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistEmptybrowseobjectGet() {
-    final String $url = '/picklist/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistKeyfieldnamesGet() {
-    final String $url = '/picklist/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -22156,39 +19377,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistitemEmptyobjectGet() {
-    final String $url = '/picklistitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistitemEmptybrowseobjectGet() {
-    final String $url = '/picklistitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistitemKeyfieldnamesGet() {
-    final String $url = '/picklistitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -22425,39 +19613,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _picklistutilityitemEmptyobjectGet() {
-    final String $url = '/picklistutilityitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistutilityitemEmptybrowseobjectGet() {
-    final String $url = '/picklistutilityitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _picklistutilityitemKeyfieldnamesGet() {
-    final String $url = '/picklistutilityitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _pricingBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/pricing/browse';
@@ -22539,6 +19694,23 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesHomeControlsPricingPricing>> _pricingIdPut({
+    required String? id,
+    required WebApiModulesHomeControlsPricingPricing? body,
+  }) {
+    final String $url = '/pricing/${id}';
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesHomeControlsPricingPricing,
+        WebApiModulesHomeControlsPricingPricing>($request);
+  }
+
+  @override
   Future<
           Response<
               List<
@@ -22558,39 +19730,6 @@ class _$Home extends Home {
                 MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic>,
             MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _pricingEmptyobjectGet() {
-    final String $url = '/pricing/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _pricingEmptybrowseobjectGet() {
-    final String $url = '/pricing/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _pricingKeyfieldnamesGet() {
-    final String $url = '/pricing/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -23115,39 +20254,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _projectEmptyobjectGet() {
-    final String $url = '/project/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectEmptybrowseobjectGet() {
-    final String $url = '/project/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectKeyfieldnamesGet() {
-    final String $url = '/project/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectcontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -23304,39 +20410,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _projectcontactEmptyobjectGet() {
-    final String $url = '/projectcontact/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectcontactEmptybrowseobjectGet() {
-    final String $url = '/projectcontact/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectcontactKeyfieldnamesGet() {
-    final String $url = '/projectcontact/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _projectnoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/projectnote/browse';
@@ -23472,39 +20545,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectnoteEmptyobjectGet() {
-    final String $url = '/projectnote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectnoteEmptybrowseobjectGet() {
-    final String $url = '/projectnote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _projectnoteKeyfieldnamesGet() {
-    final String $url = '/projectnote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -23998,8 +21038,9 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<bool>> _purchaseorderApplybottomlinetotalPost(
-      {required WebApiApplyBottomLineTotalRequest? body}) {
+  Future<Response<WebApiLogicTSpStatusResponse>>
+      _purchaseorderApplybottomlinetotalPost(
+          {required WebApiApplyBottomLineTotalRequest? body}) {
     final String $url = '/purchaseorder/applybottomlinetotal';
     final $body = body;
     final Request $request = Request(
@@ -24008,7 +21049,8 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
-    return client.send<bool, bool>($request);
+    return client.send<WebApiLogicTSpStatusResponse,
+        WebApiLogicTSpStatusResponse>($request);
   }
 
   @override
@@ -24106,6 +21148,87 @@ class _$Home extends Home {
     return client.send<
         WebApiModulesAgentPurchaseOrderConfirmVendorRetrieveResponse,
         WebApiModulesAgentPurchaseOrderConfirmVendorRetrieveResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAgentPurchaseOrderSubmitPurchaseOrderForApprovalResponse>>
+      _purchaseorderSubmitforapprovalPost(
+          {required WebApiModulesAgentPurchaseOrderSubmitPurchaseOrderForApprovalRequest?
+              body}) {
+    final String $url = '/purchaseorder/submitforapproval';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesAgentPurchaseOrderSubmitPurchaseOrderForApprovalResponse,
+            WebApiModulesAgentPurchaseOrderSubmitPurchaseOrderForApprovalResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentPurchaseOrderRejectPurchaseOrderResponse>>
+      _purchaseorderRejectPost(
+          {required WebApiModulesAgentPurchaseOrderRejectPurchaseOrderRequest?
+              body}) {
+    final String $url = '/purchaseorder/reject';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesAgentPurchaseOrderRejectPurchaseOrderResponse,
+        WebApiModulesAgentPurchaseOrderRejectPurchaseOrderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAgentPurchaseOrderFirstApprovePurchaseOrderResponse>>
+      _purchaseorderFirstapprovePost(
+          {required WebApiModulesAgentPurchaseOrderFirstApprovePurchaseOrderRequest?
+              body}) {
+    final String $url = '/purchaseorder/firstapprove';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesAgentPurchaseOrderFirstApprovePurchaseOrderResponse,
+            WebApiModulesAgentPurchaseOrderFirstApprovePurchaseOrderResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAgentPurchaseOrderSecondApprovePurchaseOrderResponse>>
+      _purchaseorderSecondapprovePost(
+          {required WebApiModulesAgentPurchaseOrderSecondApprovePurchaseOrderRequest?
+              body}) {
+    final String $url = '/purchaseorder/secondapprove';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesAgentPurchaseOrderSecondApprovePurchaseOrderResponse,
+            WebApiModulesAgentPurchaseOrderSecondApprovePurchaseOrderResponse>(
+        $request);
   }
 
   @override
@@ -24366,36 +21489,53 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderEmptyobjectGet() {
-    final String $url = '/purchaseorder/emptyobject';
+  Future<Response<WebApiModulesAgentPurchaseOrderPurchaseOrderApprovalResponse>>
+      _purchaseorderPurchaseorderapprovalPost(
+          {required WebApiModulesAgentPurchaseOrderPurchaseOrderApprovalRequest?
+              body}) {
+    final String $url = '/purchaseorder/purchaseorderapproval';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+        WebApiModulesAgentPurchaseOrderPurchaseOrderApprovalResponse,
+        WebApiModulesAgentPurchaseOrderPurchaseOrderApprovalResponse>($request);
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderEmptybrowseobjectGet() {
-    final String $url = '/purchaseorder/emptybrowseobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _purchaseorderapprovalsValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/purchaseorderapprovals/validateofficelocation/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderKeyfieldnamesGet() {
-    final String $url = '/purchaseorder/keyfieldnames';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _purchaseorderapprovalsValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/purchaseorderapprovals/validatedepartment/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
@@ -24435,39 +21575,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderconsignorfeeEmptyobjectGet() {
-    final String $url = '/purchaseorderconsignorfee/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderconsignorfeeEmptybrowseobjectGet() {
-    final String $url = '/purchaseorderconsignorfee/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderconsignorfeeKeyfieldnamesGet() {
-    final String $url = '/purchaseorderconsignorfee/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderitemvendorinvoicestatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -24501,43 +21608,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _purchaseorderitemvendorinvoicestatusEmptyobjectGet() {
-    final String $url = '/purchaseorderitemvendorinvoicestatus/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _purchaseorderitemvendorinvoicestatusEmptybrowseobjectGet() {
-    final String $url =
-        '/purchaseorderitemvendorinvoicestatus/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _purchaseorderitemvendorinvoicestatusKeyfieldnamesGet() {
-    final String $url = '/purchaseorderitemvendorinvoicestatus/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -24720,39 +21790,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderreceivebarcodeEmptyobjectGet() {
-    final String $url = '/purchaseorderreceivebarcode/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreceivebarcodeEmptybrowseobjectGet() {
-    final String $url = '/purchaseorderreceivebarcode/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreceivebarcodeKeyfieldnamesGet() {
-    final String $url = '/purchaseorderreceivebarcode/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreceiveitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -24797,39 +21834,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreceiveitemEmptyobjectGet() {
-    final String $url = '/purchaseorderreceiveitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreceiveitemEmptybrowseobjectGet() {
-    final String $url = '/purchaseorderreceiveitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreceiveitemKeyfieldnamesGet() {
-    final String $url = '/purchaseorderreceiveitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -24915,39 +21919,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderreturnbarcodeEmptyobjectGet() {
-    final String $url = '/purchaseorderreturnbarcode/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreturnbarcodeEmptybrowseobjectGet() {
-    final String $url = '/purchaseorderreturnbarcode/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreturnbarcodeKeyfieldnamesGet() {
-    final String $url = '/purchaseorderreturnbarcode/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreturnitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -24981,39 +21952,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreturnitemEmptyobjectGet() {
-    final String $url = '/purchaseorderreturnitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreturnitemEmptybrowseobjectGet() {
-    final String $url = '/purchaseorderreturnitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderreturnitemKeyfieldnamesGet() {
-    final String $url = '/purchaseorderreturnitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -25113,39 +22051,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _purchaseorderstatusEmptyobjectGet() {
-    final String $url = '/purchaseorderstatus/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderstatusEmptybrowseobjectGet() {
-    final String $url = '/purchaseorderstatus/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchaseorderstatusKeyfieldnamesGet() {
-    final String $url = '/purchaseorderstatus/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchasevendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -25179,39 +22084,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchasevendorEmptyobjectGet() {
-    final String $url = '/purchasevendor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchasevendorEmptybrowseobjectGet() {
-    final String $url = '/purchasevendor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchasevendorKeyfieldnamesGet() {
-    final String $url = '/purchasevendor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -25294,39 +22166,6 @@ class _$Home extends Home {
             WebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem,
             WebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchasevendorinvoiceitemEmptyobjectGet() {
-    final String $url = '/purchasevendorinvoiceitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchasevendorinvoiceitemEmptybrowseobjectGet() {
-    final String $url = '/purchasevendorinvoiceitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _purchasevendorinvoiceitemKeyfieldnamesGet() {
-    final String $url = '/purchasevendorinvoiceitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -25640,39 +22479,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _quikinEmptyobjectGet() {
-    final String $url = '/quikin/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quikinEmptybrowseobjectGet() {
-    final String $url = '/quikin/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quikinKeyfieldnamesGet() {
-    final String $url = '/quikin/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<WebApiModulesWarehouseQuikReceiptQuikReceiptSessionResponse>>
       _quikreceiptQuikreceiptstartPost(
           {required WebApiModulesWarehouseQuikReceiptQuikReceiptSessionRequest?
@@ -25884,72 +22690,6 @@ class _$Home extends Home {
       _quikreceiptQuikreceiptQuikreceiptitemsgridEmptyobjectGet() {
     final String $url =
         '/quikreceipt/quikreceipt/quikreceiptitemsgrid/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quikreceiptEmptyobjectGet() {
-    final String $url = '/quikreceipt/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quikreceiptEmptybrowseobjectGet() {
-    final String $url = '/quikreceipt/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quikreceiptKeyfieldnamesGet() {
-    final String $url = '/quikreceipt/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quiksearchEmptyobjectGet() {
-    final String $url = '/quiksearch/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quiksearchEmptybrowseobjectGet() {
-    final String $url = '/quiksearch/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quiksearchKeyfieldnamesGet() {
-    final String $url = '/quiksearch/keyfieldnames';
     final Request $request = Request(
       'GET',
       $url,
@@ -26414,6 +23154,23 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesAgentOrderSendContactConfirmationResponse>>
+      _quoteSendcontactconfirmationPost(
+          {required WebApiModulesAgentOrderSendContactConfirmationRequest?
+              body}) {
+    final String $url = '/quote/sendcontactconfirmation';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentOrderSendContactConfirmationResponse,
+        WebApiModulesAgentOrderSendContactConfirmationResponse>($request);
+  }
+
+  @override
   Future<Response<WebApiModulesAgentOrderCancelUncancelQuoteResponse>>
       _quoteCancelIdPost({required String? id}) {
     final String $url = '/quote/cancel/${id}';
@@ -26437,6 +23194,19 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesAgentOrderCancelUncancelQuoteResponse,
         WebApiModulesAgentOrderCancelUncancelQuoteResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderQuoteOnHoldResponse>>
+      _quoteOnholdIdPost({required String? id}) {
+    final String $url = '/quote/onhold/${id}';
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAgentOrderQuoteOnHoldResponse,
+        WebApiModulesAgentOrderQuoteOnHoldResponse>($request);
   }
 
   @override
@@ -26468,7 +23238,7 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<bool>> _quoteApplybottomlinetotalPost(
+  Future<Response<WebApiLogicTSpStatusResponse>> _quoteApplybottomlinetotalPost(
       {required WebApiApplyBottomLineTotalRequest? body}) {
     final String $url = '/quote/applybottomlinetotal';
     final $body = body;
@@ -26478,7 +23248,8 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
-    return client.send<bool, bool>($request);
+    return client.send<WebApiLogicTSpStatusResponse,
+        WebApiLogicTSpStatusResponse>($request);
   }
 
   @override
@@ -27132,39 +23903,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _quoteEmptyobjectGet() {
-    final String $url = '/quote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quoteEmptybrowseobjectGet() {
-    final String $url = '/quote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _quoteKeyfieldnamesGet() {
-    final String $url = '/quote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _rateitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/rateitem/browse';
@@ -27200,42 +23938,9 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _rateitemEmptyobjectGet() {
-    final String $url = '/rateitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _rateitemEmptybrowseobjectGet() {
-    final String $url = '/rateitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _rateitemKeyfieldnamesGet() {
-    final String $url = '/rateitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptPost(
-      {required WebApiModulesBillingReceiptReceipt? body}) {
-    final String $url = '/receipt';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _receiptBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/receipt/browse';
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27243,8 +23948,39 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesBillingReceiptReceipt,
-        WebApiModulesBillingReceiptReceipt>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<Object>> _receiptLegendGet() {
+    final String $url = '/receipt/legend';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _receiptExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/receipt/exportexcelxlsx';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
   }
 
   @override
@@ -27277,6 +24013,34 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptPost(
+      {required WebApiModulesBillingReceiptReceipt? body}) {
+    final String $url = '/receipt';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesBillingReceiptReceipt,
+        WebApiModulesBillingReceiptReceipt>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptIdGet(
+      {required String? id}) {
+    final String $url = '/receipt/${id}';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesBillingReceiptReceipt,
+        WebApiModulesBillingReceiptReceipt>($request);
+  }
+
+  @override
   Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptIdPut({
     required String? id,
     required WebApiModulesBillingReceiptReceipt? body,
@@ -27302,19 +24066,6 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptIdGet(
-      {required String? id}) {
-    final String $url = '/receipt/${id}';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<WebApiModulesBillingReceiptReceipt,
-        WebApiModulesBillingReceiptReceipt>($request);
   }
 
   @override
@@ -27450,85 +24201,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _receiptBrowsePost(
-      {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<Object>> _receiptLegendGet() {
-    final String $url = '/receipt/legend';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<Object, Object>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _receiptExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/exportexcelxlsx';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptEmptyobjectGet() {
-    final String $url = '/receipt/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptEmptybrowseobjectGet() {
-    final String $url = '/receipt/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptKeyfieldnamesGet() {
-    final String $url = '/receipt/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _receiptcreditBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/receiptcredit/browse';
@@ -27561,39 +24233,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptcreditEmptyobjectGet() {
-    final String $url = '/receiptcredit/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptcreditEmptybrowseobjectGet() {
-    final String $url = '/receiptcredit/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptcreditKeyfieldnamesGet() {
-    final String $url = '/receiptcredit/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -27630,39 +24269,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptinvoiceEmptyobjectGet() {
-    final String $url = '/receiptinvoice/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptinvoiceEmptybrowseobjectGet() {
-    final String $url = '/receiptinvoice/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receiptinvoiceKeyfieldnamesGet() {
-    final String $url = '/receiptinvoice/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -27809,39 +24415,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _receivefromvendorEmptyobjectGet() {
-    final String $url = '/receivefromvendor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receivefromvendorEmptybrowseobjectGet() {
-    final String $url = '/receivefromvendor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _receivefromvendorKeyfieldnamesGet() {
-    final String $url = '/receivefromvendor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _removefromcontainerValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -27887,39 +24460,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _removefromcontainerEmptyobjectGet() {
-    final String $url = '/removefromcontainer/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _removefromcontainerEmptybrowseobjectGet() {
-    final String $url = '/removefromcontainer/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _removefromcontainerKeyfieldnamesGet() {
-    final String $url = '/removefromcontainer/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -28768,36 +25308,26 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _rentalinventoryEmptyobjectGet() {
-    final String $url = '/rentalinventory/emptyobject';
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryRentalInventoryRentalInventoryLogic>>>
+      _rentalinventoryManyPost(
+          {required List<WebApiModulesInventoryRentalInventoryRentalInventory>?
+              body}) {
+    final String $url = '/rentalinventory/many';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _rentalinventoryEmptybrowseobjectGet() {
-    final String $url = '/rentalinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _rentalinventoryKeyfieldnamesGet() {
-    final String $url = '/rentalinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryRentalInventoryRentalInventoryLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryRentalInventoryRentalInventoryLogic>(
+        $request);
   }
 
   @override
@@ -29512,36 +26042,35 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _repairEmptyobjectGet() {
-    final String $url = '/repair/emptyobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _repairValidateconsignorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/repair/validateconsignor/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _repairEmptybrowseobjectGet() {
-    final String $url = '/repair/emptybrowseobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _repairValidateconsignoragreementBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/repair/validateconsignoragreement/browse';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repairKeyfieldnamesGet() {
-    final String $url = '/repair/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
@@ -29701,39 +26230,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repaircostEmptyobjectGet() {
-    final String $url = '/repaircost/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repaircostEmptybrowseobjectGet() {
-    final String $url = '/repaircost/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repaircostKeyfieldnamesGet() {
-    final String $url = '/repaircost/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -29912,39 +26408,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _repairpartEmptyobjectGet() {
-    final String $url = '/repairpart/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repairpartEmptybrowseobjectGet() {
-    final String $url = '/repairpart/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repairpartKeyfieldnamesGet() {
-    final String $url = '/repairpart/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _repairreleaseBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/repairrelease/browse';
@@ -30019,39 +26482,6 @@ class _$Home extends Home {
     );
     return client.send<WebApiModulesHomeControlsRepairReleaseRepairRelease,
         WebApiModulesHomeControlsRepairReleaseRepairRelease>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repairreleaseEmptyobjectGet() {
-    final String $url = '/repairrelease/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repairreleaseEmptybrowseobjectGet() {
-    final String $url = '/repairrelease/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _repairreleaseKeyfieldnamesGet() {
-    final String $url = '/repairrelease/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -30145,39 +26575,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _retiredEmptyobjectGet() {
-    final String $url = '/retired/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _retiredEmptybrowseobjectGet() {
-    final String $url = '/retired/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _retiredKeyfieldnamesGet() {
-    final String $url = '/retired/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -30315,39 +26712,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _returntovendorEmptyobjectGet() {
-    final String $url = '/returntovendor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _returntovendorEmptybrowseobjectGet() {
-    final String $url = '/returntovendor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _returntovendorKeyfieldnamesGet() {
-    final String $url = '/returntovendor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -31063,36 +27427,26 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _salesinventoryEmptyobjectGet() {
-    final String $url = '/salesinventory/emptyobject';
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySalesInventorySalesInventoryLogic>>>
+      _salesinventoryManyPost(
+          {required List<WebApiModulesInventorySalesInventorySalesInventory>?
+              body}) {
+    final String $url = '/salesinventory/many';
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _salesinventoryEmptybrowseobjectGet() {
-    final String $url = '/salesinventory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _salesinventoryKeyfieldnamesGet() {
-    final String $url = '/salesinventory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySalesInventorySalesInventoryLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySalesInventorySalesInventoryLogic>(
+        $request);
   }
 
   @override
@@ -31211,39 +27565,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _serviceorderitemEmptyobjectGet() {
-    final String $url = '/serviceorderitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _serviceorderitemEmptybrowseobjectGet() {
-    final String $url = '/serviceorderitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _serviceorderitemKeyfieldnamesGet() {
-    final String $url = '/serviceorderitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _stageditemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/stageditem/browse';
@@ -31276,39 +27597,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _stageditemEmptyobjectGet() {
-    final String $url = '/stageditem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _stageditemEmptybrowseobjectGet() {
-    final String $url = '/stageditem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _stageditemKeyfieldnamesGet() {
-    final String $url = '/stageditem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -31486,39 +27774,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _subpurchaseorderitemEmptyobjectGet() {
-    final String $url = '/subpurchaseorderitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _subpurchaseorderitemEmptybrowseobjectGet() {
-    final String $url = '/subpurchaseorderitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _subpurchaseorderitemKeyfieldnamesGet() {
-    final String $url = '/subpurchaseorderitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<WebApiModulesHomeControlsSuspendedSessionSuspendedSession>>
       _suspendedsessionIdGet({required String? id}) {
     final String $url = '/suspendedsession/${id}';
@@ -31566,39 +27821,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _suspendedsessionEmptyobjectGet() {
-    final String $url = '/suspendedsession/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _suspendedsessionEmptybrowseobjectGet() {
-    final String $url = '/suspendedsession/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _suspendedsessionKeyfieldnamesGet() {
-    final String $url = '/suspendedsession/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -31663,39 +27885,6 @@ class _$Home extends Home {
     );
     return client.send<List<WebApiModulesHomeControlsTaxableTaxable>,
         WebApiModulesHomeControlsTaxableTaxable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _taxableEmptyobjectGet() {
-    final String $url = '/taxable/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _taxableEmptybrowseobjectGet() {
-    final String $url = '/taxable/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _taxableKeyfieldnamesGet() {
-    final String $url = '/taxable/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -31835,7 +28024,7 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesWarehouseContractContract>>
+  Future<Response<WebApiModulesWarehouseContractCreateCheckInContractResponse>>
       _transferinCompletecheckincontractIdPost({required String? id}) {
     final String $url = '/transferin/completecheckincontract/${id}';
     final Request $request = Request(
@@ -31843,8 +28032,9 @@ class _$Home extends Home {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesWarehouseContractContract,
-        WebApiModulesWarehouseContractContract>($request);
+    return client.send<
+        WebApiModulesWarehouseContractCreateCheckInContractResponse,
+        WebApiModulesWarehouseContractCreateCheckInContractResponse>($request);
   }
 
   @override
@@ -32140,39 +28330,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _transferinEmptyobjectGet() {
-    final String $url = '/transferin/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferinEmptybrowseobjectGet() {
-    final String $url = '/transferin/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferinKeyfieldnamesGet() {
-    final String $url = '/transferin/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transfermanifestBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -32307,39 +28464,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _transfermanifestEmptyobjectGet() {
-    final String $url = '/transfermanifest/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transfermanifestEmptybrowseobjectGet() {
-    final String $url = '/transfermanifest/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transfermanifestKeyfieldnamesGet() {
-    final String $url = '/transfermanifest/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _transferorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/transferorder/browse';
@@ -32386,7 +28510,9 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesTransfersTransferOrderTransferOrder>>
+  Future<
+          Response<
+              WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse>>
       _transferorderConfirmIdPost({required String? id}) {
     final String $url = '/transferorder/confirm/${id}';
     final Request $request = Request(
@@ -32394,8 +28520,10 @@ class _$Home extends Home {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesTransfersTransferOrderTransferOrder,
-        WebApiModulesTransfersTransferOrderTransferOrder>($request);
+    return client.send<
+            WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse,
+            WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse>(
+        $request);
   }
 
   @override
@@ -32477,7 +28605,7 @@ class _$Home extends Home {
   @override
   Future<
           Response<
-              WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>>
+              WebApiModulesTransfersTransferOrderCancelTransferOrderResponse>>
       _transferorderCancelIdPost({required String? id}) {
     final String $url = '/transferorder/cancel/${id}';
     final Request $request = Request(
@@ -32486,15 +28614,15 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<
-            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse,
-            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>(
+            WebApiModulesTransfersTransferOrderCancelTransferOrderResponse,
+            WebApiModulesTransfersTransferOrderCancelTransferOrderResponse>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>>
+              WebApiModulesTransfersTransferOrderCancelTransferOrderResponse>>
       _transferorderUncancelIdPost({required String? id}) {
     final String $url = '/transferorder/uncancel/${id}';
     final Request $request = Request(
@@ -32503,8 +28631,8 @@ class _$Home extends Home {
       client.baseUrl,
     );
     return client.send<
-            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse,
-            WebApiModulesTransfersTransferOrderToggleTransferOrderResponse>(
+            WebApiModulesTransfersTransferOrderCancelTransferOrderResponse,
+            WebApiModulesTransfersTransferOrderCancelTransferOrderResponse>(
         $request);
   }
 
@@ -32513,6 +28641,22 @@ class _$Home extends Home {
       _transferorderValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final String $url = '/transferorder/validatedepartment/browse';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _transferorderValidatetransfertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final String $url = '/transferorder/validatetransfertype/browse';
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -32637,39 +28781,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _transferorderEmptyobjectGet() {
-    final String $url = '/transferorder/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferorderEmptybrowseobjectGet() {
-    final String $url = '/transferorder/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferorderKeyfieldnamesGet() {
-    final String $url = '/transferorder/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferoutValidatetransferBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -32683,39 +28794,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferoutEmptyobjectGet() {
-    final String $url = '/transferout/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferoutEmptybrowseobjectGet() {
-    final String $url = '/transferout/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferoutKeyfieldnamesGet() {
-    final String $url = '/transferout/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -32885,39 +28963,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _transferreceiptEmptyobjectGet() {
-    final String $url = '/transferreceipt/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferreceiptEmptybrowseobjectGet() {
-    final String $url = '/transferreceipt/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferreceiptKeyfieldnamesGet() {
-    final String $url = '/transferreceipt/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidatetransferBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -33011,39 +29056,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferstatusEmptyobjectGet() {
-    final String $url = '/transferstatus/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferstatusEmptybrowseobjectGet() {
-    final String $url = '/transferstatus/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _transferstatusKeyfieldnamesGet() {
-    final String $url = '/transferstatus/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -33656,39 +29668,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _vendorEmptyobjectGet() {
-    final String $url = '/vendor/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorEmptybrowseobjectGet() {
-    final String $url = '/vendor/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorKeyfieldnamesGet() {
-    final String $url = '/vendor/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<Object>> _vendorinvoiceLegendGet() {
     final String $url = '/vendorinvoice/legend';
     final Request $request = Request(
@@ -33843,6 +29822,23 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              WebApiModulesBillingVendorInvoiceRestoreVendorInvoiceChargeCodesToDefaultResponse>>
+      _vendorinvoiceIdRestoredefaultchargecodesPost({required String? id}) {
+    final String $url = '/vendorinvoice/${id}/restoredefaultchargecodes';
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesBillingVendorInvoiceRestoreVendorInvoiceChargeCodesToDefaultResponse,
+            WebApiModulesBillingVendorInvoiceRestoreVendorInvoiceChargeCodesToDefaultResponse>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -33872,39 +29868,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceEmptyobjectGet() {
-    final String $url = '/vendorinvoice/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceEmptybrowseobjectGet() {
-    final String $url = '/vendorinvoice/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceKeyfieldnamesGet() {
-    final String $url = '/vendorinvoice/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -33941,39 +29904,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceexportbatchEmptyobjectGet() {
-    final String $url = '/vendorinvoiceexportbatch/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceexportbatchEmptybrowseobjectGet() {
-    final String $url = '/vendorinvoiceexportbatch/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceexportbatchKeyfieldnamesGet() {
-    final String $url = '/vendorinvoiceexportbatch/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -34104,6 +30034,47 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic>>>
+      _vendorinvoiceitemManyPost(
+          {required List<
+                  WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>?
+              body}) {
+    final String $url = '/vendorinvoiceitem/many';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingVendorInvoiceResetToDefaultResponse>>
+      _vendorinvoiceitemResettodefaultPost(
+          {required WebApiModulesBillingVendorInvoiceResetToDefaultRequest?
+              body}) {
+    final String $url = '/vendorinvoiceitem/resettodefault';
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesBillingVendorInvoiceResetToDefaultResponse,
+        WebApiModulesBillingVendorInvoiceResetToDefaultResponse>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceitemValidateglaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -34133,39 +30104,6 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceitemEmptyobjectGet() {
-    final String $url = '/vendorinvoiceitem/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceitemEmptybrowseobjectGet() {
-    final String $url = '/vendorinvoiceitem/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoiceitemKeyfieldnamesGet() {
-    final String $url = '/vendorinvoiceitem/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -34203,45 +30141,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _vendorinvoiceitemcorrespondingdealinvoicesEmptyobjectGet() {
-    final String $url =
-        '/vendorinvoiceitemcorrespondingdealinvoices/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _vendorinvoiceitemcorrespondingdealinvoicesEmptybrowseobjectGet() {
-    final String $url =
-        '/vendorinvoiceitemcorrespondingdealinvoices/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>>
-      _vendorinvoiceitemcorrespondingdealinvoicesKeyfieldnamesGet() {
-    final String $url =
-        '/vendorinvoiceitemcorrespondingdealinvoices/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -34388,39 +30287,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _vendorinvoicenoteEmptyobjectGet() {
-    final String $url = '/vendorinvoicenote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicenoteEmptybrowseobjectGet() {
-    final String $url = '/vendorinvoicenote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicenoteKeyfieldnamesGet() {
-    final String $url = '/vendorinvoicenote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicepaymentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -34457,39 +30323,6 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<dynamic>> _vendorinvoicepaymentEmptyobjectGet() {
-    final String $url = '/vendorinvoicepayment/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicepaymentEmptybrowseobjectGet() {
-    final String $url = '/vendorinvoicepayment/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicepaymentKeyfieldnamesGet() {
-    final String $url = '/vendorinvoicepayment/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicestatushistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -34523,39 +30356,6 @@ class _$Home extends Home {
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
             FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicestatushistoryEmptyobjectGet() {
-    final String $url = '/vendorinvoicestatushistory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicestatushistoryEmptybrowseobjectGet() {
-    final String $url = '/vendorinvoicestatushistory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendorinvoicestatushistoryKeyfieldnamesGet() {
-    final String $url = '/vendorinvoicestatushistory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -34694,38 +30494,5 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendornoteEmptyobjectGet() {
-    final String $url = '/vendornote/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendornoteEmptybrowseobjectGet() {
-    final String $url = '/vendornote/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _vendornoteKeyfieldnamesGet() {
-    final String $url = '/vendornote/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 }
