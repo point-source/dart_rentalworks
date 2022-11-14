@@ -21,9 +21,16 @@ class _$AccountServices extends AccountServices {
           Response<
               WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
       _accountSessionGet({String? applicationId}) {
-    final $url = '/account/session';
-    final $params = <String, dynamic>{'applicationId': applicationId};
-    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    final String $url = '/account/session';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'applicationId': applicationId
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
     return client.send<
             WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse,
             WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>(
@@ -34,15 +41,23 @@ class _$AccountServices extends AccountServices {
   Future<
           Response<
               WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>>
-      _accountOfficelocationGet(
-          {String? locationid, String? warehouseid, String? departmentid}) {
-    final $url = '/account/officelocation';
-    final $params = <String, dynamic>{
+      _accountOfficelocationGet({
+    String? locationid,
+    String? warehouseid,
+    String? departmentid,
+  }) {
+    final String $url = '/account/officelocation';
+    final Map<String, dynamic> $params = <String, dynamic>{
       'locationid': locationid,
       'warehouseid': warehouseid,
-      'departmentid': departmentid
+      'departmentid': departmentid,
     };
-    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
     return client.send<
             WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse,
             WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>(
@@ -54,9 +69,14 @@ class _$AccountServices extends AccountServices {
       _accountResetpasswordPost(
           {required WebApiModulesAccountServicesAccountResetPasswordRequest?
               body}) {
-    final $url = '/account/resetpassword';
+    final String $url = '/account/resetpassword';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<WebApiModulesAccountServicesAccountResetPasswordResponse,
         WebApiModulesAccountServicesAccountResetPasswordResponse>($request);
   }
@@ -66,9 +86,14 @@ class _$AccountServices extends AccountServices {
       _accountGetsettingsPost(
           {required WebApiModulesAccountServicesAccountGetSettingsRequest?
               body}) {
-    final $url = '/account/getsettings';
+    final String $url = '/account/getsettings';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<WebApiLogicAppFuncGetSettingsResponse,
         WebApiLogicAppFuncGetSettingsResponse>($request);
   }
@@ -76,9 +101,14 @@ class _$AccountServices extends AccountServices {
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> _jwtPost(
       {required FwStandardModelsFwApplicationUser? body}) {
-    final $url = '/jwt';
+    final String $url = '/jwt';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
         FwCoreControllersFwJwtControllerJwtResponseModel>($request);
   }
@@ -87,9 +117,14 @@ class _$AccountServices extends AccountServices {
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
       _jwtOktaPost(
           {required WebApiModulesAccountServicesJwtOktaRequest? body}) {
-    final $url = '/jwt/okta';
+    final String $url = '/jwt/okta';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
         FwCoreControllersFwJwtControllerJwtResponseModel>($request);
   }
@@ -98,9 +133,14 @@ class _$AccountServices extends AccountServices {
   Future<Response<WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
       _jwtOktaverifyPost(
           {required WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
-    final $url = '/jwt/oktaverify';
+    final String $url = '/jwt/oktaverify';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<WebApiModulesAccountServicesJwtOktaSessionResponseModel,
         WebApiModulesAccountServicesJwtOktaSessionResponseModel>($request);
   }

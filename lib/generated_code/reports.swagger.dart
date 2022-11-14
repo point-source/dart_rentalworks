@@ -2,11 +2,12 @@
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
-
-import 'package:chopper/chopper.dart';
 import 'dart:convert';
 
+import 'package:chopper/chopper.dart';
+
 import 'client_mapping.dart';
+import 'dart:async';
 import 'package:chopper/chopper.dart' as chopper;
 import 'reports.enums.swagger.dart' as enums;
 export 'reports.enums.swagger.dart';
@@ -20,10 +21,12 @@ part 'reports.swagger.g.dart';
 
 @ChopperApi()
 abstract class Reports extends ChopperService {
-  static Reports create(
-      {ChopperClient? client,
-      String? baseUrl,
-      Iterable<dynamic>? interceptors}) {
+  static Reports create({
+    ChopperClient? client,
+    Authenticator? authenticator,
+    String? baseUrl,
+    Iterable<dynamic>? interceptors,
+  }) {
     if (client != null) {
       return _$Reports(client);
     }
@@ -31,7 +34,8 @@ abstract class Reports extends ChopperService {
     final newClient = ChopperClient(
       services: [_$Reports()],
       converter: $JsonSerializableConverter(),
-      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
+      interceptors: interceptors ?? [],
+      authenticator: authenticator, /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Reports(newClient);
   }
@@ -13947,11 +13951,12 @@ abstract class Reports extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic>>
-      reportsettingsGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      reportsettingsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic,
         () =>
@@ -13971,11 +13976,12 @@ abstract class Reports extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic>>
-      _reportsettingsGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _reportsettingsGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -14029,10 +14035,10 @@ abstract class Reports extends ChopperService {
   Future<
           chopper
               .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
-      reportsettingsIdPut(
-          {required String? id,
-          required WebApiModulesReportsSharedReportSettingsReportSettings?
-              body}) {
+      reportsettingsIdPut({
+    required String? id,
+    required WebApiModulesReportsSharedReportSettingsReportSettings? body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesReportsSharedReportSettingsReportSettings,
         () => WebApiModulesReportsSharedReportSettingsReportSettings
@@ -14047,12 +14053,11 @@ abstract class Reports extends ChopperService {
   Future<
           chopper
               .Response<WebApiModulesReportsSharedReportSettingsReportSettings>>
-      _reportsettingsIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesReportsSharedReportSettingsReportSettings?
-                  body});
+      _reportsettingsIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required WebApiModulesReportsSharedReportSettingsReportSettings? body,
+  });
 
   ///
   ///@param id
@@ -20029,9 +20034,6 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult &&
@@ -20039,6 +20041,9 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20051,6 +20056,13 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
       copyWith({String? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
         downloadUrl: downloadUrl ?? this.downloadUrl);
+  }
+
+  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+      copyWithWrapped({Wrapped<String?>? downloadUrl}) {
+    return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
+        downloadUrl:
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
   }
 }
 
@@ -20068,10 +20080,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
-      name: 'DataType',
-      includeIfNull: false,
-      toJson: fwStandardSqlServerFwDataTypesToJson,
-      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+    name: 'DataType',
+    includeIfNull: false,
+    toJson: fwStandardSqlServerFwDataTypesToJson,
+    fromJson: fwStandardSqlServerFwDataTypesFromJson,
+  )
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
@@ -20079,9 +20092,6 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -20093,6 +20103,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality()
                     .equals(other.dataType, dataType)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20107,6 +20120,14 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       {String? name, enums.FwStandardSqlServerFwDataTypes? dataType}) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
         name: name ?? this.name, dataType: dataType ?? this.dataType);
+  }
+
+  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWithWrapped(
+      {Wrapped<String?>? name,
+      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType}) {
+    return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
+        name: (name != null ? name.value : this.name),
+        dataType: (dataType != null ? dataType.value : this.dataType));
   }
 }
 
@@ -20132,9 +20153,6 @@ class FwStandardDataFwCustomValue {
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwCustomValue &&
@@ -20148,6 +20166,9 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality()
                     .equals(other.fieldType, fieldType)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20164,6 +20185,16 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
         fieldName: fieldName ?? this.fieldName,
         fieldValue: fieldValue ?? this.fieldValue,
         fieldType: fieldType ?? this.fieldType);
+  }
+
+  FwStandardDataFwCustomValue copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? fieldValue,
+      Wrapped<String?>? fieldType}) {
+    return FwStandardDataFwCustomValue(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        fieldValue: (fieldValue != null ? fieldValue.value : this.fieldValue),
+        fieldType: (fieldType != null ? fieldType.value : this.fieldType));
   }
 }
 
@@ -20191,9 +20222,6 @@ class FwStandardDataFwDefaultAttribute {
       _$FwStandardDataFwDefaultAttributeToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwDefaultAttribute &&
@@ -20207,6 +20235,9 @@ class FwStandardDataFwDefaultAttribute {
                 const DeepCollectionEquality()
                     .equals(other.defaultValue, defaultValue)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20224,6 +20255,18 @@ extension $FwStandardDataFwDefaultAttributeExtension
         fieldName: fieldName ?? this.fieldName,
         attributeName: attributeName ?? this.attributeName,
         defaultValue: defaultValue ?? this.defaultValue);
+  }
+
+  FwStandardDataFwDefaultAttribute copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? attributeName,
+      Wrapped<String?>? defaultValue}) {
+    return FwStandardDataFwDefaultAttribute(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        attributeName:
+            (attributeName != null ? attributeName.value : this.attributeName),
+        defaultValue:
+            (defaultValue != null ? defaultValue.value : this.defaultValue));
   }
 }
 
@@ -20264,9 +20307,6 @@ class FwStandardDataFwReportLoader {
   Map<String, dynamic> toJson() => _$FwStandardDataFwReportLoaderToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwReportLoader &&
@@ -20288,6 +20328,9 @@ class FwStandardDataFwReportLoader {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20317,6 +20360,26 @@ extension $FwStandardDataFwReportLoaderExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardDataFwReportLoader copyWithWrapped(
+      {Wrapped<String?>? printDate,
+      Wrapped<String?>? printTime,
+      Wrapped<String?>? printDateTime,
+      Wrapped<List<String>?>? dateFields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardDataFwReportLoader(
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -20418,9 +20481,6 @@ class FwStandardModelsBrowseRequest {
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsBrowseRequest &&
@@ -20494,6 +20554,9 @@ class FwStandardModelsBrowseRequest {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(miscfields) ^
       const DeepCollectionEquality().hash(module) ^
@@ -20525,9 +20588,9 @@ class FwStandardModelsBrowseRequest {
 extension $FwStandardModelsBrowseRequestExtension
     on FwStandardModelsBrowseRequest {
   FwStandardModelsBrowseRequest copyWith(
-      {dynamic? miscfields,
+      {dynamic miscfields,
       String? module,
-      dynamic? options,
+      dynamic options,
       String? orderby,
       String? orderbydirection,
       int? top,
@@ -20540,8 +20603,8 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchseparators,
       List<String>? searchcondition,
       List<String>? searchconjunctions,
-      dynamic? uniqueids,
-      dynamic? boundids,
+      dynamic uniqueids,
+      dynamic boundids,
       Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
@@ -20575,6 +20638,79 @@ extension $FwStandardModelsBrowseRequestExtension
         totalfields: totalfields ?? this.totalfields,
         activeviewfields: activeviewfields ?? this.activeviewfields);
   }
+
+  FwStandardModelsBrowseRequest copyWithWrapped(
+      {Wrapped<dynamic>? miscfields,
+      Wrapped<String?>? module,
+      Wrapped<dynamic>? options,
+      Wrapped<String?>? orderby,
+      Wrapped<String?>? orderbydirection,
+      Wrapped<int?>? top,
+      Wrapped<int?>? pageno,
+      Wrapped<int?>? pagesize,
+      Wrapped<List<String>?>? searchfieldoperators,
+      Wrapped<List<String>?>? searchfields,
+      Wrapped<List<String>?>? searchfieldvalues,
+      Wrapped<List<String>?>? searchfieldtypes,
+      Wrapped<List<String>?>? searchseparators,
+      Wrapped<List<String>?>? searchcondition,
+      Wrapped<List<String>?>? searchconjunctions,
+      Wrapped<dynamic>? uniqueids,
+      Wrapped<dynamic>? boundids,
+      Wrapped<Map<String, dynamic>?>? filterfields,
+      Wrapped<String?>? activeview,
+      Wrapped<bool?>? emptyobject,
+      Wrapped<bool?>? forexcel,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+      Wrapped<List<String>?>? totalfields,
+      Wrapped<Map<String, dynamic>?>? activeviewfields}) {
+    return FwStandardModelsBrowseRequest(
+        miscfields: (miscfields != null ? miscfields.value : this.miscfields),
+        module: (module != null ? module.value : this.module),
+        options: (options != null ? options.value : this.options),
+        orderby: (orderby != null ? orderby.value : this.orderby),
+        orderbydirection: (orderbydirection != null
+            ? orderbydirection.value
+            : this.orderbydirection),
+        top: (top != null ? top.value : this.top),
+        pageno: (pageno != null ? pageno.value : this.pageno),
+        pagesize: (pagesize != null ? pagesize.value : this.pagesize),
+        searchfieldoperators: (searchfieldoperators != null
+            ? searchfieldoperators.value
+            : this.searchfieldoperators),
+        searchfields:
+            (searchfields != null ? searchfields.value : this.searchfields),
+        searchfieldvalues: (searchfieldvalues != null
+            ? searchfieldvalues.value
+            : this.searchfieldvalues),
+        searchfieldtypes: (searchfieldtypes != null
+            ? searchfieldtypes.value
+            : this.searchfieldtypes),
+        searchseparators: (searchseparators != null
+            ? searchseparators.value
+            : this.searchseparators),
+        searchcondition: (searchcondition != null
+            ? searchcondition.value
+            : this.searchcondition),
+        searchconjunctions: (searchconjunctions != null
+            ? searchconjunctions.value
+            : this.searchconjunctions),
+        uniqueids: (uniqueids != null ? uniqueids.value : this.uniqueids),
+        boundids: (boundids != null ? boundids.value : this.boundids),
+        filterfields:
+            (filterfields != null ? filterfields.value : this.filterfields),
+        activeview: (activeview != null ? activeview.value : this.activeview),
+        emptyobject:
+            (emptyobject != null ? emptyobject.value : this.emptyobject),
+        forexcel: (forexcel != null ? forexcel.value : this.forexcel),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields),
+        totalfields:
+            (totalfields != null ? totalfields.value : this.totalfields),
+        activeviewfields: (activeviewfields != null
+            ? activeviewfields.value
+            : this.activeviewfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -20601,9 +20737,6 @@ class FwStandardModelsCheckBoxListItem {
       _$FwStandardModelsCheckBoxListItemToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsCheckBoxListItem &&
@@ -20615,6 +20748,9 @@ class FwStandardModelsCheckBoxListItem {
                 const DeepCollectionEquality()
                     .equals(other.selected, selected)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20632,6 +20768,16 @@ extension $FwStandardModelsCheckBoxListItemExtension
         value: value ?? this.value,
         text: text ?? this.text,
         selected: selected ?? this.selected);
+  }
+
+  FwStandardModelsCheckBoxListItem copyWithWrapped(
+      {Wrapped<String?>? value,
+      Wrapped<String?>? text,
+      Wrapped<bool?>? selected}) {
+    return FwStandardModelsCheckBoxListItem(
+        value: (value != null ? value.value : this.value),
+        text: (text != null ? text.value : this.text),
+        selected: (selected != null ? selected.value : this.selected));
   }
 }
 
@@ -20657,9 +20803,6 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -20673,6 +20816,9 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20691,13 +20837,23 @@ extension $FwStandardModelsFwApiExceptionExtension
         message: message ?? this.message,
         stackTrace: stackTrace ?? this.stackTrace);
   }
+
+  FwStandardModelsFwApiException copyWithWrapped(
+      {Wrapped<int?>? statusCode,
+      Wrapped<String?>? message,
+      Wrapped<String?>? stackTrace}) {
+    return FwStandardModelsFwApiException(
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        message: (message != null ? message.value : this.message),
+        stackTrace: (stackTrace != null ? stackTrace.value : this.stackTrace));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryFilter {
   FwStandardModelsFwQueryFilter({
-    this.field,
-    this.op,
+    required this.field,
+    required this.op,
     this.value,
   });
 
@@ -20705,17 +20861,14 @@ class FwStandardModelsFwQueryFilter {
       _$FwStandardModelsFwQueryFilterFromJson(json);
 
   @JsonKey(name: 'Field', includeIfNull: false)
-  final String? field;
+  final String field;
   @JsonKey(name: 'Op', includeIfNull: false)
-  final String? op;
+  final String op;
   @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -20728,6 +20881,9 @@ class FwStandardModelsFwQueryFilter {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20745,6 +20901,14 @@ extension $FwStandardModelsFwQueryFilterExtension
         field: field ?? this.field,
         op: op ?? this.op,
         value: value ?? this.value);
+  }
+
+  FwStandardModelsFwQueryFilter copyWithWrapped(
+      {Wrapped<String>? field, Wrapped<String>? op, Wrapped<String?>? value}) {
+    return FwStandardModelsFwQueryFilter(
+        field: (field != null ? field.value : this.field),
+        op: (op != null ? op.value : this.op),
+        value: (value != null ? value.value : this.value));
   }
 }
 
@@ -20785,9 +20949,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic &&
@@ -20804,6 +20965,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsRep
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20831,6 +20995,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettin
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
   }
+
+  FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesReportsSharedReportSettingsReportSettings>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -20852,15 +21034,15 @@ class FwStandardModelsSelectedCheckBoxListItem {
       _$FwStandardModelsSelectedCheckBoxListItemToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsSelectedCheckBoxListItem &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20871,6 +21053,12 @@ extension $FwStandardModelsSelectedCheckBoxListItemExtension
     on FwStandardModelsSelectedCheckBoxListItem {
   FwStandardModelsSelectedCheckBoxListItem copyWith({String? value}) {
     return FwStandardModelsSelectedCheckBoxListItem(value: value ?? this.value);
+  }
+
+  FwStandardModelsSelectedCheckBoxListItem copyWithWrapped(
+      {Wrapped<String?>? value}) {
+    return FwStandardModelsSelectedCheckBoxListItem(
+        value: (value != null ? value.value : this.value));
   }
 }
 
@@ -20923,9 +21111,6 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader &&
@@ -20951,6 +21136,9 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -20987,6 +21175,33 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderExt
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
+      copyWithWrapped(
+          {Wrapped<int?>? customReportCssId,
+          Wrapped<String?>? description,
+          Wrapped<String?>? css,
+          Wrapped<bool?>? isGlobal,
+          Wrapped<bool?>? inactive,
+          Wrapped<bool?>? active,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader(
+        customReportCssId: (customReportCssId != null
+            ? customReportCssId.value
+            : this.customReportCssId),
+        description:
+            (description != null ? description.value : this.description),
+        css: (css != null ? css.value : this.css),
+        isGlobal: (isGlobal != null ? isGlobal.value : this.isGlobal),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        active: (active != null ? active.value : this.active),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -21019,9 +21234,6 @@ class FwStandardReportingFwReportEmailInfo {
       _$FwStandardReportingFwReportEmailInfoToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardReportingFwReportEmailInfo &&
@@ -21037,6 +21249,9 @@ class FwStandardReportingFwReportEmailInfo {
             (identical(other.body, body) ||
                 const DeepCollectionEquality().equals(other.body, body)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21058,6 +21273,20 @@ extension $FwStandardReportingFwReportEmailInfoExtension
         cc: cc ?? this.cc,
         subject: subject ?? this.subject,
         body: body ?? this.body);
+  }
+
+  FwStandardReportingFwReportEmailInfo copyWithWrapped(
+      {Wrapped<String?>? from,
+      Wrapped<String?>? to,
+      Wrapped<String?>? cc,
+      Wrapped<String?>? subject,
+      Wrapped<String?>? body}) {
+    return FwStandardReportingFwReportEmailInfo(
+        from: (from != null ? from.value : this.from),
+        to: (to != null ? to.value : this.to),
+        cc: (cc != null ? cc.value : this.cc),
+        subject: (subject != null ? subject.value : this.subject),
+        body: (body != null ? body.value : this.body));
   }
 }
 
@@ -21093,9 +21322,6 @@ class FwStandardReportingFwReportRenderRequest {
       _$FwStandardReportingFwReportRenderRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardReportingFwReportRenderRequest &&
@@ -21115,6 +21341,9 @@ class FwStandardReportingFwReportRenderRequest {
                 const DeepCollectionEquality()
                     .equals(other.emailImageOptions, emailImageOptions)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21143,6 +21372,25 @@ extension $FwStandardReportingFwReportRenderRequestExtension
             downloadPdfAsAttachment ?? this.downloadPdfAsAttachment,
         emailImageOptions: emailImageOptions ?? this.emailImageOptions);
   }
+
+  FwStandardReportingFwReportRenderRequest copyWithWrapped(
+      {Wrapped<String?>? renderMode,
+      Wrapped<Map<String, dynamic>?>? parameters,
+      Wrapped<FwStandardReportingFwReportEmailInfo?>? email,
+      Wrapped<bool?>? downloadPdfAsAttachment,
+      Wrapped<FwStandardReportingFwReportRenderRequestEmailImageOptions?>?
+          emailImageOptions}) {
+    return FwStandardReportingFwReportRenderRequest(
+        renderMode: (renderMode != null ? renderMode.value : this.renderMode),
+        parameters: (parameters != null ? parameters.value : this.parameters),
+        email: (email != null ? email.value : this.email),
+        downloadPdfAsAttachment: (downloadPdfAsAttachment != null
+            ? downloadPdfAsAttachment.value
+            : this.downloadPdfAsAttachment),
+        emailImageOptions: (emailImageOptions != null
+            ? emailImageOptions.value
+            : this.emailImageOptions));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -21168,9 +21416,6 @@ class FwStandardReportingFwReportRenderRequestEmailImageOptions {
       _$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardReportingFwReportRenderRequestEmailImageOptions &&
@@ -21179,6 +21424,9 @@ class FwStandardReportingFwReportRenderRequestEmailImageOptions {
             (identical(other.height, height) ||
                 const DeepCollectionEquality().equals(other.height, height)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21193,6 +21441,13 @@ extension $FwStandardReportingFwReportRenderRequestEmailImageOptionsExtension
       {int? width, int? height}) {
     return FwStandardReportingFwReportRenderRequestEmailImageOptions(
         width: width ?? this.width, height: height ?? this.height);
+  }
+
+  FwStandardReportingFwReportRenderRequestEmailImageOptions copyWithWrapped(
+      {Wrapped<int?>? width, Wrapped<int?>? height}) {
+    return FwStandardReportingFwReportRenderRequestEmailImageOptions(
+        width: (width != null ? width.value : this.width),
+        height: (height != null ? height.value : this.height));
   }
 }
 
@@ -21225,9 +21480,6 @@ class FwStandardReportingFwReportRenderResponse {
       _$FwStandardReportingFwReportRenderResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardReportingFwReportRenderResponse &&
@@ -21244,6 +21496,9 @@ class FwStandardReportingFwReportRenderResponse {
                 const DeepCollectionEquality()
                     .equals(other.consoleOutput, consoleOutput)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21267,6 +21522,21 @@ extension $FwStandardReportingFwReportRenderResponseExtension
         pdfReportUrl: pdfReportUrl ?? this.pdfReportUrl,
         consoleOutput: consoleOutput ?? this.consoleOutput);
   }
+
+  FwStandardReportingFwReportRenderResponse copyWithWrapped(
+      {Wrapped<String?>? renderMode,
+      Wrapped<String?>? htmlReportUrl,
+      Wrapped<String?>? pdfReportUrl,
+      Wrapped<String?>? consoleOutput}) {
+    return FwStandardReportingFwReportRenderResponse(
+        renderMode: (renderMode != null ? renderMode.value : this.renderMode),
+        htmlReportUrl:
+            (htmlReportUrl != null ? htmlReportUrl.value : this.htmlReportUrl),
+        pdfReportUrl:
+            (pdfReportUrl != null ? pdfReportUrl.value : this.pdfReportUrl),
+        consoleOutput:
+            (consoleOutput != null ? consoleOutput.value : this.consoleOutput));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -21285,15 +21555,15 @@ class FwStandardSqlServerFwDateTime {
   Map<String, dynamic> toJson() => _$FwStandardSqlServerFwDateTimeToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardSqlServerFwDateTime &&
             (identical(other.val, val) ||
                 const DeepCollectionEquality().equals(other.val, val)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21304,6 +21574,11 @@ extension $FwStandardSqlServerFwDateTimeExtension
     on FwStandardSqlServerFwDateTime {
   FwStandardSqlServerFwDateTime copyWith({String? val}) {
     return FwStandardSqlServerFwDateTime(val: val ?? this.val);
+  }
+
+  FwStandardSqlServerFwDateTime copyWithWrapped({Wrapped<String?>? val}) {
+    return FwStandardSqlServerFwDateTime(
+        val: (val != null ? val.value : this.val));
   }
 }
 
@@ -21336,7 +21611,7 @@ class FwStandardSqlServerFwJsonDataTable {
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
   @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
-  final List<List<Object>>? rows;
+  final List<List<Object?>>? rows;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
@@ -21353,9 +21628,6 @@ class FwStandardSqlServerFwJsonDataTable {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -21391,6 +21663,9 @@ class FwStandardSqlServerFwJsonDataTable {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(columnIndex) ^
       const DeepCollectionEquality().hash(totals) ^
@@ -21411,7 +21686,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       {Map<String, dynamic>? columnIndex,
       Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
-      List<List<Object>>? rows,
+      List<List<Object?>>? rows,
       int? pageNo,
       int? pageSize,
       int? totalPages,
@@ -21429,6 +21704,33 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         totalRows: totalRows ?? this.totalRows,
         dateFields: dateFields ?? this.dateFields,
         columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+  }
+
+  FwStandardSqlServerFwJsonDataTable copyWithWrapped(
+      {Wrapped<Map<String, dynamic>?>? columnIndex,
+      Wrapped<Map<String, dynamic>?>? totals,
+      Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
+      Wrapped<List<List<Object>>?>? rows,
+      Wrapped<int?>? pageNo,
+      Wrapped<int?>? pageSize,
+      Wrapped<int?>? totalPages,
+      Wrapped<int?>? totalRows,
+      Wrapped<List<String>?>? dateFields,
+      Wrapped<Map<String, dynamic>?>? columnNameByIndex}) {
+    return FwStandardSqlServerFwJsonDataTable(
+        columnIndex:
+            (columnIndex != null ? columnIndex.value : this.columnIndex),
+        totals: (totals != null ? totals.value : this.totals),
+        columns: (columns != null ? columns.value : this.columns),
+        rows: (rows != null ? rows.value : this.rows),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalPages: (totalPages != null ? totalPages.value : this.totalPages),
+        totalRows: (totalRows != null ? totalRows.value : this.totalRows),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        columnNameByIndex: (columnNameByIndex != null
+            ? columnNameByIndex.value
+            : this.columnNameByIndex));
   }
 }
 
@@ -21451,10 +21753,11 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
-      name: 'DataType',
-      includeIfNull: false,
-      toJson: fwStandardSqlServerFwDataTypesToJson,
-      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+    name: 'DataType',
+    includeIfNull: false,
+    toJson: fwStandardSqlServerFwDataTypesToJson,
+    fromJson: fwStandardSqlServerFwDataTypesFromJson,
+  )
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
@@ -21465,9 +21768,6 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -21488,6 +21788,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21513,6 +21816,20 @@ extension $FwStandardSqlServerFwJsonDataTableColumnExtension
         dataType: dataType ?? this.dataType,
         isUniqueId: isUniqueId ?? this.isUniqueId,
         isVisible: isVisible ?? this.isVisible);
+  }
+
+  FwStandardSqlServerFwJsonDataTableColumn copyWithWrapped(
+      {Wrapped<String?>? name,
+      Wrapped<String?>? dataField,
+      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
+      Wrapped<bool?>? isUniqueId,
+      Wrapped<bool?>? isVisible}) {
+    return FwStandardSqlServerFwJsonDataTableColumn(
+        name: (name != null ? name.value : this.name),
+        dataField: (dataField != null ? dataField.value : this.dataField),
+        dataType: (dataType != null ? dataType.value : this.dataType),
+        isUniqueId: (isUniqueId != null ? isUniqueId.value : this.isUniqueId),
+        isVisible: (isVisible != null ? isVisible.value : this.isVisible));
   }
 }
 
@@ -21556,9 +21873,6 @@ class WebApiDataAppReportResponse {
   Map<String, dynamic> toJson() => _$WebApiDataAppReportResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiDataAppReportResponse &&
@@ -21587,6 +21901,9 @@ class WebApiDataAppReportResponse {
                 const DeepCollectionEquality()
                     .equals(other.globalStyle, globalStyle)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21621,6 +21938,35 @@ extension $WebApiDataAppReportResponseExtension on WebApiDataAppReportResponse {
         customReportTemplate: customReportTemplate ?? this.customReportTemplate,
         globalCssRules: globalCssRules ?? this.globalCssRules,
         globalStyle: globalStyle ?? this.globalStyle);
+  }
+
+  WebApiDataAppReportResponse copyWithWrapped(
+      {Wrapped<FwStandardSqlServerFwJsonDataTable?>? dataTable,
+      Wrapped<FwStandardDataFwReportLoader?>? dataObject,
+      Wrapped<String?>? printDate,
+      Wrapped<String?>? printTime,
+      Wrapped<String?>? printDateTime,
+      Wrapped<String?>? customReportTemplate,
+      Wrapped<
+              List<
+                  FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader>?>?
+          globalCssRules,
+      Wrapped<String?>? globalStyle}) {
+    return WebApiDataAppReportResponse(
+        dataTable: (dataTable != null ? dataTable.value : this.dataTable),
+        dataObject: (dataObject != null ? dataObject.value : this.dataObject),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        customReportTemplate: (customReportTemplate != null
+            ? customReportTemplate.value
+            : this.customReportTemplate),
+        globalCssRules: (globalCssRules != null
+            ? globalCssRules.value
+            : this.globalCssRules),
+        globalStyle:
+            (globalStyle != null ? globalStyle.value : this.globalStyle));
   }
 }
 
@@ -21682,9 +22028,6 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest &&
@@ -21725,6 +22068,9 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21773,6 +22119,44 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? asOfDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealCsrId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest(
+        asOfDate: (asOfDate != null ? asOfDate.value : this.asOfDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealCsrId: (dealCsrId != null ? dealCsrId.value : this.dealCsrId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -21840,9 +22224,6 @@ class WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsRepor
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest &&
@@ -21884,6 +22265,9 @@ class WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsRepor
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -21935,6 +22319,47 @@ extension $WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceipts
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? paymentTypeId,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        paymentTypeId:
+            (paymentTypeId != null ? paymentTypeId.value : this.paymentTypeId),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -22002,9 +22427,6 @@ class WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest &&
@@ -22050,6 +22472,9 @@ class WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -22104,6 +22529,53 @@ extension $WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributi
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? glAccountId,
+          Wrapped<String?>? excludeGlAccountId,
+          Wrapped<String?>? dealId,
+          Wrapped<bool?>? isSomeDetail,
+          Wrapped<bool?>? isFullDetail,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        glAccountId:
+            (glAccountId != null ? glAccountId.value : this.glAccountId),
+        excludeGlAccountId: (excludeGlAccountId != null
+            ? excludeGlAccountId.value
+            : this.excludeGlAccountId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        isSomeDetail:
+            (isSomeDetail != null ? isSomeDetail.value : this.isSomeDetail),
+        isFullDetail:
+            (isFullDetail != null ? isFullDetail.value : this.isFullDetail),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -22174,9 +22646,6 @@ class WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest &&
@@ -22225,6 +22694,9 @@ class WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -22282,6 +22754,53 @@ extension $WebApiModulesReportsBillingAgentBillingReportAgentBillingReportReques
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -22376,9 +22895,6 @@ class WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportReque
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest &&
@@ -22432,6 +22948,9 @@ class WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportReque
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -22506,6 +23025,71 @@ extension $WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReport
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? projectId,
+          Wrapped<String?>? agentId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? status,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              includeFilter,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              includeTaxFilter,
+          Wrapped<bool?>? excludeOrdersBilledInTotal,
+          Wrapped<bool?>? includeProjectStatus,
+          Wrapped<bool?>? includeCreditsInvoiced,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        projectId: (projectId != null ? projectId.value : this.projectId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        status: (status != null ? status.value : this.status),
+        includeFilter:
+            (includeFilter != null ? includeFilter.value : this.includeFilter),
+        includeTaxFilter: (includeTaxFilter != null
+            ? includeTaxFilter.value
+            : this.includeTaxFilter),
+        excludeOrdersBilledInTotal: (excludeOrdersBilledInTotal != null
+            ? excludeOrdersBilledInTotal.value
+            : this.excludeOrdersBilledInTotal),
+        includeProjectStatus: (includeProjectStatus != null
+            ? includeProjectStatus.value
+            : this.includeProjectStatus),
+        includeCreditsInvoiced: (includeCreditsInvoiced != null
+            ? includeCreditsInvoiced.value
+            : this.includeCreditsInvoiced),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -22585,9 +23169,6 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest &&
@@ -22640,6 +23221,9 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -22703,6 +23287,59 @@ extension $WebApiModulesReportsBillingBillingProgressReportBillingProgressReport
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? asOfDate,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<bool?>? includeCredits,
+          Wrapped<bool?>? excludeBilled100,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? dealCsrId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest(
+        asOfDate: (asOfDate != null ? asOfDate.value : this.asOfDate),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        includeCredits: (includeCredits != null
+            ? includeCredits.value
+            : this.includeCredits),
+        excludeBilled100: (excludeBilled100 != null
+            ? excludeBilled100.value
+            : this.excludeBilled100),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        dealCsrId: (dealCsrId != null ? dealCsrId.value : this.dealCsrId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -22782,9 +23419,6 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest &&
@@ -22837,6 +23471,9 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -22904,6 +23541,67 @@ extension $WebApiModulesReportsBillingBillingStatementReportBillingStatementRepo
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<bool?>? includePaidInvoices,
+          Wrapped<bool?>? includeZeroBalance,
+          Wrapped<bool?>? paymentsThroughToday,
+          Wrapped<bool?>? hidePaymentDetails,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? dealStatusId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        includePaidInvoices: (includePaidInvoices != null
+            ? includePaidInvoices.value
+            : this.includePaidInvoices),
+        includeZeroBalance: (includeZeroBalance != null
+            ? includeZeroBalance.value
+            : this.includeZeroBalance),
+        paymentsThroughToday: (paymentsThroughToday != null
+            ? paymentsThroughToday.value
+            : this.paymentsThroughToday),
+        hidePaymentDetails: (hidePaymentDetails != null
+            ? hidePaymentDetails.value
+            : this.hidePaymentDetails),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        dealStatusId:
+            (dealStatusId != null ? dealStatusId.value : this.dealStatusId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -22952,9 +23650,6 @@ class WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest &&
@@ -22984,6 +23679,9 @@ class WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -23021,6 +23719,38 @@ extension $WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoicePro
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? invoiceCreationBatchId,
+          Wrapped<bool?>? exceptionsOnly,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest(
+        invoiceCreationBatchId: (invoiceCreationBatchId != null
+            ? invoiceCreationBatchId.value
+            : this.invoiceCreationBatchId),
+        exceptionsOnly: (exceptionsOnly != null
+            ? exceptionsOnly.value
+            : this.exceptionsOnly),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -23091,9 +23821,6 @@ class WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportReque
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest &&
@@ -23142,6 +23869,9 @@ class WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportReque
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -23200,6 +23930,55 @@ extension $WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReport
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<int?>? discountPercent,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? discountReasonId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        discountPercent: (discountPercent != null
+            ? discountPercent.value
+            : this.discountPercent),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        discountReasonId: (discountReasonId != null
+            ? discountReasonId.value
+            : this.discountReasonId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -23245,9 +24024,6 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest &&
@@ -23274,6 +24050,9 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -23306,6 +24085,31 @@ extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest copyWithWrapped(
+      {Wrapped<String?>? invoiceId,
+      Wrapped<String?>? customReportLayoutId,
+      Wrapped<bool?>? isSummary,
+      Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+      Wrapped<bool?>? includeIdColumns,
+      Wrapped<String?>? locale,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest(
+        invoiceId: (invoiceId != null ? invoiceId.value : this.invoiceId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -23379,9 +24183,6 @@ class WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest &&
@@ -23430,6 +24231,9 @@ class WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -23487,6 +24291,53 @@ extension $WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -23563,9 +24414,6 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest &&
@@ -23616,6 +24464,9 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -23675,6 +24526,53 @@ extension $WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestExt
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateField,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateField: (dateField != null ? dateField.value : this.dateField),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -23745,9 +24643,6 @@ class WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillin
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest &&
@@ -23796,6 +24691,9 @@ class WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillin
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -23853,6 +24751,55 @@ extension $WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerB
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? projectManagerId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        projectManagerId: (projectManagerId != null
+            ? projectManagerId.value
+            : this.projectManagerId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -23914,9 +24861,6 @@ class WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest &&
@@ -23956,6 +24900,9 @@ class WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24004,6 +24951,44 @@ extension $WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateField,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateField: (dateField != null ? dateField.value : this.dateField),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -24074,9 +25059,6 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest &&
@@ -24125,6 +25107,9 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24184,6 +25169,55 @@ extension $WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepre
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? salesRepresentativeId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        salesRepresentativeId: (salesRepresentativeId != null
+            ? salesRepresentativeId.value
+            : this.salesRepresentativeId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -24241,9 +25275,6 @@ class WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest &&
@@ -24281,6 +25312,9 @@ class WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24326,6 +25360,40 @@ extension $WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditRep
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? moduleName,
+          Wrapped<String?>? webUsersId,
+          Wrapped<String?>? keyword,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+        webUsersId: (webUsersId != null ? webUsersId.value : this.webUsersId),
+        keyword: (keyword != null ? keyword.value : this.keyword),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -24378,9 +25446,6 @@ class WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoi
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest &&
@@ -24413,6 +25478,9 @@ class WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoi
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24452,6 +25520,37 @@ extension $WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDeal
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? batchId,
+          Wrapped<String?>? batchNumber,
+          Wrapped<DateTime?>? batchDate,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest(
+        batchId: (batchId != null ? batchId.value : this.batchId),
+        batchNumber:
+            (batchNumber != null ? batchNumber.value : this.batchNumber),
+        batchDate: (batchDate != null ? batchDate.value : this.batchDate),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -24504,9 +25603,6 @@ class WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest &&
@@ -24539,6 +25635,9 @@ class WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24578,6 +25677,37 @@ extension $WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptB
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? batchId,
+          Wrapped<String?>? batchNumber,
+          Wrapped<DateTime?>? batchDate,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest(
+        batchId: (batchId != null ? batchId.value : this.batchId),
+        batchNumber:
+            (batchNumber != null ? batchNumber.value : this.batchNumber),
+        batchDate: (batchDate != null ? batchDate.value : this.batchDate),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -24630,9 +25760,6 @@ class WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorI
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest &&
@@ -24665,6 +25792,9 @@ class WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorI
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24704,6 +25834,37 @@ extension $WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? batchId,
+          Wrapped<String?>? batchNumber,
+          Wrapped<DateTime?>? batchDate,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest(
+        batchId: (batchId != null ? batchId.value : this.batchId),
+        batchNumber:
+            (batchNumber != null ? batchNumber.value : this.batchNumber),
+        batchDate: (batchDate != null ? batchDate.value : this.batchDate),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -24774,9 +25935,6 @@ class WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventory
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest &&
@@ -24825,6 +25983,9 @@ class WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventory
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -24882,6 +26043,56 @@ extension $WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInve
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? consignorId,
+          Wrapped<String?>? consignorAgreementId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        consignorId:
+            (consignorId != null ? consignorId.value : this.consignorId),
+        consignorAgreementId: (consignorAgreementId != null
+            ? consignorAgreementId.value
+            : this.consignorAgreementId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -24946,9 +26157,6 @@ class WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportReques
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest &&
@@ -24993,6 +26201,9 @@ class WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportReques
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25045,6 +26256,52 @@ extension $WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportR
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? consignorId,
+          Wrapped<String?>? consignorAgreementId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest(
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        consignorId:
+            (consignorId != null ? consignorId.value : this.consignorId),
+        consignorAgreementId: (consignorAgreementId != null
+            ? consignorAgreementId.value
+            : this.consignorAgreementId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -25093,9 +26350,6 @@ class WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsRe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest &&
@@ -25125,6 +26379,9 @@ class WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25161,6 +26418,37 @@ extension $WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorIt
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? consignorId,
+          Wrapped<String?>? consignorAgreementId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest(
+        consignorId:
+            (consignorId != null ? consignorId.value : this.consignorId),
+        consignorAgreementId: (consignorAgreementId != null
+            ? consignorAgreementId.value
+            : this.consignorAgreementId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -25213,9 +26501,6 @@ class WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInve
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest &&
@@ -25248,6 +26533,9 @@ class WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInve
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25287,6 +26575,40 @@ extension $WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsigno
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? warehouseId,
+          Wrapped<String?>? consignorId,
+          Wrapped<String?>? consignorAgreementId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest(
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        consignorId:
+            (consignorId != null ? consignorId.value : this.consignorId),
+        consignorAgreementId: (consignorAgreementId != null
+            ? consignorAgreementId.value
+            : this.consignorAgreementId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -25345,9 +26667,6 @@ class WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequ
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest &&
@@ -25385,6 +26704,9 @@ class WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequ
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25430,6 +26752,45 @@ extension $WebApiModulesReportsConsignorSettlementReportConsignorSettlementRepor
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? consignorId,
+          Wrapped<String?>? consignorAgreementId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        consignorId:
+            (consignorId != null ? consignorId.value : this.consignorId),
+        consignorAgreementId: (consignorAgreementId != null
+            ? consignorAgreementId.value
+            : this.consignorAgreementId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -25488,9 +26849,6 @@ class WebApiModulesReportsConsignorStatementReportConsignorStatementReportReques
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest &&
@@ -25528,6 +26886,9 @@ class WebApiModulesReportsConsignorStatementReportConsignorStatementReportReques
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25573,6 +26934,45 @@ extension $WebApiModulesReportsConsignorStatementReportConsignorStatementReportR
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? consignorId,
+          Wrapped<String?>? consignorAgreementId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        consignorId:
+            (consignorId != null ? consignorId.value : this.consignorId),
+        consignorAgreementId: (consignorAgreementId != null
+            ? consignorAgreementId.value
+            : this.consignorAgreementId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -25646,9 +27046,6 @@ class WebApiModulesReportsContractReportsContractRevisionReportContractRevisionR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest &&
@@ -25696,6 +27093,9 @@ class WebApiModulesReportsContractReportsContractRevisionReportContractRevisionR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25754,6 +27154,55 @@ extension $WebApiModulesReportsContractReportsContractRevisionReportContractRevi
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? filterDates,
+          Wrapped<int?>? daysChanged,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? userId,
+          Wrapped<String?>? dealId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              revisionTypes,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        filterDates:
+            (filterDates != null ? filterDates.value : this.filterDates),
+        daysChanged:
+            (daysChanged != null ? daysChanged.value : this.daysChanged),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        userId: (userId != null ? userId.value : this.userId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        revisionTypes:
+            (revisionTypes != null ? revisionTypes.value : this.revisionTypes),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -25799,9 +27248,6 @@ class WebApiModulesReportsContractReportsExchangeContractReportExchangeContractR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest &&
@@ -25828,6 +27274,9 @@ class WebApiModulesReportsContractReportsExchangeContractReportExchangeContractR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25861,6 +27310,32 @@ extension $WebApiModulesReportsContractReportsExchangeContractReportExchangeCont
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -25910,9 +27385,6 @@ class WebApiModulesReportsContractReportsInContractReportInContractReportRequest
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsInContractReportInContractReportRequest &&
@@ -25942,6 +27414,9 @@ class WebApiModulesReportsContractReportsInContractReportInContractReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -25978,6 +27453,35 @@ extension $WebApiModulesReportsContractReportsInContractReportInContractReportRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsInContractReportInContractReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsInContractReportInContractReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26027,9 +27531,6 @@ class WebApiModulesReportsContractReportsLostContractReportLostContractReportReq
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest &&
@@ -26059,6 +27560,9 @@ class WebApiModulesReportsContractReportsLostContractReportLostContractReportReq
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26095,6 +27599,35 @@ extension $WebApiModulesReportsContractReportsLostContractReportLostContractRepo
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26144,9 +27677,6 @@ class WebApiModulesReportsContractReportsOutContractReportOutContractReportReque
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest &&
@@ -26176,6 +27706,9 @@ class WebApiModulesReportsContractReportsOutContractReportOutContractReportReque
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26212,6 +27745,35 @@ extension $WebApiModulesReportsContractReportsOutContractReportOutContractReport
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26261,9 +27823,6 @@ class WebApiModulesReportsContractReportsReceiveContractReportReceiveContractRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest &&
@@ -26293,6 +27852,9 @@ class WebApiModulesReportsContractReportsReceiveContractReportReceiveContractRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26329,6 +27891,35 @@ extension $WebApiModulesReportsContractReportsReceiveContractReportReceiveContra
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26378,9 +27969,6 @@ class WebApiModulesReportsContractReportsReturnContractReportReturnContractRepor
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest &&
@@ -26410,6 +27998,9 @@ class WebApiModulesReportsContractReportsReturnContractReportReturnContractRepor
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26446,6 +28037,35 @@ extension $WebApiModulesReportsContractReportsReturnContractReportReturnContract
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26537,9 +28157,6 @@ class WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest &&
@@ -26594,6 +28211,9 @@ class WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26676,6 +28296,76 @@ extension $WebApiModulesReportsContractReportsReturnListReportReturnListReportRe
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? dealId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? sortBy,
+          Wrapped<bool?>? includeSales,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? contractId,
+          Wrapped<String?>? orderIds,
+          Wrapped<bool?>? includeTrackedByBarcode,
+          Wrapped<bool?>? printBarcodes,
+          Wrapped<bool?>? paginateByInventoryType,
+          Wrapped<bool?>? addBoxforMeterReading,
+          Wrapped<bool?>? printICodeColumn,
+          Wrapped<bool?>? printAisleShelf,
+          Wrapped<bool?>? printOut,
+          Wrapped<bool?>? printIn,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest(
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        includeSales:
+            (includeSales != null ? includeSales.value : this.includeSales),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        orderIds: (orderIds != null ? orderIds.value : this.orderIds),
+        includeTrackedByBarcode: (includeTrackedByBarcode != null
+            ? includeTrackedByBarcode.value
+            : this.includeTrackedByBarcode),
+        printBarcodes:
+            (printBarcodes != null ? printBarcodes.value : this.printBarcodes),
+        paginateByInventoryType: (paginateByInventoryType != null
+            ? paginateByInventoryType.value
+            : this.paginateByInventoryType),
+        addBoxforMeterReading: (addBoxforMeterReading != null
+            ? addBoxforMeterReading.value
+            : this.addBoxforMeterReading),
+        printICodeColumn: (printICodeColumn != null
+            ? printICodeColumn.value
+            : this.printICodeColumn),
+        printAisleShelf: (printAisleShelf != null
+            ? printAisleShelf.value
+            : this.printAisleShelf),
+        printOut: (printOut != null ? printOut.value : this.printOut),
+        printIn: (printIn != null ? printIn.value : this.printIn),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -26724,9 +28414,6 @@ class WebApiModulesReportsContractReportsTransferManifestReportTransferManifestR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest &&
@@ -26756,6 +28443,9 @@ class WebApiModulesReportsContractReportsTransferManifestReportTransferManifestR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26792,6 +28482,35 @@ extension $WebApiModulesReportsContractReportsTransferManifestReportTransferMani
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26841,9 +28560,6 @@ class WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest &&
@@ -26873,6 +28589,9 @@ class WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -26909,6 +28628,35 @@ extension $WebApiModulesReportsContractReportsTransferReceiptReportTransferRecei
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -26973,9 +28721,6 @@ class WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest &&
@@ -27018,6 +28763,9 @@ class WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -27069,6 +28817,47 @@ extension $WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportReques
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -27124,9 +28913,6 @@ class WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountRepor
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest &&
@@ -27161,6 +28947,9 @@ class WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountRepor
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -27203,6 +28992,41 @@ extension $WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccount
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<bool?>? onlyRemaining,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest(
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        onlyRemaining:
+            (onlyRemaining != null ? onlyRemaining.value : this.onlyRemaining),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -27279,9 +29103,6 @@ class WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenue
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest &&
@@ -27332,6 +29153,9 @@ class WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenue
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -27392,6 +29216,59 @@ extension $WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerTypeId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              revenueTypes,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerTypeId: (customerTypeId != null
+            ? customerTypeId.value
+            : this.customerTypeId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        revenueTypes:
+            (revenueTypes != null ? revenueTypes.value : this.revenueTypes),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -27462,9 +29339,6 @@ class WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueB
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest &&
@@ -27513,6 +29387,9 @@ class WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueB
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -27570,6 +29447,52 @@ extension $WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRev
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderTypeId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderTypeId:
+            (orderTypeId != null ? orderTypeId.value : this.orderTypeId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -27655,9 +29578,6 @@ class WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest &&
@@ -27711,6 +29631,9 @@ class WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailRep
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -27780,6 +29703,65 @@ extension $WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDeta
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<bool?>? deductVendorItemCost,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? noCharge,
+          Wrapped<String?>? billedHiatus,
+          Wrapped<String?>? billableFlat,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        deductVendorItemCost: (deductVendorItemCost != null
+            ? deductVendorItemCost.value
+            : this.deductVendorItemCost),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        noCharge: (noCharge != null ? noCharge.value : this.noCharge),
+        billedHiatus:
+            (billedHiatus != null ? billedHiatus.value : this.billedHiatus),
+        billableFlat:
+            (billableFlat != null ? billableFlat.value : this.billableFlat),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -27886,9 +29868,6 @@ class WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingIt
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest &&
@@ -27949,6 +29928,9 @@ class WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingIt
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -28045,6 +30027,92 @@ extension $WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstand
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<String?>? includeValueCost,
+          Wrapped<bool?>? filterDates,
+          Wrapped<bool?>? includeFullImages,
+          Wrapped<bool?>? includeThumbnailImages,
+          Wrapped<bool?>? excludePendingExchanges,
+          Wrapped<bool?>? includeContainersOnly,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderUnitId,
+          Wrapped<String?>? orderTypeId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? contractId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeValueCost: (includeValueCost != null
+            ? includeValueCost.value
+            : this.includeValueCost),
+        filterDates:
+            (filterDates != null ? filterDates.value : this.filterDates),
+        includeFullImages: (includeFullImages != null
+            ? includeFullImages.value
+            : this.includeFullImages),
+        includeThumbnailImages: (includeThumbnailImages != null
+            ? includeThumbnailImages.value
+            : this.includeThumbnailImages),
+        excludePendingExchanges: (excludePendingExchanges != null
+            ? excludePendingExchanges.value
+            : this.excludePendingExchanges),
+        includeContainersOnly: (includeContainersOnly != null
+            ? includeContainersOnly.value
+            : this.includeContainersOnly),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderUnitId:
+            (orderUnitId != null ? orderUnitId.value : this.orderUnitId),
+        orderTypeId:
+            (orderTypeId != null ? orderTypeId.value : this.orderTypeId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -28163,9 +30231,6 @@ class WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest &&
@@ -28227,6 +30292,9 @@ class WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -28329,6 +30397,104 @@ extension $WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRe
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
+      copyWithWrapped(
+          {Wrapped<bool?>? filterDatesOrderCreate,
+          Wrapped<DateTime?>? orderCreateFromDate,
+          Wrapped<DateTime?>? orderCreateToDate,
+          Wrapped<bool?>? filterDatesOrderStart,
+          Wrapped<DateTime?>? orderStartFromDate,
+          Wrapped<DateTime?>? orderStartToDate,
+          Wrapped<bool?>? filterDatesDealCredit,
+          Wrapped<DateTime?>? dealCreditFromDate,
+          Wrapped<DateTime?>? dealCreditToDate,
+          Wrapped<bool?>? filterDatesDealInsurance,
+          Wrapped<DateTime?>? dealInsuranceFromDate,
+          Wrapped<DateTime?>? dealInsuranceToDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealStatusId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? noCharge,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderType,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? quoteStatus,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderStatus,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest(
+        filterDatesOrderCreate: (filterDatesOrderCreate != null
+            ? filterDatesOrderCreate.value
+            : this.filterDatesOrderCreate),
+        orderCreateFromDate: (orderCreateFromDate != null
+            ? orderCreateFromDate.value
+            : this.orderCreateFromDate),
+        orderCreateToDate: (orderCreateToDate != null
+            ? orderCreateToDate.value
+            : this.orderCreateToDate),
+        filterDatesOrderStart: (filterDatesOrderStart != null
+            ? filterDatesOrderStart.value
+            : this.filterDatesOrderStart),
+        orderStartFromDate: (orderStartFromDate != null
+            ? orderStartFromDate.value
+            : this.orderStartFromDate),
+        orderStartToDate: (orderStartToDate != null
+            ? orderStartToDate.value
+            : this.orderStartToDate),
+        filterDatesDealCredit: (filterDatesDealCredit != null
+            ? filterDatesDealCredit.value
+            : this.filterDatesDealCredit),
+        dealCreditFromDate: (dealCreditFromDate != null
+            ? dealCreditFromDate.value
+            : this.dealCreditFromDate),
+        dealCreditToDate: (dealCreditToDate != null
+            ? dealCreditToDate.value
+            : this.dealCreditToDate),
+        filterDatesDealInsurance: (filterDatesDealInsurance != null
+            ? filterDatesDealInsurance.value
+            : this.filterDatesDealInsurance),
+        dealInsuranceFromDate: (dealInsuranceFromDate != null
+            ? dealInsuranceFromDate.value
+            : this.dealInsuranceFromDate),
+        dealInsuranceToDate: (dealInsuranceToDate != null
+            ? dealInsuranceToDate.value
+            : this.dealInsuranceToDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealStatusId:
+            (dealStatusId != null ? dealStatusId.value : this.dealStatusId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        noCharge: (noCharge != null ? noCharge.value : this.noCharge),
+        orderType: (orderType != null ? orderType.value : this.orderType),
+        quoteStatus:
+            (quoteStatus != null ? quoteStatus.value : this.quoteStatus),
+        orderStatus:
+            (orderStatus != null ? orderStatus.value : this.orderStatus),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -28398,9 +30564,6 @@ class WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportReque
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest &&
@@ -28445,6 +30608,9 @@ class WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportReque
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -28503,6 +30669,55 @@ extension $WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReport
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? onlyIncludeItemsStillUnassigned,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        onlyIncludeItemsStillUnassigned:
+            (onlyIncludeItemsStillUnassigned != null
+                ? onlyIncludeItemsStillUnassigned.value
+                : this.onlyIncludeItemsStillUnassigned),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -28579,9 +30794,6 @@ class WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest &&
@@ -28627,6 +30839,9 @@ class WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest {
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -28684,6 +30899,55 @@ extension $WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestExte
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? asOfDate,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<bool?>? excludeFullyDepreciated,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest(
+        asOfDate: (asOfDate != null ? asOfDate.value : this.asOfDate),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        excludeFullyDepreciated: (excludeFullyDepreciated != null
+            ? excludeFullyDepreciated.value
+            : this.excludeFullyDepreciated),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -28760,9 +31024,6 @@ class WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationRepo
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest &&
@@ -28811,6 +31072,9 @@ class WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationRepo
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -28869,6 +31133,53 @@ extension $WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciatio
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -28914,9 +31225,6 @@ class WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructio
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest &&
@@ -28943,6 +31251,9 @@ class WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructio
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -28976,6 +31287,33 @@ extension $WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstr
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest
+      copyWithWrapped(
+          {Wrapped<String?>? inDeliveryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest(
+        inDeliveryId:
+            (inDeliveryId != null ? inDeliveryId.value : this.inDeliveryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -29023,10 +31361,11 @@ class WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest {
   @JsonKey(name: 'TransactionType', includeIfNull: false)
   final String? transactionType;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
       name: 'Ranks',
@@ -29060,9 +31399,6 @@ class WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -29117,6 +31453,9 @@ class WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest {
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -29181,6 +31520,59 @@ extension $WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? transactionType,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        transactionType: (transactionType != null
+            ? transactionType.value
+            : this.transactionType),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -29225,10 +31617,11 @@ class WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryRepo
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
       name: 'Ranks',
@@ -29267,9 +31660,6 @@ class WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryRepo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -29324,6 +31714,9 @@ class WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryRepo
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -29387,6 +31780,61 @@ extension $WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistor
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              onwershipTypes,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        onwershipTypes: (onwershipTypes != null
+            ? onwershipTypes.value
+            : this.onwershipTypes),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -29469,9 +31917,6 @@ class WebApiModulesReportsMultiLocationReportsTransferReportTransferReportReques
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest &&
@@ -29525,6 +31970,9 @@ class WebApiModulesReportsMultiLocationReportsTransferReportTransferReportReques
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -29592,6 +32040,62 @@ extension $WebApiModulesReportsMultiLocationReportsTransferReportTransferReportR
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<String?>? fromWarehouseId,
+          Wrapped<String?>? toWarehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? transferId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        fromWarehouseId: (fromWarehouseId != null
+            ? fromWarehouseId.value
+            : this.fromWarehouseId),
+        toWarehouseId:
+            (toWarehouseId != null ? toWarehouseId.value : this.toWarehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        transferId: (transferId != null ? transferId.value : this.transferId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -29652,9 +32156,6 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL &&
@@ -29691,6 +32192,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -29736,6 +32240,40 @@ extension $WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDeposi
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL
+      copyWithWrapped(
+          {Wrapped<String?>? receiptId,
+          Wrapped<String?>? rowType,
+          Wrapped<String?>? dealNumber,
+          Wrapped<String?>? dealDescription,
+          Wrapped<String?>? depositAmount,
+          Wrapped<String?>? printDate,
+          Wrapped<String?>? printTime,
+          Wrapped<String?>? printDateTime,
+          Wrapped<List<String>?>? dateFields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL(
+        receiptId: (receiptId != null ? receiptId.value : this.receiptId),
+        rowType: (rowType != null ? rowType.value : this.rowType),
+        dealNumber: (dealNumber != null ? dealNumber.value : this.dealNumber),
+        dealDescription: (dealDescription != null
+            ? dealDescription.value
+            : this.dealDescription),
+        depositAmount:
+            (depositAmount != null ? depositAmount.value : this.depositAmount),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -29809,9 +32347,6 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL &&
@@ -29859,6 +32394,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -29916,6 +32454,51 @@ extension $WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDeposi
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL
+      copyWithWrapped(
+          {Wrapped<String?>? rowType,
+          Wrapped<String?>? arId,
+          Wrapped<String?>? invoiceId,
+          Wrapped<String?>? invoiceNumber,
+          Wrapped<String?>? invoiceDate,
+          Wrapped<String?>? orderNumber,
+          Wrapped<String?>? orderDescription,
+          Wrapped<String?>? invoiceTotal,
+          Wrapped<String?>? applied,
+          Wrapped<String?>? printDate,
+          Wrapped<String?>? printTime,
+          Wrapped<String?>? printDateTime,
+          Wrapped<List<String>?>? dateFields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL(
+        rowType: (rowType != null ? rowType.value : this.rowType),
+        arId: (arId != null ? arId.value : this.arId),
+        invoiceId: (invoiceId != null ? invoiceId.value : this.invoiceId),
+        invoiceNumber:
+            (invoiceNumber != null ? invoiceNumber.value : this.invoiceNumber),
+        invoiceDate:
+            (invoiceDate != null ? invoiceDate.value : this.invoiceDate),
+        orderNumber:
+            (orderNumber != null ? orderNumber.value : this.orderNumber),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        invoiceTotal:
+            (invoiceTotal != null ? invoiceTotal.value : this.invoiceTotal),
+        applied: (applied != null ? applied.value : this.applied),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -29986,9 +32569,6 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL &&
@@ -30034,6 +32614,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositRece
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -30088,6 +32671,51 @@ extension $WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDeposi
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL
+      copyWithWrapped(
+          {Wrapped<String?>? receiptId,
+          Wrapped<String?>? rowType,
+          Wrapped<String?>? receiptDate,
+          Wrapped<String?>? orderNumber,
+          Wrapped<String?>? orderDescription,
+          Wrapped<String?>? periodTotal,
+          Wrapped<String?>? replacementCost,
+          Wrapped<String?>? depositAmount,
+          Wrapped<String?>? printDate,
+          Wrapped<String?>? printTime,
+          Wrapped<String?>? printDateTime,
+          Wrapped<List<String>?>? dateFields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL(
+        receiptId: (receiptId != null ? receiptId.value : this.receiptId),
+        rowType: (rowType != null ? rowType.value : this.rowType),
+        receiptDate:
+            (receiptDate != null ? receiptDate.value : this.receiptDate),
+        orderNumber:
+            (orderNumber != null ? orderNumber.value : this.orderNumber),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        periodTotal:
+            (periodTotal != null ? periodTotal.value : this.periodTotal),
+        replacementCost: (replacementCost != null
+            ? replacementCost.value
+            : this.replacementCost),
+        depositAmount:
+            (depositAmount != null ? depositAmount.value : this.depositAmount),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -30263,9 +32891,6 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL &&
@@ -30347,6 +32972,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -30502,12 +33130,142 @@ extension $WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportLE
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL copyWithWrapped(
+      {Wrapped<String?>? receiptId,
+      Wrapped<String?>? receiptDate,
+      Wrapped<String?>? locationId,
+      Wrapped<String?>? locationCode,
+      Wrapped<String?>? location,
+      Wrapped<String?>? department,
+      Wrapped<String?>? customerId,
+      Wrapped<String?>? customer,
+      Wrapped<String?>? dealId,
+      Wrapped<String?>? deal,
+      Wrapped<String?>? paymentBy,
+      Wrapped<String?>? payTypeId,
+      Wrapped<String?>? payType,
+      Wrapped<String?>? paymentType,
+      Wrapped<String?>? payTypeExportPaymentMethod,
+      Wrapped<String?>? checkNumber,
+      Wrapped<String?>? paymentAmount,
+      Wrapped<String?>? appliedById,
+      Wrapped<String?>? paymentMemo,
+      Wrapped<bool?>? recType,
+      Wrapped<String?>? recTypeDisplay,
+      Wrapped<String?>? currencyId,
+      Wrapped<String?>? currencyCode,
+      Wrapped<bool?>? currencySymbol,
+      Wrapped<String?>? locationDefaultCurrencyId,
+      Wrapped<String?>? overPaymentId,
+      Wrapped<String?>? orderId,
+      Wrapped<String?>? authorizationCode,
+      Wrapped<String?>? address1,
+      Wrapped<String?>? address2,
+      Wrapped<String?>? city,
+      Wrapped<String?>? state,
+      Wrapped<String?>? phone,
+      Wrapped<String?>? zip,
+      Wrapped<String?>? orderNo,
+      Wrapped<String?>? orderDescription,
+      Wrapped<String?>? reportType,
+      Wrapped<
+              List<
+                  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportOrderL>?>?
+          orders,
+      Wrapped<
+              List<
+                  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportDealL>?>?
+          deals,
+      Wrapped<
+              List<
+                  WebApiModulesReportsOrderDepletingDepositReceiptReportDepletingDepositReceiptReportInvoiceL>?>?
+          invoices,
+      Wrapped<String?>? printDate,
+      Wrapped<String?>? printTime,
+      Wrapped<String?>? printDateTime,
+      Wrapped<List<String>?>? dateFields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportL(
+        receiptId: (receiptId != null ? receiptId.value : this.receiptId),
+        receiptDate:
+            (receiptDate != null ? receiptDate.value : this.receiptDate),
+        locationId: (locationId != null ? locationId.value : this.locationId),
+        locationCode:
+            (locationCode != null ? locationCode.value : this.locationCode),
+        location: (location != null ? location.value : this.location),
+        department: (department != null ? department.value : this.department),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        customer: (customer != null ? customer.value : this.customer),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        deal: (deal != null ? deal.value : this.deal),
+        paymentBy: (paymentBy != null ? paymentBy.value : this.paymentBy),
+        payTypeId: (payTypeId != null ? payTypeId.value : this.payTypeId),
+        payType: (payType != null ? payType.value : this.payType),
+        paymentType:
+            (paymentType != null ? paymentType.value : this.paymentType),
+        payTypeExportPaymentMethod: (payTypeExportPaymentMethod != null
+            ? payTypeExportPaymentMethod.value
+            : this.payTypeExportPaymentMethod),
+        checkNumber:
+            (checkNumber != null ? checkNumber.value : this.checkNumber),
+        paymentAmount:
+            (paymentAmount != null ? paymentAmount.value : this.paymentAmount),
+        appliedById:
+            (appliedById != null ? appliedById.value : this.appliedById),
+        paymentMemo:
+            (paymentMemo != null ? paymentMemo.value : this.paymentMemo),
+        recType: (recType != null ? recType.value : this.recType),
+        recTypeDisplay: (recTypeDisplay != null
+            ? recTypeDisplay.value
+            : this.recTypeDisplay),
+        currencyId: (currencyId != null ? currencyId.value : this.currencyId),
+        currencyCode:
+            (currencyCode != null ? currencyCode.value : this.currencyCode),
+        currencySymbol: (currencySymbol != null
+            ? currencySymbol.value
+            : this.currencySymbol),
+        locationDefaultCurrencyId: (locationDefaultCurrencyId != null
+            ? locationDefaultCurrencyId.value
+            : this.locationDefaultCurrencyId),
+        overPaymentId:
+            (overPaymentId != null ? overPaymentId.value : this.overPaymentId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        authorizationCode: (authorizationCode != null
+            ? authorizationCode.value
+            : this.authorizationCode),
+        address1: (address1 != null ? address1.value : this.address1),
+        address2: (address2 != null ? address2.value : this.address2),
+        city: (city != null ? city.value : this.city),
+        state: (state != null ? state.value : this.state),
+        phone: (phone != null ? phone.value : this.phone),
+        zip: (zip != null ? zip.value : this.zip),
+        orderNo: (orderNo != null ? orderNo.value : this.orderNo),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        reportType: (reportType != null ? reportType.value : this.reportType),
+        orders: (orders != null ? orders.value : this.orders),
+        deals: (deals != null ? deals.value : this.deals),
+        invoices: (invoices != null ? invoices.value : this.invoices),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest {
   WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest({
-    this.receiptId,
+    required this.receiptId,
     this.customReportLayoutId,
     this.isSummary,
     this.includeSubHeadingsAndSubTotals,
@@ -30522,7 +33280,7 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
           json);
 
   @JsonKey(name: 'ReceiptId', includeIfNull: false)
-  final String? receiptId;
+  final String receiptId;
   @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
   @JsonKey(name: 'IsSummary', includeIfNull: false)
@@ -30545,9 +33303,6 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -30576,6 +33331,9 @@ class WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -30609,6 +33367,32 @@ extension $WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest
+      copyWithWrapped(
+          {Wrapped<String>? receiptId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderDepletingDepositReceiptReportReceiptReportRequest(
+        receiptId: (receiptId != null ? receiptId.value : this.receiptId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -30655,9 +33439,6 @@ class WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabel
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest &&
@@ -30684,6 +33465,9 @@ class WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabel
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -30717,6 +33501,32 @@ extension $WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShipping
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest
+      copyWithWrapped(
+          {Wrapped<String?>? orderId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -30790,9 +33600,6 @@ class WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest 
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest &&
@@ -30843,6 +33650,9 @@ class WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest 
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -30903,6 +33713,59 @@ extension $WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportReq
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? reportType,
+          Wrapped<int?>? days,
+          Wrapped<DateTime?>? dueBackDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? orderedByContactId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest(
+        reportType: (reportType != null ? reportType.value : this.reportType),
+        days: (days != null ? days.value : this.days),
+        dueBackDate:
+            (dueBackDate != null ? dueBackDate.value : this.dueBackDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        orderedByContactId: (orderedByContactId != null
+            ? orderedByContactId.value
+            : this.orderedByContactId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -31000,9 +33863,6 @@ class WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequ
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest &&
@@ -31059,6 +33919,9 @@ class WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequ
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31135,6 +33998,71 @@ extension $WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictRepor
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? availableFor,
+          Wrapped<String?>? conflictType,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              classifications,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        availableFor:
+            (availableFor != null ? availableFor.value : this.availableFor),
+        conflictType:
+            (conflictType != null ? conflictType.value : this.conflictType),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        classifications: (classifications != null
+            ? classifications.value
+            : this.classifications),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -31172,11 +34100,11 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
   @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
   @JsonKey(
-      name: 'ReportView',
-      includeIfNull: false,
-      toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
-      fromJson:
-          webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
+    name: 'ReportView',
+    includeIfNull: false,
+    toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
+    fromJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson,
+  )
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
   @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
@@ -31231,9 +34159,6 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderReportOrderReportRequest &&
@@ -31285,6 +34210,9 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31367,6 +34295,89 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsOrderReportsOrderReportOrderReportRequest copyWithWrapped(
+      {Wrapped<String?>? orderId,
+      Wrapped<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
+          reportView,
+      Wrapped<bool?>? printInventoryType,
+      Wrapped<bool?>? printCategory,
+      Wrapped<bool?>? printTotalReplacementCost,
+      Wrapped<bool?>? printInventoryTypeSubTotal,
+      Wrapped<bool?>? printCategorySubTotal,
+      Wrapped<bool?>? printZeroExtended,
+      Wrapped<bool?>? printLineItemNotes,
+      Wrapped<bool?>? printGrandTotal,
+      Wrapped<bool?>? printGrossTotal,
+      Wrapped<bool?>? printGrandDiscount,
+      Wrapped<bool?>? printGrandWeekly,
+      Wrapped<bool?>? printGrandPeriod,
+      Wrapped<bool?>? printActivityWeekly,
+      Wrapped<bool?>? printActivityPeriod,
+      Wrapped<String?>? customReportLayoutId,
+      Wrapped<bool?>? isSummary,
+      Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+      Wrapped<bool?>? includeIdColumns,
+      Wrapped<String?>? locale,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsOrderReportOrderReportRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        reportView: (reportView != null ? reportView.value : this.reportView),
+        printInventoryType: (printInventoryType != null
+            ? printInventoryType.value
+            : this.printInventoryType),
+        printCategory:
+            (printCategory != null ? printCategory.value : this.printCategory),
+        printTotalReplacementCost: (printTotalReplacementCost != null
+            ? printTotalReplacementCost.value
+            : this.printTotalReplacementCost),
+        printInventoryTypeSubTotal: (printInventoryTypeSubTotal != null
+            ? printInventoryTypeSubTotal.value
+            : this.printInventoryTypeSubTotal),
+        printCategorySubTotal: (printCategorySubTotal != null
+            ? printCategorySubTotal.value
+            : this.printCategorySubTotal),
+        printZeroExtended: (printZeroExtended != null
+            ? printZeroExtended.value
+            : this.printZeroExtended),
+        printLineItemNotes: (printLineItemNotes != null
+            ? printLineItemNotes.value
+            : this.printLineItemNotes),
+        printGrandTotal: (printGrandTotal != null
+            ? printGrandTotal.value
+            : this.printGrandTotal),
+        printGrossTotal: (printGrossTotal != null
+            ? printGrossTotal.value
+            : this.printGrossTotal),
+        printGrandDiscount: (printGrandDiscount != null
+            ? printGrandDiscount.value
+            : this.printGrandDiscount),
+        printGrandWeekly: (printGrandWeekly != null
+            ? printGrandWeekly.value
+            : this.printGrandWeekly),
+        printGrandPeriod: (printGrandPeriod != null
+            ? printGrandPeriod.value
+            : this.printGrandPeriod),
+        printActivityWeekly: (printActivityWeekly != null
+            ? printActivityWeekly.value
+            : this.printActivityWeekly),
+        printActivityPeriod: (printActivityPeriod != null
+            ? printActivityPeriod.value
+            : this.printActivityPeriod),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -31412,9 +34423,6 @@ class WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailRe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest &&
@@ -31441,6 +34449,9 @@ class WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31474,6 +34485,32 @@ extension $WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDet
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? orderId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -31520,9 +34557,6 @@ class WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummary
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest &&
@@ -31549,6 +34583,9 @@ class WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummary
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31582,6 +34619,32 @@ extension $WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSu
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? orderId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -31628,9 +34691,6 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest &&
@@ -31657,6 +34717,9 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31690,6 +34753,32 @@ extension $WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShipping
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
+      copyWithWrapped(
+          {Wrapped<String?>? orderId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -31760,9 +34849,6 @@ class WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest &&
@@ -31811,6 +34897,9 @@ class WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRe
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31871,6 +34960,54 @@ extension $WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstanding
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<bool?>? onlyIncludeICodesWithQuantityAvail,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest(
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        onlyIncludeICodesWithQuantityAvail:
+            (onlyIncludeICodesWithQuantityAvail != null
+                ? onlyIncludeICodesWithQuantityAvail.value
+                : this.onlyIncludeICodesWithQuantityAvail),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -31916,9 +35053,6 @@ class WebApiModulesReportsOrderReportsPickListReportPickListReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsPickListReportPickListReportRequest &&
@@ -31945,6 +35079,9 @@ class WebApiModulesReportsOrderReportsPickListReportPickListReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -31977,6 +35114,32 @@ extension $WebApiModulesReportsOrderReportsPickListReportPickListReportRequestEx
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? pickListId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsPickListReportPickListReportRequest(
+        pickListId: (pickListId != null ? pickListId.value : this.pickListId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -32047,9 +35210,6 @@ class WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportReques
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest &&
@@ -32096,6 +35256,9 @@ class WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportReques
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -32150,6 +35313,52 @@ extension $WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportR
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderType,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? activityTypeId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        orderType: (orderType != null ? orderType.value : this.orderType),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        activityTypeId: (activityTypeId != null
+            ? activityTypeId.value
+            : this.activityTypeId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -32250,9 +35459,6 @@ class WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterRepo
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest &&
@@ -32309,6 +35515,9 @@ class WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterRepo
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -32385,6 +35594,67 @@ extension $WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMaste
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? filterDates,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealTypeId,
+          Wrapped<String?>? dealStatusId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? agentId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderType,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? quoteStatus,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderStatus,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        filterDates:
+            (filterDates != null ? filterDates.value : this.filterDates),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+        dealStatusId:
+            (dealStatusId != null ? dealStatusId.value : this.dealStatusId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        orderType: (orderType != null ? orderType.value : this.orderType),
+        quoteStatus:
+            (quoteStatus != null ? quoteStatus.value : this.quoteStatus),
+        orderStatus:
+            (orderStatus != null ? orderStatus.value : this.orderStatus),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -32422,11 +35692,11 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
   @JsonKey(name: 'QuoteId', includeIfNull: false)
   final String? quoteId;
   @JsonKey(
-      name: 'ReportView',
-      includeIfNull: false,
-      toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
-      fromJson:
-          webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
+    name: 'ReportView',
+    includeIfNull: false,
+    toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
+    fromJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson,
+  )
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
   @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
@@ -32481,9 +35751,6 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest &&
@@ -32535,6 +35802,9 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -32616,6 +35886,89 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest copyWithWrapped(
+      {Wrapped<String?>? quoteId,
+      Wrapped<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
+          reportView,
+      Wrapped<bool?>? printInventoryType,
+      Wrapped<bool?>? printCategory,
+      Wrapped<bool?>? printTotalReplacementCost,
+      Wrapped<bool?>? printInventoryTypeSubTotal,
+      Wrapped<bool?>? printCategorySubTotal,
+      Wrapped<bool?>? printZeroExtended,
+      Wrapped<bool?>? printLineItemNotes,
+      Wrapped<bool?>? printGrandTotal,
+      Wrapped<bool?>? printGrossTotal,
+      Wrapped<bool?>? printGrandDiscount,
+      Wrapped<bool?>? printGrandWeekly,
+      Wrapped<bool?>? printGrandPeriod,
+      Wrapped<bool?>? printActivityWeekly,
+      Wrapped<bool?>? printActivityPeriod,
+      Wrapped<String?>? customReportLayoutId,
+      Wrapped<bool?>? isSummary,
+      Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+      Wrapped<bool?>? includeIdColumns,
+      Wrapped<String?>? locale,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest(
+        quoteId: (quoteId != null ? quoteId.value : this.quoteId),
+        reportView: (reportView != null ? reportView.value : this.reportView),
+        printInventoryType: (printInventoryType != null
+            ? printInventoryType.value
+            : this.printInventoryType),
+        printCategory:
+            (printCategory != null ? printCategory.value : this.printCategory),
+        printTotalReplacementCost: (printTotalReplacementCost != null
+            ? printTotalReplacementCost.value
+            : this.printTotalReplacementCost),
+        printInventoryTypeSubTotal: (printInventoryTypeSubTotal != null
+            ? printInventoryTypeSubTotal.value
+            : this.printInventoryTypeSubTotal),
+        printCategorySubTotal: (printCategorySubTotal != null
+            ? printCategorySubTotal.value
+            : this.printCategorySubTotal),
+        printZeroExtended: (printZeroExtended != null
+            ? printZeroExtended.value
+            : this.printZeroExtended),
+        printLineItemNotes: (printLineItemNotes != null
+            ? printLineItemNotes.value
+            : this.printLineItemNotes),
+        printGrandTotal: (printGrandTotal != null
+            ? printGrandTotal.value
+            : this.printGrandTotal),
+        printGrossTotal: (printGrossTotal != null
+            ? printGrossTotal.value
+            : this.printGrossTotal),
+        printGrandDiscount: (printGrandDiscount != null
+            ? printGrandDiscount.value
+            : this.printGrandDiscount),
+        printGrandWeekly: (printGrandWeekly != null
+            ? printGrandWeekly.value
+            : this.printGrandWeekly),
+        printGrandPeriod: (printGrandPeriod != null
+            ? printGrandPeriod.value
+            : this.printGrandPeriod),
+        printActivityWeekly: (printActivityWeekly != null
+            ? printActivityWeekly.value
+            : this.printActivityWeekly),
+        printActivityPeriod: (printActivityPeriod != null
+            ? printActivityPeriod.value
+            : this.printActivityPeriod),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -32713,9 +36066,6 @@ class WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedIte
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest &&
@@ -32773,6 +36123,9 @@ class WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedIte
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -32852,6 +36205,72 @@ extension $WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStag
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<bool?>? includeNoCharge,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        includeNoCharge: (includeNoCharge != null
+            ? includeNoCharge.value
+            : this.includeNoCharge),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -32903,9 +36322,6 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest &&
@@ -32938,6 +36354,9 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -32977,6 +36396,39 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? orderId,
+          Wrapped<String?>? rentalValue,
+          Wrapped<bool?>? printZeroExtended,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        rentalValue:
+            (rentalValue != null ? rentalValue.value : this.rentalValue),
+        printZeroExtended: (printZeroExtended != null
+            ? printZeroExtended.value
+            : this.printZeroExtended),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -33023,9 +36475,6 @@ class WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructio
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest &&
@@ -33052,6 +36501,9 @@ class WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructio
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -33085,6 +36537,33 @@ extension $WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstr
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest
+      copyWithWrapped(
+          {Wrapped<String?>? outDeliveryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest(
+        outDeliveryId:
+            (outDeliveryId != null ? outDeliveryId.value : this.outDeliveryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -33149,9 +36628,6 @@ class WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsI
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest &&
@@ -33195,6 +36671,9 @@ class WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsI
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -33247,6 +36726,53 @@ extension $WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportP
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? reorderPointMode,
+          Wrapped<bool?>? includeZeroReorderPoint,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest(
+        reorderPointMode: (reorderPointMode != null
+            ? reorderPointMode.value
+            : this.reorderPointMode),
+        includeZeroReorderPoint: (includeZeroReorderPoint != null
+            ? includeZeroReorderPoint.value
+            : this.includeZeroReorderPoint),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -33335,9 +36861,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest &&
@@ -33391,6 +36914,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetRep
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -33463,6 +36989,68 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountShe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? spaceIds,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<String?>? categoryIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<bool?>? isSpace,
+          Wrapped<bool?>? isRecount,
+          Wrapped<bool?>? includeCompleteKits,
+          Wrapped<bool?>? includeCompleteKitReferences,
+          Wrapped<bool?>? excludeOptionalAccessories,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        isSpace: (isSpace != null ? isSpace.value : this.isSpace),
+        isRecount: (isRecount != null ? isRecount.value : this.isRecount),
+        includeCompleteKits: (includeCompleteKits != null
+            ? includeCompleteKits.value
+            : this.includeCompleteKits),
+        includeCompleteKitReferences: (includeCompleteKitReferences != null
+            ? includeCompleteKitReferences.value
+            : this.includeCompleteKitReferences),
+        excludeOptionalAccessories: (excludeOptionalAccessories != null
+            ? excludeOptionalAccessories.value
+            : this.excludeOptionalAccessories),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -33545,9 +37133,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyRe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest &&
@@ -33594,6 +37179,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyRe
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -33662,6 +37250,63 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepa
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<String?>? consignorIds,
+          Wrapped<String?>? categoryIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<bool?>? includeIcodesThatAreNotDiscrepancies,
+          Wrapped<bool?>? printBarcodeSerialNotCounted,
+          Wrapped<bool?>? isSpace,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<String?>? spaceIds,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        consignorIds:
+            (consignorIds != null ? consignorIds.value : this.consignorIds),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        includeIcodesThatAreNotDiscrepancies:
+            (includeIcodesThatAreNotDiscrepancies != null
+                ? includeIcodesThatAreNotDiscrepancies.value
+                : this.includeIcodesThatAreNotDiscrepancies),
+        printBarcodeSerialNotCounted: (printBarcodeSerialNotCounted != null
+            ? printBarcodeSerialNotCounted.value
+            : this.printBarcodeSerialNotCounted),
+        isSpace: (isSpace != null ? isSpace.value : this.isSpace),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -33735,9 +37380,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionRepo
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest &&
@@ -33784,6 +37426,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionRepo
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -33839,6 +37484,53 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptio
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<String?>? categoryIds,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<String?>? spaceIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<bool?>? includeZeroOwned,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        includeZeroOwned: (includeZeroOwned != null
+            ? includeZeroOwned.value
+            : this.includeZeroOwned),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -33912,9 +37604,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgre
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest &&
@@ -33961,6 +37650,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgre
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -34016,6 +37708,52 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanP
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? spaceIds,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<String?>? categoryIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -34116,9 +37854,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliatio
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest &&
@@ -34175,6 +37910,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliatio
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -34260,6 +37998,81 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconcil
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<FwStandardSqlServerFwDateTime?>? fromDate,
+          Wrapped<FwStandardSqlServerFwDateTime?>? toDate,
+          Wrapped<String?>? availableFor,
+          Wrapped<bool?>? itemsCounted,
+          Wrapped<bool?>? includeOrders,
+          Wrapped<bool?>? includeOrderBarcodes,
+          Wrapped<bool?>? includeCountedBarcodes,
+          Wrapped<bool?>? excludeZeroCostExtended,
+          Wrapped<bool?>? onlyChangedItems,
+          Wrapped<String?>? trackedbyIds,
+          Wrapped<String?>? spaceIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<String?>? categoryIds,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        availableFor:
+            (availableFor != null ? availableFor.value : this.availableFor),
+        itemsCounted:
+            (itemsCounted != null ? itemsCounted.value : this.itemsCounted),
+        includeOrders:
+            (includeOrders != null ? includeOrders.value : this.includeOrders),
+        includeOrderBarcodes: (includeOrderBarcodes != null
+            ? includeOrderBarcodes.value
+            : this.includeOrderBarcodes),
+        includeCountedBarcodes: (includeCountedBarcodes != null
+            ? includeCountedBarcodes.value
+            : this.includeCountedBarcodes),
+        excludeZeroCostExtended: (excludeZeroCostExtended != null
+            ? excludeZeroCostExtended.value
+            : this.excludeZeroCostExtended),
+        onlyChangedItems: (onlyChangedItems != null
+            ? onlyChangedItems.value
+            : this.onlyChangedItems),
+        trackedbyIds:
+            (trackedbyIds != null ? trackedbyIds.value : this.trackedbyIds),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -34332,9 +38145,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalys
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest &&
@@ -34381,6 +38191,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalys
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -34437,6 +38250,53 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountA
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<String?>? spaceIds,
+          Wrapped<String?>? categoryIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<bool?>? includeIdenticalCounts,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        includeIdenticalCounts: (includeIdenticalCounts != null
+            ? includeIdenticalCounts.value
+            : this.includeIdenticalCounts),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -34513,9 +38373,6 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReport
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest &&
@@ -34564,6 +38421,9 @@ class WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReport
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -34623,6 +38483,57 @@ extension $WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsR
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? physicalInventoryId,
+          Wrapped<bool?>? includeNoChangeItems,
+          Wrapped<bool?>? showRetiredBarcodes,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? spaceIds,
+          Wrapped<String?>? inventoryDepartmentIds,
+          Wrapped<String?>? categoryIds,
+          Wrapped<String?>? masterIds,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest(
+        physicalInventoryId: (physicalInventoryId != null
+            ? physicalInventoryId.value
+            : this.physicalInventoryId),
+        includeNoChangeItems: (includeNoChangeItems != null
+            ? includeNoChangeItems.value
+            : this.includeNoChangeItems),
+        showRetiredBarcodes: (showRetiredBarcodes != null
+            ? showRetiredBarcodes.value
+            : this.showRetiredBarcodes),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        spaceIds: (spaceIds != null ? spaceIds.value : this.spaceIds),
+        inventoryDepartmentIds: (inventoryDepartmentIds != null
+            ? inventoryDepartmentIds.value
+            : this.inventoryDepartmentIds),
+        categoryIds:
+            (categoryIds != null ? categoryIds.value : this.categoryIds),
+        masterIds: (masterIds != null ? masterIds.value : this.masterIds),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -34671,9 +38582,6 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest &&
@@ -34703,6 +38611,9 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -34739,6 +38650,37 @@ extension $WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurcha
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest
+      copyWithWrapped(
+          {Wrapped<String?>? purchaseOrderId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest(
+        purchaseOrderId: (purchaseOrderId != null
+            ? purchaseOrderId.value
+            : this.purchaseOrderId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -34787,9 +38729,6 @@ class WebApiModulesReportsRateUpdateReportRateUpdateReportRequest {
       _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRateUpdateReportRateUpdateReportRequest &&
@@ -34821,6 +38760,9 @@ class WebApiModulesReportsRateUpdateReportRateUpdateReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -34857,6 +38799,37 @@ extension $WebApiModulesReportsRateUpdateReportRateUpdateReportRequestExtension
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRateUpdateReportRateUpdateReportRequest copyWithWrapped(
+      {Wrapped<bool?>? pendingModificationsOnly,
+      Wrapped<String?>? rateUpdateBatchId,
+      Wrapped<String?>? customReportLayoutId,
+      Wrapped<bool?>? isSummary,
+      Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+      Wrapped<bool?>? includeIdColumns,
+      Wrapped<String?>? locale,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRateUpdateReportRateUpdateReportRequest(
+        pendingModificationsOnly: (pendingModificationsOnly != null
+            ? pendingModificationsOnly.value
+            : this.pendingModificationsOnly),
+        rateUpdateBatchId: (rateUpdateBatchId != null
+            ? rateUpdateBatchId.value
+            : this.rateUpdateBatchId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -34902,10 +38875,11 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateRep
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
       name: 'OwnershipTypes',
@@ -34944,9 +38918,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateRep
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -35001,6 +38972,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateRep
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -35064,6 +39038,60 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDa
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              ownershipTypes,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        ownershipTypes: (ownershipTypes != null
+            ? ownershipTypes.value
+            : this.ownershipTypes),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -35136,10 +39164,11 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityRepor
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? trackedBys;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
@@ -35163,9 +39192,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityRepor
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -35220,6 +39246,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityRepor
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -35297,6 +39326,74 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailability
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? isDetail,
+          Wrapped<bool?>? includeZeroQuantity,
+          Wrapped<bool?>? onlyIncludeLowAndNegative,
+          Wrapped<bool?>? onlyIncludeNegative,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              classifications,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        isDetail: (isDetail != null ? isDetail.value : this.isDetail),
+        includeZeroQuantity: (includeZeroQuantity != null
+            ? includeZeroQuantity.value
+            : this.includeZeroQuantity),
+        onlyIncludeLowAndNegative: (onlyIncludeLowAndNegative != null
+            ? onlyIncludeLowAndNegative.value
+            : this.onlyIncludeLowAndNegative),
+        onlyIncludeNegative: (onlyIncludeNegative != null
+            ? onlyIncludeNegative.value
+            : this.onlyIncludeNegative),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        classifications: (classifications != null
+            ? classifications.value
+            : this.classifications),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -35351,10 +39448,11 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRenta
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ownershipTypes;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(name: 'IncludeRetiredSerializedItems', includeIfNull: false)
   final bool? includeRetiredSerializedItems;
@@ -35380,9 +39478,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRenta
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -35434,6 +39529,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRenta
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -35495,6 +39593,60 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReport
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              ownershipTypes,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<bool?>? includeRetiredSerializedItems,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest(
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        ownershipTypes: (ownershipTypes != null
+            ? ownershipTypes.value
+            : this.ownershipTypes),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        includeRetiredSerializedItems: (includeRetiredSerializedItems != null
+            ? includeRetiredSerializedItems.value
+            : this.includeRetiredSerializedItems),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -35577,9 +39729,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRen
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest &&
@@ -35632,6 +39781,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRen
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -35696,6 +39848,59 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementRepo
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? includeZeroOwned,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? value,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        includeZeroOwned: (includeZeroOwned != null
+            ? includeZeroOwned.value
+            : this.includeZeroOwned),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        value: (value != null ? value.value : this.value),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -35753,9 +39958,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest &&
@@ -35794,6 +39996,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportR
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -35839,6 +40044,45 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest(
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -35933,9 +40177,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueR
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest &&
@@ -35992,6 +40233,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueR
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -36068,6 +40312,81 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRev
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest
+      copyWithWrapped(
+          {Wrapped<bool?>? includePeriodRevenue,
+          Wrapped<DateTime?>? revenueFromDate,
+          Wrapped<DateTime?>? revenueToDate,
+          Wrapped<String?>? revenueFilterMode,
+          Wrapped<double?>? revenueFilterAmount,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<bool?>? includeNotRentedSince,
+          Wrapped<DateTime?>? notRentedSinceDate,
+          Wrapped<bool?>? includeZeroOwned,
+          Wrapped<bool?>? showStagedAndOut,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest(
+        includePeriodRevenue: (includePeriodRevenue != null
+            ? includePeriodRevenue.value
+            : this.includePeriodRevenue),
+        revenueFromDate: (revenueFromDate != null
+            ? revenueFromDate.value
+            : this.revenueFromDate),
+        revenueToDate:
+            (revenueToDate != null ? revenueToDate.value : this.revenueToDate),
+        revenueFilterMode: (revenueFilterMode != null
+            ? revenueFilterMode.value
+            : this.revenueFilterMode),
+        revenueFilterAmount: (revenueFilterAmount != null
+            ? revenueFilterAmount.value
+            : this.revenueFilterAmount),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        includeNotRentedSince: (includeNotRentedSince != null
+            ? includeNotRentedSince.value
+            : this.includeNotRentedSince),
+        notRentedSinceDate: (notRentedSinceDate != null
+            ? notRentedSinceDate.value
+            : this.notRentedSinceDate),
+        includeZeroOwned: (includeZeroOwned != null
+            ? includeZeroOwned.value
+            : this.includeZeroOwned),
+        showStagedAndOut: (showStagedAndOut != null
+            ? showStagedAndOut.value
+            : this.showStagedAndOut),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -36147,9 +40466,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReport
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest &&
@@ -36202,6 +40518,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReport
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -36265,6 +40584,60 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsR
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? asOfDate,
+          Wrapped<bool?>? includeZeroQuantity,
+          Wrapped<int?>? daysUnused,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest(
+        asOfDate: (asOfDate != null ? asOfDate.value : this.asOfDate),
+        includeZeroQuantity: (includeZeroQuantity != null
+            ? includeZeroQuantity.value
+            : this.includeZeroQuantity),
+        daysUnused: (daysUnused != null ? daysUnused.value : this.daysUnused),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -36355,9 +40728,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRental
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest &&
@@ -36407,6 +40777,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRental
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -36482,6 +40855,72 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportR
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? utilizationFilterMode,
+          Wrapped<double?>? utilizationFilterAmount,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<bool?>? excludeZeroOwned,
+          Wrapped<bool?>? filterDatesByUtilizationPercent,
+          Wrapped<bool?>? onlyIncludeItemsThatAreTheMainItemOfAComplete,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        utilizationFilterMode: (utilizationFilterMode != null
+            ? utilizationFilterMode.value
+            : this.utilizationFilterMode),
+        utilizationFilterAmount: (utilizationFilterAmount != null
+            ? utilizationFilterAmount.value
+            : this.utilizationFilterAmount),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        excludeZeroOwned: (excludeZeroOwned != null
+            ? excludeZeroOwned.value
+            : this.excludeZeroOwned),
+        filterDatesByUtilizationPercent:
+            (filterDatesByUtilizationPercent != null
+                ? filterDatesByUtilizationPercent.value
+                : this.filterDatesByUtilizationPercent),
+        onlyIncludeItemsThatAreTheMainItemOfAComplete:
+            (onlyIncludeItemsThatAreTheMainItemOfAComplete != null
+                ? onlyIncludeItemsThatAreTheMainItemOfAComplete.value
+                : this.onlyIncludeItemsThatAreTheMainItemOfAComplete),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -36579,9 +41018,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRental
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest &&
@@ -36639,6 +41075,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRental
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -36719,6 +41158,77 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportR
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? includeOwned,
+          Wrapped<bool?>? includeConsigned,
+          Wrapped<bool?>? includeZeroQuantity,
+          Wrapped<bool?>? groupByICode,
+          Wrapped<String?>? quantityValueBasedOn,
+          Wrapped<String?>? serializedValueBasedOn,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<bool?>? summary,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        includeOwned:
+            (includeOwned != null ? includeOwned.value : this.includeOwned),
+        includeConsigned: (includeConsigned != null
+            ? includeConsigned.value
+            : this.includeConsigned),
+        includeZeroQuantity: (includeZeroQuantity != null
+            ? includeZeroQuantity.value
+            : this.includeZeroQuantity),
+        groupByICode:
+            (groupByICode != null ? groupByICode.value : this.groupByICode),
+        quantityValueBasedOn: (quantityValueBasedOn != null
+            ? quantityValueBasedOn.value
+            : this.quantityValueBasedOn),
+        serializedValueBasedOn: (serializedValueBasedOn != null
+            ? serializedValueBasedOn.value
+            : this.serializedValueBasedOn),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        summary: (summary != null ? summary.value : this.summary),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -36797,9 +41307,6 @@ class WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHisto
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest &&
@@ -36852,6 +41359,9 @@ class WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHisto
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -36919,6 +41429,66 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBilling
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? excludeRetiredItems,
+          Wrapped<bool?>? excludeUnretiredItems,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? retiredReasonId,
+          Wrapped<String?>? unretiredReasonId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        excludeRetiredItems: (excludeRetiredItems != null
+            ? excludeRetiredItems.value
+            : this.excludeRetiredItems),
+        excludeUnretiredItems: (excludeUnretiredItems != null
+            ? excludeUnretiredItems.value
+            : this.excludeUnretiredItems),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        retiredReasonId: (retiredReasonId != null
+            ? retiredReasonId.value
+            : this.retiredReasonId),
+        unretiredReasonId: (unretiredReasonId != null
+            ? unretiredReasonId.value
+            : this.unretiredReasonId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -37001,9 +41571,6 @@ class WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportReti
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest &&
@@ -37057,6 +41624,9 @@ class WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportReti
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -37123,6 +41693,63 @@ extension $WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryRepor
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? includeUnretired,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? retiredReasonId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        includeUnretired: (includeUnretired != null
+            ? includeUnretired.value
+            : this.includeUnretired),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        retiredReasonId: (retiredReasonId != null
+            ? retiredReasonId.value
+            : this.retiredReasonId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -37193,9 +41820,6 @@ class WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturne
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest &&
@@ -37243,6 +41867,9 @@ class WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturne
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -37300,6 +41927,53 @@ extension $WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? userId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        userId: (userId != null ? userId.value : this.userId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -37394,9 +42068,6 @@ class WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAsset
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest &&
@@ -37452,6 +42123,9 @@ class WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAsset
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -37530,6 +42204,73 @@ extension $WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOn
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
+      copyWithWrapped(
+          {Wrapped<bool?>? usePeriodSelector,
+          Wrapped<String?>? reportYear,
+          Wrapped<String?>? reportPeriod,
+          Wrapped<bool?>? useDateRange,
+          Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<bool?>? includeZeroCurrentOwned,
+          Wrapped<bool?>? includeZeroAverageOwned,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest(
+        usePeriodSelector: (usePeriodSelector != null
+            ? usePeriodSelector.value
+            : this.usePeriodSelector),
+        reportYear: (reportYear != null ? reportYear.value : this.reportYear),
+        reportPeriod:
+            (reportPeriod != null ? reportPeriod.value : this.reportPeriod),
+        useDateRange:
+            (useDateRange != null ? useDateRange.value : this.useDateRange),
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        includeZeroCurrentOwned: (includeZeroCurrentOwned != null
+            ? includeZeroCurrentOwned.value
+            : this.includeZeroCurrentOwned),
+        includeZeroAverageOwned: (includeZeroAverageOwned != null
+            ? includeZeroAverageOwned.value
+            : this.includeZeroAverageOwned),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -37596,9 +42337,6 @@ class WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUn
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest &&
@@ -37645,6 +42383,9 @@ class WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUn
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -37699,6 +42440,53 @@ extension $WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryRep
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? unretiredReasonId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        unretiredReasonId: (unretiredReasonId != null
+            ? unretiredReasonId.value
+            : this.unretiredReasonId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -37756,10 +42544,11 @@ class WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportV
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
   final String? customReportLayoutId;
@@ -37783,9 +42572,6 @@ class WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportV
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -37839,6 +42625,9 @@ class WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportV
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -37899,6 +42688,58 @@ extension $WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? asOfDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              ownershipTypes,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest(
+        asOfDate: (asOfDate != null ? asOfDate.value : this.asOfDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ownershipTypes: (ownershipTypes != null
+            ? ownershipTypes.value
+            : this.ownershipTypes),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -38005,9 +42846,6 @@ class WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderSt
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest &&
@@ -38066,6 +42904,9 @@ class WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderSt
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -38157,6 +42998,88 @@ extension $WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOr
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest
+      copyWithWrapped(
+          {Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              repairOrderStatus,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? priority,
+          Wrapped<bool?>? billable,
+          Wrapped<bool?>? billed,
+          Wrapped<bool?>? owned,
+          Wrapped<int?>? daysInRepair,
+          Wrapped<String?>? daysInRepairFilterMode,
+          Wrapped<bool?>? includeOutsideRepairsOnly,
+          Wrapped<bool?>? includeDamageNotes,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? repairItemStatusId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? vendorRepairItemStatusId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest(
+        repairOrderStatus: (repairOrderStatus != null
+            ? repairOrderStatus.value
+            : this.repairOrderStatus),
+        priority: (priority != null ? priority.value : this.priority),
+        billable: (billable != null ? billable.value : this.billable),
+        billed: (billed != null ? billed.value : this.billed),
+        owned: (owned != null ? owned.value : this.owned),
+        daysInRepair:
+            (daysInRepair != null ? daysInRepair.value : this.daysInRepair),
+        daysInRepairFilterMode: (daysInRepairFilterMode != null
+            ? daysInRepairFilterMode.value
+            : this.daysInRepairFilterMode),
+        includeOutsideRepairsOnly: (includeOutsideRepairsOnly != null
+            ? includeOutsideRepairsOnly.value
+            : this.includeOutsideRepairsOnly),
+        includeDamageNotes: (includeDamageNotes != null
+            ? includeDamageNotes.value
+            : this.includeDamageNotes),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        repairItemStatusId: (repairItemStatusId != null
+            ? repairItemStatusId.value
+            : this.repairItemStatusId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        vendorRepairItemStatusId: (vendorRepairItemStatusId != null
+            ? vendorRepairItemStatusId.value
+            : this.vendorRepairItemStatusId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -38202,9 +43125,6 @@ class WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest &&
@@ -38231,6 +43151,9 @@ class WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -38263,6 +43186,32 @@ extension $WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestExtens
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
+      copyWithWrapped(
+          {Wrapped<String?>? repairId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest(
+        repairId: (repairId != null ? repairId.value : this.repairId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -38309,9 +43258,6 @@ class WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest &&
@@ -38338,6 +43284,9 @@ class WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -38371,6 +43320,32 @@ extension $WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRe
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? repairId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest(
+        repairId: (repairId != null ? repairId.value : this.repairId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -38429,9 +43404,6 @@ class WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorde
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest &&
@@ -38469,6 +43441,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorde
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -38514,6 +43489,43 @@ extension $WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBac
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? vendorId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest(
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -38599,9 +43611,6 @@ class WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest &&
@@ -38656,6 +43665,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryRep
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -38725,6 +43737,64 @@ extension $WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHisto
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<bool?>? summary,
+          Wrapped<bool?>? includeSalesTax,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        summary: (summary != null ? summary.value : this.summary),
+        includeSalesTax: (includeSalesTax != null
+            ? includeSalesTax.value
+            : this.includeSalesTax),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -38804,9 +43874,6 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesIn
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest &&
@@ -38858,6 +43925,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesIn
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -38922,6 +43992,67 @@ extension $WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSa
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest
+      copyWithWrapped(
+          {Wrapped<bool?>? includePeriodRevenue,
+          Wrapped<DateTime?>? revenueFromDate,
+          Wrapped<DateTime?>? revenueToDate,
+          Wrapped<String?>? revenueFilterMode,
+          Wrapped<double?>? revenueFilterAmount,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<bool?>? excludeZeroOwned,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest(
+        includePeriodRevenue: (includePeriodRevenue != null
+            ? includePeriodRevenue.value
+            : this.includePeriodRevenue),
+        revenueFromDate: (revenueFromDate != null
+            ? revenueFromDate.value
+            : this.revenueFromDate),
+        revenueToDate:
+            (revenueToDate != null ? revenueToDate.value : this.revenueToDate),
+        revenueFilterMode: (revenueFilterMode != null
+            ? revenueFilterMode.value
+            : this.revenueFilterMode),
+        revenueFilterAmount: (revenueFilterAmount != null
+            ? revenueFilterAmount.value
+            : this.revenueFilterAmount),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        excludeZeroOwned: (excludeZeroOwned != null
+            ? excludeZeroOwned.value
+            : this.excludeZeroOwned),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -38985,9 +44116,6 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesI
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest &&
@@ -39031,6 +44159,9 @@ class WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesI
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -39084,6 +44215,53 @@ extension $WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportS
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? reorderPointMode,
+          Wrapped<bool?>? includeZeroReorderPoint,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest(
+        reorderPointMode: (reorderPointMode != null
+            ? reorderPointMode.value
+            : this.reorderPointMode),
+        includeZeroReorderPoint: (includeZeroReorderPoint != null
+            ? includeZeroReorderPoint.value
+            : this.includeZeroReorderPoint),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -39126,10 +44304,11 @@ class WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesRepo
   @JsonKey(name: 'AttributeId', includeIfNull: false)
   final String? attributeId;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(
       name: 'Ranks',
@@ -39158,9 +44337,6 @@ class WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesRepo
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -39208,6 +44384,9 @@ class WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesRepo
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -39263,6 +44442,51 @@ extension $WebApiModulesReportsSharedInventoryAttributesReportInventoryAttribute
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest
+      copyWithWrapped(
+          {Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? attributeId,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest(
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        attributeId:
+            (attributeId != null ? attributeId.value : this.attributeId),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -39308,10 +44532,11 @@ class WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequ
       defaultValue: <FwStandardModelsSelectedCheckBoxListItem>[])
   final List<FwStandardModelsSelectedCheckBoxListItem>? ranks;
   @JsonKey(
-      name: 'FixedAsset',
-      includeIfNull: false,
-      toJson: webApiIncludeExcludeAllToJson,
-      fromJson: webApiIncludeExcludeAllFromJson)
+    name: 'FixedAsset',
+    includeIfNull: false,
+    toJson: webApiIncludeExcludeAllToJson,
+    fromJson: webApiIncludeExcludeAllFromJson,
+  )
   final enums.WebApiIncludeExcludeAll? fixedAsset;
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
@@ -39349,9 +44574,6 @@ class WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequ
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -39406,6 +44628,9 @@ class WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequ
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -39469,6 +44694,64 @@ extension $WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogRepor
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
+      copyWithWrapped(
+          {Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              classifications,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<enums.WebApiIncludeExcludeAll?>? fixedAsset,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? warehouseCatalogId,
+          Wrapped<bool?>? includeZeroQuantity,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest(
+        classifications: (classifications != null
+            ? classifications.value
+            : this.classifications),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        fixedAsset: (fixedAsset != null ? fixedAsset.value : this.fixedAsset),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        warehouseCatalogId: (warehouseCatalogId != null
+            ? warehouseCatalogId.value
+            : this.warehouseCatalogId),
+        includeZeroQuantity: (includeZeroQuantity != null
+            ? includeZeroQuantity.value
+            : this.includeZeroQuantity),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -39551,9 +44834,6 @@ class WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseH
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest &&
@@ -39606,6 +44886,9 @@ class WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseH
                 const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -39669,6 +44952,65 @@ extension $WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurc
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? purchasedFromDate,
+          Wrapped<DateTime?>? purchasedToDate,
+          Wrapped<DateTime?>? receivedFromDate,
+          Wrapped<DateTime?>? receivedToDate,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? trackedBys,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? ranks,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest(
+        purchasedFromDate: (purchasedFromDate != null
+            ? purchasedFromDate.value
+            : this.purchasedFromDate),
+        purchasedToDate: (purchasedToDate != null
+            ? purchasedToDate.value
+            : this.purchasedToDate),
+        receivedFromDate: (receivedFromDate != null
+            ? receivedFromDate.value
+            : this.receivedFromDate),
+        receivedToDate: (receivedToDate != null
+            ? receivedToDate.value
+            : this.receivedToDate),
+        trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+        ranks: (ranks != null ? ranks.value : this.ranks),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -39739,9 +45081,6 @@ class WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionRe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest &&
@@ -39788,6 +45127,9 @@ class WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionRe
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -39842,6 +45184,54 @@ extension $WebApiModulesReportsSharedInventoryTransactionReportInventoryTransact
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              transactionTypes,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? inventoryTypeId,
+          Wrapped<String?>? categoryId,
+          Wrapped<String?>? subCategoryId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        transactionTypes: (transactionTypes != null
+            ? transactionTypes.value
+            : this.transactionTypes),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        inventoryTypeId: (inventoryTypeId != null
+            ? inventoryTypeId.value
+            : this.inventoryTypeId),
+        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+        subCategoryId:
+            (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -39907,9 +45297,6 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
       _$WebApiModulesReportsSharedReportSettingsReportSettingsToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedReportSettingsReportSettings &&
@@ -39947,6 +45334,9 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -39994,6 +45384,41 @@ extension $WebApiModulesReportsSharedReportSettingsReportSettingsExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesReportsSharedReportSettingsReportSettings copyWithWrapped(
+      {Wrapped<int?>? id,
+      Wrapped<String?>? webUserId,
+      Wrapped<String?>? reportName,
+      Wrapped<String?>? description,
+      Wrapped<String?>? settings,
+      Wrapped<String?>? excelSettings,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesReportsSharedReportSettingsReportSettings(
+        id: (id != null ? id.value : this.id),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        reportName: (reportName != null ? reportName.value : this.reportName),
+        description:
+            (description != null ? description.value : this.description),
+        settings: (settings != null ? settings.value : this.settings),
+        excelSettings:
+            (excelSettings != null ? excelSettings.value : this.excelSettings),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -40058,9 +45483,6 @@ class WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest &&
@@ -40101,6 +45523,9 @@ class WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest {
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -40148,6 +45573,44 @@ extension $WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestExtensio
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest copyWithWrapped(
+      {Wrapped<DateTime?>? fromDate,
+      Wrapped<DateTime?>? toDate,
+      Wrapped<String?>? dateType,
+      Wrapped<String?>? officeLocationId,
+      Wrapped<String?>? departmentId,
+      Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+      Wrapped<String?>? customReportLayoutId,
+      Wrapped<bool?>? isSummary,
+      Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+      Wrapped<bool?>? includeIdColumns,
+      Wrapped<String?>? locale,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -40218,9 +45681,6 @@ class WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMas
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest &&
@@ -40264,6 +45724,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMas
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -40316,6 +45779,46 @@ extension $WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrd
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? vendorId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? activities,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        activities: (activities != null ? activities.value : this.activities),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -40364,9 +45867,6 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderRece
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest &&
@@ -40396,6 +45896,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderRece
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -40433,6 +45936,37 @@ extension $WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrde
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest
+      copyWithWrapped(
+          {Wrapped<String?>? purchaseOrderId,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest(
+        purchaseOrderId: (purchaseOrderId != null
+            ? purchaseOrderId.value
+            : this.purchaseOrderId),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -40457,11 +45991,11 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportReq
   @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
   final String? purchaseOrderId;
   @JsonKey(
-      name: 'ReportView',
-      includeIfNull: false,
-      toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
-      fromJson:
-          webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
+    name: 'ReportView',
+    includeIfNull: false,
+    toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
+    fromJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson,
+  )
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
   @JsonKey(name: 'ExcludeZeroConsignorFee', includeIfNull: false)
@@ -40488,9 +46022,6 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportReq
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -40526,6 +46057,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportReq
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -40567,6 +46101,43 @@ extension $WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderRepo
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? purchaseOrderId,
+          Wrapped<
+                  enums
+                      .WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
+              reportView,
+          Wrapped<bool?>? excludeZeroConsignorFee,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest(
+        purchaseOrderId: (purchaseOrderId != null
+            ? purchaseOrderId.value
+            : this.purchaseOrderId),
+        reportView: (reportView != null ? reportView.value : this.reportView),
+        excludeZeroConsignorFee: (excludeZeroConsignorFee != null
+            ? excludeZeroConsignorFee.value
+            : this.excludeZeroConsignorFee),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -40637,9 +46208,6 @@ class WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSu
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest &&
@@ -40685,6 +46253,9 @@ class WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSu
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -40739,6 +46310,50 @@ extension $WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOr
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? projectId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? poApprovalStatusId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? status,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        projectId: (projectId != null ? projectId.value : this.projectId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        poApprovalStatusId: (poApprovalStatusId != null
+            ? poApprovalStatusId.value
+            : this.poApprovalStatusId),
+        status: (status != null ? status.value : this.status),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -40821,9 +46436,6 @@ class WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportReq
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest &&
@@ -40876,6 +46488,9 @@ class WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportReq
             (identical(other.excelfields, excelfields) ||
                 const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -40939,6 +46554,56 @@ extension $WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusRepo
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? poClassificationId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? recType,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        poClassificationId: (poClassificationId != null
+            ? poClassificationId.value
+            : this.poClassificationId),
+        recType: (recType != null ? recType.value : this.recType),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -41018,9 +46683,6 @@ class WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest &&
@@ -41071,6 +46733,9 @@ class WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityRep
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -41131,6 +46796,54 @@ extension $WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabili
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? customerId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? poClassificationId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? recType,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        poClassificationId: (poClassificationId != null
+            ? poClassificationId.value
+            : this.poClassificationId),
+        recType: (recType != null ? recType.value : this.recType),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -41216,9 +46929,6 @@ class WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBi
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest &&
@@ -41272,6 +46982,9 @@ class WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBi
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -41338,6 +47051,69 @@ extension $WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRen
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? poClassificationId,
+          Wrapped<String?>? purchaseOrderId,
+          Wrapped<String?>? inventoryId,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              invoiceStatus,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>?
+              purchaseOrderStatus,
+          Wrapped<bool?>? includeVendorTax,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        poClassificationId: (poClassificationId != null
+            ? poClassificationId.value
+            : this.poClassificationId),
+        purchaseOrderId: (purchaseOrderId != null
+            ? purchaseOrderId.value
+            : this.purchaseOrderId),
+        inventoryId:
+            (inventoryId != null ? inventoryId.value : this.inventoryId),
+        invoiceStatus:
+            (invoiceStatus != null ? invoiceStatus.value : this.invoiceStatus),
+        purchaseOrderStatus: (purchaseOrderStatus != null
+            ? purchaseOrderStatus.value
+            : this.purchaseOrderStatus),
+        includeVendorTax: (includeVendorTax != null
+            ? includeVendorTax.value
+            : this.includeVendorTax),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -41423,9 +47199,6 @@ class WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSu
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest &&
@@ -41480,6 +47253,9 @@ class WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSu
             (identical(other.locale, locale) || const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.excelfields, excelfields) || const DeepCollectionEquality().equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -41550,6 +47326,67 @@ extension $WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvo
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? dateType,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
+          Wrapped<bool?>? includeAccruals,
+          Wrapped<DateTime?>? accrualFromDate,
+          Wrapped<DateTime?>? accrualToDate,
+          Wrapped<bool?>? accrualsOnly,
+          Wrapped<String?>? officeLocationId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? vendorId,
+          Wrapped<String?>? purchaseOrderId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        dateType: (dateType != null ? dateType.value : this.dateType),
+        statuses: (statuses != null ? statuses.value : this.statuses),
+        includeAccruals: (includeAccruals != null
+            ? includeAccruals.value
+            : this.includeAccruals),
+        accrualFromDate: (accrualFromDate != null
+            ? accrualFromDate.value
+            : this.accrualFromDate),
+        accrualToDate:
+            (accrualToDate != null ? accrualToDate.value : this.accrualToDate),
+        accrualsOnly:
+            (accrualsOnly != null ? accrualsOnly.value : this.accrualsOnly),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+        purchaseOrderId: (purchaseOrderId != null
+            ? purchaseOrderId.value
+            : this.purchaseOrderId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -41598,9 +47435,6 @@ class WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingLi
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest &&
@@ -41630,6 +47464,9 @@ class WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingLi
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -41667,6 +47504,37 @@ extension $WebApiModulesReportsWarehouseReportsContainerPackingListContainerPack
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest
+      copyWithWrapped(
+          {Wrapped<String?>? containerItemId,
+          Wrapped<String?>? appLanguageId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest(
+        containerItemId: (containerItemId != null
+            ? containerItemId.value
+            : this.containerItemId),
+        appLanguageId:
+            (appLanguageId != null ? appLanguageId.value : this.appLanguageId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -41703,9 +47571,6 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData &&
@@ -41726,6 +47591,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData {
             (identical(other.note, note) ||
                 const DeepCollectionEquality().equals(other.note, note)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -41753,6 +47621,28 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaD
             this.quikReceiptTermsConditionsHtml,
         personPrintedName: personPrintedName ?? this.personPrintedName,
         note: note ?? this.note);
+  }
+
+  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
+      copyWithWrapped(
+          {Wrapped<String?>? personSignature,
+          Wrapped<String?>? quikReceiptId,
+          Wrapped<String?>? quikReceiptTermsConditionsHtml,
+          Wrapped<String?>? personPrintedName,
+          Wrapped<String?>? note}) {
+    return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData(
+        personSignature: (personSignature != null
+            ? personSignature.value
+            : this.personSignature),
+        quikReceiptId:
+            (quikReceiptId != null ? quikReceiptId.value : this.quikReceiptId),
+        quikReceiptTermsConditionsHtml: (quikReceiptTermsConditionsHtml != null
+            ? quikReceiptTermsConditionsHtml.value
+            : this.quikReceiptTermsConditionsHtml),
+        personPrintedName: (personPrintedName != null
+            ? personPrintedName.value
+            : this.personPrintedName),
+        note: (note != null ? note.value : this.note));
   }
 }
 
@@ -41808,9 +47698,6 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL &&
@@ -41841,6 +47728,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -41880,6 +47770,34 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
+      copyWithWrapped(
+          {Wrapped<String?>? rowType,
+          Wrapped<String?>? description,
+          Wrapped<String?>? quantity,
+          Wrapped<String?>? printDate,
+          Wrapped<String?>? printTime,
+          Wrapped<String?>? printDateTime,
+          Wrapped<List<String>?>? dateFields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL(
+        rowType: (rowType != null ? rowType.value : this.rowType),
+        description:
+            (description != null ? description.value : this.description),
+        quantity: (quantity != null ? quantity.value : this.quantity),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime:
+            (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -42164,9 +48082,6 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL &&
@@ -42283,6 +48198,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -42564,6 +48482,252 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
+      copyWithWrapped(
+          {Wrapped<int?>? sessionNo,
+          Wrapped<String?>? customer,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? estRentFrom,
+          Wrapped<String?>? estRentTo,
+          Wrapped<String?>? quikReceiptTermsConditionsId,
+          Wrapped<
+                  List<
+                      WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL>?>?
+              items,
+          Wrapped<WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData?>?
+              metaData,
+          Wrapped<String?>? dealId,
+          Wrapped<String?>? deal,
+          Wrapped<String?>? dealNumber,
+          Wrapped<String?>? dealNumberAndDeal,
+          Wrapped<String?>? orderId,
+          Wrapped<String?>? orderNumber,
+          Wrapped<String?>? orderDate,
+          Wrapped<String?>? orderPoNumber,
+          Wrapped<String?>? orderType,
+          Wrapped<String?>? orderDescription,
+          Wrapped<String?>? orderNumberAndDescription,
+          Wrapped<String?>? orderLocation,
+          Wrapped<String?>? rowType,
+          Wrapped<String?>? contractId,
+          Wrapped<String?>? contractNumber,
+          Wrapped<String?>? contractDate,
+          Wrapped<String?>? contractTime,
+          Wrapped<String?>? contractDateAndTime,
+          Wrapped<String?>? contractType,
+          Wrapped<bool?>? hasPendingExchange,
+          Wrapped<bool?>? hasRental,
+          Wrapped<bool?>? hasSales,
+          Wrapped<String?>? inputByUserId,
+          Wrapped<String?>? billingDate,
+          Wrapped<String?>? officeLocation,
+          Wrapped<String?>? officeLocationCompany,
+          Wrapped<String?>? officeLocationAddress1,
+          Wrapped<String?>? officeLocationAddress2,
+          Wrapped<String?>? officeLocationCityStateZipCode,
+          Wrapped<String?>? officeLocationCityStateZipCodeCountry,
+          Wrapped<String?>? officeLocationPhone,
+          Wrapped<String?>? officeLocationFax,
+          Wrapped<String?>? warehouse,
+          Wrapped<String?>? warehouseAddress1,
+          Wrapped<String?>? warehouseAddress2,
+          Wrapped<String?>? warehouseCityStateZipCode,
+          Wrapped<String?>? warehouseCityStateZipCodeCountry,
+          Wrapped<String?>? warehousePhone,
+          Wrapped<String?>? warehouseFax,
+          Wrapped<String?>? issuedToCompany,
+          Wrapped<String?>? issuedToAttentionTo1,
+          Wrapped<String?>? issuedToAttentionTo2,
+          Wrapped<String?>? issuedToAddress1,
+          Wrapped<String?>? issuedToAddress2,
+          Wrapped<String?>? issuedToCity,
+          Wrapped<String?>? issuedToState,
+          Wrapped<String?>? issuedToZipCode,
+          Wrapped<String?>? issuedToCountry,
+          Wrapped<String?>? issuedToPhone,
+          Wrapped<String?>? issuedToFax,
+          Wrapped<String?>? usageDates,
+          Wrapped<String?>? billingCycle,
+          Wrapped<String?>? paymentTerms,
+          Wrapped<String?>? agent,
+          Wrapped<String?>? agentEmail,
+          Wrapped<String?>? agentPhoneAndExtension,
+          Wrapped<String?>? agentFax,
+          Wrapped<String?>? department,
+          Wrapped<String?>? deliveryContact,
+          Wrapped<String?>? deliveryLocation,
+          Wrapped<String?>? deliveryAddress1,
+          Wrapped<String?>? deliveryAddress2,
+          Wrapped<String?>? deliveryCityStateZipCode,
+          Wrapped<String?>? deliveryCountry,
+          Wrapped<String?>? deliveryContactPhone,
+          Wrapped<String?>? termsAndConditionsId,
+          Wrapped<String?>? termsAndConditionsHtml,
+          Wrapped<bool?>? termsAndConditionsNewPage,
+          Wrapped<String?>? personPrintName,
+          Wrapped<String?>? personSignature,
+          Wrapped<String?>? printDate,
+          Wrapped<String?>? printTime,
+          Wrapped<String?>? printDateTime,
+          Wrapped<List<String>?>? dateFields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL(
+        sessionNo: (sessionNo != null ? sessionNo.value : this.sessionNo),
+        customer: (customer != null ? customer.value : this.customer),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        estRentFrom:
+            (estRentFrom != null ? estRentFrom.value : this.estRentFrom),
+        estRentTo: (estRentTo != null ? estRentTo.value : this.estRentTo),
+        quikReceiptTermsConditionsId: (quikReceiptTermsConditionsId != null
+            ? quikReceiptTermsConditionsId.value
+            : this.quikReceiptTermsConditionsId),
+        items: (items != null ? items.value : this.items),
+        metaData: (metaData != null ? metaData.value : this.metaData),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        deal: (deal != null ? deal.value : this.deal),
+        dealNumber: (dealNumber != null ? dealNumber.value : this.dealNumber),
+        dealNumberAndDeal: (dealNumberAndDeal != null
+            ? dealNumberAndDeal.value
+            : this.dealNumberAndDeal),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        orderNumber:
+            (orderNumber != null ? orderNumber.value : this.orderNumber),
+        orderDate: (orderDate != null ? orderDate.value : this.orderDate),
+        orderPoNumber:
+            (orderPoNumber != null ? orderPoNumber.value : this.orderPoNumber),
+        orderType: (orderType != null ? orderType.value : this.orderType),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        orderNumberAndDescription: (orderNumberAndDescription != null
+            ? orderNumberAndDescription.value
+            : this.orderNumberAndDescription),
+        orderLocation:
+            (orderLocation != null ? orderLocation.value : this.orderLocation),
+        rowType: (rowType != null ? rowType.value : this.rowType),
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        contractNumber: (contractNumber != null
+            ? contractNumber.value
+            : this.contractNumber),
+        contractDate:
+            (contractDate != null ? contractDate.value : this.contractDate),
+        contractTime:
+            (contractTime != null ? contractTime.value : this.contractTime),
+        contractDateAndTime: (contractDateAndTime != null
+            ? contractDateAndTime.value
+            : this.contractDateAndTime),
+        contractType:
+            (contractType != null ? contractType.value : this.contractType),
+        hasPendingExchange: (hasPendingExchange != null
+            ? hasPendingExchange.value
+            : this.hasPendingExchange),
+        hasRental: (hasRental != null ? hasRental.value : this.hasRental),
+        hasSales: (hasSales != null ? hasSales.value : this.hasSales),
+        inputByUserId:
+            (inputByUserId != null ? inputByUserId.value : this.inputByUserId),
+        billingDate:
+            (billingDate != null ? billingDate.value : this.billingDate),
+        officeLocation: (officeLocation != null
+            ? officeLocation.value
+            : this.officeLocation),
+        officeLocationCompany: (officeLocationCompany != null
+            ? officeLocationCompany.value
+            : this.officeLocationCompany),
+        officeLocationAddress1: (officeLocationAddress1 != null
+            ? officeLocationAddress1.value
+            : this.officeLocationAddress1),
+        officeLocationAddress2: (officeLocationAddress2 != null
+            ? officeLocationAddress2.value
+            : this.officeLocationAddress2),
+        officeLocationCityStateZipCode: (officeLocationCityStateZipCode != null
+            ? officeLocationCityStateZipCode.value
+            : this.officeLocationCityStateZipCode),
+        officeLocationCityStateZipCodeCountry:
+            (officeLocationCityStateZipCodeCountry != null
+                ? officeLocationCityStateZipCodeCountry.value
+                : this.officeLocationCityStateZipCodeCountry),
+        officeLocationPhone: (officeLocationPhone != null
+            ? officeLocationPhone.value
+            : this.officeLocationPhone),
+        officeLocationFax: (officeLocationFax != null
+            ? officeLocationFax.value
+            : this.officeLocationFax),
+        warehouse: (warehouse != null ? warehouse.value : this.warehouse),
+        warehouseAddress1: (warehouseAddress1 != null
+            ? warehouseAddress1.value
+            : this.warehouseAddress1),
+        warehouseAddress2: (warehouseAddress2 != null
+            ? warehouseAddress2.value
+            : this.warehouseAddress2),
+        warehouseCityStateZipCode: (warehouseCityStateZipCode != null
+            ? warehouseCityStateZipCode.value
+            : this.warehouseCityStateZipCode),
+        warehouseCityStateZipCodeCountry: (warehouseCityStateZipCodeCountry != null
+            ? warehouseCityStateZipCodeCountry.value
+            : this.warehouseCityStateZipCodeCountry),
+        warehousePhone: (warehousePhone != null
+            ? warehousePhone.value
+            : this.warehousePhone),
+        warehouseFax:
+            (warehouseFax != null ? warehouseFax.value : this.warehouseFax),
+        issuedToCompany: (issuedToCompany != null
+            ? issuedToCompany.value
+            : this.issuedToCompany),
+        issuedToAttentionTo1: (issuedToAttentionTo1 != null
+            ? issuedToAttentionTo1.value
+            : this.issuedToAttentionTo1),
+        issuedToAttentionTo2: (issuedToAttentionTo2 != null
+            ? issuedToAttentionTo2.value
+            : this.issuedToAttentionTo2),
+        issuedToAddress1: (issuedToAddress1 != null
+            ? issuedToAddress1.value
+            : this.issuedToAddress1),
+        issuedToAddress2: (issuedToAddress2 != null
+            ? issuedToAddress2.value
+            : this.issuedToAddress2),
+        issuedToCity:
+            (issuedToCity != null ? issuedToCity.value : this.issuedToCity),
+        issuedToState:
+            (issuedToState != null ? issuedToState.value : this.issuedToState),
+        issuedToZipCode: (issuedToZipCode != null
+            ? issuedToZipCode.value
+            : this.issuedToZipCode),
+        issuedToCountry: (issuedToCountry != null
+            ? issuedToCountry.value
+            : this.issuedToCountry),
+        issuedToPhone: (issuedToPhone != null ? issuedToPhone.value : this.issuedToPhone),
+        issuedToFax: (issuedToFax != null ? issuedToFax.value : this.issuedToFax),
+        usageDates: (usageDates != null ? usageDates.value : this.usageDates),
+        billingCycle: (billingCycle != null ? billingCycle.value : this.billingCycle),
+        paymentTerms: (paymentTerms != null ? paymentTerms.value : this.paymentTerms),
+        agent: (agent != null ? agent.value : this.agent),
+        agentEmail: (agentEmail != null ? agentEmail.value : this.agentEmail),
+        agentPhoneAndExtension: (agentPhoneAndExtension != null ? agentPhoneAndExtension.value : this.agentPhoneAndExtension),
+        agentFax: (agentFax != null ? agentFax.value : this.agentFax),
+        department: (department != null ? department.value : this.department),
+        deliveryContact: (deliveryContact != null ? deliveryContact.value : this.deliveryContact),
+        deliveryLocation: (deliveryLocation != null ? deliveryLocation.value : this.deliveryLocation),
+        deliveryAddress1: (deliveryAddress1 != null ? deliveryAddress1.value : this.deliveryAddress1),
+        deliveryAddress2: (deliveryAddress2 != null ? deliveryAddress2.value : this.deliveryAddress2),
+        deliveryCityStateZipCode: (deliveryCityStateZipCode != null ? deliveryCityStateZipCode.value : this.deliveryCityStateZipCode),
+        deliveryCountry: (deliveryCountry != null ? deliveryCountry.value : this.deliveryCountry),
+        deliveryContactPhone: (deliveryContactPhone != null ? deliveryContactPhone.value : this.deliveryContactPhone),
+        termsAndConditionsId: (termsAndConditionsId != null ? termsAndConditionsId.value : this.termsAndConditionsId),
+        termsAndConditionsHtml: (termsAndConditionsHtml != null ? termsAndConditionsHtml.value : this.termsAndConditionsHtml),
+        termsAndConditionsNewPage: (termsAndConditionsNewPage != null ? termsAndConditionsNewPage.value : this.termsAndConditionsNewPage),
+        personPrintName: (personPrintName != null ? personPrintName.value : this.personPrintName),
+        personSignature: (personSignature != null ? personSignature.value : this.personSignature),
+        printDate: (printDate != null ? printDate.value : this.printDate),
+        printTime: (printTime != null ? printTime.value : this.printTime),
+        printDateTime: (printDateTime != null ? printDateTime.value : this.printDateTime),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null ? defaultFieldAttributes.value : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -42612,9 +48776,6 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequ
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest &&
@@ -42644,6 +48805,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequ
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -42680,6 +48844,35 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? contractId,
+          Wrapped<String?>? quikReceiptId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest(
+        contractId: (contractId != null ? contractId.value : this.contractId),
+        quikReceiptId:
+            (quikReceiptId != null ? quikReceiptId.value : this.quikReceiptId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -42732,9 +48925,6 @@ class WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerL
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest &&
@@ -42767,6 +48957,9 @@ class WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerL
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -42808,6 +49001,40 @@ extension $WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageConta
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest
+      copyWithWrapped(
+          {Wrapped<String?>? orderId,
+          Wrapped<String?>? printedByUsersId,
+          Wrapped<String?>? storageContainerItemId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        printedByUsersId: (printedByUsersId != null
+            ? printedByUsersId.value
+            : this.printedByUsersId),
+        storageContainerItemId: (storageContainerItemId != null
+            ? storageContainerItemId.value
+            : this.storageContainerItemId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -42831,11 +49058,11 @@ class WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReport
   @JsonKey(name: 'TransferId', includeIfNull: false)
   final String? transferId;
   @JsonKey(
-      name: 'ReportView',
-      includeIfNull: false,
-      toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
-      fromJson:
-          webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson)
+    name: 'ReportView',
+    includeIfNull: false,
+    toJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson,
+    fromJson: webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson,
+  )
   final enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?
       reportView;
   @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
@@ -42860,9 +49087,6 @@ class WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReport
   Map<String, dynamic> toJson() =>
       _$WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -42894,6 +49118,9 @@ class WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReport
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -42931,6 +49158,37 @@ extension $WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderR
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest
+      copyWithWrapped(
+          {Wrapped<String?>? transferId,
+          Wrapped<
+                  enums
+                      .WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
+              reportView,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsTransferOrderReportTransferOrderReportRequest(
+        transferId: (transferId != null ? transferId.value : this.transferId),
+        reportView: (reportView != null ? reportView.value : this.reportView),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -43004,9 +49262,6 @@ class WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispat
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest &&
@@ -43052,6 +49307,9 @@ class WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispat
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -43106,6 +49364,50 @@ extension $WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseD
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? activityTypeId,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderTypes,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        activityTypeId: (activityTypeId != null
+            ? activityTypeId.value
+            : this.activityTypeId),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        orderTypes: (orderTypes != null ? orderTypes.value : this.orderTypes),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -43179,9 +49481,6 @@ class WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInbound
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest &&
@@ -43227,6 +49526,9 @@ class WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInbound
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -43281,6 +49583,50 @@ extension $WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseIn
         includeIdColumns: includeIdColumns ?? this.includeIdColumns,
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
+  }
+
+  WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? activityTypeId,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderTypes,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        activityTypeId: (activityTypeId != null
+            ? activityTypeId.value
+            : this.activityTypeId),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        orderTypes: (orderTypes != null ? orderTypes.value : this.orderTypes),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
   }
 }
 
@@ -43354,9 +49700,6 @@ class WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutbou
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest &&
@@ -43402,6 +49745,9 @@ class WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutbou
                 const DeepCollectionEquality()
                     .equals(other.excelfields, excelfields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -43457,6 +49803,50 @@ extension $WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseO
         locale: locale ?? this.locale,
         excelfields: excelfields ?? this.excelfields);
   }
+
+  WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest
+      copyWithWrapped(
+          {Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? warehouseId,
+          Wrapped<String?>? departmentId,
+          Wrapped<String?>? agentId,
+          Wrapped<String?>? activityTypeId,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+          Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? orderTypes,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<bool?>? isSummary,
+          Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+          Wrapped<bool?>? includeIdColumns,
+          Wrapped<String?>? locale,
+          Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields}) {
+    return WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest(
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        departmentId:
+            (departmentId != null ? departmentId.value : this.departmentId),
+        agentId: (agentId != null ? agentId.value : this.agentId),
+        activityTypeId: (activityTypeId != null
+            ? activityTypeId.value
+            : this.activityTypeId),
+        sortBy: (sortBy != null ? sortBy.value : this.sortBy),
+        orderTypes: (orderTypes != null ? orderTypes.value : this.orderTypes),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+        includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+            ? includeSubHeadingsAndSubTotals.value
+            : this.includeSubHeadingsAndSubTotals),
+        includeIdColumns: (includeIdColumns != null
+            ? includeIdColumns.value
+            : this.includeIdColumns),
+        locale: (locale != null ? locale.value : this.locale),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields));
+  }
 }
 
 String? fwStandardSqlServerFwDataTypesToJson(
@@ -43466,19 +49856,9 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    Object? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes is int) {
-    return enums.$FwStandardSqlServerFwDataTypesMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                fwStandardSqlServerFwDataTypes.toString(),
-            orElse: () => const MapEntry(
-                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? fwStandardSqlServerFwDataTypes, [
+  enums.FwStandardSqlServerFwDataTypes? defaultValue,
+]) {
   if (fwStandardSqlServerFwDataTypes is String) {
     return enums.$FwStandardSqlServerFwDataTypesMap.entries
         .firstWhere(
@@ -43491,7 +49871,15 @@ enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
         .key;
   }
 
-  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums.$FwStandardSqlServerFwDataTypesMap.entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -43508,9 +49896,25 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
 
 List<enums.FwStandardSqlServerFwDataTypes>
     fwStandardSqlServerFwDataTypesListFromJson(
-        List? fwStandardSqlServerFwDataTypes) {
+  List? fwStandardSqlServerFwDataTypes, [
+  List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
+]) {
   if (fwStandardSqlServerFwDataTypes == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return fwStandardSqlServerFwDataTypes
+      .map((e) => fwStandardSqlServerFwDataTypesFromJson(e.toString()))
+      .toList();
+}
+
+List<enums.FwStandardSqlServerFwDataTypes>?
+    fwStandardSqlServerFwDataTypesNullableListFromJson(
+  List? fwStandardSqlServerFwDataTypes, [
+  List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
+]) {
+  if (fwStandardSqlServerFwDataTypes == null) {
+    return defaultValue;
   }
 
   return fwStandardSqlServerFwDataTypes
@@ -43524,18 +49928,9 @@ String? webApiIncludeExcludeAllToJson(
 }
 
 enums.WebApiIncludeExcludeAll webApiIncludeExcludeAllFromJson(
-    Object? webApiIncludeExcludeAll) {
-  if (webApiIncludeExcludeAll is int) {
-    return enums.$WebApiIncludeExcludeAllMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiIncludeExcludeAll.toString(),
-            orElse: () => const MapEntry(
-                enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown, ''))
-        .key;
-  }
-
+  Object? webApiIncludeExcludeAll, [
+  enums.WebApiIncludeExcludeAll? defaultValue,
+]) {
   if (webApiIncludeExcludeAll is String) {
     return enums.$WebApiIncludeExcludeAllMap.entries
         .firstWhere(
@@ -43547,7 +49942,15 @@ enums.WebApiIncludeExcludeAll webApiIncludeExcludeAllFromJson(
         .key;
   }
 
-  return enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums.$WebApiIncludeExcludeAllMap.entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.WebApiIncludeExcludeAll.swaggerGeneratedUnknown;
 }
 
 List<String> webApiIncludeExcludeAllListToJson(
@@ -43562,9 +49965,25 @@ List<String> webApiIncludeExcludeAllListToJson(
 }
 
 List<enums.WebApiIncludeExcludeAll> webApiIncludeExcludeAllListFromJson(
-    List? webApiIncludeExcludeAll) {
+  List? webApiIncludeExcludeAll, [
+  List<enums.WebApiIncludeExcludeAll>? defaultValue,
+]) {
   if (webApiIncludeExcludeAll == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiIncludeExcludeAll
+      .map((e) => webApiIncludeExcludeAllFromJson(e.toString()))
+      .toList();
+}
+
+List<enums.WebApiIncludeExcludeAll>?
+    webApiIncludeExcludeAllNullableListFromJson(
+  List? webApiIncludeExcludeAll, [
+  List<enums.WebApiIncludeExcludeAll>? defaultValue,
+]) {
+  if (webApiIncludeExcludeAll == null) {
+    return defaultValue;
   }
 
   return webApiIncludeExcludeAll
@@ -43581,22 +50000,9 @@ String? webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
 
 enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
     webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
-        Object? webApiModulesReportsOrderReportsOrderReportReportViewType) {
-  if (webApiModulesReportsOrderReportsOrderReportReportViewType is int) {
-    return enums
-        .$WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesReportsOrderReportsOrderReportReportViewType
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? webApiModulesReportsOrderReportsOrderReportReportViewType, [
+  enums.WebApiModulesReportsOrderReportsOrderReportReportViewType? defaultValue,
+]) {
   if (webApiModulesReportsOrderReportsOrderReportReportViewType is String) {
     return enums
         .$WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap.entries
@@ -43612,8 +50018,17 @@ enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
         .key;
   }
 
-  return enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesReportsOrderReportsOrderReportReportViewTypeMap.entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.WebApiModulesReportsOrderReportsOrderReportReportViewType
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -43632,9 +50047,29 @@ List<String>
 
 List<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType>
     webApiModulesReportsOrderReportsOrderReportReportViewTypeListFromJson(
-        List? webApiModulesReportsOrderReportsOrderReportReportViewType) {
+  List? webApiModulesReportsOrderReportsOrderReportReportViewType, [
+  List<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType>?
+      defaultValue,
+]) {
   if (webApiModulesReportsOrderReportsOrderReportReportViewType == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesReportsOrderReportsOrderReportReportViewType
+      .map((e) =>
+          webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType>?
+    webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableListFromJson(
+  List? webApiModulesReportsOrderReportsOrderReportReportViewType, [
+  List<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType>?
+      defaultValue,
+]) {
+  if (webApiModulesReportsOrderReportsOrderReportReportViewType == null) {
+    return defaultValue;
   }
 
   return webApiModulesReportsOrderReportsOrderReportReportViewType
@@ -43660,6 +50095,14 @@ class $CustomJsonDecoder {
       return entity;
     }
 
+    if (isTypeOf<T, Map>()) {
+      return entity;
+    }
+
+    if (isTypeOf<T, Iterable>()) {
+      return entity;
+    }
+
     if (entity is Map<String, dynamic>) {
       return _decodeMap<T>(entity);
     }
@@ -43682,15 +50125,15 @@ class $CustomJsonDecoder {
 
 class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
-  chopper.Response<ResultType> convertResponse<ResultType, Item>(
-      chopper.Response response) {
+  FutureOr<chopper.Response<ResultType>> convertResponse<ResultType, Item>(
+      chopper.Response response) async {
     if (response.bodyString.isEmpty) {
       // In rare cases, when let's say 204 (no content) is returned -
       // we cannot decode the missing json with the result type specified
       return chopper.Response(response.base, null, error: response.error);
     }
 
-    final jsonRes = super.convertResponse(response);
+    final jsonRes = await super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
         body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
@@ -43709,4 +50152,9 @@ String? _dateToJson(DateTime? date) {
   final day = date.day < 10 ? '0${date.day}' : date.day.toString();
 
   return '$year-$month-$day';
+}
+
+class Wrapped<T> {
+  final T value;
+  const Wrapped.value(this.value);
 }

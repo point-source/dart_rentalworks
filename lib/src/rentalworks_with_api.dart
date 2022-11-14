@@ -44,7 +44,7 @@ class RentalWorks {
 
   Future<Request> Function(Request) get _jwtInterceptor =>
       (Request request) async {
-        if (request.url.startsWith('/jwt')) return request;
+        if (request.path.startsWith('/jwt')) return request;
         final token = await jwt;
         return applyHeader(request, 'Authorization', 'Bearer $token',
             override: false);

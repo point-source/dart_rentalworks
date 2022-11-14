@@ -2,11 +2,12 @@
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
-
-import 'package:chopper/chopper.dart';
 import 'dart:convert';
 
+import 'package:chopper/chopper.dart';
+
 import 'client_mapping.dart';
+import 'dart:async';
 import 'package:chopper/chopper.dart' as chopper;
 import 'administrator.enums.swagger.dart' as enums;
 export 'administrator.enums.swagger.dart';
@@ -20,10 +21,12 @@ part 'administrator.swagger.g.dart';
 
 @ChopperApi()
 abstract class Administrator extends ChopperService {
-  static Administrator create(
-      {ChopperClient? client,
-      String? baseUrl,
-      Iterable<dynamic>? interceptors}) {
+  static Administrator create({
+    ChopperClient? client,
+    Authenticator? authenticator,
+    String? baseUrl,
+    Iterable<dynamic>? interceptors,
+  }) {
     if (client != null) {
       return _$Administrator(client);
     }
@@ -31,7 +34,8 @@ abstract class Administrator extends ChopperService {
     final newClient = ChopperClient(
       services: [_$Administrator()],
       converter: $JsonSerializableConverter(),
-      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
+      interceptors: interceptors ?? [],
+      authenticator: authenticator, /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Administrator(newClient);
   }
@@ -80,11 +84,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic>>
-      alertGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      alertGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic,
         () =>
@@ -104,11 +109,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic>>
-      _alertGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _alertGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
@@ -146,9 +152,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
-      alertIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorAlertAlertLogic? body}) {
+      alertIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorAlertAlertLogic? body,
+  }) {
     generatedMapping.putIfAbsent(FwStandardModulesAdministratorAlertAlertLogic,
         () => FwStandardModulesAdministratorAlertAlertLogic.fromJsonFactory);
 
@@ -159,11 +166,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/alert/{id}')
   Future<chopper.Response<FwStandardModulesAdministratorAlertAlertLogic>>
-      _alertIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorAlertAlertLogic? body});
+      _alertIdPut({
+    @Path('id') required String? id,
+    @Body() required FwStandardModulesAdministratorAlertAlertLogic? body,
+  });
 
   ///
   ///@param id
@@ -250,11 +256,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      alertconditionGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      alertconditionGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic,
         () =>
@@ -274,11 +281,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      _alertconditionGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _alertconditionGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -332,10 +340,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      alertconditionIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
-              body}) {
+      alertconditionIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorAlertConditionAlertConditionLogic,
         () => FwStandardModulesAdministratorAlertConditionAlertConditionLogic
@@ -350,12 +359,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
-      _alertconditionIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
-                  body});
+      _alertconditionIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
+            body,
+  });
 
   ///
   ///@param id
@@ -442,11 +451,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      alertwebusersGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      alertwebusersGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic,
         () =>
@@ -466,11 +476,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      _alertwebusersGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _alertwebusersGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -524,10 +535,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      alertwebusersIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
-              body}) {
+      alertwebusersIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic,
         () => FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
@@ -542,12 +554,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
-      _alertwebusersIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
-                  body});
+      _alertwebusersIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
+            body,
+  });
 
   ///
   ///@param id
@@ -716,11 +728,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic>>
-      customfieldGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customfieldGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic,
         () =>
@@ -740,11 +753,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic>>
-      _customfieldGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customfieldGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
@@ -784,9 +798,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
-      customfieldIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorCustomFieldCustomField? body}) {
+      customfieldIdPut({
+    required String? id,
+    required WebApiModulesAdministratorCustomFieldCustomField? body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesAdministratorCustomFieldCustomField,
         () => WebApiModulesAdministratorCustomFieldCustomField.fromJsonFactory);
@@ -798,11 +813,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/customfield/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFieldCustomField>>
-      _customfieldIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorCustomFieldCustomField? body});
+      _customfieldIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorCustomFieldCustomField? body,
+  });
 
   ///
   ///@param id
@@ -889,11 +903,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic>>
-      customformGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customformGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic,
         () =>
@@ -913,11 +928,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic>>
-      _customformGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customformGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
@@ -955,9 +971,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      customformIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+      customformIdPut({
+    required String? id,
+    required WebApiModulesAdministratorCustomFormCustomForm? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
         () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
 
@@ -968,11 +985,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/customform/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      _customformIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorCustomFormCustomForm? body});
+      _customformIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorCustomFormCustomForm? body,
+  });
 
   ///
   ///@param id
@@ -1006,9 +1022,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      customformSelfassignIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+      customformSelfassignIdPut({
+    required String? id,
+    required WebApiModulesAdministratorCustomFormCustomForm? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesAdministratorCustomFormCustomForm,
         () => WebApiModulesAdministratorCustomFormCustomForm.fromJsonFactory);
 
@@ -1019,11 +1036,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/customform/selfassign/{id}')
   Future<chopper.Response<WebApiModulesAdministratorCustomFormCustomForm>>
-      _customformSelfassignIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorCustomFormCustomForm? body});
+      _customformSelfassignIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorCustomFormCustomForm? body,
+  });
 
   ///Get an empty object
   Future<chopper.Response> customformEmptyobjectGet() {
@@ -1099,11 +1115,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic>>
-      customformgroupGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customformgroupGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic,
         () =>
@@ -1123,11 +1140,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic>>
-      _customformgroupGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customformgroupGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -1181,10 +1199,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
-      customformgroupIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
-              body}) {
+      customformgroupIdPut({
+    required String? id,
+    required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
         () => WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
@@ -1199,12 +1218,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
-      _customformgroupIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
-                  body});
+      _customformgroupIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
+            body,
+  });
 
   ///
   ///@param id
@@ -1308,11 +1327,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic>>
-      customformuserGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customformuserGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic,
         () =>
@@ -1332,11 +1352,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic>>
-      _customformuserGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customformuserGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -1390,10 +1411,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
-      customformuserIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
-              body}) {
+      customformuserIdPut({
+    required String? id,
+    required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
         () => WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
@@ -1408,12 +1430,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
-      _customformuserIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
-                  body});
+      _customformuserIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
+            body,
+  });
 
   ///
   ///@param id
@@ -1516,11 +1538,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic>>
-      custommoduleGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      custommoduleGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic,
         () =>
@@ -1540,11 +1563,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic>>
-      _custommoduleGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _custommoduleGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///Get an empty object
   Future<chopper.Response> custommoduleEmptyobjectGet() {
@@ -1620,7 +1644,11 @@ abstract class Administrator extends ChopperService {
           chopper.Response<
               List<
                   FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>>
-      customreportcssGet({int? pageno, int? pagesize, String? sort}) {
+      customreportcssGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
         () => FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
@@ -1638,10 +1666,11 @@ abstract class Administrator extends ChopperService {
           chopper.Response<
               List<
                   FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>>
-      _customreportcssGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort});
+      _customreportcssGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+  });
 
   ///
   Future<
@@ -1695,10 +1724,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
-      customreportcssIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
-              body}) {
+      customreportcssIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic,
         () => FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
@@ -1713,12 +1743,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
-      _customreportcssIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
-                  body});
+      _customreportcssIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
+            body,
+  });
 
   ///
   ///@param id
@@ -1807,11 +1837,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      customreportlayoutGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customreportlayoutGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic,
         () =>
@@ -1831,11 +1862,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      _customreportlayoutGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customreportlayoutGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -1891,10 +1923,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      customreportlayoutIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
-              body}) {
+      customreportlayoutIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic,
         () =>
@@ -1910,12 +1943,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
-      _customreportlayoutIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
-                  body});
+      _customreportlayoutIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
+            body,
+  });
 
   ///
   ///@param id
@@ -2044,11 +2077,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic>>
-      customreportlayoutgroupGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customreportlayoutgroupGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic,
         () =>
@@ -2068,11 +2102,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic>>
-      _customreportlayoutgroupGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customreportlayoutgroupGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -2128,10 +2163,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
-      customreportlayoutgroupIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
-              body}) {
+      customreportlayoutgroupIdPut({
+    required String? id,
+    required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup,
         () =>
@@ -2147,12 +2183,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
-      _customreportlayoutgroupIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
-                  body});
+      _customreportlayoutgroupIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
+            body,
+  });
 
   ///
   ///@param id
@@ -2257,11 +2293,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic>>
-      customreportlayoutuserGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      customreportlayoutuserGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic,
         () =>
@@ -2281,11 +2318,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic>>
-      _customreportlayoutuserGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _customreportlayoutuserGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -2341,10 +2379,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
-      customreportlayoutuserIdPut(
-          {required String? id,
-          required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
-              body}) {
+      customreportlayoutuserIdPut({
+    required String? id,
+    required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser,
         () =>
@@ -2360,12 +2399,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
-      _customreportlayoutuserIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
-                  body});
+      _customreportlayoutuserIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
+            body,
+  });
 
   ///
   ///@param id
@@ -2478,11 +2517,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic>>
-      datahealthGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      datahealthGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic,
         () =>
@@ -2502,11 +2542,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic>>
-      _datahealthGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _datahealthGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   ///@param id
@@ -2527,9 +2568,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesAdministratorDataHealthDataHealth>>
-      datahealthIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorDataHealthDataHealth? body}) {
+      datahealthIdPut({
+    required String? id,
+    required WebApiModulesAdministratorDataHealthDataHealth? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesAdministratorDataHealthDataHealth,
         () => WebApiModulesAdministratorDataHealthDataHealth.fromJsonFactory);
 
@@ -2540,11 +2582,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/datahealth/{id}')
   Future<chopper.Response<WebApiModulesAdministratorDataHealthDataHealth>>
-      _datahealthIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorDataHealthDataHealth? body});
+      _datahealthIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorDataHealthDataHealth? body,
+  });
 
   ///Get an empty object
   Future<chopper.Response> datahealthEmptyobjectGet() {
@@ -2619,11 +2660,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      duplicateruleGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      duplicateruleGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic,
         () =>
@@ -2643,11 +2685,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      _duplicateruleGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _duplicateruleGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -2701,10 +2744,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      duplicateruleIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
-              body}) {
+      duplicateruleIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic,
         () => FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
@@ -2719,12 +2763,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
-      _duplicateruleIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
-                  body});
+      _duplicateruleIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
+            body,
+  });
 
   ///
   ///@param id
@@ -2812,11 +2856,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic>>
-      duplicaterulefieldGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      duplicaterulefieldGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic,
         () =>
@@ -2836,11 +2881,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic>>
-      _duplicaterulefieldGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _duplicaterulefieldGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -2896,10 +2942,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
-      duplicaterulefieldIdPut(
-          {required String? id,
-          required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
-              body}) {
+      duplicaterulefieldIdPut({
+    required String? id,
+    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
         () =>
@@ -2915,12 +2962,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
-      _duplicaterulefieldIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
-                  body});
+      _duplicaterulefieldIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+            body,
+  });
 
   ///
   ///@param id
@@ -3008,11 +3055,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic>>
-      emailhistoryGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      emailhistoryGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic,
         () =>
@@ -3032,11 +3080,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic>>
-      _emailhistoryGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _emailhistoryGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   ///@param id
@@ -3106,11 +3155,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      emailtemplateGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      emailtemplateGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic,
         () =>
@@ -3130,11 +3180,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      _emailtemplateGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _emailtemplateGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -3200,10 +3251,11 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      emailtemplateIdPut(
-          {required String? id,
-          required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
-              body}) {
+      emailtemplateIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic,
         () => FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
@@ -3218,12 +3270,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
-      _emailtemplateIdPut(
-          {@Path('id')
-              required String? id,
-          @Body()
-              required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
-                  body});
+      _emailtemplateIdPut({
+    @Path('id') required String? id,
+    @Body()
+        required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
+            body,
+  });
 
   ///
   Future<
@@ -3348,11 +3400,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic>>
-      groupGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      groupGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic,
         () =>
@@ -3372,11 +3425,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic>>
-      _groupGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _groupGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> groupPost(
@@ -3410,9 +3464,10 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> groupIdPut(
-      {required String? id,
-      required WebApiModulesAdministratorGroupGroup? body}) {
+  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> groupIdPut({
+    required String? id,
+    required WebApiModulesAdministratorGroupGroup? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesAdministratorGroupGroup,
         () => WebApiModulesAdministratorGroupGroup.fromJsonFactory);
 
@@ -3422,9 +3477,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   @Put(path: '/group/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> _groupIdPut(
-      {@Path('id') required String? id,
-      @Body() required WebApiModulesAdministratorGroupGroup? body});
+  Future<chopper.Response<WebApiModulesAdministratorGroupGroup>> _groupIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorGroupGroup? body,
+  });
 
   ///
   ///@param id
@@ -3482,12 +3538,13 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse>>
-      groupLookupgroupGet(
-          {String? groupId,
-          String? name,
-          int? pageNo,
-          int? pageSize,
-          String? sort}) {
+      groupLookupgroupGet({
+    String? groupId,
+    String? name,
+    int? pageNo,
+    int? pageSize,
+    String? sort,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse,
         () =>
@@ -3512,12 +3569,13 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse>>
-      _groupLookupgroupGet(
-          {@Query('GroupId') String? groupId,
-          @Query('Name') String? name,
-          @Query('PageNo') int? pageNo,
-          @Query('PageSize') int? pageSize,
-          @Query('Sort') String? sort});
+      _groupLookupgroupGet({
+    @Query('GroupId') String? groupId,
+    @Query('Name') String? name,
+    @Query('PageNo') int? pageNo,
+    @Query('PageSize') int? pageSize,
+    @Query('Sort') String? sort,
+  });
 
   ///
   Future<chopper.Response<Object>> groupLegendGet() {
@@ -3600,11 +3658,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic>>
-      hotfixGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      hotfixGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic,
         () =>
@@ -3624,11 +3683,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic>>
-      _hotfixGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _hotfixGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   ///@param id
@@ -3876,11 +3936,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic>>
-      pluginGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      pluginGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic,
         () =>
@@ -3900,11 +3961,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic>>
-      _pluginGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _pluginGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   ///@param id
@@ -3924,9 +3986,10 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> pluginIdPut(
-      {required String? id,
-      required WebApiModulesAdministratorPluginPlugin? body}) {
+  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> pluginIdPut({
+    required String? id,
+    required WebApiModulesAdministratorPluginPlugin? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesAdministratorPluginPlugin,
         () => WebApiModulesAdministratorPluginPlugin.fromJsonFactory);
 
@@ -3936,9 +3999,11 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   @Put(path: '/plugin/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>> _pluginIdPut(
-      {@Path('id') required String? id,
-      @Body() required WebApiModulesAdministratorPluginPlugin? body});
+  Future<chopper.Response<WebApiModulesAdministratorPluginPlugin>>
+      _pluginIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorPluginPlugin? body,
+  });
 
   ///
   ///@param description
@@ -4184,11 +4249,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic>>
-      systemupdatehistoryGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      systemupdatehistoryGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic,
         () =>
@@ -4208,11 +4274,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic>>
-      _systemupdatehistoryGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _systemupdatehistoryGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<
@@ -4335,11 +4402,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic>>
-      systemupdatehistorylogGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      systemupdatehistorylogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic,
         () =>
@@ -4359,11 +4427,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic>>
-      _systemupdatehistorylogGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _systemupdatehistorylogGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   ///@param id
@@ -4459,11 +4528,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic>>
-      userGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      userGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic,
         () =>
@@ -4483,11 +4553,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic>>
-      _userGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _userGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<WebApiModulesAdministratorUserUser>> userPost(
@@ -4521,9 +4592,10 @@ abstract class Administrator extends ChopperService {
 
   ///
   ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorUserUser>> userIdPut(
-      {required String? id,
-      required WebApiModulesAdministratorUserUser? body}) {
+  Future<chopper.Response<WebApiModulesAdministratorUserUser>> userIdPut({
+    required String? id,
+    required WebApiModulesAdministratorUserUser? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesAdministratorUserUser,
         () => WebApiModulesAdministratorUserUser.fromJsonFactory);
 
@@ -4533,9 +4605,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   @Put(path: '/user/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorUserUser>> _userIdPut(
-      {@Path('id') required String? id,
-      @Body() required WebApiModulesAdministratorUserUser? body});
+  Future<chopper.Response<WebApiModulesAdministratorUserUser>> _userIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesAdministratorUserUser? body,
+  });
 
   ///
   ///@param id
@@ -4567,8 +4640,9 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   @Post(
-      path: '/user/createusersalesrepresentativecontact/{id}',
-      optionalBody: true)
+    path: '/user/createusersalesrepresentativecontact/{id}',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>>
@@ -5031,11 +5105,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
-      webalertlogGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      webalertlogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic,
         () =>
@@ -5055,11 +5130,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
-      _webalertlogGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _webalertlogGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   ///@param id
@@ -5243,11 +5319,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic>>
-      widgetgroupGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      widgetgroupGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic,
         () =>
@@ -5267,11 +5344,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic>>
-      _widgetgroupGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _widgetgroupGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
@@ -5308,9 +5386,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
-      widgetgroupIdPut(
-          {required String? id,
-          required WebApiModulesSettingsWidgetGroupWidgetGroup? body}) {
+      widgetgroupIdPut({
+    required String? id,
+    required WebApiModulesSettingsWidgetGroupWidgetGroup? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetGroupWidgetGroup,
         () => WebApiModulesSettingsWidgetGroupWidgetGroup.fromJsonFactory);
 
@@ -5321,9 +5400,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/widgetgroup/{id}')
   Future<chopper.Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
-      _widgetgroupIdPut(
-          {@Path('id') required String? id,
-          @Body() required WebApiModulesSettingsWidgetGroupWidgetGroup? body});
+      _widgetgroupIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesSettingsWidgetGroupWidgetGroup? body,
+  });
 
   ///
   ///@param id
@@ -5426,11 +5506,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic>>
-      widgetuserGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      widgetuserGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic,
         () =>
@@ -5450,11 +5531,12 @@ abstract class Administrator extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic>>
-      _widgetuserGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _widgetuserGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///
   Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
@@ -5491,9 +5573,10 @@ abstract class Administrator extends ChopperService {
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
-      widgetuserIdPut(
-          {required String? id,
-          required WebApiModulesSettingsWidgetUserWidgetUser? body}) {
+      widgetuserIdPut({
+    required String? id,
+    required WebApiModulesSettingsWidgetUserWidgetUser? body,
+  }) {
     generatedMapping.putIfAbsent(WebApiModulesSettingsWidgetUserWidgetUser,
         () => WebApiModulesSettingsWidgetUserWidgetUser.fromJsonFactory);
 
@@ -5504,9 +5587,10 @@ abstract class Administrator extends ChopperService {
   ///@param id
   @Put(path: '/widgetuser/{id}')
   Future<chopper.Response<WebApiModulesSettingsWidgetUserWidgetUser>>
-      _widgetuserIdPut(
-          {@Path('id') required String? id,
-          @Body() required WebApiModulesSettingsWidgetUserWidgetUser? body});
+      _widgetuserIdPut({
+    @Path('id') required String? id,
+    @Body() required WebApiModulesSettingsWidgetUserWidgetUser? body,
+  });
 
   ///
   ///@param id
@@ -5607,9 +5691,6 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult &&
@@ -5617,6 +5698,9 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5629,6 +5713,13 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
       copyWith({String? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
         downloadUrl: downloadUrl ?? this.downloadUrl);
+  }
+
+  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+      copyWithWrapped({Wrapped<String?>? downloadUrl}) {
+    return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
+        downloadUrl:
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
   }
 }
 
@@ -5658,9 +5749,6 @@ class FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
       _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwCoreModulesAdministratorGroupCopySecurityNodeRequest &&
@@ -5674,6 +5762,9 @@ class FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
                 const DeepCollectionEquality()
                     .equals(other.securityId, securityId)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5691,6 +5782,17 @@ extension $FwCoreModulesAdministratorGroupCopySecurityNodeRequestExtension
         fromGroupId: fromGroupId ?? this.fromGroupId,
         toGroupIds: toGroupIds ?? this.toGroupIds,
         securityId: securityId ?? this.securityId);
+  }
+
+  FwCoreModulesAdministratorGroupCopySecurityNodeRequest copyWithWrapped(
+      {Wrapped<String?>? fromGroupId,
+      Wrapped<String?>? toGroupIds,
+      Wrapped<String?>? securityId}) {
+    return FwCoreModulesAdministratorGroupCopySecurityNodeRequest(
+        fromGroupId:
+            (fromGroupId != null ? fromGroupId.value : this.fromGroupId),
+        toGroupIds: (toGroupIds != null ? toGroupIds.value : this.toGroupIds),
+        securityId: (securityId != null ? securityId.value : this.securityId));
   }
 }
 
@@ -5717,9 +5819,6 @@ class FwCoreModulesAdministratorGroupLookupGroupResponse {
       _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwCoreModulesAdministratorGroupLookupGroupResponse &&
@@ -5729,6 +5828,9 @@ class FwCoreModulesAdministratorGroupLookupGroupResponse {
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5743,6 +5845,13 @@ extension $FwCoreModulesAdministratorGroupLookupGroupResponseExtension
       {String? groupId, String? name}) {
     return FwCoreModulesAdministratorGroupLookupGroupResponse(
         groupId: groupId ?? this.groupId, name: name ?? this.name);
+  }
+
+  FwCoreModulesAdministratorGroupLookupGroupResponse copyWithWrapped(
+      {Wrapped<String?>? groupId, Wrapped<String?>? name}) {
+    return FwCoreModulesAdministratorGroupLookupGroupResponse(
+        groupId: (groupId != null ? groupId.value : this.groupId),
+        name: (name != null ? name.value : this.name));
   }
 }
 
@@ -5780,9 +5889,6 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
       _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardAppManagerFwAmSecurityTreeNode &&
@@ -5801,6 +5907,9 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
                 const DeepCollectionEquality()
                     .equals(other.children, children)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5827,6 +5936,20 @@ extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
         properties: properties ?? this.properties,
         children: children ?? this.children);
   }
+
+  FwStandardAppManagerFwAmSecurityTreeNode copyWithWrapped(
+      {Wrapped<String?>? id,
+      Wrapped<String?>? caption,
+      Wrapped<String?>? nodetype,
+      Wrapped<Map<String, dynamic>?>? properties,
+      Wrapped<List<FwStandardAppManagerFwAmSecurityTreeNode>?>? children}) {
+    return FwStandardAppManagerFwAmSecurityTreeNode(
+        id: (id != null ? id.value : this.id),
+        caption: (caption != null ? caption.value : this.caption),
+        nodetype: (nodetype != null ? nodetype.value : this.nodetype),
+        properties: (properties != null ? properties.value : this.properties),
+        children: (children != null ? children.value : this.children));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -5843,10 +5966,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
-      name: 'DataType',
-      includeIfNull: false,
-      toJson: fwStandardSqlServerFwDataTypesToJson,
-      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+    name: 'DataType',
+    includeIfNull: false,
+    toJson: fwStandardSqlServerFwDataTypesToJson,
+    fromJson: fwStandardSqlServerFwDataTypesFromJson,
+  )
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
@@ -5854,9 +5978,6 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5868,6 +5989,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality()
                     .equals(other.dataType, dataType)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5882,6 +6006,14 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       {String? name, enums.FwStandardSqlServerFwDataTypes? dataType}) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
         name: name ?? this.name, dataType: dataType ?? this.dataType);
+  }
+
+  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWithWrapped(
+      {Wrapped<String?>? name,
+      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType}) {
+    return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
+        name: (name != null ? name.value : this.name),
+        dataType: (dataType != null ? dataType.value : this.dataType));
   }
 }
 
@@ -5907,9 +6039,6 @@ class FwStandardDataFwCustomValue {
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwCustomValue &&
@@ -5923,6 +6052,9 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality()
                     .equals(other.fieldType, fieldType)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5939,6 +6071,16 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
         fieldName: fieldName ?? this.fieldName,
         fieldValue: fieldValue ?? this.fieldValue,
         fieldType: fieldType ?? this.fieldType);
+  }
+
+  FwStandardDataFwCustomValue copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? fieldValue,
+      Wrapped<String?>? fieldType}) {
+    return FwStandardDataFwCustomValue(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        fieldValue: (fieldValue != null ? fieldValue.value : this.fieldValue),
+        fieldType: (fieldType != null ? fieldType.value : this.fieldType));
   }
 }
 
@@ -5966,9 +6108,6 @@ class FwStandardDataFwDefaultAttribute {
       _$FwStandardDataFwDefaultAttributeToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwDefaultAttribute &&
@@ -5982,6 +6121,9 @@ class FwStandardDataFwDefaultAttribute {
                 const DeepCollectionEquality()
                     .equals(other.defaultValue, defaultValue)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5999,6 +6141,18 @@ extension $FwStandardDataFwDefaultAttributeExtension
         fieldName: fieldName ?? this.fieldName,
         attributeName: attributeName ?? this.attributeName,
         defaultValue: defaultValue ?? this.defaultValue);
+  }
+
+  FwStandardDataFwDefaultAttribute copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? attributeName,
+      Wrapped<String?>? defaultValue}) {
+    return FwStandardDataFwDefaultAttribute(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        attributeName:
+            (attributeName != null ? attributeName.value : this.attributeName),
+        defaultValue:
+            (defaultValue != null ? defaultValue.value : this.defaultValue));
   }
 }
 
@@ -6100,9 +6254,6 @@ class FwStandardModelsBrowseRequest {
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsBrowseRequest &&
@@ -6176,6 +6327,9 @@ class FwStandardModelsBrowseRequest {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(miscfields) ^
       const DeepCollectionEquality().hash(module) ^
@@ -6207,9 +6361,9 @@ class FwStandardModelsBrowseRequest {
 extension $FwStandardModelsBrowseRequestExtension
     on FwStandardModelsBrowseRequest {
   FwStandardModelsBrowseRequest copyWith(
-      {dynamic? miscfields,
+      {dynamic miscfields,
       String? module,
-      dynamic? options,
+      dynamic options,
       String? orderby,
       String? orderbydirection,
       int? top,
@@ -6222,8 +6376,8 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchseparators,
       List<String>? searchcondition,
       List<String>? searchconjunctions,
-      dynamic? uniqueids,
-      dynamic? boundids,
+      dynamic uniqueids,
+      dynamic boundids,
       Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
@@ -6257,6 +6411,79 @@ extension $FwStandardModelsBrowseRequestExtension
         totalfields: totalfields ?? this.totalfields,
         activeviewfields: activeviewfields ?? this.activeviewfields);
   }
+
+  FwStandardModelsBrowseRequest copyWithWrapped(
+      {Wrapped<dynamic>? miscfields,
+      Wrapped<String?>? module,
+      Wrapped<dynamic>? options,
+      Wrapped<String?>? orderby,
+      Wrapped<String?>? orderbydirection,
+      Wrapped<int?>? top,
+      Wrapped<int?>? pageno,
+      Wrapped<int?>? pagesize,
+      Wrapped<List<String>?>? searchfieldoperators,
+      Wrapped<List<String>?>? searchfields,
+      Wrapped<List<String>?>? searchfieldvalues,
+      Wrapped<List<String>?>? searchfieldtypes,
+      Wrapped<List<String>?>? searchseparators,
+      Wrapped<List<String>?>? searchcondition,
+      Wrapped<List<String>?>? searchconjunctions,
+      Wrapped<dynamic>? uniqueids,
+      Wrapped<dynamic>? boundids,
+      Wrapped<Map<String, dynamic>?>? filterfields,
+      Wrapped<String?>? activeview,
+      Wrapped<bool?>? emptyobject,
+      Wrapped<bool?>? forexcel,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+      Wrapped<List<String>?>? totalfields,
+      Wrapped<Map<String, dynamic>?>? activeviewfields}) {
+    return FwStandardModelsBrowseRequest(
+        miscfields: (miscfields != null ? miscfields.value : this.miscfields),
+        module: (module != null ? module.value : this.module),
+        options: (options != null ? options.value : this.options),
+        orderby: (orderby != null ? orderby.value : this.orderby),
+        orderbydirection: (orderbydirection != null
+            ? orderbydirection.value
+            : this.orderbydirection),
+        top: (top != null ? top.value : this.top),
+        pageno: (pageno != null ? pageno.value : this.pageno),
+        pagesize: (pagesize != null ? pagesize.value : this.pagesize),
+        searchfieldoperators: (searchfieldoperators != null
+            ? searchfieldoperators.value
+            : this.searchfieldoperators),
+        searchfields:
+            (searchfields != null ? searchfields.value : this.searchfields),
+        searchfieldvalues: (searchfieldvalues != null
+            ? searchfieldvalues.value
+            : this.searchfieldvalues),
+        searchfieldtypes: (searchfieldtypes != null
+            ? searchfieldtypes.value
+            : this.searchfieldtypes),
+        searchseparators: (searchseparators != null
+            ? searchseparators.value
+            : this.searchseparators),
+        searchcondition: (searchcondition != null
+            ? searchcondition.value
+            : this.searchcondition),
+        searchconjunctions: (searchconjunctions != null
+            ? searchconjunctions.value
+            : this.searchconjunctions),
+        uniqueids: (uniqueids != null ? uniqueids.value : this.uniqueids),
+        boundids: (boundids != null ? boundids.value : this.boundids),
+        filterfields:
+            (filterfields != null ? filterfields.value : this.filterfields),
+        activeview: (activeview != null ? activeview.value : this.activeview),
+        emptyobject:
+            (emptyobject != null ? emptyobject.value : this.emptyobject),
+        forexcel: (forexcel != null ? forexcel.value : this.forexcel),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields),
+        totalfields:
+            (totalfields != null ? totalfields.value : this.totalfields),
+        activeviewfields: (activeviewfields != null
+            ? activeviewfields.value
+            : this.activeviewfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -6283,9 +6510,6 @@ class FwStandardModelsCheckBoxListItem {
       _$FwStandardModelsCheckBoxListItemToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsCheckBoxListItem &&
@@ -6297,6 +6521,9 @@ class FwStandardModelsCheckBoxListItem {
                 const DeepCollectionEquality()
                     .equals(other.selected, selected)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6314,6 +6541,16 @@ extension $FwStandardModelsCheckBoxListItemExtension
         value: value ?? this.value,
         text: text ?? this.text,
         selected: selected ?? this.selected);
+  }
+
+  FwStandardModelsCheckBoxListItem copyWithWrapped(
+      {Wrapped<String?>? value,
+      Wrapped<String?>? text,
+      Wrapped<bool?>? selected}) {
+    return FwStandardModelsCheckBoxListItem(
+        value: (value != null ? value.value : this.value),
+        text: (text != null ? text.value : this.text),
+        selected: (selected != null ? selected.value : this.selected));
   }
 }
 
@@ -6339,9 +6576,6 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -6355,6 +6589,9 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6373,13 +6610,23 @@ extension $FwStandardModelsFwApiExceptionExtension
         message: message ?? this.message,
         stackTrace: stackTrace ?? this.stackTrace);
   }
+
+  FwStandardModelsFwApiException copyWithWrapped(
+      {Wrapped<int?>? statusCode,
+      Wrapped<String?>? message,
+      Wrapped<String?>? stackTrace}) {
+    return FwStandardModelsFwApiException(
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        message: (message != null ? message.value : this.message),
+        stackTrace: (stackTrace != null ? stackTrace.value : this.stackTrace));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryFilter {
   FwStandardModelsFwQueryFilter({
-    this.field,
-    this.op,
+    required this.field,
+    required this.op,
     this.value,
   });
 
@@ -6387,17 +6634,14 @@ class FwStandardModelsFwQueryFilter {
       _$FwStandardModelsFwQueryFilterFromJson(json);
 
   @JsonKey(name: 'Field', includeIfNull: false)
-  final String? field;
+  final String field;
   @JsonKey(name: 'Op', includeIfNull: false)
-  final String? op;
+  final String op;
   @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6410,6 +6654,9 @@ class FwStandardModelsFwQueryFilter {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6427,6 +6674,14 @@ extension $FwStandardModelsFwQueryFilterExtension
         field: field ?? this.field,
         op: op ?? this.op,
         value: value ?? this.value);
+  }
+
+  FwStandardModelsFwQueryFilter copyWithWrapped(
+      {Wrapped<String>? field, Wrapped<String>? op, Wrapped<String?>? value}) {
+    return FwStandardModelsFwQueryFilter(
+        field: (field != null ? field.value : this.field),
+        op: (op != null ? op.value : this.op),
+        value: (value != null ? value.value : this.value));
   }
 }
 
@@ -6467,9 +6722,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLog
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic &&
@@ -6486,6 +6738,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLog
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6512,6 +6767,21 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAle
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic
+      copyWithWrapped(
+          {Wrapped<List<FwStandardModulesAdministratorAlertAlertLogic>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -6551,9 +6821,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditio
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic &&
@@ -6570,6 +6837,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditio
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6597,6 +6867,24 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertCon
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      FwStandardModulesAdministratorAlertConditionAlertConditionLogic>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -6636,9 +6924,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsers
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic &&
@@ -6655,6 +6940,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsers
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6682,6 +6970,24 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWeb
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -6722,9 +7028,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportL
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic &&
@@ -6741,6 +7044,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportL
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6768,6 +7074,24 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomRe
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -6807,9 +7131,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRule
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic &&
@@ -6826,6 +7147,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRule
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6853,6 +7177,24 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicat
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -6892,9 +7234,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplate
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic &&
@@ -6911,6 +7250,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplate
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -6938,6 +7280,24 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTem
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -6976,9 +7336,6 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWe
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic &&
@@ -6995,6 +7352,9 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWe
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7022,6 +7382,24 @@ extension $FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlert
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7062,9 +7440,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustom
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic &&
@@ -7081,6 +7456,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustom
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7107,6 +7485,22 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldC
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorCustomFieldCustomField>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7147,9 +7541,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomF
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic &&
@@ -7166,6 +7557,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomF
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7192,6 +7586,22 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCu
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorCustomFormCustomForm>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7232,9 +7642,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHea
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic &&
@@ -7251,6 +7658,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHea
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7277,6 +7687,22 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDa
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorDataHealthDataHealth>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7317,9 +7743,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmail
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic &&
@@ -7336,6 +7759,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmail
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7362,6 +7788,22 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistory
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorEmailHistoryEmailHistory>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7402,9 +7844,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic &&
@@ -7421,6 +7860,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic {
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7447,6 +7889,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLo
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorGroupGroup>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7487,9 +7944,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic &&
@@ -7506,6 +7960,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7532,6 +7989,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfix
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorHotfixHotfix>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7572,9 +8044,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic &&
@@ -7591,6 +8060,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7617,6 +8089,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPlugin
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorPluginPlugin>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7656,9 +8143,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic &&
@@ -7675,6 +8159,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7702,6 +8189,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdate
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7742,9 +8247,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic &&
@@ -7761,6 +8263,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7788,6 +8293,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdate
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7828,9 +8351,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic &&
@@ -7847,6 +8367,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7873,6 +8396,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogi
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesAdministratorUserUser>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7912,9 +8450,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic &&
@@ -7931,6 +8466,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -7958,6 +8496,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCust
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -7997,9 +8553,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic &&
@@ -8016,6 +8569,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFor
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8043,6 +8599,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCust
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8081,9 +8655,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomMod
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic &&
@@ -8100,6 +8671,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomMod
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8127,6 +8701,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCust
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorControlsCustomModuleCustomModule>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8167,9 +8759,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomRep
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic &&
@@ -8186,6 +8775,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomRep
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8213,6 +8805,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCust
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8253,9 +8863,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicate
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic &&
@@ -8272,6 +8879,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicate
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8299,6 +8909,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDupl
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8339,9 +8967,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroup
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic &&
@@ -8358,6 +8983,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroup
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8384,6 +9012,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidget
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesSettingsWidgetGroupWidgetGroup>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8424,9 +9067,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLo
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic &&
@@ -8443,6 +9083,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLo
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8469,6 +9112,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetU
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesSettingsWidgetUserWidgetUser>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8509,9 +9167,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayo
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic &&
@@ -8528,6 +9183,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayo
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8555,6 +9213,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomRepor
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8595,9 +9271,6 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse &&
@@ -8614,6 +9287,9 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8640,6 +9316,22 @@ extension $FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroup
         pageSize: pageSize ?? this.pageSize,
         totalRows: totalRows ?? this.totalRows,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+      copyWithWrapped(
+          {Wrapped<List<FwCoreModulesAdministratorGroupLookupGroupResponse>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalRows,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalRows: (totalRows != null ? totalRows.value : this.totalRows),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -8678,9 +9370,6 @@ class FwStandardModulesAdministratorAlertAlertCondition {
       _$FwStandardModulesAdministratorAlertAlertConditionToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorAlertAlertCondition &&
@@ -8702,6 +9391,9 @@ class FwStandardModulesAdministratorAlertAlertCondition {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8730,6 +9422,24 @@ extension $FwStandardModulesAdministratorAlertAlertConditionExtension
         fieldName2: fieldName2 ?? this.fieldName2,
         condition: condition ?? this.condition,
         value: value ?? this.value);
+  }
+
+  FwStandardModulesAdministratorAlertAlertCondition copyWithWrapped(
+      {Wrapped<String?>? alertConditionId,
+      Wrapped<String?>? alertId,
+      Wrapped<String?>? fieldName1,
+      Wrapped<String?>? fieldName2,
+      Wrapped<String?>? condition,
+      Wrapped<String?>? value}) {
+    return FwStandardModulesAdministratorAlertAlertCondition(
+        alertConditionId: (alertConditionId != null
+            ? alertConditionId.value
+            : this.alertConditionId),
+        alertId: (alertId != null ? alertId.value : this.alertId),
+        fieldName1: (fieldName1 != null ? fieldName1.value : this.fieldName1),
+        fieldName2: (fieldName2 != null ? fieldName2.value : this.fieldName2),
+        condition: (condition != null ? condition.value : this.condition),
+        value: (value != null ? value.value : this.value));
   }
 }
 
@@ -8811,9 +9521,6 @@ class FwStandardModulesAdministratorAlertAlertLogic {
       _$FwStandardModulesAdministratorAlertAlertLogicToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorAlertAlertLogic &&
@@ -8864,6 +9571,9 @@ class FwStandardModulesAdministratorAlertAlertLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -8924,6 +9634,52 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorAlertAlertLogic copyWithWrapped(
+      {Wrapped<String?>? alertId,
+      Wrapped<String?>? alertName,
+      Wrapped<String?>? moduleName,
+      Wrapped<bool?>? actionNew,
+      Wrapped<bool?>? actionEdit,
+      Wrapped<bool?>? actionDelete,
+      Wrapped<String?>? alertSubject,
+      Wrapped<String?>? alertBody,
+      Wrapped<bool?>? inactive,
+      Wrapped<List<FwStandardModulesAdministratorAlertAlertCondition>?>?
+          alertConditionList,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorAlertAlertLogic(
+        alertId: (alertId != null ? alertId.value : this.alertId),
+        alertName: (alertName != null ? alertName.value : this.alertName),
+        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+        actionNew: (actionNew != null ? actionNew.value : this.actionNew),
+        actionEdit: (actionEdit != null ? actionEdit.value : this.actionEdit),
+        actionDelete:
+            (actionDelete != null ? actionDelete.value : this.actionDelete),
+        alertSubject:
+            (alertSubject != null ? alertSubject.value : this.alertSubject),
+        alertBody: (alertBody != null ? alertBody.value : this.alertBody),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        alertConditionList: (alertConditionList != null
+            ? alertConditionList.value
+            : this.alertConditionList),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -8991,9 +9747,6 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorAlertConditionAlertConditionLogic &&
@@ -9031,6 +9784,9 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -9078,6 +9834,42 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorAlertConditionAlertConditionLogic
+      copyWithWrapped(
+          {Wrapped<String?>? alertId,
+          Wrapped<String?>? alertConditionId,
+          Wrapped<String?>? fieldName1,
+          Wrapped<String?>? condition,
+          Wrapped<String?>? fieldName2,
+          Wrapped<String?>? value,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorAlertConditionAlertConditionLogic(
+        alertId: (alertId != null ? alertId.value : this.alertId),
+        alertConditionId: (alertConditionId != null
+            ? alertConditionId.value
+            : this.alertConditionId),
+        fieldName1: (fieldName1 != null ? fieldName1.value : this.fieldName1),
+        condition: (condition != null ? condition.value : this.condition),
+        fieldName2: (fieldName2 != null ? fieldName2.value : this.fieldName2),
+        value: (value != null ? value.value : this.value),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -9148,9 +9940,6 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic &&
@@ -9190,6 +9979,9 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -9240,6 +10032,44 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic copyWithWrapped(
+      {Wrapped<String?>? alertWebUserId,
+      Wrapped<String?>? alertId,
+      Wrapped<String?>? description,
+      Wrapped<String?>? webUserId,
+      Wrapped<String?>? userId,
+      Wrapped<String?>? userName,
+      Wrapped<String?>? email,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic(
+        alertWebUserId: (alertWebUserId != null
+            ? alertWebUserId.value
+            : this.alertWebUserId),
+        alertId: (alertId != null ? alertId.value : this.alertId),
+        description:
+            (description != null ? description.value : this.description),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userId: (userId != null ? userId.value : this.userId),
+        userName: (userName != null ? userName.value : this.userName),
+        email: (email != null ? email.value : this.email),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -9307,9 +10137,6 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic &&
@@ -9346,6 +10173,9 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -9393,6 +10223,43 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicExte
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
+      copyWithWrapped(
+          {Wrapped<int?>? customReportCssId,
+          Wrapped<String?>? description,
+          Wrapped<String?>? css,
+          Wrapped<bool?>? isGlobal,
+          Wrapped<bool?>? inactive,
+          Wrapped<bool?>? active,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic(
+        customReportCssId: (customReportCssId != null
+            ? customReportCssId.value
+            : this.customReportCssId),
+        description:
+            (description != null ? description.value : this.description),
+        css: (css != null ? css.value : this.css),
+        isGlobal: (isGlobal != null ? isGlobal.value : this.isGlobal),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        active: (active != null ? active.value : this.active),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -9484,9 +10351,6 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic &&
@@ -9539,6 +10403,9 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -9613,6 +10480,67 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
+      copyWithWrapped(
+          {Wrapped<String?>? customReportLayoutId,
+          Wrapped<String?>? webUserId,
+          Wrapped<String?>? userName,
+          Wrapped<String?>? baseReport,
+          Wrapped<String?>? description,
+          Wrapped<String?>? category,
+          Wrapped<String?>? html,
+          Wrapped<String?>? customReportCssIds,
+          Wrapped<String?>? customReportCssDescriptions,
+          Wrapped<String?>? customReportCssRules,
+          Wrapped<String?>? customReportGlobalCssRules,
+          Wrapped<bool?>? active,
+          Wrapped<bool?>? inactive,
+          Wrapped<String?>? assignTo,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic(
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userName: (userName != null ? userName.value : this.userName),
+        baseReport: (baseReport != null ? baseReport.value : this.baseReport),
+        description:
+            (description != null ? description.value : this.description),
+        category: (category != null ? category.value : this.category),
+        html: (html != null ? html.value : this.html),
+        customReportCssIds: (customReportCssIds != null
+            ? customReportCssIds.value
+            : this.customReportCssIds),
+        customReportCssDescriptions: (customReportCssDescriptions != null
+            ? customReportCssDescriptions.value
+            : this.customReportCssDescriptions),
+        customReportCssRules: (customReportCssRules != null
+            ? customReportCssRules.value
+            : this.customReportCssRules),
+        customReportGlobalCssRules: (customReportGlobalCssRules != null
+            ? customReportGlobalCssRules.value
+            : this.customReportGlobalCssRules),
+        active: (active != null ? active.value : this.active),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        assignTo: (assignTo != null ? assignTo.value : this.assignTo),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -9689,9 +10617,6 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic &&
@@ -9739,6 +10664,9 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -9795,6 +10723,51 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic copyWithWrapped(
+      {Wrapped<String?>? duplicateRuleId,
+      Wrapped<String?>? moduleName,
+      Wrapped<String?>? ruleName,
+      Wrapped<bool?>? caseSensitive,
+      Wrapped<bool?>? systemRule,
+      Wrapped<String?>? fields,
+      Wrapped<String?>? fieldTypes,
+      Wrapped<String?>? ruleNameColor,
+      Wrapped<bool?>? considerBlanks,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          $fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic(
+        duplicateRuleId: (duplicateRuleId != null
+            ? duplicateRuleId.value
+            : this.duplicateRuleId),
+        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+        ruleName: (ruleName != null ? ruleName.value : this.ruleName),
+        caseSensitive:
+            (caseSensitive != null ? caseSensitive.value : this.caseSensitive),
+        systemRule: (systemRule != null ? systemRule.value : this.systemRule),
+        fields: (fields != null ? fields.value : this.fields),
+        fieldTypes: (fieldTypes != null ? fieldTypes.value : this.fieldTypes),
+        ruleNameColor:
+            (ruleNameColor != null ? ruleNameColor.value : this.ruleNameColor),
+        considerBlanks: (considerBlanks != null
+            ? considerBlanks.value
+            : this.considerBlanks),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        $fields: ($fields != null ? $fields.value : this.$fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -9868,9 +10841,6 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic &&
@@ -9915,6 +10885,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -9969,6 +10942,44 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic copyWithWrapped(
+      {Wrapped<String?>? appEmailId,
+      Wrapped<String?>? description,
+      Wrapped<String?>? filterId,
+      Wrapped<String?>? subject,
+      Wrapped<String?>? emailText,
+      Wrapped<String?>? category,
+      Wrapped<String?>? bodyFormat,
+      Wrapped<String?>? emailType,
+      Wrapped<bool?>? inactive,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic(
+        appEmailId: (appEmailId != null ? appEmailId.value : this.appEmailId),
+        description:
+            (description != null ? description.value : this.description),
+        filterId: (filterId != null ? filterId.value : this.filterId),
+        subject: (subject != null ? subject.value : this.subject),
+        emailText: (emailText != null ? emailText.value : this.emailText),
+        category: (category != null ? category.value : this.category),
+        bodyFormat: (bodyFormat != null ? bodyFormat.value : this.bodyFormat),
+        emailType: (emailType != null ? emailType.value : this.emailType),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -9993,9 +11004,6 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFi
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest &&
@@ -10003,6 +11011,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFi
                 const DeepCollectionEquality()
                     .equals(other.category, category)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10015,6 +11026,12 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTempl
       copyWith({String? category}) {
     return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest(
         category: category ?? this.category);
+  }
+
+  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest
+      copyWithWrapped({Wrapped<String?>? category}) {
+    return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest(
+        category: (category != null ? category.value : this.category));
   }
 }
 
@@ -10040,9 +11057,6 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCateg
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse &&
@@ -10050,6 +11064,9 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCateg
                 const DeepCollectionEquality()
                     .equals(other.categories, categories)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10062,6 +11079,12 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplate
       copyWith({List<String>? categories}) {
     return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse(
         categories: categories ?? this.categories);
+  }
+
+  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse
+      copyWithWrapped({Wrapped<List<String>?>? categories}) {
+    return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse(
+        categories: (categories != null ? categories.value : this.categories));
   }
 }
 
@@ -10087,15 +11110,15 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateField
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse &&
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10108,6 +11131,12 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplate
       copyWith({List<String>? fields}) {
     return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse(
         fields: fields ?? this.fields);
+  }
+
+  FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse
+      copyWithWrapped({Wrapped<List<String>?>? fields}) {
+    return FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse(
+        fields: (fields != null ? fields.value : this.fields));
   }
 }
 
@@ -10182,9 +11211,6 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
       _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic &&
@@ -10231,6 +11257,9 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10287,6 +11316,50 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic copyWithWrapped(
+      {Wrapped<int?>? webAlertLogId,
+      Wrapped<String?>? alertId,
+      Wrapped<DateTime?>? createDateTime,
+      Wrapped<String?>? alertSubject,
+      Wrapped<String?>? alertBody,
+      Wrapped<String?>? alertFrom,
+      Wrapped<String?>? alertTo,
+      Wrapped<String?>? status,
+      Wrapped<String?>? errorMessage,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic(
+        webAlertLogId:
+            (webAlertLogId != null ? webAlertLogId.value : this.webAlertLogId),
+        alertId: (alertId != null ? alertId.value : this.alertId),
+        createDateTime: (createDateTime != null
+            ? createDateTime.value
+            : this.createDateTime),
+        alertSubject:
+            (alertSubject != null ? alertSubject.value : this.alertSubject),
+        alertBody: (alertBody != null ? alertBody.value : this.alertBody),
+        alertFrom: (alertFrom != null ? alertFrom.value : this.alertFrom),
+        alertTo: (alertTo != null ? alertTo.value : this.alertTo),
+        status: (status != null ? status.value : this.status),
+        errorMessage:
+            (errorMessage != null ? errorMessage.value : this.errorMessage),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -10362,9 +11435,6 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
       _$FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic &&
@@ -10410,6 +11480,9 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10467,6 +11540,45 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic copyWithWrapped(
+      {Wrapped<int?>? webAuditId,
+      Wrapped<String?>? moduleName,
+      Wrapped<String?>? title,
+      Wrapped<String?>? uniqueId1,
+      Wrapped<String?>? uniqueId2,
+      Wrapped<String?>? uniqueId3,
+      Wrapped<String?>? webUserId,
+      Wrapped<String?>? userName,
+      Wrapped<String?>? json,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic(
+        webAuditId: (webAuditId != null ? webAuditId.value : this.webAuditId),
+        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+        title: (title != null ? title.value : this.title),
+        uniqueId1: (uniqueId1 != null ? uniqueId1.value : this.uniqueId1),
+        uniqueId2: (uniqueId2 != null ? uniqueId2.value : this.uniqueId2),
+        uniqueId3: (uniqueId3 != null ? uniqueId3.value : this.uniqueId3),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userName: (userName != null ? userName.value : this.userName),
+        json: (json != null ? json.value : this.json),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -10498,7 +11610,7 @@ class FwStandardSqlServerFwJsonDataTable {
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
   @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
-  final List<List<Object>>? rows;
+  final List<List<Object?>>? rows;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
@@ -10515,9 +11627,6 @@ class FwStandardSqlServerFwJsonDataTable {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10553,6 +11662,9 @@ class FwStandardSqlServerFwJsonDataTable {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(columnIndex) ^
       const DeepCollectionEquality().hash(totals) ^
@@ -10573,7 +11685,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       {Map<String, dynamic>? columnIndex,
       Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
-      List<List<Object>>? rows,
+      List<List<Object?>>? rows,
       int? pageNo,
       int? pageSize,
       int? totalPages,
@@ -10591,6 +11703,33 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         totalRows: totalRows ?? this.totalRows,
         dateFields: dateFields ?? this.dateFields,
         columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+  }
+
+  FwStandardSqlServerFwJsonDataTable copyWithWrapped(
+      {Wrapped<Map<String, dynamic>?>? columnIndex,
+      Wrapped<Map<String, dynamic>?>? totals,
+      Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
+      Wrapped<List<List<Object>>?>? rows,
+      Wrapped<int?>? pageNo,
+      Wrapped<int?>? pageSize,
+      Wrapped<int?>? totalPages,
+      Wrapped<int?>? totalRows,
+      Wrapped<List<String>?>? dateFields,
+      Wrapped<Map<String, dynamic>?>? columnNameByIndex}) {
+    return FwStandardSqlServerFwJsonDataTable(
+        columnIndex:
+            (columnIndex != null ? columnIndex.value : this.columnIndex),
+        totals: (totals != null ? totals.value : this.totals),
+        columns: (columns != null ? columns.value : this.columns),
+        rows: (rows != null ? rows.value : this.rows),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalPages: (totalPages != null ? totalPages.value : this.totalPages),
+        totalRows: (totalRows != null ? totalRows.value : this.totalRows),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        columnNameByIndex: (columnNameByIndex != null
+            ? columnNameByIndex.value
+            : this.columnNameByIndex));
   }
 }
 
@@ -10613,10 +11752,11 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
-      name: 'DataType',
-      includeIfNull: false,
-      toJson: fwStandardSqlServerFwDataTypesToJson,
-      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+    name: 'DataType',
+    includeIfNull: false,
+    toJson: fwStandardSqlServerFwDataTypesToJson,
+    fromJson: fwStandardSqlServerFwDataTypesFromJson,
+  )
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
@@ -10627,9 +11767,6 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -10650,6 +11787,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10676,6 +11816,20 @@ extension $FwStandardSqlServerFwJsonDataTableColumnExtension
         isUniqueId: isUniqueId ?? this.isUniqueId,
         isVisible: isVisible ?? this.isVisible);
   }
+
+  FwStandardSqlServerFwJsonDataTableColumn copyWithWrapped(
+      {Wrapped<String?>? name,
+      Wrapped<String?>? dataField,
+      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
+      Wrapped<bool?>? isUniqueId,
+      Wrapped<bool?>? isVisible}) {
+    return FwStandardSqlServerFwJsonDataTableColumn(
+        name: (name != null ? name.value : this.name),
+        dataField: (dataField != null ? dataField.value : this.dataField),
+        dataType: (dataType != null ? dataType.value : this.dataType),
+        isUniqueId: (isUniqueId != null ? isUniqueId.value : this.isUniqueId),
+        isVisible: (isVisible != null ? isVisible.value : this.isVisible));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -10700,9 +11854,6 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest &&
@@ -10710,6 +11861,9 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest {
                 const DeepCollectionEquality()
                     .equals(other.accessToken, accessToken)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10722,6 +11876,13 @@ extension $WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequestExtension
       {String? accessToken}) {
     return WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest(
         accessToken: accessToken ?? this.accessToken);
+  }
+
+  WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest copyWithWrapped(
+      {Wrapped<String?>? accessToken}) {
+    return WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest(
+        accessToken:
+            (accessToken != null ? accessToken.value : this.accessToken));
   }
 }
 
@@ -10746,9 +11907,6 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest {
       _$WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest &&
@@ -10756,6 +11914,9 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest {
                 const DeepCollectionEquality()
                     .equals(other.authorizationCode, authorizationCode)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10769,6 +11930,14 @@ extension $WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequestExtension
       {String? authorizationCode}) {
     return WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest(
         authorizationCode: authorizationCode ?? this.authorizationCode);
+  }
+
+  WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest copyWithWrapped(
+      {Wrapped<String?>? authorizationCode}) {
+    return WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest(
+        authorizationCode: (authorizationCode != null
+            ? authorizationCode.value
+            : this.authorizationCode));
   }
 }
 
@@ -10792,15 +11961,15 @@ class WebApiModulesAccountServicesHubSpotGetWriteTokensResponse {
       _$WebApiModulesAccountServicesHubSpotGetWriteTokensResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotGetWriteTokensResponse &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10813,6 +11982,12 @@ extension $WebApiModulesAccountServicesHubSpotGetWriteTokensResponseExtension
       {String? message}) {
     return WebApiModulesAccountServicesHubSpotGetWriteTokensResponse(
         message: message ?? this.message);
+  }
+
+  WebApiModulesAccountServicesHubSpotGetWriteTokensResponse copyWithWrapped(
+      {Wrapped<String?>? message}) {
+    return WebApiModulesAccountServicesHubSpotGetWriteTokensResponse(
+        message: (message != null ? message.value : this.message));
   }
 }
 
@@ -10847,9 +12022,6 @@ class WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest &&
@@ -10865,6 +12037,9 @@ class WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest {
                 const DeepCollectionEquality()
                     .equals(other.lastname, lastname)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10887,6 +12062,19 @@ extension $WebApiModulesAccountServicesHubSpotPostHubSpotContactRequestExtension
         email: email ?? this.email,
         firstname: firstname ?? this.firstname,
         lastname: lastname ?? this.lastname);
+  }
+
+  WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest copyWithWrapped(
+      {Wrapped<String?>? accessToken,
+      Wrapped<String?>? email,
+      Wrapped<String?>? firstname,
+      Wrapped<String?>? lastname}) {
+    return WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest(
+        accessToken:
+            (accessToken != null ? accessToken.value : this.accessToken),
+        email: (email != null ? email.value : this.email),
+        firstname: (firstname != null ? firstname.value : this.firstname),
+        lastname: (lastname != null ? lastname.value : this.lastname));
   }
 }
 
@@ -10918,9 +12106,6 @@ class WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodReques
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest &&
@@ -10934,6 +12119,9 @@ class WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodReques
                 const DeepCollectionEquality()
                     .equals(other.lastSyncEpoch, lastSyncEpoch)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -10951,6 +12139,19 @@ extension $WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodR
         webusersid: webusersid ?? this.webusersid,
         accessToken: accessToken ?? this.accessToken,
         lastSyncEpoch: lastSyncEpoch ?? this.lastSyncEpoch);
+  }
+
+  WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest
+      copyWithWrapped(
+          {Wrapped<String?>? webusersid,
+          Wrapped<String?>? accessToken,
+          Wrapped<int?>? lastSyncEpoch}) {
+    return WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest(
+        webusersid: (webusersid != null ? webusersid.value : this.webusersid),
+        accessToken:
+            (accessToken != null ? accessToken.value : this.accessToken),
+        lastSyncEpoch:
+            (lastSyncEpoch != null ? lastSyncEpoch.value : this.lastSyncEpoch));
   }
 }
 
@@ -11025,9 +12226,6 @@ class WebApiModulesAdministratorCustomFieldCustomField {
       _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorCustomFieldCustomField &&
@@ -11075,6 +12273,9 @@ class WebApiModulesAdministratorCustomFieldCustomField {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -11131,6 +12332,54 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorCustomFieldCustomField copyWithWrapped(
+      {Wrapped<String?>? customFieldId,
+      Wrapped<String?>? moduleName,
+      Wrapped<String?>? fieldName,
+      Wrapped<String?>? customTableName,
+      Wrapped<String?>? customFieldName,
+      Wrapped<String?>? fieldType,
+      Wrapped<String?>? controlType,
+      Wrapped<int?>? stringLength,
+      Wrapped<int?>? floatDecimalDigits,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorCustomFieldCustomField(
+        customFieldId:
+            (customFieldId != null ? customFieldId.value : this.customFieldId),
+        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        customTableName: (customTableName != null
+            ? customTableName.value
+            : this.customTableName),
+        customFieldName: (customFieldName != null
+            ? customFieldName.value
+            : this.customFieldName),
+        fieldType: (fieldType != null ? fieldType.value : this.fieldType),
+        controlType:
+            (controlType != null ? controlType.value : this.controlType),
+        stringLength:
+            (stringLength != null ? stringLength.value : this.stringLength),
+        floatDecimalDigits: (floatDecimalDigits != null
+            ? floatDecimalDigits.value
+            : this.floatDecimalDigits),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -11208,9 +12457,6 @@ class WebApiModulesAdministratorCustomFormCustomForm {
       _$WebApiModulesAdministratorCustomFormCustomFormToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorCustomFormCustomForm &&
@@ -11259,6 +12505,9 @@ class WebApiModulesAdministratorCustomFormCustomForm {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -11319,6 +12568,49 @@ extension $WebApiModulesAdministratorCustomFormCustomFormExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesAdministratorCustomFormCustomForm copyWithWrapped(
+      {Wrapped<String?>? customFormId,
+      Wrapped<String?>? webUserId,
+      Wrapped<String?>? userName,
+      Wrapped<String?>? baseForm,
+      Wrapped<String?>? description,
+      Wrapped<String?>? html,
+      Wrapped<bool?>? active,
+      Wrapped<bool?>? inactive,
+      Wrapped<String?>? assignTo,
+      Wrapped<bool?>? selfAssign,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorCustomFormCustomForm(
+        customFormId:
+            (customFormId != null ? customFormId.value : this.customFormId),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userName: (userName != null ? userName.value : this.userName),
+        baseForm: (baseForm != null ? baseForm.value : this.baseForm),
+        description:
+            (description != null ? description.value : this.description),
+        html: (html != null ? html.value : this.html),
+        active: (active != null ? active.value : this.active),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        assignTo: (assignTo != null ? assignTo.value : this.assignTo),
+        selfAssign: (selfAssign != null ? selfAssign.value : this.selfAssign),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -11349,9 +12641,6 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse &&
@@ -11365,6 +12654,9 @@ class WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCu
                 const DeepCollectionEquality()
                     .equals(other.reportCss, reportCss)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -11385,6 +12677,21 @@ extension $WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControl
         reportTemplate: reportTemplate ?? this.reportTemplate,
         webpackReportCss: webpackReportCss ?? this.webpackReportCss,
         reportCss: reportCss ?? this.reportCss);
+  }
+
+  WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
+      copyWithWrapped(
+          {Wrapped<String?>? reportTemplate,
+          Wrapped<String?>? webpackReportCss,
+          Wrapped<String?>? reportCss}) {
+    return WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse(
+        reportTemplate: (reportTemplate != null
+            ? reportTemplate.value
+            : this.reportTemplate),
+        webpackReportCss: (webpackReportCss != null
+            ? webpackReportCss.value
+            : this.webpackReportCss),
+        reportCss: (reportCss != null ? reportCss.value : this.reportCss));
   }
 }
 
@@ -11459,9 +12766,6 @@ class WebApiModulesAdministratorDataHealthDataHealth {
       _$WebApiModulesAdministratorDataHealthDataHealthToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorDataHealthDataHealth &&
@@ -11507,6 +12811,9 @@ class WebApiModulesAdministratorDataHealthDataHealth {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -11563,6 +12870,52 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorDataHealthDataHealth copyWithWrapped(
+      {Wrapped<int?>? dataHealthId,
+      Wrapped<String?>? dataHealthType,
+      Wrapped<String?>? captureDateTime,
+      Wrapped<String?>? captureDate,
+      Wrapped<String?>? json,
+      Wrapped<String?>? severity,
+      Wrapped<String?>? severityColor,
+      Wrapped<String?>? notes,
+      Wrapped<bool?>? resolved,
+      Wrapped<bool?>? inactive,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorDataHealthDataHealth(
+        dataHealthId:
+            (dataHealthId != null ? dataHealthId.value : this.dataHealthId),
+        dataHealthType: (dataHealthType != null
+            ? dataHealthType.value
+            : this.dataHealthType),
+        captureDateTime: (captureDateTime != null
+            ? captureDateTime.value
+            : this.captureDateTime),
+        captureDate:
+            (captureDate != null ? captureDate.value : this.captureDate),
+        json: (json != null ? json.value : this.json),
+        severity: (severity != null ? severity.value : this.severity),
+        severityColor:
+            (severityColor != null ? severityColor.value : this.severityColor),
+        notes: (notes != null ? notes.value : this.notes),
+        resolved: (resolved != null ? resolved.value : this.resolved),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -11649,9 +13002,6 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
       _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorEmailHistoryEmailHistory &&
@@ -11709,6 +13059,9 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -11778,6 +13131,58 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesAdministratorEmailHistoryEmailHistory copyWithWrapped(
+      {Wrapped<String?>? emailHistoryId,
+      Wrapped<String?>? reportId,
+      Wrapped<String?>? fromUserId,
+      Wrapped<String?>? fromWebUserId,
+      Wrapped<String?>? fromUser,
+      Wrapped<String?>? emailDate,
+      Wrapped<String?>? status,
+      Wrapped<String?>? emailText,
+      Wrapped<String?>? emailTo,
+      Wrapped<String?>? emailSubject,
+      Wrapped<String?>? emailCC,
+      Wrapped<String?>? title,
+      Wrapped<String?>? relatedToId,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorEmailHistoryEmailHistory(
+        emailHistoryId: (emailHistoryId != null
+            ? emailHistoryId.value
+            : this.emailHistoryId),
+        reportId: (reportId != null ? reportId.value : this.reportId),
+        fromUserId: (fromUserId != null ? fromUserId.value : this.fromUserId),
+        fromWebUserId:
+            (fromWebUserId != null ? fromWebUserId.value : this.fromWebUserId),
+        fromUser: (fromUser != null ? fromUser.value : this.fromUser),
+        emailDate: (emailDate != null ? emailDate.value : this.emailDate),
+        status: (status != null ? status.value : this.status),
+        emailText: (emailText != null ? emailText.value : this.emailText),
+        emailTo: (emailTo != null ? emailTo.value : this.emailTo),
+        emailSubject:
+            (emailSubject != null ? emailSubject.value : this.emailSubject),
+        emailCC: (emailCC != null ? emailCC.value : this.emailCC),
+        title: (title != null ? title.value : this.title),
+        relatedToId:
+            (relatedToId != null ? relatedToId.value : this.relatedToId),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -11843,9 +13248,6 @@ class WebApiModulesAdministratorGroupGroup {
       _$WebApiModulesAdministratorGroupGroupToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorGroupGroup &&
@@ -11887,6 +13289,9 @@ class WebApiModulesAdministratorGroupGroup {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -11938,6 +13343,43 @@ extension $WebApiModulesAdministratorGroupGroupExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorGroupGroup copyWithWrapped(
+      {Wrapped<String?>? groupId,
+      Wrapped<String?>? name,
+      Wrapped<String?>? memo,
+      Wrapped<String?>? security,
+      Wrapped<bool?>? hideNewMenuOptionsByDefault,
+      Wrapped<bool?>? isMyGroup,
+      Wrapped<String?>? groupColor,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorGroupGroup(
+        groupId: (groupId != null ? groupId.value : this.groupId),
+        name: (name != null ? name.value : this.name),
+        memo: (memo != null ? memo.value : this.memo),
+        security: (security != null ? security.value : this.security),
+        hideNewMenuOptionsByDefault: (hideNewMenuOptionsByDefault != null
+            ? hideNewMenuOptionsByDefault.value
+            : this.hideNewMenuOptionsByDefault),
+        isMyGroup: (isMyGroup != null ? isMyGroup.value : this.isMyGroup),
+        groupColor: (groupColor != null ? groupColor.value : this.groupColor),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -11999,9 +13441,6 @@ class WebApiModulesAdministratorHotfixHotfix {
       _$WebApiModulesAdministratorHotfixHotfixToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorHotfixHotfix &&
@@ -12037,6 +13476,9 @@ class WebApiModulesAdministratorHotfixHotfix {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12081,6 +13523,40 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorHotfixHotfix copyWithWrapped(
+      {Wrapped<String?>? hotfixId,
+      Wrapped<String?>? fileName,
+      Wrapped<String?>? description,
+      Wrapped<String?>? hotfixBegin,
+      Wrapped<String?>? hotfixEnd,
+      Wrapped<double?>? hotfixSeconds,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorHotfixHotfix(
+        hotfixId: (hotfixId != null ? hotfixId.value : this.hotfixId),
+        fileName: (fileName != null ? fileName.value : this.fileName),
+        description:
+            (description != null ? description.value : this.description),
+        hotfixBegin:
+            (hotfixBegin != null ? hotfixBegin.value : this.hotfixBegin),
+        hotfixEnd: (hotfixEnd != null ? hotfixEnd.value : this.hotfixEnd),
+        hotfixSeconds:
+            (hotfixSeconds != null ? hotfixSeconds.value : this.hotfixSeconds),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -12139,9 +13615,6 @@ class WebApiModulesAdministratorPluginPlugin {
       _$WebApiModulesAdministratorPluginPluginToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorPluginPlugin &&
@@ -12174,6 +13647,9 @@ class WebApiModulesAdministratorPluginPlugin {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12216,6 +13692,36 @@ extension $WebApiModulesAdministratorPluginPluginExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesAdministratorPluginPlugin copyWithWrapped(
+      {Wrapped<int?>? pluginId,
+      Wrapped<String?>? category,
+      Wrapped<String?>? description,
+      Wrapped<String?>? settings,
+      Wrapped<bool?>? inactive,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorPluginPlugin(
+        pluginId: (pluginId != null ? pluginId.value : this.pluginId),
+        category: (category != null ? category.value : this.category),
+        description:
+            (description != null ? description.value : this.description),
+        settings: (settings != null ? settings.value : this.settings),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -12241,9 +13747,6 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateRequest {
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateApplyUpdateRequest &&
@@ -12254,6 +13757,9 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateRequest {
                 const DeepCollectionEquality()
                     .equals(other.toVersion, toVersion)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12269,6 +13775,15 @@ extension $WebApiModulesAdministratorSystemUpdateApplyUpdateRequestExtension
     return WebApiModulesAdministratorSystemUpdateApplyUpdateRequest(
         currentVersion: currentVersion ?? this.currentVersion,
         toVersion: toVersion ?? this.toVersion);
+  }
+
+  WebApiModulesAdministratorSystemUpdateApplyUpdateRequest copyWithWrapped(
+      {Wrapped<String?>? currentVersion, Wrapped<String?>? toVersion}) {
+    return WebApiModulesAdministratorSystemUpdateApplyUpdateRequest(
+        currentVersion: (currentVersion != null
+            ? currentVersion.value
+            : this.currentVersion),
+        toVersion: (toVersion != null ? toVersion.value : this.toVersion));
   }
 }
 
@@ -12298,9 +13813,6 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateResponse {
       _$WebApiModulesAdministratorSystemUpdateApplyUpdateResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateApplyUpdateResponse &&
@@ -12312,6 +13824,9 @@ class WebApiModulesAdministratorSystemUpdateApplyUpdateResponse {
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12329,6 +13844,14 @@ extension $WebApiModulesAdministratorSystemUpdateApplyUpdateResponseExtension
         status: status ?? this.status,
         success: success ?? this.success,
         msg: msg ?? this.msg);
+  }
+
+  WebApiModulesAdministratorSystemUpdateApplyUpdateResponse copyWithWrapped(
+      {Wrapped<int?>? status, Wrapped<bool?>? success, Wrapped<String?>? msg}) {
+    return WebApiModulesAdministratorSystemUpdateApplyUpdateResponse(
+        status: (status != null ? status.value : this.status),
+        success: (success != null ? success.value : this.success),
+        msg: (msg != null ? msg.value : this.msg));
   }
 }
 
@@ -12361,9 +13884,6 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersion {
       _$WebApiModulesAdministratorSystemUpdateAvailableVersionToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateAvailableVersion &&
@@ -12378,6 +13898,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersion {
                 const DeepCollectionEquality()
                     .equals(other.versionDate, versionDate)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12397,6 +13920,19 @@ extension $WebApiModulesAdministratorSystemUpdateAvailableVersionExtension
         text: text ?? this.text,
         version: version ?? this.version,
         versionDate: versionDate ?? this.versionDate);
+  }
+
+  WebApiModulesAdministratorSystemUpdateAvailableVersion copyWithWrapped(
+      {Wrapped<String?>? value,
+      Wrapped<String?>? text,
+      Wrapped<String?>? version,
+      Wrapped<DateTime?>? versionDate}) {
+    return WebApiModulesAdministratorSystemUpdateAvailableVersion(
+        value: (value != null ? value.value : this.value),
+        text: (text != null ? text.value : this.text),
+        version: (version != null ? version.value : this.version),
+        versionDate:
+            (versionDate != null ? versionDate.value : this.versionDate));
   }
 }
 
@@ -12425,9 +13961,6 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest &&
@@ -12439,6 +13972,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest {
                 const DeepCollectionEquality().equals(
                     other.onlyIncludeNewerVersions, onlyIncludeNewerVersions)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12455,6 +13991,19 @@ extension $WebApiModulesAdministratorSystemUpdateAvailableVersionsRequestExtensi
         currentVersion: currentVersion ?? this.currentVersion,
         onlyIncludeNewerVersions:
             onlyIncludeNewerVersions ?? this.onlyIncludeNewerVersions);
+  }
+
+  WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest
+      copyWithWrapped(
+          {Wrapped<String?>? currentVersion,
+          Wrapped<bool?>? onlyIncludeNewerVersions}) {
+    return WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest(
+        currentVersion: (currentVersion != null
+            ? currentVersion.value
+            : this.currentVersion),
+        onlyIncludeNewerVersions: (onlyIncludeNewerVersions != null
+            ? onlyIncludeNewerVersions.value
+            : this.onlyIncludeNewerVersions));
   }
 }
 
@@ -12492,9 +14041,6 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse &&
@@ -12509,6 +14055,9 @@ class WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse {
                 const DeepCollectionEquality()
                     .equals(other.versions, versions)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12531,6 +14080,22 @@ extension $WebApiModulesAdministratorSystemUpdateAvailableVersionsResponseExtens
         success: success ?? this.success,
         msg: msg ?? this.msg,
         versions: versions ?? this.versions);
+  }
+
+  WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse
+      copyWithWrapped(
+          {Wrapped<int?>? status,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? msg,
+          Wrapped<
+                  List<
+                      WebApiModulesAdministratorSystemUpdateAvailableVersion>?>?
+              versions}) {
+    return WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse(
+        status: (status != null ? status.value : this.status),
+        success: (success != null ? success.value : this.success),
+        msg: (msg != null ? msg.value : this.msg),
+        versions: (versions != null ? versions.value : this.versions));
   }
 }
 
@@ -12557,9 +14122,6 @@ class WebApiModulesAdministratorSystemUpdateBuildDocument {
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateBuildDocument &&
@@ -12570,6 +14132,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocument {
                 const DeepCollectionEquality()
                     .equals(other.buildDate, buildDate)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12585,6 +14150,14 @@ extension $WebApiModulesAdministratorSystemUpdateBuildDocumentExtension
     return WebApiModulesAdministratorSystemUpdateBuildDocument(
         buildNumber: buildNumber ?? this.buildNumber,
         buildDate: buildDate ?? this.buildDate);
+  }
+
+  WebApiModulesAdministratorSystemUpdateBuildDocument copyWithWrapped(
+      {Wrapped<String?>? buildNumber, Wrapped<DateTime?>? buildDate}) {
+    return WebApiModulesAdministratorSystemUpdateBuildDocument(
+        buildNumber:
+            (buildNumber != null ? buildNumber.value : this.buildNumber),
+        buildDate: (buildDate != null ? buildDate.value : this.buildDate));
   }
 }
 
@@ -12612,9 +14185,6 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest {
       _$WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest &&
@@ -12626,6 +14196,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest {
                 const DeepCollectionEquality().equals(
                     other.onlyIncludeNewerVersions, onlyIncludeNewerVersions)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12642,6 +14215,18 @@ extension $WebApiModulesAdministratorSystemUpdateBuildDocumentsRequestExtension
         currentVersion: currentVersion ?? this.currentVersion,
         onlyIncludeNewerVersions:
             onlyIncludeNewerVersions ?? this.onlyIncludeNewerVersions);
+  }
+
+  WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest copyWithWrapped(
+      {Wrapped<String?>? currentVersion,
+      Wrapped<bool?>? onlyIncludeNewerVersions}) {
+    return WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest(
+        currentVersion: (currentVersion != null
+            ? currentVersion.value
+            : this.currentVersion),
+        onlyIncludeNewerVersions: (onlyIncludeNewerVersions != null
+            ? onlyIncludeNewerVersions.value
+            : this.onlyIncludeNewerVersions));
   }
 }
 
@@ -12683,9 +14268,6 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse &&
@@ -12703,6 +14285,9 @@ class WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse {
                 const DeepCollectionEquality()
                     .equals(other.documents, documents)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12729,6 +14314,22 @@ extension $WebApiModulesAdministratorSystemUpdateBuildDocumentsResponseExtension
         documentsList: documentsList ?? this.documentsList,
         documents: documents ?? this.documents);
   }
+
+  WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse copyWithWrapped(
+      {Wrapped<int?>? status,
+      Wrapped<bool?>? success,
+      Wrapped<String?>? msg,
+      Wrapped<List<String>?>? documentsList,
+      Wrapped<List<WebApiModulesAdministratorSystemUpdateBuildDocument>?>?
+          documents}) {
+    return WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse(
+        status: (status != null ? status.value : this.status),
+        success: (success != null ? success.value : this.success),
+        msg: (msg != null ? msg.value : this.msg),
+        documentsList:
+            (documentsList != null ? documentsList.value : this.documentsList),
+        documents: (documents != null ? documents.value : this.documents));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -12753,15 +14354,15 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest &&
             (identical(other.version, version) ||
                 const DeepCollectionEquality().equals(other.version, version)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12774,6 +14375,12 @@ extension $WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequestExt
       {String? version}) {
     return WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest(
         version: version ?? this.version);
+  }
+
+  WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest
+      copyWithWrapped({Wrapped<String?>? version}) {
+    return WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest(
+        version: (version != null ? version.value : this.version));
   }
 }
 
@@ -12808,9 +14415,6 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse &&
@@ -12825,6 +14429,9 @@ class WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12844,6 +14451,20 @@ extension $WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponseEx
         success: success ?? this.success,
         msg: msg ?? this.msg,
         downloadUrl: downloadUrl ?? this.downloadUrl);
+  }
+
+  WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse
+      copyWithWrapped(
+          {Wrapped<int?>? status,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? msg,
+          Wrapped<String?>? downloadUrl}) {
+    return WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse(
+        status: (status != null ? status.value : this.status),
+        success: (success != null ? success.value : this.success),
+        msg: (msg != null ? msg.value : this.msg),
+        downloadUrl:
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
   }
 }
 
@@ -12869,15 +14490,15 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest &&
             (identical(other.version, version) ||
                 const DeepCollectionEquality().equals(other.version, version)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12890,6 +14511,12 @@ extension $WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequestExtensio
       {String? version}) {
     return WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest(
         version: version ?? this.version);
+  }
+
+  WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest copyWithWrapped(
+      {Wrapped<String?>? version}) {
+    return WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest(
+        version: (version != null ? version.value : this.version));
   }
 }
 
@@ -12924,9 +14551,6 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse &&
@@ -12940,6 +14564,9 @@ class WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse {
             (identical(other.hotfix, hotfix) ||
                 const DeepCollectionEquality().equals(other.hotfix, hotfix)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -12959,6 +14586,19 @@ extension $WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponseExtensi
         success: success ?? this.success,
         msg: msg ?? this.msg,
         hotfix: hotfix ?? this.hotfix);
+  }
+
+  WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse
+      copyWithWrapped(
+          {Wrapped<int?>? status,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? msg,
+          Wrapped<String?>? hotfix}) {
+    return WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse(
+        status: (status != null ? status.value : this.status),
+        success: (success != null ? success.value : this.success),
+        msg: (msg != null ? msg.value : this.msg),
+        hotfix: (hotfix != null ? hotfix.value : this.hotfix));
   }
 }
 
@@ -13029,9 +14669,6 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory &&
@@ -13073,6 +14710,9 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -13124,6 +14764,48 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
+      copyWithWrapped(
+          {Wrapped<int?>? systemUpdateHistoryId,
+          Wrapped<String?>? usersId,
+          Wrapped<String?>? userName,
+          Wrapped<DateTime?>? updateDateTime,
+          Wrapped<String?>? fromVersion,
+          Wrapped<String?>? toVersion,
+          Wrapped<String?>? errorMessage,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory(
+        systemUpdateHistoryId: (systemUpdateHistoryId != null
+            ? systemUpdateHistoryId.value
+            : this.systemUpdateHistoryId),
+        usersId: (usersId != null ? usersId.value : this.usersId),
+        userName: (userName != null ? userName.value : this.userName),
+        updateDateTime: (updateDateTime != null
+            ? updateDateTime.value
+            : this.updateDateTime),
+        fromVersion:
+            (fromVersion != null ? fromVersion.value : this.fromVersion),
+        toVersion: (toVersion != null ? toVersion.value : this.toVersion),
+        errorMessage:
+            (errorMessage != null ? errorMessage.value : this.errorMessage),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -13182,9 +14864,6 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog &&
@@ -13216,6 +14895,9 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -13258,6 +14940,38 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
+      copyWithWrapped(
+          {Wrapped<int?>? systemUpdateHistoryLogId,
+          Wrapped<int?>? systemUpdateHistoryId,
+          Wrapped<String?>? messsage,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog(
+        systemUpdateHistoryLogId: (systemUpdateHistoryLogId != null
+            ? systemUpdateHistoryLogId.value
+            : this.systemUpdateHistoryLogId),
+        systemUpdateHistoryId: (systemUpdateHistoryId != null
+            ? systemUpdateHistoryId.value
+            : this.systemUpdateHistoryId),
+        messsage: (messsage != null ? messsage.value : this.messsage),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -13291,9 +15005,6 @@ class WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse &&
@@ -13308,6 +15019,9 @@ class WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -13327,6 +15041,19 @@ extension $WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactRes
         status: status ?? this.status,
         success: success ?? this.success,
         msg: msg ?? this.msg);
+  }
+
+  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
+      copyWithWrapped(
+          {Wrapped<String?>? contactId,
+          Wrapped<int?>? status,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? msg}) {
+    return WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse(
+        contactId: (contactId != null ? contactId.value : this.contactId),
+        status: (status != null ? status.value : this.status),
+        success: (success != null ? success.value : this.success),
+        msg: (msg != null ? msg.value : this.msg));
   }
 }
 
@@ -13784,9 +15511,6 @@ class WebApiModulesAdministratorUserUser {
       _$WebApiModulesAdministratorUserUserToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorUserUser &&
@@ -13972,6 +15696,9 @@ class WebApiModulesAdministratorUserUser {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -14433,6 +16160,388 @@ extension $WebApiModulesAdministratorUserUserExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes: defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesAdministratorUserUser copyWithWrapped(
+      {Wrapped<String?>? userId,
+      Wrapped<String?>? contactId,
+      Wrapped<String?>? name,
+      Wrapped<String?>? loginName,
+      Wrapped<String?>? fullName,
+      Wrapped<String?>? firstName,
+      Wrapped<String?>? middleInitial,
+      Wrapped<String?>? lastName,
+      Wrapped<String?>? password,
+      Wrapped<bool?>? passwordChanged,
+      Wrapped<String?>? barCode,
+      Wrapped<String?>? groupId,
+      Wrapped<String?>? groupName,
+      Wrapped<String?>? scheduleColor,
+      Wrapped<String?>? userTitleId,
+      Wrapped<String?>? userTitle,
+      Wrapped<String?>? email,
+      Wrapped<String?>? officeLocationId,
+      Wrapped<String?>? officeLocation,
+      Wrapped<String?>? warehouseId,
+      Wrapped<String?>? warehouse,
+      Wrapped<String?>? address1,
+      Wrapped<String?>? address2,
+      Wrapped<String?>? city,
+      Wrapped<String?>? state,
+      Wrapped<String?>? zipCode,
+      Wrapped<String?>? countryId,
+      Wrapped<String?>? country,
+      Wrapped<String?>? officePhone,
+      Wrapped<String?>? officeExtension,
+      Wrapped<String?>? fax,
+      Wrapped<String?>? directPhone,
+      Wrapped<String?>? pager,
+      Wrapped<String?>? pagerPin,
+      Wrapped<String?>? cellular,
+      Wrapped<String?>? homePhone,
+      Wrapped<String?>? defaultDepartmentType,
+      Wrapped<String?>? primaryDepartmentId,
+      Wrapped<String?>? primaryDepartment,
+      Wrapped<String?>? rentalDepartmentId,
+      Wrapped<String?>? rentalDepartment,
+      Wrapped<String?>? salesDepartmentId,
+      Wrapped<String?>? salesDepartment,
+      Wrapped<String?>? partsDepartmentId,
+      Wrapped<String?>? partsDepartment,
+      Wrapped<String?>? miscDepartmentId,
+      Wrapped<String?>? miscDepartment,
+      Wrapped<String?>? laborDepartmentId,
+      Wrapped<String?>? laborDepartment,
+      Wrapped<String?>? facilityDepartmentId,
+      Wrapped<String?>? facilityDepartment,
+      Wrapped<String?>? transportationDepartmentId,
+      Wrapped<String?>? transportationDepartment,
+      Wrapped<String?>? rentalInventoryTypeId,
+      Wrapped<String?>? rentalInventoryType,
+      Wrapped<String?>? salesInventoryTypeId,
+      Wrapped<String?>? salesInventoryType,
+      Wrapped<String?>? partsInventoryTypeId,
+      Wrapped<String?>? partsInventoryType,
+      Wrapped<String?>? miscTypeId,
+      Wrapped<String?>? miscType,
+      Wrapped<String?>? laborTypeId,
+      Wrapped<String?>? laborType,
+      Wrapped<String?>? facilityTypeId,
+      Wrapped<String?>? facilityType,
+      Wrapped<String?>? transportationTypeId,
+      Wrapped<String?>? transportationType,
+      Wrapped<bool?>? noMiscellaneousOnQuotes,
+      Wrapped<bool?>? noMiscellaneousOnOrders,
+      Wrapped<bool?>? noMiscellaneousOnPurchaseOrders,
+      Wrapped<bool?>? limitDaysPerWeek,
+      Wrapped<double?>? minimumDaysPerWeek,
+      Wrapped<bool?>? allowCreditLimitOverride,
+      Wrapped<bool?>? limitDiscount,
+      Wrapped<double?>? maximumDiscount,
+      Wrapped<bool?>? limitSubDiscount,
+      Wrapped<double?>? maximumSubDiscount,
+      Wrapped<String?>? discountRule,
+      Wrapped<bool?>? stagingAllowIncreaseDecreaseOrderQuantity,
+      Wrapped<bool?>? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+      Wrapped<bool?>? allowContractIfDealRequiresPOAndOrderHasPendingPO,
+      Wrapped<bool?>? allowContractIfPendingItemsExist,
+      Wrapped<bool?>? allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+      Wrapped<bool?>? allowContractIfCustomerDealIsOverTheirCreditLimit,
+      Wrapped<bool?>? allowContractIfCustomerDealInsuranceCoverageIsLess,
+      Wrapped<bool?>?
+          allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+      Wrapped<bool?>?
+          allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+      Wrapped<bool?>? allowReceiveSubsWhenPositiveConflictExists,
+      Wrapped<bool?>? allowStagingOfUnreservedConsignedItems,
+      Wrapped<bool?>? allowStagingOfUnapprovedItems,
+      Wrapped<bool?>? allowSubstitutesAtStaging,
+      Wrapped<bool?>? deleteOriginalOnSubstitution,
+      Wrapped<bool?>? quikActivityAllowPrintDollarAmounts,
+      Wrapped<bool?>? quikScanAllowCreateContract,
+      Wrapped<bool?>? quikScanAllowApplyAll,
+      Wrapped<bool?>? allowCrossICodeExchange,
+      Wrapped<bool?>? allowCrossICodePendingExchange,
+      Wrapped<bool?>? allowChangeAvailabilityPriority,
+      Wrapped<bool?>? userMustChangePassword,
+      Wrapped<bool?>? passwordExpires,
+      Wrapped<int?>? passwordExpireDays,
+      Wrapped<String?>? passwordUpdatedDateTime,
+      Wrapped<bool?>? accountLocked,
+      Wrapped<String?>? memo,
+      Wrapped<bool?>? allowCrossLocationEditAndDelete,
+      Wrapped<String?>? lastLoggedOn,
+      Wrapped<bool?>? disableInsertIntoActiveOrder,
+      Wrapped<bool?>? inactive,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? webUserId,
+      Wrapped<bool?>? webAccess,
+      Wrapped<bool?>? webAdministrator,
+      Wrapped<int?>? browseDefaultRows,
+      Wrapped<String?>? applicationTheme,
+      Wrapped<String?>? homeMenuGuid,
+      Wrapped<String?>? homeMenuPath,
+      Wrapped<String?>? successSoundId,
+      Wrapped<String?>? successSound,
+      Wrapped<String?>? successBase64Sound,
+      Wrapped<String?>? errorSoundId,
+      Wrapped<String?>? errorSound,
+      Wrapped<String?>? errorBase64Sound,
+      Wrapped<String?>? notificationSoundId,
+      Wrapped<String?>? notificationSound,
+      Wrapped<String?>? notificationBase64Sound,
+      Wrapped<int?>? firstDayOfWeek,
+      Wrapped<bool?>? settingsNavigationMenuVisible,
+      Wrapped<bool?>? reportsNavigationMenuVisible,
+      Wrapped<bool?>? webQuoteRequest,
+      Wrapped<String?>? emailSignature,
+      Wrapped<String?>? locale,
+      Wrapped<String?>? availabilityPreference,
+      Wrapped<bool?>? availabilityAllWarehouses,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorUserUser(
+        userId: (userId != null ? userId.value : this.userId),
+        contactId: (contactId != null ? contactId.value : this.contactId),
+        name: (name != null ? name.value : this.name),
+        loginName: (loginName != null ? loginName.value : this.loginName),
+        fullName: (fullName != null ? fullName.value : this.fullName),
+        firstName: (firstName != null ? firstName.value : this.firstName),
+        middleInitial:
+            (middleInitial != null ? middleInitial.value : this.middleInitial),
+        lastName: (lastName != null ? lastName.value : this.lastName),
+        password: (password != null ? password.value : this.password),
+        passwordChanged: (passwordChanged != null
+            ? passwordChanged.value
+            : this.passwordChanged),
+        barCode: (barCode != null ? barCode.value : this.barCode),
+        groupId: (groupId != null ? groupId.value : this.groupId),
+        groupName: (groupName != null ? groupName.value : this.groupName),
+        scheduleColor:
+            (scheduleColor != null ? scheduleColor.value : this.scheduleColor),
+        userTitleId:
+            (userTitleId != null ? userTitleId.value : this.userTitleId),
+        userTitle: (userTitle != null ? userTitle.value : this.userTitle),
+        email: (email != null ? email.value : this.email),
+        officeLocationId: (officeLocationId != null
+            ? officeLocationId.value
+            : this.officeLocationId),
+        officeLocation: (officeLocation != null
+            ? officeLocation.value
+            : this.officeLocation),
+        warehouseId:
+            (warehouseId != null ? warehouseId.value : this.warehouseId),
+        warehouse: (warehouse != null ? warehouse.value : this.warehouse),
+        address1: (address1 != null ? address1.value : this.address1),
+        address2: (address2 != null ? address2.value : this.address2),
+        city: (city != null ? city.value : this.city),
+        state: (state != null ? state.value : this.state),
+        zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+        countryId: (countryId != null ? countryId.value : this.countryId),
+        country: (country != null ? country.value : this.country),
+        officePhone:
+            (officePhone != null ? officePhone.value : this.officePhone),
+        officeExtension: (officeExtension != null
+            ? officeExtension.value
+            : this.officeExtension),
+        fax: (fax != null ? fax.value : this.fax),
+        directPhone:
+            (directPhone != null ? directPhone.value : this.directPhone),
+        pager: (pager != null ? pager.value : this.pager),
+        pagerPin: (pagerPin != null ? pagerPin.value : this.pagerPin),
+        cellular: (cellular != null ? cellular.value : this.cellular),
+        homePhone: (homePhone != null ? homePhone.value : this.homePhone),
+        defaultDepartmentType: (defaultDepartmentType != null
+            ? defaultDepartmentType.value
+            : this.defaultDepartmentType),
+        primaryDepartmentId: (primaryDepartmentId != null
+            ? primaryDepartmentId.value
+            : this.primaryDepartmentId),
+        primaryDepartment: (primaryDepartment != null
+            ? primaryDepartment.value
+            : this.primaryDepartment),
+        rentalDepartmentId: (rentalDepartmentId != null
+            ? rentalDepartmentId.value
+            : this.rentalDepartmentId),
+        rentalDepartment: (rentalDepartment != null
+            ? rentalDepartment.value
+            : this.rentalDepartment),
+        salesDepartmentId: (salesDepartmentId != null
+            ? salesDepartmentId.value
+            : this.salesDepartmentId),
+        salesDepartment: (salesDepartment != null
+            ? salesDepartment.value
+            : this.salesDepartment),
+        partsDepartmentId: (partsDepartmentId != null
+            ? partsDepartmentId.value
+            : this.partsDepartmentId),
+        partsDepartment: (partsDepartment != null
+            ? partsDepartment.value
+            : this.partsDepartment),
+        miscDepartmentId: (miscDepartmentId != null
+            ? miscDepartmentId.value
+            : this.miscDepartmentId),
+        miscDepartment: (miscDepartment != null
+            ? miscDepartment.value
+            : this.miscDepartment),
+        laborDepartmentId: (laborDepartmentId != null
+            ? laborDepartmentId.value
+            : this.laborDepartmentId),
+        laborDepartment: (laborDepartment != null
+            ? laborDepartment.value
+            : this.laborDepartment),
+        facilityDepartmentId: (facilityDepartmentId != null
+            ? facilityDepartmentId.value
+            : this.facilityDepartmentId),
+        facilityDepartment: (facilityDepartment != null
+            ? facilityDepartment.value
+            : this.facilityDepartment),
+        transportationDepartmentId: (transportationDepartmentId != null
+            ? transportationDepartmentId.value
+            : this.transportationDepartmentId),
+        transportationDepartment: (transportationDepartment != null
+            ? transportationDepartment.value
+            : this.transportationDepartment),
+        rentalInventoryTypeId: (rentalInventoryTypeId != null
+            ? rentalInventoryTypeId.value
+            : this.rentalInventoryTypeId),
+        rentalInventoryType: (rentalInventoryType != null
+            ? rentalInventoryType.value
+            : this.rentalInventoryType),
+        salesInventoryTypeId: (salesInventoryTypeId != null
+            ? salesInventoryTypeId.value
+            : this.salesInventoryTypeId),
+        salesInventoryType: (salesInventoryType != null
+            ? salesInventoryType.value
+            : this.salesInventoryType),
+        partsInventoryTypeId: (partsInventoryTypeId != null
+            ? partsInventoryTypeId.value
+            : this.partsInventoryTypeId),
+        partsInventoryType: (partsInventoryType != null
+            ? partsInventoryType.value
+            : this.partsInventoryType),
+        miscTypeId: (miscTypeId != null ? miscTypeId.value : this.miscTypeId),
+        miscType: (miscType != null ? miscType.value : this.miscType),
+        laborTypeId:
+            (laborTypeId != null ? laborTypeId.value : this.laborTypeId),
+        laborType: (laborType != null ? laborType.value : this.laborType),
+        facilityTypeId: (facilityTypeId != null
+            ? facilityTypeId.value
+            : this.facilityTypeId),
+        facilityType:
+            (facilityType != null ? facilityType.value : this.facilityType),
+        transportationTypeId: (transportationTypeId != null
+            ? transportationTypeId.value
+            : this.transportationTypeId),
+        transportationType: (transportationType != null
+            ? transportationType.value
+            : this.transportationType),
+        noMiscellaneousOnQuotes: (noMiscellaneousOnQuotes != null
+            ? noMiscellaneousOnQuotes.value
+            : this.noMiscellaneousOnQuotes),
+        noMiscellaneousOnOrders: (noMiscellaneousOnOrders != null
+            ? noMiscellaneousOnOrders.value
+            : this.noMiscellaneousOnOrders),
+        noMiscellaneousOnPurchaseOrders: (noMiscellaneousOnPurchaseOrders != null
+            ? noMiscellaneousOnPurchaseOrders.value
+            : this.noMiscellaneousOnPurchaseOrders),
+        limitDaysPerWeek: (limitDaysPerWeek != null
+            ? limitDaysPerWeek.value
+            : this.limitDaysPerWeek),
+        minimumDaysPerWeek: (minimumDaysPerWeek != null
+            ? minimumDaysPerWeek.value
+            : this.minimumDaysPerWeek),
+        allowCreditLimitOverride: (allowCreditLimitOverride != null
+            ? allowCreditLimitOverride.value
+            : this.allowCreditLimitOverride),
+        limitDiscount:
+            (limitDiscount != null ? limitDiscount.value : this.limitDiscount),
+        maximumDiscount: (maximumDiscount != null
+            ? maximumDiscount.value
+            : this.maximumDiscount),
+        limitSubDiscount: (limitSubDiscount != null
+            ? limitSubDiscount.value
+            : this.limitSubDiscount),
+        maximumSubDiscount: (maximumSubDiscount != null
+            ? maximumSubDiscount.value
+            : this.maximumSubDiscount),
+        discountRule:
+            (discountRule != null ? discountRule.value : this.discountRule),
+        stagingAllowIncreaseDecreaseOrderQuantity: (stagingAllowIncreaseDecreaseOrderQuantity != null
+            ? stagingAllowIncreaseDecreaseOrderQuantity.value
+            : this.stagingAllowIncreaseDecreaseOrderQuantity),
+        allowStagingOfItemsWhenReservedOnOtherOrdersQuotes:
+            (allowStagingOfItemsWhenReservedOnOtherOrdersQuotes != null
+                ? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes.value
+                : this.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes),
+        allowContractIfDealRequiresPOAndOrderHasPendingPO:
+            (allowContractIfDealRequiresPOAndOrderHasPendingPO != null
+                ? allowContractIfDealRequiresPOAndOrderHasPendingPO.value
+                : this.allowContractIfDealRequiresPOAndOrderHasPendingPO),
+        allowContractIfPendingItemsExist: (allowContractIfPendingItemsExist != null
+            ? allowContractIfPendingItemsExist.value
+            : this.allowContractIfPendingItemsExist),
+        allowContractIfCustomerDealDoesNotHaveApprovedCredit: (allowContractIfCustomerDealDoesNotHaveApprovedCredit != null ? allowContractIfCustomerDealDoesNotHaveApprovedCredit.value : this.allowContractIfCustomerDealDoesNotHaveApprovedCredit),
+        allowContractIfCustomerDealIsOverTheirCreditLimit: (allowContractIfCustomerDealIsOverTheirCreditLimit != null ? allowContractIfCustomerDealIsOverTheirCreditLimit.value : this.allowContractIfCustomerDealIsOverTheirCreditLimit),
+        allowContractIfCustomerDealInsuranceCoverageIsLess: (allowContractIfCustomerDealInsuranceCoverageIsLess != null ? allowContractIfCustomerDealInsuranceCoverageIsLess.value : this.allowContractIfCustomerDealInsuranceCoverageIsLess),
+        allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate: (allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate != null ? allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate.value : this.allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate),
+        allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate: (allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate != null ? allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate.value : this.allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate),
+        allowReceiveSubsWhenPositiveConflictExists: (allowReceiveSubsWhenPositiveConflictExists != null ? allowReceiveSubsWhenPositiveConflictExists.value : this.allowReceiveSubsWhenPositiveConflictExists),
+        allowStagingOfUnreservedConsignedItems: (allowStagingOfUnreservedConsignedItems != null ? allowStagingOfUnreservedConsignedItems.value : this.allowStagingOfUnreservedConsignedItems),
+        allowStagingOfUnapprovedItems: (allowStagingOfUnapprovedItems != null ? allowStagingOfUnapprovedItems.value : this.allowStagingOfUnapprovedItems),
+        allowSubstitutesAtStaging: (allowSubstitutesAtStaging != null ? allowSubstitutesAtStaging.value : this.allowSubstitutesAtStaging),
+        deleteOriginalOnSubstitution: (deleteOriginalOnSubstitution != null ? deleteOriginalOnSubstitution.value : this.deleteOriginalOnSubstitution),
+        quikActivityAllowPrintDollarAmounts: (quikActivityAllowPrintDollarAmounts != null ? quikActivityAllowPrintDollarAmounts.value : this.quikActivityAllowPrintDollarAmounts),
+        quikScanAllowCreateContract: (quikScanAllowCreateContract != null ? quikScanAllowCreateContract.value : this.quikScanAllowCreateContract),
+        quikScanAllowApplyAll: (quikScanAllowApplyAll != null ? quikScanAllowApplyAll.value : this.quikScanAllowApplyAll),
+        allowCrossICodeExchange: (allowCrossICodeExchange != null ? allowCrossICodeExchange.value : this.allowCrossICodeExchange),
+        allowCrossICodePendingExchange: (allowCrossICodePendingExchange != null ? allowCrossICodePendingExchange.value : this.allowCrossICodePendingExchange),
+        allowChangeAvailabilityPriority: (allowChangeAvailabilityPriority != null ? allowChangeAvailabilityPriority.value : this.allowChangeAvailabilityPriority),
+        userMustChangePassword: (userMustChangePassword != null ? userMustChangePassword.value : this.userMustChangePassword),
+        passwordExpires: (passwordExpires != null ? passwordExpires.value : this.passwordExpires),
+        passwordExpireDays: (passwordExpireDays != null ? passwordExpireDays.value : this.passwordExpireDays),
+        passwordUpdatedDateTime: (passwordUpdatedDateTime != null ? passwordUpdatedDateTime.value : this.passwordUpdatedDateTime),
+        accountLocked: (accountLocked != null ? accountLocked.value : this.accountLocked),
+        memo: (memo != null ? memo.value : this.memo),
+        allowCrossLocationEditAndDelete: (allowCrossLocationEditAndDelete != null ? allowCrossLocationEditAndDelete.value : this.allowCrossLocationEditAndDelete),
+        lastLoggedOn: (lastLoggedOn != null ? lastLoggedOn.value : this.lastLoggedOn),
+        disableInsertIntoActiveOrder: (disableInsertIntoActiveOrder != null ? disableInsertIntoActiveOrder.value : this.disableInsertIntoActiveOrder),
+        inactive: (inactive != null ? inactive.value : this.inactive),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        webAccess: (webAccess != null ? webAccess.value : this.webAccess),
+        webAdministrator: (webAdministrator != null ? webAdministrator.value : this.webAdministrator),
+        browseDefaultRows: (browseDefaultRows != null ? browseDefaultRows.value : this.browseDefaultRows),
+        applicationTheme: (applicationTheme != null ? applicationTheme.value : this.applicationTheme),
+        homeMenuGuid: (homeMenuGuid != null ? homeMenuGuid.value : this.homeMenuGuid),
+        homeMenuPath: (homeMenuPath != null ? homeMenuPath.value : this.homeMenuPath),
+        successSoundId: (successSoundId != null ? successSoundId.value : this.successSoundId),
+        successSound: (successSound != null ? successSound.value : this.successSound),
+        successBase64Sound: (successBase64Sound != null ? successBase64Sound.value : this.successBase64Sound),
+        errorSoundId: (errorSoundId != null ? errorSoundId.value : this.errorSoundId),
+        errorSound: (errorSound != null ? errorSound.value : this.errorSound),
+        errorBase64Sound: (errorBase64Sound != null ? errorBase64Sound.value : this.errorBase64Sound),
+        notificationSoundId: (notificationSoundId != null ? notificationSoundId.value : this.notificationSoundId),
+        notificationSound: (notificationSound != null ? notificationSound.value : this.notificationSound),
+        notificationBase64Sound: (notificationBase64Sound != null ? notificationBase64Sound.value : this.notificationBase64Sound),
+        firstDayOfWeek: (firstDayOfWeek != null ? firstDayOfWeek.value : this.firstDayOfWeek),
+        settingsNavigationMenuVisible: (settingsNavigationMenuVisible != null ? settingsNavigationMenuVisible.value : this.settingsNavigationMenuVisible),
+        reportsNavigationMenuVisible: (reportsNavigationMenuVisible != null ? reportsNavigationMenuVisible.value : this.reportsNavigationMenuVisible),
+        webQuoteRequest: (webQuoteRequest != null ? webQuoteRequest.value : this.webQuoteRequest),
+        emailSignature: (emailSignature != null ? emailSignature.value : this.emailSignature),
+        locale: (locale != null ? locale.value : this.locale),
+        availabilityPreference: (availabilityPreference != null ? availabilityPreference.value : this.availabilityPreference),
+        availabilityAllWarehouses: (availabilityAllWarehouses != null ? availabilityAllWarehouses.value : this.availabilityAllWarehouses),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null ? defaultFieldAttributes.value : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -14458,9 +16567,6 @@ class WebApiModulesAdministratorUserUserCountResponse {
       _$WebApiModulesAdministratorUserUserCountResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorUserUserCountResponse &&
@@ -14471,6 +16577,9 @@ class WebApiModulesAdministratorUserUserCountResponse {
                 const DeepCollectionEquality()
                     .equals(other.userCount, userCount)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -14486,6 +16595,15 @@ extension $WebApiModulesAdministratorUserUserCountResponseExtension
     return WebApiModulesAdministratorUserUserCountResponse(
         maxConnections: maxConnections ?? this.maxConnections,
         userCount: userCount ?? this.userCount);
+  }
+
+  WebApiModulesAdministratorUserUserCountResponse copyWithWrapped(
+      {Wrapped<int?>? maxConnections, Wrapped<int?>? userCount}) {
+    return WebApiModulesAdministratorUserUserCountResponse(
+        maxConnections: (maxConnections != null
+            ? maxConnections.value
+            : this.maxConnections),
+        userCount: (userCount != null ? userCount.value : this.userCount));
   }
 }
 
@@ -14550,9 +16668,6 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup &&
@@ -14588,6 +16703,9 @@ class WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -14633,6 +16751,43 @@ extension $WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupExten
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
+      copyWithWrapped(
+          {Wrapped<String?>? customFormGroupId,
+          Wrapped<String?>? customFormId,
+          Wrapped<String?>? customFormDescription,
+          Wrapped<String?>? groupId,
+          Wrapped<String?>? groupName,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup(
+        customFormGroupId: (customFormGroupId != null
+            ? customFormGroupId.value
+            : this.customFormGroupId),
+        customFormId:
+            (customFormId != null ? customFormId.value : this.customFormId),
+        customFormDescription: (customFormDescription != null
+            ? customFormDescription.value
+            : this.customFormDescription),
+        groupId: (groupId != null ? groupId.value : this.groupId),
+        groupName: (groupName != null ? groupName.value : this.groupName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -14700,9 +16855,6 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsCustomFormUserCustomFormUser &&
@@ -14740,6 +16892,9 @@ class WebApiModulesAdministratorControlsCustomFormUserCustomFormUser {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -14789,6 +16944,45 @@ extension $WebApiModulesAdministratorControlsCustomFormUserCustomFormUserExtensi
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
+      copyWithWrapped(
+          {Wrapped<String?>? customFormUserId,
+          Wrapped<String?>? customFormId,
+          Wrapped<String?>? customFormDescription,
+          Wrapped<String?>? webUserId,
+          Wrapped<String?>? userId,
+          Wrapped<String?>? userName,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesAdministratorControlsCustomFormUserCustomFormUser(
+        customFormUserId: (customFormUserId != null
+            ? customFormUserId.value
+            : this.customFormUserId),
+        customFormId:
+            (customFormId != null ? customFormId.value : this.customFormId),
+        customFormDescription: (customFormDescription != null
+            ? customFormDescription.value
+            : this.customFormDescription),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userId: (userId != null ? userId.value : this.userId),
+        userName: (userName != null ? userName.value : this.userName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -14836,9 +17030,6 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
       _$WebApiModulesAdministratorControlsCustomModuleCustomModuleToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsCustomModuleCustomModule &&
@@ -14859,6 +17050,9 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -14888,6 +17082,27 @@ extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorControlsCustomModuleCustomModule copyWithWrapped(
+      {Wrapped<String?>? moduleName,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesAdministratorControlsCustomModuleCustomModule(
+        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -14952,9 +17167,6 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup &&
@@ -14992,6 +17204,9 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -15039,6 +17254,44 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
+      copyWithWrapped(
+          {Wrapped<String?>? customReportLayoutGroupId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<String?>? customReportLayoutDescription,
+          Wrapped<String?>? groupId,
+          Wrapped<String?>? groupName,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup(
+        customReportLayoutGroupId: (customReportLayoutGroupId != null
+            ? customReportLayoutGroupId.value
+            : this.customReportLayoutGroupId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        customReportLayoutDescription: (customReportLayoutDescription != null
+            ? customReportLayoutDescription.value
+            : this.customReportLayoutDescription),
+        groupId: (groupId != null ? groupId.value : this.groupId),
+        groupName: (groupName != null ? groupName.value : this.groupName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -15097,9 +17350,6 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField &&
@@ -15129,6 +17379,9 @@ class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -15168,6 +17421,38 @@ extension $WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFiel
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      copyWithWrapped(
+          {Wrapped<String?>? duplicateRuleFieldId,
+          Wrapped<String?>? duplicateRuleId,
+          Wrapped<String?>? fieldName,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField(
+        duplicateRuleFieldId: (duplicateRuleFieldId != null
+            ? duplicateRuleFieldId.value
+            : this.duplicateRuleFieldId),
+        duplicateRuleId: (duplicateRuleId != null
+            ? duplicateRuleId.value
+            : this.duplicateRuleId),
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -15230,9 +17515,6 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
       _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetGroupWidgetGroup &&
@@ -15268,6 +17550,9 @@ class WebApiModulesSettingsWidgetGroupWidgetGroup {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -15312,6 +17597,40 @@ extension $WebApiModulesSettingsWidgetGroupWidgetGroupExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesSettingsWidgetGroupWidgetGroup copyWithWrapped(
+      {Wrapped<String?>? widgetGroupId,
+      Wrapped<String?>? widgetId,
+      Wrapped<String?>? widgetDescription,
+      Wrapped<String?>? groupId,
+      Wrapped<String?>? groupName,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesSettingsWidgetGroupWidgetGroup(
+        widgetGroupId:
+            (widgetGroupId != null ? widgetGroupId.value : this.widgetGroupId),
+        widgetId: (widgetId != null ? widgetId.value : this.widgetId),
+        widgetDescription: (widgetDescription != null
+            ? widgetDescription.value
+            : this.widgetDescription),
+        groupId: (groupId != null ? groupId.value : this.groupId),
+        groupName: (groupName != null ? groupName.value : this.groupName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -15377,9 +17696,6 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
       _$WebApiModulesSettingsWidgetUserWidgetUserToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSettingsWidgetUserWidgetUser &&
@@ -15417,6 +17733,9 @@ class WebApiModulesSettingsWidgetUserWidgetUser {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -15464,6 +17783,42 @@ extension $WebApiModulesSettingsWidgetUserWidgetUserExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesSettingsWidgetUserWidgetUser copyWithWrapped(
+      {Wrapped<String?>? widgetUserId,
+      Wrapped<String?>? widgetId,
+      Wrapped<String?>? widgetDescription,
+      Wrapped<String?>? webUserId,
+      Wrapped<String?>? userId,
+      Wrapped<String?>? userName,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesSettingsWidgetUserWidgetUser(
+        widgetUserId:
+            (widgetUserId != null ? widgetUserId.value : this.widgetUserId),
+        widgetId: (widgetId != null ? widgetId.value : this.widgetId),
+        widgetDescription: (widgetDescription != null
+            ? widgetDescription.value
+            : this.widgetDescription),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userId: (userId != null ? userId.value : this.userId),
+        userName: (userName != null ? userName.value : this.userName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -15531,9 +17886,6 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser &&
@@ -15572,6 +17924,9 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
                 const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -15623,6 +17978,46 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
+      copyWithWrapped(
+          {Wrapped<String?>? customReportLayoutUserId,
+          Wrapped<String?>? customReportLayoutId,
+          Wrapped<String?>? customReportLayoutDescription,
+          Wrapped<String?>? webUserId,
+          Wrapped<String?>? userId,
+          Wrapped<String?>? userName,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes}) {
+    return WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser(
+        customReportLayoutUserId: (customReportLayoutUserId != null
+            ? customReportLayoutUserId.value
+            : this.customReportLayoutUserId),
+        customReportLayoutId: (customReportLayoutId != null
+            ? customReportLayoutId.value
+            : this.customReportLayoutId),
+        customReportLayoutDescription: (customReportLayoutDescription != null
+            ? customReportLayoutDescription.value
+            : this.customReportLayoutDescription),
+        webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+        userId: (userId != null ? userId.value : this.userId),
+        userName: (userName != null ? userName.value : this.userName),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 String? fwStandardSqlServerFwDataTypesToJson(
@@ -15632,19 +18027,9 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    Object? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes is int) {
-    return enums.$FwStandardSqlServerFwDataTypesMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                fwStandardSqlServerFwDataTypes.toString(),
-            orElse: () => const MapEntry(
-                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? fwStandardSqlServerFwDataTypes, [
+  enums.FwStandardSqlServerFwDataTypes? defaultValue,
+]) {
   if (fwStandardSqlServerFwDataTypes is String) {
     return enums.$FwStandardSqlServerFwDataTypesMap.entries
         .firstWhere(
@@ -15657,7 +18042,15 @@ enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
         .key;
   }
 
-  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums.$FwStandardSqlServerFwDataTypesMap.entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -15674,9 +18067,25 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
 
 List<enums.FwStandardSqlServerFwDataTypes>
     fwStandardSqlServerFwDataTypesListFromJson(
-        List? fwStandardSqlServerFwDataTypes) {
+  List? fwStandardSqlServerFwDataTypes, [
+  List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
+]) {
   if (fwStandardSqlServerFwDataTypes == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return fwStandardSqlServerFwDataTypes
+      .map((e) => fwStandardSqlServerFwDataTypesFromJson(e.toString()))
+      .toList();
+}
+
+List<enums.FwStandardSqlServerFwDataTypes>?
+    fwStandardSqlServerFwDataTypesNullableListFromJson(
+  List? fwStandardSqlServerFwDataTypes, [
+  List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
+]) {
+  if (fwStandardSqlServerFwDataTypes == null) {
+    return defaultValue;
   }
 
   return fwStandardSqlServerFwDataTypes
@@ -15697,6 +18106,14 @@ class $CustomJsonDecoder {
     }
 
     if (entity is T) {
+      return entity;
+    }
+
+    if (isTypeOf<T, Map>()) {
+      return entity;
+    }
+
+    if (isTypeOf<T, Iterable>()) {
       return entity;
     }
 
@@ -15722,15 +18139,15 @@ class $CustomJsonDecoder {
 
 class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
-  chopper.Response<ResultType> convertResponse<ResultType, Item>(
-      chopper.Response response) {
+  FutureOr<chopper.Response<ResultType>> convertResponse<ResultType, Item>(
+      chopper.Response response) async {
     if (response.bodyString.isEmpty) {
       // In rare cases, when let's say 204 (no content) is returned -
       // we cannot decode the missing json with the result type specified
       return chopper.Response(response.base, null, error: response.error);
     }
 
-    final jsonRes = super.convertResponse(response);
+    final jsonRes = await super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
         body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
@@ -15749,4 +18166,9 @@ String? _dateToJson(DateTime? date) {
   final day = date.day < 10 ? '0${date.day}' : date.day.toString();
 
   return '$year-$month-$day';
+}
+
+class Wrapped<T> {
+  final T value;
+  const Wrapped.value(this.value);
 }

@@ -136,7 +136,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
           [],
       rows: (json['Rows'] as List<dynamic>?)
               ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -1118,23 +1118,15 @@ WebApiModulesAccountServicesAccountResetPasswordRequest
     _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAccountServicesAccountResetPasswordRequest(
-          password: json['Password'] as String?,
+          password: json['Password'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson(
-        WebApiModulesAccountServicesAccountResetPasswordRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Password', instance.password);
-  return val;
-}
+            WebApiModulesAccountServicesAccountResetPasswordRequest instance) =>
+        <String, dynamic>{
+          'Password': instance.password,
+        };
 
 WebApiModulesAccountServicesAccountResetPasswordResponse
     _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(

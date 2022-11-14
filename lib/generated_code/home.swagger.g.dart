@@ -417,14 +417,17 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwQueryFilter(
-      field: json['Field'] as String?,
-      op: json['Op'] as String?,
+      field: json['Field'] as String,
+      op: json['Op'] as String,
       value: json['Value'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     FwStandardModelsFwQueryFilter instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'Field': instance.field,
+    'Op': instance.op,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -432,8 +435,6 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     }
   }
 
-  writeNotNull('Field', instance.field);
-  writeNotNull('Op', instance.op);
   writeNotNull('Value', instance.value);
   return val;
 }
@@ -3925,7 +3926,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
           [],
       rows: (json['Rows'] as List<dynamic>?)
               ?.map(
-                  (e) => (e as List<dynamic>).toList())
+                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -6119,7 +6120,7 @@ WebApiModulesAgentOrderCopyQuoteOrderRequest
     _$WebApiModulesAgentOrderCopyQuoteOrderRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAgentOrderCopyQuoteOrderRequest(
-          copyToType: json['CopyToType'] as String?,
+          copyToType: json['CopyToType'] as String,
           locationId: json['LocationId'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           newDescription: json['NewDescription'] as String?,
@@ -6132,7 +6133,9 @@ WebApiModulesAgentOrderCopyQuoteOrderRequest
 
 Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
     WebApiModulesAgentOrderCopyQuoteOrderRequest instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'CopyToType': instance.copyToType,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -6140,7 +6143,6 @@ Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
     }
   }
 
-  writeNotNull('CopyToType', instance.copyToType);
   writeNotNull('LocationId', instance.locationId);
   writeNotNull('WarehouseId', instance.warehouseId);
   writeNotNull('NewDescription', instance.newDescription);
@@ -9769,26 +9771,18 @@ WebApiModulesAgentOrderQuoteToOrderRequest
     _$WebApiModulesAgentOrderQuoteToOrderRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAgentOrderQuoteToOrderRequest(
-          quoteId: json['QuoteId'] as String?,
-          locationId: json['LocationId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          quoteId: json['QuoteId'] as String,
+          locationId: json['LocationId'] as String,
+          warehouseId: json['WarehouseId'] as String,
         );
 
 Map<String, dynamic> _$WebApiModulesAgentOrderQuoteToOrderRequestToJson(
-    WebApiModulesAgentOrderQuoteToOrderRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('QuoteId', instance.quoteId);
-  writeNotNull('LocationId', instance.locationId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  return val;
-}
+        WebApiModulesAgentOrderQuoteToOrderRequest instance) =>
+    <String, dynamic>{
+      'QuoteId': instance.quoteId,
+      'LocationId': instance.locationId,
+      'WarehouseId': instance.warehouseId,
+    };
 
 WebApiModulesAgentOrderQuoteToOrderResponse
     _$WebApiModulesAgentOrderQuoteToOrderResponseFromJson(
@@ -12619,28 +12613,20 @@ WebApiModulesAgentPurchaseOrderReceiveItemRequest
     _$WebApiModulesAgentPurchaseOrderReceiveItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAgentPurchaseOrderReceiveItemRequest(
-          contractId: json['ContractId'] as String?,
-          purchaseOrderId: json['PurchaseOrderId'] as String?,
-          purchaseOrderItemId: json['PurchaseOrderItemId'] as String?,
-          quantity: json['Quantity'] as int?,
+          contractId: json['ContractId'] as String,
+          purchaseOrderId: json['PurchaseOrderId'] as String,
+          purchaseOrderItemId: json['PurchaseOrderItemId'] as String,
+          quantity: json['Quantity'] as int,
         );
 
 Map<String, dynamic> _$WebApiModulesAgentPurchaseOrderReceiveItemRequestToJson(
-    WebApiModulesAgentPurchaseOrderReceiveItemRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('PurchaseOrderItemId', instance.purchaseOrderItemId);
-  writeNotNull('Quantity', instance.quantity);
-  return val;
-}
+        WebApiModulesAgentPurchaseOrderReceiveItemRequest instance) =>
+    <String, dynamic>{
+      'ContractId': instance.contractId,
+      'PurchaseOrderId': instance.purchaseOrderId,
+      'PurchaseOrderItemId': instance.purchaseOrderItemId,
+      'Quantity': instance.quantity,
+    };
 
 WebApiModulesAgentPurchaseOrderReceiveItemResponse
     _$WebApiModulesAgentPurchaseOrderReceiveItemResponseFromJson(
@@ -12736,16 +12722,19 @@ WebApiModulesAgentPurchaseOrderReturnItemRequest
     _$WebApiModulesAgentPurchaseOrderReturnItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAgentPurchaseOrderReturnItemRequest(
-          contractId: json['ContractId'] as String?,
-          purchaseOrderId: json['PurchaseOrderId'] as String?,
+          contractId: json['ContractId'] as String,
+          purchaseOrderId: json['PurchaseOrderId'] as String,
           purchaseOrderItemId: json['PurchaseOrderItemId'] as String?,
-          quantity: json['Quantity'] as int?,
+          quantity: json['Quantity'] as int,
           barCode: json['BarCode'] as String?,
         );
 
 Map<String, dynamic> _$WebApiModulesAgentPurchaseOrderReturnItemRequestToJson(
     WebApiModulesAgentPurchaseOrderReturnItemRequest instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'ContractId': instance.contractId,
+    'PurchaseOrderId': instance.purchaseOrderId,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -12753,10 +12742,8 @@ Map<String, dynamic> _$WebApiModulesAgentPurchaseOrderReturnItemRequestToJson(
     }
   }
 
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
   writeNotNull('PurchaseOrderItemId', instance.purchaseOrderItemId);
-  writeNotNull('Quantity', instance.quantity);
+  val['Quantity'] = instance.quantity;
   writeNotNull('BarCode', instance.barCode);
   return val;
 }
@@ -12804,28 +12791,20 @@ WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequest
     _$WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequest(
-          contractId: json['ContractId'] as String?,
-          purchaseOrderId: json['PurchaseOrderId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          contractId: json['ContractId'] as String,
+          purchaseOrderId: json['PurchaseOrderId'] as String,
+          warehouseId: json['WarehouseId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequestToJson(
-        WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  return val;
-}
+            WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequest
+                instance) =>
+        <String, dynamic>{
+          'ContractId': instance.contractId,
+          'PurchaseOrderId': instance.purchaseOrderId,
+          'WarehouseId': instance.warehouseId,
+        };
 
 WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemResponse
     _$WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemResponseFromJson(
@@ -12858,28 +12837,20 @@ WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequest
     _$WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequest(
-          contractId: json['ContractId'] as String?,
-          purchaseOrderId: json['PurchaseOrderId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          contractId: json['ContractId'] as String,
+          purchaseOrderId: json['PurchaseOrderId'] as String,
+          warehouseId: json['WarehouseId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequestToJson(
-        WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  return val;
-}
+            WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequest
+                instance) =>
+        <String, dynamic>{
+          'ContractId': instance.contractId,
+          'PurchaseOrderId': instance.purchaseOrderId,
+          'WarehouseId': instance.warehouseId,
+        };
 
 WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemResponse
     _$WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemResponseFromJson(
@@ -22434,28 +22405,20 @@ WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequest
     _$WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequest(
-          orderId: json['OrderId'] as String?,
-          locationId: json['LocationId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          orderId: json['OrderId'] as String,
+          locationId: json['LocationId'] as String,
+          warehouseId: json['WarehouseId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequestToJson(
-        WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('LocationId', instance.locationId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  return val;
-}
+            WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequest
+                instance) =>
+        <String, dynamic>{
+          'OrderId': instance.orderId,
+          'LocationId': instance.locationId,
+          'WarehouseId': instance.warehouseId,
+        };
 
 WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemResponse
     _$WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemResponseFromJson(
@@ -22490,24 +22453,16 @@ WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest
     _$WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest(
-          sessionId: json['SessionId'] as String?,
+          sessionId: json['SessionId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequestToJson(
-        WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('SessionId', instance.sessionId);
-  return val;
-}
+            WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest
+                instance) =>
+        <String, dynamic>{
+          'SessionId': instance.sessionId,
+        };
 
 WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse
     _$WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponseFromJson(
@@ -25904,24 +25859,16 @@ WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest
     _$WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest(
-          sessionId: json['SessionId'] as String?,
+          sessionId: json['SessionId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequestToJson(
-        WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('SessionId', instance.sessionId);
-  return val;
-}
+            WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest
+                instance) =>
+        <String, dynamic>{
+          'SessionId': instance.sessionId,
+        };
 
 WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
     _$WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponseFromJson(
@@ -36612,26 +36559,18 @@ WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest
     _$WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest(
-          orderId: json['OrderId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          orderId: json['OrderId'] as String,
+          warehouseId: json['WarehouseId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequestToJson(
-        WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  return val;
-}
+            WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest
+                instance) =>
+        <String, dynamic>{
+          'OrderId': instance.orderId,
+          'WarehouseId': instance.warehouseId,
+        };
 
 WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemResponse
     _$WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemResponseFromJson(
@@ -36664,26 +36603,18 @@ WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequest
     _$WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequest(
-          orderId: json['OrderId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
+          orderId: json['OrderId'] as String,
+          warehouseId: json['WarehouseId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequestToJson(
-        WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  return val;
-}
+            WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequest
+                instance) =>
+        <String, dynamic>{
+          'OrderId': instance.orderId,
+          'WarehouseId': instance.warehouseId,
+        };
 
 WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemResponse
     _$WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemResponseFromJson(

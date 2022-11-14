@@ -257,14 +257,17 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwQueryFilter(
-      field: json['Field'] as String?,
-      op: json['Op'] as String?,
+      field: json['Field'] as String,
+      op: json['Op'] as String,
       value: json['Value'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     FwStandardModelsFwQueryFilter instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'Field': instance.field,
+    'Op': instance.op,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -272,8 +275,6 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     }
   }
 
-  writeNotNull('Field', instance.field);
-  writeNotNull('Op', instance.op);
   writeNotNull('Value', instance.value);
   return val;
 }
@@ -398,7 +399,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
           [],
       rows: (json['Rows'] as List<dynamic>?)
               ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -869,24 +870,16 @@ WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest
     _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest(
-          orderId: json['OrderId'] as String?,
+          orderId: json['OrderId'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequestToJson(
-        WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  return val;
-}
+            WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest
+                instance) =>
+        <String, dynamic>{
+          'OrderId': instance.orderId,
+        };
 
 WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse
     _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponseFromJson(
@@ -923,27 +916,18 @@ WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest(
           creditCardPreAuthorizationId:
-              json['CreditCardPreAuthorizationId'] as int?,
-          amount: (json['Amount'] as num?)?.toDouble(),
+              json['CreditCardPreAuthorizationId'] as int,
+          amount: (json['Amount'] as num).toDouble(),
         );
 
 Map<String, dynamic>
     _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequestToJson(
-        WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'CreditCardPreAuthorizationId', instance.creditCardPreAuthorizationId);
-  writeNotNull('Amount', instance.amount);
-  return val;
-}
+            WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest
+                instance) =>
+        <String, dynamic>{
+          'CreditCardPreAuthorizationId': instance.creditCardPreAuthorizationId,
+          'Amount': instance.amount,
+        };
 
 WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse
     _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponseFromJson(
@@ -989,10 +973,10 @@ WebApiModulesPluginsCreditCardCreditCardDepositRequest
           paymentType:
               webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson(
                   json['PaymentType']),
-          orderId: json['OrderId'] as String?,
-          amountToPay: (json['AmountToPay'] as num?)?.toDouble(),
+          orderId: json['OrderId'] as String,
+          amountToPay: (json['AmountToPay'] as num).toDouble(),
           creditCardPinPadId: json['CreditCardPinPadId'] as int?,
-          dealNumber: json['DealNumber'] as String?,
+          dealNumber: json['DealNumber'] as String,
           emailFrom: json['EmailFrom'] as String?,
           emailTo: json['EmailTo'] as String?,
           emailSubject: json['EmailSubject'] as String?,
@@ -1017,10 +1001,10 @@ Map<String, dynamic>
       'PaymentType',
       webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesToJson(
           instance.paymentType));
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('AmountToPay', instance.amountToPay);
+  val['OrderId'] = instance.orderId;
+  val['AmountToPay'] = instance.amountToPay;
   writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
-  writeNotNull('DealNumber', instance.dealNumber);
+  val['DealNumber'] = instance.dealNumber;
   writeNotNull('EmailFrom', instance.emailFrom);
   writeNotNull('EmailTo', instance.emailTo);
   writeNotNull('EmailSubject', instance.emailSubject);
@@ -1157,7 +1141,7 @@ WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
     _$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse(
-          amount: (json['Amount'] as num?)?.toDouble(),
+          amount: (json['Amount'] as num).toDouble(),
           receipt: json['Receipt'] == null
               ? null
               : WebApiModulesBillingReceiptReceipt.fromJson(
@@ -1178,7 +1162,9 @@ Map<String, dynamic>
     _$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseToJson(
         WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
             instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'Amount': instance.amount,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -1186,7 +1172,6 @@ Map<String, dynamic>
     }
   }
 
-  writeNotNull('Amount', instance.amount);
   writeNotNull('Receipt', instance.receipt?.toJson());
   writeNotNull('Success', instance.success);
   writeNotNull(
@@ -1412,10 +1397,10 @@ WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest
           paymentType:
               webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson(
                   json['PaymentType']),
-          orderId: json['OrderId'] as String?,
-          amountToPay: (json['AmountToPay'] as num?)?.toDouble(),
+          orderId: json['OrderId'] as String,
+          amountToPay: (json['AmountToPay'] as num).toDouble(),
           creditCardPinPadId: json['CreditCardPinPadId'] as int?,
-          dealNumber: json['DealNumber'] as String?,
+          dealNumber: json['DealNumber'] as String,
           account: json['Account'] as String?,
           expirationDate: json['ExpirationDate'] as String?,
           trackData: json['TrackData'] as String?,
@@ -1441,10 +1426,10 @@ Map<String, dynamic>
       'PaymentType',
       webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesToJson(
           instance.paymentType));
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('AmountToPay', instance.amountToPay);
+  val['OrderId'] = instance.orderId;
+  val['AmountToPay'] = instance.amountToPay;
   writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
-  writeNotNull('DealNumber', instance.dealNumber);
+  val['DealNumber'] = instance.dealNumber;
   writeNotNull('Account', instance.account);
   writeNotNull('ExpirationDate', instance.expirationDate);
   writeNotNull('TrackData', instance.trackData);
@@ -1496,27 +1481,19 @@ WebApiModulesPluginsCreditCardCreditCardRefundRequest
     _$WebApiModulesPluginsCreditCardCreditCardRefundRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardRefundRequest(
-          receiptId: json['ReceiptId'] as String?,
-          creditCardPinPadId: json['CreditCardPinPadId'] as int?,
-          refundAmount: (json['RefundAmount'] as num?)?.toDouble(),
+          receiptId: json['ReceiptId'] as String,
+          creditCardPinPadId: json['CreditCardPinPadId'] as int,
+          refundAmount: (json['RefundAmount'] as num).toDouble(),
         );
 
 Map<String, dynamic>
     _$WebApiModulesPluginsCreditCardCreditCardRefundRequestToJson(
-        WebApiModulesPluginsCreditCardCreditCardRefundRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ReceiptId', instance.receiptId);
-  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
-  writeNotNull('RefundAmount', instance.refundAmount);
-  return val;
-}
+            WebApiModulesPluginsCreditCardCreditCardRefundRequest instance) =>
+        <String, dynamic>{
+          'ReceiptId': instance.receiptId,
+          'CreditCardPinPadId': instance.creditCardPinPadId,
+          'RefundAmount': instance.refundAmount,
+        };
 
 WebApiModulesPluginsCreditCardCreditCardRefundResponse
     _$WebApiModulesPluginsCreditCardCreditCardRefundResponseFromJson(
@@ -1620,25 +1597,16 @@ WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest(
           creditCardPreAuthorizationId:
-              json['CreditCardPreAuthorizationId'] as int?,
+              json['CreditCardPreAuthorizationId'] as int,
         );
 
 Map<String, dynamic>
     _$WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequestToJson(
-        WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'CreditCardPreAuthorizationId', instance.creditCardPreAuthorizationId);
-  return val;
-}
+            WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest
+                instance) =>
+        <String, dynamic>{
+          'CreditCardPreAuthorizationId': instance.creditCardPreAuthorizationId,
+        };
 
 WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse
     _$WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponseFromJson(

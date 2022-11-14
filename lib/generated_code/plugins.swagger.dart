@@ -2,11 +2,12 @@
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
-
-import 'package:chopper/chopper.dart';
 import 'dart:convert';
 
+import 'package:chopper/chopper.dart';
+
 import 'client_mapping.dart';
+import 'dart:async';
 import 'package:chopper/chopper.dart' as chopper;
 import 'plugins.enums.swagger.dart' as enums;
 export 'plugins.enums.swagger.dart';
@@ -20,10 +21,12 @@ part 'plugins.swagger.g.dart';
 
 @ChopperApi()
 abstract class Plugins extends ChopperService {
-  static Plugins create(
-      {ChopperClient? client,
-      String? baseUrl,
-      Iterable<dynamic>? interceptors}) {
+  static Plugins create({
+    ChopperClient? client,
+    Authenticator? authenticator,
+    String? baseUrl,
+    Iterable<dynamic>? interceptors,
+  }) {
     if (client != null) {
       return _$Plugins(client);
     }
@@ -31,7 +34,8 @@ abstract class Plugins extends ChopperService {
     final newClient = ChopperClient(
       services: [_$Plugins()],
       converter: $JsonSerializableConverter(),
-      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
+      interceptors: interceptors ?? [],
+      authenticator: authenticator, /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Plugins(newClient);
   }
@@ -108,11 +112,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic>>
-      creditcardpluginLogGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      creditcardpluginLogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic,
         () =>
@@ -132,11 +137,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic>>
-      _creditcardpluginLogGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _creditcardpluginLogGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///Browse the credit card transaction log.
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -207,11 +213,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic>>
-      creditcardpluginPreauthorizationGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      creditcardpluginPreauthorizationGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic,
         () =>
@@ -231,11 +238,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic>>
-      _creditcardpluginPreauthorizationGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _creditcardpluginPreauthorizationGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///Create a credit card pre-authorization record and do a credit card authorize transaction (unless there's an approval step).
   Future<
@@ -265,9 +273,10 @@ abstract class Plugins extends ChopperService {
   ///Browse credit card pre-authorization records.
   ///@param OrderId
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      creditcardpluginPreauthorizationBrowsePost(
-          {required String? orderId,
-          required FwStandardModelsBrowseRequest? body}) {
+      creditcardpluginPreauthorizationBrowsePost({
+    required String? orderId,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
     generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
         () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
 
@@ -279,9 +288,10 @@ abstract class Plugins extends ChopperService {
   ///@param OrderId
   @Post(path: '/creditcardplugin/preauthorization/browse')
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      _creditcardpluginPreauthorizationBrowsePost(
-          {@Path('OrderId') required String? orderId,
-          @Body() required FwStandardModelsBrowseRequest? body});
+      _creditcardpluginPreauthorizationBrowsePost({
+    @Path('OrderId') required String? orderId,
+    @Body() required FwStandardModelsBrowseRequest? body,
+  });
 
   ///Export credit card pre-authorization records to excel.
   Future<
@@ -356,10 +366,11 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse>>
-      creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost(
-          {required String? orderid,
-          required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest?
-              body}) {
+      creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost({
+    required String? orderid,
+    required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse,
         () =>
@@ -378,22 +389,23 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse>>
-      _creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost(
-          {@Path('orderid')
-              required String? orderid,
-          @Body()
-              required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest?
-                  body});
+      _creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost({
+    @Path('orderid') required String? orderid,
+    @Body()
+        required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest?
+            body,
+  });
 
   ///Capture a pre-authorization and create a depleting deposit.
   ///@param preauthorizationid
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse>>
-      creditcardpluginPreauthorizationPreauthorizationidCapturePost(
-          {required String? preauthorizationid,
-          required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest?
-              body}) {
+      creditcardpluginPreauthorizationPreauthorizationidCapturePost({
+    required String? preauthorizationid,
+    required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse,
         () =>
@@ -410,22 +422,23 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse>>
-      _creditcardpluginPreauthorizationPreauthorizationidCapturePost(
-          {@Path('preauthorizationid')
-              required String? preauthorizationid,
-          @Body()
-              required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest?
-                  body});
+      _creditcardpluginPreauthorizationPreauthorizationidCapturePost({
+    @Path('preauthorizationid') required String? preauthorizationid,
+    @Body()
+        required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest?
+            body,
+  });
 
   ///Approve a credit card pre-authorization.
   ///@param preauthorizationid
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse>>
-      creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost(
-          {required String? preauthorizationid,
-          required WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest?
-              body}) {
+      creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost({
+    required String? preauthorizationid,
+    required WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse,
         () =>
@@ -444,22 +457,23 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse>>
-      _creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost(
-          {@Path('preauthorizationid')
-              required String? preauthorizationid,
-          @Body()
-              required WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest?
-                  body});
+      _creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost({
+    @Path('preauthorizationid') required String? preauthorizationid,
+    @Body()
+        required WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest?
+            body,
+  });
 
   ///Void a credit card pre-authorization.
   ///@param preauthorizationid
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse>>
-      creditcardpluginPreauthorizationPreauthorizationidVoidPost(
-          {required String? preauthorizationid,
-          required WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest?
-              body}) {
+      creditcardpluginPreauthorizationPreauthorizationidVoidPost({
+    required String? preauthorizationid,
+    required WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest?
+        body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse,
         () =>
@@ -476,12 +490,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse>>
-      _creditcardpluginPreauthorizationPreauthorizationidVoidPost(
-          {@Path('preauthorizationid')
-              required String? preauthorizationid,
-          @Body()
-              required WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest?
-                  body});
+      _creditcardpluginPreauthorizationPreauthorizationidVoidPost({
+    @Path('preauthorizationid') required String? preauthorizationid,
+    @Body()
+        required WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest?
+            body,
+  });
 
   ///Get credit card deposit records.
   ///@param pageno
@@ -491,11 +505,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic>>
-      creditcardpluginDepositGet(
-          {int? pageno,
-          int? pagesize,
-          String? sort,
-          List<FwStandardModelsFwQueryFilter>? filter}) {
+      creditcardpluginDepositGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
     generatedMapping.putIfAbsent(
         FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic,
         () =>
@@ -515,11 +530,12 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper.Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic>>
-      _creditcardpluginDepositGet(
-          {@Query('pageno') int? pageno,
-          @Query('pagesize') int? pagesize,
-          @Query('sort') String? sort,
-          @Query('filter') List<FwStandardModelsFwQueryFilter>? filter});
+      _creditcardpluginDepositGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  });
 
   ///Do a credit card authorize and capture transaction and create a depleting deposit receipt.
   Future<
@@ -599,10 +615,10 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper
               .Response<WebApiModulesPluginsCreditCardCreditCardRefundResponse>>
-      creditcardpluginDepositReceiptidRefundPost(
-          {required String? receiptid,
-          required WebApiModulesPluginsCreditCardCreditCardRefundRequest?
-              body}) {
+      creditcardpluginDepositReceiptidRefundPost({
+    required String? receiptid,
+    required WebApiModulesPluginsCreditCardCreditCardRefundRequest? body,
+  }) {
     generatedMapping.putIfAbsent(
         WebApiModulesPluginsCreditCardCreditCardRefundResponse,
         () => WebApiModulesPluginsCreditCardCreditCardRefundResponse
@@ -618,12 +634,11 @@ abstract class Plugins extends ChopperService {
   Future<
           chopper
               .Response<WebApiModulesPluginsCreditCardCreditCardRefundResponse>>
-      _creditcardpluginDepositReceiptidRefundPost(
-          {@Path('receiptid')
-              required String? receiptid,
-          @Body()
-              required WebApiModulesPluginsCreditCardCreditCardRefundRequest?
-                  body});
+      _creditcardpluginDepositReceiptidRefundPost({
+    @Path('receiptid') required String? receiptid,
+    @Body()
+        required WebApiModulesPluginsCreditCardCreditCardRefundRequest? body,
+  });
 
   ///Returns a boolean used to toggle the View Deposits button on an Order.  The value is true when there is data to see.
   ///@param OrderId Unique Identifier
@@ -702,7 +717,10 @@ abstract class Plugins extends ChopperService {
   }
 
   ///
-  @Post(path: '/hubspotplugin/hashubspotrefreshtoken', optionalBody: true)
+  @Post(
+    path: '/hubspotplugin/hashubspotrefreshtoken',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool>>
@@ -722,7 +740,10 @@ abstract class Plugins extends ChopperService {
   }
 
   ///
-  @Post(path: '/hubspotplugin/deletehubspottokens', optionalBody: true)
+  @Post(
+    path: '/hubspotplugin/deletehubspottokens',
+    optionalBody: true,
+  )
   Future<
           chopper
               .Response<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens>>
@@ -799,9 +820,6 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult &&
@@ -809,6 +827,9 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
                 const DeepCollectionEquality()
                     .equals(other.downloadUrl, downloadUrl)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -821,6 +842,13 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
       copyWith({String? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
         downloadUrl: downloadUrl ?? this.downloadUrl);
+  }
+
+  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+      copyWithWrapped({Wrapped<String?>? downloadUrl}) {
+    return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
+        downloadUrl:
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
   }
 }
 
@@ -838,10 +866,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
-      name: 'DataType',
-      includeIfNull: false,
-      toJson: fwStandardSqlServerFwDataTypesToJson,
-      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+    name: 'DataType',
+    includeIfNull: false,
+    toJson: fwStandardSqlServerFwDataTypesToJson,
+    fromJson: fwStandardSqlServerFwDataTypesFromJson,
+  )
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
@@ -849,9 +878,6 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -863,6 +889,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality()
                     .equals(other.dataType, dataType)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -877,6 +906,14 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       {String? name, enums.FwStandardSqlServerFwDataTypes? dataType}) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
         name: name ?? this.name, dataType: dataType ?? this.dataType);
+  }
+
+  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWithWrapped(
+      {Wrapped<String?>? name,
+      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType}) {
+    return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
+        name: (name != null ? name.value : this.name),
+        dataType: (dataType != null ? dataType.value : this.dataType));
   }
 }
 
@@ -902,9 +939,6 @@ class FwStandardDataFwCustomValue {
   Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwCustomValue &&
@@ -918,6 +952,9 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality()
                     .equals(other.fieldType, fieldType)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -934,6 +971,16 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
         fieldName: fieldName ?? this.fieldName,
         fieldValue: fieldValue ?? this.fieldValue,
         fieldType: fieldType ?? this.fieldType);
+  }
+
+  FwStandardDataFwCustomValue copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? fieldValue,
+      Wrapped<String?>? fieldType}) {
+    return FwStandardDataFwCustomValue(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        fieldValue: (fieldValue != null ? fieldValue.value : this.fieldValue),
+        fieldType: (fieldType != null ? fieldType.value : this.fieldType));
   }
 }
 
@@ -961,9 +1008,6 @@ class FwStandardDataFwDefaultAttribute {
       _$FwStandardDataFwDefaultAttributeToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardDataFwDefaultAttribute &&
@@ -977,6 +1021,9 @@ class FwStandardDataFwDefaultAttribute {
                 const DeepCollectionEquality()
                     .equals(other.defaultValue, defaultValue)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -994,6 +1041,18 @@ extension $FwStandardDataFwDefaultAttributeExtension
         fieldName: fieldName ?? this.fieldName,
         attributeName: attributeName ?? this.attributeName,
         defaultValue: defaultValue ?? this.defaultValue);
+  }
+
+  FwStandardDataFwDefaultAttribute copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? attributeName,
+      Wrapped<String?>? defaultValue}) {
+    return FwStandardDataFwDefaultAttribute(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        attributeName:
+            (attributeName != null ? attributeName.value : this.attributeName),
+        defaultValue:
+            (defaultValue != null ? defaultValue.value : this.defaultValue));
   }
 }
 
@@ -1095,9 +1154,6 @@ class FwStandardModelsBrowseRequest {
   Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsBrowseRequest &&
@@ -1171,6 +1227,9 @@ class FwStandardModelsBrowseRequest {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(miscfields) ^
       const DeepCollectionEquality().hash(module) ^
@@ -1202,9 +1261,9 @@ class FwStandardModelsBrowseRequest {
 extension $FwStandardModelsBrowseRequestExtension
     on FwStandardModelsBrowseRequest {
   FwStandardModelsBrowseRequest copyWith(
-      {dynamic? miscfields,
+      {dynamic miscfields,
       String? module,
-      dynamic? options,
+      dynamic options,
       String? orderby,
       String? orderbydirection,
       int? top,
@@ -1217,8 +1276,8 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchseparators,
       List<String>? searchcondition,
       List<String>? searchconjunctions,
-      dynamic? uniqueids,
-      dynamic? boundids,
+      dynamic uniqueids,
+      dynamic boundids,
       Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
@@ -1252,6 +1311,79 @@ extension $FwStandardModelsBrowseRequestExtension
         totalfields: totalfields ?? this.totalfields,
         activeviewfields: activeviewfields ?? this.activeviewfields);
   }
+
+  FwStandardModelsBrowseRequest copyWithWrapped(
+      {Wrapped<dynamic>? miscfields,
+      Wrapped<String?>? module,
+      Wrapped<dynamic>? options,
+      Wrapped<String?>? orderby,
+      Wrapped<String?>? orderbydirection,
+      Wrapped<int?>? top,
+      Wrapped<int?>? pageno,
+      Wrapped<int?>? pagesize,
+      Wrapped<List<String>?>? searchfieldoperators,
+      Wrapped<List<String>?>? searchfields,
+      Wrapped<List<String>?>? searchfieldvalues,
+      Wrapped<List<String>?>? searchfieldtypes,
+      Wrapped<List<String>?>? searchseparators,
+      Wrapped<List<String>?>? searchcondition,
+      Wrapped<List<String>?>? searchconjunctions,
+      Wrapped<dynamic>? uniqueids,
+      Wrapped<dynamic>? boundids,
+      Wrapped<Map<String, dynamic>?>? filterfields,
+      Wrapped<String?>? activeview,
+      Wrapped<bool?>? emptyobject,
+      Wrapped<bool?>? forexcel,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+      Wrapped<List<String>?>? totalfields,
+      Wrapped<Map<String, dynamic>?>? activeviewfields}) {
+    return FwStandardModelsBrowseRequest(
+        miscfields: (miscfields != null ? miscfields.value : this.miscfields),
+        module: (module != null ? module.value : this.module),
+        options: (options != null ? options.value : this.options),
+        orderby: (orderby != null ? orderby.value : this.orderby),
+        orderbydirection: (orderbydirection != null
+            ? orderbydirection.value
+            : this.orderbydirection),
+        top: (top != null ? top.value : this.top),
+        pageno: (pageno != null ? pageno.value : this.pageno),
+        pagesize: (pagesize != null ? pagesize.value : this.pagesize),
+        searchfieldoperators: (searchfieldoperators != null
+            ? searchfieldoperators.value
+            : this.searchfieldoperators),
+        searchfields:
+            (searchfields != null ? searchfields.value : this.searchfields),
+        searchfieldvalues: (searchfieldvalues != null
+            ? searchfieldvalues.value
+            : this.searchfieldvalues),
+        searchfieldtypes: (searchfieldtypes != null
+            ? searchfieldtypes.value
+            : this.searchfieldtypes),
+        searchseparators: (searchseparators != null
+            ? searchseparators.value
+            : this.searchseparators),
+        searchcondition: (searchcondition != null
+            ? searchcondition.value
+            : this.searchcondition),
+        searchconjunctions: (searchconjunctions != null
+            ? searchconjunctions.value
+            : this.searchconjunctions),
+        uniqueids: (uniqueids != null ? uniqueids.value : this.uniqueids),
+        boundids: (boundids != null ? boundids.value : this.boundids),
+        filterfields:
+            (filterfields != null ? filterfields.value : this.filterfields),
+        activeview: (activeview != null ? activeview.value : this.activeview),
+        emptyobject:
+            (emptyobject != null ? emptyobject.value : this.emptyobject),
+        forexcel: (forexcel != null ? forexcel.value : this.forexcel),
+        excelfields:
+            (excelfields != null ? excelfields.value : this.excelfields),
+        totalfields:
+            (totalfields != null ? totalfields.value : this.totalfields),
+        activeviewfields: (activeviewfields != null
+            ? activeviewfields.value
+            : this.activeviewfields));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1278,9 +1410,6 @@ class FwStandardModelsCheckBoxListItem {
       _$FwStandardModelsCheckBoxListItemToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsCheckBoxListItem &&
@@ -1292,6 +1421,9 @@ class FwStandardModelsCheckBoxListItem {
                 const DeepCollectionEquality()
                     .equals(other.selected, selected)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1309,6 +1441,16 @@ extension $FwStandardModelsCheckBoxListItemExtension
         value: value ?? this.value,
         text: text ?? this.text,
         selected: selected ?? this.selected);
+  }
+
+  FwStandardModelsCheckBoxListItem copyWithWrapped(
+      {Wrapped<String?>? value,
+      Wrapped<String?>? text,
+      Wrapped<bool?>? selected}) {
+    return FwStandardModelsCheckBoxListItem(
+        value: (value != null ? value.value : this.value),
+        text: (text != null ? text.value : this.text),
+        selected: (selected != null ? selected.value : this.selected));
   }
 }
 
@@ -1334,9 +1476,6 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -1350,6 +1489,9 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1368,13 +1510,23 @@ extension $FwStandardModelsFwApiExceptionExtension
         message: message ?? this.message,
         stackTrace: stackTrace ?? this.stackTrace);
   }
+
+  FwStandardModelsFwApiException copyWithWrapped(
+      {Wrapped<int?>? statusCode,
+      Wrapped<String?>? message,
+      Wrapped<String?>? stackTrace}) {
+    return FwStandardModelsFwApiException(
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        message: (message != null ? message.value : this.message),
+        stackTrace: (stackTrace != null ? stackTrace.value : this.stackTrace));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryFilter {
   FwStandardModelsFwQueryFilter({
-    this.field,
-    this.op,
+    required this.field,
+    required this.op,
     this.value,
   });
 
@@ -1382,17 +1534,14 @@ class FwStandardModelsFwQueryFilter {
       _$FwStandardModelsFwQueryFilterFromJson(json);
 
   @JsonKey(name: 'Field', includeIfNull: false)
-  final String? field;
+  final String field;
   @JsonKey(name: 'Op', includeIfNull: false)
-  final String? op;
+  final String op;
   @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
   static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
   Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1405,6 +1554,9 @@ class FwStandardModelsFwQueryFilter {
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1422,6 +1574,14 @@ extension $FwStandardModelsFwQueryFilterExtension
         field: field ?? this.field,
         op: op ?? this.op,
         value: value ?? this.value);
+  }
+
+  FwStandardModelsFwQueryFilter copyWithWrapped(
+      {Wrapped<String>? field, Wrapped<String>? op, Wrapped<String?>? value}) {
+    return FwStandardModelsFwQueryFilter(
+        field: (field != null ? field.value : this.field),
+        op: (op != null ? op.value : this.op),
+        value: (value != null ? value.value : this.value));
   }
 }
 
@@ -1462,9 +1622,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLog
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic &&
@@ -1481,6 +1638,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLog
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1507,6 +1667,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCa
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesPluginsCreditCardCreditCardLog>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -1545,9 +1720,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPre
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic &&
@@ -1564,6 +1736,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPre
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1591,6 +1766,24 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCa
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesPluginsCreditCardCreditCardPreAuthorization>?>?
+              items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -1631,9 +1824,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositL
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic &&
@@ -1650,6 +1840,9 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositL
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1676,6 +1869,21 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDep
         pageSize: pageSize ?? this.pageSize,
         totalItems: totalItems ?? this.totalItems,
         sort: sort ?? this.sort);
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic
+      copyWithWrapped(
+          {Wrapped<List<WebApiModulesPluginsCreditCardOrderDeposit>?>? items,
+          Wrapped<int?>? pageNo,
+          Wrapped<int?>? pageSize,
+          Wrapped<int?>? totalItems,
+          Wrapped<String?>? sort}) {
+    return FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic(
+        items: (items != null ? items.value : this.items),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+        sort: (sort != null ? sort.value : this.sort));
   }
 }
 
@@ -1708,7 +1916,7 @@ class FwStandardSqlServerFwJsonDataTable {
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
   @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
-  final List<List<Object>>? rows;
+  final List<List<Object?>>? rows;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
@@ -1725,9 +1933,6 @@ class FwStandardSqlServerFwJsonDataTable {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1763,6 +1968,9 @@ class FwStandardSqlServerFwJsonDataTable {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(columnIndex) ^
       const DeepCollectionEquality().hash(totals) ^
@@ -1783,7 +1991,7 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       {Map<String, dynamic>? columnIndex,
       Map<String, dynamic>? totals,
       List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
-      List<List<Object>>? rows,
+      List<List<Object?>>? rows,
       int? pageNo,
       int? pageSize,
       int? totalPages,
@@ -1801,6 +2009,33 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         totalRows: totalRows ?? this.totalRows,
         dateFields: dateFields ?? this.dateFields,
         columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+  }
+
+  FwStandardSqlServerFwJsonDataTable copyWithWrapped(
+      {Wrapped<Map<String, dynamic>?>? columnIndex,
+      Wrapped<Map<String, dynamic>?>? totals,
+      Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
+      Wrapped<List<List<Object>>?>? rows,
+      Wrapped<int?>? pageNo,
+      Wrapped<int?>? pageSize,
+      Wrapped<int?>? totalPages,
+      Wrapped<int?>? totalRows,
+      Wrapped<List<String>?>? dateFields,
+      Wrapped<Map<String, dynamic>?>? columnNameByIndex}) {
+    return FwStandardSqlServerFwJsonDataTable(
+        columnIndex:
+            (columnIndex != null ? columnIndex.value : this.columnIndex),
+        totals: (totals != null ? totals.value : this.totals),
+        columns: (columns != null ? columns.value : this.columns),
+        rows: (rows != null ? rows.value : this.rows),
+        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+        totalPages: (totalPages != null ? totalPages.value : this.totalPages),
+        totalRows: (totalRows != null ? totalRows.value : this.totalRows),
+        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+        columnNameByIndex: (columnNameByIndex != null
+            ? columnNameByIndex.value
+            : this.columnNameByIndex));
   }
 }
 
@@ -1823,10 +2058,11 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   @JsonKey(name: 'DataField', includeIfNull: false)
   final String? dataField;
   @JsonKey(
-      name: 'DataType',
-      includeIfNull: false,
-      toJson: fwStandardSqlServerFwDataTypesToJson,
-      fromJson: fwStandardSqlServerFwDataTypesFromJson)
+    name: 'DataType',
+    includeIfNull: false,
+    toJson: fwStandardSqlServerFwDataTypesToJson,
+    fromJson: fwStandardSqlServerFwDataTypesFromJson,
+  )
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   @JsonKey(name: 'IsUniqueId', includeIfNull: false)
   final bool? isUniqueId;
@@ -1837,9 +2073,6 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1860,6 +2093,9 @@ class FwStandardSqlServerFwJsonDataTableColumn {
                 const DeepCollectionEquality()
                     .equals(other.isVisible, isVisible)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1886,6 +2122,20 @@ extension $FwStandardSqlServerFwJsonDataTableColumnExtension
         isUniqueId: isUniqueId ?? this.isUniqueId,
         isVisible: isVisible ?? this.isVisible);
   }
+
+  FwStandardSqlServerFwJsonDataTableColumn copyWithWrapped(
+      {Wrapped<String?>? name,
+      Wrapped<String?>? dataField,
+      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
+      Wrapped<bool?>? isUniqueId,
+      Wrapped<bool?>? isVisible}) {
+    return FwStandardSqlServerFwJsonDataTableColumn(
+        name: (name != null ? name.value : this.name),
+        dataField: (dataField != null ? dataField.value : this.dataField),
+        dataType: (dataType != null ? dataType.value : this.dataType),
+        isUniqueId: (isUniqueId != null ? isUniqueId.value : this.isUniqueId),
+        isVisible: (isVisible != null ? isVisible.value : this.isVisible));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1908,15 +2158,15 @@ class WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens {
       _$WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1929,6 +2179,12 @@ extension $WebApiModulesAccountServicesHubSpotDeleteHubSpotTokensExtension
       {String? message}) {
     return WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens(
         message: message ?? this.message);
+  }
+
+  WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens copyWithWrapped(
+      {Wrapped<String?>? message}) {
+    return WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens(
+        message: (message != null ? message.value : this.message));
   }
 }
 
@@ -1954,9 +2210,6 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool {
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool &&
@@ -1964,6 +2217,9 @@ class WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool {
                 const DeepCollectionEquality()
                     .equals(other.hasRefreshToken, hasRefreshToken)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -1977,6 +2233,14 @@ extension $WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBoolExtensio
       {bool? hasRefreshToken}) {
     return WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool(
         hasRefreshToken: hasRefreshToken ?? this.hasRefreshToken);
+  }
+
+  WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool copyWithWrapped(
+      {Wrapped<bool?>? hasRefreshToken}) {
+    return WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool(
+        hasRefreshToken: (hasRefreshToken != null
+            ? hasRefreshToken.value
+            : this.hasRefreshToken));
   }
 }
 
@@ -2157,9 +2421,6 @@ class WebApiModulesBillingReceiptReceipt {
       _$WebApiModulesBillingReceiptReceiptToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesBillingReceiptReceipt &&
@@ -2254,6 +2515,9 @@ class WebApiModulesBillingReceiptReceipt {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2420,6 +2684,160 @@ extension $WebApiModulesBillingReceiptReceiptExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesBillingReceiptReceipt copyWithWrapped(
+      {Wrapped<String?>? receiptId,
+      Wrapped<String?>? receiptDate,
+      Wrapped<String?>? locationId,
+      Wrapped<String?>? locationCode,
+      Wrapped<String?>? location,
+      Wrapped<String?>? customerId,
+      Wrapped<String?>? customer,
+      Wrapped<String?>? dealId,
+      Wrapped<String?>? deal,
+      Wrapped<String?>? paymentBy,
+      Wrapped<String?>? customerDeal,
+      Wrapped<String?>? paymentTypeId,
+      Wrapped<String?>? paymentType,
+      Wrapped<String?>? paymentTypeType,
+      Wrapped<String?>? paymentTypeExportPaymentMethod,
+      Wrapped<String?>? checkNumber,
+      Wrapped<double?>? paymentAmount,
+      Wrapped<String?>? appliedById,
+      Wrapped<String?>? appliedBy,
+      Wrapped<String?>? modifiedById,
+      Wrapped<String?>? modifiedBy,
+      Wrapped<String?>? paymentMemo,
+      Wrapped<String?>? recType,
+      Wrapped<String?>? chargeBatchId,
+      Wrapped<String?>? chargeBatchNumber,
+      Wrapped<String?>? currencyId,
+      Wrapped<String?>? currencyCode,
+      Wrapped<String?>? currencySymbol,
+      Wrapped<String?>? officeLocationDefaultCurrencyId,
+      Wrapped<String?>? overPaymentId,
+      Wrapped<List<WebApiModulesBillingReceiptReceiptInvoice>?>?
+          invoiceDataList,
+      Wrapped<List<WebApiModulesBillingReceiptReceiptCredit>?>? creditDataList,
+      Wrapped<bool?>? createOverpayment,
+      Wrapped<bool?>? createDepletingDeposit,
+      Wrapped<String?>? dealDepositId,
+      Wrapped<String?>? dealDepositCheckNumber,
+      Wrapped<String?>? customerDepositId,
+      Wrapped<String?>? customerDepositCheckNumber,
+      Wrapped<String?>? orderId,
+      Wrapped<String?>? orderDescription,
+      Wrapped<String?>? transactionId,
+      Wrapped<String?>? creditCardAccountToken,
+      Wrapped<String?>? creditCardExpirationDate,
+      Wrapped<DateTime?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesBillingReceiptReceipt(
+        receiptId: (receiptId != null ? receiptId.value : this.receiptId),
+        receiptDate:
+            (receiptDate != null ? receiptDate.value : this.receiptDate),
+        locationId: (locationId != null ? locationId.value : this.locationId),
+        locationCode:
+            (locationCode != null ? locationCode.value : this.locationCode),
+        location: (location != null ? location.value : this.location),
+        customerId: (customerId != null ? customerId.value : this.customerId),
+        customer: (customer != null ? customer.value : this.customer),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        deal: (deal != null ? deal.value : this.deal),
+        paymentBy: (paymentBy != null ? paymentBy.value : this.paymentBy),
+        customerDeal:
+            (customerDeal != null ? customerDeal.value : this.customerDeal),
+        paymentTypeId:
+            (paymentTypeId != null ? paymentTypeId.value : this.paymentTypeId),
+        paymentType:
+            (paymentType != null ? paymentType.value : this.paymentType),
+        paymentTypeType: (paymentTypeType != null
+            ? paymentTypeType.value
+            : this.paymentTypeType),
+        paymentTypeExportPaymentMethod: (paymentTypeExportPaymentMethod != null
+            ? paymentTypeExportPaymentMethod.value
+            : this.paymentTypeExportPaymentMethod),
+        checkNumber:
+            (checkNumber != null ? checkNumber.value : this.checkNumber),
+        paymentAmount:
+            (paymentAmount != null ? paymentAmount.value : this.paymentAmount),
+        appliedById:
+            (appliedById != null ? appliedById.value : this.appliedById),
+        appliedBy: (appliedBy != null ? appliedBy.value : this.appliedBy),
+        modifiedById:
+            (modifiedById != null ? modifiedById.value : this.modifiedById),
+        modifiedBy: (modifiedBy != null ? modifiedBy.value : this.modifiedBy),
+        paymentMemo:
+            (paymentMemo != null ? paymentMemo.value : this.paymentMemo),
+        recType: (recType != null ? recType.value : this.recType),
+        chargeBatchId:
+            (chargeBatchId != null ? chargeBatchId.value : this.chargeBatchId),
+        chargeBatchNumber: (chargeBatchNumber != null
+            ? chargeBatchNumber.value
+            : this.chargeBatchNumber),
+        currencyId: (currencyId != null ? currencyId.value : this.currencyId),
+        currencyCode:
+            (currencyCode != null ? currencyCode.value : this.currencyCode),
+        currencySymbol: (currencySymbol != null
+            ? currencySymbol.value
+            : this.currencySymbol),
+        officeLocationDefaultCurrencyId:
+            (officeLocationDefaultCurrencyId != null
+                ? officeLocationDefaultCurrencyId.value
+                : this.officeLocationDefaultCurrencyId),
+        overPaymentId:
+            (overPaymentId != null ? overPaymentId.value : this.overPaymentId),
+        invoiceDataList: (invoiceDataList != null
+            ? invoiceDataList.value
+            : this.invoiceDataList),
+        creditDataList: (creditDataList != null
+            ? creditDataList.value
+            : this.creditDataList),
+        createOverpayment: (createOverpayment != null
+            ? createOverpayment.value
+            : this.createOverpayment),
+        createDepletingDeposit: (createDepletingDeposit != null
+            ? createDepletingDeposit.value
+            : this.createDepletingDeposit),
+        dealDepositId:
+            (dealDepositId != null ? dealDepositId.value : this.dealDepositId),
+        dealDepositCheckNumber: (dealDepositCheckNumber != null
+            ? dealDepositCheckNumber.value
+            : this.dealDepositCheckNumber),
+        customerDepositId: (customerDepositId != null
+            ? customerDepositId.value
+            : this.customerDepositId),
+        customerDepositCheckNumber: (customerDepositCheckNumber != null
+            ? customerDepositCheckNumber.value
+            : this.customerDepositCheckNumber),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId),
+        creditCardAccountToken: (creditCardAccountToken != null
+            ? creditCardAccountToken.value
+            : this.creditCardAccountToken),
+        creditCardExpirationDate: (creditCardExpirationDate != null
+            ? creditCardExpirationDate.value
+            : this.creditCardExpirationDate),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -2447,9 +2865,6 @@ class WebApiModulesBillingReceiptReceiptCredit {
       _$WebApiModulesBillingReceiptReceiptCreditToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesBillingReceiptReceiptCredit &&
@@ -2462,6 +2877,9 @@ class WebApiModulesBillingReceiptReceiptCredit {
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2479,6 +2897,18 @@ extension $WebApiModulesBillingReceiptReceiptCreditExtension
         creditReceiptId: creditReceiptId ?? this.creditReceiptId,
         creditId: creditId ?? this.creditId,
         amount: amount ?? this.amount);
+  }
+
+  WebApiModulesBillingReceiptReceiptCredit copyWithWrapped(
+      {Wrapped<String?>? creditReceiptId,
+      Wrapped<String?>? creditId,
+      Wrapped<double?>? amount}) {
+    return WebApiModulesBillingReceiptReceiptCredit(
+        creditReceiptId: (creditReceiptId != null
+            ? creditReceiptId.value
+            : this.creditReceiptId),
+        creditId: (creditId != null ? creditId.value : this.creditId),
+        amount: (amount != null ? amount.value : this.amount));
   }
 }
 
@@ -2508,9 +2938,6 @@ class WebApiModulesBillingReceiptReceiptInvoice {
       _$WebApiModulesBillingReceiptReceiptInvoiceToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesBillingReceiptReceiptInvoice &&
@@ -2523,6 +2950,9 @@ class WebApiModulesBillingReceiptReceiptInvoice {
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2540,6 +2970,18 @@ extension $WebApiModulesBillingReceiptReceiptInvoiceExtension
         invoiceReceiptId: invoiceReceiptId ?? this.invoiceReceiptId,
         invoiceId: invoiceId ?? this.invoiceId,
         amount: amount ?? this.amount);
+  }
+
+  WebApiModulesBillingReceiptReceiptInvoice copyWithWrapped(
+      {Wrapped<String?>? invoiceReceiptId,
+      Wrapped<String?>? invoiceId,
+      Wrapped<double?>? amount}) {
+    return WebApiModulesBillingReceiptReceiptInvoice(
+        invoiceReceiptId: (invoiceReceiptId != null
+            ? invoiceReceiptId.value
+            : this.invoiceReceiptId),
+        invoiceId: (invoiceId != null ? invoiceId.value : this.invoiceId),
+        amount: (amount != null ? amount.value : this.amount));
   }
 }
 
@@ -2565,9 +3007,6 @@ class WebApiModulesPluginsAzureADAzureADGroup {
       _$WebApiModulesPluginsAzureADAzureADGroupToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsAzureADAzureADGroup &&
@@ -2577,6 +3016,9 @@ class WebApiModulesPluginsAzureADAzureADGroup {
                 const DeepCollectionEquality()
                     .equals(other.displayName, displayName)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2591,6 +3033,14 @@ extension $WebApiModulesPluginsAzureADAzureADGroupExtension
       {String? id, String? displayName}) {
     return WebApiModulesPluginsAzureADAzureADGroup(
         id: id ?? this.id, displayName: displayName ?? this.displayName);
+  }
+
+  WebApiModulesPluginsAzureADAzureADGroup copyWithWrapped(
+      {Wrapped<String?>? id, Wrapped<String?>? displayName}) {
+    return WebApiModulesPluginsAzureADAzureADGroup(
+        id: (id != null ? id.value : this.id),
+        displayName:
+            (displayName != null ? displayName.value : this.displayName));
   }
 }
 
@@ -2614,9 +3064,6 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsRequest {
       _$WebApiModulesPluginsAzureADGetAzureADGroupsRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsAzureADGetAzureADGroupsRequest &&
@@ -2624,6 +3071,9 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsRequest {
                 const DeepCollectionEquality()
                     .equals(other.groupSearch, groupSearch)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2636,6 +3086,13 @@ extension $WebApiModulesPluginsAzureADGetAzureADGroupsRequestExtension
       {String? groupSearch}) {
     return WebApiModulesPluginsAzureADGetAzureADGroupsRequest(
         groupSearch: groupSearch ?? this.groupSearch);
+  }
+
+  WebApiModulesPluginsAzureADGetAzureADGroupsRequest copyWithWrapped(
+      {Wrapped<String?>? groupSearch}) {
+    return WebApiModulesPluginsAzureADGetAzureADGroupsRequest(
+        groupSearch:
+            (groupSearch != null ? groupSearch.value : this.groupSearch));
   }
 }
 
@@ -2671,9 +3128,6 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsResponse {
       _$WebApiModulesPluginsAzureADGetAzureADGroupsResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsAzureADGetAzureADGroupsResponse &&
@@ -2688,6 +3142,9 @@ class WebApiModulesPluginsAzureADGetAzureADGroupsResponse {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2710,6 +3167,20 @@ extension $WebApiModulesPluginsAzureADGetAzureADGroupsResponseExtension
         tooManyResults: tooManyResults ?? this.tooManyResults,
         statusCode: statusCode ?? this.statusCode,
         message: message ?? this.message);
+  }
+
+  WebApiModulesPluginsAzureADGetAzureADGroupsResponse copyWithWrapped(
+      {Wrapped<List<WebApiModulesPluginsAzureADAzureADGroup>?>? groups,
+      Wrapped<bool?>? tooManyResults,
+      Wrapped<int?>? statusCode,
+      Wrapped<String?>? message}) {
+    return WebApiModulesPluginsAzureADGetAzureADGroupsResponse(
+        groups: (groups != null ? groups.value : this.groups),
+        tooManyResults: (tooManyResults != null
+            ? tooManyResults.value
+            : this.tooManyResults),
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        message: (message != null ? message.value : this.message));
   }
 }
 
@@ -2736,9 +3207,6 @@ class WebApiModulesPluginsAzureADImportGroupRequest {
       _$WebApiModulesPluginsAzureADImportGroupRequestToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsAzureADImportGroupRequest &&
@@ -2749,6 +3217,9 @@ class WebApiModulesPluginsAzureADImportGroupRequest {
                 const DeepCollectionEquality()
                     .equals(other.contactTitleId, contactTitleId)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2764,6 +3235,17 @@ extension $WebApiModulesPluginsAzureADImportGroupRequestExtension
     return WebApiModulesPluginsAzureADImportGroupRequest(
         azureADGroupId: azureADGroupId ?? this.azureADGroupId,
         contactTitleId: contactTitleId ?? this.contactTitleId);
+  }
+
+  WebApiModulesPluginsAzureADImportGroupRequest copyWithWrapped(
+      {Wrapped<String?>? azureADGroupId, Wrapped<String?>? contactTitleId}) {
+    return WebApiModulesPluginsAzureADImportGroupRequest(
+        azureADGroupId: (azureADGroupId != null
+            ? azureADGroupId.value
+            : this.azureADGroupId),
+        contactTitleId: (contactTitleId != null
+            ? contactTitleId.value
+            : this.contactTitleId));
   }
 }
 
@@ -2799,9 +3281,6 @@ class WebApiModulesPluginsAzureADImportGroupResponse {
       _$WebApiModulesPluginsAzureADImportGroupResponseToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsAzureADImportGroupResponse &&
@@ -2816,6 +3295,9 @@ class WebApiModulesPluginsAzureADImportGroupResponse {
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2838,6 +3320,19 @@ extension $WebApiModulesPluginsAzureADImportGroupResponseExtension
         users: users ?? this.users,
         statusCode: statusCode ?? this.statusCode,
         message: message ?? this.message);
+  }
+
+  WebApiModulesPluginsAzureADImportGroupResponse copyWithWrapped(
+      {Wrapped<String?>? lastImported,
+      Wrapped<List<WebApiModulesPluginsAzureADUserData>?>? users,
+      Wrapped<int?>? statusCode,
+      Wrapped<String?>? message}) {
+    return WebApiModulesPluginsAzureADImportGroupResponse(
+        lastImported:
+            (lastImported != null ? lastImported.value : this.lastImported),
+        users: (users != null ? users.value : this.users),
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        message: (message != null ? message.value : this.message));
   }
 }
 
@@ -2871,9 +3366,6 @@ class WebApiModulesPluginsAzureADUserData {
       _$WebApiModulesPluginsAzureADUserDataToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsAzureADUserData &&
@@ -2892,6 +3384,9 @@ class WebApiModulesPluginsAzureADUserData {
                 const DeepCollectionEquality()
                     .equals(other.sourceId, sourceId)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2918,12 +3413,26 @@ extension $WebApiModulesPluginsAzureADUserDataExtension
         email: email ?? this.email,
         sourceId: sourceId ?? this.sourceId);
   }
+
+  WebApiModulesPluginsAzureADUserData copyWithWrapped(
+      {Wrapped<String?>? contactId,
+      Wrapped<String?>? firstName,
+      Wrapped<String?>? lastName,
+      Wrapped<String?>? email,
+      Wrapped<String?>? sourceId}) {
+    return WebApiModulesPluginsAzureADUserData(
+        contactId: (contactId != null ? contactId.value : this.contactId),
+        firstName: (firstName != null ? firstName.value : this.firstName),
+        lastName: (lastName != null ? lastName.value : this.lastName),
+        email: (email != null ? email.value : this.email),
+        sourceId: (sourceId != null ? sourceId.value : this.sourceId));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest {
   WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest({
-    this.orderId,
+    required this.orderId,
   });
 
   factory WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest.fromJson(
@@ -2932,7 +3441,7 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderReq
           json);
 
   @JsonKey(name: 'OrderId', includeIfNull: false)
-  final String? orderId;
+  final String orderId;
   static const fromJsonFactory =
       _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequestFromJson;
   static const toJsonFactory =
@@ -2942,15 +3451,15 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderReq
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest &&
             (identical(other.orderId, orderId) ||
                 const DeepCollectionEquality().equals(other.orderId, orderId)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -2963,6 +3472,12 @@ extension $WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrd
       copyWith({String? orderId}) {
     return WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest(
         orderId: orderId ?? this.orderId);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest
+      copyWithWrapped({Wrapped<String>? orderId}) {
+    return WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest(
+        orderId: (orderId != null ? orderId.value : this.orderId));
   }
 }
 
@@ -2993,9 +3508,6 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRes
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse &&
@@ -3005,6 +3517,9 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRes
                     other.capturePreAuthorizationResults,
                     capturePreAuthorizationResults)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3022,13 +3537,25 @@ extension $WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrd
         capturePreAuthorizationResults: capturePreAuthorizationResults ??
             this.capturePreAuthorizationResults);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse
+      copyWithWrapped(
+          {Wrapped<
+                  List<
+                      WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse>?>?
+              capturePreAuthorizationResults}) {
+    return WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse(
+        capturePreAuthorizationResults: (capturePreAuthorizationResults != null
+            ? capturePreAuthorizationResults.value
+            : this.capturePreAuthorizationResults));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest {
   WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest({
-    this.creditCardPreAuthorizationId,
-    this.amount,
+    required this.creditCardPreAuthorizationId,
+    required this.amount,
   });
 
   factory WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest.fromJson(
@@ -3037,9 +3564,9 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest {
           json);
 
   @JsonKey(name: 'CreditCardPreAuthorizationId', includeIfNull: false)
-  final int? creditCardPreAuthorizationId;
+  final int creditCardPreAuthorizationId;
   @JsonKey(name: 'Amount', includeIfNull: false)
-  final double? amount;
+  final double amount;
   static const fromJsonFactory =
       _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequestFromJson;
   static const toJsonFactory =
@@ -3047,9 +3574,6 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3063,6 +3587,9 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest {
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3079,6 +3606,17 @@ extension $WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationReques
         creditCardPreAuthorizationId:
             creditCardPreAuthorizationId ?? this.creditCardPreAuthorizationId,
         amount: amount ?? this.amount);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest
+      copyWithWrapped(
+          {Wrapped<int>? creditCardPreAuthorizationId,
+          Wrapped<double>? amount}) {
+    return WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest(
+        creditCardPreAuthorizationId: (creditCardPreAuthorizationId != null
+            ? creditCardPreAuthorizationId.value
+            : this.creditCardPreAuthorizationId),
+        amount: (amount != null ? amount.value : this.amount));
   }
 }
 
@@ -3102,12 +3640,13 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes?
       status;
@@ -3120,9 +3659,6 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponseToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3140,6 +3676,9 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3165,16 +3704,36 @@ extension $WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRespon
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse
+      copyWithWrapped(
+          {Wrapped<
+                  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse?>?
+              pluginResponse,
+          Wrapped<bool?>? success,
+          Wrapped<
+                  enums
+                      .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes?>?
+              status,
+          Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse(
+        pluginResponse: (pluginResponse != null
+            ? pluginResponse.value
+            : this.pluginResponse),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardDepositRequest {
   WebApiModulesPluginsCreditCardCreditCardDepositRequest({
-    this.paymentType,
-    this.orderId,
-    this.amountToPay,
+    required this.paymentType,
+    required this.orderId,
+    required this.amountToPay,
     this.creditCardPinPadId,
-    this.dealNumber,
+    required this.dealNumber,
     this.emailFrom,
     this.emailTo,
     this.emailSubject,
@@ -3189,23 +3748,23 @@ class WebApiModulesPluginsCreditCardCreditCardDepositRequest {
       _$WebApiModulesPluginsCreditCardCreditCardDepositRequestFromJson(json);
 
   @JsonKey(
-      name: 'PaymentType',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson)
-  final enums
-          .WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes?
+    name: 'PaymentType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson,
+  )
+  final enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
       paymentType;
   @JsonKey(name: 'OrderId', includeIfNull: false)
-  final String? orderId;
+  final String orderId;
   @JsonKey(name: 'AmountToPay', includeIfNull: false)
-  final double? amountToPay;
+  final double amountToPay;
   @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
   final int? creditCardPinPadId;
   @JsonKey(name: 'DealNumber', includeIfNull: false)
-  final String? dealNumber;
+  final String dealNumber;
   @JsonKey(name: 'EmailFrom', includeIfNull: false)
   final String? emailFrom;
   @JsonKey(name: 'EmailTo', includeIfNull: false)
@@ -3226,9 +3785,6 @@ class WebApiModulesPluginsCreditCardCreditCardDepositRequest {
       _$WebApiModulesPluginsCreditCardCreditCardDepositRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardDepositRequestToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3271,6 +3827,9 @@ class WebApiModulesPluginsCreditCardCreditCardDepositRequest {
                 const DeepCollectionEquality()
                     .equals(other.trackData, trackData)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3319,6 +3878,44 @@ extension $WebApiModulesPluginsCreditCardCreditCardDepositRequestExtension
         expirationDate: expirationDate ?? this.expirationDate,
         trackData: trackData ?? this.trackData);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardDepositRequest copyWithWrapped(
+      {Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes>?
+          paymentType,
+      Wrapped<String>? orderId,
+      Wrapped<double>? amountToPay,
+      Wrapped<int?>? creditCardPinPadId,
+      Wrapped<String>? dealNumber,
+      Wrapped<String?>? emailFrom,
+      Wrapped<String?>? emailTo,
+      Wrapped<String?>? emailSubject,
+      Wrapped<String?>? emailBody,
+      Wrapped<String?>? account,
+      Wrapped<String?>? expirationDate,
+      Wrapped<String?>? trackData}) {
+    return WebApiModulesPluginsCreditCardCreditCardDepositRequest(
+        paymentType:
+            (paymentType != null ? paymentType.value : this.paymentType),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        amountToPay:
+            (amountToPay != null ? amountToPay.value : this.amountToPay),
+        creditCardPinPadId: (creditCardPinPadId != null
+            ? creditCardPinPadId.value
+            : this.creditCardPinPadId),
+        dealNumber: (dealNumber != null ? dealNumber.value : this.dealNumber),
+        emailFrom: (emailFrom != null ? emailFrom.value : this.emailFrom),
+        emailTo: (emailTo != null ? emailTo.value : this.emailTo),
+        emailSubject:
+            (emailSubject != null ? emailSubject.value : this.emailSubject),
+        emailBody: (emailBody != null ? emailBody.value : this.emailBody),
+        account: (account != null ? account.value : this.account),
+        expirationDate: (expirationDate != null
+            ? expirationDate.value
+            : this.expirationDate),
+        trackData: (trackData != null ? trackData.value : this.trackData));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3340,12 +3937,13 @@ class WebApiModulesPluginsCreditCardCreditCardDepositResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?
       status;
@@ -3357,9 +3955,6 @@ class WebApiModulesPluginsCreditCardCreditCardDepositResponse {
       _$WebApiModulesPluginsCreditCardCreditCardDepositResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardDepositResponseToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3377,6 +3972,9 @@ class WebApiModulesPluginsCreditCardCreditCardDepositResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3401,6 +3999,25 @@ extension $WebApiModulesPluginsCreditCardCreditCardDepositResponseExtension
         success: success ?? this.success,
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardDepositResponse copyWithWrapped(
+      {Wrapped<
+              WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse?>?
+          pluginResponse,
+      Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?>?
+          status,
+      Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardDepositResponse(
+        pluginResponse: (pluginResponse != null
+            ? pluginResponse.value
+            : this.pluginResponse),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
   }
 }
 
@@ -3508,9 +4125,6 @@ class WebApiModulesPluginsCreditCardCreditCardLog {
       _$WebApiModulesPluginsCreditCardCreditCardLogToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardCreditCardLog &&
@@ -3584,6 +4198,9 @@ class WebApiModulesPluginsCreditCardCreditCardLog {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3675,12 +4292,102 @@ extension $WebApiModulesPluginsCreditCardCreditCardLogExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardLog copyWithWrapped(
+      {Wrapped<int?>? creditCardLogId,
+      Wrapped<String?>? creditCardPlugin,
+      Wrapped<String?>? orderId,
+      Wrapped<String?>? transactionDate,
+      Wrapped<String?>? expirationDate,
+      Wrapped<int?>? holdPeriod,
+      Wrapped<String?>? transactionId,
+      Wrapped<double?>? amount,
+      Wrapped<String?>? transactionType,
+      Wrapped<String?>? pinPadCode,
+      Wrapped<String?>? apiUrl,
+      Wrapped<String?>? apiRequestMethod,
+      Wrapped<String?>? apiRequestHeader,
+      Wrapped<String?>? apiRequestBody,
+      Wrapped<String?>? apiResponseStatusCode,
+      Wrapped<String?>? apiResponseHeader,
+      Wrapped<String?>? apiResponseBody,
+      Wrapped<bool?>? responseSuccess,
+      Wrapped<String?>? responseStatus,
+      Wrapped<String?>? responseStatusText,
+      Wrapped<String?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesPluginsCreditCardCreditCardLog(
+        creditCardLogId: (creditCardLogId != null
+            ? creditCardLogId.value
+            : this.creditCardLogId),
+        creditCardPlugin: (creditCardPlugin != null
+            ? creditCardPlugin.value
+            : this.creditCardPlugin),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        transactionDate: (transactionDate != null
+            ? transactionDate.value
+            : this.transactionDate),
+        expirationDate: (expirationDate != null
+            ? expirationDate.value
+            : this.expirationDate),
+        holdPeriod: (holdPeriod != null ? holdPeriod.value : this.holdPeriod),
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId),
+        amount: (amount != null ? amount.value : this.amount),
+        transactionType: (transactionType != null
+            ? transactionType.value
+            : this.transactionType),
+        pinPadCode: (pinPadCode != null ? pinPadCode.value : this.pinPadCode),
+        apiUrl: (apiUrl != null ? apiUrl.value : this.apiUrl),
+        apiRequestMethod: (apiRequestMethod != null
+            ? apiRequestMethod.value
+            : this.apiRequestMethod),
+        apiRequestHeader: (apiRequestHeader != null
+            ? apiRequestHeader.value
+            : this.apiRequestHeader),
+        apiRequestBody: (apiRequestBody != null
+            ? apiRequestBody.value
+            : this.apiRequestBody),
+        apiResponseStatusCode: (apiResponseStatusCode != null
+            ? apiResponseStatusCode.value
+            : this.apiResponseStatusCode),
+        apiResponseHeader: (apiResponseHeader != null
+            ? apiResponseHeader.value
+            : this.apiResponseHeader),
+        apiResponseBody: (apiResponseBody != null
+            ? apiResponseBody.value
+            : this.apiResponseBody),
+        responseSuccess: (responseSuccess != null
+            ? responseSuccess.value
+            : this.responseSuccess),
+        responseStatus: (responseStatus != null
+            ? responseStatus.value
+            : this.responseStatus),
+        responseStatusText: (responseStatusText != null
+            ? responseStatusText.value
+            : this.responseStatusText),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse {
   WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse({
-    this.amount,
+    required this.amount,
     this.receipt,
     this.success,
     this.status,
@@ -3696,28 +4403,30 @@ class WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse {
           json);
 
   @JsonKey(name: 'Amount', includeIfNull: false)
-  final double? amount;
+  final double amount;
   @JsonKey(name: 'Receipt', includeIfNull: false)
   final WebApiModulesBillingReceiptReceipt? receipt;
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?
       status;
   @JsonKey(
-      name: 'CardType',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson)
+    name: 'CardType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson,
+  )
   final enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?
       cardType;
   @JsonKey(name: 'CardEntryMode', includeIfNull: false)
@@ -3733,9 +4442,6 @@ class WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3764,6 +4470,9 @@ class WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse {
                 const DeepCollectionEquality()
                     .equals(other.transactionId, transactionId)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3801,6 +4510,34 @@ extension $WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseExtens
         statusText: statusText ?? this.statusText,
         transactionId: transactionId ?? this.transactionId);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse copyWithWrapped(
+      {Wrapped<double>? amount,
+      Wrapped<WebApiModulesBillingReceiptReceipt?>? receipt,
+      Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?>?
+          status,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?>?
+          cardType,
+      Wrapped<String?>? cardEntryMode,
+      Wrapped<String?>? statusText,
+      Wrapped<String?>? transactionId}) {
+    return WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse(
+        amount: (amount != null ? amount.value : this.amount),
+        receipt: (receipt != null ? receipt.value : this.receipt),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        cardType: (cardType != null ? cardType.value : this.cardType),
+        cardEntryMode:
+            (cardEntryMode != null ? cardEntryMode.value : this.cardEntryMode),
+        statusText: (statusText != null ? statusText.value : this.statusText),
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3830,23 +4567,25 @@ class WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse {
   @JsonKey(name: 'CardEntryMode', includeIfNull: false)
   final String? cardEntryMode;
   @JsonKey(
-      name: 'CardType',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson)
+    name: 'CardType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson,
+  )
   final enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?
       cardType;
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes?
       status;
@@ -3859,9 +4598,6 @@ class WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3890,6 +4626,9 @@ class WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -3927,6 +4666,34 @@ extension $WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseExtensio
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse copyWithWrapped(
+      {Wrapped<String?>? transactionId,
+      Wrapped<double?>? amount,
+      Wrapped<WebApiModulesBillingReceiptReceipt?>? receipt,
+      Wrapped<String?>? cardEntryMode,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?>?
+          cardType,
+      Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes?>?
+          status,
+      Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponse(
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId),
+        amount: (amount != null ? amount.value : this.amount),
+        receipt: (receipt != null ? receipt.value : this.receipt),
+        cardEntryMode:
+            (cardEntryMode != null ? cardEntryMode.value : this.cardEntryMode),
+        cardType: (cardType != null ? cardType.value : this.cardType),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3949,12 +4716,13 @@ class WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes?
       status;
@@ -3965,12 +4733,13 @@ class WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse {
   @JsonKey(name: 'CardEntryMode', includeIfNull: false)
   final String? cardEntryMode;
   @JsonKey(
-      name: 'CardType',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson)
+    name: 'CardType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson,
+  )
   final enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?
       cardType;
   @JsonKey(name: 'Amount', includeIfNull: false)
@@ -3982,9 +4751,6 @@ class WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4010,6 +4776,9 @@ class WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse {
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4044,6 +4813,32 @@ extension $WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseExtension
         cardType: cardType ?? this.cardType,
         amount: amount ?? this.amount);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse copyWithWrapped(
+      {Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes?>?
+          status,
+      Wrapped<String?>? statusText,
+      Wrapped<String?>? transactionId,
+      Wrapped<String?>? cardEntryMode,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?>?
+          cardType,
+      Wrapped<double?>? amount}) {
+    return WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse(
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText),
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId),
+        cardEntryMode:
+            (cardEntryMode != null ? cardEntryMode.value : this.cardEntryMode),
+        cardType: (cardType != null ? cardType.value : this.cardType),
+        amount: (amount != null ? amount.value : this.amount));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4062,12 +4857,13 @@ class WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes?
       status;
@@ -4079,9 +4875,6 @@ class WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse {
       _$WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4096,6 +4889,9 @@ class WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4116,6 +4912,19 @@ extension $WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseExtension
         success: success ?? this.success,
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse copyWithWrapped(
+      {Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes?>?
+          status,
+      Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse(
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
   }
 }
 
@@ -4196,9 +5005,6 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorization {
       _$WebApiModulesPluginsCreditCardCreditCardPreAuthorizationToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardCreditCardPreAuthorization &&
@@ -4252,6 +5058,9 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorization {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4316,16 +5125,72 @@ extension $WebApiModulesPluginsCreditCardCreditCardPreAuthorizationExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardPreAuthorization copyWithWrapped(
+      {Wrapped<int?>? creditCardPreAuthorizationId,
+      Wrapped<String?>? transactionId,
+      Wrapped<String?>? orderId,
+      Wrapped<DateTime?>? transactionDate,
+      Wrapped<DateTime?>? expirationDate,
+      Wrapped<int?>? holdPeriod,
+      Wrapped<int?>? holdDaysRemaining,
+      Wrapped<double?>? amount,
+      Wrapped<String?>? status,
+      Wrapped<int?>? creditCardPinPadId,
+      Wrapped<String?>? creditCardPinPadCode,
+      Wrapped<DateTime?>? dateStamp,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesPluginsCreditCardCreditCardPreAuthorization(
+        creditCardPreAuthorizationId: (creditCardPreAuthorizationId != null
+            ? creditCardPreAuthorizationId.value
+            : this.creditCardPreAuthorizationId),
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        transactionDate: (transactionDate != null
+            ? transactionDate.value
+            : this.transactionDate),
+        expirationDate: (expirationDate != null
+            ? expirationDate.value
+            : this.expirationDate),
+        holdPeriod: (holdPeriod != null ? holdPeriod.value : this.holdPeriod),
+        holdDaysRemaining: (holdDaysRemaining != null
+            ? holdDaysRemaining.value
+            : this.holdDaysRemaining),
+        amount: (amount != null ? amount.value : this.amount),
+        status: (status != null ? status.value : this.status),
+        creditCardPinPadId: (creditCardPinPadId != null
+            ? creditCardPinPadId.value
+            : this.creditCardPinPadId),
+        creditCardPinPadCode: (creditCardPinPadCode != null
+            ? creditCardPinPadCode.value
+            : this.creditCardPinPadCode),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest {
   WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest({
-    this.paymentType,
-    this.orderId,
-    this.amountToPay,
+    required this.paymentType,
+    required this.orderId,
+    required this.amountToPay,
     this.creditCardPinPadId,
-    this.dealNumber,
+    required this.dealNumber,
     this.account,
     this.expirationDate,
     this.trackData,
@@ -4341,23 +5206,24 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest {
           json);
 
   @JsonKey(
-      name: 'PaymentType',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson)
+    name: 'PaymentType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson,
+  )
   final enums
-          .WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes?
+          .WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
       paymentType;
   @JsonKey(name: 'OrderId', includeIfNull: false)
-  final String? orderId;
+  final String orderId;
   @JsonKey(name: 'AmountToPay', includeIfNull: false)
-  final double? amountToPay;
+  final double amountToPay;
   @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
   final int? creditCardPinPadId;
   @JsonKey(name: 'DealNumber', includeIfNull: false)
-  final String? dealNumber;
+  final String dealNumber;
   @JsonKey(name: 'Account', includeIfNull: false)
   final String? account;
   @JsonKey(name: 'ExpirationDate', includeIfNull: false)
@@ -4379,9 +5245,6 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4424,6 +5287,9 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest {
                 const DeepCollectionEquality()
                     .equals(other.emailBody, emailBody)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4472,6 +5338,44 @@ extension $WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestExtens
         emailSubject: emailSubject ?? this.emailSubject,
         emailBody: emailBody ?? this.emailBody);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest copyWithWrapped(
+      {Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes>?
+          paymentType,
+      Wrapped<String>? orderId,
+      Wrapped<double>? amountToPay,
+      Wrapped<int?>? creditCardPinPadId,
+      Wrapped<String>? dealNumber,
+      Wrapped<String?>? account,
+      Wrapped<String?>? expirationDate,
+      Wrapped<String?>? trackData,
+      Wrapped<String?>? emailFrom,
+      Wrapped<String?>? emailTo,
+      Wrapped<String?>? emailSubject,
+      Wrapped<String?>? emailBody}) {
+    return WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest(
+        paymentType:
+            (paymentType != null ? paymentType.value : this.paymentType),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        amountToPay:
+            (amountToPay != null ? amountToPay.value : this.amountToPay),
+        creditCardPinPadId: (creditCardPinPadId != null
+            ? creditCardPinPadId.value
+            : this.creditCardPinPadId),
+        dealNumber: (dealNumber != null ? dealNumber.value : this.dealNumber),
+        account: (account != null ? account.value : this.account),
+        expirationDate: (expirationDate != null
+            ? expirationDate.value
+            : this.expirationDate),
+        trackData: (trackData != null ? trackData.value : this.trackData),
+        emailFrom: (emailFrom != null ? emailFrom.value : this.emailFrom),
+        emailTo: (emailTo != null ? emailTo.value : this.emailTo),
+        emailSubject:
+            (emailSubject != null ? emailSubject.value : this.emailSubject),
+        emailBody: (emailBody != null ? emailBody.value : this.emailBody));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4494,12 +5398,13 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?
       status;
@@ -4512,9 +5417,6 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponseToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4532,6 +5434,9 @@ class WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4557,14 +5462,33 @@ extension $WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponseExten
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse copyWithWrapped(
+      {Wrapped<
+              WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse?>?
+          pluginResponse,
+      Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?>?
+          status,
+      Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse(
+        pluginResponse: (pluginResponse != null
+            ? pluginResponse.value
+            : this.pluginResponse),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardRefundRequest {
   WebApiModulesPluginsCreditCardCreditCardRefundRequest({
-    this.receiptId,
-    this.creditCardPinPadId,
-    this.refundAmount,
+    required this.receiptId,
+    required this.creditCardPinPadId,
+    required this.refundAmount,
   });
 
   factory WebApiModulesPluginsCreditCardCreditCardRefundRequest.fromJson(
@@ -4572,20 +5496,17 @@ class WebApiModulesPluginsCreditCardCreditCardRefundRequest {
       _$WebApiModulesPluginsCreditCardCreditCardRefundRequestFromJson(json);
 
   @JsonKey(name: 'ReceiptId', includeIfNull: false)
-  final String? receiptId;
+  final String receiptId;
   @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
-  final int? creditCardPinPadId;
+  final int creditCardPinPadId;
   @JsonKey(name: 'RefundAmount', includeIfNull: false)
-  final double? refundAmount;
+  final double refundAmount;
   static const fromJsonFactory =
       _$WebApiModulesPluginsCreditCardCreditCardRefundRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesPluginsCreditCardCreditCardRefundRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardRefundRequestToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4603,6 +5524,9 @@ class WebApiModulesPluginsCreditCardCreditCardRefundRequest {
   }
 
   @override
+  String toString() => jsonEncode(this);
+
+  @override
   int get hashCode =>
       const DeepCollectionEquality().hash(receiptId) ^
       const DeepCollectionEquality().hash(creditCardPinPadId) ^
@@ -4618,6 +5542,19 @@ extension $WebApiModulesPluginsCreditCardCreditCardRefundRequestExtension
         receiptId: receiptId ?? this.receiptId,
         creditCardPinPadId: creditCardPinPadId ?? this.creditCardPinPadId,
         refundAmount: refundAmount ?? this.refundAmount);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardRefundRequest copyWithWrapped(
+      {Wrapped<String>? receiptId,
+      Wrapped<int>? creditCardPinPadId,
+      Wrapped<double>? refundAmount}) {
+    return WebApiModulesPluginsCreditCardCreditCardRefundRequest(
+        receiptId: (receiptId != null ? receiptId.value : this.receiptId),
+        creditCardPinPadId: (creditCardPinPadId != null
+            ? creditCardPinPadId.value
+            : this.creditCardPinPadId),
+        refundAmount:
+            (refundAmount != null ? refundAmount.value : this.refundAmount));
   }
 }
 
@@ -4640,12 +5577,13 @@ class WebApiModulesPluginsCreditCardCreditCardRefundResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes?
       status;
@@ -4657,9 +5595,6 @@ class WebApiModulesPluginsCreditCardCreditCardRefundResponse {
       _$WebApiModulesPluginsCreditCardCreditCardRefundResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardRefundResponseToJson(this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4677,6 +5612,9 @@ class WebApiModulesPluginsCreditCardCreditCardRefundResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4702,6 +5640,24 @@ extension $WebApiModulesPluginsCreditCardCreditCardRefundResponseExtension
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardRefundResponse copyWithWrapped(
+      {Wrapped<WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse?>?
+          pluginResponse,
+      Wrapped<bool?>? success,
+      Wrapped<
+              enums
+                  .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes?>?
+          status,
+      Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardRefundResponse(
+        pluginResponse: (pluginResponse != null
+            ? pluginResponse.value
+            : this.pluginResponse),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4722,12 +5678,13 @@ class WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusReques
   @JsonKey(name: 'TransactionId', includeIfNull: false)
   final String? transactionId;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesFromJson,
+  )
   final enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes?
       status;
   static const fromJsonFactory =
@@ -4737,9 +5694,6 @@ class WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusReques
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4756,6 +5710,9 @@ class WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusReques
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4778,6 +5735,23 @@ extension $WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusR
             creditCardPreAuthorizationId ?? this.creditCardPreAuthorizationId,
         transactionId: transactionId ?? this.transactionId,
         status: status ?? this.status);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest
+      copyWithWrapped(
+          {Wrapped<String?>? creditCardPreAuthorizationId,
+          Wrapped<String?>? transactionId,
+          Wrapped<
+                  enums
+                      .WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes?>?
+              status}) {
+    return WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest(
+        creditCardPreAuthorizationId: (creditCardPreAuthorizationId != null
+            ? creditCardPreAuthorizationId.value
+            : this.creditCardPreAuthorizationId),
+        transactionId:
+            (transactionId != null ? transactionId.value : this.transactionId),
+        status: (status != null ? status.value : this.status));
   }
 }
 
@@ -4809,9 +5783,6 @@ class WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRespon
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse &&
@@ -4824,6 +5795,9 @@ class WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRespon
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4842,12 +5816,23 @@ extension $WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusR
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
   }
+
+  WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse
+      copyWithWrapped(
+          {Wrapped<bool?>? success,
+          Wrapped<String?>? status,
+          Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse(
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest {
   WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest({
-    this.creditCardPreAuthorizationId,
+    required this.creditCardPreAuthorizationId,
   });
 
   factory WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest.fromJson(
@@ -4856,7 +5841,7 @@ class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest {
           json);
 
   @JsonKey(name: 'CreditCardPreAuthorizationId', includeIfNull: false)
-  final int? creditCardPreAuthorizationId;
+  final int creditCardPreAuthorizationId;
   static const fromJsonFactory =
       _$WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequestFromJson;
   static const toJsonFactory =
@@ -4864,9 +5849,6 @@ class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4878,6 +5860,9 @@ class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest {
                     other.creditCardPreAuthorizationId,
                     creditCardPreAuthorizationId)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4892,6 +5877,14 @@ extension $WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequestEx
     return WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest(
         creditCardPreAuthorizationId:
             creditCardPreAuthorizationId ?? this.creditCardPreAuthorizationId);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest
+      copyWithWrapped({Wrapped<int>? creditCardPreAuthorizationId}) {
+    return WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest(
+        creditCardPreAuthorizationId: (creditCardPreAuthorizationId != null
+            ? creditCardPreAuthorizationId.value
+            : this.creditCardPreAuthorizationId));
   }
 }
 
@@ -4915,12 +5908,13 @@ class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse {
   @JsonKey(name: 'Success', includeIfNull: false)
   final bool? success;
   @JsonKey(
-      name: 'Status',
-      includeIfNull: false,
-      toJson:
-          webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesToJson,
-      fromJson:
-          webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson)
+    name: 'Status',
+    includeIfNull: false,
+    toJson:
+        webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesToJson,
+    fromJson:
+        webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson,
+  )
   final enums
           .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes?
       status;
@@ -4933,9 +5927,6 @@ class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse {
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponseToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4953,6 +5944,9 @@ class WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse {
                 const DeepCollectionEquality()
                     .equals(other.statusText, statusText)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -4977,6 +5971,25 @@ extension $WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponseE
         success: success ?? this.success,
         status: status ?? this.status,
         statusText: statusText ?? this.statusText);
+  }
+
+  WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse
+      copyWithWrapped(
+          {Wrapped<WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse?>?
+              pluginResponse,
+          Wrapped<bool?>? success,
+          Wrapped<
+                  enums
+                      .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes?>?
+              status,
+          Wrapped<String?>? statusText}) {
+    return WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse(
+        pluginResponse: (pluginResponse != null
+            ? pluginResponse.value
+            : this.pluginResponse),
+        success: (success != null ? success.value : this.success),
+        status: (status != null ? status.value : this.status),
+        statusText: (statusText != null ? statusText.value : this.statusText));
   }
 }
 
@@ -5030,9 +6043,6 @@ class WebApiModulesPluginsCreditCardOrderDeposit {
       _$WebApiModulesPluginsCreditCardOrderDepositToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardOrderDeposit &&
@@ -5058,6 +6068,9 @@ class WebApiModulesPluginsCreditCardOrderDeposit {
                 const DeepCollectionEquality().equals(
                     other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5093,6 +6106,33 @@ extension $WebApiModulesPluginsCreditCardOrderDepositExtension
         custom: custom ?? this.custom,
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
+  }
+
+  WebApiModulesPluginsCreditCardOrderDeposit copyWithWrapped(
+      {Wrapped<String?>? orderId,
+      Wrapped<DateTime?>? transactionDate,
+      Wrapped<double?>? amount,
+      Wrapped<String?>? auditNote,
+      Wrapped<String?>? recordTitle,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesPluginsCreditCardOrderDeposit(
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        transactionDate: (transactionDate != null
+            ? transactionDate.value
+            : this.transactionDate),
+        amount: (amount != null ? amount.value : this.amount),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes));
   }
 }
 
@@ -5242,9 +6282,6 @@ class WebApiModulesPluginsCreditCardProcessCreditCardInfo {
       _$WebApiModulesPluginsCreditCardProcessCreditCardInfoToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPluginsCreditCardProcessCreditCardInfo &&
@@ -5327,6 +6364,9 @@ class WebApiModulesPluginsCreditCardProcessCreditCardInfo {
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -5470,6 +6510,137 @@ extension $WebApiModulesPluginsCreditCardProcessCreditCardInfoExtension
         defaultFieldAttributes:
             defaultFieldAttributes ?? this.defaultFieldAttributes);
   }
+
+  WebApiModulesPluginsCreditCardProcessCreditCardInfo copyWithWrapped(
+      {Wrapped<String?>? recordTitle,
+      Wrapped<String?>? orderId,
+      Wrapped<String?>? orderNumber,
+      Wrapped<String?>? orderDescription,
+      Wrapped<String?>? orderStatus,
+      Wrapped<String?>? dealId,
+      Wrapped<String?>? dealNumber,
+      Wrapped<String?>? deal,
+      Wrapped<String?>? customerNumber,
+      Wrapped<String?>? customer,
+      Wrapped<double?>? totalsWeeklyGrossTotal,
+      Wrapped<double?>? totalsWeeklyDiscount,
+      Wrapped<double?>? totalsWeeklySubTotal,
+      Wrapped<double?>? totalsWeeklyTax,
+      Wrapped<double?>? totalsWeeklyGrandTotal,
+      Wrapped<double?>? totalsPeriodGrossTotal,
+      Wrapped<double?>? totalsPeriodDiscount,
+      Wrapped<double?>? totalsPeriodSubTotal,
+      Wrapped<double?>? totalsPeriodTax,
+      Wrapped<double?>? totalsPeriodGrandTotal,
+      Wrapped<double?>? totalsReplacementReplacementCost,
+      Wrapped<double?>? totalsReplacementDepositPercentage,
+      Wrapped<double?>? totalsReplacementDepositDue,
+      Wrapped<double?>? totalsReplacementPreAuthorizationRequiredAmount,
+      Wrapped<double?>? totalsReplacementPreAuthorizationCurrentTotal,
+      Wrapped<double?>? totalsReplacementPreAuthorizationAmountDue,
+      Wrapped<double?>? paymentTotalAmount,
+      Wrapped<double?>? paymentAmountToPay,
+      Wrapped<String?>? pINPadCode,
+      Wrapped<String?>? pINPadDescription,
+      Wrapped<String?>? locationCode,
+      Wrapped<String?>? agentBarcode,
+      Wrapped<String?>? currencyId,
+      Wrapped<String?>? locationId,
+      Wrapped<String?>? auditNote,
+      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+          fields,
+      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+          defaultFieldAttributes}) {
+    return WebApiModulesPluginsCreditCardProcessCreditCardInfo(
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        orderId: (orderId != null ? orderId.value : this.orderId),
+        orderNumber:
+            (orderNumber != null ? orderNumber.value : this.orderNumber),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        orderStatus:
+            (orderStatus != null ? orderStatus.value : this.orderStatus),
+        dealId: (dealId != null ? dealId.value : this.dealId),
+        dealNumber: (dealNumber != null ? dealNumber.value : this.dealNumber),
+        deal: (deal != null ? deal.value : this.deal),
+        customerNumber: (customerNumber != null
+            ? customerNumber.value
+            : this.customerNumber),
+        customer: (customer != null ? customer.value : this.customer),
+        totalsWeeklyGrossTotal: (totalsWeeklyGrossTotal != null
+            ? totalsWeeklyGrossTotal.value
+            : this.totalsWeeklyGrossTotal),
+        totalsWeeklyDiscount: (totalsWeeklyDiscount != null
+            ? totalsWeeklyDiscount.value
+            : this.totalsWeeklyDiscount),
+        totalsWeeklySubTotal: (totalsWeeklySubTotal != null
+            ? totalsWeeklySubTotal.value
+            : this.totalsWeeklySubTotal),
+        totalsWeeklyTax: (totalsWeeklyTax != null
+            ? totalsWeeklyTax.value
+            : this.totalsWeeklyTax),
+        totalsWeeklyGrandTotal: (totalsWeeklyGrandTotal != null
+            ? totalsWeeklyGrandTotal.value
+            : this.totalsWeeklyGrandTotal),
+        totalsPeriodGrossTotal: (totalsPeriodGrossTotal != null
+            ? totalsPeriodGrossTotal.value
+            : this.totalsPeriodGrossTotal),
+        totalsPeriodDiscount: (totalsPeriodDiscount != null
+            ? totalsPeriodDiscount.value
+            : this.totalsPeriodDiscount),
+        totalsPeriodSubTotal: (totalsPeriodSubTotal != null
+            ? totalsPeriodSubTotal.value
+            : this.totalsPeriodSubTotal),
+        totalsPeriodTax: (totalsPeriodTax != null
+            ? totalsPeriodTax.value
+            : this.totalsPeriodTax),
+        totalsPeriodGrandTotal: (totalsPeriodGrandTotal != null
+            ? totalsPeriodGrandTotal.value
+            : this.totalsPeriodGrandTotal),
+        totalsReplacementReplacementCost: (totalsReplacementReplacementCost != null
+            ? totalsReplacementReplacementCost.value
+            : this.totalsReplacementReplacementCost),
+        totalsReplacementDepositPercentage:
+            (totalsReplacementDepositPercentage != null
+                ? totalsReplacementDepositPercentage.value
+                : this.totalsReplacementDepositPercentage),
+        totalsReplacementDepositDue: (totalsReplacementDepositDue != null
+            ? totalsReplacementDepositDue.value
+            : this.totalsReplacementDepositDue),
+        totalsReplacementPreAuthorizationRequiredAmount:
+            (totalsReplacementPreAuthorizationRequiredAmount != null
+                ? totalsReplacementPreAuthorizationRequiredAmount.value
+                : this.totalsReplacementPreAuthorizationRequiredAmount),
+        totalsReplacementPreAuthorizationCurrentTotal:
+            (totalsReplacementPreAuthorizationCurrentTotal != null
+                ? totalsReplacementPreAuthorizationCurrentTotal.value
+                : this.totalsReplacementPreAuthorizationCurrentTotal),
+        totalsReplacementPreAuthorizationAmountDue:
+            (totalsReplacementPreAuthorizationAmountDue != null
+                ? totalsReplacementPreAuthorizationAmountDue.value
+                : this.totalsReplacementPreAuthorizationAmountDue),
+        paymentTotalAmount: (paymentTotalAmount != null
+            ? paymentTotalAmount.value
+            : this.paymentTotalAmount),
+        paymentAmountToPay: (paymentAmountToPay != null
+            ? paymentAmountToPay.value
+            : this.paymentAmountToPay),
+        pINPadCode: (pINPadCode != null ? pINPadCode.value : this.pINPadCode),
+        pINPadDescription: (pINPadDescription != null
+            ? pINPadDescription.value
+            : this.pINPadDescription),
+        locationCode: (locationCode != null ? locationCode.value : this.locationCode),
+        agentBarcode: (agentBarcode != null ? agentBarcode.value : this.agentBarcode),
+        currencyId: (currencyId != null ? currencyId.value : this.currencyId),
+        locationId: (locationId != null ? locationId.value : this.locationId),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null ? defaultFieldAttributes.value : this.defaultFieldAttributes));
+  }
 }
 
 String? fwStandardSqlServerFwDataTypesToJson(
@@ -5479,19 +6650,9 @@ String? fwStandardSqlServerFwDataTypesToJson(
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
-    Object? fwStandardSqlServerFwDataTypes) {
-  if (fwStandardSqlServerFwDataTypes is int) {
-    return enums.$FwStandardSqlServerFwDataTypesMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                fwStandardSqlServerFwDataTypes.toString(),
-            orElse: () => const MapEntry(
-                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? fwStandardSqlServerFwDataTypes, [
+  enums.FwStandardSqlServerFwDataTypes? defaultValue,
+]) {
   if (fwStandardSqlServerFwDataTypes is String) {
     return enums.$FwStandardSqlServerFwDataTypesMap.entries
         .firstWhere(
@@ -5504,7 +6665,15 @@ enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
         .key;
   }
 
-  return enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums.$FwStandardSqlServerFwDataTypesMap.entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
@@ -5521,9 +6690,25 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
 
 List<enums.FwStandardSqlServerFwDataTypes>
     fwStandardSqlServerFwDataTypesListFromJson(
-        List? fwStandardSqlServerFwDataTypes) {
+  List? fwStandardSqlServerFwDataTypes, [
+  List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
+]) {
   if (fwStandardSqlServerFwDataTypes == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return fwStandardSqlServerFwDataTypes
+      .map((e) => fwStandardSqlServerFwDataTypesFromJson(e.toString()))
+      .toList();
+}
+
+List<enums.FwStandardSqlServerFwDataTypes>?
+    fwStandardSqlServerFwDataTypesNullableListFromJson(
+  List? fwStandardSqlServerFwDataTypes, [
+  List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
+]) {
+  if (fwStandardSqlServerFwDataTypes == null) {
+    return defaultValue;
   }
 
   return fwStandardSqlServerFwDataTypes
@@ -5541,26 +6726,10 @@ String? webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesToJson
 
 enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
     webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes) {
-  if (webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
-      is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes, [
+  enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
       is String) {
     return enums
@@ -5579,9 +6748,18 @@ enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
         .key;
   }
 
-  return enums
-      .WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -5601,11 +6779,31 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes>
     webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesListFromJson(
-        List?
-            webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes) {
+  List? webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes ==
       null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
+      .map((e) =>
+          webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes>?
+    webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesNullableListFromJson(
+  List? webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes ==
+      null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
@@ -5625,26 +6823,11 @@ String? webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCod
 
 enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
     webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes) {
-  if (webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object?
+      webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes, [
+  enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
       is String) {
     return enums
@@ -5663,9 +6846,19 @@ enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
         .key;
   }
 
-  return enums
-      .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums
+          .WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -5685,11 +6878,33 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes>
     webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesListFromJson(
-        List?
-            webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes) {
+  List?
+      webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes ==
       null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
+      .map((e) =>
+          webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes>?
+    webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesNullableListFromJson(
+  List?
+      webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes ==
+      null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
@@ -5709,26 +6924,11 @@ String? webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
 
 enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
     webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes) {
-  if (webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object?
+      webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes, [
+  enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
       is String) {
     return enums
@@ -5747,9 +6947,19 @@ enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
         .key;
   }
 
-  return enums
-      .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums
+          .WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -5769,11 +6979,33 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes>
     webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesListFromJson(
-        List?
-            webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes) {
+  List?
+      webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes ==
       null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
+      .map((e) =>
+          webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes>?
+    webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesNullableListFromJson(
+  List?
+      webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes ==
+      null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
@@ -5793,26 +7025,11 @@ String? webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesT
 
 enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
     webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes) {
-  if (webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-      is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object?
+      webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes, [
+  enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
       is String) {
     return enums
@@ -5831,9 +7048,19 @@ enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
         .key;
   }
 
-  return enums
-      .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums
+          .WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -5853,11 +7080,33 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes>
     webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesListFromJson(
-        List?
-            webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes) {
+  List?
+      webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes ==
       null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
+      .map((e) =>
+          webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes>?
+    webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesNullableListFromJson(
+  List?
+      webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes ==
+      null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
@@ -5877,26 +7126,11 @@ String? webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesToJ
 
 enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
     webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes) {
-  if (webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-      is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object?
+      webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes, [
+  enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
       is String) {
     return enums
@@ -5915,9 +7149,19 @@ enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
         .key;
   }
 
-  return enums
-      .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums
+          .WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -5937,11 +7181,31 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes>
     webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesListFromJson(
-        List?
-            webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes) {
+  List? webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes ==
       null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
+      .map((e) =>
+          webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes>?
+    webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesNullableListFromJson(
+  List? webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes ==
+      null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
@@ -5961,26 +7225,11 @@ String? webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTy
 
 enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
     webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes) {
-  if (webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object?
+      webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes, [
+  enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
       is String) {
     return enums
@@ -5999,9 +7248,19 @@ enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentType
         .key;
   }
 
-  return enums
-      .WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums
+          .WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -6021,11 +7280,33 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes>
     webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesListFromJson(
-        List?
-            webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes) {
+  List?
+      webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes ==
       null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
+      .map((e) =>
+          webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes>?
+    webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesNullableListFromJson(
+  List?
+      webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes, [
+  List<enums.WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes ==
+      null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
@@ -6045,25 +7326,10 @@ String? webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson(
 
 enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
     webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes) {
-  if (webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes, [
+  enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
       is String) {
     return enums
@@ -6082,8 +7348,18 @@ enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
         .key;
   }
 
-  return enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -6102,9 +7378,29 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes>
     webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesListFromJson(
-        List? webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes) {
+  List? webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes, [
+  List<enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
+      .map((e) =>
+          webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes>?
+    webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesNullableListFromJson(
+  List? webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes, [
+  List<enums.WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes == null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes
@@ -6124,25 +7420,10 @@ String? webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesToJson(
 
 enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
     webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesFromJson(
-        Object?
-            webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes) {
-  if (webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes is int) {
-    return enums
-        .$WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesMap
-        .entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
-                    .toString(),
-            orElse: () => const MapEntry(
-                enums
-                    .WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
-                    .swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
+  Object? webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes, [
+  enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
       is String) {
     return enums
@@ -6161,8 +7442,18 @@ enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
         .key;
   }
 
-  return enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
-      .swaggerGeneratedUnknown;
+  final parsedResult = defaultValue == null
+      ? null
+      : enums
+          .$WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesMap
+          .entries
+          .firstWhereOrNull((element) => element.value == defaultValue)
+          ?.key;
+
+  return parsedResult ??
+      defaultValue ??
+      enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
+          .swaggerGeneratedUnknown;
 }
 
 List<String>
@@ -6181,9 +7472,29 @@ List<String>
 
 List<enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes>
     webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesListFromJson(
-        List? webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes) {
+  List? webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes>?
+      defaultValue,
+]) {
   if (webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes == null) {
-    return [];
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
+      .map((e) =>
+          webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesFromJson(
+              e.toString()))
+      .toList();
+}
+
+List<enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes>?
+    webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesNullableListFromJson(
+  List? webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes, [
+  List<enums.WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes>?
+      defaultValue,
+]) {
+  if (webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes == null) {
+    return defaultValue;
   }
 
   return webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes
@@ -6209,6 +7520,14 @@ class $CustomJsonDecoder {
       return entity;
     }
 
+    if (isTypeOf<T, Map>()) {
+      return entity;
+    }
+
+    if (isTypeOf<T, Iterable>()) {
+      return entity;
+    }
+
     if (entity is Map<String, dynamic>) {
       return _decodeMap<T>(entity);
     }
@@ -6231,15 +7550,15 @@ class $CustomJsonDecoder {
 
 class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
-  chopper.Response<ResultType> convertResponse<ResultType, Item>(
-      chopper.Response response) {
+  FutureOr<chopper.Response<ResultType>> convertResponse<ResultType, Item>(
+      chopper.Response response) async {
     if (response.bodyString.isEmpty) {
       // In rare cases, when let's say 204 (no content) is returned -
       // we cannot decode the missing json with the result type specified
       return chopper.Response(response.base, null, error: response.error);
     }
 
-    final jsonRes = super.convertResponse(response);
+    final jsonRes = await super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
         body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
@@ -6258,4 +7577,9 @@ String? _dateToJson(DateTime? date) {
   final day = date.day < 10 ? '0${date.day}' : date.day.toString();
 
   return '$year-$month-$day';
+}
+
+class Wrapped<T> {
+  final T value;
+  const Wrapped.value(this.value);
 }

@@ -21,9 +21,16 @@ class _$Pages extends Pages {
           Response<
               WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse>>
       _cardpointepaymentactivelinkGet({required String? activeLinkToken}) {
-    final $url = '/cardpointepaymentactivelink';
-    final $params = <String, dynamic>{'ActiveLinkToken': activeLinkToken};
-    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    final String $url = '/cardpointepaymentactivelink';
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'ActiveLinkToken': activeLinkToken
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
     return client.send<
             WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse,
             WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse>(
@@ -37,9 +44,14 @@ class _$Pages extends Pages {
       _cardpointepaymentactivelinkMakepaymentPost(
           {required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest?
               body}) {
-    final $url = '/cardpointepaymentactivelink/makepayment';
+    final String $url = '/cardpointepaymentactivelink/makepayment';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
     return client.send<
             WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse,
             WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>(
@@ -48,22 +60,34 @@ class _$Pages extends Pages {
 
   @override
   Future<Response<dynamic>> _cardpointepaymentactivelinkEmptyobjectGet() {
-    final $url = '/cardpointepaymentactivelink/emptyobject';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointepaymentactivelink/emptyobject';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<Response<dynamic>> _cardpointepaymentactivelinkEmptybrowseobjectGet() {
-    final $url = '/cardpointepaymentactivelink/emptybrowseobject';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointepaymentactivelink/emptybrowseobject';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<Response<dynamic>> _cardpointepaymentactivelinkKeyfieldnamesGet() {
-    final $url = '/cardpointepaymentactivelink/keyfieldnames';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointepaymentactivelink/keyfieldnames';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -72,8 +96,12 @@ class _$Pages extends Pages {
           Response<
               WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>>
       _cardpointetokenizerGet() {
-    final $url = '/cardpointetokenizer';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointetokenizer';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<
             WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse,
             WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>(
@@ -82,22 +110,34 @@ class _$Pages extends Pages {
 
   @override
   Future<Response<dynamic>> _cardpointetokenizerEmptyobjectGet() {
-    final $url = '/cardpointetokenizer/emptyobject';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointetokenizer/emptyobject';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<Response<dynamic>> _cardpointetokenizerEmptybrowseobjectGet() {
-    final $url = '/cardpointetokenizer/emptybrowseobject';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointetokenizer/emptybrowseobject';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<Response<dynamic>> _cardpointetokenizerKeyfieldnamesGet() {
-    final $url = '/cardpointetokenizer/keyfieldnames';
-    final $request = Request('GET', $url, client.baseUrl);
+    final String $url = '/cardpointetokenizer/keyfieldnames';
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 }

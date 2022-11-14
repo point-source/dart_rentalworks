@@ -2,11 +2,12 @@
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
-
-import 'package:chopper/chopper.dart';
 import 'dart:convert';
 
+import 'package:chopper/chopper.dart';
+
 import 'client_mapping.dart';
+import 'dart:async';
 import 'package:chopper/chopper.dart' as chopper;
 
 part 'pages.swagger.chopper.dart';
@@ -18,10 +19,12 @@ part 'pages.swagger.g.dart';
 
 @ChopperApi()
 abstract class Pages extends ChopperService {
-  static Pages create(
-      {ChopperClient? client,
-      String? baseUrl,
-      Iterable<dynamic>? interceptors}) {
+  static Pages create({
+    ChopperClient? client,
+    Authenticator? authenticator,
+    String? baseUrl,
+    Iterable<dynamic>? interceptors,
+  }) {
     if (client != null) {
       return _$Pages(client);
     }
@@ -29,7 +32,8 @@ abstract class Pages extends ChopperService {
     final newClient = ChopperClient(
       services: [_$Pages()],
       converter: $JsonSerializableConverter(),
-      interceptors: interceptors ?? [], /*baseUrl: YOUR_BASE_URL*/
+      interceptors: interceptors ?? [],
+      authenticator: authenticator, /*baseUrl: YOUR_BASE_URL*/
     );
     return _$Pages(newClient);
   }
@@ -203,9 +207,6 @@ class FwStandardModelsFwApiException {
   Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
@@ -219,6 +220,9 @@ class FwStandardModelsFwApiException {
                 const DeepCollectionEquality()
                     .equals(other.stackTrace, stackTrace)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -237,15 +241,25 @@ extension $FwStandardModelsFwApiExceptionExtension
         message: message ?? this.message,
         stackTrace: stackTrace ?? this.stackTrace);
   }
+
+  FwStandardModelsFwApiException copyWithWrapped(
+      {Wrapped<int?>? statusCode,
+      Wrapped<String?>? message,
+      Wrapped<String?>? stackTrace}) {
+    return FwStandardModelsFwApiException(
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        message: (message != null ? message.value : this.message),
+        stackTrace: (stackTrace != null ? stackTrace.value : this.stackTrace));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest {
   WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest({
-    this.activeLinkToken,
-    this.account,
-    this.expirationDate,
-    this.capture,
+    required this.activeLinkToken,
+    required this.account,
+    required this.expirationDate,
+    required this.capture,
   });
 
   factory WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest.fromJson(
@@ -254,13 +268,13 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeReq
           json);
 
   @JsonKey(name: 'ActiveLinkToken', includeIfNull: false)
-  final String? activeLinkToken;
+  final String activeLinkToken;
   @JsonKey(name: 'Account', includeIfNull: false)
-  final String? account;
+  final String account;
   @JsonKey(name: 'ExpirationDate', includeIfNull: false)
-  final String? expirationDate;
+  final String expirationDate;
   @JsonKey(name: 'Capture', includeIfNull: false)
-  final bool? capture;
+  final bool capture;
   static const fromJsonFactory =
       _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestFromJson;
   static const toJsonFactory =
@@ -268,9 +282,6 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeReq
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson(
           this);
-
-  @override
-  String toString() => jsonEncode(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -288,6 +299,9 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeReq
             (identical(other.capture, capture) ||
                 const DeepCollectionEquality().equals(other.capture, capture)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -311,6 +325,23 @@ extension $WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthori
         account: account ?? this.account,
         expirationDate: expirationDate ?? this.expirationDate,
         capture: capture ?? this.capture);
+  }
+
+  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
+      copyWithWrapped(
+          {Wrapped<String>? activeLinkToken,
+          Wrapped<String>? account,
+          Wrapped<String>? expirationDate,
+          Wrapped<bool>? capture}) {
+    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest(
+        activeLinkToken: (activeLinkToken != null
+            ? activeLinkToken.value
+            : this.activeLinkToken),
+        account: (account != null ? account.value : this.account),
+        expirationDate: (expirationDate != null
+            ? expirationDate.value
+            : this.expirationDate),
+        capture: (capture != null ? capture.value : this.capture));
   }
 }
 
@@ -357,9 +388,6 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLin
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse &&
@@ -387,6 +415,9 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLin
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -423,6 +454,36 @@ extension $WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActi
         cardPointeSite: cardPointeSite ?? this.cardPointeSite,
         message: message ?? this.message);
   }
+
+  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
+      copyWithWrapped(
+          {Wrapped<String?>? company,
+          Wrapped<String?>? orderDescription,
+          Wrapped<String?>? dealDescription,
+          Wrapped<String?>? officeLocation,
+          Wrapped<double?>? amountToPay,
+          Wrapped<String?>? statusCode,
+          Wrapped<String?>? cardPointeSite,
+          Wrapped<String?>? message}) {
+    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse(
+        company: (company != null ? company.value : this.company),
+        orderDescription: (orderDescription != null
+            ? orderDescription.value
+            : this.orderDescription),
+        dealDescription: (dealDescription != null
+            ? dealDescription.value
+            : this.dealDescription),
+        officeLocation: (officeLocation != null
+            ? officeLocation.value
+            : this.officeLocation),
+        amountToPay:
+            (amountToPay != null ? amountToPay.value : this.amountToPay),
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        cardPointeSite: (cardPointeSite != null
+            ? cardPointeSite.value
+            : this.cardPointeSite),
+        message: (message != null ? message.value : this.message));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -450,9 +511,6 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentA
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse &&
@@ -463,6 +521,9 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentA
                 const DeepCollectionEquality()
                     .equals(other.statusMessage, statusMessage)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -478,6 +539,15 @@ extension $WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePay
     return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse(
         statusCode: statusCode ?? this.statusCode,
         statusMessage: statusMessage ?? this.statusMessage);
+  }
+
+  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
+      copyWithWrapped(
+          {Wrapped<String?>? statusCode, Wrapped<String?>? statusMessage}) {
+    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse(
+        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+        statusMessage:
+            (statusMessage != null ? statusMessage.value : this.statusMessage));
   }
 }
 
@@ -503,15 +573,15 @@ class WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
           this);
 
   @override
-  String toString() => jsonEncode(this);
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse &&
             (identical(other.site, site) ||
                 const DeepCollectionEquality().equals(other.site, site)));
   }
+
+  @override
+  String toString() => jsonEncode(this);
 
   @override
   int get hashCode =>
@@ -524,6 +594,12 @@ extension $WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerRes
       copyWith({String? site}) {
     return WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse(
         site: site ?? this.site);
+  }
+
+  WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
+      copyWithWrapped({Wrapped<String?>? site}) {
+    return WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse(
+        site: (site != null ? site.value : this.site));
   }
 }
 
@@ -540,6 +616,14 @@ class $CustomJsonDecoder {
     }
 
     if (entity is T) {
+      return entity;
+    }
+
+    if (isTypeOf<T, Map>()) {
+      return entity;
+    }
+
+    if (isTypeOf<T, Iterable>()) {
       return entity;
     }
 
@@ -565,15 +649,15 @@ class $CustomJsonDecoder {
 
 class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
-  chopper.Response<ResultType> convertResponse<ResultType, Item>(
-      chopper.Response response) {
+  FutureOr<chopper.Response<ResultType>> convertResponse<ResultType, Item>(
+      chopper.Response response) async {
     if (response.bodyString.isEmpty) {
       // In rare cases, when let's say 204 (no content) is returned -
       // we cannot decode the missing json with the result type specified
       return chopper.Response(response.base, null, error: response.error);
     }
 
-    final jsonRes = super.convertResponse(response);
+    final jsonRes = await super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
         body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
   }
@@ -592,4 +676,9 @@ String? _dateToJson(DateTime? date) {
   final day = date.day < 10 ? '0${date.day}' : date.day.toString();
 
   return '$year-$month-$day';
+}
+
+class Wrapped<T> {
+  final T value;
+  const Wrapped.value(this.value);
 }

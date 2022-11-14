@@ -51,7 +51,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
           [],
       rows: (json['Rows'] as List<dynamic>?)
               ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,

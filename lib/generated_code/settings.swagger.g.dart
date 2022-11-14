@@ -257,14 +257,17 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwQueryFilter(
-      field: json['Field'] as String?,
-      op: json['Op'] as String?,
+      field: json['Field'] as String,
+      op: json['Op'] as String,
       value: json['Value'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     FwStandardModelsFwQueryFilter instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'Field': instance.field,
+    'Op': instance.op,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -272,8 +275,6 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
     }
   }
 
-  writeNotNull('Field', instance.field);
-  writeNotNull('Op', instance.op);
   writeNotNull('Value', instance.value);
   return val;
 }
@@ -7122,7 +7123,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
           [],
       rows: (json['Rows'] as List<dynamic>?)
               ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object).toList())
+                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -9845,28 +9846,20 @@ WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTempl
     _$WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequest(
-          discountTemplateId: json['DiscountTemplateId'] as String?,
-          warehouseId: json['WarehouseId'] as String?,
-          recType: json['RecType'] as String?,
+          discountTemplateId: json['DiscountTemplateId'] as String,
+          warehouseId: json['WarehouseId'] as String,
+          recType: json['RecType'] as String,
         );
 
 Map<String, dynamic>
     _$WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequestToJson(
-        WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('DiscountTemplateId', instance.discountTemplateId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('RecType', instance.recType);
-  return val;
-}
+            WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequest
+                instance) =>
+        <String, dynamic>{
+          'DiscountTemplateId': instance.discountTemplateId,
+          'WarehouseId': instance.warehouseId,
+          'RecType': instance.recType,
+        };
 
 WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsResponse
     _$WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsResponseFromJson(

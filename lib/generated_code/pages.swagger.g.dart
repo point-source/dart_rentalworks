@@ -43,30 +43,22 @@ WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
     _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest(
-          activeLinkToken: json['ActiveLinkToken'] as String?,
-          account: json['Account'] as String?,
-          expirationDate: json['ExpirationDate'] as String?,
-          capture: json['Capture'] as bool?,
+          activeLinkToken: json['ActiveLinkToken'] as String,
+          account: json['Account'] as String,
+          expirationDate: json['ExpirationDate'] as String,
+          capture: json['Capture'] as bool,
         );
 
 Map<String, dynamic>
     _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson(
-        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ActiveLinkToken', instance.activeLinkToken);
-  writeNotNull('Account', instance.account);
-  writeNotNull('ExpirationDate', instance.expirationDate);
-  writeNotNull('Capture', instance.capture);
-  return val;
-}
+            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
+                instance) =>
+        <String, dynamic>{
+          'ActiveLinkToken': instance.activeLinkToken,
+          'Account': instance.account,
+          'ExpirationDate': instance.expirationDate,
+          'Capture': instance.capture,
+        };
 
 WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
     _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseFromJson(
