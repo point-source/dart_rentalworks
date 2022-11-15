@@ -1,3 +1,9 @@
+## 4.0.0
+
+- Update swagger specs for RW v2019.1.2.882
+- Upgrade dependencies
+- Add ICode change tests
+
 ## 3.0.0
 
 - Update home.swagger to support RW v2019.1.2.216A
