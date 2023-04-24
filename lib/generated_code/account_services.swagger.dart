@@ -24,7 +24,7 @@ abstract class AccountServices extends ChopperService {
   static AccountServices create({
     ChopperClient? client,
     Authenticator? authenticator,
-    String? baseUrl,
+    Uri? baseUrl,
     Iterable<dynamic>? interceptors,
   }) {
     if (client != null) {
@@ -117,7 +117,10 @@ abstract class AccountServices extends ChopperService {
   }
 
   ///
-  @Post(path: '/account/resetpassword')
+  @Post(
+    path: '/account/resetpassword',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesAccountServicesAccountResetPasswordResponse>>
@@ -138,7 +141,10 @@ abstract class AccountServices extends ChopperService {
   }
 
   ///
-  @Post(path: '/account/getsettings')
+  @Post(
+    path: '/account/getsettings',
+    optionalBody: true,
+  )
   Future<chopper.Response<WebApiLogicAppFuncGetSettingsResponse>>
       _accountGetsettingsPost(
           {@Body()
@@ -156,7 +162,10 @@ abstract class AccountServices extends ChopperService {
   }
 
   ///
-  @Post(path: '/jwt')
+  @Post(
+    path: '/jwt',
+    optionalBody: true,
+  )
   Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
       _jwtPost({@Body() required FwStandardModelsFwApplicationUser? body});
 
@@ -171,7 +180,10 @@ abstract class AccountServices extends ChopperService {
   }
 
   ///
-  @Post(path: '/jwt/okta')
+  @Post(
+    path: '/jwt/okta',
+    optionalBody: true,
+  )
   Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
       _jwtOktaPost(
           {@Body() required WebApiModulesAccountServicesJwtOktaRequest? body});
@@ -191,7 +203,10 @@ abstract class AccountServices extends ChopperService {
   }
 
   ///
-  @Post(path: '/jwt/oktaverify')
+  @Post(
+    path: '/jwt/oktaverify',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
@@ -199,6 +214,27 @@ abstract class AccountServices extends ChopperService {
           {@Body()
               required WebApiModulesAccountServicesJwtOktaSessionRequest?
                   body});
+
+  ///
+  Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      jwtAzureadPost(
+          {required WebApiModulesAccountServicesJwtAzureADRequest? body}) {
+    generatedMapping.putIfAbsent(
+        FwCoreControllersFwJwtControllerJwtResponseModel,
+        () => FwCoreControllersFwJwtControllerJwtResponseModel.fromJsonFactory);
+
+    return _jwtAzureadPost(body: body);
+  }
+
+  ///
+  @Post(
+    path: '/jwt/azuread',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      _jwtAzureadPost(
+          {@Body()
+              required WebApiModulesAccountServicesJwtAzureADRequest? body});
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -209,11 +245,12 @@ class FwCoreApiSwashbuckleBadRequestResponse {
           Map<String, dynamic> json) =>
       _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
 
-  static const fromJsonFactory =
-      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  static const fromJsonFactory =
+      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
 
   @override
   String toString() => jsonEncode(this);
@@ -236,6 +273,11 @@ class FwCoreControllersFwJwtControllerJwtResponseModel {
           Map<String, dynamic> json) =>
       _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson(json);
 
+  static const toJsonFactory =
+      _$FwCoreControllersFwJwtControllerJwtResponseModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(this);
+
   @JsonKey(name: 'statuscode', includeIfNull: false)
   final int? statuscode;
   @JsonKey(name: 'statusmessage', includeIfNull: false)
@@ -248,10 +290,6 @@ class FwCoreControllersFwJwtControllerJwtResponseModel {
   final bool? resetpassword;
   static const fromJsonFactory =
       _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson;
-  static const toJsonFactory =
-      _$FwCoreControllersFwJwtControllerJwtResponseModelToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -335,6 +373,10 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
           Map<String, dynamic> json) =>
       _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(json);
 
+  static const toJsonFactory = _$FwStandardAppManagerFwAmSecurityTreeNodeToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(this);
+
   @JsonKey(name: 'id', includeIfNull: false)
   final String? id;
   @JsonKey(name: 'caption', includeIfNull: false)
@@ -350,9 +392,6 @@ class FwStandardAppManagerFwAmSecurityTreeNode {
   final List<FwStandardAppManagerFwAmSecurityTreeNode>? children;
   static const fromJsonFactory =
       _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson;
-  static const toJsonFactory = _$FwStandardAppManagerFwAmSecurityTreeNodeToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -419,6 +458,107 @@ extension $FwStandardAppManagerFwAmSecurityTreeNodeExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwStandardDataFwTranslatedValue {
+  FwStandardDataFwTranslatedValue({
+    this.fieldName,
+    this.translatedValue,
+    this.untranslatedValue,
+    this.isTranslated,
+    this.userIsTranslating,
+  });
+
+  factory FwStandardDataFwTranslatedValue.fromJson(Map<String, dynamic> json) =>
+      _$FwStandardDataFwTranslatedValueFromJson(json);
+
+  static const toJsonFactory = _$FwStandardDataFwTranslatedValueToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardDataFwTranslatedValueToJson(this);
+
+  @JsonKey(name: 'FieldName', includeIfNull: false)
+  final String? fieldName;
+  @JsonKey(name: 'TranslatedValue', includeIfNull: false)
+  final String? translatedValue;
+  @JsonKey(name: 'UntranslatedValue', includeIfNull: false)
+  final String? untranslatedValue;
+  @JsonKey(name: 'IsTranslated', includeIfNull: false)
+  final bool? isTranslated;
+  @JsonKey(name: 'UserIsTranslating', includeIfNull: false)
+  final bool? userIsTranslating;
+  static const fromJsonFactory = _$FwStandardDataFwTranslatedValueFromJson;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardDataFwTranslatedValue &&
+            (identical(other.fieldName, fieldName) ||
+                const DeepCollectionEquality()
+                    .equals(other.fieldName, fieldName)) &&
+            (identical(other.translatedValue, translatedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.translatedValue, translatedValue)) &&
+            (identical(other.untranslatedValue, untranslatedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.untranslatedValue, untranslatedValue)) &&
+            (identical(other.isTranslated, isTranslated) ||
+                const DeepCollectionEquality()
+                    .equals(other.isTranslated, isTranslated)) &&
+            (identical(other.userIsTranslating, userIsTranslating) ||
+                const DeepCollectionEquality()
+                    .equals(other.userIsTranslating, userIsTranslating)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(translatedValue) ^
+      const DeepCollectionEquality().hash(untranslatedValue) ^
+      const DeepCollectionEquality().hash(isTranslated) ^
+      const DeepCollectionEquality().hash(userIsTranslating) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardDataFwTranslatedValueExtension
+    on FwStandardDataFwTranslatedValue {
+  FwStandardDataFwTranslatedValue copyWith(
+      {String? fieldName,
+      String? translatedValue,
+      String? untranslatedValue,
+      bool? isTranslated,
+      bool? userIsTranslating}) {
+    return FwStandardDataFwTranslatedValue(
+        fieldName: fieldName ?? this.fieldName,
+        translatedValue: translatedValue ?? this.translatedValue,
+        untranslatedValue: untranslatedValue ?? this.untranslatedValue,
+        isTranslated: isTranslated ?? this.isTranslated,
+        userIsTranslating: userIsTranslating ?? this.userIsTranslating);
+  }
+
+  FwStandardDataFwTranslatedValue copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? translatedValue,
+      Wrapped<String?>? untranslatedValue,
+      Wrapped<bool?>? isTranslated,
+      Wrapped<bool?>? userIsTranslating}) {
+    return FwStandardDataFwTranslatedValue(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        translatedValue: (translatedValue != null
+            ? translatedValue.value
+            : this.translatedValue),
+        untranslatedValue: (untranslatedValue != null
+            ? untranslatedValue.value
+            : this.untranslatedValue),
+        isTranslated:
+            (isTranslated != null ? isTranslated.value : this.isTranslated),
+        userIsTranslating: (userIsTranslating != null
+            ? userIsTranslating.value
+            : this.userIsTranslating));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwApiException {
   FwStandardModelsFwApiException({
     this.statusCode,
@@ -429,6 +569,9 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
+  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
   @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
   @JsonKey(name: 'Message', includeIfNull: false)
@@ -436,8 +579,6 @@ class FwStandardModelsFwApiException {
   @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
-  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
-  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -489,22 +630,41 @@ extension $FwStandardModelsFwApiExceptionExtension
 @JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwApplicationUser {
   FwStandardModelsFwApplicationUser({
-    this.userName,
-    this.password,
+    required this.userName,
+    required this.password,
+    this.webApp,
+    this.browserApp,
+    this.browserAppVersion,
+    this.browserDeviceId,
+    this.browserUserAgent,
+    this.browserUrl,
   });
 
   factory FwStandardModelsFwApplicationUser.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardModelsFwApplicationUserFromJson(json);
 
-  @JsonKey(name: 'UserName', includeIfNull: false)
-  final String? userName;
-  @JsonKey(name: 'Password', includeIfNull: false)
-  final String? password;
-  static const fromJsonFactory = _$FwStandardModelsFwApplicationUserFromJson;
   static const toJsonFactory = _$FwStandardModelsFwApplicationUserToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwApplicationUserToJson(this);
+
+  @JsonKey(name: 'UserName', includeIfNull: false)
+  final String userName;
+  @JsonKey(name: 'Password', includeIfNull: false)
+  final String password;
+  @JsonKey(name: 'WebApp', includeIfNull: false)
+  final String? webApp;
+  @JsonKey(name: 'BrowserApp', includeIfNull: false)
+  final String? browserApp;
+  @JsonKey(name: 'BrowserAppVersion', includeIfNull: false)
+  final String? browserAppVersion;
+  @JsonKey(name: 'BrowserDeviceId', includeIfNull: false)
+  final String? browserDeviceId;
+  @JsonKey(name: 'BrowserUserAgent', includeIfNull: false)
+  final String? browserUserAgent;
+  @JsonKey(name: 'BrowserUrl', includeIfNull: false)
+  final String? browserUrl;
+  static const fromJsonFactory = _$FwStandardModelsFwApplicationUserFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -515,7 +675,24 @@ class FwStandardModelsFwApplicationUser {
                     .equals(other.userName, userName)) &&
             (identical(other.password, password) ||
                 const DeepCollectionEquality()
-                    .equals(other.password, password)));
+                    .equals(other.password, password)) &&
+            (identical(other.webApp, webApp) ||
+                const DeepCollectionEquality().equals(other.webApp, webApp)) &&
+            (identical(other.browserApp, browserApp) ||
+                const DeepCollectionEquality()
+                    .equals(other.browserApp, browserApp)) &&
+            (identical(other.browserAppVersion, browserAppVersion) ||
+                const DeepCollectionEquality()
+                    .equals(other.browserAppVersion, browserAppVersion)) &&
+            (identical(other.browserDeviceId, browserDeviceId) ||
+                const DeepCollectionEquality()
+                    .equals(other.browserDeviceId, browserDeviceId)) &&
+            (identical(other.browserUserAgent, browserUserAgent) ||
+                const DeepCollectionEquality()
+                    .equals(other.browserUserAgent, browserUserAgent)) &&
+            (identical(other.browserUrl, browserUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.browserUrl, browserUrl)));
   }
 
   @override
@@ -525,23 +702,61 @@ class FwStandardModelsFwApplicationUser {
   int get hashCode =>
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(webApp) ^
+      const DeepCollectionEquality().hash(browserApp) ^
+      const DeepCollectionEquality().hash(browserAppVersion) ^
+      const DeepCollectionEquality().hash(browserDeviceId) ^
+      const DeepCollectionEquality().hash(browserUserAgent) ^
+      const DeepCollectionEquality().hash(browserUrl) ^
       runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwApplicationUserExtension
     on FwStandardModelsFwApplicationUser {
   FwStandardModelsFwApplicationUser copyWith(
-      {String? userName, String? password}) {
+      {String? userName,
+      String? password,
+      String? webApp,
+      String? browserApp,
+      String? browserAppVersion,
+      String? browserDeviceId,
+      String? browserUserAgent,
+      String? browserUrl}) {
     return FwStandardModelsFwApplicationUser(
         userName: userName ?? this.userName,
-        password: password ?? this.password);
+        password: password ?? this.password,
+        webApp: webApp ?? this.webApp,
+        browserApp: browserApp ?? this.browserApp,
+        browserAppVersion: browserAppVersion ?? this.browserAppVersion,
+        browserDeviceId: browserDeviceId ?? this.browserDeviceId,
+        browserUserAgent: browserUserAgent ?? this.browserUserAgent,
+        browserUrl: browserUrl ?? this.browserUrl);
   }
 
   FwStandardModelsFwApplicationUser copyWithWrapped(
-      {Wrapped<String?>? userName, Wrapped<String?>? password}) {
+      {Wrapped<String>? userName,
+      Wrapped<String>? password,
+      Wrapped<String?>? webApp,
+      Wrapped<String?>? browserApp,
+      Wrapped<String?>? browserAppVersion,
+      Wrapped<String?>? browserDeviceId,
+      Wrapped<String?>? browserUserAgent,
+      Wrapped<String?>? browserUrl}) {
     return FwStandardModelsFwApplicationUser(
         userName: (userName != null ? userName.value : this.userName),
-        password: (password != null ? password.value : this.password));
+        password: (password != null ? password.value : this.password),
+        webApp: (webApp != null ? webApp.value : this.webApp),
+        browserApp: (browserApp != null ? browserApp.value : this.browserApp),
+        browserAppVersion: (browserAppVersion != null
+            ? browserAppVersion.value
+            : this.browserAppVersion),
+        browserDeviceId: (browserDeviceId != null
+            ? browserDeviceId.value
+            : this.browserDeviceId),
+        browserUserAgent: (browserUserAgent != null
+            ? browserUserAgent.value
+            : this.browserUserAgent),
+        browserUrl: (browserUrl != null ? browserUrl.value : this.browserUrl));
   }
 }
 
@@ -558,11 +773,16 @@ class FwStandardSqlServerFwJsonDataTable {
     this.totalRows,
     this.dateFields,
     this.columnNameByIndex,
+    this.translation,
   });
 
   factory FwStandardSqlServerFwJsonDataTable.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
+
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableToJson(this);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Map<String, dynamic>? columnIndex;
@@ -573,7 +793,7 @@ class FwStandardSqlServerFwJsonDataTable {
       includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object?>>[])
   final List<List<Object?>>? rows;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
@@ -587,10 +807,12 @@ class FwStandardSqlServerFwJsonDataTable {
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Map<String, dynamic>? columnNameByIndex;
+  @JsonKey(
+      name: '_Translation',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwTranslatedValue>[])
+  final List<FwStandardDataFwTranslatedValue>? translation;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
-  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardSqlServerFwJsonDataTableToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -622,7 +844,10 @@ class FwStandardSqlServerFwJsonDataTable {
                     .equals(other.dateFields, dateFields)) &&
             (identical(other.columnNameByIndex, columnNameByIndex) ||
                 const DeepCollectionEquality()
-                    .equals(other.columnNameByIndex, columnNameByIndex)));
+                    .equals(other.columnNameByIndex, columnNameByIndex)) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality()
+                    .equals(other.translation, translation)));
   }
 
   @override
@@ -640,6 +865,7 @@ class FwStandardSqlServerFwJsonDataTable {
       const DeepCollectionEquality().hash(totalRows) ^
       const DeepCollectionEquality().hash(dateFields) ^
       const DeepCollectionEquality().hash(columnNameByIndex) ^
+      const DeepCollectionEquality().hash(translation) ^
       runtimeType.hashCode;
 }
 
@@ -655,7 +881,8 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Map<String, dynamic>? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex,
+      List<FwStandardDataFwTranslatedValue>? translation}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -666,20 +893,22 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         totalPages: totalPages ?? this.totalPages,
         totalRows: totalRows ?? this.totalRows,
         dateFields: dateFields ?? this.dateFields,
-        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex,
+        translation: translation ?? this.translation);
   }
 
   FwStandardSqlServerFwJsonDataTable copyWithWrapped(
       {Wrapped<Map<String, dynamic>?>? columnIndex,
       Wrapped<Map<String, dynamic>?>? totals,
       Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
-      Wrapped<List<List<Object>>?>? rows,
+      Wrapped<List<List<Object?>>?>? rows,
       Wrapped<int?>? pageNo,
       Wrapped<int?>? pageSize,
       Wrapped<int?>? totalPages,
       Wrapped<int?>? totalRows,
       Wrapped<List<String>?>? dateFields,
-      Wrapped<Map<String, dynamic>?>? columnNameByIndex}) {
+      Wrapped<Map<String, dynamic>?>? columnNameByIndex,
+      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex:
             (columnIndex != null ? columnIndex.value : this.columnIndex),
@@ -693,7 +922,9 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         dateFields: (dateFields != null ? dateFields.value : this.dateFields),
         columnNameByIndex: (columnNameByIndex != null
             ? columnNameByIndex.value
-            : this.columnNameByIndex));
+            : this.columnNameByIndex),
+        translation:
+            (translation != null ? translation.value : this.translation));
   }
 }
 
@@ -710,6 +941,10 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   factory FwStandardSqlServerFwJsonDataTableColumn.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
+
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
 
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
@@ -728,9 +963,6 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
-  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -810,6 +1042,11 @@ class WebApiLogicAppFuncConsignmentSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncConsignmentSettingsResponseFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncConsignmentSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncConsignmentSettingsResponseToJson(this);
+
   @JsonKey(name: 'EnableConsignment', includeIfNull: false)
   final bool? enableConsignment;
   @JsonKey(name: 'DefaultConsignorFeeBasedOn', includeIfNull: false)
@@ -822,10 +1059,6 @@ class WebApiLogicAppFuncConsignmentSettingsResponse {
   final bool? defaultTreatConsignedQtyAsOwned;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncConsignmentSettingsResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiLogicAppFuncConsignmentSettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncConsignmentSettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -921,13 +1154,14 @@ class WebApiLogicAppFuncCustomFieldsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncCustomFieldsResponseFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncCustomFieldsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncCustomFieldsResponseToJson(this);
+
   @JsonKey(name: 'ModuleNames', includeIfNull: false, defaultValue: <String>[])
   final List<String>? moduleNames;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncCustomFieldsResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncCustomFieldsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncCustomFieldsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -976,6 +1210,10 @@ class WebApiLogicAppFuncCustomFormModel {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncCustomFormModelFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncCustomFormModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncCustomFormModelToJson(this);
+
   @JsonKey(name: 'BaseForm', includeIfNull: false)
   final String? baseForm;
   @JsonKey(name: 'CustomFormId', includeIfNull: false)
@@ -989,9 +1227,6 @@ class WebApiLogicAppFuncCustomFormModel {
   @JsonKey(name: 'AssignTo', includeIfNull: false)
   final String? assignTo;
   static const fromJsonFactory = _$WebApiLogicAppFuncCustomFormModelFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncCustomFormModelToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncCustomFormModelToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1078,6 +1313,10 @@ class WebApiLogicAppFuncCustomFormsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncCustomFormsResponseFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncCustomFormsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncCustomFormsResponseToJson(this);
+
   @JsonKey(
       name: 'customForms',
       includeIfNull: false,
@@ -1085,9 +1324,6 @@ class WebApiLogicAppFuncCustomFormsResponse {
   final List<WebApiLogicAppFuncCustomFormModel>? customForms;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncCustomFormsResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncCustomFormsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncCustomFormsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1131,6 +1367,7 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
     this.defaultDealStatus,
     this.defaultDealPoRequired,
     this.defaultDealPoType,
+    this.defaultDealStagingExcludeOrderAfterWrap,
     this.defaultCustomerStatusId,
     this.defaultCustomerStatus,
     this.defaultDealBillingCycleId,
@@ -1151,6 +1388,11 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncDefaultSettingsResponseFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncDefaultSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncDefaultSettingsResponseToJson(this);
+
   @JsonKey(name: 'DefaultUnitId', includeIfNull: false)
   final String? defaultUnitId;
   @JsonKey(name: 'DefaultUnit', includeIfNull: false)
@@ -1163,6 +1405,9 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
   final bool? defaultDealPoRequired;
   @JsonKey(name: 'DefaultDealPoType', includeIfNull: false)
   final String? defaultDealPoType;
+  @JsonKey(
+      name: 'DefaultDealStagingExcludeOrderAfterWrap', includeIfNull: false)
+  final bool? defaultDealStagingExcludeOrderAfterWrap;
   @JsonKey(name: 'DefaultCustomerStatusId', includeIfNull: false)
   final String? defaultCustomerStatusId;
   @JsonKey(name: 'DefaultCustomerStatus', includeIfNull: false)
@@ -1193,10 +1438,6 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
   final bool? contactShowAllDeals;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncDefaultSettingsResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiLogicAppFuncDefaultSettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncDefaultSettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1220,6 +1461,10 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
             (identical(other.defaultDealPoType, defaultDealPoType) ||
                 const DeepCollectionEquality()
                     .equals(other.defaultDealPoType, defaultDealPoType)) &&
+            (identical(other.defaultDealStagingExcludeOrderAfterWrap, defaultDealStagingExcludeOrderAfterWrap) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultDealStagingExcludeOrderAfterWrap,
+                    defaultDealStagingExcludeOrderAfterWrap)) &&
             (identical(other.defaultCustomerStatusId, defaultCustomerStatusId) ||
                 const DeepCollectionEquality().equals(
                     other.defaultCustomerStatusId, defaultCustomerStatusId)) &&
@@ -1239,12 +1484,8 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
                     defaultNonRecurringBillingCycleId)) &&
             (identical(other.defaultNonRecurringBillingCycle, defaultNonRecurringBillingCycle) ||
                 const DeepCollectionEquality().equals(
-                    other.defaultNonRecurringBillingCycle,
-                    defaultNonRecurringBillingCycle)) &&
-            (identical(other.defaultVendorBillingCycleId, defaultVendorBillingCycleId) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultVendorBillingCycleId,
-                    defaultVendorBillingCycleId)) &&
+                    other.defaultNonRecurringBillingCycle, defaultNonRecurringBillingCycle)) &&
+            (identical(other.defaultVendorBillingCycleId, defaultVendorBillingCycleId) || const DeepCollectionEquality().equals(other.defaultVendorBillingCycleId, defaultVendorBillingCycleId)) &&
             (identical(other.defaultVendorBillingCycle, defaultVendorBillingCycle) || const DeepCollectionEquality().equals(other.defaultVendorBillingCycle, defaultVendorBillingCycle)) &&
             (identical(other.defaultCustomerPaymentTermsId, defaultCustomerPaymentTermsId) || const DeepCollectionEquality().equals(other.defaultCustomerPaymentTermsId, defaultCustomerPaymentTermsId)) &&
             (identical(other.defaultCustomerPaymentTerms, defaultCustomerPaymentTerms) || const DeepCollectionEquality().equals(other.defaultCustomerPaymentTerms, defaultCustomerPaymentTerms)) &&
@@ -1265,6 +1506,8 @@ class WebApiLogicAppFuncDefaultSettingsResponse {
       const DeepCollectionEquality().hash(defaultDealStatus) ^
       const DeepCollectionEquality().hash(defaultDealPoRequired) ^
       const DeepCollectionEquality().hash(defaultDealPoType) ^
+      const DeepCollectionEquality()
+          .hash(defaultDealStagingExcludeOrderAfterWrap) ^
       const DeepCollectionEquality().hash(defaultCustomerStatusId) ^
       const DeepCollectionEquality().hash(defaultCustomerStatus) ^
       const DeepCollectionEquality().hash(defaultDealBillingCycleId) ^
@@ -1291,6 +1534,7 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
       String? defaultDealStatus,
       bool? defaultDealPoRequired,
       String? defaultDealPoType,
+      bool? defaultDealStagingExcludeOrderAfterWrap,
       String? defaultCustomerStatusId,
       String? defaultCustomerStatus,
       String? defaultDealBillingCycleId,
@@ -1313,6 +1557,9 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
         defaultDealPoRequired:
             defaultDealPoRequired ?? this.defaultDealPoRequired,
         defaultDealPoType: defaultDealPoType ?? this.defaultDealPoType,
+        defaultDealStagingExcludeOrderAfterWrap:
+            defaultDealStagingExcludeOrderAfterWrap ??
+                this.defaultDealStagingExcludeOrderAfterWrap,
         defaultCustomerStatusId:
             defaultCustomerStatusId ?? this.defaultCustomerStatusId,
         defaultCustomerStatus:
@@ -1347,6 +1594,7 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
       Wrapped<String?>? defaultDealStatus,
       Wrapped<bool?>? defaultDealPoRequired,
       Wrapped<String?>? defaultDealPoType,
+      Wrapped<bool?>? defaultDealStagingExcludeOrderAfterWrap,
       Wrapped<String?>? defaultCustomerStatusId,
       Wrapped<String?>? defaultCustomerStatus,
       Wrapped<String?>? defaultDealBillingCycleId,
@@ -1378,6 +1626,10 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
         defaultDealPoType: (defaultDealPoType != null
             ? defaultDealPoType.value
             : this.defaultDealPoType),
+        defaultDealStagingExcludeOrderAfterWrap:
+            (defaultDealStagingExcludeOrderAfterWrap != null
+                ? defaultDealStagingExcludeOrderAfterWrap.value
+                : this.defaultDealStagingExcludeOrderAfterWrap),
         defaultCustomerStatusId: (defaultCustomerStatusId != null
             ? defaultCustomerStatusId.value
             : this.defaultCustomerStatusId),
@@ -1425,74 +1677,65 @@ extension $WebApiLogicAppFuncDefaultSettingsResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiLogicAppFuncDepartmentActivitiesResponse {
-  WebApiLogicAppFuncDepartmentActivitiesResponse({
-    this.defaultActivityFacilities,
-    this.defaultActivityLabor,
-    this.defaultActivityMiscellaneous,
-    this.defaultActivityRental,
-    this.defaultActivitySales,
-    this.defaultActivityTransportation,
-    this.defaultActivityRentalSale,
+class WebApiLogicAppFuncDepartmentDefaultActivities {
+  WebApiLogicAppFuncDepartmentDefaultActivities({
+    this.facilities,
+    this.labor,
+    this.miscellaneous,
+    this.rental,
+    this.sales,
+    this.transportation,
+    this.rentalSale,
   });
 
-  factory WebApiLogicAppFuncDepartmentActivitiesResponse.fromJson(
+  factory WebApiLogicAppFuncDepartmentDefaultActivities.fromJson(
           Map<String, dynamic> json) =>
-      _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson(json);
+      _$WebApiLogicAppFuncDepartmentDefaultActivitiesFromJson(json);
 
-  @JsonKey(name: 'DefaultActivityFacilities', includeIfNull: false)
-  final bool? defaultActivityFacilities;
-  @JsonKey(name: 'DefaultActivityLabor', includeIfNull: false)
-  final bool? defaultActivityLabor;
-  @JsonKey(name: 'DefaultActivityMiscellaneous', includeIfNull: false)
-  final bool? defaultActivityMiscellaneous;
-  @JsonKey(name: 'DefaultActivityRental', includeIfNull: false)
-  final bool? defaultActivityRental;
-  @JsonKey(name: 'DefaultActivitySales', includeIfNull: false)
-  final bool? defaultActivitySales;
-  @JsonKey(name: 'DefaultActivityTransportation', includeIfNull: false)
-  final bool? defaultActivityTransportation;
-  @JsonKey(name: 'DefaultActivityRentalSale', includeIfNull: false)
-  final bool? defaultActivityRentalSale;
-  static const fromJsonFactory =
-      _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson;
   static const toJsonFactory =
-      _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson;
+      _$WebApiLogicAppFuncDepartmentDefaultActivitiesToJson;
   Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(this);
+      _$WebApiLogicAppFuncDepartmentDefaultActivitiesToJson(this);
+
+  @JsonKey(name: 'Facilities', includeIfNull: false)
+  final bool? facilities;
+  @JsonKey(name: 'Labor', includeIfNull: false)
+  final bool? labor;
+  @JsonKey(name: 'Miscellaneous', includeIfNull: false)
+  final bool? miscellaneous;
+  @JsonKey(name: 'Rental', includeIfNull: false)
+  final bool? rental;
+  @JsonKey(name: 'Sales', includeIfNull: false)
+  final bool? sales;
+  @JsonKey(name: 'Transportation', includeIfNull: false)
+  final bool? transportation;
+  @JsonKey(name: 'RentalSale', includeIfNull: false)
+  final bool? rentalSale;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncDepartmentDefaultActivitiesFromJson;
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is WebApiLogicAppFuncDepartmentActivitiesResponse &&
-            (identical(other.defaultActivityFacilities,
-                    defaultActivityFacilities) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivityFacilities,
-                    defaultActivityFacilities)) &&
-            (identical(other.defaultActivityLabor, defaultActivityLabor) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivityLabor, defaultActivityLabor)) &&
-            (identical(other.defaultActivityMiscellaneous,
-                    defaultActivityMiscellaneous) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivityMiscellaneous,
-                    defaultActivityMiscellaneous)) &&
-            (identical(other.defaultActivityRental, defaultActivityRental) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivityRental, defaultActivityRental)) &&
-            (identical(other.defaultActivitySales, defaultActivitySales) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivitySales, defaultActivitySales)) &&
-            (identical(other.defaultActivityTransportation,
-                    defaultActivityTransportation) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivityTransportation,
-                    defaultActivityTransportation)) &&
-            (identical(other.defaultActivityRentalSale,
-                    defaultActivityRentalSale) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultActivityRentalSale, defaultActivityRentalSale)));
+        (other is WebApiLogicAppFuncDepartmentDefaultActivities &&
+            (identical(other.facilities, facilities) ||
+                const DeepCollectionEquality()
+                    .equals(other.facilities, facilities)) &&
+            (identical(other.labor, labor) ||
+                const DeepCollectionEquality().equals(other.labor, labor)) &&
+            (identical(other.miscellaneous, miscellaneous) ||
+                const DeepCollectionEquality()
+                    .equals(other.miscellaneous, miscellaneous)) &&
+            (identical(other.rental, rental) ||
+                const DeepCollectionEquality().equals(other.rental, rental)) &&
+            (identical(other.sales, sales) ||
+                const DeepCollectionEquality().equals(other.sales, sales)) &&
+            (identical(other.transportation, transportation) ||
+                const DeepCollectionEquality()
+                    .equals(other.transportation, transportation)) &&
+            (identical(other.rentalSale, rentalSale) ||
+                const DeepCollectionEquality()
+                    .equals(other.rentalSale, rentalSale)));
   }
 
   @override
@@ -1500,71 +1743,127 @@ class WebApiLogicAppFuncDepartmentActivitiesResponse {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(defaultActivityFacilities) ^
-      const DeepCollectionEquality().hash(defaultActivityLabor) ^
-      const DeepCollectionEquality().hash(defaultActivityMiscellaneous) ^
-      const DeepCollectionEquality().hash(defaultActivityRental) ^
-      const DeepCollectionEquality().hash(defaultActivitySales) ^
-      const DeepCollectionEquality().hash(defaultActivityTransportation) ^
-      const DeepCollectionEquality().hash(defaultActivityRentalSale) ^
+      const DeepCollectionEquality().hash(facilities) ^
+      const DeepCollectionEquality().hash(labor) ^
+      const DeepCollectionEquality().hash(miscellaneous) ^
+      const DeepCollectionEquality().hash(rental) ^
+      const DeepCollectionEquality().hash(sales) ^
+      const DeepCollectionEquality().hash(transportation) ^
+      const DeepCollectionEquality().hash(rentalSale) ^
       runtimeType.hashCode;
 }
 
-extension $WebApiLogicAppFuncDepartmentActivitiesResponseExtension
-    on WebApiLogicAppFuncDepartmentActivitiesResponse {
-  WebApiLogicAppFuncDepartmentActivitiesResponse copyWith(
-      {bool? defaultActivityFacilities,
-      bool? defaultActivityLabor,
-      bool? defaultActivityMiscellaneous,
-      bool? defaultActivityRental,
-      bool? defaultActivitySales,
-      bool? defaultActivityTransportation,
-      bool? defaultActivityRentalSale}) {
-    return WebApiLogicAppFuncDepartmentActivitiesResponse(
-        defaultActivityFacilities:
-            defaultActivityFacilities ?? this.defaultActivityFacilities,
-        defaultActivityLabor: defaultActivityLabor ?? this.defaultActivityLabor,
-        defaultActivityMiscellaneous:
-            defaultActivityMiscellaneous ?? this.defaultActivityMiscellaneous,
-        defaultActivityRental:
-            defaultActivityRental ?? this.defaultActivityRental,
-        defaultActivitySales: defaultActivitySales ?? this.defaultActivitySales,
-        defaultActivityTransportation:
-            defaultActivityTransportation ?? this.defaultActivityTransportation,
-        defaultActivityRentalSale:
-            defaultActivityRentalSale ?? this.defaultActivityRentalSale);
+extension $WebApiLogicAppFuncDepartmentDefaultActivitiesExtension
+    on WebApiLogicAppFuncDepartmentDefaultActivities {
+  WebApiLogicAppFuncDepartmentDefaultActivities copyWith(
+      {bool? facilities,
+      bool? labor,
+      bool? miscellaneous,
+      bool? rental,
+      bool? sales,
+      bool? transportation,
+      bool? rentalSale}) {
+    return WebApiLogicAppFuncDepartmentDefaultActivities(
+        facilities: facilities ?? this.facilities,
+        labor: labor ?? this.labor,
+        miscellaneous: miscellaneous ?? this.miscellaneous,
+        rental: rental ?? this.rental,
+        sales: sales ?? this.sales,
+        transportation: transportation ?? this.transportation,
+        rentalSale: rentalSale ?? this.rentalSale);
   }
 
-  WebApiLogicAppFuncDepartmentActivitiesResponse copyWithWrapped(
-      {Wrapped<bool?>? defaultActivityFacilities,
-      Wrapped<bool?>? defaultActivityLabor,
-      Wrapped<bool?>? defaultActivityMiscellaneous,
-      Wrapped<bool?>? defaultActivityRental,
-      Wrapped<bool?>? defaultActivitySales,
-      Wrapped<bool?>? defaultActivityTransportation,
-      Wrapped<bool?>? defaultActivityRentalSale}) {
-    return WebApiLogicAppFuncDepartmentActivitiesResponse(
-        defaultActivityFacilities: (defaultActivityFacilities != null
-            ? defaultActivityFacilities.value
-            : this.defaultActivityFacilities),
-        defaultActivityLabor: (defaultActivityLabor != null
-            ? defaultActivityLabor.value
-            : this.defaultActivityLabor),
-        defaultActivityMiscellaneous: (defaultActivityMiscellaneous != null
-            ? defaultActivityMiscellaneous.value
-            : this.defaultActivityMiscellaneous),
-        defaultActivityRental: (defaultActivityRental != null
-            ? defaultActivityRental.value
-            : this.defaultActivityRental),
-        defaultActivitySales: (defaultActivitySales != null
-            ? defaultActivitySales.value
-            : this.defaultActivitySales),
-        defaultActivityTransportation: (defaultActivityTransportation != null
-            ? defaultActivityTransportation.value
-            : this.defaultActivityTransportation),
-        defaultActivityRentalSale: (defaultActivityRentalSale != null
-            ? defaultActivityRentalSale.value
-            : this.defaultActivityRentalSale));
+  WebApiLogicAppFuncDepartmentDefaultActivities copyWithWrapped(
+      {Wrapped<bool?>? facilities,
+      Wrapped<bool?>? labor,
+      Wrapped<bool?>? miscellaneous,
+      Wrapped<bool?>? rental,
+      Wrapped<bool?>? sales,
+      Wrapped<bool?>? transportation,
+      Wrapped<bool?>? rentalSale}) {
+    return WebApiLogicAppFuncDepartmentDefaultActivities(
+        facilities: (facilities != null ? facilities.value : this.facilities),
+        labor: (labor != null ? labor.value : this.labor),
+        miscellaneous:
+            (miscellaneous != null ? miscellaneous.value : this.miscellaneous),
+        rental: (rental != null ? rental.value : this.rental),
+        sales: (sales != null ? sales.value : this.sales),
+        transportation: (transportation != null
+            ? transportation.value
+            : this.transportation),
+        rentalSale: (rentalSale != null ? rentalSale.value : this.rentalSale));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncDepartmentSettingsResponse {
+  WebApiLogicAppFuncDepartmentSettingsResponse({
+    this.requireContactConfirmation,
+    this.defaultActivities,
+  });
+
+  factory WebApiLogicAppFuncDepartmentSettingsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiLogicAppFuncDepartmentSettingsResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncDepartmentSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncDepartmentSettingsResponseToJson(this);
+
+  @JsonKey(name: 'RequireContactConfirmation', includeIfNull: false)
+  final bool? requireContactConfirmation;
+  @JsonKey(name: 'DefaultActivities', includeIfNull: false)
+  final WebApiLogicAppFuncDepartmentDefaultActivities? defaultActivities;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncDepartmentSettingsResponseFromJson;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncDepartmentSettingsResponse &&
+            (identical(other.requireContactConfirmation,
+                    requireContactConfirmation) ||
+                const DeepCollectionEquality().equals(
+                    other.requireContactConfirmation,
+                    requireContactConfirmation)) &&
+            (identical(other.defaultActivities, defaultActivities) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultActivities, defaultActivities)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(requireContactConfirmation) ^
+      const DeepCollectionEquality().hash(defaultActivities) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiLogicAppFuncDepartmentSettingsResponseExtension
+    on WebApiLogicAppFuncDepartmentSettingsResponse {
+  WebApiLogicAppFuncDepartmentSettingsResponse copyWith(
+      {bool? requireContactConfirmation,
+      WebApiLogicAppFuncDepartmentDefaultActivities? defaultActivities}) {
+    return WebApiLogicAppFuncDepartmentSettingsResponse(
+        requireContactConfirmation:
+            requireContactConfirmation ?? this.requireContactConfirmation,
+        defaultActivities: defaultActivities ?? this.defaultActivities);
+  }
+
+  WebApiLogicAppFuncDepartmentSettingsResponse copyWithWrapped(
+      {Wrapped<bool?>? requireContactConfirmation,
+      Wrapped<WebApiLogicAppFuncDepartmentDefaultActivities?>?
+          defaultActivities}) {
+    return WebApiLogicAppFuncDepartmentSettingsResponse(
+        requireContactConfirmation: (requireContactConfirmation != null
+            ? requireContactConfirmation.value
+            : this.requireContactConfirmation),
+        defaultActivities: (defaultActivities != null
+            ? defaultActivities.value
+            : this.defaultActivities));
   }
 }
 
@@ -1578,14 +1877,15 @@ class WebApiLogicAppFuncDocumentBarcodeSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson(json);
 
-  @JsonKey(name: 'DocumentBarCodeStyle', includeIfNull: false)
-  final String? documentBarCodeStyle;
-  static const fromJsonFactory =
-      _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson;
   static const toJsonFactory =
       _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(this);
+
+  @JsonKey(name: 'DocumentBarCodeStyle', includeIfNull: false)
+  final String? documentBarCodeStyle;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -1646,6 +1946,10 @@ class WebApiLogicAppFuncGetSettingsResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncGetSettingsResponseFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncGetSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncGetSettingsResponseToJson(this);
+
   @JsonKey(name: 'userSettings', includeIfNull: false)
   final WebApiLogicAppFuncUserSettingsResponse? userSettings;
   @JsonKey(name: 'customFields', includeIfNull: false)
@@ -1661,7 +1965,7 @@ class WebApiLogicAppFuncGetSettingsResponse {
   @JsonKey(name: 'systemSettings', includeIfNull: false)
   final WebApiLogicAppFuncSystemSettingsResponse? systemSettings;
   @JsonKey(name: 'department', includeIfNull: false)
-  final WebApiLogicAppFuncDepartmentActivitiesResponse? department;
+  final WebApiLogicAppFuncDepartmentSettingsResponse? department;
   @JsonKey(name: 'documentBarcodeSettings', includeIfNull: false)
   final WebApiLogicAppFuncDocumentBarcodeSettingsResponse?
       documentBarcodeSettings;
@@ -1677,9 +1981,6 @@ class WebApiLogicAppFuncGetSettingsResponse {
   final bool? hasDataWarehouse;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncGetSettingsResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncGetSettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncGetSettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1761,7 +2062,7 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
       WebApiLogicAppFuncInventorySettingsResponse? inventorySettings,
       WebApiLogicAppFuncConsignmentSettingsResponse? consignmentSettings,
       WebApiLogicAppFuncSystemSettingsResponse? systemSettings,
-      WebApiLogicAppFuncDepartmentActivitiesResponse? department,
+      WebApiLogicAppFuncDepartmentSettingsResponse? department,
       WebApiLogicAppFuncDocumentBarcodeSettingsResponse?
           documentBarcodeSettings,
       WebApiLogicAppFuncSystemNumbersResponse? systemNumbers,
@@ -1796,7 +2097,7 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
       Wrapped<WebApiLogicAppFuncConsignmentSettingsResponse?>?
           consignmentSettings,
       Wrapped<WebApiLogicAppFuncSystemSettingsResponse?>? systemSettings,
-      Wrapped<WebApiLogicAppFuncDepartmentActivitiesResponse?>? department,
+      Wrapped<WebApiLogicAppFuncDepartmentSettingsResponse?>? department,
       Wrapped<WebApiLogicAppFuncDocumentBarcodeSettingsResponse?>?
           documentBarcodeSettings,
       Wrapped<WebApiLogicAppFuncSystemNumbersResponse?>? systemNumbers,
@@ -1845,21 +2146,28 @@ class WebApiLogicAppFuncInventorySettingsResponse {
     this.userAssignedICodes,
     this.enable3WeekPricing,
     this.autoUpdateInventoryMetricImperialDimensions,
+    this.autoSortInventoryByICode,
     this.enableConsignment,
     this.enableLease,
     this.defaultRentalSaleRetiredReasonId,
     this.defaultRentalSaleRetiredReason,
     this.defaultLossAndDamageRetiredReasonId,
     this.defaultLossAndDamageRetiredReason,
-    this.fixedAssetTransferFutureDepreciation,
     this.defaultRentalQuantityInventoryCostCalculation,
     this.defaultSalesQuantityInventoryCostCalculation,
     this.defaultPartsQuantityInventoryCostCalculation,
+    this.fixedAssetTransferOwnership,
+    this.enableInventoryCertification,
   });
 
   factory WebApiLogicAppFuncInventorySettingsResponse.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncInventorySettingsResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncInventorySettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncInventorySettingsResponseToJson(this);
 
   @JsonKey(name: 'ICodeMask', includeIfNull: false)
   final String? iCodeMask;
@@ -1870,6 +2178,8 @@ class WebApiLogicAppFuncInventorySettingsResponse {
   @JsonKey(
       name: 'AutoUpdateInventoryMetricImperialDimensions', includeIfNull: false)
   final bool? autoUpdateInventoryMetricImperialDimensions;
+  @JsonKey(name: 'AutoSortInventoryByICode', includeIfNull: false)
+  final bool? autoSortInventoryByICode;
   @JsonKey(name: 'EnableConsignment', includeIfNull: false)
   final bool? enableConsignment;
   @JsonKey(name: 'EnableLease', includeIfNull: false)
@@ -1882,8 +2192,6 @@ class WebApiLogicAppFuncInventorySettingsResponse {
   final String? defaultLossAndDamageRetiredReasonId;
   @JsonKey(name: 'DefaultLossAndDamageRetiredReason', includeIfNull: false)
   final String? defaultLossAndDamageRetiredReason;
-  @JsonKey(name: 'FixedAssetTransferFutureDepreciation', includeIfNull: false)
-  final bool? fixedAssetTransferFutureDepreciation;
   @JsonKey(
       name: 'DefaultRentalQuantityInventoryCostCalculation',
       includeIfNull: false)
@@ -1896,12 +2204,12 @@ class WebApiLogicAppFuncInventorySettingsResponse {
       name: 'DefaultPartsQuantityInventoryCostCalculation',
       includeIfNull: false)
   final String? defaultPartsQuantityInventoryCostCalculation;
+  @JsonKey(name: 'FixedAssetTransferOwnership', includeIfNull: false)
+  final bool? fixedAssetTransferOwnership;
+  @JsonKey(name: 'EnableInventoryCertification', includeIfNull: false)
+  final bool? enableInventoryCertification;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncInventorySettingsResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiLogicAppFuncInventorySettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncInventorySettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1920,6 +2228,10 @@ class WebApiLogicAppFuncInventorySettingsResponse {
                 const DeepCollectionEquality().equals(
                     other.autoUpdateInventoryMetricImperialDimensions,
                     autoUpdateInventoryMetricImperialDimensions)) &&
+            (identical(other.autoSortInventoryByICode, autoSortInventoryByICode) ||
+                const DeepCollectionEquality().equals(
+                    other.autoSortInventoryByICode,
+                    autoSortInventoryByICode)) &&
             (identical(other.enableConsignment, enableConsignment) ||
                 const DeepCollectionEquality()
                     .equals(other.enableConsignment, enableConsignment)) &&
@@ -1939,16 +2251,13 @@ class WebApiLogicAppFuncInventorySettingsResponse {
                     other.defaultLossAndDamageRetiredReasonId,
                     defaultLossAndDamageRetiredReasonId)) &&
             (identical(other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultLossAndDamageRetiredReason,
-                    defaultLossAndDamageRetiredReason)) &&
-            (identical(other.fixedAssetTransferFutureDepreciation, fixedAssetTransferFutureDepreciation) ||
-                const DeepCollectionEquality().equals(
-                    other.fixedAssetTransferFutureDepreciation,
-                    fixedAssetTransferFutureDepreciation)) &&
+                const DeepCollectionEquality()
+                    .equals(other.defaultLossAndDamageRetiredReason, defaultLossAndDamageRetiredReason)) &&
             (identical(other.defaultRentalQuantityInventoryCostCalculation, defaultRentalQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultRentalQuantityInventoryCostCalculation, defaultRentalQuantityInventoryCostCalculation)) &&
             (identical(other.defaultSalesQuantityInventoryCostCalculation, defaultSalesQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultSalesQuantityInventoryCostCalculation, defaultSalesQuantityInventoryCostCalculation)) &&
-            (identical(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation)));
+            (identical(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation) || const DeepCollectionEquality().equals(other.defaultPartsQuantityInventoryCostCalculation, defaultPartsQuantityInventoryCostCalculation)) &&
+            (identical(other.fixedAssetTransferOwnership, fixedAssetTransferOwnership) || const DeepCollectionEquality().equals(other.fixedAssetTransferOwnership, fixedAssetTransferOwnership)) &&
+            (identical(other.enableInventoryCertification, enableInventoryCertification) || const DeepCollectionEquality().equals(other.enableInventoryCertification, enableInventoryCertification)));
   }
 
   @override
@@ -1961,6 +2270,7 @@ class WebApiLogicAppFuncInventorySettingsResponse {
       const DeepCollectionEquality().hash(enable3WeekPricing) ^
       const DeepCollectionEquality()
           .hash(autoUpdateInventoryMetricImperialDimensions) ^
+      const DeepCollectionEquality().hash(autoSortInventoryByICode) ^
       const DeepCollectionEquality().hash(enableConsignment) ^
       const DeepCollectionEquality().hash(enableLease) ^
       const DeepCollectionEquality().hash(defaultRentalSaleRetiredReasonId) ^
@@ -1968,13 +2278,13 @@ class WebApiLogicAppFuncInventorySettingsResponse {
       const DeepCollectionEquality().hash(defaultLossAndDamageRetiredReasonId) ^
       const DeepCollectionEquality().hash(defaultLossAndDamageRetiredReason) ^
       const DeepCollectionEquality()
-          .hash(fixedAssetTransferFutureDepreciation) ^
-      const DeepCollectionEquality()
           .hash(defaultRentalQuantityInventoryCostCalculation) ^
       const DeepCollectionEquality()
           .hash(defaultSalesQuantityInventoryCostCalculation) ^
       const DeepCollectionEquality()
           .hash(defaultPartsQuantityInventoryCostCalculation) ^
+      const DeepCollectionEquality().hash(fixedAssetTransferOwnership) ^
+      const DeepCollectionEquality().hash(enableInventoryCertification) ^
       runtimeType.hashCode;
 }
 
@@ -1985,16 +2295,18 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
       bool? userAssignedICodes,
       bool? enable3WeekPricing,
       bool? autoUpdateInventoryMetricImperialDimensions,
+      bool? autoSortInventoryByICode,
       bool? enableConsignment,
       bool? enableLease,
       String? defaultRentalSaleRetiredReasonId,
       String? defaultRentalSaleRetiredReason,
       String? defaultLossAndDamageRetiredReasonId,
       String? defaultLossAndDamageRetiredReason,
-      bool? fixedAssetTransferFutureDepreciation,
       String? defaultRentalQuantityInventoryCostCalculation,
       String? defaultSalesQuantityInventoryCostCalculation,
-      String? defaultPartsQuantityInventoryCostCalculation}) {
+      String? defaultPartsQuantityInventoryCostCalculation,
+      bool? fixedAssetTransferOwnership,
+      bool? enableInventoryCertification}) {
     return WebApiLogicAppFuncInventorySettingsResponse(
         iCodeMask: iCodeMask ?? this.iCodeMask,
         userAssignedICodes: userAssignedICodes ?? this.userAssignedICodes,
@@ -2002,6 +2314,8 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
         autoUpdateInventoryMetricImperialDimensions:
             autoUpdateInventoryMetricImperialDimensions ??
                 this.autoUpdateInventoryMetricImperialDimensions,
+        autoSortInventoryByICode:
+            autoSortInventoryByICode ?? this.autoSortInventoryByICode,
         enableConsignment: enableConsignment ?? this.enableConsignment,
         enableLease: enableLease ?? this.enableLease,
         defaultRentalSaleRetiredReasonId: defaultRentalSaleRetiredReasonId ??
@@ -2013,9 +2327,6 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
                 this.defaultLossAndDamageRetiredReasonId,
         defaultLossAndDamageRetiredReason: defaultLossAndDamageRetiredReason ??
             this.defaultLossAndDamageRetiredReason,
-        fixedAssetTransferFutureDepreciation:
-            fixedAssetTransferFutureDepreciation ??
-                this.fixedAssetTransferFutureDepreciation,
         defaultRentalQuantityInventoryCostCalculation:
             defaultRentalQuantityInventoryCostCalculation ??
                 this.defaultRentalQuantityInventoryCostCalculation,
@@ -2024,7 +2335,11 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
                 this.defaultSalesQuantityInventoryCostCalculation,
         defaultPartsQuantityInventoryCostCalculation:
             defaultPartsQuantityInventoryCostCalculation ??
-                this.defaultPartsQuantityInventoryCostCalculation);
+                this.defaultPartsQuantityInventoryCostCalculation,
+        fixedAssetTransferOwnership:
+            fixedAssetTransferOwnership ?? this.fixedAssetTransferOwnership,
+        enableInventoryCertification:
+            enableInventoryCertification ?? this.enableInventoryCertification);
   }
 
   WebApiLogicAppFuncInventorySettingsResponse copyWithWrapped(
@@ -2032,16 +2347,18 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
       Wrapped<bool?>? userAssignedICodes,
       Wrapped<bool?>? enable3WeekPricing,
       Wrapped<bool?>? autoUpdateInventoryMetricImperialDimensions,
+      Wrapped<bool?>? autoSortInventoryByICode,
       Wrapped<bool?>? enableConsignment,
       Wrapped<bool?>? enableLease,
       Wrapped<String?>? defaultRentalSaleRetiredReasonId,
       Wrapped<String?>? defaultRentalSaleRetiredReason,
       Wrapped<String?>? defaultLossAndDamageRetiredReasonId,
       Wrapped<String?>? defaultLossAndDamageRetiredReason,
-      Wrapped<bool?>? fixedAssetTransferFutureDepreciation,
       Wrapped<String?>? defaultRentalQuantityInventoryCostCalculation,
       Wrapped<String?>? defaultSalesQuantityInventoryCostCalculation,
-      Wrapped<String?>? defaultPartsQuantityInventoryCostCalculation}) {
+      Wrapped<String?>? defaultPartsQuantityInventoryCostCalculation,
+      Wrapped<bool?>? fixedAssetTransferOwnership,
+      Wrapped<bool?>? enableInventoryCertification}) {
     return WebApiLogicAppFuncInventorySettingsResponse(
         iCodeMask: (iCodeMask != null ? iCodeMask.value : this.iCodeMask),
         userAssignedICodes: (userAssignedICodes != null
@@ -2050,10 +2367,12 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
         enable3WeekPricing: (enable3WeekPricing != null
             ? enable3WeekPricing.value
             : this.enable3WeekPricing),
-        autoUpdateInventoryMetricImperialDimensions:
-            (autoUpdateInventoryMetricImperialDimensions != null
-                ? autoUpdateInventoryMetricImperialDimensions.value
-                : this.autoUpdateInventoryMetricImperialDimensions),
+        autoUpdateInventoryMetricImperialDimensions: (autoUpdateInventoryMetricImperialDimensions != null
+            ? autoUpdateInventoryMetricImperialDimensions.value
+            : this.autoUpdateInventoryMetricImperialDimensions),
+        autoSortInventoryByICode: (autoSortInventoryByICode != null
+            ? autoSortInventoryByICode.value
+            : this.autoSortInventoryByICode),
         enableConsignment: (enableConsignment != null
             ? enableConsignment.value
             : this.enableConsignment),
@@ -2065,29 +2384,29 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
         defaultRentalSaleRetiredReason: (defaultRentalSaleRetiredReason != null
             ? defaultRentalSaleRetiredReason.value
             : this.defaultRentalSaleRetiredReason),
-        defaultLossAndDamageRetiredReasonId:
-            (defaultLossAndDamageRetiredReasonId != null
-                ? defaultLossAndDamageRetiredReasonId.value
-                : this.defaultLossAndDamageRetiredReasonId),
+        defaultLossAndDamageRetiredReasonId: (defaultLossAndDamageRetiredReasonId != null
+            ? defaultLossAndDamageRetiredReasonId.value
+            : this.defaultLossAndDamageRetiredReasonId),
         defaultLossAndDamageRetiredReason: (defaultLossAndDamageRetiredReason != null
             ? defaultLossAndDamageRetiredReason.value
             : this.defaultLossAndDamageRetiredReason),
-        fixedAssetTransferFutureDepreciation:
-            (fixedAssetTransferFutureDepreciation != null
-                ? fixedAssetTransferFutureDepreciation.value
-                : this.fixedAssetTransferFutureDepreciation),
         defaultRentalQuantityInventoryCostCalculation:
             (defaultRentalQuantityInventoryCostCalculation != null
                 ? defaultRentalQuantityInventoryCostCalculation.value
                 : this.defaultRentalQuantityInventoryCostCalculation),
-        defaultSalesQuantityInventoryCostCalculation:
-            (defaultSalesQuantityInventoryCostCalculation != null
-                ? defaultSalesQuantityInventoryCostCalculation.value
-                : this.defaultSalesQuantityInventoryCostCalculation),
+        defaultSalesQuantityInventoryCostCalculation: (defaultSalesQuantityInventoryCostCalculation != null
+            ? defaultSalesQuantityInventoryCostCalculation.value
+            : this.defaultSalesQuantityInventoryCostCalculation),
         defaultPartsQuantityInventoryCostCalculation:
             (defaultPartsQuantityInventoryCostCalculation != null
                 ? defaultPartsQuantityInventoryCostCalculation.value
-                : this.defaultPartsQuantityInventoryCostCalculation));
+                : this.defaultPartsQuantityInventoryCostCalculation),
+        fixedAssetTransferOwnership: (fixedAssetTransferOwnership != null
+            ? fixedAssetTransferOwnership.value
+            : this.fixedAssetTransferOwnership),
+        enableInventoryCertification: (enableInventoryCertification != null
+            ? enableInventoryCertification.value
+            : this.enableInventoryCertification));
   }
 }
 
@@ -2101,13 +2420,14 @@ class WebApiLogicAppFuncSessionDeal {
   factory WebApiLogicAppFuncSessionDeal.fromJson(Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionDealFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionDealToJson;
+  Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionDealToJson(this);
+
   @JsonKey(name: 'dealid', includeIfNull: false)
   final String? dealid;
   @JsonKey(name: 'deal', includeIfNull: false)
   final String? deal;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionDealFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSessionDealToJson;
-  Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionDealToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2155,14 +2475,15 @@ class WebApiLogicAppFuncSessionDepartment {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionDepartmentFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionDepartmentToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSessionDepartmentToJson(this);
+
   @JsonKey(name: 'departmentid', includeIfNull: false)
   final String? departmentid;
   @JsonKey(name: 'department', includeIfNull: false)
   final String? department;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionDepartmentFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSessionDepartmentToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncSessionDepartmentToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2218,17 +2539,39 @@ class WebApiLogicAppFuncSessionLocation {
     this.defaultcurrencyid,
     this.defaultcurrencycode,
     this.defaultcurrencysymbol,
+    this.defaultpaymentby,
     this.defaulttaxoptionid,
     this.defaulttaxoption,
     this.countryid,
     this.country,
+    this.countrycodeisoalpha2,
     this.phone,
     this.useorderlocationbydefault,
+    this.defaultrepairpotypeid,
+    this.defaultrepairpotype,
+    this.emailinvoicetoorderedby,
+    this.emailinvoicetoaccountspayable,
+    this.defaultpurchasepotypeid,
+    this.defaultpurchasepotype,
+    this.defaultsubrentalpoordertypeid,
+    this.defaultsubrentalpoordertype,
+    this.defaultsubsalespoordertypeid,
+    this.defaultsubsalespoordertype,
+    this.defaultsubmiscpoordertypeid,
+    this.defaultsubmiscpoordertype,
+    this.defaultsublaborpoordertypeid,
+    this.defaultsublaborpoordertype,
+    this.defaultcombinedpoordertypeid,
+    this.defaultcombinedpoordertype,
   });
 
   factory WebApiLogicAppFuncSessionLocation.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionLocationFromJson(json);
+
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionLocationToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSessionLocationToJson(this);
 
   @JsonKey(name: 'locationid', includeIfNull: false)
   final String? locationid;
@@ -2252,6 +2595,8 @@ class WebApiLogicAppFuncSessionLocation {
   final String? defaultcurrencycode;
   @JsonKey(name: 'defaultcurrencysymbol', includeIfNull: false)
   final String? defaultcurrencysymbol;
+  @JsonKey(name: 'defaultpaymentby', includeIfNull: false)
+  final String? defaultpaymentby;
   @JsonKey(name: 'defaulttaxoptionid', includeIfNull: false)
   final String? defaulttaxoptionid;
   @JsonKey(name: 'defaulttaxoption', includeIfNull: false)
@@ -2260,14 +2605,45 @@ class WebApiLogicAppFuncSessionLocation {
   final String? countryid;
   @JsonKey(name: 'country', includeIfNull: false)
   final String? country;
+  @JsonKey(name: 'countrycodeisoalpha2', includeIfNull: false)
+  final String? countrycodeisoalpha2;
   @JsonKey(name: 'phone', includeIfNull: false)
   final String? phone;
   @JsonKey(name: 'useorderlocationbydefault', includeIfNull: false)
   final bool? useorderlocationbydefault;
+  @JsonKey(name: 'defaultrepairpotypeid', includeIfNull: false)
+  final String? defaultrepairpotypeid;
+  @JsonKey(name: 'defaultrepairpotype', includeIfNull: false)
+  final String? defaultrepairpotype;
+  @JsonKey(name: 'emailinvoicetoorderedby', includeIfNull: false)
+  final bool? emailinvoicetoorderedby;
+  @JsonKey(name: 'emailinvoicetoaccountspayable', includeIfNull: false)
+  final bool? emailinvoicetoaccountspayable;
+  @JsonKey(name: 'defaultpurchasepotypeid', includeIfNull: false)
+  final String? defaultpurchasepotypeid;
+  @JsonKey(name: 'defaultpurchasepotype', includeIfNull: false)
+  final String? defaultpurchasepotype;
+  @JsonKey(name: 'defaultsubrentalpoordertypeid', includeIfNull: false)
+  final String? defaultsubrentalpoordertypeid;
+  @JsonKey(name: 'defaultsubrentalpoordertype', includeIfNull: false)
+  final String? defaultsubrentalpoordertype;
+  @JsonKey(name: 'defaultsubsalespoordertypeid', includeIfNull: false)
+  final String? defaultsubsalespoordertypeid;
+  @JsonKey(name: 'defaultsubsalespoordertype', includeIfNull: false)
+  final String? defaultsubsalespoordertype;
+  @JsonKey(name: 'defaultsubmiscpoordertypeid', includeIfNull: false)
+  final String? defaultsubmiscpoordertypeid;
+  @JsonKey(name: 'defaultsubmiscpoordertype', includeIfNull: false)
+  final String? defaultsubmiscpoordertype;
+  @JsonKey(name: 'defaultsublaborpoordertypeid', includeIfNull: false)
+  final String? defaultsublaborpoordertypeid;
+  @JsonKey(name: 'defaultsublaborpoordertype', includeIfNull: false)
+  final String? defaultsublaborpoordertype;
+  @JsonKey(name: 'defaultcombinedpoordertypeid', includeIfNull: false)
+  final String? defaultcombinedpoordertypeid;
+  @JsonKey(name: 'defaultcombinedpoordertype', includeIfNull: false)
+  final String? defaultcombinedpoordertype;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionLocationFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSessionLocationToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncSessionLocationToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2306,6 +2682,9 @@ class WebApiLogicAppFuncSessionLocation {
             (identical(other.defaultcurrencysymbol, defaultcurrencysymbol) ||
                 const DeepCollectionEquality().equals(
                     other.defaultcurrencysymbol, defaultcurrencysymbol)) &&
+            (identical(other.defaultpaymentby, defaultpaymentby) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultpaymentby, defaultpaymentby)) &&
             (identical(other.defaulttaxoptionid, defaulttaxoptionid) ||
                 const DeepCollectionEquality()
                     .equals(other.defaulttaxoptionid, defaulttaxoptionid)) &&
@@ -2318,13 +2697,35 @@ class WebApiLogicAppFuncSessionLocation {
             (identical(other.country, country) ||
                 const DeepCollectionEquality()
                     .equals(other.country, country)) &&
+            (identical(other.countrycodeisoalpha2, countrycodeisoalpha2) ||
+                const DeepCollectionEquality().equals(
+                    other.countrycodeisoalpha2, countrycodeisoalpha2)) &&
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
-            (identical(other.useorderlocationbydefault,
-                    useorderlocationbydefault) ||
+            (identical(other.useorderlocationbydefault, useorderlocationbydefault) ||
                 const DeepCollectionEquality().equals(
                     other.useorderlocationbydefault,
-                    useorderlocationbydefault)));
+                    useorderlocationbydefault)) &&
+            (identical(other.defaultrepairpotypeid, defaultrepairpotypeid) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultrepairpotypeid, defaultrepairpotypeid)) &&
+            (identical(other.defaultrepairpotype, defaultrepairpotype) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultrepairpotype, defaultrepairpotype)) &&
+            (identical(other.emailinvoicetoorderedby, emailinvoicetoorderedby) || const DeepCollectionEquality().equals(other.emailinvoicetoorderedby, emailinvoicetoorderedby)) &&
+            (identical(other.emailinvoicetoaccountspayable, emailinvoicetoaccountspayable) || const DeepCollectionEquality().equals(other.emailinvoicetoaccountspayable, emailinvoicetoaccountspayable)) &&
+            (identical(other.defaultpurchasepotypeid, defaultpurchasepotypeid) || const DeepCollectionEquality().equals(other.defaultpurchasepotypeid, defaultpurchasepotypeid)) &&
+            (identical(other.defaultpurchasepotype, defaultpurchasepotype) || const DeepCollectionEquality().equals(other.defaultpurchasepotype, defaultpurchasepotype)) &&
+            (identical(other.defaultsubrentalpoordertypeid, defaultsubrentalpoordertypeid) || const DeepCollectionEquality().equals(other.defaultsubrentalpoordertypeid, defaultsubrentalpoordertypeid)) &&
+            (identical(other.defaultsubrentalpoordertype, defaultsubrentalpoordertype) || const DeepCollectionEquality().equals(other.defaultsubrentalpoordertype, defaultsubrentalpoordertype)) &&
+            (identical(other.defaultsubsalespoordertypeid, defaultsubsalespoordertypeid) || const DeepCollectionEquality().equals(other.defaultsubsalespoordertypeid, defaultsubsalespoordertypeid)) &&
+            (identical(other.defaultsubsalespoordertype, defaultsubsalespoordertype) || const DeepCollectionEquality().equals(other.defaultsubsalespoordertype, defaultsubsalespoordertype)) &&
+            (identical(other.defaultsubmiscpoordertypeid, defaultsubmiscpoordertypeid) || const DeepCollectionEquality().equals(other.defaultsubmiscpoordertypeid, defaultsubmiscpoordertypeid)) &&
+            (identical(other.defaultsubmiscpoordertype, defaultsubmiscpoordertype) || const DeepCollectionEquality().equals(other.defaultsubmiscpoordertype, defaultsubmiscpoordertype)) &&
+            (identical(other.defaultsublaborpoordertypeid, defaultsublaborpoordertypeid) || const DeepCollectionEquality().equals(other.defaultsublaborpoordertypeid, defaultsublaborpoordertypeid)) &&
+            (identical(other.defaultsublaborpoordertype, defaultsublaborpoordertype) || const DeepCollectionEquality().equals(other.defaultsublaborpoordertype, defaultsublaborpoordertype)) &&
+            (identical(other.defaultcombinedpoordertypeid, defaultcombinedpoordertypeid) || const DeepCollectionEquality().equals(other.defaultcombinedpoordertypeid, defaultcombinedpoordertypeid)) &&
+            (identical(other.defaultcombinedpoordertype, defaultcombinedpoordertype) || const DeepCollectionEquality().equals(other.defaultcombinedpoordertype, defaultcombinedpoordertype)));
   }
 
   @override
@@ -2343,12 +2744,30 @@ class WebApiLogicAppFuncSessionLocation {
       const DeepCollectionEquality().hash(defaultcurrencyid) ^
       const DeepCollectionEquality().hash(defaultcurrencycode) ^
       const DeepCollectionEquality().hash(defaultcurrencysymbol) ^
+      const DeepCollectionEquality().hash(defaultpaymentby) ^
       const DeepCollectionEquality().hash(defaulttaxoptionid) ^
       const DeepCollectionEquality().hash(defaulttaxoption) ^
       const DeepCollectionEquality().hash(countryid) ^
       const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countrycodeisoalpha2) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(useorderlocationbydefault) ^
+      const DeepCollectionEquality().hash(defaultrepairpotypeid) ^
+      const DeepCollectionEquality().hash(defaultrepairpotype) ^
+      const DeepCollectionEquality().hash(emailinvoicetoorderedby) ^
+      const DeepCollectionEquality().hash(emailinvoicetoaccountspayable) ^
+      const DeepCollectionEquality().hash(defaultpurchasepotypeid) ^
+      const DeepCollectionEquality().hash(defaultpurchasepotype) ^
+      const DeepCollectionEquality().hash(defaultsubrentalpoordertypeid) ^
+      const DeepCollectionEquality().hash(defaultsubrentalpoordertype) ^
+      const DeepCollectionEquality().hash(defaultsubsalespoordertypeid) ^
+      const DeepCollectionEquality().hash(defaultsubsalespoordertype) ^
+      const DeepCollectionEquality().hash(defaultsubmiscpoordertypeid) ^
+      const DeepCollectionEquality().hash(defaultsubmiscpoordertype) ^
+      const DeepCollectionEquality().hash(defaultsublaborpoordertypeid) ^
+      const DeepCollectionEquality().hash(defaultsublaborpoordertype) ^
+      const DeepCollectionEquality().hash(defaultcombinedpoordertypeid) ^
+      const DeepCollectionEquality().hash(defaultcombinedpoordertype) ^
       runtimeType.hashCode;
 }
 
@@ -2366,12 +2785,30 @@ extension $WebApiLogicAppFuncSessionLocationExtension
       String? defaultcurrencyid,
       String? defaultcurrencycode,
       String? defaultcurrencysymbol,
+      String? defaultpaymentby,
       String? defaulttaxoptionid,
       String? defaulttaxoption,
       String? countryid,
       String? country,
+      String? countrycodeisoalpha2,
       String? phone,
-      bool? useorderlocationbydefault}) {
+      bool? useorderlocationbydefault,
+      String? defaultrepairpotypeid,
+      String? defaultrepairpotype,
+      bool? emailinvoicetoorderedby,
+      bool? emailinvoicetoaccountspayable,
+      String? defaultpurchasepotypeid,
+      String? defaultpurchasepotype,
+      String? defaultsubrentalpoordertypeid,
+      String? defaultsubrentalpoordertype,
+      String? defaultsubsalespoordertypeid,
+      String? defaultsubsalespoordertype,
+      String? defaultsubmiscpoordertypeid,
+      String? defaultsubmiscpoordertype,
+      String? defaultsublaborpoordertypeid,
+      String? defaultsublaborpoordertype,
+      String? defaultcombinedpoordertypeid,
+      String? defaultcombinedpoordertype}) {
     return WebApiLogicAppFuncSessionLocation(
         locationid: locationid ?? this.locationid,
         location: location ?? this.location,
@@ -2385,13 +2822,46 @@ extension $WebApiLogicAppFuncSessionLocationExtension
         defaultcurrencycode: defaultcurrencycode ?? this.defaultcurrencycode,
         defaultcurrencysymbol:
             defaultcurrencysymbol ?? this.defaultcurrencysymbol,
+        defaultpaymentby: defaultpaymentby ?? this.defaultpaymentby,
         defaulttaxoptionid: defaulttaxoptionid ?? this.defaulttaxoptionid,
         defaulttaxoption: defaulttaxoption ?? this.defaulttaxoption,
         countryid: countryid ?? this.countryid,
         country: country ?? this.country,
+        countrycodeisoalpha2: countrycodeisoalpha2 ?? this.countrycodeisoalpha2,
         phone: phone ?? this.phone,
         useorderlocationbydefault:
-            useorderlocationbydefault ?? this.useorderlocationbydefault);
+            useorderlocationbydefault ?? this.useorderlocationbydefault,
+        defaultrepairpotypeid:
+            defaultrepairpotypeid ?? this.defaultrepairpotypeid,
+        defaultrepairpotype: defaultrepairpotype ?? this.defaultrepairpotype,
+        emailinvoicetoorderedby:
+            emailinvoicetoorderedby ?? this.emailinvoicetoorderedby,
+        emailinvoicetoaccountspayable:
+            emailinvoicetoaccountspayable ?? this.emailinvoicetoaccountspayable,
+        defaultpurchasepotypeid:
+            defaultpurchasepotypeid ?? this.defaultpurchasepotypeid,
+        defaultpurchasepotype:
+            defaultpurchasepotype ?? this.defaultpurchasepotype,
+        defaultsubrentalpoordertypeid:
+            defaultsubrentalpoordertypeid ?? this.defaultsubrentalpoordertypeid,
+        defaultsubrentalpoordertype:
+            defaultsubrentalpoordertype ?? this.defaultsubrentalpoordertype,
+        defaultsubsalespoordertypeid:
+            defaultsubsalespoordertypeid ?? this.defaultsubsalespoordertypeid,
+        defaultsubsalespoordertype:
+            defaultsubsalespoordertype ?? this.defaultsubsalespoordertype,
+        defaultsubmiscpoordertypeid:
+            defaultsubmiscpoordertypeid ?? this.defaultsubmiscpoordertypeid,
+        defaultsubmiscpoordertype:
+            defaultsubmiscpoordertype ?? this.defaultsubmiscpoordertype,
+        defaultsublaborpoordertypeid:
+            defaultsublaborpoordertypeid ?? this.defaultsublaborpoordertypeid,
+        defaultsublaborpoordertype:
+            defaultsublaborpoordertype ?? this.defaultsublaborpoordertype,
+        defaultcombinedpoordertypeid:
+            defaultcombinedpoordertypeid ?? this.defaultcombinedpoordertypeid,
+        defaultcombinedpoordertype:
+            defaultcombinedpoordertype ?? this.defaultcombinedpoordertype);
   }
 
   WebApiLogicAppFuncSessionLocation copyWithWrapped(
@@ -2406,12 +2876,30 @@ extension $WebApiLogicAppFuncSessionLocationExtension
       Wrapped<String?>? defaultcurrencyid,
       Wrapped<String?>? defaultcurrencycode,
       Wrapped<String?>? defaultcurrencysymbol,
+      Wrapped<String?>? defaultpaymentby,
       Wrapped<String?>? defaulttaxoptionid,
       Wrapped<String?>? defaulttaxoption,
       Wrapped<String?>? countryid,
       Wrapped<String?>? country,
+      Wrapped<String?>? countrycodeisoalpha2,
       Wrapped<String?>? phone,
-      Wrapped<bool?>? useorderlocationbydefault}) {
+      Wrapped<bool?>? useorderlocationbydefault,
+      Wrapped<String?>? defaultrepairpotypeid,
+      Wrapped<String?>? defaultrepairpotype,
+      Wrapped<bool?>? emailinvoicetoorderedby,
+      Wrapped<bool?>? emailinvoicetoaccountspayable,
+      Wrapped<String?>? defaultpurchasepotypeid,
+      Wrapped<String?>? defaultpurchasepotype,
+      Wrapped<String?>? defaultsubrentalpoordertypeid,
+      Wrapped<String?>? defaultsubrentalpoordertype,
+      Wrapped<String?>? defaultsubsalespoordertypeid,
+      Wrapped<String?>? defaultsubsalespoordertype,
+      Wrapped<String?>? defaultsubmiscpoordertypeid,
+      Wrapped<String?>? defaultsubmiscpoordertype,
+      Wrapped<String?>? defaultsublaborpoordertypeid,
+      Wrapped<String?>? defaultsublaborpoordertype,
+      Wrapped<String?>? defaultcombinedpoordertypeid,
+      Wrapped<String?>? defaultcombinedpoordertype}) {
     return WebApiLogicAppFuncSessionLocation(
         locationid: (locationid != null ? locationid.value : this.locationid),
         location: (location != null ? location.value : this.location),
@@ -2437,6 +2925,9 @@ extension $WebApiLogicAppFuncSessionLocationExtension
         defaultcurrencysymbol: (defaultcurrencysymbol != null
             ? defaultcurrencysymbol.value
             : this.defaultcurrencysymbol),
+        defaultpaymentby: (defaultpaymentby != null
+            ? defaultpaymentby.value
+            : this.defaultpaymentby),
         defaulttaxoptionid: (defaulttaxoptionid != null
             ? defaulttaxoptionid.value
             : this.defaulttaxoptionid),
@@ -2445,10 +2936,61 @@ extension $WebApiLogicAppFuncSessionLocationExtension
             : this.defaulttaxoption),
         countryid: (countryid != null ? countryid.value : this.countryid),
         country: (country != null ? country.value : this.country),
+        countrycodeisoalpha2: (countrycodeisoalpha2 != null
+            ? countrycodeisoalpha2.value
+            : this.countrycodeisoalpha2),
         phone: (phone != null ? phone.value : this.phone),
         useorderlocationbydefault: (useorderlocationbydefault != null
             ? useorderlocationbydefault.value
-            : this.useorderlocationbydefault));
+            : this.useorderlocationbydefault),
+        defaultrepairpotypeid: (defaultrepairpotypeid != null
+            ? defaultrepairpotypeid.value
+            : this.defaultrepairpotypeid),
+        defaultrepairpotype: (defaultrepairpotype != null
+            ? defaultrepairpotype.value
+            : this.defaultrepairpotype),
+        emailinvoicetoorderedby: (emailinvoicetoorderedby != null
+            ? emailinvoicetoorderedby.value
+            : this.emailinvoicetoorderedby),
+        emailinvoicetoaccountspayable: (emailinvoicetoaccountspayable != null
+            ? emailinvoicetoaccountspayable.value
+            : this.emailinvoicetoaccountspayable),
+        defaultpurchasepotypeid: (defaultpurchasepotypeid != null
+            ? defaultpurchasepotypeid.value
+            : this.defaultpurchasepotypeid),
+        defaultpurchasepotype: (defaultpurchasepotype != null
+            ? defaultpurchasepotype.value
+            : this.defaultpurchasepotype),
+        defaultsubrentalpoordertypeid: (defaultsubrentalpoordertypeid != null
+            ? defaultsubrentalpoordertypeid.value
+            : this.defaultsubrentalpoordertypeid),
+        defaultsubrentalpoordertype: (defaultsubrentalpoordertype != null
+            ? defaultsubrentalpoordertype.value
+            : this.defaultsubrentalpoordertype),
+        defaultsubsalespoordertypeid: (defaultsubsalespoordertypeid != null
+            ? defaultsubsalespoordertypeid.value
+            : this.defaultsubsalespoordertypeid),
+        defaultsubsalespoordertype: (defaultsubsalespoordertype != null
+            ? defaultsubsalespoordertype.value
+            : this.defaultsubsalespoordertype),
+        defaultsubmiscpoordertypeid: (defaultsubmiscpoordertypeid != null
+            ? defaultsubmiscpoordertypeid.value
+            : this.defaultsubmiscpoordertypeid),
+        defaultsubmiscpoordertype: (defaultsubmiscpoordertype != null
+            ? defaultsubmiscpoordertype.value
+            : this.defaultsubmiscpoordertype),
+        defaultsublaborpoordertypeid: (defaultsublaborpoordertypeid != null
+            ? defaultsublaborpoordertypeid.value
+            : this.defaultsublaborpoordertypeid),
+        defaultsublaborpoordertype: (defaultsublaborpoordertype != null
+            ? defaultsublaborpoordertype.value
+            : this.defaultsublaborpoordertype),
+        defaultcombinedpoordertypeid: (defaultcombinedpoordertypeid != null
+            ? defaultcombinedpoordertypeid.value
+            : this.defaultcombinedpoordertypeid),
+        defaultcombinedpoordertype: (defaultcombinedpoordertype != null
+            ? defaultcombinedpoordertype.value
+            : this.defaultcombinedpoordertype));
   }
 }
 
@@ -2460,12 +3002,18 @@ class WebApiLogicAppFuncSessionUser {
     this.contactid,
     this.usertype,
     this.email,
+    this.emailapp,
+    this.addsignaturetodraft,
     this.fullname,
     this.name,
     this.browsedefaultrows,
+    this.griddefaultrows,
     this.applicationtheme,
+    this.locale,
     this.locationid,
     this.location,
+    this.languageid,
+    this.language,
     this.warehouseid,
     this.warehouse,
     this.departmentid,
@@ -2491,10 +3039,15 @@ class WebApiLogicAppFuncSessionUser {
     this.qsallowapplyallqtyitems,
     this.allowcontractwithexceptions,
     this.canInsertIntoActiveOrder,
+    this.creditCardPinPadId,
+    this.creditCardPinPad,
   });
 
   factory WebApiLogicAppFuncSessionUser.fromJson(Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionUserFromJson(json);
+
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionUserToJson;
+  Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionUserToJson(this);
 
   @JsonKey(name: 'webusersid', includeIfNull: false)
   final String? webusersid;
@@ -2506,18 +3059,30 @@ class WebApiLogicAppFuncSessionUser {
   final String? usertype;
   @JsonKey(name: 'email', includeIfNull: false)
   final String? email;
+  @JsonKey(name: 'emailapp', includeIfNull: false)
+  final String? emailapp;
+  @JsonKey(name: 'addsignaturetodraft', includeIfNull: false)
+  final bool? addsignaturetodraft;
   @JsonKey(name: 'fullname', includeIfNull: false)
   final String? fullname;
   @JsonKey(name: 'name', includeIfNull: false)
   final String? name;
   @JsonKey(name: 'browsedefaultrows', includeIfNull: false)
   final int? browsedefaultrows;
+  @JsonKey(name: 'griddefaultrows', includeIfNull: false)
+  final int? griddefaultrows;
   @JsonKey(name: 'applicationtheme', includeIfNull: false)
   final String? applicationtheme;
+  @JsonKey(name: 'locale', includeIfNull: false)
+  final String? locale;
   @JsonKey(name: 'locationid', includeIfNull: false)
   final String? locationid;
   @JsonKey(name: 'location', includeIfNull: false)
   final String? location;
+  @JsonKey(name: 'languageid', includeIfNull: false)
+  final String? languageid;
+  @JsonKey(name: 'language', includeIfNull: false)
+  final String? language;
   @JsonKey(name: 'warehouseid', includeIfNull: false)
   final String? warehouseid;
   @JsonKey(name: 'warehouse', includeIfNull: false)
@@ -2568,9 +3133,11 @@ class WebApiLogicAppFuncSessionUser {
   final bool? allowcontractwithexceptions;
   @JsonKey(name: 'CanInsertIntoActiveOrder', includeIfNull: false)
   final bool? canInsertIntoActiveOrder;
+  @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
+  final int? creditCardPinPadId;
+  @JsonKey(name: 'CreditCardPinPad', includeIfNull: false)
+  final String? creditCardPinPad;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionUserFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSessionUserToJson;
-  Map<String, dynamic> toJson() => _$WebApiLogicAppFuncSessionUserToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2590,6 +3157,12 @@ class WebApiLogicAppFuncSessionUser {
                     .equals(other.usertype, usertype)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.emailapp, emailapp) ||
+                const DeepCollectionEquality()
+                    .equals(other.emailapp, emailapp)) &&
+            (identical(other.addsignaturetodraft, addsignaturetodraft) ||
+                const DeepCollectionEquality()
+                    .equals(other.addsignaturetodraft, addsignaturetodraft)) &&
             (identical(other.fullname, fullname) ||
                 const DeepCollectionEquality()
                     .equals(other.fullname, fullname)) &&
@@ -2598,15 +3171,26 @@ class WebApiLogicAppFuncSessionUser {
             (identical(other.browsedefaultrows, browsedefaultrows) ||
                 const DeepCollectionEquality()
                     .equals(other.browsedefaultrows, browsedefaultrows)) &&
+            (identical(other.griddefaultrows, griddefaultrows) ||
+                const DeepCollectionEquality()
+                    .equals(other.griddefaultrows, griddefaultrows)) &&
             (identical(other.applicationtheme, applicationtheme) ||
                 const DeepCollectionEquality()
                     .equals(other.applicationtheme, applicationtheme)) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
             (identical(other.locationid, locationid) ||
                 const DeepCollectionEquality()
                     .equals(other.locationid, locationid)) &&
             (identical(other.location, location) ||
                 const DeepCollectionEquality()
                     .equals(other.location, location)) &&
+            (identical(other.languageid, languageid) ||
+                const DeepCollectionEquality()
+                    .equals(other.languageid, languageid)) &&
+            (identical(other.language, language) ||
+                const DeepCollectionEquality()
+                    .equals(other.language, language)) &&
             (identical(other.warehouseid, warehouseid) ||
                 const DeepCollectionEquality()
                     .equals(other.warehouseid, warehouseid)) &&
@@ -2625,18 +3209,9 @@ class WebApiLogicAppFuncSessionUser {
             (identical(other.firstdayofweek, firstdayofweek) ||
                 const DeepCollectionEquality()
                     .equals(other.firstdayofweek, firstdayofweek)) &&
-            (identical(other.rentalinventorydepartmentid, rentalinventorydepartmentid) ||
-                const DeepCollectionEquality().equals(
-                    other.rentalinventorydepartmentid,
-                    rentalinventorydepartmentid)) &&
-            (identical(other.rentalinventorydepartment, rentalinventorydepartment) ||
-                const DeepCollectionEquality().equals(
-                    other.rentalinventorydepartment,
-                    rentalinventorydepartment)) &&
-            (identical(other.salesinventorydepartmentid, salesinventorydepartmentid) ||
-                const DeepCollectionEquality().equals(
-                    other.salesinventorydepartmentid,
-                    salesinventorydepartmentid)) &&
+            (identical(other.rentalinventorydepartmentid, rentalinventorydepartmentid) || const DeepCollectionEquality().equals(other.rentalinventorydepartmentid, rentalinventorydepartmentid)) &&
+            (identical(other.rentalinventorydepartment, rentalinventorydepartment) || const DeepCollectionEquality().equals(other.rentalinventorydepartment, rentalinventorydepartment)) &&
+            (identical(other.salesinventorydepartmentid, salesinventorydepartmentid) || const DeepCollectionEquality().equals(other.salesinventorydepartmentid, salesinventorydepartmentid)) &&
             (identical(other.salesinventorydepartment, salesinventorydepartment) || const DeepCollectionEquality().equals(other.salesinventorydepartment, salesinventorydepartment)) &&
             (identical(other.partsinventorydepartmentid, partsinventorydepartmentid) || const DeepCollectionEquality().equals(other.partsinventorydepartmentid, partsinventorydepartmentid)) &&
             (identical(other.partsinventorydepartment, partsinventorydepartment) || const DeepCollectionEquality().equals(other.partsinventorydepartment, partsinventorydepartment)) &&
@@ -2652,7 +3227,9 @@ class WebApiLogicAppFuncSessionUser {
             (identical(other.enablecreatecontract, enablecreatecontract) || const DeepCollectionEquality().equals(other.enablecreatecontract, enablecreatecontract)) &&
             (identical(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems) || const DeepCollectionEquality().equals(other.qsallowapplyallqtyitems, qsallowapplyallqtyitems)) &&
             (identical(other.allowcontractwithexceptions, allowcontractwithexceptions) || const DeepCollectionEquality().equals(other.allowcontractwithexceptions, allowcontractwithexceptions)) &&
-            (identical(other.canInsertIntoActiveOrder, canInsertIntoActiveOrder) || const DeepCollectionEquality().equals(other.canInsertIntoActiveOrder, canInsertIntoActiveOrder)));
+            (identical(other.canInsertIntoActiveOrder, canInsertIntoActiveOrder) || const DeepCollectionEquality().equals(other.canInsertIntoActiveOrder, canInsertIntoActiveOrder)) &&
+            (identical(other.creditCardPinPadId, creditCardPinPadId) || const DeepCollectionEquality().equals(other.creditCardPinPadId, creditCardPinPadId)) &&
+            (identical(other.creditCardPinPad, creditCardPinPad) || const DeepCollectionEquality().equals(other.creditCardPinPad, creditCardPinPad)));
   }
 
   @override
@@ -2665,12 +3242,18 @@ class WebApiLogicAppFuncSessionUser {
       const DeepCollectionEquality().hash(contactid) ^
       const DeepCollectionEquality().hash(usertype) ^
       const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(emailapp) ^
+      const DeepCollectionEquality().hash(addsignaturetodraft) ^
       const DeepCollectionEquality().hash(fullname) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(browsedefaultrows) ^
+      const DeepCollectionEquality().hash(griddefaultrows) ^
       const DeepCollectionEquality().hash(applicationtheme) ^
+      const DeepCollectionEquality().hash(locale) ^
       const DeepCollectionEquality().hash(locationid) ^
       const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(languageid) ^
+      const DeepCollectionEquality().hash(language) ^
       const DeepCollectionEquality().hash(warehouseid) ^
       const DeepCollectionEquality().hash(warehouse) ^
       const DeepCollectionEquality().hash(departmentid) ^
@@ -2696,6 +3279,8 @@ class WebApiLogicAppFuncSessionUser {
       const DeepCollectionEquality().hash(qsallowapplyallqtyitems) ^
       const DeepCollectionEquality().hash(allowcontractwithexceptions) ^
       const DeepCollectionEquality().hash(canInsertIntoActiveOrder) ^
+      const DeepCollectionEquality().hash(creditCardPinPadId) ^
+      const DeepCollectionEquality().hash(creditCardPinPad) ^
       runtimeType.hashCode;
 }
 
@@ -2707,12 +3292,18 @@ extension $WebApiLogicAppFuncSessionUserExtension
       String? contactid,
       String? usertype,
       String? email,
+      String? emailapp,
+      bool? addsignaturetodraft,
       String? fullname,
       String? name,
       int? browsedefaultrows,
+      int? griddefaultrows,
       String? applicationtheme,
+      String? locale,
       String? locationid,
       String? location,
+      String? languageid,
+      String? language,
       String? warehouseid,
       String? warehouse,
       String? departmentid,
@@ -2737,19 +3328,27 @@ extension $WebApiLogicAppFuncSessionUserExtension
       bool? enablecreatecontract,
       bool? qsallowapplyallqtyitems,
       bool? allowcontractwithexceptions,
-      bool? canInsertIntoActiveOrder}) {
+      bool? canInsertIntoActiveOrder,
+      int? creditCardPinPadId,
+      String? creditCardPinPad}) {
     return WebApiLogicAppFuncSessionUser(
         webusersid: webusersid ?? this.webusersid,
         usersid: usersid ?? this.usersid,
         contactid: contactid ?? this.contactid,
         usertype: usertype ?? this.usertype,
         email: email ?? this.email,
+        emailapp: emailapp ?? this.emailapp,
+        addsignaturetodraft: addsignaturetodraft ?? this.addsignaturetodraft,
         fullname: fullname ?? this.fullname,
         name: name ?? this.name,
         browsedefaultrows: browsedefaultrows ?? this.browsedefaultrows,
+        griddefaultrows: griddefaultrows ?? this.griddefaultrows,
         applicationtheme: applicationtheme ?? this.applicationtheme,
+        locale: locale ?? this.locale,
         locationid: locationid ?? this.locationid,
         location: location ?? this.location,
+        languageid: languageid ?? this.languageid,
+        language: language ?? this.language,
         warehouseid: warehouseid ?? this.warehouseid,
         warehouse: warehouse ?? this.warehouse,
         departmentid: departmentid ?? this.departmentid,
@@ -2791,7 +3390,9 @@ extension $WebApiLogicAppFuncSessionUserExtension
         allowcontractwithexceptions:
             allowcontractwithexceptions ?? this.allowcontractwithexceptions,
         canInsertIntoActiveOrder:
-            canInsertIntoActiveOrder ?? this.canInsertIntoActiveOrder);
+            canInsertIntoActiveOrder ?? this.canInsertIntoActiveOrder,
+        creditCardPinPadId: creditCardPinPadId ?? this.creditCardPinPadId,
+        creditCardPinPad: creditCardPinPad ?? this.creditCardPinPad);
   }
 
   WebApiLogicAppFuncSessionUser copyWithWrapped(
@@ -2800,12 +3401,18 @@ extension $WebApiLogicAppFuncSessionUserExtension
       Wrapped<String?>? contactid,
       Wrapped<String?>? usertype,
       Wrapped<String?>? email,
+      Wrapped<String?>? emailapp,
+      Wrapped<bool?>? addsignaturetodraft,
       Wrapped<String?>? fullname,
       Wrapped<String?>? name,
       Wrapped<int?>? browsedefaultrows,
+      Wrapped<int?>? griddefaultrows,
       Wrapped<String?>? applicationtheme,
+      Wrapped<String?>? locale,
       Wrapped<String?>? locationid,
       Wrapped<String?>? location,
+      Wrapped<String?>? languageid,
+      Wrapped<String?>? language,
       Wrapped<String?>? warehouseid,
       Wrapped<String?>? warehouse,
       Wrapped<String?>? departmentid,
@@ -2830,23 +3437,35 @@ extension $WebApiLogicAppFuncSessionUserExtension
       Wrapped<bool?>? enablecreatecontract,
       Wrapped<bool?>? qsallowapplyallqtyitems,
       Wrapped<bool?>? allowcontractwithexceptions,
-      Wrapped<bool?>? canInsertIntoActiveOrder}) {
+      Wrapped<bool?>? canInsertIntoActiveOrder,
+      Wrapped<int?>? creditCardPinPadId,
+      Wrapped<String?>? creditCardPinPad}) {
     return WebApiLogicAppFuncSessionUser(
         webusersid: (webusersid != null ? webusersid.value : this.webusersid),
         usersid: (usersid != null ? usersid.value : this.usersid),
         contactid: (contactid != null ? contactid.value : this.contactid),
         usertype: (usertype != null ? usertype.value : this.usertype),
         email: (email != null ? email.value : this.email),
+        emailapp: (emailapp != null ? emailapp.value : this.emailapp),
+        addsignaturetodraft: (addsignaturetodraft != null
+            ? addsignaturetodraft.value
+            : this.addsignaturetodraft),
         fullname: (fullname != null ? fullname.value : this.fullname),
         name: (name != null ? name.value : this.name),
         browsedefaultrows: (browsedefaultrows != null
             ? browsedefaultrows.value
             : this.browsedefaultrows),
+        griddefaultrows: (griddefaultrows != null
+            ? griddefaultrows.value
+            : this.griddefaultrows),
         applicationtheme: (applicationtheme != null
             ? applicationtheme.value
             : this.applicationtheme),
+        locale: (locale != null ? locale.value : this.locale),
         locationid: (locationid != null ? locationid.value : this.locationid),
         location: (location != null ? location.value : this.location),
+        languageid: (languageid != null ? languageid.value : this.languageid),
+        language: (language != null ? language.value : this.language),
         warehouseid:
             (warehouseid != null ? warehouseid.value : this.warehouseid),
         warehouse: (warehouse != null ? warehouse.value : this.warehouse),
@@ -2913,7 +3532,13 @@ extension $WebApiLogicAppFuncSessionUserExtension
             : this.allowcontractwithexceptions),
         canInsertIntoActiveOrder: (canInsertIntoActiveOrder != null
             ? canInsertIntoActiveOrder.value
-            : this.canInsertIntoActiveOrder));
+            : this.canInsertIntoActiveOrder),
+        creditCardPinPadId: (creditCardPinPadId != null
+            ? creditCardPinPadId.value
+            : this.creditCardPinPadId),
+        creditCardPinPad: (creditCardPinPad != null
+            ? creditCardPinPad.value
+            : this.creditCardPinPad));
   }
 }
 
@@ -2929,11 +3554,20 @@ class WebApiLogicAppFuncSessionWarehouse {
     this.storagecontainerrescanrequired,
     this.quikreceiptenable,
     this.transferavailabilitydays,
+    this.regionid,
+    this.region,
+    this.regionwarehouseids,
+    this.regionwarehouses,
+    this.internalorderdealid,
   });
 
   factory WebApiLogicAppFuncSessionWarehouse.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSessionWarehouseFromJson(json);
+
+  static const toJsonFactory = _$WebApiLogicAppFuncSessionWarehouseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSessionWarehouseToJson(this);
 
   @JsonKey(name: 'warehouseid', includeIfNull: false)
   final String? warehouseid;
@@ -2953,10 +3587,17 @@ class WebApiLogicAppFuncSessionWarehouse {
   final bool? quikreceiptenable;
   @JsonKey(name: 'transferavailabilitydays', includeIfNull: false)
   final int? transferavailabilitydays;
+  @JsonKey(name: 'regionid', includeIfNull: false)
+  final String? regionid;
+  @JsonKey(name: 'region', includeIfNull: false)
+  final String? region;
+  @JsonKey(name: 'regionwarehouseids', includeIfNull: false)
+  final String? regionwarehouseids;
+  @JsonKey(name: 'regionwarehouses', includeIfNull: false)
+  final String? regionwarehouses;
+  @JsonKey(name: 'internalorderdealid', includeIfNull: false)
+  final String? internalorderdealid;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionWarehouseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSessionWarehouseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncSessionWarehouseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2979,13 +3620,11 @@ class WebApiLogicAppFuncSessionWarehouse {
                 const DeepCollectionEquality().equals(
                     other.promptforcheckinexceptions,
                     promptforcheckinexceptions)) &&
-            (identical(other.storagecontainerstagingenable,
-                    storagecontainerstagingenable) ||
+            (identical(other.storagecontainerstagingenable, storagecontainerstagingenable) ||
                 const DeepCollectionEquality().equals(
                     other.storagecontainerstagingenable,
                     storagecontainerstagingenable)) &&
-            (identical(other.storagecontainerrescanrequired,
-                    storagecontainerrescanrequired) ||
+            (identical(other.storagecontainerrescanrequired, storagecontainerrescanrequired) ||
                 const DeepCollectionEquality().equals(
                     other.storagecontainerrescanrequired,
                     storagecontainerrescanrequired)) &&
@@ -2993,8 +3632,17 @@ class WebApiLogicAppFuncSessionWarehouse {
                 const DeepCollectionEquality()
                     .equals(other.quikreceiptenable, quikreceiptenable)) &&
             (identical(other.transferavailabilitydays, transferavailabilitydays) ||
+                const DeepCollectionEquality().equals(
+                    other.transferavailabilitydays,
+                    transferavailabilitydays)) &&
+            (identical(other.regionid, regionid) ||
                 const DeepCollectionEquality()
-                    .equals(other.transferavailabilitydays, transferavailabilitydays)));
+                    .equals(other.regionid, regionid)) &&
+            (identical(other.region, region) ||
+                const DeepCollectionEquality().equals(other.region, region)) &&
+            (identical(other.regionwarehouseids, regionwarehouseids) || const DeepCollectionEquality().equals(other.regionwarehouseids, regionwarehouseids)) &&
+            (identical(other.regionwarehouses, regionwarehouses) || const DeepCollectionEquality().equals(other.regionwarehouses, regionwarehouses)) &&
+            (identical(other.internalorderdealid, internalorderdealid) || const DeepCollectionEquality().equals(other.internalorderdealid, internalorderdealid)));
   }
 
   @override
@@ -3011,6 +3659,11 @@ class WebApiLogicAppFuncSessionWarehouse {
       const DeepCollectionEquality().hash(storagecontainerrescanrequired) ^
       const DeepCollectionEquality().hash(quikreceiptenable) ^
       const DeepCollectionEquality().hash(transferavailabilitydays) ^
+      const DeepCollectionEquality().hash(regionid) ^
+      const DeepCollectionEquality().hash(region) ^
+      const DeepCollectionEquality().hash(regionwarehouseids) ^
+      const DeepCollectionEquality().hash(regionwarehouses) ^
+      const DeepCollectionEquality().hash(internalorderdealid) ^
       runtimeType.hashCode;
 }
 
@@ -3025,7 +3678,12 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
       bool? storagecontainerstagingenable,
       bool? storagecontainerrescanrequired,
       bool? quikreceiptenable,
-      int? transferavailabilitydays}) {
+      int? transferavailabilitydays,
+      String? regionid,
+      String? region,
+      String? regionwarehouseids,
+      String? regionwarehouses,
+      String? internalorderdealid}) {
     return WebApiLogicAppFuncSessionWarehouse(
         warehouseid: warehouseid ?? this.warehouseid,
         warehouse: warehouse ?? this.warehouse,
@@ -3040,7 +3698,12 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
             this.storagecontainerrescanrequired,
         quikreceiptenable: quikreceiptenable ?? this.quikreceiptenable,
         transferavailabilitydays:
-            transferavailabilitydays ?? this.transferavailabilitydays);
+            transferavailabilitydays ?? this.transferavailabilitydays,
+        regionid: regionid ?? this.regionid,
+        region: region ?? this.region,
+        regionwarehouseids: regionwarehouseids ?? this.regionwarehouseids,
+        regionwarehouses: regionwarehouses ?? this.regionwarehouses,
+        internalorderdealid: internalorderdealid ?? this.internalorderdealid);
   }
 
   WebApiLogicAppFuncSessionWarehouse copyWithWrapped(
@@ -3052,7 +3715,12 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
       Wrapped<bool?>? storagecontainerstagingenable,
       Wrapped<bool?>? storagecontainerrescanrequired,
       Wrapped<bool?>? quikreceiptenable,
-      Wrapped<int?>? transferavailabilitydays}) {
+      Wrapped<int?>? transferavailabilitydays,
+      Wrapped<String?>? regionid,
+      Wrapped<String?>? region,
+      Wrapped<String?>? regionwarehouseids,
+      Wrapped<String?>? regionwarehouses,
+      Wrapped<String?>? internalorderdealid}) {
     return WebApiLogicAppFuncSessionWarehouse(
         warehouseid:
             (warehouseid != null ? warehouseid.value : this.warehouseid),
@@ -3076,7 +3744,18 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
             : this.quikreceiptenable),
         transferavailabilitydays: (transferavailabilitydays != null
             ? transferavailabilitydays.value
-            : this.transferavailabilitydays));
+            : this.transferavailabilitydays),
+        regionid: (regionid != null ? regionid.value : this.regionid),
+        region: (region != null ? region.value : this.region),
+        regionwarehouseids: (regionwarehouseids != null
+            ? regionwarehouseids.value
+            : this.regionwarehouseids),
+        regionwarehouses: (regionwarehouses != null
+            ? regionwarehouses.value
+            : this.regionwarehouses),
+        internalorderdealid: (internalorderdealid != null
+            ? internalorderdealid.value
+            : this.internalorderdealid));
   }
 }
 
@@ -3091,14 +3770,15 @@ class WebApiLogicAppFuncSystemNumbersModel {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSystemNumbersModelFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSystemNumbersModelToJson(this);
+
   @JsonKey(name: 'Module', includeIfNull: false)
   final String? module;
   @JsonKey(name: 'IsAssignedByUser', includeIfNull: false)
   final bool? isAssignedByUser;
   static const fromJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersModelToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncSystemNumbersModelToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3150,6 +3830,10 @@ class WebApiLogicAppFuncSystemNumbersResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSystemNumbersResponseFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSystemNumbersResponseToJson(this);
+
   @JsonKey(
       name: 'SystemNumbers',
       includeIfNull: false,
@@ -3157,9 +3841,6 @@ class WebApiLogicAppFuncSystemNumbersResponse {
   final List<WebApiLogicAppFuncSystemNumbersModel>? systemNumbers;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncSystemNumbersResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSystemNumbersResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncSystemNumbersResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3200,16 +3881,32 @@ class WebApiLogicAppFuncSystemSettingsResponse {
     this.allowDeleteInvoices,
     this.allowInvoiceDateChange,
     this.enableReceipts,
+    this.enableOriginalShow,
     this.enablePayments,
+    this.enableVendorInvoice,
+    this.enablePropsWardrobe,
+    this.enableSetsWalls,
     this.shareDealsAcrossOfficeLocations,
+    this.synchronizeCustomerStatusAndCreditStatus,
+    this.synchronizeDealStatusAndCreditStatus,
     this.systemName,
     this.companyName,
     this.isVendorNumberAssignedByUser,
+    this.quoteOrderMessageFormat,
+    this.dataLanguageId,
+    this.dataLanguage,
+    this.allCaps,
+    this.enableQuikLocate,
+    this.departmentFilter,
   });
 
   factory WebApiLogicAppFuncSystemSettingsResponse.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncSystemSettingsResponseFromJson(json);
+
+  static const toJsonFactory = _$WebApiLogicAppFuncSystemSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSystemSettingsResponseToJson(this);
 
   @JsonKey(name: 'AllowDeleteInvoices', includeIfNull: false)
   final bool? allowDeleteInvoices;
@@ -3217,21 +3914,43 @@ class WebApiLogicAppFuncSystemSettingsResponse {
   final bool? allowInvoiceDateChange;
   @JsonKey(name: 'EnableReceipts', includeIfNull: false)
   final bool? enableReceipts;
+  @JsonKey(name: 'EnableOriginalShow', includeIfNull: false)
+  final bool? enableOriginalShow;
   @JsonKey(name: 'EnablePayments', includeIfNull: false)
   final bool? enablePayments;
+  @JsonKey(name: 'EnableVendorInvoice', includeIfNull: false)
+  final bool? enableVendorInvoice;
+  @JsonKey(name: 'EnablePropsWardrobe', includeIfNull: false)
+  final bool? enablePropsWardrobe;
+  @JsonKey(name: 'EnableSetsWalls', includeIfNull: false)
+  final bool? enableSetsWalls;
   @JsonKey(name: 'ShareDealsAcrossOfficeLocations', includeIfNull: false)
   final bool? shareDealsAcrossOfficeLocations;
+  @JsonKey(
+      name: 'SynchronizeCustomerStatusAndCreditStatus', includeIfNull: false)
+  final bool? synchronizeCustomerStatusAndCreditStatus;
+  @JsonKey(name: 'SynchronizeDealStatusAndCreditStatus', includeIfNull: false)
+  final bool? synchronizeDealStatusAndCreditStatus;
   @JsonKey(name: 'SystemName', includeIfNull: false)
   final String? systemName;
   @JsonKey(name: 'CompanyName', includeIfNull: false)
   final String? companyName;
   @JsonKey(name: 'IsVendorNumberAssignedByUser', includeIfNull: false)
   final bool? isVendorNumberAssignedByUser;
+  @JsonKey(name: 'QuoteOrderMessageFormat', includeIfNull: false)
+  final String? quoteOrderMessageFormat;
+  @JsonKey(name: 'DataLanguageId', includeIfNull: false)
+  final String? dataLanguageId;
+  @JsonKey(name: 'DataLanguage', includeIfNull: false)
+  final String? dataLanguage;
+  @JsonKey(name: 'AllCaps', includeIfNull: false)
+  final bool? allCaps;
+  @JsonKey(name: 'EnableQuikLocate', includeIfNull: false)
+  final bool? enableQuikLocate;
+  @JsonKey(name: 'DepartmentFilter', includeIfNull: false)
+  final bool? departmentFilter;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncSystemSettingsResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncSystemSettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncSystemSettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3246,25 +3965,51 @@ class WebApiLogicAppFuncSystemSettingsResponse {
             (identical(other.enableReceipts, enableReceipts) ||
                 const DeepCollectionEquality()
                     .equals(other.enableReceipts, enableReceipts)) &&
+            (identical(other.enableOriginalShow, enableOriginalShow) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableOriginalShow, enableOriginalShow)) &&
             (identical(other.enablePayments, enablePayments) ||
                 const DeepCollectionEquality()
                     .equals(other.enablePayments, enablePayments)) &&
-            (identical(other.shareDealsAcrossOfficeLocations,
-                    shareDealsAcrossOfficeLocations) ||
+            (identical(other.enableVendorInvoice, enableVendorInvoice) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableVendorInvoice, enableVendorInvoice)) &&
+            (identical(other.enablePropsWardrobe, enablePropsWardrobe) ||
+                const DeepCollectionEquality()
+                    .equals(other.enablePropsWardrobe, enablePropsWardrobe)) &&
+            (identical(other.enableSetsWalls, enableSetsWalls) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableSetsWalls, enableSetsWalls)) &&
+            (identical(other.shareDealsAcrossOfficeLocations, shareDealsAcrossOfficeLocations) ||
                 const DeepCollectionEquality().equals(
                     other.shareDealsAcrossOfficeLocations,
                     shareDealsAcrossOfficeLocations)) &&
+            (identical(other.synchronizeCustomerStatusAndCreditStatus, synchronizeCustomerStatusAndCreditStatus) ||
+                const DeepCollectionEquality().equals(
+                    other.synchronizeCustomerStatusAndCreditStatus,
+                    synchronizeCustomerStatusAndCreditStatus)) &&
+            (identical(other.synchronizeDealStatusAndCreditStatus, synchronizeDealStatusAndCreditStatus) ||
+                const DeepCollectionEquality().equals(
+                    other.synchronizeDealStatusAndCreditStatus,
+                    synchronizeDealStatusAndCreditStatus)) &&
             (identical(other.systemName, systemName) ||
                 const DeepCollectionEquality()
                     .equals(other.systemName, systemName)) &&
             (identical(other.companyName, companyName) ||
                 const DeepCollectionEquality()
                     .equals(other.companyName, companyName)) &&
-            (identical(other.isVendorNumberAssignedByUser,
-                    isVendorNumberAssignedByUser) ||
+            (identical(other.isVendorNumberAssignedByUser, isVendorNumberAssignedByUser) ||
                 const DeepCollectionEquality().equals(
                     other.isVendorNumberAssignedByUser,
-                    isVendorNumberAssignedByUser)));
+                    isVendorNumberAssignedByUser)) &&
+            (identical(other.quoteOrderMessageFormat, quoteOrderMessageFormat) ||
+                const DeepCollectionEquality()
+                    .equals(other.quoteOrderMessageFormat, quoteOrderMessageFormat)) &&
+            (identical(other.dataLanguageId, dataLanguageId) || const DeepCollectionEquality().equals(other.dataLanguageId, dataLanguageId)) &&
+            (identical(other.dataLanguage, dataLanguage) || const DeepCollectionEquality().equals(other.dataLanguage, dataLanguage)) &&
+            (identical(other.allCaps, allCaps) || const DeepCollectionEquality().equals(other.allCaps, allCaps)) &&
+            (identical(other.enableQuikLocate, enableQuikLocate) || const DeepCollectionEquality().equals(other.enableQuikLocate, enableQuikLocate)) &&
+            (identical(other.departmentFilter, departmentFilter) || const DeepCollectionEquality().equals(other.departmentFilter, departmentFilter)));
   }
 
   @override
@@ -3275,11 +4020,25 @@ class WebApiLogicAppFuncSystemSettingsResponse {
       const DeepCollectionEquality().hash(allowDeleteInvoices) ^
       const DeepCollectionEquality().hash(allowInvoiceDateChange) ^
       const DeepCollectionEquality().hash(enableReceipts) ^
+      const DeepCollectionEquality().hash(enableOriginalShow) ^
       const DeepCollectionEquality().hash(enablePayments) ^
+      const DeepCollectionEquality().hash(enableVendorInvoice) ^
+      const DeepCollectionEquality().hash(enablePropsWardrobe) ^
+      const DeepCollectionEquality().hash(enableSetsWalls) ^
       const DeepCollectionEquality().hash(shareDealsAcrossOfficeLocations) ^
+      const DeepCollectionEquality()
+          .hash(synchronizeCustomerStatusAndCreditStatus) ^
+      const DeepCollectionEquality()
+          .hash(synchronizeDealStatusAndCreditStatus) ^
       const DeepCollectionEquality().hash(systemName) ^
       const DeepCollectionEquality().hash(companyName) ^
       const DeepCollectionEquality().hash(isVendorNumberAssignedByUser) ^
+      const DeepCollectionEquality().hash(quoteOrderMessageFormat) ^
+      const DeepCollectionEquality().hash(dataLanguageId) ^
+      const DeepCollectionEquality().hash(dataLanguage) ^
+      const DeepCollectionEquality().hash(allCaps) ^
+      const DeepCollectionEquality().hash(enableQuikLocate) ^
+      const DeepCollectionEquality().hash(departmentFilter) ^
       runtimeType.hashCode;
 }
 
@@ -3289,34 +4048,75 @@ extension $WebApiLogicAppFuncSystemSettingsResponseExtension
       {bool? allowDeleteInvoices,
       bool? allowInvoiceDateChange,
       bool? enableReceipts,
+      bool? enableOriginalShow,
       bool? enablePayments,
+      bool? enableVendorInvoice,
+      bool? enablePropsWardrobe,
+      bool? enableSetsWalls,
       bool? shareDealsAcrossOfficeLocations,
+      bool? synchronizeCustomerStatusAndCreditStatus,
+      bool? synchronizeDealStatusAndCreditStatus,
       String? systemName,
       String? companyName,
-      bool? isVendorNumberAssignedByUser}) {
+      bool? isVendorNumberAssignedByUser,
+      String? quoteOrderMessageFormat,
+      String? dataLanguageId,
+      String? dataLanguage,
+      bool? allCaps,
+      bool? enableQuikLocate,
+      bool? departmentFilter}) {
     return WebApiLogicAppFuncSystemSettingsResponse(
         allowDeleteInvoices: allowDeleteInvoices ?? this.allowDeleteInvoices,
         allowInvoiceDateChange:
             allowInvoiceDateChange ?? this.allowInvoiceDateChange,
         enableReceipts: enableReceipts ?? this.enableReceipts,
+        enableOriginalShow: enableOriginalShow ?? this.enableOriginalShow,
         enablePayments: enablePayments ?? this.enablePayments,
+        enableVendorInvoice: enableVendorInvoice ?? this.enableVendorInvoice,
+        enablePropsWardrobe: enablePropsWardrobe ?? this.enablePropsWardrobe,
+        enableSetsWalls: enableSetsWalls ?? this.enableSetsWalls,
         shareDealsAcrossOfficeLocations: shareDealsAcrossOfficeLocations ??
             this.shareDealsAcrossOfficeLocations,
+        synchronizeCustomerStatusAndCreditStatus:
+            synchronizeCustomerStatusAndCreditStatus ??
+                this.synchronizeCustomerStatusAndCreditStatus,
+        synchronizeDealStatusAndCreditStatus:
+            synchronizeDealStatusAndCreditStatus ??
+                this.synchronizeDealStatusAndCreditStatus,
         systemName: systemName ?? this.systemName,
         companyName: companyName ?? this.companyName,
         isVendorNumberAssignedByUser:
-            isVendorNumberAssignedByUser ?? this.isVendorNumberAssignedByUser);
+            isVendorNumberAssignedByUser ?? this.isVendorNumberAssignedByUser,
+        quoteOrderMessageFormat:
+            quoteOrderMessageFormat ?? this.quoteOrderMessageFormat,
+        dataLanguageId: dataLanguageId ?? this.dataLanguageId,
+        dataLanguage: dataLanguage ?? this.dataLanguage,
+        allCaps: allCaps ?? this.allCaps,
+        enableQuikLocate: enableQuikLocate ?? this.enableQuikLocate,
+        departmentFilter: departmentFilter ?? this.departmentFilter);
   }
 
   WebApiLogicAppFuncSystemSettingsResponse copyWithWrapped(
       {Wrapped<bool?>? allowDeleteInvoices,
       Wrapped<bool?>? allowInvoiceDateChange,
       Wrapped<bool?>? enableReceipts,
+      Wrapped<bool?>? enableOriginalShow,
       Wrapped<bool?>? enablePayments,
+      Wrapped<bool?>? enableVendorInvoice,
+      Wrapped<bool?>? enablePropsWardrobe,
+      Wrapped<bool?>? enableSetsWalls,
       Wrapped<bool?>? shareDealsAcrossOfficeLocations,
+      Wrapped<bool?>? synchronizeCustomerStatusAndCreditStatus,
+      Wrapped<bool?>? synchronizeDealStatusAndCreditStatus,
       Wrapped<String?>? systemName,
       Wrapped<String?>? companyName,
-      Wrapped<bool?>? isVendorNumberAssignedByUser}) {
+      Wrapped<bool?>? isVendorNumberAssignedByUser,
+      Wrapped<String?>? quoteOrderMessageFormat,
+      Wrapped<String?>? dataLanguageId,
+      Wrapped<String?>? dataLanguage,
+      Wrapped<bool?>? allCaps,
+      Wrapped<bool?>? enableQuikLocate,
+      Wrapped<bool?>? departmentFilter}) {
     return WebApiLogicAppFuncSystemSettingsResponse(
         allowDeleteInvoices: (allowDeleteInvoices != null
             ? allowDeleteInvoices.value
@@ -3327,19 +4127,54 @@ extension $WebApiLogicAppFuncSystemSettingsResponseExtension
         enableReceipts: (enableReceipts != null
             ? enableReceipts.value
             : this.enableReceipts),
+        enableOriginalShow: (enableOriginalShow != null
+            ? enableOriginalShow.value
+            : this.enableOriginalShow),
         enablePayments: (enablePayments != null
             ? enablePayments.value
             : this.enablePayments),
+        enableVendorInvoice: (enableVendorInvoice != null
+            ? enableVendorInvoice.value
+            : this.enableVendorInvoice),
+        enablePropsWardrobe: (enablePropsWardrobe != null
+            ? enablePropsWardrobe.value
+            : this.enablePropsWardrobe),
+        enableSetsWalls: (enableSetsWalls != null
+            ? enableSetsWalls.value
+            : this.enableSetsWalls),
         shareDealsAcrossOfficeLocations:
             (shareDealsAcrossOfficeLocations != null
                 ? shareDealsAcrossOfficeLocations.value
                 : this.shareDealsAcrossOfficeLocations),
+        synchronizeCustomerStatusAndCreditStatus:
+            (synchronizeCustomerStatusAndCreditStatus != null
+                ? synchronizeCustomerStatusAndCreditStatus.value
+                : this.synchronizeCustomerStatusAndCreditStatus),
+        synchronizeDealStatusAndCreditStatus:
+            (synchronizeDealStatusAndCreditStatus != null
+                ? synchronizeDealStatusAndCreditStatus.value
+                : this.synchronizeDealStatusAndCreditStatus),
         systemName: (systemName != null ? systemName.value : this.systemName),
         companyName:
             (companyName != null ? companyName.value : this.companyName),
         isVendorNumberAssignedByUser: (isVendorNumberAssignedByUser != null
             ? isVendorNumberAssignedByUser.value
-            : this.isVendorNumberAssignedByUser));
+            : this.isVendorNumberAssignedByUser),
+        quoteOrderMessageFormat: (quoteOrderMessageFormat != null
+            ? quoteOrderMessageFormat.value
+            : this.quoteOrderMessageFormat),
+        dataLanguageId: (dataLanguageId != null
+            ? dataLanguageId.value
+            : this.dataLanguageId),
+        dataLanguage:
+            (dataLanguage != null ? dataLanguage.value : this.dataLanguage),
+        allCaps: (allCaps != null ? allCaps.value : this.allCaps),
+        enableQuikLocate: (enableQuikLocate != null
+            ? enableQuikLocate.value
+            : this.enableQuikLocate),
+        departmentFilter: (departmentFilter != null
+            ? departmentFilter.value
+            : this.departmentFilter));
   }
 }
 
@@ -3365,6 +4200,10 @@ class WebApiLogicAppFuncUserSettingsResponse {
   factory WebApiLogicAppFuncUserSettingsResponse.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncUserSettingsResponseFromJson(json);
+
+  static const toJsonFactory = _$WebApiLogicAppFuncUserSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncUserSettingsResponseToJson(this);
 
   @JsonKey(name: 'SuccessBase64Sound', includeIfNull: false)
   final String? successBase64Sound;
@@ -3396,9 +4235,6 @@ class WebApiLogicAppFuncUserSettingsResponse {
   final bool? availabilityAllWarehouses;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncUserSettingsResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicAppFuncUserSettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiLogicAppFuncUserSettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3577,12 +4413,13 @@ class WebApiLogicAppFuncWarehouseResponse {
           Map<String, dynamic> json) =>
       _$WebApiLogicAppFuncWarehouseResponseFromJson(json);
 
-  @JsonKey(name: 'MultiWarehouse', includeIfNull: false)
-  final bool? multiWarehouse;
-  static const fromJsonFactory = _$WebApiLogicAppFuncWarehouseResponseFromJson;
   static const toJsonFactory = _$WebApiLogicAppFuncWarehouseResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiLogicAppFuncWarehouseResponseToJson(this);
+
+  @JsonKey(name: 'MultiWarehouse', includeIfNull: false)
+  final bool? multiWarehouse;
+  static const fromJsonFactory = _$WebApiLogicAppFuncWarehouseResponseFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -3631,6 +4468,12 @@ class WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationRespo
       _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
+          this);
+
   @JsonKey(name: 'location', includeIfNull: false)
   final WebApiLogicAppFuncSessionLocation? location;
   @JsonKey(name: 'warehouse', includeIfNull: false)
@@ -3639,11 +4482,6 @@ class WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationRespo
   final WebApiLogicAppFuncSessionDepartment? department;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3717,6 +4555,12 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
       _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
+          this);
+
   @JsonKey(name: 'location', includeIfNull: false)
   final WebApiLogicAppFuncSessionLocation? location;
   @JsonKey(name: 'warehouse', includeIfNull: false)
@@ -3742,11 +4586,6 @@ class WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse {
   final dynamic plugins;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3882,6 +4721,11 @@ class WebApiModulesAccountServicesAccountGetSettingsRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(this);
+
   @JsonKey(name: 'WebUsersId', includeIfNull: false)
   final String? webUsersId;
   @JsonKey(name: 'DepartmentId', includeIfNull: false)
@@ -3890,10 +4734,6 @@ class WebApiModulesAccountServicesAccountGetSettingsRequest {
   final String? locationId;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3953,14 +4793,15 @@ class WebApiModulesAccountServicesAccountResetPasswordRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(json);
 
-  @JsonKey(name: 'Password', includeIfNull: false)
-  final String password;
-  static const fromJsonFactory =
-      _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesAccountResetPasswordRequestToJson(this);
+
+  @JsonKey(name: 'Password', includeIfNull: false)
+  final String password;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -4005,16 +4846,17 @@ class WebApiModulesAccountServicesAccountResetPasswordResponse {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(this);
+
   @JsonKey(name: 'Status', includeIfNull: false)
   final int? status;
   @JsonKey(name: 'Message', includeIfNull: false)
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4057,34 +4899,41 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
   WebApiModulesAccountServicesAccountSystemSettingsResponse({
     this.defaultUnitId,
     this.defaultRank,
-    this.requireOriginalShow,
     this.userAssignedICodes,
     this.quikScanStageBySession,
     this.barcodeSkipPrefixes,
+    this.enableOriginalShow,
+    this.enablePropsWardrobe,
+    this.enableSetsWalls,
   });
 
   factory WebApiModulesAccountServicesAccountSystemSettingsResponse.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(this);
+
   @JsonKey(name: 'DefaultUnitId', includeIfNull: false)
   final String? defaultUnitId;
   @JsonKey(name: 'DefaultRank', includeIfNull: false)
   final String? defaultRank;
-  @JsonKey(name: 'RequireOriginalShow', includeIfNull: false)
-  final bool? requireOriginalShow;
   @JsonKey(name: 'UserAssignedICodes', includeIfNull: false)
   final bool? userAssignedICodes;
   @JsonKey(name: 'QuikScanStageBySession', includeIfNull: false)
   final bool? quikScanStageBySession;
   @JsonKey(name: 'BarcodeSkipPrefixes', includeIfNull: false)
   final FwStandardSqlServerFwJsonDataTable? barcodeSkipPrefixes;
+  @JsonKey(name: 'EnableOriginalShow', includeIfNull: false)
+  final bool? enableOriginalShow;
+  @JsonKey(name: 'EnablePropsWardrobe', includeIfNull: false)
+  final bool? enablePropsWardrobe;
+  @JsonKey(name: 'EnableSetsWalls', includeIfNull: false)
+  final bool? enableSetsWalls;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4096,9 +4945,6 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
             (identical(other.defaultRank, defaultRank) ||
                 const DeepCollectionEquality()
                     .equals(other.defaultRank, defaultRank)) &&
-            (identical(other.requireOriginalShow, requireOriginalShow) ||
-                const DeepCollectionEquality()
-                    .equals(other.requireOriginalShow, requireOriginalShow)) &&
             (identical(other.userAssignedICodes, userAssignedICodes) ||
                 const DeepCollectionEquality()
                     .equals(other.userAssignedICodes, userAssignedICodes)) &&
@@ -4107,7 +4953,16 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
                     other.quikScanStageBySession, quikScanStageBySession)) &&
             (identical(other.barcodeSkipPrefixes, barcodeSkipPrefixes) ||
                 const DeepCollectionEquality()
-                    .equals(other.barcodeSkipPrefixes, barcodeSkipPrefixes)));
+                    .equals(other.barcodeSkipPrefixes, barcodeSkipPrefixes)) &&
+            (identical(other.enableOriginalShow, enableOriginalShow) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableOriginalShow, enableOriginalShow)) &&
+            (identical(other.enablePropsWardrobe, enablePropsWardrobe) ||
+                const DeepCollectionEquality()
+                    .equals(other.enablePropsWardrobe, enablePropsWardrobe)) &&
+            (identical(other.enableSetsWalls, enableSetsWalls) ||
+                const DeepCollectionEquality()
+                    .equals(other.enableSetsWalls, enableSetsWalls)));
   }
 
   @override
@@ -4117,10 +4972,12 @@ class WebApiModulesAccountServicesAccountSystemSettingsResponse {
   int get hashCode =>
       const DeepCollectionEquality().hash(defaultUnitId) ^
       const DeepCollectionEquality().hash(defaultRank) ^
-      const DeepCollectionEquality().hash(requireOriginalShow) ^
       const DeepCollectionEquality().hash(userAssignedICodes) ^
       const DeepCollectionEquality().hash(quikScanStageBySession) ^
       const DeepCollectionEquality().hash(barcodeSkipPrefixes) ^
+      const DeepCollectionEquality().hash(enableOriginalShow) ^
+      const DeepCollectionEquality().hash(enablePropsWardrobe) ^
+      const DeepCollectionEquality().hash(enableSetsWalls) ^
       runtimeType.hashCode;
 }
 
@@ -4129,35 +4986,38 @@ extension $WebApiModulesAccountServicesAccountSystemSettingsResponseExtension
   WebApiModulesAccountServicesAccountSystemSettingsResponse copyWith(
       {String? defaultUnitId,
       String? defaultRank,
-      bool? requireOriginalShow,
       bool? userAssignedICodes,
       bool? quikScanStageBySession,
-      FwStandardSqlServerFwJsonDataTable? barcodeSkipPrefixes}) {
+      FwStandardSqlServerFwJsonDataTable? barcodeSkipPrefixes,
+      bool? enableOriginalShow,
+      bool? enablePropsWardrobe,
+      bool? enableSetsWalls}) {
     return WebApiModulesAccountServicesAccountSystemSettingsResponse(
         defaultUnitId: defaultUnitId ?? this.defaultUnitId,
         defaultRank: defaultRank ?? this.defaultRank,
-        requireOriginalShow: requireOriginalShow ?? this.requireOriginalShow,
         userAssignedICodes: userAssignedICodes ?? this.userAssignedICodes,
         quikScanStageBySession:
             quikScanStageBySession ?? this.quikScanStageBySession,
-        barcodeSkipPrefixes: barcodeSkipPrefixes ?? this.barcodeSkipPrefixes);
+        barcodeSkipPrefixes: barcodeSkipPrefixes ?? this.barcodeSkipPrefixes,
+        enableOriginalShow: enableOriginalShow ?? this.enableOriginalShow,
+        enablePropsWardrobe: enablePropsWardrobe ?? this.enablePropsWardrobe,
+        enableSetsWalls: enableSetsWalls ?? this.enableSetsWalls);
   }
 
   WebApiModulesAccountServicesAccountSystemSettingsResponse copyWithWrapped(
       {Wrapped<String?>? defaultUnitId,
       Wrapped<String?>? defaultRank,
-      Wrapped<bool?>? requireOriginalShow,
       Wrapped<bool?>? userAssignedICodes,
       Wrapped<bool?>? quikScanStageBySession,
-      Wrapped<FwStandardSqlServerFwJsonDataTable?>? barcodeSkipPrefixes}) {
+      Wrapped<FwStandardSqlServerFwJsonDataTable?>? barcodeSkipPrefixes,
+      Wrapped<bool?>? enableOriginalShow,
+      Wrapped<bool?>? enablePropsWardrobe,
+      Wrapped<bool?>? enableSetsWalls}) {
     return WebApiModulesAccountServicesAccountSystemSettingsResponse(
         defaultUnitId:
             (defaultUnitId != null ? defaultUnitId.value : this.defaultUnitId),
         defaultRank:
             (defaultRank != null ? defaultRank.value : this.defaultRank),
-        requireOriginalShow: (requireOriginalShow != null
-            ? requireOriginalShow.value
-            : this.requireOriginalShow),
         userAssignedICodes: (userAssignedICodes != null
             ? userAssignedICodes.value
             : this.userAssignedICodes),
@@ -4166,7 +5026,109 @@ extension $WebApiModulesAccountServicesAccountSystemSettingsResponseExtension
             : this.quikScanStageBySession),
         barcodeSkipPrefixes: (barcodeSkipPrefixes != null
             ? barcodeSkipPrefixes.value
-            : this.barcodeSkipPrefixes));
+            : this.barcodeSkipPrefixes),
+        enableOriginalShow: (enableOriginalShow != null
+            ? enableOriginalShow.value
+            : this.enableOriginalShow),
+        enablePropsWardrobe: (enablePropsWardrobe != null
+            ? enablePropsWardrobe.value
+            : this.enablePropsWardrobe),
+        enableSetsWalls: (enableSetsWalls != null
+            ? enableSetsWalls.value
+            : this.enableSetsWalls));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAccountServicesJwtAzureADRequest {
+  WebApiModulesAccountServicesJwtAzureADRequest({
+    this.email,
+    this.token,
+    this.tenant,
+    this.audience,
+    this.issuer,
+  });
+
+  factory WebApiModulesAccountServicesJwtAzureADRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesAccountServicesJwtAzureADRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesJwtAzureADRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesJwtAzureADRequestToJson(this);
+
+  @JsonKey(name: 'Email', includeIfNull: false)
+  final String? email;
+  @JsonKey(name: 'Token', includeIfNull: false)
+  final String? token;
+  @JsonKey(name: 'Tenant', includeIfNull: false)
+  final String? tenant;
+  @JsonKey(name: 'Audience', includeIfNull: false)
+  final String? audience;
+  @JsonKey(name: 'Issuer', includeIfNull: false)
+  final String? issuer;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesJwtAzureADRequestFromJson;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAccountServicesJwtAzureADRequest &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.tenant, tenant) ||
+                const DeepCollectionEquality().equals(other.tenant, tenant)) &&
+            (identical(other.audience, audience) ||
+                const DeepCollectionEquality()
+                    .equals(other.audience, audience)) &&
+            (identical(other.issuer, issuer) ||
+                const DeepCollectionEquality().equals(other.issuer, issuer)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(tenant) ^
+      const DeepCollectionEquality().hash(audience) ^
+      const DeepCollectionEquality().hash(issuer) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAccountServicesJwtAzureADRequestExtension
+    on WebApiModulesAccountServicesJwtAzureADRequest {
+  WebApiModulesAccountServicesJwtAzureADRequest copyWith(
+      {String? email,
+      String? token,
+      String? tenant,
+      String? audience,
+      String? issuer}) {
+    return WebApiModulesAccountServicesJwtAzureADRequest(
+        email: email ?? this.email,
+        token: token ?? this.token,
+        tenant: tenant ?? this.tenant,
+        audience: audience ?? this.audience,
+        issuer: issuer ?? this.issuer);
+  }
+
+  WebApiModulesAccountServicesJwtAzureADRequest copyWithWrapped(
+      {Wrapped<String?>? email,
+      Wrapped<String?>? token,
+      Wrapped<String?>? tenant,
+      Wrapped<String?>? audience,
+      Wrapped<String?>? issuer}) {
+    return WebApiModulesAccountServicesJwtAzureADRequest(
+        email: (email != null ? email.value : this.email),
+        token: (token != null ? token.value : this.token),
+        tenant: (tenant != null ? tenant.value : this.tenant),
+        audience: (audience != null ? audience.value : this.audience),
+        issuer: (issuer != null ? issuer.value : this.issuer));
   }
 }
 
@@ -4181,16 +5143,17 @@ class WebApiModulesAccountServicesJwtOktaRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesJwtOktaRequestFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesJwtOktaRequestToJson(this);
+
   @JsonKey(name: 'Email', includeIfNull: false)
   final String? email;
   @JsonKey(name: 'Token', includeIfNull: false)
   final String? token;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesJwtOktaRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesJwtOktaRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesJwtOktaRequestToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4239,16 +5202,17 @@ class WebApiModulesAccountServicesJwtOktaSessionRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(this);
+
   @JsonKey(name: 'Token', includeIfNull: false)
   final String? token;
   @JsonKey(name: 'Apiurl', includeIfNull: false)
   final String? apiurl;
   static const fromJsonFactory =
       _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -4296,14 +5260,15 @@ class WebApiModulesAccountServicesJwtOktaSessionResponseModel {
           Map<String, dynamic> json) =>
       _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson(json);
 
-  @JsonKey(name: 'Status', includeIfNull: false)
-  final String? status;
-  static const fromJsonFactory =
-      _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson;
   static const toJsonFactory =
       _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson(this);
+
+  @JsonKey(name: 'Status', includeIfNull: false)
+  final String? status;
+  static const fromJsonFactory =
+      _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -4338,33 +5303,15 @@ extension $WebApiModulesAccountServicesJwtOktaSessionResponseModelExtension
 
 String? fwStandardSqlServerFwDataTypesToJson(
     enums.FwStandardSqlServerFwDataTypes? fwStandardSqlServerFwDataTypes) {
-  return enums
-      .$FwStandardSqlServerFwDataTypesMap[fwStandardSqlServerFwDataTypes];
+  return fwStandardSqlServerFwDataTypes?.value;
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
   Object? fwStandardSqlServerFwDataTypes, [
   enums.FwStandardSqlServerFwDataTypes? defaultValue,
 ]) {
-  if (fwStandardSqlServerFwDataTypes is String) {
-    return enums.$FwStandardSqlServerFwDataTypesMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                fwStandardSqlServerFwDataTypes.toLowerCase(),
-            orElse: () => const MapEntry(
-                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
-  final parsedResult = defaultValue == null
-      ? null
-      : enums.$FwStandardSqlServerFwDataTypesMap.entries
-          .firstWhereOrNull((element) => element.value == defaultValue)
-          ?.key;
-
-  return parsedResult ??
+  return enums.FwStandardSqlServerFwDataTypes.values
+          .firstWhereOrNull((e) => e.value == fwStandardSqlServerFwDataTypes) ??
       defaultValue ??
       enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
@@ -4376,9 +5323,7 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
     return [];
   }
 
-  return fwStandardSqlServerFwDataTypes
-      .map((e) => enums.$FwStandardSqlServerFwDataTypesMap[e]!)
-      .toList();
+  return fwStandardSqlServerFwDataTypes.map((e) => e.value!).toList();
 }
 
 List<enums.FwStandardSqlServerFwDataTypes>

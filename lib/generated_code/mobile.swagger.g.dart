@@ -88,6 +88,34 @@ Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
   return val;
 }
 
+FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwTranslatedValue(
+      fieldName: json['FieldName'] as String?,
+      translatedValue: json['TranslatedValue'] as String?,
+      untranslatedValue: json['UntranslatedValue'] as String?,
+      isTranslated: json['IsTranslated'] as bool?,
+      userIsTranslating: json['UserIsTranslating'] as bool?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
+    FwStandardDataFwTranslatedValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('TranslatedValue', instance.translatedValue);
+  writeNotNull('UntranslatedValue', instance.untranslatedValue);
+  writeNotNull('IsTranslated', instance.isTranslated);
+  writeNotNull('UserIsTranslating', instance.userIsTranslating);
+  return val;
+}
+
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsBrowseRequest(
@@ -127,13 +155,18 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
+      searchgroupings: (json['searchgroupings'] as List<dynamic>?)
+              ?.map((e) => e as int)
+              .toList() ??
+          [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
       filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
-      excelfields: (json['excelfields'] as List<dynamic>?)
+      includeallcolumns: json['includeallcolumns'] as bool?,
+      fields: (json['fields'] as List<dynamic>?)
               ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                   e as Map<String, dynamic>))
               .toList() ??
@@ -170,14 +203,15 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   writeNotNull('searchseparators', instance.searchseparators);
   writeNotNull('searchcondition', instance.searchcondition);
   writeNotNull('searchconjunctions', instance.searchconjunctions);
+  writeNotNull('searchgroupings', instance.searchgroupings);
   writeNotNull('uniqueids', instance.uniqueids);
   writeNotNull('boundids', instance.boundids);
   writeNotNull('filterfields', instance.filterfields);
   writeNotNull('activeview', instance.activeview);
   writeNotNull('emptyobject', instance.emptyobject);
   writeNotNull('forexcel', instance.forexcel);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  writeNotNull('includeallcolumns', instance.includeallcolumns);
+  writeNotNull('fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('totalfields', instance.totalfields);
   writeNotNull('activeviewfields', instance.activeviewfields);
   return val;
@@ -339,8 +373,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       rows: (json['Rows'] as List<dynamic>?)
-              ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
+              ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -352,6 +385,11 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -374,6 +412,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
   writeNotNull('TotalRows', instance.totalRows);
   writeNotNull('DateFields', instance.dateFields);
   writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -456,70 +496,6 @@ Map<String, dynamic>
   return val;
 }
 
-WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
-    _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem(
-          inventoryPurchaseItemId: json['InventoryPurchaseItemId'] as int?,
-          sessionId: json['SessionId'] as String?,
-          barCode: json['BarCode'] as String?,
-          manufactureDate: json['ManufactureDate'] as String?,
-          printQuantity: json['PrintQuantity'] as int?,
-          serialNumber: json['SerialNumber'] as String?,
-          rfId: json['RfId'] as String?,
-          serialNumberIsMixedCase: json['SerialNumberIsMixedCase'] as bool?,
-          dateStamp: json['DateStamp'] as String?,
-          auditNote: json['AuditNote'] as String?,
-          recordTitle: json['RecordTitle'] as String?,
-          fields: (json['_Fields'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
-                          .fromJson(e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          custom: (json['_Custom'] as List<dynamic>?)
-                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
-                      e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          defaultFieldAttributes:
-              (json['_DefaultFieldAttributes'] as List<dynamic>?)
-                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
-                          e as Map<String, dynamic>))
-                      .toList() ??
-                  [],
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemToJson(
-        WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('InventoryPurchaseItemId', instance.inventoryPurchaseItemId);
-  writeNotNull('SessionId', instance.sessionId);
-  writeNotNull('BarCode', instance.barCode);
-  writeNotNull('ManufactureDate', instance.manufactureDate);
-  writeNotNull('PrintQuantity', instance.printQuantity);
-  writeNotNull('SerialNumber', instance.serialNumber);
-  writeNotNull('RfId', instance.rfId);
-  writeNotNull('SerialNumberIsMixedCase', instance.serialNumberIsMixedCase);
-  writeNotNull('DateStamp', instance.dateStamp);
-  writeNotNull('AuditNote', instance.auditNote);
-  writeNotNull('RecordTitle', instance.recordTitle);
-  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  return val;
-}
-
 WebApiModulesInventoryRentalInventoryRentalInventory
     _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
             Map<String, dynamic> json) =>
@@ -528,12 +504,19 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           isFixedAsset: json['IsFixedAsset'] as bool?,
           multiAssignRFIDs: json['MultiAssignRFIDs'] as bool?,
           minimumDaysPerWeek: (json['MinimumDaysPerWeek'] as num?)?.toDouble(),
-          setOpeningId: json['SetOpeningId'] as String?,
-          setOpening: json['SetOpening'] as String?,
+          showAssetAvailability: json['ShowAssetAvailability'] as bool?,
+          assetAvailabilityWarehouseIds:
+              json['AssetAvailabilityWarehouseIds'] as String?,
+          openingId: json['OpeningId'] as String?,
+          opening: json['Opening'] as String?,
           wallTypeId: json['WallTypeId'] as String?,
           wallType: json['WallType'] as String?,
-          setSurfaceId: json['SetSurfaceId'] as String?,
-          setSurface: json['SetSurface'] as String?,
+          surfaceId: json['SurfaceId'] as String?,
+          surface: json['Surface'] as String?,
+          conditionId: json['ConditionId'] as String?,
+          condition: json['Condition'] as String?,
+          originalShowId: json['OriginalShowId'] as String?,
+          originalShow: json['OriginalShow'] as String?,
           wallWidthFt: json['WallWidthFt'] as int?,
           wallWidthIn: json['WallWidthIn'] as int?,
           wallHeightFt: json['WallHeightFt'] as int?,
@@ -549,6 +532,7 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           monthlyRate: (json['MonthlyRate'] as num?)?.toDouble(),
           unitValue: (json['UnitValue'] as num?)?.toDouble(),
           replacementCost: (json['ReplacementCost'] as num?)?.toDouble(),
+          sourceId: json['SourceId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           inventoryType: json['InventoryType'] as String?,
@@ -697,6 +681,7 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           wardrobeDetailedDescription:
               json['WardrobeDetailedDescription'] as String?,
           webDetailedDescription: json['WebDetailedDescription'] as String?,
+          technicalNotes: json['TechnicalNotes'] as String?,
           overrideSystemDefaultRevenueAllocationBehavior:
               json['OverrideSystemDefaultRevenueAllocationBehavior'] as bool?,
           allocateRevenueForAccessories:
@@ -715,9 +700,13 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           quantityInRepair: (json['QuantityInRepair'] as num?)?.toDouble(),
           quantityInTransit: (json['QuantityInTransit'] as num?)?.toDouble(),
           quantityOnTruck: (json['QuantityOnTruck'] as num?)?.toDouble(),
+          totalQuantity: (json['TotalQuantity'] as num?)?.toDouble(),
           aisleLocation: json['AisleLocation'] as String?,
           shelfLocation: json['ShelfLocation'] as String?,
           taxable: json['Taxable'] as bool?,
+          dateOfLastPhysicalInventory:
+              json['DateOfLastPhysicalInventory'] as String?,
+          hasImage: json['HasImage'] as bool?,
           iCode: json['ICode'] as String?,
           description: json['Description'] as String?,
           availFor: json['AvailFor'] as String?,
@@ -808,9 +797,11 @@ WebApiModulesInventoryRentalInventoryRentalInventory
           accumulatedDepreciationExpenseAccountDescription:
               json['AccumulatedDepreciationExpenseAccountDescription']
                   as String?,
-          originalShowId: json['OriginalShowId'] as String?,
           inputDate: json['InputDate'] as String?,
           inputByUsersId: json['InputByUsersId'] as String?,
+          category2: json['Category2'] as String?,
+          class2: json['Class2'] as String?,
+          stockClass: json['StockClass'] as String?,
           inactive: json['Inactive'] as bool?,
           dateStamp: json['DateStamp'] as String?,
           manifestShippingContainer: json['ManifestShippingContainer'] as bool?,
@@ -834,6 +825,11 @@ WebApiModulesInventoryRentalInventoryRentalInventory
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -851,12 +847,19 @@ Map<String, dynamic>
   writeNotNull('IsFixedAsset', instance.isFixedAsset);
   writeNotNull('MultiAssignRFIDs', instance.multiAssignRFIDs);
   writeNotNull('MinimumDaysPerWeek', instance.minimumDaysPerWeek);
-  writeNotNull('SetOpeningId', instance.setOpeningId);
-  writeNotNull('SetOpening', instance.setOpening);
+  writeNotNull('ShowAssetAvailability', instance.showAssetAvailability);
+  writeNotNull(
+      'AssetAvailabilityWarehouseIds', instance.assetAvailabilityWarehouseIds);
+  writeNotNull('OpeningId', instance.openingId);
+  writeNotNull('Opening', instance.opening);
   writeNotNull('WallTypeId', instance.wallTypeId);
   writeNotNull('WallType', instance.wallType);
-  writeNotNull('SetSurfaceId', instance.setSurfaceId);
-  writeNotNull('SetSurface', instance.setSurface);
+  writeNotNull('SurfaceId', instance.surfaceId);
+  writeNotNull('Surface', instance.surface);
+  writeNotNull('ConditionId', instance.conditionId);
+  writeNotNull('Condition', instance.condition);
+  writeNotNull('OriginalShowId', instance.originalShowId);
+  writeNotNull('OriginalShow', instance.originalShow);
   writeNotNull('WallWidthFt', instance.wallWidthFt);
   writeNotNull('WallWidthIn', instance.wallWidthIn);
   writeNotNull('WallHeightFt', instance.wallHeightFt);
@@ -872,6 +875,7 @@ Map<String, dynamic>
   writeNotNull('MonthlyRate', instance.monthlyRate);
   writeNotNull('UnitValue', instance.unitValue);
   writeNotNull('ReplacementCost', instance.replacementCost);
+  writeNotNull('SourceId', instance.sourceId);
   writeNotNull('InventoryId', instance.inventoryId);
   writeNotNull('InventoryTypeId', instance.inventoryTypeId);
   writeNotNull('InventoryType', instance.inventoryType);
@@ -1020,6 +1024,7 @@ Map<String, dynamic>
   writeNotNull(
       'WardrobeDetailedDescription', instance.wardrobeDetailedDescription);
   writeNotNull('WebDetailedDescription', instance.webDetailedDescription);
+  writeNotNull('TechnicalNotes', instance.technicalNotes);
   writeNotNull('OverrideSystemDefaultRevenueAllocationBehavior',
       instance.overrideSystemDefaultRevenueAllocationBehavior);
   writeNotNull(
@@ -1037,9 +1042,13 @@ Map<String, dynamic>
   writeNotNull('QuantityInRepair', instance.quantityInRepair);
   writeNotNull('QuantityInTransit', instance.quantityInTransit);
   writeNotNull('QuantityOnTruck', instance.quantityOnTruck);
+  writeNotNull('TotalQuantity', instance.totalQuantity);
   writeNotNull('AisleLocation', instance.aisleLocation);
   writeNotNull('ShelfLocation', instance.shelfLocation);
   writeNotNull('Taxable', instance.taxable);
+  writeNotNull(
+      'DateOfLastPhysicalInventory', instance.dateOfLastPhysicalInventory);
+  writeNotNull('HasImage', instance.hasImage);
   writeNotNull('ICode', instance.iCode);
   writeNotNull('Description', instance.description);
   writeNotNull('AvailFor', instance.availFor);
@@ -1127,9 +1136,11 @@ Map<String, dynamic>
       instance.accumulatedDepreciationExpenseAccountNo);
   writeNotNull('AccumulatedDepreciationExpenseAccountDescription',
       instance.accumulatedDepreciationExpenseAccountDescription);
-  writeNotNull('OriginalShowId', instance.originalShowId);
   writeNotNull('InputDate', instance.inputDate);
   writeNotNull('InputByUsersId', instance.inputByUsersId);
+  writeNotNull('Category2', instance.category2);
+  writeNotNull('Class2', instance.class2);
+  writeNotNull('StockClass', instance.stockClass);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('DateStamp', instance.dateStamp);
   writeNotNull('ManifestShippingContainer', instance.manifestShippingContainer);
@@ -1140,6 +1151,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1533,6 +1546,77 @@ Map<String, dynamic>
   writeNotNull('PurchaseId', instance.purchaseId);
   writeNotNull('ItemId', instance.itemId);
   writeNotNull('QuantityAdded', instance.quantityAdded);
+  return val;
+}
+
+WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem(
+          inventoryPurchaseItemId: json['InventoryPurchaseItemId'] as int?,
+          sessionId: json['SessionId'] as String?,
+          barCode: json['BarCode'] as String?,
+          manufactureDate: json['ManufactureDate'] as String?,
+          printQuantity: json['PrintQuantity'] as int?,
+          serialNumber: json['SerialNumber'] as String?,
+          rfId: json['RfId'] as String?,
+          serialNumberIsMixedCase: json['SerialNumberIsMixedCase'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson(
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('InventoryPurchaseItemId', instance.inventoryPurchaseItemId);
+  writeNotNull('SessionId', instance.sessionId);
+  writeNotNull('BarCode', instance.barCode);
+  writeNotNull('ManufactureDate', instance.manufactureDate);
+  writeNotNull('PrintQuantity', instance.printQuantity);
+  writeNotNull('SerialNumber', instance.serialNumber);
+  writeNotNull('RfId', instance.rfId);
+  writeNotNull('SerialNumberIsMixedCase', instance.serialNumberIsMixedCase);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 

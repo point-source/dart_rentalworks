@@ -39,27 +39,6 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
   return val;
 }
 
-WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
-    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest(
-          activeLinkToken: json['ActiveLinkToken'] as String,
-          account: json['Account'] as String,
-          expirationDate: json['ExpirationDate'] as String,
-          capture: json['Capture'] as bool,
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson(
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
-                instance) =>
-        <String, dynamic>{
-          'ActiveLinkToken': instance.activeLinkToken,
-          'Account': instance.account,
-          'ExpirationDate': instance.expirationDate,
-          'Capture': instance.capture,
-        };
-
 WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
     _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseFromJson(
             Map<String, dynamic> json) =>
@@ -97,36 +76,12 @@ Map<String, dynamic>
   return val;
 }
 
-WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
-    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse(
-          statusCode: json['StatusCode'] as String?,
-          statusMessage: json['StatusMessage'] as String?,
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseToJson(
-        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('StatusCode', instance.statusCode);
-  writeNotNull('StatusMessage', instance.statusMessage);
-  return val;
-}
-
 WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
     _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse(
           site: json['Site'] as String?,
+          useCvv: json['UseCvv'] as bool?,
         );
 
 Map<String, dynamic>
@@ -142,5 +97,6 @@ Map<String, dynamic>
   }
 
   writeNotNull('Site', instance.site);
+  writeNotNull('UseCvv', instance.useCvv);
   return val;
 }

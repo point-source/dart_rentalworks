@@ -111,6 +111,34 @@ Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
   return val;
 }
 
+FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwTranslatedValue(
+      fieldName: json['FieldName'] as String?,
+      translatedValue: json['TranslatedValue'] as String?,
+      untranslatedValue: json['UntranslatedValue'] as String?,
+      isTranslated: json['IsTranslated'] as bool?,
+      userIsTranslating: json['UserIsTranslating'] as bool?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
+    FwStandardDataFwTranslatedValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('TranslatedValue', instance.translatedValue);
+  writeNotNull('UntranslatedValue', instance.untranslatedValue);
+  writeNotNull('IsTranslated', instance.isTranslated);
+  writeNotNull('UserIsTranslating', instance.userIsTranslating);
+  return val;
+}
+
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsBrowseRequest(
@@ -150,13 +178,18 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
+      searchgroupings: (json['searchgroupings'] as List<dynamic>?)
+              ?.map((e) => e as int)
+              .toList() ??
+          [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
       filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
-      excelfields: (json['excelfields'] as List<dynamic>?)
+      includeallcolumns: json['includeallcolumns'] as bool?,
+      fields: (json['fields'] as List<dynamic>?)
               ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                   e as Map<String, dynamic>))
               .toList() ??
@@ -193,14 +226,15 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   writeNotNull('searchseparators', instance.searchseparators);
   writeNotNull('searchcondition', instance.searchcondition);
   writeNotNull('searchconjunctions', instance.searchconjunctions);
+  writeNotNull('searchgroupings', instance.searchgroupings);
   writeNotNull('uniqueids', instance.uniqueids);
   writeNotNull('boundids', instance.boundids);
   writeNotNull('filterfields', instance.filterfields);
   writeNotNull('activeview', instance.activeview);
   writeNotNull('emptyobject', instance.emptyobject);
   writeNotNull('forexcel', instance.forexcel);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  writeNotNull('includeallcolumns', instance.includeallcolumns);
+  writeNotNull('fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('totalfields', instance.totalfields);
   writeNotNull('activeviewfields', instance.activeviewfields);
   return val;
@@ -276,6 +310,41 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
   }
 
   writeNotNull('Value', instance.value);
+  return val;
+}
+
+FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    _$FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccountFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesPluginsCreditCardAccount.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: json['PageNo'] as int?,
+          pageSize: json['PageSize'] as int?,
+          totalItems: json['TotalItems'] as int?,
+          sort: json['Sort'] as String?,
+        );
+
+Map<String, dynamic>
+    _$FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccountToJson(
+        FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
+  writeNotNull('PageNo', instance.pageNo);
+  writeNotNull('PageSize', instance.pageSize);
+  writeNotNull('TotalItems', instance.totalItems);
+  writeNotNull('Sort', instance.sort);
   return val;
 }
 
@@ -398,8 +467,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       rows: (json['Rows'] as List<dynamic>?)
-              ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
+              ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -411,6 +479,11 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -433,6 +506,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
   writeNotNull('TotalRows', instance.totalRows);
   writeNotNull('DateFields', instance.dateFields);
   writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -524,6 +599,7 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
       dealId: json['DealId'] as String?,
       deal: json['Deal'] as String?,
       paymentBy: json['PaymentBy'] as String?,
+      customerDealId: json['CustomerDealId'] as String?,
       customerDeal: json['CustomerDeal'] as String?,
       paymentTypeId: json['PaymentTypeId'] as String?,
       paymentType: json['PaymentType'] as String?,
@@ -565,11 +641,33 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
       orderId: json['OrderId'] as String?,
       orderDescription: json['OrderDescription'] as String?,
       transactionId: json['TransactionId'] as String?,
-      creditCardAccountToken: json['CreditCardAccountToken'] as String?,
+      refundingTransactionId: json['RefundingTransactionId'] as String?,
+      creditCardNumber: json['CreditCardNumber'] as String?,
       creditCardExpirationDate: json['CreditCardExpirationDate'] as String?,
+      creditCardName: json['CreditCardName'] as String?,
+      creditCardAccountId: json['CreditCardAccountId'] as String?,
+      creditCardPaymentMode: json['CreditCardPaymentMode'] as String?,
+      creditCardPinPadId: json['CreditCardPinPadId'] as int?,
+      newCreditCardAccountToken: json['NewCreditCardAccountToken'] as String?,
+      newCreditCardExpirationDate:
+          json['NewCreditCardExpirationDate'] as String?,
+      newCreditCardCardholderName:
+          json['NewCreditCardCardholderName'] as String?,
+      newCreditCardSaveCreditCard: json['NewCreditCardSaveCreditCard'] as bool?,
+      creditCardDefaultAccount: json['CreditCardDefaultAccount'] as bool?,
+      newCreditCardAuthorizationOnFile:
+          json['NewCreditCardAuthorizationOnFile'] as bool?,
+      newCreditCardAddress: json['NewCreditCardAddress'] as String?,
+      newCreditCardAddress2: json['NewCreditCardAddress2'] as String?,
+      newCreditCardCity: json['NewCreditCardCity'] as String?,
+      newCreditCardRegion: json['NewCreditCardRegion'] as String?,
+      newCreditCardPostalCode: json['NewCreditCardPostalCode'] as String?,
+      newCreditCardCountryId: json['NewCreditCardCountryId'] as String?,
       dateStamp: json['DateStamp'] == null
           ? null
           : DateTime.parse(json['DateStamp'] as String),
+      refundingReceiptId: json['RefundingReceiptId'] as String?,
+      isCreditCardReceiptVoided: json['IsCreditCardReceiptVoided'] as bool?,
       auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
       fields: (json['_Fields'] as List<dynamic>?)
@@ -588,6 +686,11 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
                       e as Map<String, dynamic>))
                   .toList() ??
               [],
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
@@ -610,6 +713,7 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   writeNotNull('DealId', instance.dealId);
   writeNotNull('Deal', instance.deal);
   writeNotNull('PaymentBy', instance.paymentBy);
+  writeNotNull('CustomerDealId', instance.customerDealId);
   writeNotNull('CustomerDeal', instance.customerDeal);
   writeNotNull('PaymentTypeId', instance.paymentTypeId);
   writeNotNull('PaymentType', instance.paymentType);
@@ -646,15 +750,40 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('OrderDescription', instance.orderDescription);
   writeNotNull('TransactionId', instance.transactionId);
-  writeNotNull('CreditCardAccountToken', instance.creditCardAccountToken);
+  writeNotNull('RefundingTransactionId', instance.refundingTransactionId);
+  writeNotNull('CreditCardNumber', instance.creditCardNumber);
   writeNotNull('CreditCardExpirationDate', instance.creditCardExpirationDate);
+  writeNotNull('CreditCardName', instance.creditCardName);
+  writeNotNull('CreditCardAccountId', instance.creditCardAccountId);
+  writeNotNull('CreditCardPaymentMode', instance.creditCardPaymentMode);
+  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
+  writeNotNull('NewCreditCardAccountToken', instance.newCreditCardAccountToken);
+  writeNotNull(
+      'NewCreditCardExpirationDate', instance.newCreditCardExpirationDate);
+  writeNotNull(
+      'NewCreditCardCardholderName', instance.newCreditCardCardholderName);
+  writeNotNull(
+      'NewCreditCardSaveCreditCard', instance.newCreditCardSaveCreditCard);
+  writeNotNull('CreditCardDefaultAccount', instance.creditCardDefaultAccount);
+  writeNotNull('NewCreditCardAuthorizationOnFile',
+      instance.newCreditCardAuthorizationOnFile);
+  writeNotNull('NewCreditCardAddress', instance.newCreditCardAddress);
+  writeNotNull('NewCreditCardAddress2', instance.newCreditCardAddress2);
+  writeNotNull('NewCreditCardCity', instance.newCreditCardCity);
+  writeNotNull('NewCreditCardRegion', instance.newCreditCardRegion);
+  writeNotNull('NewCreditCardPostalCode', instance.newCreditCardPostalCode);
+  writeNotNull('NewCreditCardCountryId', instance.newCreditCardCountryId);
   writeNotNull('DateStamp', instance.dateStamp?.toIso8601String());
+  writeNotNull('RefundingReceiptId', instance.refundingReceiptId);
+  writeNotNull('IsCreditCardReceiptVoided', instance.isCreditCardReceiptVoided);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -664,7 +793,10 @@ WebApiModulesBillingReceiptReceiptCredit
         WebApiModulesBillingReceiptReceiptCredit(
           creditReceiptId: json['CreditReceiptId'] as String?,
           creditId: json['CreditId'] as String?,
+          checkNumber: json['CheckNumber'] as String?,
           amount: (json['Amount'] as num?)?.toDouble(),
+          refundCreditCardTransactionId:
+              json['RefundCreditCardTransactionId'] as String?,
         );
 
 Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptCreditToJson(
@@ -679,7 +811,10 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptCreditToJson(
 
   writeNotNull('CreditReceiptId', instance.creditReceiptId);
   writeNotNull('CreditId', instance.creditId);
+  writeNotNull('CheckNumber', instance.checkNumber);
   writeNotNull('Amount', instance.amount);
+  writeNotNull(
+      'RefundCreditCardTransactionId', instance.refundCreditCardTransactionId);
   return val;
 }
 
@@ -708,6 +843,144 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptInvoiceToJson(
   return val;
 }
 
+WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest(
+          activeLinkToken: json['ActiveLinkToken'] as String,
+          account: json['Account'] as String,
+          expirationDate: json['ExpirationDate'] as String,
+          capture: json['Capture'] as bool,
+          countryId: json['CountryId'] as String,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson(
+            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
+                instance) =>
+        <String, dynamic>{
+          'ActiveLinkToken': instance.activeLinkToken,
+          'Account': instance.account,
+          'ExpirationDate': instance.expirationDate,
+          'Capture': instance.capture,
+          'CountryId': instance.countryId,
+        };
+
+WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkCardPointeActiveLinkToken
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkCardPointeActiveLinkTokenFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkCardPointeActiveLinkToken(
+          orderId: json['OrderId'] as String?,
+          amountToPay: (json['AmountToPay'] as num?)?.toDouble(),
+          capture: json['Capture'] as bool?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkCardPointeActiveLinkTokenToJson(
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkCardPointeActiveLinkToken
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('OrderId', instance.orderId);
+  writeNotNull('AmountToPay', instance.amountToPay);
+  writeNotNull('Capture', instance.capture);
+  return val;
+}
+
+WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse(
+          statusCode: json['StatusCode'] as String?,
+          statusMessage: json['StatusMessage'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseToJson(
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('StatusMessage', instance.statusMessage);
+  return val;
+}
+
+WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendAuthorizEmailRequest
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendAuthorizEmailRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendAuthorizEmailRequest(
+          activeLinkToken:
+              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkCardPointeActiveLinkToken
+                  .fromJson(json['ActiveLinkToken'] as Map<String, dynamic>),
+          emailFrom: json['EmailFrom'] as String?,
+          emailTo: json['EmailTo'] as String?,
+          emailSubject: json['EmailSubject'] as String?,
+          emailBody: json['EmailBody'] as String?,
+          capture: json['Capture'] as bool?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendAuthorizEmailRequestToJson(
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendAuthorizEmailRequest
+            instance) {
+  final val = <String, dynamic>{
+    'ActiveLinkToken': instance.activeLinkToken.toJson(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('EmailFrom', instance.emailFrom);
+  writeNotNull('EmailTo', instance.emailTo);
+  writeNotNull('EmailSubject', instance.emailSubject);
+  writeNotNull('EmailBody', instance.emailBody);
+  writeNotNull('Capture', instance.capture);
+  return val;
+}
+
+WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponse
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponse(
+          success: json['Success'] as bool?,
+          status: json['Status'] as String?,
+          statusText: json['StatusText'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponseToJson(
+        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull('Status', instance.status);
+  writeNotNull('StatusText', instance.statusText);
+  return val;
+}
+
 WebApiModulesPluginsAzureADAzureADGroup
     _$WebApiModulesPluginsAzureADAzureADGroupFromJson(
             Map<String, dynamic> json) =>
@@ -728,6 +1001,91 @@ Map<String, dynamic> _$WebApiModulesPluginsAzureADAzureADGroupToJson(
 
   writeNotNull('id', instance.id);
   writeNotNull('displayName', instance.displayName);
+  return val;
+}
+
+WebApiModulesPluginsAzureADContactData
+    _$WebApiModulesPluginsAzureADContactDataFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADContactData(
+          contactId: json['ContactId'] as String?,
+          firstName: json['FirstName'] as String?,
+          lastName: json['LastName'] as String?,
+          email: json['Email'] as String?,
+          sourceId: json['SourceId'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsAzureADContactDataToJson(
+    WebApiModulesPluginsAzureADContactData instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ContactId', instance.contactId);
+  writeNotNull('FirstName', instance.firstName);
+  writeNotNull('LastName', instance.lastName);
+  writeNotNull('Email', instance.email);
+  writeNotNull('SourceId', instance.sourceId);
+  return val;
+}
+
+WebApiModulesPluginsAzureADContactsImportGroupRequest
+    _$WebApiModulesPluginsAzureADContactsImportGroupRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADContactsImportGroupRequest(
+          azureADGroupId: json['AzureADGroupId'] as String?,
+          contactTitleId: json['ContactTitleId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsAzureADContactsImportGroupRequestToJson(
+        WebApiModulesPluginsAzureADContactsImportGroupRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AzureADGroupId', instance.azureADGroupId);
+  writeNotNull('ContactTitleId', instance.contactTitleId);
+  return val;
+}
+
+WebApiModulesPluginsAzureADContactsImportGroupResponse
+    _$WebApiModulesPluginsAzureADContactsImportGroupResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADContactsImportGroupResponse(
+          lastImported: json['LastImported'] as String?,
+          users: (json['Users'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesPluginsAzureADContactData.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          statusCode: json['StatusCode'] as int?,
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsAzureADContactsImportGroupResponseToJson(
+        WebApiModulesPluginsAzureADContactsImportGroupResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('LastImported', instance.lastImported);
+  writeNotNull('Users', instance.users?.map((e) => e.toJson()).toList());
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
   return val;
 }
 
@@ -784,64 +1142,10 @@ Map<String, dynamic>
   return val;
 }
 
-WebApiModulesPluginsAzureADImportGroupRequest
-    _$WebApiModulesPluginsAzureADImportGroupRequestFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesPluginsAzureADImportGroupRequest(
-          azureADGroupId: json['AzureADGroupId'] as String?,
-          contactTitleId: json['ContactTitleId'] as String?,
-        );
-
-Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupRequestToJson(
-    WebApiModulesPluginsAzureADImportGroupRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AzureADGroupId', instance.azureADGroupId);
-  writeNotNull('ContactTitleId', instance.contactTitleId);
-  return val;
-}
-
-WebApiModulesPluginsAzureADImportGroupResponse
-    _$WebApiModulesPluginsAzureADImportGroupResponseFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesPluginsAzureADImportGroupResponse(
-          lastImported: json['LastImported'] as String?,
-          users: (json['Users'] as List<dynamic>?)
-                  ?.map((e) => WebApiModulesPluginsAzureADUserData.fromJson(
-                      e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          statusCode: json['StatusCode'] as int?,
-          message: json['Message'] as String?,
-        );
-
-Map<String, dynamic> _$WebApiModulesPluginsAzureADImportGroupResponseToJson(
-    WebApiModulesPluginsAzureADImportGroupResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('LastImported', instance.lastImported);
-  writeNotNull('Users', instance.users?.map((e) => e.toJson()).toList());
-  writeNotNull('StatusCode', instance.statusCode);
-  writeNotNull('Message', instance.message);
-  return val;
-}
-
 WebApiModulesPluginsAzureADUserData
     _$WebApiModulesPluginsAzureADUserDataFromJson(Map<String, dynamic> json) =>
         WebApiModulesPluginsAzureADUserData(
-          contactId: json['ContactId'] as String?,
+          usersId: json['UsersId'] as String?,
           firstName: json['FirstName'] as String?,
           lastName: json['LastName'] as String?,
           email: json['Email'] as String?,
@@ -858,11 +1162,551 @@ Map<String, dynamic> _$WebApiModulesPluginsAzureADUserDataToJson(
     }
   }
 
-  writeNotNull('ContactId', instance.contactId);
+  writeNotNull('UsersId', instance.usersId);
   writeNotNull('FirstName', instance.firstName);
   writeNotNull('LastName', instance.lastName);
   writeNotNull('Email', instance.email);
   writeNotNull('SourceId', instance.sourceId);
+  return val;
+}
+
+WebApiModulesPluginsAzureADUsersImportGroupRequest
+    _$WebApiModulesPluginsAzureADUsersImportGroupRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADUsersImportGroupRequest(
+          azureADGroupId: json['AzureADGroupId'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsAzureADUsersImportGroupRequestToJson(
+    WebApiModulesPluginsAzureADUsersImportGroupRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AzureADGroupId', instance.azureADGroupId);
+  return val;
+}
+
+WebApiModulesPluginsAzureADUsersImportGroupResponse
+    _$WebApiModulesPluginsAzureADUsersImportGroupResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsAzureADUsersImportGroupResponse(
+          users: (json['Users'] as List<dynamic>?)
+                  ?.map((e) => WebApiModulesPluginsAzureADUserData.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          statusCode: json['StatusCode'] as int?,
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsAzureADUsersImportGroupResponseToJson(
+        WebApiModulesPluginsAzureADUsersImportGroupResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Users', instance.users?.map((e) => e.toJson()).toList());
+  writeNotNull('StatusCode', instance.statusCode);
+  writeNotNull('Message', instance.message);
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpSignUpRequest
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpRequest(
+          user: json['user'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpSignUpUser.fromJson(
+                  json['user'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsBoxedUpBoxedUpSignUpRequestToJson(
+    WebApiModulesPluginsBoxedUpBoxedUpSignUpRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('user', instance.user?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpSignUpResponse
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpResponse(
+          user: json['user'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUser.fromJson(
+                  json['user'] as Map<String, dynamic>),
+          error: json['error'] as Map<String, dynamic>?,
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseToJson(
+    WebApiModulesPluginsBoxedUpBoxedUpSignUpResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('user', instance.user?.toJson());
+  writeNotNull('error', instance.error);
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUser
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUser(
+          firstName: json['first_name'] as String?,
+          lastName: json['last_name'] as String?,
+          email: json['email'] as String?,
+          username: json['username'] as String?,
+          password: json['password'] as String?,
+          passwordConfirmation: json['password_confirmation'] as String?,
+          erpIntegration: json['erp_integration'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserErp
+                  .fromJson(json['erp_integration'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('first_name', instance.firstName);
+  writeNotNull('last_name', instance.lastName);
+  writeNotNull('email', instance.email);
+  writeNotNull('username', instance.username);
+  writeNotNull('password', instance.password);
+  writeNotNull('password_confirmation', instance.passwordConfirmation);
+  writeNotNull('erp_integration', instance.erpIntegration?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserErp
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserErpFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserErp(
+          integAccessEndpoint: json['integ_access_endpoint'] as String?,
+          integAccessToken: json['integ_access_token'] as String?,
+          integSourceId: json['integ_source_id'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserErpToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpResponseUserErp instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('integ_access_endpoint', instance.integAccessEndpoint);
+  writeNotNull('integ_access_token', instance.integAccessToken);
+  writeNotNull('integ_source_id', instance.integSourceId);
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpSignUpUser
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpUserFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpUser(
+          firstName: json['first_name'] as String,
+          lastName: json['last_name'] as String,
+          email: json['email'] as String,
+          username: json['username'] as String,
+          password: json['password'] as String,
+          passwordConfirmation: json['password_confirmation'] as String,
+          erpIntegration:
+              WebApiModulesPluginsBoxedUpBoxedUpSignUpUserErp.fromJson(
+                  json['erp_integration'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsBoxedUpBoxedUpSignUpUserToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpUser instance) =>
+    <String, dynamic>{
+      'first_name': instance.firstName,
+      'last_name': instance.lastName,
+      'email': instance.email,
+      'username': instance.username,
+      'password': instance.password,
+      'password_confirmation': instance.passwordConfirmation,
+      'erp_integration': instance.erpIntegration.toJson(),
+    };
+
+WebApiModulesPluginsBoxedUpBoxedUpSignUpUserErp
+    _$WebApiModulesPluginsBoxedUpBoxedUpSignUpUserErpFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpUserErp(
+          integAccessEndpoint: json['integ_access_endpoint'] as String,
+          integAccessToken: json['integ_access_token'] as String,
+          integSourceId: json['integ_source_id'] as String,
+          integUserId: json['integ_user_id'] as String,
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsBoxedUpBoxedUpSignUpUserErpToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpSignUpUserErp instance) =>
+    <String, dynamic>{
+      'integ_access_endpoint': instance.integAccessEndpoint,
+      'integ_access_token': instance.integAccessToken,
+      'integ_source_id': instance.integSourceId,
+      'integ_user_id': instance.integUserId,
+    };
+
+WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest(
+          user: json['user'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUser
+                  .fromJson(json['user'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('user', instance.user?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUser
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUser(
+          username: json['username'] as String?,
+          password: json['password'] as String?,
+          erpIntegration: json['erp_integration'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserErp
+                  .fromJson(json['erp_integration'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('username', instance.username);
+  writeNotNull('password', instance.password);
+  writeNotNull('erp_integration', instance.erpIntegration?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserErp
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserErpFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserErp(
+          integAccessEndpoint: json['integ_access_endpoint'] as String,
+          integAccessToken: json['integ_access_token'] as String,
+          integSourceId: json['integ_source_id'] as String,
+          integUserId: json['integ_user_id'] as String,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserErpToJson(
+            WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestUserErp
+                instance) =>
+        <String, dynamic>{
+          'integ_access_endpoint': instance.integAccessEndpoint,
+          'integ_access_token': instance.integAccessToken,
+          'integ_source_id': instance.integSourceId,
+          'integ_user_id': instance.integUserId,
+        };
+
+WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse(
+          userId: json['user_id'] as String?,
+          username: json['username'] as String?,
+          email: json['email'] as String?,
+          firstName: json['first_name'] as String?,
+          lastName: json['last_name'] as String?,
+          timezone: json['timezone'] as String?,
+          erpIntegration: json['erp_integration'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseErpIntegration
+                  .fromJson(json['erp_integration'] as Map<String, dynamic>),
+          boxedupEndpoint: json['boxedup_endpoint'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('user_id', instance.userId);
+  writeNotNull('username', instance.username);
+  writeNotNull('email', instance.email);
+  writeNotNull('first_name', instance.firstName);
+  writeNotNull('last_name', instance.lastName);
+  writeNotNull('timezone', instance.timezone);
+  writeNotNull('erp_integration', instance.erpIntegration?.toJson());
+  writeNotNull('boxedup_endpoint', instance.boxedupEndpoint);
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseErpIntegration
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseErpIntegrationFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseErpIntegration(
+          integAccessEndpoint: json['integ_access_endpoint'] as String?,
+          integAccessToken: json['integ_access_token'] as String?,
+          integSourceId: json['integ_source_id'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseErpIntegrationToJson(
+        WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseErpIntegration
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('integ_access_endpoint', instance.integAccessEndpoint);
+  writeNotNull('integ_access_token', instance.integAccessToken);
+  writeNotNull('integ_source_id', instance.integSourceId);
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpSignUpRequest
+    _$WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpSignUpRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpSignUpRequest(
+          boxedUpBaseUrl: json['BoxedUpBaseUrl'] as String,
+          boxedUpRequest:
+              WebApiModulesPluginsBoxedUpBoxedUpSignUpRequest.fromJson(
+                  json['BoxedUpRequest'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpSignUpRequestToJson(
+            WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpSignUpRequest
+                instance) =>
+        <String, dynamic>{
+          'BoxedUpBaseUrl': instance.boxedUpBaseUrl,
+          'BoxedUpRequest': instance.boxedUpRequest.toJson(),
+        };
+
+WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest
+    _$WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest(
+          boxedUpBaseUrl: json['BoxedUpBaseUrl'] as String,
+          boxedUpRequest:
+              WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest.fromJson(
+                  json['BoxedUpRequest'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequestToJson(
+            WebApiModulesPluginsBoxedUpRwBoxedUpRequestWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenRequest
+                instance) =>
+        <String, dynamic>{
+          'BoxedUpBaseUrl': instance.boxedUpBaseUrl,
+          'BoxedUpRequest': instance.boxedUpRequest.toJson(),
+        };
+
+WebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse
+    _$WebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse(
+          rentalWorksAccessToken: json['RentalWorksAccessToken'] as String?,
+          rentalWorksAccessTokenExpiration:
+              json['RentalWorksAccessTokenExpiration'] == null
+                  ? null
+                  : DateTime.parse(
+                      json['RentalWorksAccessTokenExpiration'] as String),
+          boxedUpResponse: json['BoxedUpResponse'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpSignUpResponse.fromJson(
+                  json['BoxedUpResponse'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponseToJson(
+        WebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('RentalWorksAccessToken', instance.rentalWorksAccessToken);
+  writeNotNull('RentalWorksAccessTokenExpiration',
+      instance.rentalWorksAccessTokenExpiration?.toIso8601String());
+  writeNotNull('BoxedUpResponse', instance.boxedUpResponse?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse
+    _$WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse(
+          success: json['Success'] as bool?,
+          statusText: json['StatusText'] as String?,
+          tokenResponse: json['TokenResponse'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse.fromJson(
+                  json['TokenResponse'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponseToJson(
+        WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpBoxedUpUpdateTokenResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull('StatusText', instance.statusText);
+  writeNotNull('TokenResponse', instance.tokenResponse?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse
+    _$WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse(
+          success: json['Success'] as bool?,
+          statusText: json['StatusText'] as String?,
+          tokenResponse: json['TokenResponse'] == null
+              ? null
+              : WebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse
+                  .fromJson(json['TokenResponse'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponseToJson(
+        WebApiModulesPluginsBoxedUpStatusResponseWebApiModulesPluginsBoxedUpRwBoxedUpTokenResponseWebApiModulesPluginsBoxedUpBoxedUpSignUpResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull('StatusText', instance.statusText);
+  writeNotNull('TokenResponse', instance.tokenResponse?.toJson());
+  return val;
+}
+
+WebApiModulesPluginsCreditCardAccount
+    _$WebApiModulesPluginsCreditCardAccountFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardAccount(
+          profileId: json['ProfileId'] as String?,
+          accountId: json['AccountId'] as String?,
+          nickname: json['Nickname'] as String?,
+          cardType:
+              webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
+                  json['CardType']),
+          expiration: json['Expiration'] as String?,
+          last4Digits: json['Last4Digits'] as String?,
+          cardOnFilePermission: json['CardOnFilePermission'] as bool?,
+          defaultAccount: json['DefaultAccount'] as bool?,
+          cardholderName: json['CardholderName'] as String?,
+          address: json['Address'] as String?,
+          address2: json['Address2'] as String?,
+          city: json['City'] as String?,
+          region: json['Region'] as String?,
+          postalCode: json['PostalCode'] as String?,
+          country: json['Country'] as String?,
+          token: json['Token'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesPluginsCreditCardAccountToJson(
+    WebApiModulesPluginsCreditCardAccount instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ProfileId', instance.profileId);
+  writeNotNull('AccountId', instance.accountId);
+  writeNotNull('Nickname', instance.nickname);
+  writeNotNull(
+      'CardType',
+      webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson(
+          instance.cardType));
+  writeNotNull('Expiration', instance.expiration);
+  writeNotNull('Last4Digits', instance.last4Digits);
+  writeNotNull('CardOnFilePermission', instance.cardOnFilePermission);
+  writeNotNull('DefaultAccount', instance.defaultAccount);
+  writeNotNull('CardholderName', instance.cardholderName);
+  writeNotNull('Address', instance.address);
+  writeNotNull('Address2', instance.address2);
+  writeNotNull('City', instance.city);
+  writeNotNull('Region', instance.region);
+  writeNotNull('PostalCode', instance.postalCode);
+  writeNotNull('Country', instance.country);
+  writeNotNull('Token', instance.token);
   return val;
 }
 
@@ -966,91 +1810,6 @@ Map<String, dynamic>
   return val;
 }
 
-WebApiModulesPluginsCreditCardCreditCardDepositRequest
-    _$WebApiModulesPluginsCreditCardCreditCardDepositRequestFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesPluginsCreditCardCreditCardDepositRequest(
-          paymentType:
-              webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesFromJson(
-                  json['PaymentType']),
-          orderId: json['OrderId'] as String,
-          amountToPay: (json['AmountToPay'] as num).toDouble(),
-          creditCardPinPadId: json['CreditCardPinPadId'] as int?,
-          dealNumber: json['DealNumber'] as String,
-          emailFrom: json['EmailFrom'] as String?,
-          emailTo: json['EmailTo'] as String?,
-          emailSubject: json['EmailSubject'] as String?,
-          emailBody: json['EmailBody'] as String?,
-          account: json['Account'] as String?,
-          expirationDate: json['ExpirationDate'] as String?,
-          trackData: json['TrackData'] as String?,
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesPluginsCreditCardCreditCardDepositRequestToJson(
-        WebApiModulesPluginsCreditCardCreditCardDepositRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'PaymentType',
-      webApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesToJson(
-          instance.paymentType));
-  val['OrderId'] = instance.orderId;
-  val['AmountToPay'] = instance.amountToPay;
-  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
-  val['DealNumber'] = instance.dealNumber;
-  writeNotNull('EmailFrom', instance.emailFrom);
-  writeNotNull('EmailTo', instance.emailTo);
-  writeNotNull('EmailSubject', instance.emailSubject);
-  writeNotNull('EmailBody', instance.emailBody);
-  writeNotNull('Account', instance.account);
-  writeNotNull('ExpirationDate', instance.expirationDate);
-  writeNotNull('TrackData', instance.trackData);
-  return val;
-}
-
-WebApiModulesPluginsCreditCardCreditCardDepositResponse
-    _$WebApiModulesPluginsCreditCardCreditCardDepositResponseFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesPluginsCreditCardCreditCardDepositResponse(
-          pluginResponse: json['PluginResponse'] == null
-              ? null
-              : WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
-                  .fromJson(json['PluginResponse'] as Map<String, dynamic>),
-          success: json['Success'] as bool?,
-          status:
-              webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
-                  json['Status']),
-          statusText: json['StatusText'] as String?,
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesPluginsCreditCardCreditCardDepositResponseToJson(
-        WebApiModulesPluginsCreditCardCreditCardDepositResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PluginResponse', instance.pluginResponse?.toJson());
-  writeNotNull('Success', instance.success);
-  writeNotNull(
-      'Status',
-      webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson(
-          instance.status));
-  writeNotNull('StatusText', instance.statusText);
-  return val;
-}
-
 WebApiModulesPluginsCreditCardCreditCardLog
     _$WebApiModulesPluginsCreditCardCreditCardLogFromJson(
             Map<String, dynamic> json) =>
@@ -1095,6 +1854,11 @@ WebApiModulesPluginsCreditCardCreditCardLog
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesPluginsCreditCardCreditCardLogToJson(
@@ -1134,6 +1898,115 @@ Map<String, dynamic> _$WebApiModulesPluginsCreditCardCreditCardLogToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesPluginsCreditCardCreditCardOrderDepositRequest
+    _$WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardOrderDepositRequest(
+          payWith:
+              webApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypesFromJson(
+                  json['PayWith']),
+          orderId: json['OrderId'] as String,
+          amountToPay: (json['AmountToPay'] as num).toDouble(),
+          creditCardPinPadId: json['CreditCardPinPadId'] as int?,
+          dealNumber: json['DealNumber'] as String,
+          emailFrom: json['EmailFrom'] as String?,
+          emailTo: json['EmailTo'] as String?,
+          emailSubject: json['EmailSubject'] as String?,
+          emailBody: json['EmailBody'] as String?,
+          accountId: json['AccountId'] as String?,
+          account: json['Account'] as String?,
+          expirationDate: json['ExpirationDate'] as String?,
+          cardholderName: json['CardholderName'] as String?,
+          creditCardSource: json['CreditCardSource'] as String?,
+          saveCreditCard: json['SaveCreditCard'] as bool?,
+          defaultAccount: json['DefaultAccount'] as bool?,
+          authorizationOnFile: json['AuthorizationOnFile'] as bool?,
+          address: json['Address'] as String?,
+          address2: json['Address2'] as String?,
+          city: json['City'] as String?,
+          region: json['Region'] as String?,
+          postalCode: json['PostalCode'] as String?,
+          countryId: json['CountryId'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestToJson(
+        WebApiModulesPluginsCreditCardCreditCardOrderDepositRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'PayWith',
+      webApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypesToJson(
+          instance.payWith));
+  val['OrderId'] = instance.orderId;
+  val['AmountToPay'] = instance.amountToPay;
+  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
+  val['DealNumber'] = instance.dealNumber;
+  writeNotNull('EmailFrom', instance.emailFrom);
+  writeNotNull('EmailTo', instance.emailTo);
+  writeNotNull('EmailSubject', instance.emailSubject);
+  writeNotNull('EmailBody', instance.emailBody);
+  writeNotNull('AccountId', instance.accountId);
+  writeNotNull('Account', instance.account);
+  writeNotNull('ExpirationDate', instance.expirationDate);
+  writeNotNull('CardholderName', instance.cardholderName);
+  writeNotNull('CreditCardSource', instance.creditCardSource);
+  writeNotNull('SaveCreditCard', instance.saveCreditCard);
+  writeNotNull('DefaultAccount', instance.defaultAccount);
+  writeNotNull('AuthorizationOnFile', instance.authorizationOnFile);
+  writeNotNull('Address', instance.address);
+  writeNotNull('Address2', instance.address2);
+  writeNotNull('City', instance.city);
+  writeNotNull('Region', instance.region);
+  writeNotNull('PostalCode', instance.postalCode);
+  writeNotNull('CountryId', instance.countryId);
+  return val;
+}
+
+WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse
+    _$WebApiModulesPluginsCreditCardCreditCardOrderDepositResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse(
+          pluginResponse: json['PluginResponse'] == null
+              ? null
+              : WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
+                  .fromJson(json['PluginResponse'] as Map<String, dynamic>),
+          success: json['Success'] as bool?,
+          status:
+              webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesFromJson(
+                  json['Status']),
+          statusText: json['StatusText'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardOrderDepositResponseToJson(
+        WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('PluginResponse', instance.pluginResponse?.toJson());
+  writeNotNull('Success', instance.success);
+  writeNotNull(
+      'Status',
+      webApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesToJson(
+          instance.status));
+  writeNotNull('StatusText', instance.statusText);
   return val;
 }
 
@@ -1141,6 +2014,8 @@ WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
     _$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse(
+          pluginSpecificFields:
+              json['PluginSpecificFields'] as Map<String, dynamic>?,
           amount: (json['Amount'] as num).toDouble(),
           receipt: json['Receipt'] == null
               ? null
@@ -1155,6 +2030,9 @@ WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
                   json['CardType']),
           cardEntryMode: json['CardEntryMode'] as String?,
           statusText: json['StatusText'] as String?,
+          creditCardName: json['CreditCardName'] as String?,
+          creditCardNumber: json['CreditCardNumber'] as String?,
+          creditCardExpirationDate: json['CreditCardExpirationDate'] as String?,
           transactionId: json['TransactionId'] as String?,
         );
 
@@ -1162,9 +2040,7 @@ Map<String, dynamic>
     _$WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseToJson(
         WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponse
             instance) {
-  final val = <String, dynamic>{
-    'Amount': instance.amount,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -1172,6 +2048,8 @@ Map<String, dynamic>
     }
   }
 
+  writeNotNull('PluginSpecificFields', instance.pluginSpecificFields);
+  val['Amount'] = instance.amount;
   writeNotNull('Receipt', instance.receipt?.toJson());
   writeNotNull('Success', instance.success);
   writeNotNull(
@@ -1184,6 +2062,9 @@ Map<String, dynamic>
           instance.cardType));
   writeNotNull('CardEntryMode', instance.cardEntryMode);
   writeNotNull('StatusText', instance.statusText);
+  writeNotNull('CreditCardName', instance.creditCardName);
+  writeNotNull('CreditCardNumber', instance.creditCardNumber);
+  writeNotNull('CreditCardExpirationDate', instance.creditCardExpirationDate);
   writeNotNull('TransactionId', instance.transactionId);
   return val;
 }
@@ -1238,6 +2119,203 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest
+    _$WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest(
+          accountId: json['AccountId'] as String?,
+          profile: json['Profile'] as String?,
+          isDefaultAccount: json['IsDefaultAccount'] as bool?,
+          profileUpdate: json['ProfileUpdate'] as bool?,
+          cardOnFilePermission: json['CardOnFilePermission'] as bool?,
+          accountUpdaterOptOut: json['AccountUpdaterOptOut'] as bool?,
+          accountType: json['AccountType'] as String?,
+          account: json['Account'] as String?,
+          bankAba: json['BankAba'] as String?,
+          expiry: json['Expiry'] as String?,
+          name: json['Name'] as String?,
+          address: json['Address'] as String?,
+          address2: json['Address2'] as String?,
+          city: json['City'] as String?,
+          region: json['Region'] as String?,
+          countryId: json['CountryId'] as String?,
+          phone: json['Phone'] as String?,
+          postalCode: json['PostalCode'] as String?,
+          company: json['Company'] as String?,
+          email: json['Email'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequestToJson(
+        WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('AccountId', instance.accountId);
+  writeNotNull('Profile', instance.profile);
+  writeNotNull('IsDefaultAccount', instance.isDefaultAccount);
+  writeNotNull('ProfileUpdate', instance.profileUpdate);
+  writeNotNull('CardOnFilePermission', instance.cardOnFilePermission);
+  writeNotNull('AccountUpdaterOptOut', instance.accountUpdaterOptOut);
+  writeNotNull('AccountType', instance.accountType);
+  writeNotNull('Account', instance.account);
+  writeNotNull('BankAba', instance.bankAba);
+  writeNotNull('Expiry', instance.expiry);
+  writeNotNull('Name', instance.name);
+  writeNotNull('Address', instance.address);
+  writeNotNull('Address2', instance.address2);
+  writeNotNull('City', instance.city);
+  writeNotNull('Region', instance.region);
+  writeNotNull('CountryId', instance.countryId);
+  writeNotNull('Phone', instance.phone);
+  writeNotNull('PostalCode', instance.postalCode);
+  writeNotNull('Company', instance.company);
+  writeNotNull('Email', instance.email);
+  return val;
+}
+
+WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+    _$WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse(
+          success: json['Success'] as bool?,
+          status:
+              webApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponseStatusCodesFromJson(
+                  json['Status']),
+          statusText: json['StatusText'] as String?,
+          profileId: json['ProfileId'] as String?,
+          accountId: json['AccountId'] as String?,
+          responseStatus: json['ResponseStatus'] as String?,
+          token: json['Token'] as String?,
+          responseCode: json['ResponseCode'] as String?,
+          responseText: json['ResponseText'] as String?,
+          cardType:
+              webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
+                  json['CardType']),
+          expiry: json['Expiry'] as String?,
+          cardholderName: json['CardholderName'] as String?,
+          address: json['Address'] as String?,
+          address2: json['Address2'] as String?,
+          city: json['City'] as String?,
+          region: json['Region'] as String?,
+          country: json['Country'] as String?,
+          phone: json['Phone'] as String?,
+          postal: json['Postal'] as String?,
+          email: json['Email'] as String?,
+          company: json['Company'] as String?,
+          defaultAccount: json['DefaultAccount'] as bool?,
+          gsaCard: json['GsaCard'] as bool?,
+          accountUpdaterOptOut: json['AccountUpdaterOptOut'] as bool?,
+          cardOnFilePermission: json['CardOnFilePermission'] as bool?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponseToJson(
+        WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull(
+      'Status',
+      webApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponseStatusCodesToJson(
+          instance.status));
+  writeNotNull('StatusText', instance.statusText);
+  writeNotNull('ProfileId', instance.profileId);
+  writeNotNull('AccountId', instance.accountId);
+  writeNotNull('ResponseStatus', instance.responseStatus);
+  writeNotNull('Token', instance.token);
+  writeNotNull('ResponseCode', instance.responseCode);
+  writeNotNull('ResponseText', instance.responseText);
+  writeNotNull(
+      'CardType',
+      webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson(
+          instance.cardType));
+  writeNotNull('Expiry', instance.expiry);
+  writeNotNull('CardholderName', instance.cardholderName);
+  writeNotNull('Address', instance.address);
+  writeNotNull('Address2', instance.address2);
+  writeNotNull('City', instance.city);
+  writeNotNull('Region', instance.region);
+  writeNotNull('Country', instance.country);
+  writeNotNull('Phone', instance.phone);
+  writeNotNull('Postal', instance.postal);
+  writeNotNull('Email', instance.email);
+  writeNotNull('Company', instance.company);
+  writeNotNull('DefaultAccount', instance.defaultAccount);
+  writeNotNull('GsaCard', instance.gsaCard);
+  writeNotNull('AccountUpdaterOptOut', instance.accountUpdaterOptOut);
+  writeNotNull('CardOnFilePermission', instance.cardOnFilePermission);
+  return val;
+}
+
+WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+    _$WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse(
+          success: json['Success'] as bool?,
+          status:
+              webApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCodesFromJson(
+                  json['Status']),
+          statusText: json['StatusText'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponseToJson(
+        WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull(
+      'Status',
+      webApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCodesToJson(
+          instance.status));
+  writeNotNull('StatusText', instance.statusText);
+  return val;
+}
+
+WebApiModulesPluginsCreditCardCreditCardPluginGetSettingsResponse
+    _$WebApiModulesPluginsCreditCardCreditCardPluginGetSettingsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardPluginGetSettingsResponse(
+          useCvv: json['UseCvv'] as bool?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardPluginGetSettingsResponseToJson(
+        WebApiModulesPluginsCreditCardCreditCardPluginGetSettingsResponse
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('UseCvv', instance.useCvv);
+  return val;
+}
+
 WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse
     _$WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseFromJson(
             Map<String, dynamic> json) =>
@@ -1253,6 +2331,8 @@ WebApiModulesPluginsCreditCardCreditCardPluginRefundResponse
               webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesFromJson(
                   json['CardType']),
           amount: (json['Amount'] as num?)?.toDouble(),
+          isPartial: json['IsPartial'] as bool?,
+          isVoid: json['IsVoid'] as bool?,
         );
 
 Map<String, dynamic>
@@ -1279,6 +2359,34 @@ Map<String, dynamic>
       webApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesToJson(
           instance.cardType));
   writeNotNull('Amount', instance.amount);
+  writeNotNull('IsPartial', instance.isPartial);
+  writeNotNull('IsVoid', instance.isVoid);
+  return val;
+}
+
+WebApiModulesPluginsCreditCardCreditCardPluginVoidReceiptRequest
+    _$WebApiModulesPluginsCreditCardCreditCardPluginVoidReceiptRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesPluginsCreditCardCreditCardPluginVoidReceiptRequest(
+          receiptId: json['ReceiptId'] as String,
+          amount: (json['Amount'] as num?)?.toDouble(),
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesPluginsCreditCardCreditCardPluginVoidReceiptRequestToJson(
+        WebApiModulesPluginsCreditCardCreditCardPluginVoidReceiptRequest
+            instance) {
+  final val = <String, dynamic>{
+    'ReceiptId': instance.receiptId,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Amount', instance.amount);
   return val;
 }
 
@@ -1291,6 +2399,8 @@ WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse
               webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesFromJson(
                   json['Status']),
           statusText: json['StatusText'] as String?,
+          transactionId: json['TransactionId'] as String?,
+          isPartial: json['IsPartial'] as bool?,
         );
 
 Map<String, dynamic>
@@ -1310,6 +2420,8 @@ Map<String, dynamic>
       webApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesToJson(
           instance.status));
   writeNotNull('StatusText', instance.statusText);
+  writeNotNull('TransactionId', instance.transactionId);
+  writeNotNull('IsPartial', instance.isPartial);
   return val;
 }
 
@@ -1330,9 +2442,15 @@ WebApiModulesPluginsCreditCardCreditCardPreAuthorization
           holdPeriod: json['HoldPeriod'] as int?,
           holdDaysRemaining: json['HoldDaysRemaining'] as int?,
           amount: (json['Amount'] as num?)?.toDouble(),
+          capturedAmount: (json['CapturedAmount'] as num?)?.toDouble(),
           status: json['Status'] as String?,
           creditCardPinPadId: json['CreditCardPinPadId'] as int?,
           creditCardPinPadCode: json['CreditCardPinPadCode'] as String?,
+          creditCardPinPadDescription:
+              json['CreditCardPinPadDescription'] as String?,
+          creditCardNumber: json['CreditCardNumber'] as String?,
+          creditCardExpirationDate: json['CreditCardExpirationDate'] as String?,
+          creditCardName: json['CreditCardName'] as String?,
           dateStamp: json['DateStamp'] == null
               ? null
               : DateTime.parse(json['DateStamp'] as String),
@@ -1355,6 +2473,11 @@ WebApiModulesPluginsCreditCardCreditCardPreAuthorization
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1377,9 +2500,15 @@ Map<String, dynamic>
   writeNotNull('HoldPeriod', instance.holdPeriod);
   writeNotNull('HoldDaysRemaining', instance.holdDaysRemaining);
   writeNotNull('Amount', instance.amount);
+  writeNotNull('CapturedAmount', instance.capturedAmount);
   writeNotNull('Status', instance.status);
   writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
   writeNotNull('CreditCardPinPadCode', instance.creditCardPinPadCode);
+  writeNotNull(
+      'CreditCardPinPadDescription', instance.creditCardPinPadDescription);
+  writeNotNull('CreditCardNumber', instance.creditCardNumber);
+  writeNotNull('CreditCardExpirationDate', instance.creditCardExpirationDate);
+  writeNotNull('CreditCardName', instance.creditCardName);
   writeNotNull('DateStamp', instance.dateStamp?.toIso8601String());
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -1387,6 +2516,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1394,15 +2525,30 @@ WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest
     _$WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest(
-          paymentType:
+          payWith:
               webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesFromJson(
-                  json['PaymentType']),
+                  json['PayWith']),
           orderId: json['OrderId'] as String,
           amountToPay: (json['AmountToPay'] as num).toDouble(),
           creditCardPinPadId: json['CreditCardPinPadId'] as int?,
           dealNumber: json['DealNumber'] as String,
+          paymentBy: json['PaymentBy'] as String?,
+          dealId: json['DealId'] as String?,
+          customerId: json['CustomerId'] as String?,
+          accountId: json['AccountId'] as String?,
           account: json['Account'] as String?,
           expirationDate: json['ExpirationDate'] as String?,
+          cardholderName: json['CardholderName'] as String?,
+          creditCardSource: json['CreditCardSource'] as String?,
+          saveCreditCard: json['SaveCreditCard'] as bool?,
+          defaultAccount: json['DefaultAccount'] as bool?,
+          authorizationOnFile: json['AuthorizationOnFile'] as bool?,
+          address: json['Address'] as String?,
+          address2: json['Address2'] as String?,
+          city: json['City'] as String?,
+          region: json['Region'] as String?,
+          postalCode: json['PostalCode'] as String?,
+          countryId: json['CountryId'] as String?,
           trackData: json['TrackData'] as String?,
           emailFrom: json['EmailFrom'] as String?,
           emailTo: json['EmailTo'] as String?,
@@ -1423,15 +2569,30 @@ Map<String, dynamic>
   }
 
   writeNotNull(
-      'PaymentType',
+      'PayWith',
       webApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesToJson(
-          instance.paymentType));
+          instance.payWith));
   val['OrderId'] = instance.orderId;
   val['AmountToPay'] = instance.amountToPay;
   writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
   val['DealNumber'] = instance.dealNumber;
+  writeNotNull('PaymentBy', instance.paymentBy);
+  writeNotNull('DealId', instance.dealId);
+  writeNotNull('CustomerId', instance.customerId);
+  writeNotNull('AccountId', instance.accountId);
   writeNotNull('Account', instance.account);
   writeNotNull('ExpirationDate', instance.expirationDate);
+  writeNotNull('CardholderName', instance.cardholderName);
+  writeNotNull('CreditCardSource', instance.creditCardSource);
+  writeNotNull('SaveCreditCard', instance.saveCreditCard);
+  writeNotNull('DefaultAccount', instance.defaultAccount);
+  writeNotNull('AuthorizationOnFile', instance.authorizationOnFile);
+  writeNotNull('Address', instance.address);
+  writeNotNull('Address2', instance.address2);
+  writeNotNull('City', instance.city);
+  writeNotNull('Region', instance.region);
+  writeNotNull('PostalCode', instance.postalCode);
+  writeNotNull('CountryId', instance.countryId);
   writeNotNull('TrackData', instance.trackData);
   writeNotNull('EmailFrom', instance.emailFrom);
   writeNotNull('EmailTo', instance.emailTo);
@@ -1536,7 +2697,7 @@ WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest
             Map<String, dynamic> json) =>
         WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest(
           creditCardPreAuthorizationId:
-              json['CreditCardPreAuthorizationId'] as String?,
+              json['CreditCardPreAuthorizationId'] as int?,
           transactionId: json['TransactionId'] as String?,
           status:
               webApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesFromJson(
@@ -1653,7 +2814,11 @@ WebApiModulesPluginsCreditCardOrderDeposit
           transactionDate: json['TransactionDate'] == null
               ? null
               : DateTime.parse(json['TransactionDate'] as String),
+          payType: json['PayType'] as String?,
+          checkOrReferenceNumber: json['CheckOrReferenceNumber'] as String?,
           amount: (json['Amount'] as num?)?.toDouble(),
+          creditCardName: json['CreditCardName'] as String?,
+          creditCardExpiration: json['CreditCardExpiration'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
@@ -1673,6 +2838,11 @@ WebApiModulesPluginsCreditCardOrderDeposit
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesPluginsCreditCardOrderDepositToJson(
@@ -1687,13 +2857,19 @@ Map<String, dynamic> _$WebApiModulesPluginsCreditCardOrderDepositToJson(
 
   writeNotNull('OrderId', instance.orderId);
   writeNotNull('TransactionDate', instance.transactionDate?.toIso8601String());
+  writeNotNull('PayType', instance.payType);
+  writeNotNull('CheckOrReferenceNumber', instance.checkOrReferenceNumber);
   writeNotNull('Amount', instance.amount);
+  writeNotNull('CreditCardName', instance.creditCardName);
+  writeNotNull('CreditCardExpiration', instance.creditCardExpiration);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1709,6 +2885,7 @@ WebApiModulesPluginsCreditCardProcessCreditCardInfo
           dealId: json['DealId'] as String?,
           dealNumber: json['DealNumber'] as String?,
           deal: json['Deal'] as String?,
+          customerId: json['CustomerId'] as String?,
           customerNumber: json['CustomerNumber'] as String?,
           customer: json['Customer'] as String?,
           totalsWeeklyGrossTotal:
@@ -1753,6 +2930,7 @@ WebApiModulesPluginsCreditCardProcessCreditCardInfo
           locationCode: json['LocationCode'] as String?,
           agentBarcode: json['AgentBarcode'] as String?,
           currencyId: json['CurrencyId'] as String?,
+          currencyCode: json['CurrencyCode'] as String?,
           locationId: json['LocationId'] as String?,
           auditNote: json['AuditNote'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
@@ -1772,6 +2950,11 @@ WebApiModulesPluginsCreditCardProcessCreditCardInfo
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1793,6 +2976,7 @@ Map<String, dynamic>
   writeNotNull('DealId', instance.dealId);
   writeNotNull('DealNumber', instance.dealNumber);
   writeNotNull('Deal', instance.deal);
+  writeNotNull('CustomerId', instance.customerId);
   writeNotNull('CustomerNumber', instance.customerNumber);
   writeNotNull('Customer', instance.customer);
   writeNotNull('Totals_Weekly_GrossTotal', instance.totalsWeeklyGrossTotal);
@@ -1824,11 +3008,14 @@ Map<String, dynamic>
   writeNotNull('LocationCode', instance.locationCode);
   writeNotNull('AgentBarcode', instance.agentBarcode);
   writeNotNull('CurrencyId', instance.currencyId);
+  writeNotNull('CurrencyCode', instance.currencyCode);
   writeNotNull('LocationId', instance.locationId);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }

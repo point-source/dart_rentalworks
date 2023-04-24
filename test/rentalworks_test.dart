@@ -10,24 +10,23 @@ import 'package:test/test.dart';
 void main() {
   Map<String, String> env = Platform.environment;
 
-  String baseUrl = env['RENTALWORKS_URL'] ?? '';
+  Uri? baseUrl = Uri.tryParse(env['RENTALWORKS_URL'] ?? '');
   String username = env['RENTALWORKS_USER'] ?? '';
   String password = env['RENTALWORKS_PASSWORD'] ?? '';
 
-  if (baseUrl.isEmpty) throw Exception('Base URL was not provided');
+  if (baseUrl == null) throw Exception('Base URL was not provided');
   if (username.isEmpty || password.isEmpty) {
     throw Exception('Credentials were not provided.');
   }
 
   group('Create Instance', () {
     test('with JWT token', () {
-      RentalWorks rentalworks =
-          RentalWorks.withJWT('https://my.base.url.com/api/v1', 'my-api-key');
+      RentalWorks rentalworks = RentalWorks.withJWT(baseUrl, 'my-api-key');
       expect(rentalworks, isA<RentalWorks>());
     });
     test('with Credentials', () {
-      RentalWorks rentalworks = RentalWorks.withCredentials(
-          'https://my.base.url.com/api/v1', 'my-username', 'my-password');
+      RentalWorks rentalworks =
+          RentalWorks.withCredentials(baseUrl, 'my-username', 'my-password');
       expect(rentalworks, isA<RentalWorks>());
     });
   });
@@ -233,7 +232,7 @@ void main() {
     });
   });
 
-  group('Change ICode: ', () async {
+  group('Change ICode: ', () {
     WebApiModulesInventoryAssetItem? item;
     String originalInventoryId = '';
 

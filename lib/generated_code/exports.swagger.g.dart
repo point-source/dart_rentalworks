@@ -15,6 +15,34 @@ Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
     <String, dynamic>{};
 
+FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwTranslatedValue(
+      fieldName: json['FieldName'] as String?,
+      translatedValue: json['TranslatedValue'] as String?,
+      untranslatedValue: json['UntranslatedValue'] as String?,
+      isTranslated: json['IsTranslated'] as bool?,
+      userIsTranslating: json['UserIsTranslating'] as bool?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
+    FwStandardDataFwTranslatedValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('TranslatedValue', instance.translatedValue);
+  writeNotNull('UntranslatedValue', instance.untranslatedValue);
+  writeNotNull('IsTranslated', instance.isTranslated);
+  writeNotNull('UserIsTranslating', instance.userIsTranslating);
+  return val;
+}
+
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwApiException(
@@ -50,8 +78,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       rows: (json['Rows'] as List<dynamic>?)
-              ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
+              ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -63,6 +90,11 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -85,6 +117,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
   writeNotNull('TotalRows', instance.totalRows);
   writeNotNull('DateFields', instance.dateFields);
   writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -123,7 +157,17 @@ WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
             Map<String, dynamic> json) =>
         WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest(
           batchId: json['BatchId'] as String?,
-          dataExportFormatId: json['DataExportFormatId'] as String?,
+          fromBatchNumber: json['FromBatchNumber'] as String?,
+          toBatchNumber: json['ToBatchNumber'] as String?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          batchRange: json['BatchRange'] as String?,
+          locationId: json['LocationId'] as String?,
+          dataExportFormatId: json['DataExportFormatId'] as String,
         );
 
 Map<String, dynamic>
@@ -139,7 +183,13 @@ Map<String, dynamic>
   }
 
   writeNotNull('BatchId', instance.batchId);
-  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  writeNotNull('FromBatchNumber', instance.fromBatchNumber);
+  writeNotNull('ToBatchNumber', instance.toBatchNumber);
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('BatchRange', instance.batchRange);
+  writeNotNull('LocationId', instance.locationId);
+  val['DataExportFormatId'] = instance.dataExportFormatId;
   return val;
 }
 
@@ -150,6 +200,8 @@ WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
           batchId: json['BatchId'] as String?,
           batchNumber: json['BatchNumber'] as String?,
           downloadUrl: json['downloadUrl'] as String?,
+          success: json['success'] as bool?,
+          message: json['message'] as String?,
         );
 
 Map<String, dynamic>
@@ -167,6 +219,8 @@ Map<String, dynamic>
   writeNotNull('BatchId', instance.batchId);
   writeNotNull('BatchNumber', instance.batchNumber);
   writeNotNull('downloadUrl', instance.downloadUrl);
+  writeNotNull('success', instance.success);
+  writeNotNull('message', instance.message);
   return val;
 }
 
@@ -175,7 +229,17 @@ WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
             Map<String, dynamic> json) =>
         WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest(
           batchId: json['BatchId'] as String?,
-          dataExportFormatId: json['DataExportFormatId'] as String?,
+          fromBatchNumber: json['FromBatchNumber'] as String?,
+          toBatchNumber: json['ToBatchNumber'] as String?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          batchRange: json['BatchRange'] as String?,
+          locationId: json['LocationId'] as String?,
+          dataExportFormatId: json['DataExportFormatId'] as String,
         );
 
 Map<String, dynamic>
@@ -191,7 +255,13 @@ Map<String, dynamic>
   }
 
   writeNotNull('BatchId', instance.batchId);
-  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  writeNotNull('FromBatchNumber', instance.fromBatchNumber);
+  writeNotNull('ToBatchNumber', instance.toBatchNumber);
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('BatchRange', instance.batchRange);
+  writeNotNull('LocationId', instance.locationId);
+  val['DataExportFormatId'] = instance.dataExportFormatId;
   return val;
 }
 
@@ -202,6 +272,8 @@ WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
           batchId: json['BatchId'] as String?,
           batchNumber: json['BatchNumber'] as String?,
           downloadUrl: json['downloadUrl'] as String?,
+          success: json['success'] as bool?,
+          message: json['message'] as String?,
         );
 
 Map<String, dynamic>
@@ -219,6 +291,8 @@ Map<String, dynamic>
   writeNotNull('BatchId', instance.batchId);
   writeNotNull('BatchNumber', instance.batchNumber);
   writeNotNull('downloadUrl', instance.downloadUrl);
+  writeNotNull('success', instance.success);
+  writeNotNull('message', instance.message);
   return val;
 }
 
@@ -227,7 +301,17 @@ WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
             Map<String, dynamic> json) =>
         WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest(
           batchId: json['BatchId'] as String?,
-          dataExportFormatId: json['DataExportFormatId'] as String?,
+          fromBatchNumber: json['FromBatchNumber'] as String?,
+          toBatchNumber: json['ToBatchNumber'] as String?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          batchRange: json['BatchRange'] as String?,
+          locationId: json['LocationId'] as String?,
+          dataExportFormatId: json['DataExportFormatId'] as String,
         );
 
 Map<String, dynamic>
@@ -243,7 +327,13 @@ Map<String, dynamic>
   }
 
   writeNotNull('BatchId', instance.batchId);
-  writeNotNull('DataExportFormatId', instance.dataExportFormatId);
+  writeNotNull('FromBatchNumber', instance.fromBatchNumber);
+  writeNotNull('ToBatchNumber', instance.toBatchNumber);
+  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('ToDate', instance.toDate?.toIso8601String());
+  writeNotNull('BatchRange', instance.batchRange);
+  writeNotNull('LocationId', instance.locationId);
+  val['DataExportFormatId'] = instance.dataExportFormatId;
   return val;
 }
 
@@ -254,6 +344,8 @@ WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
           batchId: json['BatchId'] as String?,
           batchNumber: json['BatchNumber'] as String?,
           downloadUrl: json['downloadUrl'] as String?,
+          success: json['success'] as bool?,
+          message: json['message'] as String?,
         );
 
 Map<String, dynamic>
@@ -271,5 +363,7 @@ Map<String, dynamic>
   writeNotNull('BatchId', instance.batchId);
   writeNotNull('BatchNumber', instance.batchNumber);
   writeNotNull('downloadUrl', instance.downloadUrl);
+  writeNotNull('success', instance.success);
+  writeNotNull('message', instance.message);
   return val;
 }

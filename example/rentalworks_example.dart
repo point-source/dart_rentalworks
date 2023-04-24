@@ -2,7 +2,7 @@ import 'package:rentalworks/rentalworks.dart';
 
 void main() async {
   var rw = RentalWorks.withCredentials(
-      'https://example.my-rentalworks.com/api/v1',
+      Uri.parse('https://example.my-rentalworks.com/api/v1'),
       'my-username',
       'my-password');
   var deals = await rw.home.dealGet(pageno: 1, pagesize: 25);

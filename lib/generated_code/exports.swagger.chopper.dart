@@ -23,7 +23,7 @@ class _$Exports extends Exports {
       _invoicebatchexportExportPost(
           {required WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest?
               body}) {
-    final String $url = '/invoicebatchexport/export';
+    final Uri $url = Uri.parse('/invoicebatchexport/export');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -40,7 +40,7 @@ class _$Exports extends Exports {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicebatchexportEmptyobjectGet() {
-    final String $url = '/invoicebatchexport/emptyobject';
+    final Uri $url = Uri.parse('/invoicebatchexport/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -57,7 +57,7 @@ class _$Exports extends Exports {
       _receiptbatchexportExportPost(
           {required WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest?
               body}) {
-    final String $url = '/receiptbatchexport/export';
+    final Uri $url = Uri.parse('/receiptbatchexport/export');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -74,7 +74,7 @@ class _$Exports extends Exports {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receiptbatchexportEmptyobjectGet() {
-    final String $url = '/receiptbatchexport/emptyobject';
+    final Uri $url = Uri.parse('/receiptbatchexport/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -91,7 +91,7 @@ class _$Exports extends Exports {
       _vendorinvoicebatchexportExportPost(
           {required WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest?
               body}) {
-    final String $url = '/vendorinvoicebatchexport/export';
+    final Uri $url = Uri.parse('/vendorinvoicebatchexport/export');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -108,7 +108,7 @@ class _$Exports extends Exports {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicebatchexportEmptyobjectGet() {
-    final String $url = '/vendorinvoicebatchexport/emptyobject';
+    final Uri $url = Uri.parse('/vendorinvoicebatchexport/emptyobject');
     final Request $request = Request(
       'GET',
       $url,

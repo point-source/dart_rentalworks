@@ -24,7 +24,7 @@ abstract class Mobile extends ChopperService {
   static Mobile create({
     ChopperClient? client,
     Authenticator? authenticator,
-    String? baseUrl,
+    Uri? baseUrl,
     Iterable<dynamic>? interceptors,
   }) {
     if (client != null) {
@@ -93,141 +93,6 @@ abstract class Mobile extends ChopperService {
     @Query('Sort') String? sort,
   });
 
-  ///Get an empty object
-  Future<chopper.Response> quikscanAssetdispositionEmptyobjectGet() {
-    return _quikscanAssetdispositionEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/assetdisposition/emptyobject')
-  Future<chopper.Response> _quikscanAssetdispositionEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanAssetdispositionEmptybrowseobjectGet() {
-    return _quikscanAssetdispositionEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/assetdisposition/emptybrowseobject')
-  Future<chopper.Response> _quikscanAssetdispositionEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanAssetdispositionKeyfieldnamesGet() {
-    return _quikscanAssetdispositionKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/assetdisposition/keyfieldnames')
-  Future<chopper.Response> _quikscanAssetdispositionKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanAssetsetlocationEmptyobjectGet() {
-    return _quikscanAssetsetlocationEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/assetsetlocation/emptyobject')
-  Future<chopper.Response> _quikscanAssetsetlocationEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanAssetsetlocationEmptybrowseobjectGet() {
-    return _quikscanAssetsetlocationEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/assetsetlocation/emptybrowseobject')
-  Future<chopper.Response> _quikscanAssetsetlocationEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanAssetsetlocationKeyfieldnamesGet() {
-    return _quikscanAssetsetlocationKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/assetsetlocation/keyfieldnames')
-  Future<chopper.Response> _quikscanAssetsetlocationKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanAssignitemsEmptyobjectGet() {
-    return _quikscanAssignitemsEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/assignitems/emptyobject')
-  Future<chopper.Response> _quikscanAssignitemsEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanAssignitemsEmptybrowseobjectGet() {
-    return _quikscanAssignitemsEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/assignitems/emptybrowseobject')
-  Future<chopper.Response> _quikscanAssignitemsEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanAssignitemsKeyfieldnamesGet() {
-    return _quikscanAssignitemsKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/assignitems/keyfieldnames')
-  Future<chopper.Response> _quikscanAssignitemsKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanBarcodelabelEmptyobjectGet() {
-    return _quikscanBarcodelabelEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/barcodelabel/emptyobject')
-  Future<chopper.Response> _quikscanBarcodelabelEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanBarcodelabelEmptybrowseobjectGet() {
-    return _quikscanBarcodelabelEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/barcodelabel/emptybrowseobject')
-  Future<chopper.Response> _quikscanBarcodelabelEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanBarcodelabelKeyfieldnamesGet() {
-    return _quikscanBarcodelabelKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/barcodelabel/keyfieldnames')
-  Future<chopper.Response> _quikscanBarcodelabelKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanCheckinEmptyobjectGet() {
-    return _quikscanCheckinEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/checkin/emptyobject')
-  Future<chopper.Response> _quikscanCheckinEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanCheckinEmptybrowseobjectGet() {
-    return _quikscanCheckinEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/checkin/emptybrowseobject')
-  Future<chopper.Response> _quikscanCheckinEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanCheckinKeyfieldnamesGet() {
-    return _quikscanCheckinKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/checkin/keyfieldnames')
-  Future<chopper.Response> _quikscanCheckinKeyfieldnamesGet();
-
   ///
   Future<chopper.Response<WebApiLogicTSpStatusResponse>>
       quikscanExchangeCancelcontractPost(
@@ -240,39 +105,15 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/exchange/cancelcontract')
+  @Post(
+    path: '/quikscan/exchange/cancelcontract',
+    optionalBody: true,
+  )
   Future<chopper.Response<WebApiLogicTSpStatusResponse>>
       _quikscanExchangeCancelcontractPost(
           {@Body()
               required WebApiModulesWarehouseContractCancelContractRequest?
                   body});
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanExchangeEmptyobjectGet() {
-    return _quikscanExchangeEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/exchange/emptyobject')
-  Future<chopper.Response> _quikscanExchangeEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanExchangeEmptybrowseobjectGet() {
-    return _quikscanExchangeEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/exchange/emptybrowseobject')
-  Future<chopper.Response> _quikscanExchangeEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanExchangeKeyfieldnamesGet() {
-    return _quikscanExchangeKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/exchange/keyfieldnames')
-  Future<chopper.Response> _quikscanExchangeKeyfieldnamesGet();
 
   ///Get a list of valid Container Descriptions.
   ///@param scannableinventoryid
@@ -324,87 +165,6 @@ abstract class Mobile extends ChopperService {
     @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
   });
 
-  ///Get an empty object
-  Future<chopper.Response> quikscanFillcontainerEmptyobjectGet() {
-    return _quikscanFillcontainerEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/fillcontainer/emptyobject')
-  Future<chopper.Response> _quikscanFillcontainerEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanFillcontainerEmptybrowseobjectGet() {
-    return _quikscanFillcontainerEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/fillcontainer/emptybrowseobject')
-  Future<chopper.Response> _quikscanFillcontainerEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanFillcontainerKeyfieldnamesGet() {
-    return _quikscanFillcontainerKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/fillcontainer/keyfieldnames')
-  Future<chopper.Response> _quikscanFillcontainerKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanInventorywebimageEmptyobjectGet() {
-    return _quikscanInventorywebimageEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/inventorywebimage/emptyobject')
-  Future<chopper.Response> _quikscanInventorywebimageEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanInventorywebimageEmptybrowseobjectGet() {
-    return _quikscanInventorywebimageEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/inventorywebimage/emptybrowseobject')
-  Future<chopper.Response> _quikscanInventorywebimageEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanInventorywebimageKeyfieldnamesGet() {
-    return _quikscanInventorywebimageKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/inventorywebimage/keyfieldnames')
-  Future<chopper.Response> _quikscanInventorywebimageKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanItemstatusEmptyobjectGet() {
-    return _quikscanItemstatusEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/itemstatus/emptyobject')
-  Future<chopper.Response> _quikscanItemstatusEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanItemstatusEmptybrowseobjectGet() {
-    return _quikscanItemstatusEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/itemstatus/emptybrowseobject')
-  Future<chopper.Response> _quikscanItemstatusEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanItemstatusKeyfieldnamesGet() {
-    return _quikscanItemstatusKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/itemstatus/keyfieldnames')
-  Future<chopper.Response> _quikscanItemstatusKeyfieldnamesGet();
-
   ///
   ///@param path
   Future<chopper.Response<Object>> mobilePost({String? path}) {
@@ -418,168 +178,6 @@ abstract class Mobile extends ChopperService {
     optionalBody: true,
   )
   Future<chopper.Response<Object>> _mobilePost({@Query('path') String? path});
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanMovebclocationEmptyobjectGet() {
-    return _quikscanMovebclocationEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/movebclocation/emptyobject')
-  Future<chopper.Response> _quikscanMovebclocationEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanMovebclocationEmptybrowseobjectGet() {
-    return _quikscanMovebclocationEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/movebclocation/emptybrowseobject')
-  Future<chopper.Response> _quikscanMovebclocationEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanMovebclocationKeyfieldnamesGet() {
-    return _quikscanMovebclocationKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/movebclocation/keyfieldnames')
-  Future<chopper.Response> _quikscanMovebclocationKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanPackagetruckEmptyobjectGet() {
-    return _quikscanPackagetruckEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/packagetruck/emptyobject')
-  Future<chopper.Response> _quikscanPackagetruckEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanPackagetruckEmptybrowseobjectGet() {
-    return _quikscanPackagetruckEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/packagetruck/emptybrowseobject')
-  Future<chopper.Response> _quikscanPackagetruckEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanPackagetruckKeyfieldnamesGet() {
-    return _quikscanPackagetruckKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/packagetruck/keyfieldnames')
-  Future<chopper.Response> _quikscanPackagetruckKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanPhysicalinventoryEmptyobjectGet() {
-    return _quikscanPhysicalinventoryEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/physicalinventory/emptyobject')
-  Future<chopper.Response> _quikscanPhysicalinventoryEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanPhysicalinventoryEmptybrowseobjectGet() {
-    return _quikscanPhysicalinventoryEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/physicalinventory/emptybrowseobject')
-  Future<chopper.Response> _quikscanPhysicalinventoryEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanPhysicalinventoryKeyfieldnamesGet() {
-    return _quikscanPhysicalinventoryKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/physicalinventory/keyfieldnames')
-  Future<chopper.Response> _quikscanPhysicalinventoryKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanPoreceiveEmptyobjectGet() {
-    return _quikscanPoreceiveEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/poreceive/emptyobject')
-  Future<chopper.Response> _quikscanPoreceiveEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanPoreceiveEmptybrowseobjectGet() {
-    return _quikscanPoreceiveEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/poreceive/emptybrowseobject')
-  Future<chopper.Response> _quikscanPoreceiveEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanPoreceiveKeyfieldnamesGet() {
-    return _quikscanPoreceiveKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/poreceive/keyfieldnames')
-  Future<chopper.Response> _quikscanPoreceiveKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanPoreturnEmptyobjectGet() {
-    return _quikscanPoreturnEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/poreturn/emptyobject')
-  Future<chopper.Response> _quikscanPoreturnEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanPoreturnEmptybrowseobjectGet() {
-    return _quikscanPoreturnEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/poreturn/emptybrowseobject')
-  Future<chopper.Response> _quikscanPoreturnEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanPoreturnKeyfieldnamesGet() {
-    return _quikscanPoreturnKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/poreturn/keyfieldnames')
-  Future<chopper.Response> _quikscanPoreturnKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanQcEmptyobjectGet() {
-    return _quikscanQcEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/qc/emptyobject')
-  Future<chopper.Response> _quikscanQcEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanQcEmptybrowseobjectGet() {
-    return _quikscanQcEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/qc/emptybrowseobject')
-  Future<chopper.Response> _quikscanQcEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanQcKeyfieldnamesGet() {
-    return _quikscanQcKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/qc/keyfieldnames')
-  Future<chopper.Response> _quikscanQcKeyfieldnamesGet();
 
   ///
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
@@ -595,7 +193,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset')
+  @Post(
+    path: '/quikscan/quikasset',
+    optionalBody: true,
+  )
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
       _quikscanQuikassetPost(
           {@Body()
@@ -615,7 +216,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/updateunitvalue')
+  @Post(
+    path: '/quikscan/quikasset/updateunitvalue',
+    optionalBody: true,
+  )
   Future<
       chopper.Response<
           WebApiLogicTSpStatusResponse>> _quikscanQuikassetUpdateunitvaluePost(
@@ -640,7 +244,10 @@ abstract class Mobile extends ChopperService {
 
   ///
   ///@param id
-  @Put(path: '/quikscan/quikasset/{id}')
+  @Put(
+    path: '/quikscan/quikasset/{id}',
+    optionalBody: true,
+  )
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
       _quikscanQuikassetIdPut({
     @Path('id') required String? id,
@@ -658,7 +265,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/inventorypurchaseitembrowse')
+  @Post(
+    path: '/quikscan/quikasset/inventorypurchaseitembrowse',
+    optionalBody: true,
+  )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
       _quikscanQuikassetInventorypurchaseitembrowsePost(
           {@Body() required FwStandardModelsBrowseRequest? body});
@@ -667,16 +277,16 @@ abstract class Mobile extends ChopperService {
   ///@param id
   Future<
           chopper.Response<
-              WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
+              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem>>
       quikscanQuikassetInventorypurchaseitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem?
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem?
         body,
   }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem,
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
         () =>
-            WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
+            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
                 .fromJsonFactory);
 
     return _quikscanQuikassetInventorypurchaseitemIdPut(id: id, body: body);
@@ -684,14 +294,18 @@ abstract class Mobile extends ChopperService {
 
   ///
   ///@param id
-  @Put(path: '/quikscan/quikasset/inventorypurchaseitem/{id}')
+  @Put(
+    path: '/quikscan/quikasset/inventorypurchaseitem/{id}',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
-              WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem>>
+              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem>>
       _quikscanQuikassetInventorypurchaseitemIdPut({
-    @Path('id') required String? id,
+    @Path('id')
+        required String? id,
     @Body()
-        required WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem?
+        required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem?
             body,
   });
 
@@ -712,7 +326,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/startsession')
+  @Post(
+    path: '/quikscan/quikasset/startsession',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
@@ -738,7 +355,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/updatesession')
+  @Post(
+    path: '/quikscan/quikasset/updatesession',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
@@ -764,7 +384,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/insertimage')
+  @Post(
+    path: '/quikscan/quikasset/insertimage',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse>>
@@ -789,7 +412,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/getimages')
+  @Post(
+    path: '/quikscan/quikasset/getimages',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
@@ -810,7 +436,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/deleteimage')
+  @Post(
+    path: '/quikscan/quikasset/deleteimage',
+    optionalBody: true,
+  )
   Future<
       chopper.Response<
           WebApiLogicTSpStatusResponse>> _quikscanQuikassetDeleteimagePost(
@@ -835,7 +464,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/completesession')
+  @Post(
+    path: '/quikscan/quikasset/completesession',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
@@ -851,7 +483,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/inventorydepartment')
+  @Post(
+    path: '/quikscan/quikasset/inventorydepartment',
+    optionalBody: true,
+  )
   Future<chopper.Response> _quikscanQuikassetInventorydepartmentPost(
       {@Body() required String? body});
 
@@ -863,7 +498,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/category')
+  @Post(
+    path: '/quikscan/quikasset/category',
+    optionalBody: true,
+  )
   Future<chopper.Response> _quikscanQuikassetCategoryPost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest?
@@ -877,7 +515,10 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/subcategory')
+  @Post(
+    path: '/quikscan/quikasset/subcategory',
+    optionalBody: true,
+  )
   Future<chopper.Response> _quikscanQuikassetSubcategoryPost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
@@ -915,281 +556,14 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(path: '/quikscan/quikasset/searchitemsbydesc')
+  @Post(
+    path: '/quikscan/quikasset/searchitemsbydesc',
+    optionalBody: true,
+  )
   Future<chopper.Response> _quikscanQuikassetSearchitemsbydescPost(
       {@Body()
           required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
               body});
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanQuikassetEmptyobjectGet() {
-    return _quikscanQuikassetEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/quikasset/emptyobject')
-  Future<chopper.Response> _quikscanQuikassetEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanQuikassetEmptybrowseobjectGet() {
-    return _quikscanQuikassetEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/quikasset/emptybrowseobject')
-  Future<chopper.Response> _quikscanQuikassetEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanQuikassetKeyfieldnamesGet() {
-    return _quikscanQuikassetKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/quikasset/keyfieldnames')
-  Future<chopper.Response> _quikscanQuikassetKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanQuikpickEmptyobjectGet() {
-    return _quikscanQuikpickEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/quikpick/emptyobject')
-  Future<chopper.Response> _quikscanQuikpickEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanQuikpickEmptybrowseobjectGet() {
-    return _quikscanQuikpickEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/quikpick/emptybrowseobject')
-  Future<chopper.Response> _quikscanQuikpickEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanQuikpickKeyfieldnamesGet() {
-    return _quikscanQuikpickKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/quikpick/keyfieldnames')
-  Future<chopper.Response> _quikscanQuikpickKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanReceiveonsetEmptyobjectGet() {
-    return _quikscanReceiveonsetEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/receiveonset/emptyobject')
-  Future<chopper.Response> _quikscanReceiveonsetEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanReceiveonsetEmptybrowseobjectGet() {
-    return _quikscanReceiveonsetEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/receiveonset/emptybrowseobject')
-  Future<chopper.Response> _quikscanReceiveonsetEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanReceiveonsetKeyfieldnamesGet() {
-    return _quikscanReceiveonsetKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/receiveonset/keyfieldnames')
-  Future<chopper.Response> _quikscanReceiveonsetKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanRepairEmptyobjectGet() {
-    return _quikscanRepairEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/repair/emptyobject')
-  Future<chopper.Response> _quikscanRepairEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanRepairEmptybrowseobjectGet() {
-    return _quikscanRepairEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/repair/emptybrowseobject')
-  Future<chopper.Response> _quikscanRepairEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanRepairKeyfieldnamesGet() {
-    return _quikscanRepairKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/repair/keyfieldnames')
-  Future<chopper.Response> _quikscanRepairKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanRfidcheckinEmptyobjectGet() {
-    return _quikscanRfidcheckinEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/rfidcheckin/emptyobject')
-  Future<chopper.Response> _quikscanRfidcheckinEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanRfidcheckinEmptybrowseobjectGet() {
-    return _quikscanRfidcheckinEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/rfidcheckin/emptybrowseobject')
-  Future<chopper.Response> _quikscanRfidcheckinEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanRfidcheckinKeyfieldnamesGet() {
-    return _quikscanRfidcheckinKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/rfidcheckin/keyfieldnames')
-  Future<chopper.Response> _quikscanRfidcheckinKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanRfidstagingEmptyobjectGet() {
-    return _quikscanRfidstagingEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/rfidstaging/emptyobject')
-  Future<chopper.Response> _quikscanRfidstagingEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanRfidstagingEmptybrowseobjectGet() {
-    return _quikscanRfidstagingEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/rfidstaging/emptybrowseobject')
-  Future<chopper.Response> _quikscanRfidstagingEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanRfidstagingKeyfieldnamesGet() {
-    return _quikscanRfidstagingKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/rfidstaging/keyfieldnames')
-  Future<chopper.Response> _quikscanRfidstagingKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanStagingEmptyobjectGet() {
-    return _quikscanStagingEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/staging/emptyobject')
-  Future<chopper.Response> _quikscanStagingEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanStagingEmptybrowseobjectGet() {
-    return _quikscanStagingEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/staging/emptybrowseobject')
-  Future<chopper.Response> _quikscanStagingEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanStagingKeyfieldnamesGet() {
-    return _quikscanStagingKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/staging/keyfieldnames')
-  Future<chopper.Response> _quikscanStagingKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanTimelogEmptyobjectGet() {
-    return _quikscanTimelogEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/timelog/emptyobject')
-  Future<chopper.Response> _quikscanTimelogEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanTimelogEmptybrowseobjectGet() {
-    return _quikscanTimelogEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/timelog/emptybrowseobject')
-  Future<chopper.Response> _quikscanTimelogEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanTimelogKeyfieldnamesGet() {
-    return _quikscanTimelogKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/timelog/keyfieldnames')
-  Future<chopper.Response> _quikscanTimelogKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanTransferinEmptyobjectGet() {
-    return _quikscanTransferinEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/transferin/emptyobject')
-  Future<chopper.Response> _quikscanTransferinEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanTransferinEmptybrowseobjectGet() {
-    return _quikscanTransferinEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/transferin/emptybrowseobject')
-  Future<chopper.Response> _quikscanTransferinEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanTransferinKeyfieldnamesGet() {
-    return _quikscanTransferinKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/transferin/keyfieldnames')
-  Future<chopper.Response> _quikscanTransferinKeyfieldnamesGet();
-
-  ///Get an empty object
-  Future<chopper.Response> quikscanTransferoutEmptyobjectGet() {
-    return _quikscanTransferoutEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/quikscan/transferout/emptyobject')
-  Future<chopper.Response> _quikscanTransferoutEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> quikscanTransferoutEmptybrowseobjectGet() {
-    return _quikscanTransferoutEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/quikscan/transferout/emptybrowseobject')
-  Future<chopper.Response> _quikscanTransferoutEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> quikscanTransferoutKeyfieldnamesGet() {
-    return _quikscanTransferoutKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/quikscan/transferout/keyfieldnames')
-  Future<chopper.Response> _quikscanTransferoutKeyfieldnamesGet();
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1200,11 +574,12 @@ class FwCoreApiSwashbuckleBadRequestResponse {
           Map<String, dynamic> json) =>
       _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
 
-  static const fromJsonFactory =
-      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  static const fromJsonFactory =
+      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
 
   @override
   String toString() => jsonEncode(this);
@@ -1224,6 +599,11 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
           Map<String, dynamic> json) =>
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(json);
 
+  static const toJsonFactory =
+      _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
+
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
   @JsonKey(
@@ -1235,10 +615,6 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final enums.FwStandardSqlServerFwDataTypes? dataType;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
-  static const toJsonFactory =
-      _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1289,6 +665,9 @@ class FwStandardDataFwCustomValue {
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
       _$FwStandardDataFwCustomValueFromJson(json);
 
+  static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
+  Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
+
   @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
   @JsonKey(name: 'FieldValue', includeIfNull: false)
@@ -1296,8 +675,6 @@ class FwStandardDataFwCustomValue {
   @JsonKey(name: 'FieldType', includeIfNull: false)
   final String? fieldType;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
-  static const toJsonFactory = _$FwStandardDataFwCustomValueToJson;
-  Map<String, dynamic> toJson() => _$FwStandardDataFwCustomValueToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1357,6 +734,10 @@ class FwStandardDataFwDefaultAttribute {
           Map<String, dynamic> json) =>
       _$FwStandardDataFwDefaultAttributeFromJson(json);
 
+  static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardDataFwDefaultAttributeToJson(this);
+
   @JsonKey(name: 'FieldName', includeIfNull: false)
   final String? fieldName;
   @JsonKey(name: 'AttributeName', includeIfNull: false)
@@ -1364,9 +745,6 @@ class FwStandardDataFwDefaultAttribute {
   @JsonKey(name: 'DefaultValue', includeIfNull: false)
   final String? defaultValue;
   static const fromJsonFactory = _$FwStandardDataFwDefaultAttributeFromJson;
-  static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardDataFwDefaultAttributeToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1418,6 +796,107 @@ extension $FwStandardDataFwDefaultAttributeExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwStandardDataFwTranslatedValue {
+  FwStandardDataFwTranslatedValue({
+    this.fieldName,
+    this.translatedValue,
+    this.untranslatedValue,
+    this.isTranslated,
+    this.userIsTranslating,
+  });
+
+  factory FwStandardDataFwTranslatedValue.fromJson(Map<String, dynamic> json) =>
+      _$FwStandardDataFwTranslatedValueFromJson(json);
+
+  static const toJsonFactory = _$FwStandardDataFwTranslatedValueToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardDataFwTranslatedValueToJson(this);
+
+  @JsonKey(name: 'FieldName', includeIfNull: false)
+  final String? fieldName;
+  @JsonKey(name: 'TranslatedValue', includeIfNull: false)
+  final String? translatedValue;
+  @JsonKey(name: 'UntranslatedValue', includeIfNull: false)
+  final String? untranslatedValue;
+  @JsonKey(name: 'IsTranslated', includeIfNull: false)
+  final bool? isTranslated;
+  @JsonKey(name: 'UserIsTranslating', includeIfNull: false)
+  final bool? userIsTranslating;
+  static const fromJsonFactory = _$FwStandardDataFwTranslatedValueFromJson;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardDataFwTranslatedValue &&
+            (identical(other.fieldName, fieldName) ||
+                const DeepCollectionEquality()
+                    .equals(other.fieldName, fieldName)) &&
+            (identical(other.translatedValue, translatedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.translatedValue, translatedValue)) &&
+            (identical(other.untranslatedValue, untranslatedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.untranslatedValue, untranslatedValue)) &&
+            (identical(other.isTranslated, isTranslated) ||
+                const DeepCollectionEquality()
+                    .equals(other.isTranslated, isTranslated)) &&
+            (identical(other.userIsTranslating, userIsTranslating) ||
+                const DeepCollectionEquality()
+                    .equals(other.userIsTranslating, userIsTranslating)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(translatedValue) ^
+      const DeepCollectionEquality().hash(untranslatedValue) ^
+      const DeepCollectionEquality().hash(isTranslated) ^
+      const DeepCollectionEquality().hash(userIsTranslating) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardDataFwTranslatedValueExtension
+    on FwStandardDataFwTranslatedValue {
+  FwStandardDataFwTranslatedValue copyWith(
+      {String? fieldName,
+      String? translatedValue,
+      String? untranslatedValue,
+      bool? isTranslated,
+      bool? userIsTranslating}) {
+    return FwStandardDataFwTranslatedValue(
+        fieldName: fieldName ?? this.fieldName,
+        translatedValue: translatedValue ?? this.translatedValue,
+        untranslatedValue: untranslatedValue ?? this.untranslatedValue,
+        isTranslated: isTranslated ?? this.isTranslated,
+        userIsTranslating: userIsTranslating ?? this.userIsTranslating);
+  }
+
+  FwStandardDataFwTranslatedValue copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? translatedValue,
+      Wrapped<String?>? untranslatedValue,
+      Wrapped<bool?>? isTranslated,
+      Wrapped<bool?>? userIsTranslating}) {
+    return FwStandardDataFwTranslatedValue(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        translatedValue: (translatedValue != null
+            ? translatedValue.value
+            : this.translatedValue),
+        untranslatedValue: (untranslatedValue != null
+            ? untranslatedValue.value
+            : this.untranslatedValue),
+        isTranslated:
+            (isTranslated != null ? isTranslated.value : this.isTranslated),
+        userIsTranslating: (userIsTranslating != null
+            ? userIsTranslating.value
+            : this.userIsTranslating));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardModelsBrowseRequest {
   FwStandardModelsBrowseRequest({
     this.miscfields,
@@ -1435,19 +914,24 @@ class FwStandardModelsBrowseRequest {
     this.searchseparators,
     this.searchcondition,
     this.searchconjunctions,
+    this.searchgroupings,
     this.uniqueids,
     this.boundids,
     this.filterfields,
     this.activeview,
     this.emptyobject,
     this.forexcel,
-    this.excelfields,
+    this.includeallcolumns,
+    this.fields,
     this.totalfields,
     this.activeviewfields,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsBrowseRequestFromJson(json);
+
+  static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
 
   @JsonKey(name: 'miscfields', includeIfNull: false)
   final dynamic miscfields;
@@ -1489,6 +973,8 @@ class FwStandardModelsBrowseRequest {
       includeIfNull: false,
       defaultValue: <String>[])
   final List<String>? searchconjunctions;
+  @JsonKey(name: 'searchgroupings', includeIfNull: false, defaultValue: <int>[])
+  final List<int>? searchgroupings;
   @JsonKey(name: 'uniqueids', includeIfNull: false)
   final dynamic uniqueids;
   @JsonKey(name: 'boundids', includeIfNull: false)
@@ -1501,18 +987,18 @@ class FwStandardModelsBrowseRequest {
   final bool? emptyobject;
   @JsonKey(name: 'forexcel', includeIfNull: false)
   final bool? forexcel;
+  @JsonKey(name: 'includeallcolumns', includeIfNull: false)
+  final bool? includeallcolumns;
   @JsonKey(
-      name: 'excelfields',
+      name: 'fields',
       includeIfNull: false,
       defaultValue: <FwStandardModelsCheckBoxListItem>[])
-  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  final List<FwStandardModelsCheckBoxListItem>? fields;
   @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
-  static const toJsonFactory = _$FwStandardModelsBrowseRequestToJson;
-  Map<String, dynamic> toJson() => _$FwStandardModelsBrowseRequestToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1560,6 +1046,9 @@ class FwStandardModelsBrowseRequest {
             (identical(other.searchconjunctions, searchconjunctions) ||
                 const DeepCollectionEquality()
                     .equals(other.searchconjunctions, searchconjunctions)) &&
+            (identical(other.searchgroupings, searchgroupings) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchgroupings, searchgroupings)) &&
             (identical(other.uniqueids, uniqueids) ||
                 const DeepCollectionEquality()
                     .equals(other.uniqueids, uniqueids)) &&
@@ -1578,12 +1067,11 @@ class FwStandardModelsBrowseRequest {
             (identical(other.forexcel, forexcel) ||
                 const DeepCollectionEquality()
                     .equals(other.forexcel, forexcel)) &&
-            (identical(other.excelfields, excelfields) ||
+            (identical(other.includeallcolumns, includeallcolumns) ||
                 const DeepCollectionEquality()
-                    .equals(other.excelfields, excelfields)) &&
-            (identical(other.totalfields, totalfields) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalfields, totalfields)) &&
+                    .equals(other.includeallcolumns, includeallcolumns)) &&
+            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.totalfields, totalfields) || const DeepCollectionEquality().equals(other.totalfields, totalfields)) &&
             (identical(other.activeviewfields, activeviewfields) || const DeepCollectionEquality().equals(other.activeviewfields, activeviewfields)));
   }
 
@@ -1607,13 +1095,15 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(searchseparators) ^
       const DeepCollectionEquality().hash(searchcondition) ^
       const DeepCollectionEquality().hash(searchconjunctions) ^
+      const DeepCollectionEquality().hash(searchgroupings) ^
       const DeepCollectionEquality().hash(uniqueids) ^
       const DeepCollectionEquality().hash(boundids) ^
       const DeepCollectionEquality().hash(filterfields) ^
       const DeepCollectionEquality().hash(activeview) ^
       const DeepCollectionEquality().hash(emptyobject) ^
       const DeepCollectionEquality().hash(forexcel) ^
-      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(includeallcolumns) ^
+      const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       runtimeType.hashCode;
@@ -1637,13 +1127,15 @@ extension $FwStandardModelsBrowseRequestExtension
       List<String>? searchseparators,
       List<String>? searchcondition,
       List<String>? searchconjunctions,
+      List<int>? searchgroupings,
       dynamic uniqueids,
       dynamic boundids,
       Map<String, dynamic>? filterfields,
       String? activeview,
       bool? emptyobject,
       bool? forexcel,
-      List<FwStandardModelsCheckBoxListItem>? excelfields,
+      bool? includeallcolumns,
+      List<FwStandardModelsCheckBoxListItem>? fields,
       List<String>? totalfields,
       Map<String, dynamic>? activeviewfields}) {
     return FwStandardModelsBrowseRequest(
@@ -1662,13 +1154,15 @@ extension $FwStandardModelsBrowseRequestExtension
         searchseparators: searchseparators ?? this.searchseparators,
         searchcondition: searchcondition ?? this.searchcondition,
         searchconjunctions: searchconjunctions ?? this.searchconjunctions,
+        searchgroupings: searchgroupings ?? this.searchgroupings,
         uniqueids: uniqueids ?? this.uniqueids,
         boundids: boundids ?? this.boundids,
         filterfields: filterfields ?? this.filterfields,
         activeview: activeview ?? this.activeview,
         emptyobject: emptyobject ?? this.emptyobject,
         forexcel: forexcel ?? this.forexcel,
-        excelfields: excelfields ?? this.excelfields,
+        includeallcolumns: includeallcolumns ?? this.includeallcolumns,
+        fields: fields ?? this.fields,
         totalfields: totalfields ?? this.totalfields,
         activeviewfields: activeviewfields ?? this.activeviewfields);
   }
@@ -1689,13 +1183,15 @@ extension $FwStandardModelsBrowseRequestExtension
       Wrapped<List<String>?>? searchseparators,
       Wrapped<List<String>?>? searchcondition,
       Wrapped<List<String>?>? searchconjunctions,
+      Wrapped<List<int>?>? searchgroupings,
       Wrapped<dynamic>? uniqueids,
       Wrapped<dynamic>? boundids,
       Wrapped<Map<String, dynamic>?>? filterfields,
       Wrapped<String?>? activeview,
       Wrapped<bool?>? emptyobject,
       Wrapped<bool?>? forexcel,
-      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+      Wrapped<bool?>? includeallcolumns,
+      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
       Wrapped<List<String>?>? totalfields,
       Wrapped<Map<String, dynamic>?>? activeviewfields}) {
     return FwStandardModelsBrowseRequest(
@@ -1729,6 +1225,9 @@ extension $FwStandardModelsBrowseRequestExtension
         searchconjunctions: (searchconjunctions != null
             ? searchconjunctions.value
             : this.searchconjunctions),
+        searchgroupings: (searchgroupings != null
+            ? searchgroupings.value
+            : this.searchgroupings),
         uniqueids: (uniqueids != null ? uniqueids.value : this.uniqueids),
         boundids: (boundids != null ? boundids.value : this.boundids),
         filterfields:
@@ -1737,8 +1236,10 @@ extension $FwStandardModelsBrowseRequestExtension
         emptyobject:
             (emptyobject != null ? emptyobject.value : this.emptyobject),
         forexcel: (forexcel != null ? forexcel.value : this.forexcel),
-        excelfields:
-            (excelfields != null ? excelfields.value : this.excelfields),
+        includeallcolumns: (includeallcolumns != null
+            ? includeallcolumns.value
+            : this.includeallcolumns),
+        fields: (fields != null ? fields.value : this.fields),
         totalfields:
             (totalfields != null ? totalfields.value : this.totalfields),
         activeviewfields: (activeviewfields != null
@@ -1759,6 +1260,10 @@ class FwStandardModelsCheckBoxListItem {
           Map<String, dynamic> json) =>
       _$FwStandardModelsCheckBoxListItemFromJson(json);
 
+  static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsCheckBoxListItemToJson(this);
+
   @JsonKey(name: 'value', includeIfNull: false)
   final String? value;
   @JsonKey(name: 'text', includeIfNull: false)
@@ -1766,9 +1271,6 @@ class FwStandardModelsCheckBoxListItem {
   @JsonKey(name: 'selected', includeIfNull: false)
   final bool? selected;
   static const fromJsonFactory = _$FwStandardModelsCheckBoxListItemFromJson;
-  static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsCheckBoxListItemToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1826,6 +1328,9 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
+  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
   @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
   @JsonKey(name: 'Message', includeIfNull: false)
@@ -1833,8 +1338,6 @@ class FwStandardModelsFwApiException {
   @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
-  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
-  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1894,6 +1397,9 @@ class FwStandardModelsFwQueryFilter {
   factory FwStandardModelsFwQueryFilter.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwQueryFilterFromJson(json);
 
+  static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
+
   @JsonKey(name: 'Field', includeIfNull: false)
   final String field;
   @JsonKey(name: 'Op', includeIfNull: false)
@@ -1901,8 +1407,6 @@ class FwStandardModelsFwQueryFilter {
   @JsonKey(name: 'Value', includeIfNull: false)
   final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
-  static const toJsonFactory = _$FwStandardModelsFwQueryFilterToJson;
-  Map<String, dynamic> toJson() => _$FwStandardModelsFwQueryFilterToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -1961,8 +1465,16 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
       _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
           json);
 
-  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
-      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>[])
+  static const toJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
+          this);
+
+  @JsonKey(
+      name: 'Items',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>[])
   final List<
           WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>?
       items;
@@ -1976,11 +1488,6 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson;
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2065,8 +1572,16 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
           json);
 
-  @JsonKey(name: 'Items', includeIfNull: false, defaultValue: <
-      WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>[])
+  static const toJsonFactory =
+      _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
+          this);
+
+  @JsonKey(
+      name: 'Items',
+      includeIfNull: false,
+      defaultValue: <WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>[])
   final List<WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>?
       items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
@@ -2079,11 +1594,6 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
   final String? sort;
   static const fromJsonFactory =
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson;
-  static const toJsonFactory =
-      _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2166,11 +1676,16 @@ class FwStandardSqlServerFwJsonDataTable {
     this.totalRows,
     this.dateFields,
     this.columnNameByIndex,
+    this.translation,
   });
 
   factory FwStandardSqlServerFwJsonDataTable.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
+
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableToJson(this);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Map<String, dynamic>? columnIndex;
@@ -2181,7 +1696,7 @@ class FwStandardSqlServerFwJsonDataTable {
       includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object?>>[])
   final List<List<Object?>>? rows;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
@@ -2195,10 +1710,12 @@ class FwStandardSqlServerFwJsonDataTable {
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Map<String, dynamic>? columnNameByIndex;
+  @JsonKey(
+      name: '_Translation',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwTranslatedValue>[])
+  final List<FwStandardDataFwTranslatedValue>? translation;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
-  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardSqlServerFwJsonDataTableToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2230,7 +1747,10 @@ class FwStandardSqlServerFwJsonDataTable {
                     .equals(other.dateFields, dateFields)) &&
             (identical(other.columnNameByIndex, columnNameByIndex) ||
                 const DeepCollectionEquality()
-                    .equals(other.columnNameByIndex, columnNameByIndex)));
+                    .equals(other.columnNameByIndex, columnNameByIndex)) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality()
+                    .equals(other.translation, translation)));
   }
 
   @override
@@ -2248,6 +1768,7 @@ class FwStandardSqlServerFwJsonDataTable {
       const DeepCollectionEquality().hash(totalRows) ^
       const DeepCollectionEquality().hash(dateFields) ^
       const DeepCollectionEquality().hash(columnNameByIndex) ^
+      const DeepCollectionEquality().hash(translation) ^
       runtimeType.hashCode;
 }
 
@@ -2263,7 +1784,8 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Map<String, dynamic>? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex,
+      List<FwStandardDataFwTranslatedValue>? translation}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -2274,20 +1796,22 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         totalPages: totalPages ?? this.totalPages,
         totalRows: totalRows ?? this.totalRows,
         dateFields: dateFields ?? this.dateFields,
-        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex,
+        translation: translation ?? this.translation);
   }
 
   FwStandardSqlServerFwJsonDataTable copyWithWrapped(
       {Wrapped<Map<String, dynamic>?>? columnIndex,
       Wrapped<Map<String, dynamic>?>? totals,
       Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
-      Wrapped<List<List<Object>>?>? rows,
+      Wrapped<List<List<Object?>>?>? rows,
       Wrapped<int?>? pageNo,
       Wrapped<int?>? pageSize,
       Wrapped<int?>? totalPages,
       Wrapped<int?>? totalRows,
       Wrapped<List<String>?>? dateFields,
-      Wrapped<Map<String, dynamic>?>? columnNameByIndex}) {
+      Wrapped<Map<String, dynamic>?>? columnNameByIndex,
+      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex:
             (columnIndex != null ? columnIndex.value : this.columnIndex),
@@ -2301,7 +1825,9 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         dateFields: (dateFields != null ? dateFields.value : this.dateFields),
         columnNameByIndex: (columnNameByIndex != null
             ? columnNameByIndex.value
-            : this.columnNameByIndex));
+            : this.columnNameByIndex),
+        translation:
+            (translation != null ? translation.value : this.translation));
   }
 }
 
@@ -2318,6 +1844,10 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   factory FwStandardSqlServerFwJsonDataTableColumn.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
+
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
 
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
@@ -2336,9 +1866,6 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
-  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2415,6 +1942,9 @@ class WebApiLogicTSpStatusResponse {
   factory WebApiLogicTSpStatusResponse.fromJson(Map<String, dynamic> json) =>
       _$WebApiLogicTSpStatusResponseFromJson(json);
 
+  static const toJsonFactory = _$WebApiLogicTSpStatusResponseToJson;
+  Map<String, dynamic> toJson() => _$WebApiLogicTSpStatusResponseToJson(this);
+
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
   @JsonKey(name: 'success', includeIfNull: false)
@@ -2422,8 +1952,6 @@ class WebApiLogicTSpStatusResponse {
   @JsonKey(name: 'msg', includeIfNull: false)
   final String? msg;
   static const fromJsonFactory = _$WebApiLogicTSpStatusResponseFromJson;
-  static const toJsonFactory = _$WebApiLogicTSpStatusResponseToJson;
-  Map<String, dynamic> toJson() => _$WebApiLogicTSpStatusResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2480,17 +2008,18 @@ class WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
       _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
+          this);
+
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
   static const fromJsonFactory =
       _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -2535,238 +2064,24 @@ extension $WebApiModulesContainersContainerLookupScannableItemRentalInventoryRes
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
-  WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem({
-    this.inventoryPurchaseItemId,
-    this.sessionId,
-    this.barCode,
-    this.manufactureDate,
-    this.printQuantity,
-    this.serialNumber,
-    this.rfId,
-    this.serialNumberIsMixedCase,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-  });
-
-  factory WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemFromJson(
-          json);
-
-  @JsonKey(name: 'InventoryPurchaseItemId', includeIfNull: false)
-  final int? inventoryPurchaseItemId;
-  @JsonKey(name: 'SessionId', includeIfNull: false)
-  final String? sessionId;
-  @JsonKey(name: 'BarCode', includeIfNull: false)
-  final String? barCode;
-  @JsonKey(name: 'ManufactureDate', includeIfNull: false)
-  final String? manufactureDate;
-  @JsonKey(name: 'PrintQuantity', includeIfNull: false)
-  final int? printQuantity;
-  @JsonKey(name: 'SerialNumber', includeIfNull: false)
-  final String? serialNumber;
-  @JsonKey(name: 'RfId', includeIfNull: false)
-  final String? rfId;
-  @JsonKey(name: 'SerialNumberIsMixedCase', includeIfNull: false)
-  final bool? serialNumberIsMixedCase;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(
-      name: '_Fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-      name: '_Custom',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwCustomValue>[])
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-      name: '_DefaultFieldAttributes',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwDefaultAttribute>[])
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  static const fromJsonFactory =
-      _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemToJson(
-          this);
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem &&
-            (identical(other.inventoryPurchaseItemId, inventoryPurchaseItemId) ||
-                const DeepCollectionEquality().equals(
-                    other.inventoryPurchaseItemId, inventoryPurchaseItemId)) &&
-            (identical(other.sessionId, sessionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.sessionId, sessionId)) &&
-            (identical(other.barCode, barCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.barCode, barCode)) &&
-            (identical(other.manufactureDate, manufactureDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.manufactureDate, manufactureDate)) &&
-            (identical(other.printQuantity, printQuantity) ||
-                const DeepCollectionEquality()
-                    .equals(other.printQuantity, printQuantity)) &&
-            (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.rfId, rfId) ||
-                const DeepCollectionEquality().equals(other.rfId, rfId)) &&
-            (identical(other.serialNumberIsMixedCase, serialNumberIsMixedCase) ||
-                const DeepCollectionEquality().equals(
-                    other.serialNumberIsMixedCase, serialNumberIsMixedCase)) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateStamp, dateStamp)) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality()
-                    .equals(other.auditNote, auditNote)) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.recordTitle, recordTitle)) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(inventoryPurchaseItemId) ^
-      const DeepCollectionEquality().hash(sessionId) ^
-      const DeepCollectionEquality().hash(barCode) ^
-      const DeepCollectionEquality().hash(manufactureDate) ^
-      const DeepCollectionEquality().hash(printQuantity) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(rfId) ^
-      const DeepCollectionEquality().hash(serialNumberIsMixedCase) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItemExtension
-    on WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem {
-  WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem copyWith(
-      {int? inventoryPurchaseItemId,
-      String? sessionId,
-      String? barCode,
-      String? manufactureDate,
-      int? printQuantity,
-      String? serialNumber,
-      String? rfId,
-      bool? serialNumberIsMixedCase,
-      String? dateStamp,
-      String? auditNote,
-      String? recordTitle,
-      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-      List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
-    return WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem(
-        inventoryPurchaseItemId:
-            inventoryPurchaseItemId ?? this.inventoryPurchaseItemId,
-        sessionId: sessionId ?? this.sessionId,
-        barCode: barCode ?? this.barCode,
-        manufactureDate: manufactureDate ?? this.manufactureDate,
-        printQuantity: printQuantity ?? this.printQuantity,
-        serialNumber: serialNumber ?? this.serialNumber,
-        rfId: rfId ?? this.rfId,
-        serialNumberIsMixedCase:
-            serialNumberIsMixedCase ?? this.serialNumberIsMixedCase,
-        dateStamp: dateStamp ?? this.dateStamp,
-        auditNote: auditNote ?? this.auditNote,
-        recordTitle: recordTitle ?? this.recordTitle,
-        fields: fields ?? this.fields,
-        custom: custom ?? this.custom,
-        defaultFieldAttributes:
-            defaultFieldAttributes ?? this.defaultFieldAttributes);
-  }
-
-  WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem
-      copyWithWrapped(
-          {Wrapped<int?>? inventoryPurchaseItemId,
-          Wrapped<String?>? sessionId,
-          Wrapped<String?>? barCode,
-          Wrapped<String?>? manufactureDate,
-          Wrapped<int?>? printQuantity,
-          Wrapped<String?>? serialNumber,
-          Wrapped<String?>? rfId,
-          Wrapped<bool?>? serialNumberIsMixedCase,
-          Wrapped<String?>? dateStamp,
-          Wrapped<String?>? auditNote,
-          Wrapped<String?>? recordTitle,
-          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-              fields,
-          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
-              defaultFieldAttributes}) {
-    return WebApiModulesHomeControlsInventoryPurchaseItemInventoryPurchaseItem(
-        inventoryPurchaseItemId: (inventoryPurchaseItemId != null
-            ? inventoryPurchaseItemId.value
-            : this.inventoryPurchaseItemId),
-        sessionId: (sessionId != null ? sessionId.value : this.sessionId),
-        barCode: (barCode != null ? barCode.value : this.barCode),
-        manufactureDate: (manufactureDate != null
-            ? manufactureDate.value
-            : this.manufactureDate),
-        printQuantity:
-            (printQuantity != null ? printQuantity.value : this.printQuantity),
-        serialNumber:
-            (serialNumber != null ? serialNumber.value : this.serialNumber),
-        rfId: (rfId != null ? rfId.value : this.rfId),
-        serialNumberIsMixedCase: (serialNumberIsMixedCase != null
-            ? serialNumberIsMixedCase.value
-            : this.serialNumberIsMixedCase),
-        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-        recordTitle:
-            (recordTitle != null ? recordTitle.value : this.recordTitle),
-        fields: (fields != null ? fields.value : this.fields),
-        custom: (custom != null ? custom.value : this.custom),
-        defaultFieldAttributes: (defaultFieldAttributes != null
-            ? defaultFieldAttributes.value
-            : this.defaultFieldAttributes));
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class WebApiModulesInventoryRentalInventoryRentalInventory {
   WebApiModulesInventoryRentalInventoryRentalInventory({
     this.excludeFromReturnOnAsset,
     this.isFixedAsset,
     this.multiAssignRFIDs,
     this.minimumDaysPerWeek,
-    this.setOpeningId,
-    this.setOpening,
+    this.showAssetAvailability,
+    this.assetAvailabilityWarehouseIds,
+    this.openingId,
+    this.opening,
     this.wallTypeId,
     this.wallType,
-    this.setSurfaceId,
-    this.setSurface,
+    this.surfaceId,
+    this.surface,
+    this.conditionId,
+    this.condition,
+    this.originalShowId,
+    this.originalShow,
     this.wallWidthFt,
     this.wallWidthIn,
     this.wallHeightFt,
@@ -2782,6 +2097,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.monthlyRate,
     this.unitValue,
     this.replacementCost,
+    this.sourceId,
     this.inventoryId,
     this.inventoryTypeId,
     this.inventoryType,
@@ -2894,6 +2210,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.cleaningFeeAmount,
     this.wardrobeDetailedDescription,
     this.webDetailedDescription,
+    this.technicalNotes,
     this.overrideSystemDefaultRevenueAllocationBehavior,
     this.allocateRevenueForAccessories,
     this.packageRevenueCalculationFormula,
@@ -2908,9 +2225,12 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.quantityInRepair,
     this.quantityInTransit,
     this.quantityOnTruck,
+    this.totalQuantity,
     this.aisleLocation,
     this.shelfLocation,
     this.taxable,
+    this.dateOfLastPhysicalInventory,
+    this.hasImage,
     this.iCode,
     this.description,
     this.availFor,
@@ -2976,9 +2296,11 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.accumulatedDepreciationExpenseAccountId,
     this.accumulatedDepreciationExpenseAccountNo,
     this.accumulatedDepreciationExpenseAccountDescription,
-    this.originalShowId,
     this.inputDate,
     this.inputByUsersId,
+    this.category2,
+    this.class2,
+    this.stockClass,
     this.inactive,
     this.dateStamp,
     this.manifestShippingContainer,
@@ -2988,11 +2310,17 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.fields,
     this.custom,
     this.defaultFieldAttributes,
+    this.translation,
   });
 
   factory WebApiModulesInventoryRentalInventoryRentalInventory.fromJson(
           Map<String, dynamic> json) =>
       _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(this);
 
   @JsonKey(name: 'ExcludeFromReturnOnAsset', includeIfNull: false)
   final bool? excludeFromReturnOnAsset;
@@ -3002,18 +2330,30 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final bool? multiAssignRFIDs;
   @JsonKey(name: 'MinimumDaysPerWeek', includeIfNull: false)
   final double? minimumDaysPerWeek;
-  @JsonKey(name: 'SetOpeningId', includeIfNull: false)
-  final String? setOpeningId;
-  @JsonKey(name: 'SetOpening', includeIfNull: false)
-  final String? setOpening;
+  @JsonKey(name: 'ShowAssetAvailability', includeIfNull: false)
+  final bool? showAssetAvailability;
+  @JsonKey(name: 'AssetAvailabilityWarehouseIds', includeIfNull: false)
+  final String? assetAvailabilityWarehouseIds;
+  @JsonKey(name: 'OpeningId', includeIfNull: false)
+  final String? openingId;
+  @JsonKey(name: 'Opening', includeIfNull: false)
+  final String? opening;
   @JsonKey(name: 'WallTypeId', includeIfNull: false)
   final String? wallTypeId;
   @JsonKey(name: 'WallType', includeIfNull: false)
   final String? wallType;
-  @JsonKey(name: 'SetSurfaceId', includeIfNull: false)
-  final String? setSurfaceId;
-  @JsonKey(name: 'SetSurface', includeIfNull: false)
-  final String? setSurface;
+  @JsonKey(name: 'SurfaceId', includeIfNull: false)
+  final String? surfaceId;
+  @JsonKey(name: 'Surface', includeIfNull: false)
+  final String? surface;
+  @JsonKey(name: 'ConditionId', includeIfNull: false)
+  final String? conditionId;
+  @JsonKey(name: 'Condition', includeIfNull: false)
+  final String? condition;
+  @JsonKey(name: 'OriginalShowId', includeIfNull: false)
+  final String? originalShowId;
+  @JsonKey(name: 'OriginalShow', includeIfNull: false)
+  final String? originalShow;
   @JsonKey(name: 'WallWidthFt', includeIfNull: false)
   final int? wallWidthFt;
   @JsonKey(name: 'WallWidthIn', includeIfNull: false)
@@ -3044,6 +2384,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final double? unitValue;
   @JsonKey(name: 'ReplacementCost', includeIfNull: false)
   final double? replacementCost;
+  @JsonKey(name: 'SourceId', includeIfNull: false)
+  final String? sourceId;
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
@@ -3269,6 +2611,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final String? wardrobeDetailedDescription;
   @JsonKey(name: 'WebDetailedDescription', includeIfNull: false)
   final String? webDetailedDescription;
+  @JsonKey(name: 'TechnicalNotes', includeIfNull: false)
+  final String? technicalNotes;
   @JsonKey(
       name: 'OverrideSystemDefaultRevenueAllocationBehavior',
       includeIfNull: false)
@@ -3299,12 +2643,18 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final double? quantityInTransit;
   @JsonKey(name: 'QuantityOnTruck', includeIfNull: false)
   final double? quantityOnTruck;
+  @JsonKey(name: 'TotalQuantity', includeIfNull: false)
+  final double? totalQuantity;
   @JsonKey(name: 'AisleLocation', includeIfNull: false)
   final String? aisleLocation;
   @JsonKey(name: 'ShelfLocation', includeIfNull: false)
   final String? shelfLocation;
   @JsonKey(name: 'Taxable', includeIfNull: false)
   final bool? taxable;
+  @JsonKey(name: 'DateOfLastPhysicalInventory', includeIfNull: false)
+  final String? dateOfLastPhysicalInventory;
+  @JsonKey(name: 'HasImage', includeIfNull: false)
+  final bool? hasImage;
   @JsonKey(name: 'ICode', includeIfNull: false)
   final String? iCode;
   @JsonKey(name: 'Description', includeIfNull: false)
@@ -3441,12 +2791,16 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       name: 'AccumulatedDepreciationExpenseAccountDescription',
       includeIfNull: false)
   final String? accumulatedDepreciationExpenseAccountDescription;
-  @JsonKey(name: 'OriginalShowId', includeIfNull: false)
-  final String? originalShowId;
   @JsonKey(name: 'InputDate', includeIfNull: false)
   final String? inputDate;
   @JsonKey(name: 'InputByUsersId', includeIfNull: false)
   final String? inputByUsersId;
+  @JsonKey(name: 'Category2', includeIfNull: false)
+  final String? category2;
+  @JsonKey(name: 'Class2', includeIfNull: false)
+  final String? class2;
+  @JsonKey(name: 'StockClass', includeIfNull: false)
+  final String? stockClass;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -3474,12 +2828,13 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       includeIfNull: false,
       defaultValue: <FwStandardDataFwDefaultAttribute>[])
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(
+      name: '_Translation',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwTranslatedValue>[])
+  final List<FwStandardDataFwTranslatedValue>? translation;
   static const fromJsonFactory =
       _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -3498,42 +2853,44 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.minimumDaysPerWeek, minimumDaysPerWeek) ||
                 const DeepCollectionEquality()
                     .equals(other.minimumDaysPerWeek, minimumDaysPerWeek)) &&
-            (identical(other.setOpeningId, setOpeningId) ||
+            (identical(other.showAssetAvailability, showAssetAvailability) ||
+                const DeepCollectionEquality().equals(
+                    other.showAssetAvailability, showAssetAvailability)) &&
+            (identical(other.assetAvailabilityWarehouseIds, assetAvailabilityWarehouseIds) ||
+                const DeepCollectionEquality().equals(
+                    other.assetAvailabilityWarehouseIds,
+                    assetAvailabilityWarehouseIds)) &&
+            (identical(other.openingId, openingId) ||
                 const DeepCollectionEquality()
-                    .equals(other.setOpeningId, setOpeningId)) &&
-            (identical(other.setOpening, setOpening) ||
+                    .equals(other.openingId, openingId)) &&
+            (identical(other.opening, opening) ||
                 const DeepCollectionEquality()
-                    .equals(other.setOpening, setOpening)) &&
+                    .equals(other.opening, opening)) &&
             (identical(other.wallTypeId, wallTypeId) ||
                 const DeepCollectionEquality()
                     .equals(other.wallTypeId, wallTypeId)) &&
             (identical(other.wallType, wallType) ||
                 const DeepCollectionEquality()
                     .equals(other.wallType, wallType)) &&
-            (identical(other.setSurfaceId, setSurfaceId) ||
+            (identical(other.surfaceId, surfaceId) ||
                 const DeepCollectionEquality()
-                    .equals(other.setSurfaceId, setSurfaceId)) &&
-            (identical(other.setSurface, setSurface) ||
+                    .equals(other.surfaceId, surfaceId)) &&
+            (identical(other.surface, surface) ||
                 const DeepCollectionEquality()
-                    .equals(other.setSurface, setSurface)) &&
-            (identical(other.wallWidthFt, wallWidthFt) ||
+                    .equals(other.surface, surface)) &&
+            (identical(other.conditionId, conditionId) ||
                 const DeepCollectionEquality()
-                    .equals(other.wallWidthFt, wallWidthFt)) &&
-            (identical(other.wallWidthIn, wallWidthIn) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallWidthIn, wallWidthIn)) &&
-            (identical(other.wallHeightFt, wallHeightFt) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallHeightFt, wallHeightFt)) &&
-            (identical(other.wallHeightIn, wallHeightIn) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallHeightIn, wallHeightIn)) &&
-            (identical(other.wallLengthFt, wallLengthFt) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallLengthFt, wallLengthFt)) &&
-            (identical(other.wallLengthIn, wallLengthIn) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallLengthIn, wallLengthIn)) &&
+                    .equals(other.conditionId, conditionId)) &&
+            (identical(other.condition, condition) ||
+                const DeepCollectionEquality().equals(other.condition, condition)) &&
+            (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
+            (identical(other.originalShow, originalShow) || const DeepCollectionEquality().equals(other.originalShow, originalShow)) &&
+            (identical(other.wallWidthFt, wallWidthFt) || const DeepCollectionEquality().equals(other.wallWidthFt, wallWidthFt)) &&
+            (identical(other.wallWidthIn, wallWidthIn) || const DeepCollectionEquality().equals(other.wallWidthIn, wallWidthIn)) &&
+            (identical(other.wallHeightFt, wallHeightFt) || const DeepCollectionEquality().equals(other.wallHeightFt, wallHeightFt)) &&
+            (identical(other.wallHeightIn, wallHeightIn) || const DeepCollectionEquality().equals(other.wallHeightIn, wallHeightIn)) &&
+            (identical(other.wallLengthFt, wallLengthFt) || const DeepCollectionEquality().equals(other.wallLengthFt, wallLengthFt)) &&
+            (identical(other.wallLengthIn, wallLengthIn) || const DeepCollectionEquality().equals(other.wallLengthIn, wallLengthIn)) &&
             (identical(other.treatConsignedQtyAsOwned, treatConsignedQtyAsOwned) || const DeepCollectionEquality().equals(other.treatConsignedQtyAsOwned, treatConsignedQtyAsOwned)) &&
             (identical(other.dailyRate, dailyRate) || const DeepCollectionEquality().equals(other.dailyRate, dailyRate)) &&
             (identical(other.weeklyRate, weeklyRate) || const DeepCollectionEquality().equals(other.weeklyRate, weeklyRate)) &&
@@ -3543,6 +2900,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.monthlyRate, monthlyRate) || const DeepCollectionEquality().equals(other.monthlyRate, monthlyRate)) &&
             (identical(other.unitValue, unitValue) || const DeepCollectionEquality().equals(other.unitValue, unitValue)) &&
             (identical(other.replacementCost, replacementCost) || const DeepCollectionEquality().equals(other.replacementCost, replacementCost)) &&
+            (identical(other.sourceId, sourceId) || const DeepCollectionEquality().equals(other.sourceId, sourceId)) &&
             (identical(other.inventoryId, inventoryId) || const DeepCollectionEquality().equals(other.inventoryId, inventoryId)) &&
             (identical(other.inventoryTypeId, inventoryTypeId) || const DeepCollectionEquality().equals(other.inventoryTypeId, inventoryTypeId)) &&
             (identical(other.inventoryType, inventoryType) || const DeepCollectionEquality().equals(other.inventoryType, inventoryType)) &&
@@ -3655,6 +3013,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.cleaningFeeAmount, cleaningFeeAmount) || const DeepCollectionEquality().equals(other.cleaningFeeAmount, cleaningFeeAmount)) &&
             (identical(other.wardrobeDetailedDescription, wardrobeDetailedDescription) || const DeepCollectionEquality().equals(other.wardrobeDetailedDescription, wardrobeDetailedDescription)) &&
             (identical(other.webDetailedDescription, webDetailedDescription) || const DeepCollectionEquality().equals(other.webDetailedDescription, webDetailedDescription)) &&
+            (identical(other.technicalNotes, technicalNotes) || const DeepCollectionEquality().equals(other.technicalNotes, technicalNotes)) &&
             (identical(other.overrideSystemDefaultRevenueAllocationBehavior, overrideSystemDefaultRevenueAllocationBehavior) || const DeepCollectionEquality().equals(other.overrideSystemDefaultRevenueAllocationBehavior, overrideSystemDefaultRevenueAllocationBehavior)) &&
             (identical(other.allocateRevenueForAccessories, allocateRevenueForAccessories) || const DeepCollectionEquality().equals(other.allocateRevenueForAccessories, allocateRevenueForAccessories)) &&
             (identical(other.packageRevenueCalculationFormula, packageRevenueCalculationFormula) || const DeepCollectionEquality().equals(other.packageRevenueCalculationFormula, packageRevenueCalculationFormula)) &&
@@ -3669,9 +3028,12 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.quantityInRepair, quantityInRepair) || const DeepCollectionEquality().equals(other.quantityInRepair, quantityInRepair)) &&
             (identical(other.quantityInTransit, quantityInTransit) || const DeepCollectionEquality().equals(other.quantityInTransit, quantityInTransit)) &&
             (identical(other.quantityOnTruck, quantityOnTruck) || const DeepCollectionEquality().equals(other.quantityOnTruck, quantityOnTruck)) &&
+            (identical(other.totalQuantity, totalQuantity) || const DeepCollectionEquality().equals(other.totalQuantity, totalQuantity)) &&
             (identical(other.aisleLocation, aisleLocation) || const DeepCollectionEquality().equals(other.aisleLocation, aisleLocation)) &&
             (identical(other.shelfLocation, shelfLocation) || const DeepCollectionEquality().equals(other.shelfLocation, shelfLocation)) &&
             (identical(other.taxable, taxable) || const DeepCollectionEquality().equals(other.taxable, taxable)) &&
+            (identical(other.dateOfLastPhysicalInventory, dateOfLastPhysicalInventory) || const DeepCollectionEquality().equals(other.dateOfLastPhysicalInventory, dateOfLastPhysicalInventory)) &&
+            (identical(other.hasImage, hasImage) || const DeepCollectionEquality().equals(other.hasImage, hasImage)) &&
             (identical(other.iCode, iCode) || const DeepCollectionEquality().equals(other.iCode, iCode)) &&
             (identical(other.description, description) || const DeepCollectionEquality().equals(other.description, description)) &&
             (identical(other.availFor, availFor) || const DeepCollectionEquality().equals(other.availFor, availFor)) &&
@@ -3737,9 +3099,11 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.accumulatedDepreciationExpenseAccountId, accumulatedDepreciationExpenseAccountId) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountId, accumulatedDepreciationExpenseAccountId)) &&
             (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
             (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
-            (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
             (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
             (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
+            (identical(other.category2, category2) || const DeepCollectionEquality().equals(other.category2, category2)) &&
+            (identical(other.class2, class2) || const DeepCollectionEquality().equals(other.class2, class2)) &&
+            (identical(other.stockClass, stockClass) || const DeepCollectionEquality().equals(other.stockClass, stockClass)) &&
             (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
             (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
             (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
@@ -3748,7 +3112,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
             (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
             (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)));
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)) &&
+            (identical(other.translation, translation) || const DeepCollectionEquality().equals(other.translation, translation)));
   }
 
   @override
@@ -3760,12 +3125,18 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(isFixedAsset) ^
       const DeepCollectionEquality().hash(multiAssignRFIDs) ^
       const DeepCollectionEquality().hash(minimumDaysPerWeek) ^
-      const DeepCollectionEquality().hash(setOpeningId) ^
-      const DeepCollectionEquality().hash(setOpening) ^
+      const DeepCollectionEquality().hash(showAssetAvailability) ^
+      const DeepCollectionEquality().hash(assetAvailabilityWarehouseIds) ^
+      const DeepCollectionEquality().hash(openingId) ^
+      const DeepCollectionEquality().hash(opening) ^
       const DeepCollectionEquality().hash(wallTypeId) ^
       const DeepCollectionEquality().hash(wallType) ^
-      const DeepCollectionEquality().hash(setSurfaceId) ^
-      const DeepCollectionEquality().hash(setSurface) ^
+      const DeepCollectionEquality().hash(surfaceId) ^
+      const DeepCollectionEquality().hash(surface) ^
+      const DeepCollectionEquality().hash(conditionId) ^
+      const DeepCollectionEquality().hash(condition) ^
+      const DeepCollectionEquality().hash(originalShowId) ^
+      const DeepCollectionEquality().hash(originalShow) ^
       const DeepCollectionEquality().hash(wallWidthFt) ^
       const DeepCollectionEquality().hash(wallWidthIn) ^
       const DeepCollectionEquality().hash(wallHeightFt) ^
@@ -3781,6 +3152,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(monthlyRate) ^
       const DeepCollectionEquality().hash(unitValue) ^
       const DeepCollectionEquality().hash(replacementCost) ^
+      const DeepCollectionEquality().hash(sourceId) ^
       const DeepCollectionEquality().hash(inventoryId) ^
       const DeepCollectionEquality().hash(inventoryTypeId) ^
       const DeepCollectionEquality().hash(inventoryType) ^
@@ -3897,6 +3269,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(cleaningFeeAmount) ^
       const DeepCollectionEquality().hash(wardrobeDetailedDescription) ^
       const DeepCollectionEquality().hash(webDetailedDescription) ^
+      const DeepCollectionEquality().hash(technicalNotes) ^
       const DeepCollectionEquality()
           .hash(overrideSystemDefaultRevenueAllocationBehavior) ^
       const DeepCollectionEquality().hash(allocateRevenueForAccessories) ^
@@ -3912,9 +3285,12 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(quantityInRepair) ^
       const DeepCollectionEquality().hash(quantityInTransit) ^
       const DeepCollectionEquality().hash(quantityOnTruck) ^
+      const DeepCollectionEquality().hash(totalQuantity) ^
       const DeepCollectionEquality().hash(aisleLocation) ^
       const DeepCollectionEquality().hash(shelfLocation) ^
       const DeepCollectionEquality().hash(taxable) ^
+      const DeepCollectionEquality().hash(dateOfLastPhysicalInventory) ^
+      const DeepCollectionEquality().hash(hasImage) ^
       const DeepCollectionEquality().hash(iCode) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(availFor) ^
@@ -3987,9 +3363,11 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
           .hash(accumulatedDepreciationExpenseAccountNo) ^
       const DeepCollectionEquality()
           .hash(accumulatedDepreciationExpenseAccountDescription) ^
-      const DeepCollectionEquality().hash(originalShowId) ^
       const DeepCollectionEquality().hash(inputDate) ^
       const DeepCollectionEquality().hash(inputByUsersId) ^
+      const DeepCollectionEquality().hash(category2) ^
+      const DeepCollectionEquality().hash(class2) ^
+      const DeepCollectionEquality().hash(stockClass) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(manifestShippingContainer) ^
@@ -3999,6 +3377,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(custom) ^
       const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(translation) ^
       runtimeType.hashCode;
 }
 
@@ -4009,12 +3388,18 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       bool? isFixedAsset,
       bool? multiAssignRFIDs,
       double? minimumDaysPerWeek,
-      String? setOpeningId,
-      String? setOpening,
+      bool? showAssetAvailability,
+      String? assetAvailabilityWarehouseIds,
+      String? openingId,
+      String? opening,
       String? wallTypeId,
       String? wallType,
-      String? setSurfaceId,
-      String? setSurface,
+      String? surfaceId,
+      String? surface,
+      String? conditionId,
+      String? condition,
+      String? originalShowId,
+      String? originalShow,
       int? wallWidthFt,
       int? wallWidthIn,
       int? wallHeightFt,
@@ -4030,6 +3415,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       double? monthlyRate,
       double? unitValue,
       double? replacementCost,
+      String? sourceId,
       String? inventoryId,
       String? inventoryTypeId,
       String? inventoryType,
@@ -4142,6 +3528,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       double? cleaningFeeAmount,
       String? wardrobeDetailedDescription,
       String? webDetailedDescription,
+      String? technicalNotes,
       bool? overrideSystemDefaultRevenueAllocationBehavior,
       bool? allocateRevenueForAccessories,
       String? packageRevenueCalculationFormula,
@@ -4156,9 +3543,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       double? quantityInRepair,
       double? quantityInTransit,
       double? quantityOnTruck,
+      double? totalQuantity,
       String? aisleLocation,
       String? shelfLocation,
       bool? taxable,
+      String? dateOfLastPhysicalInventory,
+      bool? hasImage,
       String? iCode,
       String? description,
       String? availFor,
@@ -4224,9 +3614,11 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       String? accumulatedDepreciationExpenseAccountId,
       String? accumulatedDepreciationExpenseAccountNo,
       String? accumulatedDepreciationExpenseAccountDescription,
-      String? originalShowId,
       String? inputDate,
       String? inputByUsersId,
+      String? category2,
+      String? class2,
+      String? stockClass,
       bool? inactive,
       String? dateStamp,
       bool? manifestShippingContainer,
@@ -4235,19 +3627,28 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       String? recordTitle,
       List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
       List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes}) {
+      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+      List<FwStandardDataFwTranslatedValue>? translation}) {
     return WebApiModulesInventoryRentalInventoryRentalInventory(
         excludeFromReturnOnAsset:
             excludeFromReturnOnAsset ?? this.excludeFromReturnOnAsset,
         isFixedAsset: isFixedAsset ?? this.isFixedAsset,
         multiAssignRFIDs: multiAssignRFIDs ?? this.multiAssignRFIDs,
         minimumDaysPerWeek: minimumDaysPerWeek ?? this.minimumDaysPerWeek,
-        setOpeningId: setOpeningId ?? this.setOpeningId,
-        setOpening: setOpening ?? this.setOpening,
+        showAssetAvailability:
+            showAssetAvailability ?? this.showAssetAvailability,
+        assetAvailabilityWarehouseIds:
+            assetAvailabilityWarehouseIds ?? this.assetAvailabilityWarehouseIds,
+        openingId: openingId ?? this.openingId,
+        opening: opening ?? this.opening,
         wallTypeId: wallTypeId ?? this.wallTypeId,
         wallType: wallType ?? this.wallType,
-        setSurfaceId: setSurfaceId ?? this.setSurfaceId,
-        setSurface: setSurface ?? this.setSurface,
+        surfaceId: surfaceId ?? this.surfaceId,
+        surface: surface ?? this.surface,
+        conditionId: conditionId ?? this.conditionId,
+        condition: condition ?? this.condition,
+        originalShowId: originalShowId ?? this.originalShowId,
+        originalShow: originalShow ?? this.originalShow,
         wallWidthFt: wallWidthFt ?? this.wallWidthFt,
         wallWidthIn: wallWidthIn ?? this.wallWidthIn,
         wallHeightFt: wallHeightFt ?? this.wallHeightFt,
@@ -4264,6 +3665,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         monthlyRate: monthlyRate ?? this.monthlyRate,
         unitValue: unitValue ?? this.unitValue,
         replacementCost: replacementCost ?? this.replacementCost,
+        sourceId: sourceId ?? this.sourceId,
         inventoryId: inventoryId ?? this.inventoryId,
         inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
         inventoryType: inventoryType ?? this.inventoryType,
@@ -4405,8 +3807,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
             containerScannableICode ?? this.containerScannableICode,
         containerScannableDescription:
             containerScannableDescription ?? this.containerScannableDescription,
-        automaticallyRebuildContainerAtCheckIn: automaticallyRebuildContainerAtCheckIn ??
-            this.automaticallyRebuildContainerAtCheckIn,
+        automaticallyRebuildContainerAtCheckIn: automaticallyRebuildContainerAtCheckIn ?? this.automaticallyRebuildContainerAtCheckIn,
         automaticallyRebuildContainerAtTransferIn: automaticallyRebuildContainerAtTransferIn ?? this.automaticallyRebuildContainerAtTransferIn,
         containerStagingRule: containerStagingRule ?? this.containerStagingRule,
         excludeContainedItemsFromAvailability: excludeContainedItemsFromAvailability ?? this.excludeContainedItemsFromAvailability,
@@ -4434,6 +3835,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         cleaningFeeAmount: cleaningFeeAmount ?? this.cleaningFeeAmount,
         wardrobeDetailedDescription: wardrobeDetailedDescription ?? this.wardrobeDetailedDescription,
         webDetailedDescription: webDetailedDescription ?? this.webDetailedDescription,
+        technicalNotes: technicalNotes ?? this.technicalNotes,
         overrideSystemDefaultRevenueAllocationBehavior: overrideSystemDefaultRevenueAllocationBehavior ?? this.overrideSystemDefaultRevenueAllocationBehavior,
         allocateRevenueForAccessories: allocateRevenueForAccessories ?? this.allocateRevenueForAccessories,
         packageRevenueCalculationFormula: packageRevenueCalculationFormula ?? this.packageRevenueCalculationFormula,
@@ -4448,9 +3850,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         quantityInRepair: quantityInRepair ?? this.quantityInRepair,
         quantityInTransit: quantityInTransit ?? this.quantityInTransit,
         quantityOnTruck: quantityOnTruck ?? this.quantityOnTruck,
+        totalQuantity: totalQuantity ?? this.totalQuantity,
         aisleLocation: aisleLocation ?? this.aisleLocation,
         shelfLocation: shelfLocation ?? this.shelfLocation,
         taxable: taxable ?? this.taxable,
+        dateOfLastPhysicalInventory: dateOfLastPhysicalInventory ?? this.dateOfLastPhysicalInventory,
+        hasImage: hasImage ?? this.hasImage,
         iCode: iCode ?? this.iCode,
         description: description ?? this.description,
         availFor: availFor ?? this.availFor,
@@ -4516,9 +3921,11 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         accumulatedDepreciationExpenseAccountId: accumulatedDepreciationExpenseAccountId ?? this.accumulatedDepreciationExpenseAccountId,
         accumulatedDepreciationExpenseAccountNo: accumulatedDepreciationExpenseAccountNo ?? this.accumulatedDepreciationExpenseAccountNo,
         accumulatedDepreciationExpenseAccountDescription: accumulatedDepreciationExpenseAccountDescription ?? this.accumulatedDepreciationExpenseAccountDescription,
-        originalShowId: originalShowId ?? this.originalShowId,
         inputDate: inputDate ?? this.inputDate,
         inputByUsersId: inputByUsersId ?? this.inputByUsersId,
+        category2: category2 ?? this.category2,
+        class2: class2 ?? this.class2,
+        stockClass: stockClass ?? this.stockClass,
         inactive: inactive ?? this.inactive,
         dateStamp: dateStamp ?? this.dateStamp,
         manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
@@ -4527,7 +3934,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         recordTitle: recordTitle ?? this.recordTitle,
         fields: fields ?? this.fields,
         custom: custom ?? this.custom,
-        defaultFieldAttributes: defaultFieldAttributes ?? this.defaultFieldAttributes);
+        defaultFieldAttributes: defaultFieldAttributes ?? this.defaultFieldAttributes,
+        translation: translation ?? this.translation);
   }
 
   WebApiModulesInventoryRentalInventoryRentalInventory copyWithWrapped(
@@ -4535,12 +3943,18 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       Wrapped<bool?>? isFixedAsset,
       Wrapped<bool?>? multiAssignRFIDs,
       Wrapped<double?>? minimumDaysPerWeek,
-      Wrapped<String?>? setOpeningId,
-      Wrapped<String?>? setOpening,
+      Wrapped<bool?>? showAssetAvailability,
+      Wrapped<String?>? assetAvailabilityWarehouseIds,
+      Wrapped<String?>? openingId,
+      Wrapped<String?>? opening,
       Wrapped<String?>? wallTypeId,
       Wrapped<String?>? wallType,
-      Wrapped<String?>? setSurfaceId,
-      Wrapped<String?>? setSurface,
+      Wrapped<String?>? surfaceId,
+      Wrapped<String?>? surface,
+      Wrapped<String?>? conditionId,
+      Wrapped<String?>? condition,
+      Wrapped<String?>? originalShowId,
+      Wrapped<String?>? originalShow,
       Wrapped<int?>? wallWidthFt,
       Wrapped<int?>? wallWidthIn,
       Wrapped<int?>? wallHeightFt,
@@ -4556,6 +3970,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       Wrapped<double?>? monthlyRate,
       Wrapped<double?>? unitValue,
       Wrapped<double?>? replacementCost,
+      Wrapped<String?>? sourceId,
       Wrapped<String?>? inventoryId,
       Wrapped<String?>? inventoryTypeId,
       Wrapped<String?>? inventoryType,
@@ -4668,6 +4083,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       Wrapped<double?>? cleaningFeeAmount,
       Wrapped<String?>? wardrobeDetailedDescription,
       Wrapped<String?>? webDetailedDescription,
+      Wrapped<String?>? technicalNotes,
       Wrapped<bool?>? overrideSystemDefaultRevenueAllocationBehavior,
       Wrapped<bool?>? allocateRevenueForAccessories,
       Wrapped<String?>? packageRevenueCalculationFormula,
@@ -4682,9 +4098,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       Wrapped<double?>? quantityInRepair,
       Wrapped<double?>? quantityInTransit,
       Wrapped<double?>? quantityOnTruck,
+      Wrapped<double?>? totalQuantity,
       Wrapped<String?>? aisleLocation,
       Wrapped<String?>? shelfLocation,
       Wrapped<bool?>? taxable,
+      Wrapped<String?>? dateOfLastPhysicalInventory,
+      Wrapped<bool?>? hasImage,
       Wrapped<String?>? iCode,
       Wrapped<String?>? description,
       Wrapped<String?>? availFor,
@@ -4750,9 +4169,11 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       Wrapped<String?>? accumulatedDepreciationExpenseAccountId,
       Wrapped<String?>? accumulatedDepreciationExpenseAccountNo,
       Wrapped<String?>? accumulatedDepreciationExpenseAccountDescription,
-      Wrapped<String?>? originalShowId,
       Wrapped<String?>? inputDate,
       Wrapped<String?>? inputByUsersId,
+      Wrapped<String?>? category2,
+      Wrapped<String?>? class2,
+      Wrapped<String?>? stockClass,
       Wrapped<bool?>? inactive,
       Wrapped<String?>? dateStamp,
       Wrapped<bool?>? manifestShippingContainer,
@@ -4762,8 +4183,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
           fields,
       Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-      Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
-          defaultFieldAttributes}) {
+      Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation}) {
     return WebApiModulesInventoryRentalInventoryRentalInventory(
         excludeFromReturnOnAsset: (excludeFromReturnOnAsset != null
             ? excludeFromReturnOnAsset.value
@@ -4776,14 +4197,26 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         minimumDaysPerWeek: (minimumDaysPerWeek != null
             ? minimumDaysPerWeek.value
             : this.minimumDaysPerWeek),
-        setOpeningId:
-            (setOpeningId != null ? setOpeningId.value : this.setOpeningId),
-        setOpening: (setOpening != null ? setOpening.value : this.setOpening),
+        showAssetAvailability: (showAssetAvailability != null
+            ? showAssetAvailability.value
+            : this.showAssetAvailability),
+        assetAvailabilityWarehouseIds: (assetAvailabilityWarehouseIds != null
+            ? assetAvailabilityWarehouseIds.value
+            : this.assetAvailabilityWarehouseIds),
+        openingId: (openingId != null ? openingId.value : this.openingId),
+        opening: (opening != null ? opening.value : this.opening),
         wallTypeId: (wallTypeId != null ? wallTypeId.value : this.wallTypeId),
         wallType: (wallType != null ? wallType.value : this.wallType),
-        setSurfaceId:
-            (setSurfaceId != null ? setSurfaceId.value : this.setSurfaceId),
-        setSurface: (setSurface != null ? setSurface.value : this.setSurface),
+        surfaceId: (surfaceId != null ? surfaceId.value : this.surfaceId),
+        surface: (surface != null ? surface.value : this.surface),
+        conditionId:
+            (conditionId != null ? conditionId.value : this.conditionId),
+        condition: (condition != null ? condition.value : this.condition),
+        originalShowId: (originalShowId != null
+            ? originalShowId.value
+            : this.originalShowId),
+        originalShow:
+            (originalShow != null ? originalShow.value : this.originalShow),
         wallWidthFt:
             (wallWidthFt != null ? wallWidthFt.value : this.wallWidthFt),
         wallWidthIn:
@@ -4810,6 +4243,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         replacementCost: (replacementCost != null
             ? replacementCost.value
             : this.replacementCost),
+        sourceId: (sourceId != null ? sourceId.value : this.sourceId),
         inventoryId:
             (inventoryId != null ? inventoryId.value : this.inventoryId),
         inventoryTypeId: (inventoryTypeId != null
@@ -4880,8 +4314,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         primaryDimensionHeightIn: (primaryDimensionHeightIn != null
             ? primaryDimensionHeightIn.value
             : this.primaryDimensionHeightIn),
-        primaryDimensionLengthFt:
-            (primaryDimensionLengthFt != null ? primaryDimensionLengthFt.value : this.primaryDimensionLengthFt),
+        primaryDimensionLengthFt: (primaryDimensionLengthFt != null ? primaryDimensionLengthFt.value : this.primaryDimensionLengthFt),
         primaryDimensionLengthIn: (primaryDimensionLengthIn != null ? primaryDimensionLengthIn.value : this.primaryDimensionLengthIn),
         primaryDimensionShipWeightKg: (primaryDimensionShipWeightKg != null ? primaryDimensionShipWeightKg.value : this.primaryDimensionShipWeightKg),
         primaryDimensionShipWeightG: (primaryDimensionShipWeightG != null ? primaryDimensionShipWeightG.value : this.primaryDimensionShipWeightG),
@@ -4967,6 +4400,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         cleaningFeeAmount: (cleaningFeeAmount != null ? cleaningFeeAmount.value : this.cleaningFeeAmount),
         wardrobeDetailedDescription: (wardrobeDetailedDescription != null ? wardrobeDetailedDescription.value : this.wardrobeDetailedDescription),
         webDetailedDescription: (webDetailedDescription != null ? webDetailedDescription.value : this.webDetailedDescription),
+        technicalNotes: (technicalNotes != null ? technicalNotes.value : this.technicalNotes),
         overrideSystemDefaultRevenueAllocationBehavior: (overrideSystemDefaultRevenueAllocationBehavior != null ? overrideSystemDefaultRevenueAllocationBehavior.value : this.overrideSystemDefaultRevenueAllocationBehavior),
         allocateRevenueForAccessories: (allocateRevenueForAccessories != null ? allocateRevenueForAccessories.value : this.allocateRevenueForAccessories),
         packageRevenueCalculationFormula: (packageRevenueCalculationFormula != null ? packageRevenueCalculationFormula.value : this.packageRevenueCalculationFormula),
@@ -4981,9 +4415,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         quantityInRepair: (quantityInRepair != null ? quantityInRepair.value : this.quantityInRepair),
         quantityInTransit: (quantityInTransit != null ? quantityInTransit.value : this.quantityInTransit),
         quantityOnTruck: (quantityOnTruck != null ? quantityOnTruck.value : this.quantityOnTruck),
+        totalQuantity: (totalQuantity != null ? totalQuantity.value : this.totalQuantity),
         aisleLocation: (aisleLocation != null ? aisleLocation.value : this.aisleLocation),
         shelfLocation: (shelfLocation != null ? shelfLocation.value : this.shelfLocation),
         taxable: (taxable != null ? taxable.value : this.taxable),
+        dateOfLastPhysicalInventory: (dateOfLastPhysicalInventory != null ? dateOfLastPhysicalInventory.value : this.dateOfLastPhysicalInventory),
+        hasImage: (hasImage != null ? hasImage.value : this.hasImage),
         iCode: (iCode != null ? iCode.value : this.iCode),
         description: (description != null ? description.value : this.description),
         availFor: (availFor != null ? availFor.value : this.availFor),
@@ -5049,9 +4486,11 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         accumulatedDepreciationExpenseAccountId: (accumulatedDepreciationExpenseAccountId != null ? accumulatedDepreciationExpenseAccountId.value : this.accumulatedDepreciationExpenseAccountId),
         accumulatedDepreciationExpenseAccountNo: (accumulatedDepreciationExpenseAccountNo != null ? accumulatedDepreciationExpenseAccountNo.value : this.accumulatedDepreciationExpenseAccountNo),
         accumulatedDepreciationExpenseAccountDescription: (accumulatedDepreciationExpenseAccountDescription != null ? accumulatedDepreciationExpenseAccountDescription.value : this.accumulatedDepreciationExpenseAccountDescription),
-        originalShowId: (originalShowId != null ? originalShowId.value : this.originalShowId),
         inputDate: (inputDate != null ? inputDate.value : this.inputDate),
         inputByUsersId: (inputByUsersId != null ? inputByUsersId.value : this.inputByUsersId),
+        category2: (category2 != null ? category2.value : this.category2),
+        class2: (class2 != null ? class2.value : this.class2),
+        stockClass: (stockClass != null ? stockClass.value : this.stockClass),
         inactive: (inactive != null ? inactive.value : this.inactive),
         dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
         manifestShippingContainer: (manifestShippingContainer != null ? manifestShippingContainer.value : this.manifestShippingContainer),
@@ -5060,7 +4499,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
         recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
         fields: (fields != null ? fields.value : this.fields),
         custom: (custom != null ? custom.value : this.custom),
-        defaultFieldAttributes: (defaultFieldAttributes != null ? defaultFieldAttributes.value : this.defaultFieldAttributes));
+        defaultFieldAttributes: (defaultFieldAttributes != null ? defaultFieldAttributes.value : this.defaultFieldAttributes),
+        translation: (translation != null ? translation.value : this.translation));
   }
 }
 
@@ -5076,17 +4516,18 @@ class WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
       _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
+          this);
+
   @JsonKey(name: 'RetiredReasonId', includeIfNull: false)
   final String? retiredReasonId;
   @JsonKey(name: 'RetiredReason', includeIfNull: false)
   final String? retiredReason;
   static const fromJsonFactory =
       _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5143,14 +4584,15 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson(
           json);
 
-  @JsonKey(name: 'AppImageId', includeIfNull: false)
-  final String? appImageId;
-  static const fromJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestToJson(this);
+
+  @JsonKey(name: 'AppImageId', includeIfNull: false)
+  final String? appImageId;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -5195,14 +4637,15 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson(
           json);
 
-  @JsonKey(name: 'InventoryDepartmentId', includeIfNull: false)
-  final String? inventoryDepartmentId;
-  static const fromJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestToJson(this);
+
+  @JsonKey(name: 'InventoryDepartmentId', includeIfNull: false)
+  final String? inventoryDepartmentId;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -5253,6 +4696,11 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
           Map<String, dynamic> json) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson(json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson(this);
+
   @JsonKey(name: 'Image', includeIfNull: false)
   final String? image;
   @JsonKey(name: 'AppImageId', includeIfNull: false)
@@ -5263,10 +4711,6 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
   final String? imageNo;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5330,14 +4774,15 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson(json);
 
-  @JsonKey(name: 'UniqueId1', includeIfNull: false)
-  final String? uniqueId1;
-  static const fromJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestToJson(this);
+
+  @JsonKey(name: 'UniqueId1', includeIfNull: false)
+  final String? uniqueId1;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -5382,6 +4827,11 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson(this);
+
   @JsonKey(
       name: 'Images',
       includeIfNull: false,
@@ -5389,10 +4839,6 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
   final List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>? images;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5437,15 +4883,16 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson(
           json);
 
-  @JsonKey(name: 'CategoryId', includeIfNull: false)
-  final String? categoryId;
-  static const fromJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestToJson(
           this);
+
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -5493,6 +4940,12 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson(
+          this);
+
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
   @JsonKey(name: 'success', includeIfNull: false)
@@ -5503,11 +4956,6 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
   final String? appimageid;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5577,6 +5025,12 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson(
+          this);
+
   @JsonKey(name: 'IsWall', includeIfNull: false)
   final bool? isWall;
   @JsonKey(name: 'InventoryId', includeIfNull: false)
@@ -5589,11 +5043,6 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   final String? imageNo;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5673,6 +5122,12 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson(
+          this);
+
   @JsonKey(name: 'SearchValue', includeIfNull: false)
   final String? searchValue;
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
@@ -5681,11 +5136,6 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   final String? departmentId;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5752,6 +5202,12 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson(
+          this);
+
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
   @JsonKey(name: 'InventoryId', includeIfNull: false)
@@ -5760,11 +5216,6 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
   final double? unitValue;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -5849,6 +5300,12 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
+          this);
+
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
   @JsonKey(name: 'success', includeIfNull: false)
@@ -5897,11 +5354,6 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   final String? originalShowId;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6138,6 +5590,12 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson(
+          this);
+
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
   @JsonKey(name: 'success', includeIfNull: false)
@@ -6152,11 +5610,6 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   final int? quantityAdded;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6232,6 +5685,240 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseComple
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
+  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem({
+    this.inventoryPurchaseItemId,
+    this.sessionId,
+    this.barCode,
+    this.manufactureDate,
+    this.printQuantity,
+    this.serialNumber,
+    this.rfId,
+    this.serialNumberIsMixedCase,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.translation,
+  });
+
+  factory WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem.fromJson(
+          Map<String, dynamic> json) =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemFromJson(
+          json);
+
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson(
+          this);
+
+  @JsonKey(name: 'InventoryPurchaseItemId', includeIfNull: false)
+  final int? inventoryPurchaseItemId;
+  @JsonKey(name: 'SessionId', includeIfNull: false)
+  final String? sessionId;
+  @JsonKey(name: 'BarCode', includeIfNull: false)
+  final String? barCode;
+  @JsonKey(name: 'ManufactureDate', includeIfNull: false)
+  final String? manufactureDate;
+  @JsonKey(name: 'PrintQuantity', includeIfNull: false)
+  final int? printQuantity;
+  @JsonKey(name: 'SerialNumber', includeIfNull: false)
+  final String? serialNumber;
+  @JsonKey(name: 'RfId', includeIfNull: false)
+  final String? rfId;
+  @JsonKey(name: 'SerialNumberIsMixedCase', includeIfNull: false)
+  final bool? serialNumberIsMixedCase;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(
+      name: '_Fields',
+      includeIfNull: false,
+      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+      name: '_Custom',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwCustomValue>[])
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+      name: '_DefaultFieldAttributes',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(
+      name: '_Translation',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwTranslatedValue>[])
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  static const fromJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemFromJson;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem &&
+            (identical(other.inventoryPurchaseItemId, inventoryPurchaseItemId) ||
+                const DeepCollectionEquality().equals(
+                    other.inventoryPurchaseItemId, inventoryPurchaseItemId)) &&
+            (identical(other.sessionId, sessionId) ||
+                const DeepCollectionEquality()
+                    .equals(other.sessionId, sessionId)) &&
+            (identical(other.barCode, barCode) ||
+                const DeepCollectionEquality()
+                    .equals(other.barCode, barCode)) &&
+            (identical(other.manufactureDate, manufactureDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.manufactureDate, manufactureDate)) &&
+            (identical(other.printQuantity, printQuantity) ||
+                const DeepCollectionEquality()
+                    .equals(other.printQuantity, printQuantity)) &&
+            (identical(other.serialNumber, serialNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.serialNumber, serialNumber)) &&
+            (identical(other.rfId, rfId) ||
+                const DeepCollectionEquality().equals(other.rfId, rfId)) &&
+            (identical(other.serialNumberIsMixedCase, serialNumberIsMixedCase) ||
+                const DeepCollectionEquality().equals(
+                    other.serialNumberIsMixedCase, serialNumberIsMixedCase)) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateStamp, dateStamp)) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.auditNote, auditNote)) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.recordTitle, recordTitle)) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                    other.defaultFieldAttributes, defaultFieldAttributes)) &&
+            (identical(other.translation, translation) || const DeepCollectionEquality().equals(other.translation, translation)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(inventoryPurchaseItemId) ^
+      const DeepCollectionEquality().hash(sessionId) ^
+      const DeepCollectionEquality().hash(barCode) ^
+      const DeepCollectionEquality().hash(manufactureDate) ^
+      const DeepCollectionEquality().hash(printQuantity) ^
+      const DeepCollectionEquality().hash(serialNumber) ^
+      const DeepCollectionEquality().hash(rfId) ^
+      const DeepCollectionEquality().hash(serialNumberIsMixedCase) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(translation) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemExtension
+    on WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
+  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem copyWith(
+      {int? inventoryPurchaseItemId,
+      String? sessionId,
+      String? barCode,
+      String? manufactureDate,
+      int? printQuantity,
+      String? serialNumber,
+      String? rfId,
+      bool? serialNumberIsMixedCase,
+      String? dateStamp,
+      String? auditNote,
+      String? recordTitle,
+      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+      List<FwStandardDataFwCustomValue>? custom,
+      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+      List<FwStandardDataFwTranslatedValue>? translation}) {
+    return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem(
+        inventoryPurchaseItemId:
+            inventoryPurchaseItemId ?? this.inventoryPurchaseItemId,
+        sessionId: sessionId ?? this.sessionId,
+        barCode: barCode ?? this.barCode,
+        manufactureDate: manufactureDate ?? this.manufactureDate,
+        printQuantity: printQuantity ?? this.printQuantity,
+        serialNumber: serialNumber ?? this.serialNumber,
+        rfId: rfId ?? this.rfId,
+        serialNumberIsMixedCase:
+            serialNumberIsMixedCase ?? this.serialNumberIsMixedCase,
+        dateStamp: dateStamp ?? this.dateStamp,
+        auditNote: auditNote ?? this.auditNote,
+        recordTitle: recordTitle ?? this.recordTitle,
+        fields: fields ?? this.fields,
+        custom: custom ?? this.custom,
+        defaultFieldAttributes:
+            defaultFieldAttributes ?? this.defaultFieldAttributes,
+        translation: translation ?? this.translation);
+  }
+
+  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+      copyWithWrapped(
+          {Wrapped<int?>? inventoryPurchaseItemId,
+          Wrapped<String?>? sessionId,
+          Wrapped<String?>? barCode,
+          Wrapped<String?>? manufactureDate,
+          Wrapped<int?>? printQuantity,
+          Wrapped<String?>? serialNumber,
+          Wrapped<String?>? rfId,
+          Wrapped<bool?>? serialNumberIsMixedCase,
+          Wrapped<String?>? dateStamp,
+          Wrapped<String?>? auditNote,
+          Wrapped<String?>? recordTitle,
+          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+              fields,
+          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
+              defaultFieldAttributes,
+          Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation}) {
+    return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem(
+        inventoryPurchaseItemId: (inventoryPurchaseItemId != null
+            ? inventoryPurchaseItemId.value
+            : this.inventoryPurchaseItemId),
+        sessionId: (sessionId != null ? sessionId.value : this.sessionId),
+        barCode: (barCode != null ? barCode.value : this.barCode),
+        manufactureDate: (manufactureDate != null
+            ? manufactureDate.value
+            : this.manufactureDate),
+        printQuantity:
+            (printQuantity != null ? printQuantity.value : this.printQuantity),
+        serialNumber:
+            (serialNumber != null ? serialNumber.value : this.serialNumber),
+        rfId: (rfId != null ? rfId.value : this.rfId),
+        serialNumberIsMixedCase: (serialNumberIsMixedCase != null
+            ? serialNumberIsMixedCase.value
+            : this.serialNumberIsMixedCase),
+        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+        recordTitle:
+            (recordTitle != null ? recordTitle.value : this.recordTitle),
+        fields: (fields != null ? fields.value : this.fields),
+        custom: (custom != null ? custom.value : this.custom),
+        defaultFieldAttributes: (defaultFieldAttributes != null
+            ? defaultFieldAttributes.value
+            : this.defaultFieldAttributes),
+        translation:
+            (translation != null ? translation.value : this.translation));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest {
   WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest({
     this.inventoryId,
@@ -6243,17 +5930,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson(
+          this);
+
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
   @JsonKey(name: 'Quantity', includeIfNull: false)
   final int? quantity;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6307,15 +5995,16 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson(
           json);
 
-  @JsonKey(name: 'SessionId', includeIfNull: false)
-  final String? sessionId;
-  static const fromJsonFactory =
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson;
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseToJson(
           this);
+
+  @JsonKey(name: 'SessionId', includeIfNull: false)
+  final String? sessionId;
+  static const fromJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -6362,6 +6051,12 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
+          this);
+
   @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
   @JsonKey(name: 'InventoryId', includeIfNull: false)
@@ -6370,11 +6065,6 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   final int? quantity;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6438,6 +6128,12 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson(
+          this);
+
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
   @JsonKey(name: 'success', includeIfNull: false)
@@ -6446,11 +6142,6 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   final String? msg;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -6508,14 +6199,15 @@ class WebApiModulesWarehouseContractCancelContractRequest {
           Map<String, dynamic> json) =>
       _$WebApiModulesWarehouseContractCancelContractRequestFromJson(json);
 
-  @JsonKey(name: 'ContractId', includeIfNull: false)
-  final String? contractId;
-  static const fromJsonFactory =
-      _$WebApiModulesWarehouseContractCancelContractRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesWarehouseContractCancelContractRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesWarehouseContractCancelContractRequestToJson(this);
+
+  @JsonKey(name: 'ContractId', includeIfNull: false)
+  final String? contractId;
+  static const fromJsonFactory =
+      _$WebApiModulesWarehouseContractCancelContractRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -6551,33 +6243,15 @@ extension $WebApiModulesWarehouseContractCancelContractRequestExtension
 
 String? fwStandardSqlServerFwDataTypesToJson(
     enums.FwStandardSqlServerFwDataTypes? fwStandardSqlServerFwDataTypes) {
-  return enums
-      .$FwStandardSqlServerFwDataTypesMap[fwStandardSqlServerFwDataTypes];
+  return fwStandardSqlServerFwDataTypes?.value;
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
   Object? fwStandardSqlServerFwDataTypes, [
   enums.FwStandardSqlServerFwDataTypes? defaultValue,
 ]) {
-  if (fwStandardSqlServerFwDataTypes is String) {
-    return enums.$FwStandardSqlServerFwDataTypesMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                fwStandardSqlServerFwDataTypes.toLowerCase(),
-            orElse: () => const MapEntry(
-                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
-  final parsedResult = defaultValue == null
-      ? null
-      : enums.$FwStandardSqlServerFwDataTypesMap.entries
-          .firstWhereOrNull((element) => element.value == defaultValue)
-          ?.key;
-
-  return parsedResult ??
+  return enums.FwStandardSqlServerFwDataTypes.values
+          .firstWhereOrNull((e) => e.value == fwStandardSqlServerFwDataTypes) ??
       defaultValue ??
       enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
@@ -6589,9 +6263,7 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
     return [];
   }
 
-  return fwStandardSqlServerFwDataTypes
-      .map((e) => enums.$FwStandardSqlServerFwDataTypesMap[e]!)
-      .toList();
+  return fwStandardSqlServerFwDataTypes.map((e) => e.value!).toList();
 }
 
 List<enums.FwStandardSqlServerFwDataTypes>

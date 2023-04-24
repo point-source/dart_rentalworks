@@ -21,7 +21,7 @@ class _$AccountServices extends AccountServices {
           Response<
               WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
       _accountSessionGet({String? applicationId}) {
-    final String $url = '/account/session';
+    final Uri $url = Uri.parse('/account/session');
     final Map<String, dynamic> $params = <String, dynamic>{
       'applicationId': applicationId
     };
@@ -46,7 +46,7 @@ class _$AccountServices extends AccountServices {
     String? warehouseid,
     String? departmentid,
   }) {
-    final String $url = '/account/officelocation';
+    final Uri $url = Uri.parse('/account/officelocation');
     final Map<String, dynamic> $params = <String, dynamic>{
       'locationid': locationid,
       'warehouseid': warehouseid,
@@ -69,7 +69,7 @@ class _$AccountServices extends AccountServices {
       _accountResetpasswordPost(
           {required WebApiModulesAccountServicesAccountResetPasswordRequest?
               body}) {
-    final String $url = '/account/resetpassword';
+    final Uri $url = Uri.parse('/account/resetpassword');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -86,7 +86,7 @@ class _$AccountServices extends AccountServices {
       _accountGetsettingsPost(
           {required WebApiModulesAccountServicesAccountGetSettingsRequest?
               body}) {
-    final String $url = '/account/getsettings';
+    final Uri $url = Uri.parse('/account/getsettings');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -101,7 +101,7 @@ class _$AccountServices extends AccountServices {
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> _jwtPost(
       {required FwStandardModelsFwApplicationUser? body}) {
-    final String $url = '/jwt';
+    final Uri $url = Uri.parse('/jwt');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -117,7 +117,7 @@ class _$AccountServices extends AccountServices {
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
       _jwtOktaPost(
           {required WebApiModulesAccountServicesJwtOktaRequest? body}) {
-    final String $url = '/jwt/okta';
+    final Uri $url = Uri.parse('/jwt/okta');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -133,7 +133,7 @@ class _$AccountServices extends AccountServices {
   Future<Response<WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
       _jwtOktaverifyPost(
           {required WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
-    final String $url = '/jwt/oktaverify';
+    final Uri $url = Uri.parse('/jwt/oktaverify');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -143,5 +143,21 @@ class _$AccountServices extends AccountServices {
     );
     return client.send<WebApiModulesAccountServicesJwtOktaSessionResponseModel,
         WebApiModulesAccountServicesJwtOktaSessionResponseModel>($request);
+  }
+
+  @override
+  Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
+      _jwtAzureadPost(
+          {required WebApiModulesAccountServicesJwtAzureADRequest? body}) {
+    final Uri $url = Uri.parse('/jwt/azuread');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
+        FwCoreControllersFwJwtControllerJwtResponseModel>($request);
   }
 }

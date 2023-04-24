@@ -78,6 +78,34 @@ Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
   return val;
 }
 
+FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwTranslatedValue(
+      fieldName: json['FieldName'] as String?,
+      translatedValue: json['TranslatedValue'] as String?,
+      untranslatedValue: json['UntranslatedValue'] as String?,
+      isTranslated: json['IsTranslated'] as bool?,
+      userIsTranslating: json['UserIsTranslating'] as bool?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
+    FwStandardDataFwTranslatedValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('TranslatedValue', instance.translatedValue);
+  writeNotNull('UntranslatedValue', instance.untranslatedValue);
+  writeNotNull('IsTranslated', instance.isTranslated);
+  writeNotNull('UserIsTranslating', instance.userIsTranslating);
+  return val;
+}
+
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwApiException(
@@ -105,13 +133,22 @@ Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
 FwStandardModelsFwApplicationUser _$FwStandardModelsFwApplicationUserFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwApplicationUser(
-      userName: json['UserName'] as String?,
-      password: json['Password'] as String?,
+      userName: json['UserName'] as String,
+      password: json['Password'] as String,
+      webApp: json['WebApp'] as String?,
+      browserApp: json['BrowserApp'] as String?,
+      browserAppVersion: json['BrowserAppVersion'] as String?,
+      browserDeviceId: json['BrowserDeviceId'] as String?,
+      browserUserAgent: json['BrowserUserAgent'] as String?,
+      browserUrl: json['BrowserUrl'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
     FwStandardModelsFwApplicationUser instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'UserName': instance.userName,
+    'Password': instance.password,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -119,8 +156,12 @@ Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
     }
   }
 
-  writeNotNull('UserName', instance.userName);
-  writeNotNull('Password', instance.password);
+  writeNotNull('WebApp', instance.webApp);
+  writeNotNull('BrowserApp', instance.browserApp);
+  writeNotNull('BrowserAppVersion', instance.browserAppVersion);
+  writeNotNull('BrowserDeviceId', instance.browserDeviceId);
+  writeNotNull('BrowserUserAgent', instance.browserUserAgent);
+  writeNotNull('BrowserUrl', instance.browserUrl);
   return val;
 }
 
@@ -135,8 +176,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       rows: (json['Rows'] as List<dynamic>?)
-              ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
+              ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -148,6 +188,11 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -170,6 +215,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
   writeNotNull('TotalRows', instance.totalRows);
   writeNotNull('DateFields', instance.dateFields);
   writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -326,6 +373,8 @@ WebApiLogicAppFuncDefaultSettingsResponse
           defaultDealStatus: json['DefaultDealStatus'] as String?,
           defaultDealPoRequired: json['DefaultDealPoRequired'] as bool?,
           defaultDealPoType: json['DefaultDealPoType'] as String?,
+          defaultDealStagingExcludeOrderAfterWrap:
+              json['DefaultDealStagingExcludeOrderAfterWrap'] as bool?,
           defaultCustomerStatusId: json['DefaultCustomerStatusId'] as String?,
           defaultCustomerStatus: json['DefaultCustomerStatus'] as String?,
           defaultDealBillingCycleId:
@@ -365,6 +414,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
   writeNotNull('DefaultDealStatus', instance.defaultDealStatus);
   writeNotNull('DefaultDealPoRequired', instance.defaultDealPoRequired);
   writeNotNull('DefaultDealPoType', instance.defaultDealPoType);
+  writeNotNull('DefaultDealStagingExcludeOrderAfterWrap',
+      instance.defaultDealStagingExcludeOrderAfterWrap);
   writeNotNull('DefaultCustomerStatusId', instance.defaultCustomerStatusId);
   writeNotNull('DefaultCustomerStatus', instance.defaultCustomerStatus);
   writeNotNull('DefaultDealBillingCycleId', instance.defaultDealBillingCycleId);
@@ -387,23 +438,21 @@ Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
   return val;
 }
 
-WebApiLogicAppFuncDepartmentActivitiesResponse
-    _$WebApiLogicAppFuncDepartmentActivitiesResponseFromJson(
+WebApiLogicAppFuncDepartmentDefaultActivities
+    _$WebApiLogicAppFuncDepartmentDefaultActivitiesFromJson(
             Map<String, dynamic> json) =>
-        WebApiLogicAppFuncDepartmentActivitiesResponse(
-          defaultActivityFacilities: json['DefaultActivityFacilities'] as bool?,
-          defaultActivityLabor: json['DefaultActivityLabor'] as bool?,
-          defaultActivityMiscellaneous:
-              json['DefaultActivityMiscellaneous'] as bool?,
-          defaultActivityRental: json['DefaultActivityRental'] as bool?,
-          defaultActivitySales: json['DefaultActivitySales'] as bool?,
-          defaultActivityTransportation:
-              json['DefaultActivityTransportation'] as bool?,
-          defaultActivityRentalSale: json['DefaultActivityRentalSale'] as bool?,
+        WebApiLogicAppFuncDepartmentDefaultActivities(
+          facilities: json['Facilities'] as bool?,
+          labor: json['Labor'] as bool?,
+          miscellaneous: json['Miscellaneous'] as bool?,
+          rental: json['Rental'] as bool?,
+          sales: json['Sales'] as bool?,
+          transportation: json['Transportation'] as bool?,
+          rentalSale: json['RentalSale'] as bool?,
         );
 
-Map<String, dynamic> _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(
-    WebApiLogicAppFuncDepartmentActivitiesResponse instance) {
+Map<String, dynamic> _$WebApiLogicAppFuncDepartmentDefaultActivitiesToJson(
+    WebApiLogicAppFuncDepartmentDefaultActivities instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -412,15 +461,41 @@ Map<String, dynamic> _$WebApiLogicAppFuncDepartmentActivitiesResponseToJson(
     }
   }
 
-  writeNotNull('DefaultActivityFacilities', instance.defaultActivityFacilities);
-  writeNotNull('DefaultActivityLabor', instance.defaultActivityLabor);
+  writeNotNull('Facilities', instance.facilities);
+  writeNotNull('Labor', instance.labor);
+  writeNotNull('Miscellaneous', instance.miscellaneous);
+  writeNotNull('Rental', instance.rental);
+  writeNotNull('Sales', instance.sales);
+  writeNotNull('Transportation', instance.transportation);
+  writeNotNull('RentalSale', instance.rentalSale);
+  return val;
+}
+
+WebApiLogicAppFuncDepartmentSettingsResponse
+    _$WebApiLogicAppFuncDepartmentSettingsResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiLogicAppFuncDepartmentSettingsResponse(
+          requireContactConfirmation:
+              json['RequireContactConfirmation'] as bool?,
+          defaultActivities: json['DefaultActivities'] == null
+              ? null
+              : WebApiLogicAppFuncDepartmentDefaultActivities.fromJson(
+                  json['DefaultActivities'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$WebApiLogicAppFuncDepartmentSettingsResponseToJson(
+    WebApiLogicAppFuncDepartmentSettingsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
   writeNotNull(
-      'DefaultActivityMiscellaneous', instance.defaultActivityMiscellaneous);
-  writeNotNull('DefaultActivityRental', instance.defaultActivityRental);
-  writeNotNull('DefaultActivitySales', instance.defaultActivitySales);
-  writeNotNull(
-      'DefaultActivityTransportation', instance.defaultActivityTransportation);
-  writeNotNull('DefaultActivityRentalSale', instance.defaultActivityRentalSale);
+      'RequireContactConfirmation', instance.requireContactConfirmation);
+  writeNotNull('DefaultActivities', instance.defaultActivities?.toJson());
   return val;
 }
 
@@ -479,7 +554,7 @@ WebApiLogicAppFuncGetSettingsResponse
                   json['systemSettings'] as Map<String, dynamic>),
           department: json['department'] == null
               ? null
-              : WebApiLogicAppFuncDepartmentActivitiesResponse.fromJson(
+              : WebApiLogicAppFuncDepartmentSettingsResponse.fromJson(
                   json['department'] as Map<String, dynamic>),
           documentBarcodeSettings: json['documentBarcodeSettings'] == null
               ? null
@@ -535,6 +610,7 @@ WebApiLogicAppFuncInventorySettingsResponse
           enable3WeekPricing: json['Enable3WeekPricing'] as bool?,
           autoUpdateInventoryMetricImperialDimensions:
               json['AutoUpdateInventoryMetricImperialDimensions'] as bool?,
+          autoSortInventoryByICode: json['AutoSortInventoryByICode'] as bool?,
           enableConsignment: json['EnableConsignment'] as bool?,
           enableLease: json['EnableLease'] as bool?,
           defaultRentalSaleRetiredReasonId:
@@ -545,14 +621,16 @@ WebApiLogicAppFuncInventorySettingsResponse
               json['DefaultLossAndDamageRetiredReasonId'] as String?,
           defaultLossAndDamageRetiredReason:
               json['DefaultLossAndDamageRetiredReason'] as String?,
-          fixedAssetTransferFutureDepreciation:
-              json['FixedAssetTransferFutureDepreciation'] as bool?,
           defaultRentalQuantityInventoryCostCalculation:
               json['DefaultRentalQuantityInventoryCostCalculation'] as String?,
           defaultSalesQuantityInventoryCostCalculation:
               json['DefaultSalesQuantityInventoryCostCalculation'] as String?,
           defaultPartsQuantityInventoryCostCalculation:
               json['DefaultPartsQuantityInventoryCostCalculation'] as String?,
+          fixedAssetTransferOwnership:
+              json['FixedAssetTransferOwnership'] as bool?,
+          enableInventoryCertification:
+              json['EnableInventoryCertification'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
@@ -570,6 +648,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
   writeNotNull('Enable3WeekPricing', instance.enable3WeekPricing);
   writeNotNull('AutoUpdateInventoryMetricImperialDimensions',
       instance.autoUpdateInventoryMetricImperialDimensions);
+  writeNotNull('AutoSortInventoryByICode', instance.autoSortInventoryByICode);
   writeNotNull('EnableConsignment', instance.enableConsignment);
   writeNotNull('EnableLease', instance.enableLease);
   writeNotNull('DefaultRentalSaleRetiredReasonId',
@@ -580,14 +659,16 @@ Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
       instance.defaultLossAndDamageRetiredReasonId);
   writeNotNull('DefaultLossAndDamageRetiredReason',
       instance.defaultLossAndDamageRetiredReason);
-  writeNotNull('FixedAssetTransferFutureDepreciation',
-      instance.fixedAssetTransferFutureDepreciation);
   writeNotNull('DefaultRentalQuantityInventoryCostCalculation',
       instance.defaultRentalQuantityInventoryCostCalculation);
   writeNotNull('DefaultSalesQuantityInventoryCostCalculation',
       instance.defaultSalesQuantityInventoryCostCalculation);
   writeNotNull('DefaultPartsQuantityInventoryCostCalculation',
       instance.defaultPartsQuantityInventoryCostCalculation);
+  writeNotNull(
+      'FixedAssetTransferOwnership', instance.fixedAssetTransferOwnership);
+  writeNotNull(
+      'EnableInventoryCertification', instance.enableInventoryCertification);
   return val;
 }
 
@@ -649,12 +730,37 @@ WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
       defaultcurrencyid: json['defaultcurrencyid'] as String?,
       defaultcurrencycode: json['defaultcurrencycode'] as String?,
       defaultcurrencysymbol: json['defaultcurrencysymbol'] as String?,
+      defaultpaymentby: json['defaultpaymentby'] as String?,
       defaulttaxoptionid: json['defaulttaxoptionid'] as String?,
       defaulttaxoption: json['defaulttaxoption'] as String?,
       countryid: json['countryid'] as String?,
       country: json['country'] as String?,
+      countrycodeisoalpha2: json['countrycodeisoalpha2'] as String?,
       phone: json['phone'] as String?,
       useorderlocationbydefault: json['useorderlocationbydefault'] as bool?,
+      defaultrepairpotypeid: json['defaultrepairpotypeid'] as String?,
+      defaultrepairpotype: json['defaultrepairpotype'] as String?,
+      emailinvoicetoorderedby: json['emailinvoicetoorderedby'] as bool?,
+      emailinvoicetoaccountspayable:
+          json['emailinvoicetoaccountspayable'] as bool?,
+      defaultpurchasepotypeid: json['defaultpurchasepotypeid'] as String?,
+      defaultpurchasepotype: json['defaultpurchasepotype'] as String?,
+      defaultsubrentalpoordertypeid:
+          json['defaultsubrentalpoordertypeid'] as String?,
+      defaultsubrentalpoordertype:
+          json['defaultsubrentalpoordertype'] as String?,
+      defaultsubsalespoordertypeid:
+          json['defaultsubsalespoordertypeid'] as String?,
+      defaultsubsalespoordertype: json['defaultsubsalespoordertype'] as String?,
+      defaultsubmiscpoordertypeid:
+          json['defaultsubmiscpoordertypeid'] as String?,
+      defaultsubmiscpoordertype: json['defaultsubmiscpoordertype'] as String?,
+      defaultsublaborpoordertypeid:
+          json['defaultsublaborpoordertypeid'] as String?,
+      defaultsublaborpoordertype: json['defaultsublaborpoordertype'] as String?,
+      defaultcombinedpoordertypeid:
+          json['defaultcombinedpoordertypeid'] as String?,
+      defaultcombinedpoordertype: json['defaultcombinedpoordertype'] as String?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
@@ -678,12 +784,40 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
   writeNotNull('defaultcurrencyid', instance.defaultcurrencyid);
   writeNotNull('defaultcurrencycode', instance.defaultcurrencycode);
   writeNotNull('defaultcurrencysymbol', instance.defaultcurrencysymbol);
+  writeNotNull('defaultpaymentby', instance.defaultpaymentby);
   writeNotNull('defaulttaxoptionid', instance.defaulttaxoptionid);
   writeNotNull('defaulttaxoption', instance.defaulttaxoption);
   writeNotNull('countryid', instance.countryid);
   writeNotNull('country', instance.country);
+  writeNotNull('countrycodeisoalpha2', instance.countrycodeisoalpha2);
   writeNotNull('phone', instance.phone);
   writeNotNull('useorderlocationbydefault', instance.useorderlocationbydefault);
+  writeNotNull('defaultrepairpotypeid', instance.defaultrepairpotypeid);
+  writeNotNull('defaultrepairpotype', instance.defaultrepairpotype);
+  writeNotNull('emailinvoicetoorderedby', instance.emailinvoicetoorderedby);
+  writeNotNull(
+      'emailinvoicetoaccountspayable', instance.emailinvoicetoaccountspayable);
+  writeNotNull('defaultpurchasepotypeid', instance.defaultpurchasepotypeid);
+  writeNotNull('defaultpurchasepotype', instance.defaultpurchasepotype);
+  writeNotNull(
+      'defaultsubrentalpoordertypeid', instance.defaultsubrentalpoordertypeid);
+  writeNotNull(
+      'defaultsubrentalpoordertype', instance.defaultsubrentalpoordertype);
+  writeNotNull(
+      'defaultsubsalespoordertypeid', instance.defaultsubsalespoordertypeid);
+  writeNotNull(
+      'defaultsubsalespoordertype', instance.defaultsubsalespoordertype);
+  writeNotNull(
+      'defaultsubmiscpoordertypeid', instance.defaultsubmiscpoordertypeid);
+  writeNotNull('defaultsubmiscpoordertype', instance.defaultsubmiscpoordertype);
+  writeNotNull(
+      'defaultsublaborpoordertypeid', instance.defaultsublaborpoordertypeid);
+  writeNotNull(
+      'defaultsublaborpoordertype', instance.defaultsublaborpoordertype);
+  writeNotNull(
+      'defaultcombinedpoordertypeid', instance.defaultcombinedpoordertypeid);
+  writeNotNull(
+      'defaultcombinedpoordertype', instance.defaultcombinedpoordertype);
   return val;
 }
 
@@ -695,12 +829,18 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
       contactid: json['contactid'] as String?,
       usertype: json['usertype'] as String?,
       email: json['email'] as String?,
+      emailapp: json['emailapp'] as String?,
+      addsignaturetodraft: json['addsignaturetodraft'] as bool?,
       fullname: json['fullname'] as String?,
       name: json['name'] as String?,
       browsedefaultrows: json['browsedefaultrows'] as int?,
+      griddefaultrows: json['griddefaultrows'] as int?,
       applicationtheme: json['applicationtheme'] as String?,
+      locale: json['locale'] as String?,
       locationid: json['locationid'] as String?,
       location: json['location'] as String?,
+      languageid: json['languageid'] as String?,
+      language: json['language'] as String?,
       warehouseid: json['warehouseid'] as String?,
       warehouse: json['warehouse'] as String?,
       departmentid: json['departmentid'] as String?,
@@ -729,6 +869,8 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
       qsallowapplyallqtyitems: json['qsallowapplyallqtyitems'] as bool?,
       allowcontractwithexceptions: json['allowcontractwithexceptions'] as bool?,
       canInsertIntoActiveOrder: json['CanInsertIntoActiveOrder'] as bool?,
+      creditCardPinPadId: json['CreditCardPinPadId'] as int?,
+      creditCardPinPad: json['CreditCardPinPad'] as String?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
@@ -746,12 +888,18 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
   writeNotNull('contactid', instance.contactid);
   writeNotNull('usertype', instance.usertype);
   writeNotNull('email', instance.email);
+  writeNotNull('emailapp', instance.emailapp);
+  writeNotNull('addsignaturetodraft', instance.addsignaturetodraft);
   writeNotNull('fullname', instance.fullname);
   writeNotNull('name', instance.name);
   writeNotNull('browsedefaultrows', instance.browsedefaultrows);
+  writeNotNull('griddefaultrows', instance.griddefaultrows);
   writeNotNull('applicationtheme', instance.applicationtheme);
+  writeNotNull('locale', instance.locale);
   writeNotNull('locationid', instance.locationid);
   writeNotNull('location', instance.location);
+  writeNotNull('languageid', instance.languageid);
+  writeNotNull('language', instance.language);
   writeNotNull('warehouseid', instance.warehouseid);
   writeNotNull('warehouse', instance.warehouse);
   writeNotNull('departmentid', instance.departmentid);
@@ -785,6 +933,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
   writeNotNull(
       'allowcontractwithexceptions', instance.allowcontractwithexceptions);
   writeNotNull('CanInsertIntoActiveOrder', instance.canInsertIntoActiveOrder);
+  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
+  writeNotNull('CreditCardPinPad', instance.creditCardPinPad);
   return val;
 }
 
@@ -802,6 +952,11 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
           json['storagecontainerrescanrequired'] as bool?,
       quikreceiptenable: json['quikreceiptenable'] as bool?,
       transferavailabilitydays: json['transferavailabilitydays'] as int?,
+      regionid: json['regionid'] as String?,
+      region: json['region'] as String?,
+      regionwarehouseids: json['regionwarehouseids'] as String?,
+      regionwarehouses: json['regionwarehouses'] as String?,
+      internalorderdealid: json['internalorderdealid'] as String?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
@@ -827,6 +982,11 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
       instance.storagecontainerrescanrequired);
   writeNotNull('quikreceiptenable', instance.quikreceiptenable);
   writeNotNull('transferavailabilitydays', instance.transferavailabilitydays);
+  writeNotNull('regionid', instance.regionid);
+  writeNotNull('region', instance.region);
+  writeNotNull('regionwarehouseids', instance.regionwarehouseids);
+  writeNotNull('regionwarehouses', instance.regionwarehouses);
+  writeNotNull('internalorderdealid', instance.internalorderdealid);
   return val;
 }
 
@@ -885,13 +1045,27 @@ WebApiLogicAppFuncSystemSettingsResponse
           allowDeleteInvoices: json['AllowDeleteInvoices'] as bool?,
           allowInvoiceDateChange: json['AllowInvoiceDateChange'] as bool?,
           enableReceipts: json['EnableReceipts'] as bool?,
+          enableOriginalShow: json['EnableOriginalShow'] as bool?,
           enablePayments: json['EnablePayments'] as bool?,
+          enableVendorInvoice: json['EnableVendorInvoice'] as bool?,
+          enablePropsWardrobe: json['EnablePropsWardrobe'] as bool?,
+          enableSetsWalls: json['EnableSetsWalls'] as bool?,
           shareDealsAcrossOfficeLocations:
               json['ShareDealsAcrossOfficeLocations'] as bool?,
+          synchronizeCustomerStatusAndCreditStatus:
+              json['SynchronizeCustomerStatusAndCreditStatus'] as bool?,
+          synchronizeDealStatusAndCreditStatus:
+              json['SynchronizeDealStatusAndCreditStatus'] as bool?,
           systemName: json['SystemName'] as String?,
           companyName: json['CompanyName'] as String?,
           isVendorNumberAssignedByUser:
               json['IsVendorNumberAssignedByUser'] as bool?,
+          quoteOrderMessageFormat: json['QuoteOrderMessageFormat'] as String?,
+          dataLanguageId: json['DataLanguageId'] as String?,
+          dataLanguage: json['DataLanguage'] as String?,
+          allCaps: json['AllCaps'] as bool?,
+          enableQuikLocate: json['EnableQuikLocate'] as bool?,
+          departmentFilter: json['DepartmentFilter'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
@@ -907,13 +1081,27 @@ Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
   writeNotNull('AllowDeleteInvoices', instance.allowDeleteInvoices);
   writeNotNull('AllowInvoiceDateChange', instance.allowInvoiceDateChange);
   writeNotNull('EnableReceipts', instance.enableReceipts);
+  writeNotNull('EnableOriginalShow', instance.enableOriginalShow);
   writeNotNull('EnablePayments', instance.enablePayments);
+  writeNotNull('EnableVendorInvoice', instance.enableVendorInvoice);
+  writeNotNull('EnablePropsWardrobe', instance.enablePropsWardrobe);
+  writeNotNull('EnableSetsWalls', instance.enableSetsWalls);
   writeNotNull('ShareDealsAcrossOfficeLocations',
       instance.shareDealsAcrossOfficeLocations);
+  writeNotNull('SynchronizeCustomerStatusAndCreditStatus',
+      instance.synchronizeCustomerStatusAndCreditStatus);
+  writeNotNull('SynchronizeDealStatusAndCreditStatus',
+      instance.synchronizeDealStatusAndCreditStatus);
   writeNotNull('SystemName', instance.systemName);
   writeNotNull('CompanyName', instance.companyName);
   writeNotNull(
       'IsVendorNumberAssignedByUser', instance.isVendorNumberAssignedByUser);
+  writeNotNull('QuoteOrderMessageFormat', instance.quoteOrderMessageFormat);
+  writeNotNull('DataLanguageId', instance.dataLanguageId);
+  writeNotNull('DataLanguage', instance.dataLanguage);
+  writeNotNull('AllCaps', instance.allCaps);
+  writeNotNull('EnableQuikLocate', instance.enableQuikLocate);
+  writeNotNull('DepartmentFilter', instance.departmentFilter);
   return val;
 }
 
@@ -1158,13 +1346,15 @@ WebApiModulesAccountServicesAccountSystemSettingsResponse
         WebApiModulesAccountServicesAccountSystemSettingsResponse(
           defaultUnitId: json['DefaultUnitId'] as String?,
           defaultRank: json['DefaultRank'] as String?,
-          requireOriginalShow: json['RequireOriginalShow'] as bool?,
           userAssignedICodes: json['UserAssignedICodes'] as bool?,
           quikScanStageBySession: json['QuikScanStageBySession'] as bool?,
           barcodeSkipPrefixes: json['BarcodeSkipPrefixes'] == null
               ? null
               : FwStandardSqlServerFwJsonDataTable.fromJson(
                   json['BarcodeSkipPrefixes'] as Map<String, dynamic>),
+          enableOriginalShow: json['EnableOriginalShow'] as bool?,
+          enablePropsWardrobe: json['EnablePropsWardrobe'] as bool?,
+          enableSetsWalls: json['EnableSetsWalls'] as bool?,
         );
 
 Map<String, dynamic>
@@ -1180,10 +1370,41 @@ Map<String, dynamic>
 
   writeNotNull('DefaultUnitId', instance.defaultUnitId);
   writeNotNull('DefaultRank', instance.defaultRank);
-  writeNotNull('RequireOriginalShow', instance.requireOriginalShow);
   writeNotNull('UserAssignedICodes', instance.userAssignedICodes);
   writeNotNull('QuikScanStageBySession', instance.quikScanStageBySession);
   writeNotNull('BarcodeSkipPrefixes', instance.barcodeSkipPrefixes?.toJson());
+  writeNotNull('EnableOriginalShow', instance.enableOriginalShow);
+  writeNotNull('EnablePropsWardrobe', instance.enablePropsWardrobe);
+  writeNotNull('EnableSetsWalls', instance.enableSetsWalls);
+  return val;
+}
+
+WebApiModulesAccountServicesJwtAzureADRequest
+    _$WebApiModulesAccountServicesJwtAzureADRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesJwtAzureADRequest(
+          email: json['Email'] as String?,
+          token: json['Token'] as String?,
+          tenant: json['Tenant'] as String?,
+          audience: json['Audience'] as String?,
+          issuer: json['Issuer'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesAccountServicesJwtAzureADRequestToJson(
+    WebApiModulesAccountServicesJwtAzureADRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Email', instance.email);
+  writeNotNull('Token', instance.token);
+  writeNotNull('Tenant', instance.tenant);
+  writeNotNull('Audience', instance.audience);
+  writeNotNull('Issuer', instance.issuer);
   return val;
 }
 

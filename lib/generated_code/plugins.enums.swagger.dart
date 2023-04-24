@@ -1,315 +1,283 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
 
 enum FwStandardSqlServerFwDataTypes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
   @JsonValue('Text')
-  text,
+  text('Text'),
   @JsonValue('NonTrimmableText')
-  nontrimmabletext,
+  nontrimmabletext('NonTrimmableText'),
   @JsonValue('Date')
-  date,
+  date('Date'),
   @JsonValue('Time')
-  time,
+  time('Time'),
   @JsonValue('DateTime')
-  datetime,
+  datetime('DateTime'),
   @JsonValue('DateTimeOffset')
-  datetimeoffset,
+  datetimeoffset('DateTimeOffset'),
+  @JsonValue('CreditCardExpirationDate')
+  creditcardexpirationdate('CreditCardExpirationDate'),
   @JsonValue('Decimal')
-  decimal,
+  decimal('Decimal'),
   @JsonValue('DecimalStringNoTrailingZeros')
-  decimalstringnotrailingzeros,
+  decimalstringnotrailingzeros('DecimalStringNoTrailingZeros'),
   @JsonValue('DecimalString1Digit')
-  decimalstring1digit,
+  decimalstring1digit('DecimalString1Digit'),
   @JsonValue('DecimalString2Digits')
-  decimalstring2digits,
+  decimalstring2digits('DecimalString2Digits'),
   @JsonValue('DecimalString3Digits')
-  decimalstring3digits,
+  decimalstring3digits('DecimalString3Digits'),
   @JsonValue('DecimalString4Digits')
-  decimalstring4digits,
+  decimalstring4digits('DecimalString4Digits'),
   @JsonValue('DecimalString8Digits')
-  decimalstring8digits,
+  decimalstring8digits('DecimalString8Digits'),
   @JsonValue('Boolean')
-  boolean,
+  boolean('Boolean'),
   @JsonValue('CurrencyString')
-  currencystring,
+  currencystring('CurrencyString'),
   @JsonValue('CurrencyStringNoDollarSign')
-  currencystringnodollarsign,
+  currencystringnodollarsign('CurrencyStringNoDollarSign'),
   @JsonValue('CurrencyStringNoDollarSignNoDecimalPlaces')
-  currencystringnodollarsignnodecimalplaces,
+  currencystringnodollarsignnodecimalplaces(
+      'CurrencyStringNoDollarSignNoDecimalPlaces'),
   @JsonValue('PhoneUS')
-  phoneus,
+  phoneus('PhoneUS'),
   @JsonValue('ZipcodeUS')
-  zipcodeus,
-  @JsonValue('Percentage')
-  percentage,
+  zipcodeus('ZipcodeUS'),
+  @JsonValue('PercentageWholeNumber')
+  percentagewholenumber('PercentageWholeNumber'),
+  @JsonValue('Percentage2Digits')
+  percentage2digits('Percentage2Digits'),
+  @JsonValue('Percentage4Digits')
+  percentage4digits('Percentage4Digits'),
   @JsonValue('OleToHtmlColor')
-  oletohtmlcolor,
+  oletohtmlcolor('OleToHtmlColor'),
   @JsonValue('Integer')
-  integer,
+  integer('Integer'),
   @JsonValue('JpgDataUrl')
-  jpgdataurl,
+  jpgdataurl('JpgDataUrl'),
   @JsonValue('UTCDateTime')
-  utcdatetime
+  utcdatetime('UTCDateTime');
+
+  final String? value;
+
+  const FwStandardSqlServerFwDataTypes(this.value);
 }
 
-const $FwStandardSqlServerFwDataTypesMap = {
-  FwStandardSqlServerFwDataTypes.text: 'Text',
-  FwStandardSqlServerFwDataTypes.nontrimmabletext: 'NonTrimmableText',
-  FwStandardSqlServerFwDataTypes.date: 'Date',
-  FwStandardSqlServerFwDataTypes.time: 'Time',
-  FwStandardSqlServerFwDataTypes.datetime: 'DateTime',
-  FwStandardSqlServerFwDataTypes.datetimeoffset: 'DateTimeOffset',
-  FwStandardSqlServerFwDataTypes.decimal: 'Decimal',
-  FwStandardSqlServerFwDataTypes.decimalstringnotrailingzeros:
-      'DecimalStringNoTrailingZeros',
-  FwStandardSqlServerFwDataTypes.decimalstring1digit: 'DecimalString1Digit',
-  FwStandardSqlServerFwDataTypes.decimalstring2digits: 'DecimalString2Digits',
-  FwStandardSqlServerFwDataTypes.decimalstring3digits: 'DecimalString3Digits',
-  FwStandardSqlServerFwDataTypes.decimalstring4digits: 'DecimalString4Digits',
-  FwStandardSqlServerFwDataTypes.decimalstring8digits: 'DecimalString8Digits',
-  FwStandardSqlServerFwDataTypes.boolean: 'Boolean',
-  FwStandardSqlServerFwDataTypes.currencystring: 'CurrencyString',
-  FwStandardSqlServerFwDataTypes.currencystringnodollarsign:
-      'CurrencyStringNoDollarSign',
-  FwStandardSqlServerFwDataTypes.currencystringnodollarsignnodecimalplaces:
-      'CurrencyStringNoDollarSignNoDecimalPlaces',
-  FwStandardSqlServerFwDataTypes.phoneus: 'PhoneUS',
-  FwStandardSqlServerFwDataTypes.zipcodeus: 'ZipcodeUS',
-  FwStandardSqlServerFwDataTypes.percentage: 'Percentage',
-  FwStandardSqlServerFwDataTypes.oletohtmlcolor: 'OleToHtmlColor',
-  FwStandardSqlServerFwDataTypes.integer: 'Integer',
-  FwStandardSqlServerFwDataTypes.jpgdataurl: 'JpgDataUrl',
-  FwStandardSqlServerFwDataTypes.utcdatetime: 'UTCDateTime'
-};
+enum WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-enum WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
   @JsonValue('TOKENIZEDCARDNUMBER')
-  tokenizedcardnumber,
+  tokenizedcardnumber('TOKENIZEDCARDNUMBER'),
+  @JsonValue('SAVEDCARD')
+  savedcard('SAVEDCARD'),
+  @JsonValue('NEWCARD')
+  newcard('NEWCARD'),
   @JsonValue('TRACKDATA')
-  trackdata,
+  trackdata('TRACKDATA'),
   @JsonValue('EMAIL')
-  email,
+  email('EMAIL'),
   @JsonValue('WEBPAY')
-  webpay,
+  webpay('WEBPAY'),
   @JsonValue('PINPAD')
-  pinpad
-}
+  pinpad('PINPAD');
 
-const $WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypesMap = {
-  WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes
-      .tokenizedcardnumber: 'TOKENIZEDCARDNUMBER',
-  WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes.trackdata:
-      'TRACKDATA',
-  WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes.email:
-      'EMAIL',
-  WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes.webpay:
-      'WEBPAY',
-  WebApiModulesPluginsCreditCardCreditCardDepositRequestPaymentTypes.pinpad:
-      'PINPAD'
-};
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('Pending')
-  pending,
-  @JsonValue('Approved')
-  approved,
-  @JsonValue('Retry')
-  retry,
-  @JsonValue('Declined')
-  declined,
-  @JsonValue('Error')
-  error,
-  @JsonValue('Sent')
-  sent
-}
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-const $WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodesMap =
-    {
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .pending: 'Pending',
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .approved: 'Approved',
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .retry: 'Retry',
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .declined: 'Declined',
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .error: 'Error',
-  WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes
-      .sent: 'Sent'
-};
+  @JsonValue('Pending')
+  pending('Pending'),
+  @JsonValue('Approved')
+  approved('Approved'),
+  @JsonValue('Retry')
+  retry('Retry'),
+  @JsonValue('Declined')
+  declined('Declined'),
+  @JsonValue('Error')
+  error('Error'),
+  @JsonValue('Sent')
+  sent('Sent');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
   @JsonValue('Authorized')
-  authorized,
+  authorized('Authorized'),
   @JsonValue('Declined')
-  declined,
+  declined('Declined'),
   @JsonValue('QueuedForCapture')
-  queuedforcapture,
+  queuedforcapture('QueuedForCapture'),
   @JsonValue('Voided')
-  voided,
+  voided('Voided'),
   @JsonValue('ZeroAmount')
-  zeroamount,
+  zeroamount('ZeroAmount'),
   @JsonValue('Unauthorized')
-  unauthorized,
+  unauthorized('Unauthorized'),
   @JsonValue('BadRequest')
-  badrequest,
+  badrequest('BadRequest'),
   @JsonValue('Error')
-  error,
+  error('Error'),
   @JsonValue('InternalServerError')
-  internalservererror
+  internalservererror('InternalServerError');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes(
+      this.value);
 }
 
-const $WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodesMap =
-    {
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .authorized: 'Authorized',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .declined: 'Declined',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .queuedforcapture: 'QueuedForCapture',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .voided: 'Voided',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .zeroamount: 'ZeroAmount',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .unauthorized: 'Unauthorized',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .badrequest: 'BadRequest',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .error: 'Error',
-  WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes
-      .internalservererror: 'InternalServerError'
-};
+enum WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponseStatusCodes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Approved')
+  approved('Approved'),
+  @JsonValue('Retry')
+  retry('Retry'),
+  @JsonValue('Declined')
+  declined('Declined'),
+  @JsonValue('Error')
+  error('Error');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponseStatusCodes(
+      this.value);
+}
+
+enum WebApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCodes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Ok')
+  ok('Ok'),
+  @JsonValue('Error')
+  error('Error');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCodes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('Approved')
-  approved,
-  @JsonValue('Retry')
-  retry,
-  @JsonValue('Declined')
-  declined,
-  @JsonValue('Error')
-  error
-}
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-const $WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodesMap =
-    {
-  WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-      .approved: 'Approved',
-  WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes.retry:
-      'Retry',
-  WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes
-      .declined: 'Declined',
-  WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes.error:
-      'Error'
-};
+  @JsonValue('Approved')
+  approved('Approved'),
+  @JsonValue('Retry')
+  retry('Retry'),
+  @JsonValue('Declined')
+  declined('Declined'),
+  @JsonValue('Error')
+  error('Error');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('Approved')
-  approved,
-  @JsonValue('Retry')
-  retry,
-  @JsonValue('Declined')
-  declined,
-  @JsonValue('Error')
-  error
-}
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-const $WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodesMap =
-    {
-  WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-      .approved: 'Approved',
-  WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes.retry:
-      'Retry',
-  WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes
-      .declined: 'Declined',
-  WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes.error:
-      'Error'
-};
+  @JsonValue('Approved')
+  approved('Approved'),
+  @JsonValue('Retry')
+  retry('Retry'),
+  @JsonValue('Declined')
+  declined('Declined'),
+  @JsonValue('Error')
+  error('Error');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('PINPAD')
-  pinpad,
-  @JsonValue('TOKENIZEDCARDNUMBER')
-  tokenizedcardnumber,
-  @JsonValue('TRACKDATA')
-  trackdata,
-  @JsonValue('EMAIL')
-  email,
-  @JsonValue('WEBPAY')
-  webpay
-}
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-const $WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypesMap =
-    {
-  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .pinpad: 'PINPAD',
-  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .tokenizedcardnumber: 'TOKENIZEDCARDNUMBER',
-  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .trackdata: 'TRACKDATA',
-  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .email: 'EMAIL',
-  WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
-      .webpay: 'WEBPAY'
-};
+  @JsonValue('PINPAD')
+  pinpad('PINPAD'),
+  @JsonValue('TOKENIZEDCARDNUMBER')
+  tokenizedcardnumber('TOKENIZEDCARDNUMBER'),
+  @JsonValue('SAVEDCARD')
+  savedcard('SAVEDCARD'),
+  @JsonValue('NEWCARD')
+  newcard('NEWCARD'),
+  @JsonValue('TRACKDATA')
+  trackdata('TRACKDATA'),
+  @JsonValue('EMAIL')
+  email('EMAIL'),
+  @JsonValue('WEBPAY')
+  webpay('WEBPAY');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('Other')
-  other,
-  @JsonValue('Amex')
-  amex,
-  @JsonValue('Visa')
-  visa,
-  @JsonValue('MasterCard')
-  mastercard,
-  @JsonValue('Discover')
-  discover
-}
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-const $WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypesMap = {
-  WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.other:
-      'Other',
-  WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.amex: 'Amex',
-  WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.visa: 'Visa',
-  WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.mastercard:
-      'MasterCard',
-  WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes.discover:
-      'Discover'
-};
+  @JsonValue('OTHER')
+  other('OTHER'),
+  @JsonValue('AMEX')
+  amex('AMEX'),
+  @JsonValue('VISA')
+  visa('VISA'),
+  @JsonValue('MC')
+  mc('MC'),
+  @JsonValue('DISC')
+  disc('DISC');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes(
+      this.value);
+}
 
 enum WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes {
-  @JsonValue('swaggerGeneratedUnknown')
-  swaggerGeneratedUnknown,
-  @JsonValue('Approved')
-  approved,
-  @JsonValue('Declined')
-  declined,
-  @JsonValue('FraudDetected')
-  frauddetected
-}
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
 
-const $WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodesMap = {
-  WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes.approved:
-      'Approved',
-  WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes.declined:
-      'Declined',
-  WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes.frauddetected:
-      'FraudDetected'
-};
+  @JsonValue('Approved')
+  approved('Approved'),
+  @JsonValue('Declined')
+  declined('Declined'),
+  @JsonValue('FraudDetected')
+  frauddetected('FraudDetected'),
+  @JsonValue('Void')
+  $void('Void'),
+  @JsonValue('VoidFailed')
+  voidfailed('VoidFailed');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes(
+      this.value);
+}

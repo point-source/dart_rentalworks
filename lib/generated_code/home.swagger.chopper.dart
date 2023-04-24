@@ -19,7 +19,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _addressBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/address/browse';
+    final Uri $url = Uri.parse('/address/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -37,7 +37,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _addressExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/address/exportexcelxlsx';
+    final Uri $url = Uri.parse('/address/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -61,7 +61,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/address';
+    final Uri $url = Uri.parse('/address');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -83,7 +83,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsAddressAddress>> _addressPost(
       {required WebApiModulesHomeControlsAddressAddress? body}) {
-    final String $url = '/address';
+    final Uri $url = Uri.parse('/address');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -98,7 +98,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsAddressAddress>> _addressIdGet(
       {required String? id}) {
-    final String $url = '/address/${id}';
+    final Uri $url = Uri.parse('/address/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -113,7 +113,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsAddressAddress? body,
   }) {
-    final String $url = '/address/${id}';
+    final Uri $url = Uri.parse('/address/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -127,7 +127,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _addressIdDelete({required String? id}) {
-    final String $url = '/address/${id}';
+    final Uri $url = Uri.parse('/address/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -140,7 +140,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _alternativedescriptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alternativedescription/browse';
+    final Uri $url = Uri.parse('/alternativedescription/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -158,7 +158,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _alternativedescriptionExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alternativedescription/exportexcelxlsx';
+    final Uri $url = Uri.parse('/alternativedescription/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -182,7 +182,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/alternativedescription';
+    final Uri $url = Uri.parse('/alternativedescription');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -208,7 +208,7 @@ class _$Home extends Home {
       _alternativedescriptionPost(
           {required WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription?
               body}) {
-    final String $url = '/alternativedescription';
+    final Uri $url = Uri.parse('/alternativedescription');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -227,7 +227,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription>>
       _alternativedescriptionIdGet({required String? id}) {
-    final String $url = '/alternativedescription/${id}';
+    final Uri $url = Uri.parse('/alternativedescription/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -248,7 +248,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription?
         body,
   }) {
-    final String $url = '/alternativedescription/${id}';
+    final Uri $url = Uri.parse('/alternativedescription/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -265,7 +265,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _alternativedescriptionIdDelete(
       {required String? id}) {
-    final String $url = '/alternativedescription/${id}';
+    final Uri $url = Uri.parse('/alternativedescription/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -278,7 +278,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _assetcertificationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/assetcertification/browse';
+    final Uri $url = Uri.parse('/assetcertification/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -296,7 +296,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _assetcertificationExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/assetcertification/exportexcelxlsx';
+    final Uri $url = Uri.parse('/assetcertification/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -319,7 +319,7 @@ class _$Home extends Home {
     int? pagesize,
     String? sort,
   }) {
-    final String $url = '/assetcertification';
+    final Uri $url = Uri.parse('/assetcertification');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -341,7 +341,7 @@ class _$Home extends Home {
       _assetcertificationPost(
           {required WebApiModulesInventoryAssetCertificationAssetCertification?
               body}) {
-    final String $url = '/assetcertification';
+    final Uri $url = Uri.parse('/assetcertification');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -357,7 +357,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryAssetCertificationAssetCertification>>
       _assetcertificationIdGet({required String? id}) {
-    final String $url = '/assetcertification/${id}';
+    final Uri $url = Uri.parse('/assetcertification/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -374,7 +374,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventoryAssetCertificationAssetCertification? body,
   }) {
-    final String $url = '/assetcertification/${id}';
+    final Uri $url = Uri.parse('/assetcertification/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -389,7 +389,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _assetcertificationIdDelete({required String? id}) {
-    final String $url = '/assetcertification/${id}';
+    final Uri $url = Uri.parse('/assetcertification/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -405,7 +405,7 @@ class _$Home extends Home {
       _assignbarcodesAssignbarcodesPost(
           {required WebApiModulesAgentPurchaseOrderPurchaseOrderReceiveAssignBarCodesRequest?
               body}) {
-    final String $url = '/assignbarcodes/assignbarcodes';
+    final Uri $url = Uri.parse('/assignbarcodes/assignbarcodes');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -426,7 +426,7 @@ class _$Home extends Home {
       _assignbarcodesAdditemsPost(
           {required WebApiModulesAgentPurchaseOrderPurchaseOrderReceiveBarCodeAddItemsRequest?
               body}) {
-    final String $url = '/assignbarcodes/additems';
+    final Uri $url = Uri.parse('/assignbarcodes/additems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -444,7 +444,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _assignbarcodesValidatepurchaseorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/assignbarcodes/validatepurchaseorder/browse';
+    final Uri $url = Uri.parse('/assignbarcodes/validatepurchaseorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -460,7 +460,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _assignbarcodesValidatecontractBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/assignbarcodes/validatecontract/browse';
+    final Uri $url = Uri.parse('/assignbarcodes/validatecontract/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -476,7 +476,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validatewarehouse/browse';
+    final Uri $url =
+        Uri.parse('/availabilityconflicts/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -492,7 +493,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validateinventorytype/browse';
+    final Uri $url =
+        Uri.parse('/availabilityconflicts/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -508,7 +510,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validatecategory/browse';
+    final Uri $url =
+        Uri.parse('/availabilityconflicts/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -524,7 +527,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validatesubcategory/browse';
+    final Uri $url =
+        Uri.parse('/availabilityconflicts/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -540,7 +544,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validateinventory/browse';
+    final Uri $url =
+        Uri.parse('/availabilityconflicts/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -556,7 +561,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validateorder/browse';
+    final Uri $url = Uri.parse('/availabilityconflicts/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -572,7 +577,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _availabilityconflictsValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/availabilityconflicts/validatedeal/browse';
+    final Uri $url = Uri.parse('/availabilityconflicts/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -587,7 +592,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _bankaccountBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/bankaccount/browse';
+    final Uri $url = Uri.parse('/bankaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -605,7 +610,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _bankaccountExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/bankaccount/exportexcelxlsx';
+    final Uri $url = Uri.parse('/bankaccount/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -629,7 +634,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/bankaccount';
+    final Uri $url = Uri.parse('/bankaccount');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -651,7 +656,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingBankAccountBankAccount>> _bankaccountPost(
       {required WebApiModulesBillingBankAccountBankAccount? body}) {
-    final String $url = '/bankaccount';
+    final Uri $url = Uri.parse('/bankaccount');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -666,7 +671,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingBankAccountBankAccount>>
       _bankaccountIdGet({required String? id}) {
-    final String $url = '/bankaccount/${id}';
+    final Uri $url = Uri.parse('/bankaccount/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -682,7 +687,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesBillingBankAccountBankAccount? body,
   }) {
-    final String $url = '/bankaccount/${id}';
+    final Uri $url = Uri.parse('/bankaccount/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -696,7 +701,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _bankaccountIdDelete({required String? id}) {
-    final String $url = '/bankaccount/${id}';
+    final Uri $url = Uri.parse('/bankaccount/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -709,7 +714,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingBillingPopulateBillingResponse>>
       _billingPopulatePost(
           {required WebApiModulesBillingBillingPopulateBillingRequest? body}) {
-    final String $url = '/billing/populate';
+    final Uri $url = Uri.parse('/billing/populate');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -724,7 +729,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _billingBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/browse';
+    final Uri $url = Uri.parse('/billing/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -742,7 +747,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _billingExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/exportexcelxlsx';
+    final Uri $url = Uri.parse('/billing/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -758,7 +763,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _billingLegendGet() {
-    final String $url = '/billing/legend';
+    final Uri $url = Uri.parse('/billing/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -770,7 +775,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingBillingBilling>> _billingIdGet(
       {required String? id}) {
-    final String $url = '/billing/${id}';
+    final Uri $url = Uri.parse('/billing/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -784,7 +789,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingBillingCreateInvoicesResponse>>
       _billingCreateinvoicesPost(
           {required WebApiModulesBillingBillingCreateInvoicesRequest? body}) {
-    final String $url = '/billing/createinvoices';
+    final Uri $url = Uri.parse('/billing/createinvoices');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -799,7 +804,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingBillingGetOrderBillingDatesResponse>>
       _billingGetorderbillingdatesIdPost({required String? id}) {
-    final String $url = '/billing/getorderbillingdates/${id}';
+    final Uri $url = Uri.parse('/billing/getorderbillingdates/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -813,7 +818,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingBillingCreateEstimateResponse>>
       _billingCreateestimatePost(
           {required WebApiModulesBillingBillingCreateEstimateRequest? body}) {
-    final String $url = '/billing/createestimate';
+    final Uri $url = Uri.parse('/billing/createestimate');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -829,7 +834,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingBillingCreateInvoiceResponse>>
       _billingCreateinvoicePost(
           {required WebApiModulesBillingBillingCreateInvoiceRequest? body}) {
-    final String $url = '/billing/createinvoice';
+    final Uri $url = Uri.parse('/billing/createinvoice');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -845,7 +850,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingBillingCreateInvoiceResponse>>
       _billingCreatepreviewinvoicePost(
           {required WebApiModulesBillingBillingCreateInvoiceRequest? body}) {
-    final String $url = '/billing/createpreviewinvoice';
+    final Uri $url = Uri.parse('/billing/createpreviewinvoice');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -862,7 +867,7 @@ class _$Home extends Home {
       _billingGetpreviewinvoicetotalsPost(
           {required WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequest?
               body}) {
-    final String $url = '/billing/getpreviewinvoicetotals';
+    final Uri $url = Uri.parse('/billing/getpreviewinvoicetotals');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -879,7 +884,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/billing/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -895,7 +900,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingValidatecustomerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/validatecustomer/browse';
+    final Uri $url = Uri.parse('/billing/validatecustomer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -911,7 +916,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/validatedeal/browse';
+    final Uri $url = Uri.parse('/billing/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -927,7 +932,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/validatedepartment/browse';
+    final Uri $url = Uri.parse('/billing/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -943,7 +948,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/validateuser/browse';
+    final Uri $url = Uri.parse('/billing/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -959,7 +964,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/validateorder/browse';
+    final Uri $url = Uri.parse('/billing/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -975,7 +980,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingBillingmessageBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billing/billingmessage/browse';
+    final Uri $url = Uri.parse('/billing/billingmessage/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -991,7 +996,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingmessageBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingmessage/browse';
+    final Uri $url = Uri.parse('/billingmessage/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1009,7 +1014,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _billingmessageExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingmessage/exportexcelxlsx';
+    final Uri $url = Uri.parse('/billingmessage/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1027,7 +1032,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/browse';
+    final Uri $url = Uri.parse('/billingworksheet/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1045,7 +1050,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _billingworksheetExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/exportexcelxlsx';
+    final Uri $url = Uri.parse('/billingworksheet/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1069,7 +1074,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/billingworksheet';
+    final Uri $url = Uri.parse('/billingworksheet');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1093,7 +1098,7 @@ class _$Home extends Home {
       _billingworksheetPost(
           {required WebApiModulesBillingBillingWorksheetBillingWorksheet?
               body}) {
-    final String $url = '/billingworksheet';
+    final Uri $url = Uri.parse('/billingworksheet');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1108,7 +1113,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingBillingWorksheetBillingWorksheet>>
       _billingworksheetIdGet({required String? id}) {
-    final String $url = '/billingworksheet/${id}';
+    final Uri $url = Uri.parse('/billingworksheet/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1124,7 +1129,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesBillingBillingWorksheetBillingWorksheet? body,
   }) {
-    final String $url = '/billingworksheet/${id}';
+    final Uri $url = Uri.parse('/billingworksheet/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -1138,7 +1143,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _billingworksheetIdDelete({required String? id}) {
-    final String $url = '/billingworksheet/${id}';
+    final Uri $url = Uri.parse('/billingworksheet/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -1149,7 +1154,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _billingworksheetLegendGet() {
-    final String $url = '/billingworksheet/legend';
+    final Uri $url = Uri.parse('/billingworksheet/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -1161,7 +1166,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>>
       _billingworksheetIdApprovePost({required String? id}) {
-    final String $url = '/billingworksheet/${id}/approve';
+    final Uri $url = Uri.parse('/billingworksheet/${id}/approve');
     final Request $request = Request(
       'POST',
       $url,
@@ -1174,7 +1179,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>>
       _billingworksheetIdUnapprovePost({required String? id}) {
-    final String $url = '/billingworksheet/${id}/unapprove';
+    final Uri $url = Uri.parse('/billingworksheet/${id}/unapprove');
     final Request $request = Request(
       'POST',
       $url,
@@ -1191,7 +1196,7 @@ class _$Home extends Home {
       _billingworksheetGetnextusagedatesPost(
           {required WebApiModulesBillingBillingGetNextBillingWorksheetUsageDatesRequest?
               body}) {
-    final String $url = '/billingworksheet/getnextusagedates';
+    final Uri $url = Uri.parse('/billingworksheet/getnextusagedates');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1210,7 +1215,7 @@ class _$Home extends Home {
       _billingworksheetUpdatebillingworksheetPost(
           {required WebApiModulesBillingBillingUpdateBillingWorksheetRequest?
               body}) {
-    final String $url = '/billingworksheet/updatebillingworksheet';
+    final Uri $url = Uri.parse('/billingworksheet/updatebillingworksheet');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1226,7 +1231,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _billingworksheetApplybottomlinedaysperweekPost(
       {required WebApiApplyBottomLineDaysPerWeekRequest? body}) {
-    final String $url = '/billingworksheet/applybottomlinedaysperweek';
+    final Uri $url = Uri.parse('/billingworksheet/applybottomlinedaysperweek');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1240,7 +1245,8 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _billingworksheetApplybottomlinediscountpercentPost(
       {required WebApiApplyBottomLineDiscountPercentRequest? body}) {
-    final String $url = '/billingworksheet/applybottomlinediscountpercent';
+    final Uri $url =
+        Uri.parse('/billingworksheet/applybottomlinediscountpercent');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1254,7 +1260,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _billingworksheetApplybottomlinetotalPost(
       {required WebApiApplyBottomLineTotalRequest? body}) {
-    final String $url = '/billingworksheet/applybottomlinetotal';
+    final Uri $url = Uri.parse('/billingworksheet/applybottomlinetotal');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1269,7 +1275,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validateorder/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1285,7 +1291,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validatedepartment/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1301,7 +1307,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validateagent/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1317,7 +1323,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validateprojectmanager/browse';
+    final Uri $url =
+        Uri.parse('/billingworksheet/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1333,8 +1340,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidateoutsidesalesrepresentativeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/billingworksheet/validateoutsidesalesrepresentative/browse';
+    final Uri $url = Uri.parse(
+        '/billingworksheet/validateoutsidesalesrepresentative/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1350,7 +1357,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1366,7 +1373,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1382,7 +1389,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validatecurrency/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1398,7 +1405,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingworksheetValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/billingworksheet/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/billingworksheet/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1414,7 +1421,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkedoutitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkedoutitem/browse';
+    final Uri $url = Uri.parse('/checkedoutitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1432,7 +1439,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkedoutitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkedoutitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkedoutitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1449,7 +1456,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _checkinSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/checkin/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/checkin/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -1466,7 +1473,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseContractSessionResponse>>
       _checkinStartsessionPost(
           {required WebApiModulesWarehouseContractSessionRequest? body}) {
-    final String $url = '/checkin/startsession';
+    final Uri $url = Uri.parse('/checkin/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1480,8 +1487,10 @@ class _$Home extends Home {
 
   @override
   Future<Response<WebApiModulesWarehouseContractCreateCheckInContractResponse>>
-      _checkinCompletecheckincontractIdPost({required String? id}) {
-    final String $url = '/checkin/completecheckincontract/${id}';
+      _checkinCompletecheckincontractContractidPost(
+          {required String? contractid}) {
+    final Uri $url =
+        Uri.parse('/checkin/completecheckincontract/${contractid}');
     final Request $request = Request(
       'POST',
       $url,
@@ -1496,7 +1505,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInItemsResponse>>
       _checkinCheckinitemPost(
           {required WebApiModulesWarehouseCheckInCheckInItemsRequest? body}) {
-    final String $url = '/checkin/checkinitem';
+    final Uri $url = Uri.parse('/checkin/checkinitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1512,7 +1521,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInItemsResponse>>
       _checkinCheckinquantityPost(
           {required WebApiModulesWarehouseCheckInCheckInItemsRequest? body}) {
-    final String $url = '/checkin/checkinquantity';
+    final Uri $url = Uri.parse('/checkin/checkinquantity');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1528,7 +1537,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInSelectedItemsResponse>>
       _checkinCancelitemsPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/checkin/cancelitems';
+    final Uri $url = Uri.parse('/checkin/cancelitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1544,7 +1553,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInSelectedItemsResponse>>
       _checkinSendtorepairPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/checkin/sendtorepair';
+    final Uri $url = Uri.parse('/checkin/sendtorepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1560,7 +1569,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInSelectedItemsResponse>>
       _checkinCancelrepairPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/checkin/cancelrepair';
+    final Uri $url = Uri.parse('/checkin/cancelrepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1576,7 +1585,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairRepairReleaseItemsResponse>>
       _checkinReleaserepairitemsPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/checkin/releaserepairitems';
+    final Uri $url = Uri.parse('/checkin/releaserepairitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1591,7 +1600,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _checkinCancelcontractPost(
       {required WebApiModulesWarehouseContractCancelContractRequest? body}) {
-    final String $url = '/checkin/cancelcontract';
+    final Uri $url = Uri.parse('/checkin/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1608,7 +1617,7 @@ class _$Home extends Home {
       _checkinForcesuspendsessionPost(
           {required WebApiModulesWarehouseContractForceSuspendSessionRequest?
               body}) {
-    final String $url = '/checkin/forcesuspendsession';
+    final Uri $url = Uri.parse('/checkin/forcesuspendsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1624,7 +1633,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkinValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/checkin/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1640,7 +1649,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkinValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/validatecategory/browse';
+    final Uri $url = Uri.parse('/checkin/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1656,7 +1665,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkinValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/validateinventory/browse';
+    final Uri $url = Uri.parse('/checkin/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1672,7 +1681,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInAddOrderResponse>>
       _checkinAddorderPost(
           {required WebApiModulesWarehouseCheckInCheckInAddOrder? body}) {
-    final String $url = '/checkin/addorder';
+    final Uri $url = Uri.parse('/checkin/addorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1689,7 +1698,7 @@ class _$Home extends Home {
       _checkinRemoveorderPost(
           {required WebApiModulesWarehouseCheckInCheckInRemoveOrderRequest?
               body}) {
-    final String $url = '/checkin/removeorder';
+    final Uri $url = Uri.parse('/checkin/removeorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1704,7 +1713,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInSessionSettingsResponse>>
       _checkinSessionsettingsGet({String? contractid}) {
-    final String $url = '/checkin/sessionsettings';
+    final Uri $url = Uri.parse('/checkin/sessionsettings');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -1721,7 +1730,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractExceptionsResponse>>
       _checkinGetexceptionsGet({String? contractid}) {
-    final String $url = '/checkin/getexceptions';
+    final Uri $url = Uri.parse('/checkin/getexceptions');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -1738,7 +1747,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInSwapResponse>>
       _checkinCheckinswapsGet({String? contractid}) {
-    final String $url = '/checkin/checkinswaps';
+    final Uri $url = Uri.parse('/checkin/checkinswaps');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -1756,7 +1765,23 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkinValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/validateorder/browse';
+    final Uri $url = Uri.parse('/checkin/validateorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _checkinValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/checkin/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1771,7 +1796,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _checkinItemsBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/items/browse';
+    final Uri $url = Uri.parse('/checkin/items/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1789,7 +1814,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkinItemsExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/items/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkin/items/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1805,7 +1830,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _checkinItemsLegendGet() {
-    final String $url = '/checkin/items/legend';
+    final Uri $url = Uri.parse('/checkin/items/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -1818,7 +1843,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairCreateRepairResponse>>
       _checkinItemsCreaterepairPost(
           {required WebApiModulesInventoryRepairCreateRepairRequest? body}) {
-    final String $url = '/checkin/items/createrepair';
+    final Uri $url = Uri.parse('/checkin/items/createrepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1834,7 +1859,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairCancelRepairResponse>>
       _checkinItemsCancelrepairPost(
           {required WebApiModulesInventoryRepairCancelRepairRequest? body}) {
-    final String $url = '/checkin/items/cancelrepair';
+    final Uri $url = Uri.parse('/checkin/items/cancelrepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1854,7 +1879,7 @@ class _$Home extends Home {
     String? orderitemid,
     String? warehouseid,
   }) {
-    final String $url = '/checkin/items/loadserialnumbers';
+    final Uri $url = Uri.parse('/checkin/items/loadserialnumbers');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid,
       'inventoryid': inventoryid,
@@ -1874,7 +1899,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _checkinSerialBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkin/serial/browse';
+    final Uri $url = Uri.parse('/checkin/serial/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1889,7 +1914,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _checkinorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkinorder/browse';
+    final Uri $url = Uri.parse('/checkinorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1907,7 +1932,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkinorderExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkinorder/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkinorder/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1925,7 +1950,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkinreconcileAssignbyorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkinreconcile/assignbyorder/browse';
+    final Uri $url = Uri.parse('/checkinreconcile/assignbyorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1943,7 +1968,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkinreconcileAssignbyorderExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkinreconcile/assignbyorder/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/checkinreconcile/assignbyorder/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1961,7 +1987,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkinreconcileBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkinreconcile/browse';
+    final Uri $url = Uri.parse('/checkinreconcile/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1979,7 +2005,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkinreconcileExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkinreconcile/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkinreconcile/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2003,7 +2029,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/checkinreconcile';
+    final Uri $url = Uri.parse('/checkinreconcile');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2025,7 +2051,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInReconcileCheckInReconcile>>
       _checkinreconcileIdGet({required String? id}) {
-    final String $url = '/checkinreconcile/${id}';
+    final Uri $url = Uri.parse('/checkinreconcile/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2038,7 +2064,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInCheckInOrdersResponse>>
       _checkinreconcileGetordersGet({String? contractid}) {
-    final String $url = '/checkinreconcile/getorders';
+    final Uri $url = Uri.parse('/checkinreconcile/getorders');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -2059,7 +2085,7 @@ class _$Home extends Home {
       _checkinreconcileGetassignbyorderordersPost(
           {required WebApiModulesWarehouseCheckInReconcileAssignByOrderOrdersRequest?
               body}) {
-    final String $url = '/checkinreconcile/getassignbyorderorders';
+    final Uri $url = Uri.parse('/checkinreconcile/getassignbyorderorders');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2078,7 +2104,7 @@ class _$Home extends Home {
       _checkinreconcileGetassignbyordericodesPost(
           {required WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequest?
               body}) {
-    final String $url = '/checkinreconcile/getassignbyordericodes';
+    final Uri $url = Uri.parse('/checkinreconcile/getassignbyordericodes');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2094,7 +2120,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInReconcileReconcileItemsResponse>>
       _checkinreconcileGetassignbyicodeicodesGet({String? contractid}) {
-    final String $url = '/checkinreconcile/getassignbyicodeicodes';
+    final Uri $url = Uri.parse('/checkinreconcile/getassignbyicodeicodes');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -2114,7 +2140,7 @@ class _$Home extends Home {
       _checkinreconcileGetassignbyicodeordersPost(
           {required WebApiModulesWarehouseCheckInReconcileReconcileICode?
               body}) {
-    final String $url = '/checkinreconcile/getassignbyicodeorders';
+    final Uri $url = Uri.parse('/checkinreconcile/getassignbyicodeorders');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2132,7 +2158,7 @@ class _$Home extends Home {
       _checkinreconcileReconcileitemsPost(
           {required WebApiModulesWarehouseCheckInReconcileReconcileItemsRequest?
               body}) {
-    final String $url = '/checkinreconcile/reconcileitems';
+    final Uri $url = Uri.parse('/checkinreconcile/reconcileitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2148,7 +2174,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInReconcileReconcileItemsResponse>>
       _checkinreconcileGetassignedGet({String? contractid}) {
-    final String $url = '/checkinreconcile/getassigned';
+    final Uri $url = Uri.parse('/checkinreconcile/getassigned');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -2166,7 +2192,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInReconcileReconcileItemsResponse>>
       _checkinreconcileGetpendingGet({String? contractid}) {
-    final String $url = '/checkinreconcile/getpending';
+    final Uri $url = Uri.parse('/checkinreconcile/getpending');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -2185,7 +2211,7 @@ class _$Home extends Home {
   Future<Response<dynamic>> _checkinreconcileTogglereturntoreciptPost(
       {required WebApiModulesWarehouseCheckInReconcileReconcileItemsRequest?
           body}) {
-    final String $url = '/checkinreconcile/togglereturntorecipt';
+    final Uri $url = Uri.parse('/checkinreconcile/togglereturntorecipt');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2201,7 +2227,7 @@ class _$Home extends Home {
       _checkinreconcileUnassignitemsPost(
           {required WebApiModulesWarehouseCheckInReconcileReconcileItemsRequest?
               body}) {
-    final String $url = '/checkinreconcile/unassignitems';
+    final Uri $url = Uri.parse('/checkinreconcile/unassignitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2218,7 +2244,7 @@ class _$Home extends Home {
   Future<Response<dynamic>> _checkinreconcileCreatecontractsPost(
       {required WebApiModulesWarehouseCheckInReconcileCreateContractsRequest?
           body}) {
-    final String $url = '/checkinreconcile/createcontracts';
+    final Uri $url = Uri.parse('/checkinreconcile/createcontracts');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2233,7 +2259,7 @@ class _$Home extends Home {
   Future<Response<dynamic>> _checkinreconcileSaveoneorderpercontractPost(
       {required WebApiModulesWarehouseCheckInReconcileOneOrderPerContractRequest?
           body}) {
-    final String $url = '/checkinreconcile/saveoneorderpercontract';
+    final Uri $url = Uri.parse('/checkinreconcile/saveoneorderpercontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2247,7 +2273,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _checkoutSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/checkout/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/checkout/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -2263,7 +2289,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _checkoutTransfersuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/checkout/transfersuspendedsessionsexist';
+    final Uri $url = Uri.parse('/checkout/transfersuspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -2279,7 +2305,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _checkoutContainersuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/checkout/containersuspendedsessionsexist';
+    final Uri $url = Uri.parse('/checkout/containersuspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -2298,7 +2324,7 @@ class _$Home extends Home {
     String? orderId,
     String? contractId,
   }) {
-    final String $url = '/checkout/ordermessages';
+    final Uri $url = Uri.parse('/checkout/ordermessages');
     final Map<String, dynamic> $params = <String, dynamic>{
       'orderId': orderId,
       'contractId': contractId,
@@ -2319,7 +2345,7 @@ class _$Home extends Home {
     String? orderId,
     String? warehouseId,
   }) {
-    final String $url = '/checkout/stagingtabs';
+    final Uri $url = Uri.parse('/checkout/stagingtabs');
     final Map<String, dynamic> $params = <String, dynamic>{
       'OrderId': orderId,
       'WarehouseId': warehouseId,
@@ -2338,7 +2364,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckOutStageItemResponse>>
       _checkoutStageitemPost(
           {required WebApiModulesWarehouseCheckOutStageItemRequest? body}) {
-    final String $url = '/checkout/stageitem';
+    final Uri $url = Uri.parse('/checkout/stageitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2354,7 +2380,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckOutUnstageItemResponse>>
       _checkoutUnstageitemPost(
           {required WebApiModulesWarehouseCheckOutUnstageItemRequest? body}) {
-    final String $url = '/checkout/unstageitem';
+    final Uri $url = Uri.parse('/checkout/unstageitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2371,7 +2397,7 @@ class _$Home extends Home {
       _checkoutCheckoutallstagedPost(
           {required WebApiModulesWarehouseCheckOutCheckOutAllStagedRequest?
               body}) {
-    final String $url = '/checkout/checkoutallstaged';
+    final Uri $url = Uri.parse('/checkout/checkoutallstaged');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2388,7 +2414,7 @@ class _$Home extends Home {
       _checkoutStartcheckoutcontractPost(
           {required WebApiModulesWarehouseCheckOutCreateOutContractRequest?
               body}) {
-    final String $url = '/checkout/startcheckoutcontract';
+    final Uri $url = Uri.parse('/checkout/startcheckoutcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2405,7 +2431,7 @@ class _$Home extends Home {
       _checkoutMovestageditemtooutPost(
           {required WebApiModulesWarehouseCheckOutMoveStagedItemRequest?
               body}) {
-    final String $url = '/checkout/movestageditemtoout';
+    final Uri $url = Uri.parse('/checkout/movestageditemtoout');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2422,7 +2448,7 @@ class _$Home extends Home {
       _checkoutMoveoutitemtostagedPost(
           {required WebApiModulesWarehouseCheckOutMoveStagedItemRequest?
               body}) {
-    final String $url = '/checkout/moveoutitemtostaged';
+    final Uri $url = Uri.parse('/checkout/moveoutitemtostaged');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2435,13 +2461,13 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesWarehouseContractContract>>
-      _checkoutCompletecheckoutcontractPost({
-    required String? id,
-    required WebApiModulesWarehouseCheckOutCompleteCheckOutContractRequest?
-        body,
-  }) {
-    final String $url = '/checkout/completecheckoutcontract';
+  Future<
+          Response<
+              WebApiModulesWarehouseCheckOutCompleteCheckOutContractResponse>>
+      _checkoutCompletecheckoutcontractPost(
+          {required WebApiModulesWarehouseCheckOutCompleteCheckOutContractRequest?
+              body}) {
+    final Uri $url = Uri.parse('/checkout/completecheckoutcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2449,14 +2475,16 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesWarehouseContractContract,
-        WebApiModulesWarehouseContractContract>($request);
+    return client.send<
+            WebApiModulesWarehouseCheckOutCompleteCheckOutContractResponse,
+            WebApiModulesWarehouseCheckOutCompleteCheckOutContractResponse>(
+        $request);
   }
 
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _checkoutCancelcontractPost(
       {required WebApiModulesWarehouseContractCancelContractRequest? body}) {
-    final String $url = '/checkout/cancelcontract';
+    final Uri $url = Uri.parse('/checkout/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2475,7 +2503,7 @@ class _$Home extends Home {
       _checkoutStartsubstitutesessionPost(
           {required WebApiModulesWarehouseCheckOutStagingStartSubstituteSessionRequest?
               body}) {
-    final String $url = '/checkout/startsubstitutesession';
+    final Uri $url = Uri.parse('/checkout/startsubstitutesession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2496,7 +2524,7 @@ class _$Home extends Home {
       _checkoutAddsubstituteitemtosessionPost(
           {required WebApiModulesWarehouseCheckOutStagingAddSubstituteItemToSessionRequest?
               body}) {
-    final String $url = '/checkout/addsubstituteitemtosession';
+    final Uri $url = Uri.parse('/checkout/addsubstituteitemtosession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2517,7 +2545,7 @@ class _$Home extends Home {
       _checkoutApplysubstitutesessionPost(
           {required WebApiModulesWarehouseCheckOutStagingApplySubstituteSessionRequest?
               body}) {
-    final String $url = '/checkout/applysubstitutesession';
+    final Uri $url = Uri.parse('/checkout/applysubstitutesession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2538,7 +2566,7 @@ class _$Home extends Home {
       _checkoutIsvalidstoragecontainerPost(
           {required WebApiModulesWarehouseCheckOutIsValidStorageContainerRequest?
               body}) {
-    final String $url = '/checkout/isvalidstoragecontainer';
+    final Uri $url = Uri.parse('/checkout/isvalidstoragecontainer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2559,7 +2587,7 @@ class _$Home extends Home {
       _checkoutStoragecontainerstageditemsPost(
           {required WebApiModulesWarehouseCheckOutStorageContainerStagedItemsRequest?
               body}) {
-    final String $url = '/checkout/storagecontainerstageditems';
+    final Uri $url = Uri.parse('/checkout/storagecontainerstageditems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2578,7 +2606,7 @@ class _$Home extends Home {
       _checkoutDecreaseorderquantityPost(
           {required WebApiModulesWarehouseCheckOutDecreaseOrderQuantityRequest?
               body}) {
-    final String $url = '/checkout/decreaseorderquantity';
+    final Uri $url = Uri.parse('/checkout/decreaseorderquantity');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2595,7 +2623,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/validateorder/browse';
+    final Uri $url = Uri.parse('/checkout/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2611,7 +2639,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutValidatetransferBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/validatetransfer/browse';
+    final Uri $url = Uri.parse('/checkout/validatetransfer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2627,7 +2655,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/validatecontaineritem/browse';
+    final Uri $url = Uri.parse('/checkout/validatecontaineritem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2643,7 +2671,23 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutValidatecontainerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/validatecontainer/browse';
+    final Uri $url = Uri.parse('/checkout/validatecontainer/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _checkoutValidateresponsiblepersonBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/checkout/validateresponsibleperson/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2662,7 +2706,7 @@ class _$Home extends Home {
       _checkoutOrderhasstoragecontainerPost(
           {required WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest?
               body}) {
-    final String $url = '/checkout/orderhasstoragecontainer';
+    final Uri $url = Uri.parse('/checkout/orderhasstoragecontainer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2681,7 +2725,7 @@ class _$Home extends Home {
       _checkoutGetpickuplocationsPost(
           {required WebApiModulesWarehouseCheckOutGetPickupLocationsRequest?
               body}) {
-    final String $url = '/checkout/getpickuplocations';
+    final Uri $url = Uri.parse('/checkout/getpickuplocations');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2698,7 +2742,7 @@ class _$Home extends Home {
       _checkoutUpdatepickuplocationPost(
           {required WebApiModulesWarehouseCheckOutUpdatePickupLocationRequest?
               body}) {
-    final String $url = '/checkout/updatepickuplocation';
+    final Uri $url = Uri.parse('/checkout/updatepickuplocation');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2714,7 +2758,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderUserCanInsertResponse>>
       _checkoutUsercanaddtoorderGet({String? orderid}) {
-    final String $url = '/checkout/usercanaddtoorder';
+    final Uri $url = Uri.parse('/checkout/usercanaddtoorder');
     final Map<String, dynamic> $params = <String, dynamic>{'orderid': orderid};
     final Request $request = Request(
       'GET',
@@ -2730,7 +2774,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStageconsignmentitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageconsignmentitem/browse';
+    final Uri $url = Uri.parse('/checkout/stageconsignmentitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2744,7 +2788,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _checkoutStageconsignmentitemLegendGet() {
-    final String $url = '/checkout/stageconsignmentitem/legend';
+    final Uri $url = Uri.parse('/checkout/stageconsignmentitem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -2759,7 +2803,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStageconsignmentitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageconsignmentitem/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/checkout/stageconsignmentitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2775,7 +2820,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _checkoutStageconsignmentitemEmptyobjectGet() {
-    final String $url = '/checkout/stageconsignmentitem/emptyobject';
+    final Uri $url = Uri.parse('/checkout/stageconsignmentitem/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -2788,7 +2833,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStageholdingitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageholdingitem/browse';
+    final Uri $url = Uri.parse('/checkout/stageholdingitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2806,7 +2851,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStageholdingitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageholdingitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkout/stageholdingitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2827,7 +2872,7 @@ class _$Home extends Home {
       _checkoutStageholdingitemSelectallPost(
           {required WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest?
               body}) {
-    final String $url = '/checkout/stageholdingitem/selectall';
+    final Uri $url = Uri.parse('/checkout/stageholdingitem/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2848,7 +2893,7 @@ class _$Home extends Home {
       _checkoutStageholdingitemSelectnonePost(
           {required WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest?
               body}) {
-    final String $url = '/checkout/stageholdingitem/selectnone';
+    final Uri $url = Uri.parse('/checkout/stageholdingitem/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2867,7 +2912,8 @@ class _$Home extends Home {
       _checkoutStageholdingitemConvertsubstopurchasePost(
           {required WebApiModulesWarehouseCheckOutConvertSubToPurchaseRequest?
               body}) {
-    final String $url = '/checkout/stageholdingitem/convertsubstopurchase';
+    final Uri $url =
+        Uri.parse('/checkout/stageholdingitem/convertsubstopurchase');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2882,7 +2928,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _checkoutStageholdingitemEmptyobjectGet() {
-    final String $url = '/checkout/stageholdingitem/emptyobject';
+    final Uri $url = Uri.parse('/checkout/stageholdingitem/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -2895,7 +2941,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStagequantityitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stagequantityitem/browse';
+    final Uri $url = Uri.parse('/checkout/stagequantityitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2913,7 +2959,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStagequantityitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stagequantityitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkout/stagequantityitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2934,7 +2980,7 @@ class _$Home extends Home {
       _checkoutStagequantityitemSelectallPost(
           {required WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequest?
               body}) {
-    final String $url = '/checkout/stagequantityitem/selectall';
+    final Uri $url = Uri.parse('/checkout/stagequantityitem/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2955,7 +3001,7 @@ class _$Home extends Home {
       _checkoutStagequantityitemSelectnonePost(
           {required WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemRequest?
               body}) {
-    final String $url = '/checkout/stagequantityitem/selectnone';
+    final Uri $url = Uri.parse('/checkout/stagequantityitem/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2971,7 +3017,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _checkoutStagequantityitemEmptyobjectGet() {
-    final String $url = '/checkout/stagequantityitem/emptyobject';
+    final Uri $url = Uri.parse('/checkout/stagequantityitem/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -2984,7 +3030,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStageserialitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageserialitem/browse';
+    final Uri $url = Uri.parse('/checkout/stageserialitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3002,7 +3048,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStageserialitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageserialitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkout/stageserialitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3018,7 +3064,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _checkoutStageserialitemEmptyobjectGet() {
-    final String $url = '/checkout/stageserialitem/emptyobject';
+    final Uri $url = Uri.parse('/checkout/stageserialitem/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -3031,7 +3077,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStageserialnumberBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageserialnumber/browse';
+    final Uri $url = Uri.parse('/checkout/stageserialnumber/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3049,7 +3095,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStageserialnumberExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/stageserialnumber/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkout/stageserialnumber/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3068,7 +3114,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesWarehouseCheckOutStageSerialNumber? body,
   }) {
-    final String $url = '/checkout/stageserialnumber/${id}';
+    final Uri $url = Uri.parse('/checkout/stageserialnumber/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3083,7 +3129,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckOutStageItemResponse>>
       _checkoutStageserialnumberPost(
           {required WebApiModulesWarehouseCheckOutStageItemRequest? body}) {
-    final String $url = '/checkout/stageserialnumber';
+    final Uri $url = Uri.parse('/checkout/stageserialnumber');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3099,7 +3145,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStoragecontainersBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/storagecontainers/browse';
+    final Uri $url = Uri.parse('/checkout/storagecontainers/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3117,7 +3163,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStoragecontainersExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/storagecontainers/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkout/storagecontainers/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3141,7 +3187,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/checkout/storagecontainers';
+    final Uri $url = Uri.parse('/checkout/storagecontainers');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3162,7 +3208,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _checkoutStoragecontainersEmptyobjectGet() {
-    final String $url = '/checkout/storagecontainers/emptyobject';
+    final Uri $url = Uri.parse('/checkout/storagecontainers/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -3175,7 +3221,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutStoragecontaineritemsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/storagecontaineritems/browse';
+    final Uri $url = Uri.parse('/checkout/storagecontaineritems/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3193,7 +3239,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutStoragecontaineritemsExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkout/storagecontaineritems/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/checkout/storagecontaineritems/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3217,7 +3264,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/checkout/storagecontaineritems';
+    final Uri $url = Uri.parse('/checkout/storagecontaineritems');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3238,7 +3285,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _checkoutStoragecontaineritemsEmptyobjectGet() {
-    final String $url = '/checkout/storagecontaineritems/emptyobject';
+    final Uri $url = Uri.parse('/checkout/storagecontaineritems/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -3251,7 +3298,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _checkoutpendingitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkoutpendingitem/browse';
+    final Uri $url = Uri.parse('/checkoutpendingitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3269,7 +3316,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _checkoutpendingitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/checkoutpendingitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/checkoutpendingitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3285,7 +3332,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _checkoutpendingitemLegendGet() {
-    final String $url = '/checkoutpendingitem/legend';
+    final Uri $url = Uri.parse('/checkoutpendingitem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -3297,7 +3344,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _clipboarditemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/clipboarditem/browse';
+    final Uri $url = Uri.parse('/clipboarditem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3315,7 +3362,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _clipboarditemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/clipboarditem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/clipboarditem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3336,7 +3383,7 @@ class _$Home extends Home {
     int? pagesize,
     String? sort,
   }) {
-    final String $url = '/clipboarditem';
+    final Uri $url = Uri.parse('/clipboarditem');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3356,7 +3403,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentClipboardItemClipboardItem>>
       _clipboarditemPost(
           {required WebApiModulesAgentClipboardItemClipboardItem? body}) {
-    final String $url = '/clipboarditem';
+    final Uri $url = Uri.parse('/clipboarditem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3371,7 +3418,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentClipboardItemClipboardItem>>
       _clipboarditemIdGet({required String? id}) {
-    final String $url = '/clipboarditem/${id}';
+    final Uri $url = Uri.parse('/clipboarditem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3387,7 +3434,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentClipboardItemClipboardItem? body,
   }) {
-    final String $url = '/clipboarditem/${id}';
+    final Uri $url = Uri.parse('/clipboarditem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3401,7 +3448,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _clipboarditemIdDelete({required String? id}) {
-    final String $url = '/clipboarditem/${id}';
+    final Uri $url = Uri.parse('/clipboarditem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -3413,7 +3460,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _companyBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/company/browse';
+    final Uri $url = Uri.parse('/company/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3431,7 +3478,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _companyExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/company/exportexcelxlsx';
+    final Uri $url = Uri.parse('/company/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3455,7 +3502,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/company';
+    final Uri $url = Uri.parse('/company');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3477,7 +3524,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsCompanyCompany>> _companyIdGet(
       {required String? id}) {
-    final String $url = '/company/${id}';
+    final Uri $url = Uri.parse('/company/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3491,7 +3538,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companycontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companycontact/browse';
+    final Uri $url = Uri.parse('/companycontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3505,7 +3552,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _companycontactLegendGet() {
-    final String $url = '/companycontact/legend';
+    final Uri $url = Uri.parse('/companycontact/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -3520,7 +3567,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _companycontactExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companycontact/exportexcelxlsx';
+    final Uri $url = Uri.parse('/companycontact/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3544,7 +3591,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/companycontact';
+    final Uri $url = Uri.parse('/companycontact');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3568,7 +3615,7 @@ class _$Home extends Home {
       _companycontactPost(
           {required WebApiModulesHomeControlsCompanyContactCompanyContact?
               body}) {
-    final String $url = '/companycontact';
+    final Uri $url = Uri.parse('/companycontact');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3583,7 +3630,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsCompanyContactCompanyContact>>
       _companycontactIdGet({required String? id}) {
-    final String $url = '/companycontact/${id}';
+    final Uri $url = Uri.parse('/companycontact/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3599,7 +3646,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsCompanyContactCompanyContact? body,
   }) {
-    final String $url = '/companycontact/${id}';
+    final Uri $url = Uri.parse('/companycontact/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3613,7 +3660,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _companycontactIdDelete({required String? id}) {
-    final String $url = '/companycontact/${id}';
+    final Uri $url = Uri.parse('/companycontact/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -3626,7 +3673,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companycontactValidatecontacttitleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companycontact/validatecontacttitle/browse';
+    final Uri $url = Uri.parse('/companycontact/validatecontacttitle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3642,7 +3689,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companycontactValidatecontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companycontact/validatecontact/browse';
+    final Uri $url = Uri.parse('/companycontact/validatecontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3658,7 +3705,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companycontactValidatecompanyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companycontact/validatecompany/browse';
+    final Uri $url = Uri.parse('/companycontact/validatecompany/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3674,7 +3721,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companytaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companytaxoption/browse';
+    final Uri $url = Uri.parse('/companytaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3692,7 +3739,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _companytaxoptionExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companytaxoption/exportexcelxlsx';
+    final Uri $url = Uri.parse('/companytaxoption/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3716,7 +3763,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/companytaxoption';
+    final Uri $url = Uri.parse('/companytaxoption');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3740,7 +3787,7 @@ class _$Home extends Home {
       _companytaxoptionPost(
           {required WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption?
               body}) {
-    final String $url = '/companytaxoption';
+    final Uri $url = Uri.parse('/companytaxoption');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3756,7 +3803,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption>>
       _companytaxoptionIdGet({required String? id}) {
-    final String $url = '/companytaxoption/${id}';
+    final Uri $url = Uri.parse('/companytaxoption/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3773,7 +3820,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption? body,
   }) {
-    final String $url = '/companytaxoption/${id}';
+    final Uri $url = Uri.parse('/companytaxoption/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3788,7 +3835,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _companytaxoptionIdDelete({required String? id}) {
-    final String $url = '/companytaxoption/${id}';
+    final Uri $url = Uri.parse('/companytaxoption/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -3801,7 +3848,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companytaxoptionValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companytaxoption/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/companytaxoption/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3817,7 +3864,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companytaxresaleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companytaxresale/browse';
+    final Uri $url = Uri.parse('/companytaxresale/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3835,7 +3882,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _companytaxresaleExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companytaxresale/exportexcelxlsx';
+    final Uri $url = Uri.parse('/companytaxresale/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3859,7 +3906,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/companytaxresale';
+    final Uri $url = Uri.parse('/companytaxresale');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3883,7 +3930,7 @@ class _$Home extends Home {
       _companytaxresalePost(
           {required WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale?
               body}) {
-    final String $url = '/companytaxresale';
+    final Uri $url = Uri.parse('/companytaxresale');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3899,7 +3946,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale>>
       _companytaxresaleIdGet({required String? id}) {
-    final String $url = '/companytaxresale/${id}';
+    final Uri $url = Uri.parse('/companytaxresale/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3916,7 +3963,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale? body,
   }) {
-    final String $url = '/companytaxresale/${id}';
+    final Uri $url = Uri.parse('/companytaxresale/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3931,7 +3978,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _companytaxresaleIdDelete({required String? id}) {
-    final String $url = '/companytaxresale/${id}';
+    final Uri $url = Uri.parse('/companytaxresale/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -3944,7 +3991,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _companytaxresaleValidatestateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/companytaxresale/validatestate/browse';
+    final Uri $url = Uri.parse('/companytaxresale/validatestate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3961,7 +4008,7 @@ class _$Home extends Home {
       _completeqcCompleteqcitemPost(
           {required WebApiModulesInventoryCompleteQcCompleteQcItemRequest?
               body}) {
-    final String $url = '/completeqc/completeqcitem';
+    final Uri $url = Uri.parse('/completeqc/completeqcitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3978,7 +4025,7 @@ class _$Home extends Home {
       _completeqcUpdateqcitemPost(
           {required WebApiModulesInventoryCompleteQcUpdateQcItemRequest?
               body}) {
-    final String $url = '/completeqc/updateqcitem';
+    final Uri $url = Uri.parse('/completeqc/updateqcitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3991,9 +4038,249 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesAgentContactContactDocument>>
+      _contactContactidDocumentPost({
+    required String? contactid,
+    required WebApiModulesAgentContactContactDocumentPostRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/contact/${contactid}/document');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentContactContactDocument,
+        WebApiModulesAgentContactContactDocument>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentContactContactDocument>>
+      _contactContactidDocumentDocumentidPut({
+    required String? contactid,
+    required String? documentid,
+    required WebApiModulesAgentContactContactDocumentPutRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/contact/${contactid}/document/${documentid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentContactContactDocument,
+        WebApiModulesAgentContactContactDocument>($request);
+  }
+
+  @override
+  Future<Response<bool>> _contactContactidDocumentDocumentidDelete({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse('/contact/${contactid}/document/${documentid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentContactContactDocument>>
+      _contactContactidDocumentDocumentidGet({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse('/contact/${contactid}/document/${documentid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAgentContactContactDocument,
+        WebApiModulesAgentContactContactDocument>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>>
+      _contactContactidDocumentDocumentidThumbnailsGet({
+    required String? contactid,
+    required String? documentid,
+    int? pageno,
+    int? pagesize,
+  }) {
+    final Uri $url =
+        Uri.parse('/contact/${contactid}/document/${documentid}/thumbnails');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse,
+        FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
+      _contactContactidDocumentDocumentidImageImageidGet({
+    required String? contactid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/contact/${contactid}/document/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentImageResponse,
+        FwStandardGridsAppDocumentGetDocumentImageResponse>($request);
+  }
+
+  @override
+  Future<Response<bool>> _contactContactidDocumentDocumentidImageImageidDelete({
+    required String? contactid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/contact/${contactid}/document/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _contactContactidDocumentDocumentidImagePost({
+    required String? contactid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/contact/${contactid}/document/${documentid}/image');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _contactContactidDocumentDocumentidImageformuploadPost({
+    required String? contactid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/contact/${contactid}/document/${documentid}/imageformupload');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _contactContactidDocumentDocumentidFileGet({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url =
+        Uri.parse('/contact/${contactid}/document/${documentid}/file');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>> _contactContactidDocumentDocumentidFilePut({
+    required String? contactid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/contact/${contactid}/document/${documentid}/file');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _contactContactidDocumentDocumentidFileDelete({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url =
+        Uri.parse('/contact/${contactid}/document/${documentid}/file');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _contactContactidDocumentDocumentidFileformuploadPut({
+    required String? contactid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/contact/${contactid}/document/${documentid}/fileformupload');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _contactContactidDocumentEmptyobjectGet(
+      {required String? contactid}) {
+    final Uri $url = Uri.parse('/contact/${contactid}/document/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _contactBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/browse';
+    final Uri $url = Uri.parse('/contact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4007,7 +4294,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _contactLegendGet() {
-    final String $url = '/contact/legend';
+    final Uri $url = Uri.parse('/contact/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -4022,7 +4309,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _contactExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/exportexcelxlsx';
+    final Uri $url = Uri.parse('/contact/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4046,7 +4333,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/contact';
+    final Uri $url = Uri.parse('/contact');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4068,7 +4355,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentContactContact>> _contactPost(
       {required WebApiModulesAgentContactContact? body}) {
-    final String $url = '/contact';
+    final Uri $url = Uri.parse('/contact');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4083,7 +4370,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentContactContact>> _contactIdGet(
       {required String? id}) {
-    final String $url = '/contact/${id}';
+    final Uri $url = Uri.parse('/contact/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4098,7 +4385,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentContactContact? body,
   }) {
-    final String $url = '/contact/${id}';
+    final Uri $url = Uri.parse('/contact/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -4112,7 +4399,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _contactIdDelete({required String? id}) {
-    final String $url = '/contact/${id}';
+    final Uri $url = Uri.parse('/contact/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -4125,7 +4412,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatecontacttitleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatecontacttitle/browse';
+    final Uri $url = Uri.parse('/contact/validatecontacttitle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4141,7 +4428,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatecountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatecountry/browse';
+    final Uri $url = Uri.parse('/contact/validatecountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4157,7 +4444,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatedeal/browse';
+    final Uri $url = Uri.parse('/contact/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4173,7 +4460,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatelocation/browse';
+    final Uri $url = Uri.parse('/contact/validatelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4189,7 +4476,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/contact/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4205,7 +4492,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatewebcatalogBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatewebcatalog/browse';
+    final Uri $url = Uri.parse('/contact/validatewebcatalog/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4219,7 +4506,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _contactCompanycontactLegendGet() {
-    final String $url = '/contact/companycontact/legend';
+    final Uri $url = Uri.parse('/contact/companycontact/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -4232,7 +4519,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contact/validatedepartment/browse';
+    final Uri $url = Uri.parse('/contact/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4250,7 +4537,7 @@ class _$Home extends Home {
     required String? contactid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/contact/${contactid}/document/browse';
+    final Uri $url = Uri.parse('/contact/${contactid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4270,7 +4557,8 @@ class _$Home extends Home {
     required String? contactid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/contact/${contactid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/contact/${contactid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4297,7 +4585,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/contact/${contactid}/documents';
+    final Uri $url = Uri.parse('/contact/${contactid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -4319,239 +4607,9 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesAgentContactContactDocument>>
-      _contactContactidDocumentDocumentidGet({
-    required String? contactid,
-    required String? documentid,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<WebApiModulesAgentContactContactDocument,
-        WebApiModulesAgentContactContactDocument>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAgentContactContactDocument>>
-      _contactContactidDocumentDocumentidPut({
-    required String? contactid,
-    required String? documentid,
-    required WebApiModulesAgentContactContactDocumentPutRequest? body,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}';
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<WebApiModulesAgentContactContactDocument,
-        WebApiModulesAgentContactContactDocument>($request);
-  }
-
-  @override
-  Future<Response<bool>> _contactContactidDocumentDocumentidDelete({
-    required String? contactid,
-    required String? documentid,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}';
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAgentContactContactDocument>>
-      _contactContactidDocumentPost({
-    required String? contactid,
-    required WebApiModulesAgentContactContactDocumentPostRequest? body,
-  }) {
-    final String $url = '/contact/${contactid}/document';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<WebApiModulesAgentContactContactDocument,
-        WebApiModulesAgentContactContactDocument>($request);
-  }
-
-  @override
-  Future<Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>>
-      _contactContactidDocumentDocumentidThumbnailsGet({
-    required String? contactid,
-    required String? documentid,
-    int? pageno,
-    int? pagesize,
-  }) {
-    final String $url =
-        '/contact/${contactid}/document/${documentid}/thumbnails';
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse,
-        FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>($request);
-  }
-
-  @override
-  Future<Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
-      _contactContactidDocumentDocumentidImageImageidGet({
-    required String? contactid,
-    required String? documentid,
-    required String? imageid,
-  }) {
-    final String $url =
-        '/contact/${contactid}/document/${documentid}/image/${imageid}';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<FwStandardGridsAppDocumentGetDocumentImageResponse,
-        FwStandardGridsAppDocumentGetDocumentImageResponse>($request);
-  }
-
-  @override
-  Future<Response<bool>> _contactContactidDocumentDocumentidImageImageidDelete({
-    required String? contactid,
-    required String? documentid,
-    required String? imageid,
-  }) {
-    final String $url =
-        '/contact/${contactid}/document/${documentid}/image/${imageid}';
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<bool>> _contactContactidDocumentDocumentidImagePost({
-    required String? contactid,
-    required String? documentid,
-    required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}/image';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<bool>>
-      _contactContactidDocumentDocumentidImageformuploadPost({
-    required String? contactid,
-    required String? documentid,
-  }) {
-    final String $url =
-        '/contact/${contactid}/document/${documentid}/imageformupload';
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contactContactidDocumentDocumentidFileGet({
-    required String? contactid,
-    required String? documentid,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}/file';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<bool>> _contactContactidDocumentDocumentidFilePut({
-    required String? contactid,
-    required String? documentid,
-    required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}/file';
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<bool>> _contactContactidDocumentDocumentidFileDelete({
-    required String? contactid,
-    required String? documentid,
-  }) {
-    final String $url = '/contact/${contactid}/document/${documentid}/file';
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<bool>> _contactContactidDocumentDocumentidFileformuploadPut({
-    required String? contactid,
-    required String? documentid,
-  }) {
-    final String $url =
-        '/contact/${contactid}/document/${documentid}/fileformupload';
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _contactContactidDocumentEmptyobjectGet(
-      {required String? contactid}) {
-    final String $url = '/contact/${contactid}/document/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _contactnoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contactnote/browse';
+    final Uri $url = Uri.parse('/contactnote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4569,7 +4627,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _contactnoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contactnote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/contactnote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4593,7 +4651,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/contactnote';
+    final Uri $url = Uri.parse('/contactnote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4616,7 +4674,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsContactNoteContactNote>>
       _contactnotePost(
           {required WebApiModulesHomeControlsContactNoteContactNote? body}) {
-    final String $url = '/contactnote';
+    final Uri $url = Uri.parse('/contactnote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4631,7 +4689,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsContactNoteContactNote>>
       _contactnoteIdGet({required String? id}) {
-    final String $url = '/contactnote/${id}';
+    final Uri $url = Uri.parse('/contactnote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4647,7 +4705,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsContactNoteContactNote? body,
   }) {
-    final String $url = '/contactnote/${id}';
+    final Uri $url = Uri.parse('/contactnote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -4661,7 +4719,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _contactnoteIdDelete({required String? id}) {
-    final String $url = '/contactnote/${id}';
+    final Uri $url = Uri.parse('/contactnote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -4674,7 +4732,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contactnoteValidatenotesbyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contactnote/validatenotesby/browse';
+    final Uri $url = Uri.parse('/contactnote/validatenotesby/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4689,7 +4747,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _containerBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/container/browse';
+    final Uri $url = Uri.parse('/container/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4707,7 +4765,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _containerExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/container/exportexcelxlsx';
+    final Uri $url = Uri.parse('/container/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4731,7 +4789,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/container';
+    final Uri $url = Uri.parse('/container');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4753,7 +4811,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesContainersContainerContainer>> _containerIdGet(
       {required String? id}) {
-    final String $url = '/container/${id}';
+    final Uri $url = Uri.parse('/container/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4766,7 +4824,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _containeritemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containeritem/browse';
+    final Uri $url = Uri.parse('/containeritem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4780,7 +4838,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _containeritemLegendGet() {
-    final String $url = '/containeritem/legend';
+    final Uri $url = Uri.parse('/containeritem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -4795,7 +4853,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _containeritemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containeritem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/containeritem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4812,7 +4870,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsContainerItemContainerItem>>
       _containeritemIdGet({required String? id}) {
-    final String $url = '/containeritem/${id}';
+    final Uri $url = Uri.parse('/containeritem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4828,7 +4886,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsContainerItemContainerItem? body,
   }) {
-    final String $url = '/containeritem/${id}';
+    final Uri $url = Uri.parse('/containeritem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -4845,7 +4903,7 @@ class _$Home extends Home {
       _containeritemPost(
           {required WebApiModulesHomeControlsContainerItemContainerItem?
               body}) {
-    final String $url = '/containeritem';
+    final Uri $url = Uri.parse('/containeritem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4864,7 +4922,7 @@ class _$Home extends Home {
       _containeritemInstantiatecontainerPost(
           {required WebApiModulesHomeControlsContainerItemInstantiateContainerRequest?
               body}) {
-    final String $url = '/containeritem/instantiatecontainer';
+    final Uri $url = Uri.parse('/containeritem/instantiatecontainer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4885,7 +4943,7 @@ class _$Home extends Home {
       _containeritemEmptycontainerPost(
           {required WebApiModulesHomeControlsContainerItemEmptyContainerRequest?
               body}) {
-    final String $url = '/containeritem/emptycontainer';
+    final Uri $url = Uri.parse('/containeritem/emptycontainer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4906,7 +4964,7 @@ class _$Home extends Home {
       _containeritemRemovefromcontainerPost(
           {required WebApiModulesHomeControlsContainerItemRemoveFromContainerRequest?
               body}) {
-    final String $url = '/containeritem/removefromcontainer';
+    final Uri $url = Uri.parse('/containeritem/removefromcontainer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4925,7 +4983,7 @@ class _$Home extends Home {
       _containeritemCancelfillcontainerPost(
           {required WebApiModulesWarehouseContractCancelContractRequest?
               body}) {
-    final String $url = '/containeritem/cancelfillcontainer';
+    final Uri $url = Uri.parse('/containeritem/cancelfillcontainer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4941,7 +4999,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerstatusValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerstatus/validatecontaineritem/browse';
+    final Uri $url = Uri.parse('/containerstatus/validatecontaineritem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4957,7 +5015,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerstatusValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerstatus/validatecategory/browse';
+    final Uri $url = Uri.parse('/containerstatus/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4973,7 +5031,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerstatusValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerstatus/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/containerstatus/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4989,7 +5047,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerstatusValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerstatus/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/containerstatus/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5005,7 +5063,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerstatusValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerstatus/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/containerstatus/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5021,7 +5079,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _containerwarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerwarehouse/browse';
+    final Uri $url = Uri.parse('/containerwarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5039,7 +5097,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _containerwarehouseExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/containerwarehouse/exportexcelxlsx';
+    final Uri $url = Uri.parse('/containerwarehouse/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5063,7 +5121,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/containerwarehouse';
+    final Uri $url = Uri.parse('/containerwarehouse');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -5089,7 +5147,7 @@ class _$Home extends Home {
       _containerwarehousePost(
           {required WebApiModulesHomeControlsContainerWarehouseContainerWarehouse?
               body}) {
-    final String $url = '/containerwarehouse';
+    final Uri $url = Uri.parse('/containerwarehouse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5108,7 +5166,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsContainerWarehouseContainerWarehouse>>
       _containerwarehouseIdGet({required String? id}) {
-    final String $url = '/containerwarehouse/${id}';
+    final Uri $url = Uri.parse('/containerwarehouse/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -5129,7 +5187,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsContainerWarehouseContainerWarehouse?
         body,
   }) {
-    final String $url = '/containerwarehouse/${id}';
+    final Uri $url = Uri.parse('/containerwarehouse/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -5146,7 +5204,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _contractBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contract/browse';
+    final Uri $url = Uri.parse('/contract/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5160,7 +5218,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _contractLegendGet() {
-    final String $url = '/contract/legend';
+    final Uri $url = Uri.parse('/contract/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -5175,7 +5233,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _contractExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contract/exportexcelxlsx';
+    final Uri $url = Uri.parse('/contract/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5199,7 +5257,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/contract';
+    final Uri $url = Uri.parse('/contract');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -5221,7 +5279,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractContract>> _contractPost(
       {required WebApiModulesWarehouseContractContract? body}) {
-    final String $url = '/contract';
+    final Uri $url = Uri.parse('/contract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5236,7 +5294,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractContract>> _contractIdGet(
       {required String? id}) {
-    final String $url = '/contract/${id}';
+    final Uri $url = Uri.parse('/contract/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -5251,7 +5309,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesWarehouseContractContract? body,
   }) {
-    final String $url = '/contract/${id}';
+    final Uri $url = Uri.parse('/contract/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -5265,7 +5323,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _contractIdDelete({required String? id}) {
-    final String $url = '/contract/${id}';
+    final Uri $url = Uri.parse('/contract/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -5277,7 +5335,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _contractVoidcontractPost(
       {required WebApiModulesWarehouseContractVoidContractRequest? body}) {
-    final String $url = '/contract/voidcontract';
+    final Uri $url = Uri.parse('/contract/voidcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5292,7 +5350,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _contractHasquikreceiptPost(
       {required WebApiModulesWarehouseContractHasQuikReceiptRequest? body}) {
-    final String $url = '/contract/hasquikreceipt';
+    final Uri $url = Uri.parse('/contract/hasquikreceipt');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5306,7 +5364,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractContractDetailResponse>>
       _contractContractidContractdetailsGet({required String? contractid}) {
-    final String $url = '/contract/${contractid}/contractdetails';
+    final Uri $url = Uri.parse('/contract/${contractid}/contractdetails');
     final Request $request = Request(
       'GET',
       $url,
@@ -5320,7 +5378,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractValidatedeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contract/validatedeliverycarrier/browse';
+    final Uri $url = Uri.parse('/contract/validatedeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5336,7 +5394,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractValidateshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contract/validateshipvia/browse';
+    final Uri $url = Uri.parse('/contract/validateshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5352,7 +5410,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractValidatedeliverytocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contract/validatedeliverytocountry/browse';
+    final Uri $url = Uri.parse('/contract/validatedeliverytocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5370,7 +5428,7 @@ class _$Home extends Home {
     required String? contractid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/contract/${contractid}/document/browse';
+    final Uri $url = Uri.parse('/contract/${contractid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5390,7 +5448,8 @@ class _$Home extends Home {
     required String? contractid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/contract/${contractid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5417,7 +5476,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/contract/${contractid}/documents';
+    final Uri $url = Uri.parse('/contract/${contractid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -5444,7 +5503,8 @@ class _$Home extends Home {
     required String? contractid,
     required String? documentid,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -5461,7 +5521,8 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesWarehouseContractContractDocumentPutRequest? body,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -5478,7 +5539,8 @@ class _$Home extends Home {
     required String? contractid,
     required String? documentid,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -5493,7 +5555,7 @@ class _$Home extends Home {
     required String? contractid,
     required WebApiModulesWarehouseContractContractDocumentPostRequest? body,
   }) {
-    final String $url = '/contract/${contractid}/document';
+    final Uri $url = Uri.parse('/contract/${contractid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5513,8 +5575,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/contract/${contractid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -5536,8 +5598,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/contract/${contractid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/contract/${contractid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -5554,8 +5616,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/contract/${contractid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/contract/${contractid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -5570,7 +5632,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5586,13 +5649,16 @@ class _$Home extends Home {
       _contractContractidDocumentDocumentidImageformuploadPost({
     required String? contractid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/contract/${contractid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/contract/${contractid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -5602,7 +5668,8 @@ class _$Home extends Home {
     required String? contractid,
     required String? documentid,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -5617,7 +5684,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -5633,7 +5701,8 @@ class _$Home extends Home {
     required String? contractid,
     required String? documentid,
   }) {
-    final String $url = '/contract/${contractid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/contract/${contractid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -5647,13 +5716,16 @@ class _$Home extends Home {
       _contractContractidDocumentDocumentidFileformuploadPut({
     required String? contractid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/contract/${contractid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/contract/${contractid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -5661,7 +5733,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _contractContractidDocumentEmptyobjectGet(
       {required String? contractid}) {
-    final String $url = '/contract/${contractid}/document/emptyobject';
+    final Uri $url = Uri.parse('/contract/${contractid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -5674,7 +5746,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractitemdetailBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contractitemdetail/browse';
+    final Uri $url = Uri.parse('/contractitemdetail/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5687,8 +5759,38 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContractItemDetailContractItemDetailLogic>>
+      _contractitemdetailContractidGet({
+    required String? contractid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/contractitemdetail/${contractid}');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContractItemDetailContractItemDetailLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContractItemDetailContractItemDetailLogic>(
+        $request);
+  }
+
+  @override
   Future<Response<Object>> _contractitemdetailLegendGet() {
-    final String $url = '/contractitemdetail/legend';
+    final Uri $url = Uri.parse('/contractitemdetail/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -5703,7 +5805,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _contractitemdetailExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contractitemdetail/exportexcelxlsx';
+    final Uri $url = Uri.parse('/contractitemdetail/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5722,7 +5824,7 @@ class _$Home extends Home {
       _contractitemdetailVoiditemsPost(
           {required WebApiModulesHomeControlsContractItemDetailVoidItemsRequest?
               body}) {
-    final String $url = '/contractitemdetail/voiditems';
+    final Uri $url = Uri.parse('/contractitemdetail/voiditems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5739,7 +5841,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _contractitemsummaryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contractitemsummary/browse';
+    final Uri $url = Uri.parse('/contractitemsummary/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5757,7 +5859,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _contractitemsummaryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/contractitemsummary/exportexcelxlsx';
+    final Uri $url = Uri.parse('/contractitemsummary/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5777,7 +5879,7 @@ class _$Home extends Home {
     required String? customerid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/customer/${customerid}/document/browse';
+    final Uri $url = Uri.parse('/customer/${customerid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5797,7 +5899,8 @@ class _$Home extends Home {
     required String? customerid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/customer/${customerid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5824,7 +5927,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/customer/${customerid}/documents';
+    final Uri $url = Uri.parse('/customer/${customerid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -5851,7 +5954,8 @@ class _$Home extends Home {
     required String? customerid,
     required String? documentid,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -5868,7 +5972,8 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesAgentCustomerCustomerDocumentPutRequest? body,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -5885,7 +5990,8 @@ class _$Home extends Home {
     required String? customerid,
     required String? documentid,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -5900,7 +6006,7 @@ class _$Home extends Home {
     required String? customerid,
     required WebApiModulesAgentCustomerCustomerDocumentPostRequest? body,
   }) {
-    final String $url = '/customer/${customerid}/document';
+    final Uri $url = Uri.parse('/customer/${customerid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5920,8 +6026,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/customer/${customerid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -5943,8 +6049,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/customer/${customerid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/customer/${customerid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -5961,8 +6067,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/customer/${customerid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/customer/${customerid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -5977,7 +6083,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5993,13 +6100,16 @@ class _$Home extends Home {
       _customerCustomeridDocumentDocumentidImageformuploadPost({
     required String? customerid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/customer/${customerid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/customer/${customerid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -6009,7 +6119,8 @@ class _$Home extends Home {
     required String? customerid,
     required String? documentid,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -6024,7 +6135,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6040,7 +6152,8 @@ class _$Home extends Home {
     required String? customerid,
     required String? documentid,
   }) {
-    final String $url = '/customer/${customerid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/customer/${customerid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -6054,13 +6167,16 @@ class _$Home extends Home {
       _customerCustomeridDocumentDocumentidFileformuploadPut({
     required String? customerid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/customer/${customerid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/customer/${customerid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -6068,7 +6184,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _customerCustomeridDocumentEmptyobjectGet(
       {required String? customerid}) {
-    final String $url = '/customer/${customerid}/document/emptyobject';
+    final Uri $url = Uri.parse('/customer/${customerid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -6080,7 +6196,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _customerBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/browse';
+    final Uri $url = Uri.parse('/customer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6098,7 +6214,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customerExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customer/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6122,7 +6238,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customer';
+    final Uri $url = Uri.parse('/customer');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -6144,7 +6260,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentCustomerCustomer>> _customerPost(
       {required WebApiModulesAgentCustomerCustomer? body}) {
-    final String $url = '/customer';
+    final Uri $url = Uri.parse('/customer');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6159,7 +6275,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentCustomerCustomer>> _customerIdGet(
       {required String? id}) {
-    final String $url = '/customer/${id}';
+    final Uri $url = Uri.parse('/customer/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -6174,7 +6290,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentCustomerCustomer? body,
   }) {
-    final String $url = '/customer/${id}';
+    final Uri $url = Uri.parse('/customer/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6188,7 +6304,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _customerIdDelete({required String? id}) {
-    final String $url = '/customer/${id}';
+    final Uri $url = Uri.parse('/customer/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -6208,7 +6324,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/customer/lookup/officelocations';
+    final Uri $url = Uri.parse('/customer/lookup/officelocations');
     final Map<String, dynamic> $params = <String, dynamic>{
       'LocationId': locationId,
       'Location': location,
@@ -6232,7 +6348,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatelocation/browse';
+    final Uri $url = Uri.parse('/customer/validatelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6248,7 +6364,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatedepartment/browse';
+    final Uri $url = Uri.parse('/customer/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6264,7 +6380,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatecustomertypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatecustomertype/browse';
+    final Uri $url = Uri.parse('/customer/validatecustomertype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6280,7 +6396,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatecustomercategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatecustomercategory/browse';
+    final Uri $url = Uri.parse('/customer/validatecustomercategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6296,7 +6412,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatecountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatecountry/browse';
+    final Uri $url = Uri.parse('/customer/validatecountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6312,7 +6428,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatecustomerstatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatecustomerstatus/browse';
+    final Uri $url = Uri.parse('/customer/validatecustomerstatus/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6328,7 +6444,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidateparentcustomerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validateparentcustomer/browse';
+    final Uri $url = Uri.parse('/customer/validateparentcustomer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6344,7 +6460,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/customer/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6360,7 +6476,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatecreditstatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatecreditstatus/browse';
+    final Uri $url = Uri.parse('/customer/validatecreditstatus/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6376,7 +6492,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidateinsurancecompanyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validateinsurancecompany/browse';
+    final Uri $url = Uri.parse('/customer/validateinsurancecompany/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6392,7 +6508,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customerValidatetaxstateofincorporationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customer/validatetaxstateofincorporation/browse';
+    final Uri $url =
+        Uri.parse('/customer/validatetaxstateofincorporation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6408,7 +6525,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customercreditBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customercredit/browse';
+    final Uri $url = Uri.parse('/customercredit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6426,7 +6543,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customercreditExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customercredit/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customercredit/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6443,7 +6560,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _customernoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customernote/browse';
+    final Uri $url = Uri.parse('/customernote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6461,7 +6578,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customernoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customernote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customernote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6485,7 +6602,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customernote';
+    final Uri $url = Uri.parse('/customernote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -6508,7 +6625,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsCustomerNoteCustomerNote>>
       _customernotePost(
           {required WebApiModulesHomeControlsCustomerNoteCustomerNote? body}) {
-    final String $url = '/customernote';
+    final Uri $url = Uri.parse('/customernote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6523,7 +6640,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsCustomerNoteCustomerNote>>
       _customernoteIdGet({required String? id}) {
-    final String $url = '/customernote/${id}';
+    final Uri $url = Uri.parse('/customernote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -6539,7 +6656,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsCustomerNoteCustomerNote? body,
   }) {
-    final String $url = '/customernote/${id}';
+    final Uri $url = Uri.parse('/customernote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6553,7 +6670,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _customernoteIdDelete({required String? id}) {
-    final String $url = '/customernote/${id}';
+    final Uri $url = Uri.parse('/customernote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -6566,7 +6683,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customernoteValidatenotesbyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customernote/validatenotesby/browse';
+    final Uri $url = Uri.parse('/customernote/validatenotesby/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6584,7 +6701,7 @@ class _$Home extends Home {
     required String? dealid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/deal/${dealid}/document/browse';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6604,7 +6721,7 @@ class _$Home extends Home {
     required String? dealid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/deal/${dealid}/document/exportexcelxlsx';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6631,7 +6748,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/deal/${dealid}/documents';
+    final Uri $url = Uri.parse('/deal/${dealid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -6658,7 +6775,7 @@ class _$Home extends Home {
     required String? dealid,
     required String? documentid,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -6675,7 +6792,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesAgentDealDealDocumentPutRequest? body,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6692,7 +6809,7 @@ class _$Home extends Home {
     required String? dealid,
     required String? documentid,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -6706,7 +6823,7 @@ class _$Home extends Home {
     required String? dealid,
     required WebApiModulesAgentDealDealDocumentPostRequest? body,
   }) {
-    final String $url = '/deal/${dealid}/document';
+    final Uri $url = Uri.parse('/deal/${dealid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6726,7 +6843,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/deal/${dealid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -6748,8 +6866,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/deal/${dealid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/deal/${dealid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -6765,8 +6883,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/deal/${dealid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/deal/${dealid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -6781,7 +6899,7 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}/image';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6796,13 +6914,16 @@ class _$Home extends Home {
   Future<Response<bool>> _dealDealidDocumentDocumentidImageformuploadPost({
     required String? dealid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/deal/${dealid}/document/${documentid}/imageformupload';
+    final Uri $url =
+        Uri.parse('/deal/${dealid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -6812,7 +6933,7 @@ class _$Home extends Home {
     required String? dealid,
     required String? documentid,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -6827,7 +6948,7 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6843,7 +6964,7 @@ class _$Home extends Home {
     required String? dealid,
     required String? documentid,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -6856,12 +6977,16 @@ class _$Home extends Home {
   Future<Response<bool>> _dealDealidDocumentDocumentidFileformuploadPut({
     required String? dealid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url = '/deal/${dealid}/document/${documentid}/fileformupload';
+    final Uri $url =
+        Uri.parse('/deal/${dealid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -6869,7 +6994,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _dealDealidDocumentEmptyobjectGet(
       {required String? dealid}) {
-    final String $url = '/deal/${dealid}/document/emptyobject';
+    final Uri $url = Uri.parse('/deal/${dealid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -6881,7 +7006,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _dealBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/browse';
+    final Uri $url = Uri.parse('/deal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6898,7 +7023,7 @@ class _$Home extends Home {
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _dealExportexcelxlsxPost({required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/exportexcelxlsx';
+    final Uri $url = Uri.parse('/deal/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6922,7 +7047,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/deal';
+    final Uri $url = Uri.parse('/deal');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -6944,7 +7069,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentDealDeal>> _dealPost(
       {required WebApiModulesAgentDealDeal? body}) {
-    final String $url = '/deal';
+    final Uri $url = Uri.parse('/deal');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6959,7 +7084,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentDealDeal>> _dealIdGet(
       {required String? id}) {
-    final String $url = '/deal/${id}';
+    final Uri $url = Uri.parse('/deal/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -6974,7 +7099,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentDealDeal? body,
   }) {
-    final String $url = '/deal/${id}';
+    final Uri $url = Uri.parse('/deal/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6988,7 +7113,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _dealIdDelete({required String? id}) {
-    final String $url = '/deal/${id}';
+    final Uri $url = Uri.parse('/deal/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -7003,7 +7128,7 @@ class _$Home extends Home {
               List<
                   MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentDealDealLogic>>>
       _dealManyPost({required List<WebApiModulesAgentDealDeal>? body}) {
-    final String $url = '/deal/many';
+    final Uri $url = Uri.parse('/deal/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7021,7 +7146,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatecustomerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatecustomer/browse';
+    final Uri $url = Uri.parse('/deal/validatecustomer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7037,7 +7162,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/deal/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7053,7 +7178,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatedepartment/browse';
+    final Uri $url = Uri.parse('/deal/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7069,7 +7194,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatedealtypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatedealtype/browse';
+    final Uri $url = Uri.parse('/deal/validatedealtype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7085,7 +7210,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatedealclassificationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatedealclassification/browse';
+    final Uri $url = Uri.parse('/deal/validatedealclassification/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7101,7 +7226,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateproductiontypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateproductiontype/browse';
+    final Uri $url = Uri.parse('/deal/validateproductiontype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7117,7 +7242,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatecsrBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatecsr/browse';
+    final Uri $url = Uri.parse('/deal/validatecsr/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7133,7 +7258,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateagent/browse';
+    final Uri $url = Uri.parse('/deal/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7149,7 +7274,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateprojectmanager/browse';
+    final Uri $url = Uri.parse('/deal/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7165,7 +7290,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatecountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatecountry/browse';
+    final Uri $url = Uri.parse('/deal/validatecountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7181,7 +7306,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatedealstatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatedealstatus/browse';
+    final Uri $url = Uri.parse('/deal/validatedealstatus/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7197,7 +7322,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatebillingcycleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatebillingcycle/browse';
+    final Uri $url = Uri.parse('/deal/validatebillingcycle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7213,7 +7338,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/deal/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7229,7 +7354,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/deal/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7245,7 +7370,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateorderrateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateorderrate/browse';
+    final Uri $url = Uri.parse('/deal/validateorderrate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7261,7 +7386,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatesalesrepresentativeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatesalesrepresentative/browse';
+    final Uri $url = Uri.parse('/deal/validatesalesrepresentative/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7277,7 +7402,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidatecreditstatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validatecreditstatus/browse';
+    final Uri $url = Uri.parse('/deal/validatecreditstatus/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7293,7 +7418,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateinsurancecompanyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateinsurancecompany/browse';
+    final Uri $url = Uri.parse('/deal/validateinsurancecompany/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7309,7 +7434,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealValidateshipcountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/deal/validateshipcountry/browse';
+    final Uri $url = Uri.parse('/deal/validateshipcountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7324,7 +7449,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentDealCopyContactsFromCustomerResponse>>
       _dealIdCopycontactsfromcustomerPost({required String? id}) {
-    final String $url = '/deal/${id}/copycontactsfromcustomer';
+    final Uri $url = Uri.parse('/deal/${id}/copycontactsfromcustomer');
     final Request $request = Request(
       'POST',
       $url,
@@ -7339,7 +7464,7 @@ class _$Home extends Home {
       _dealCreatebillschedulePost(
           {required WebApiModulesAgentDealCreateEpisodeBillScheduleRequest?
               body}) {
-    final String $url = '/deal/createbillschedule';
+    final Uri $url = Uri.parse('/deal/createbillschedule');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7355,7 +7480,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentDealNewBillEpisodeResponse>>
       _dealNewbillepisodePost(
           {required WebApiModulesAgentDealNewBillEpisodeRequest? body}) {
-    final String $url = '/deal/newbillepisode';
+    final Uri $url = Uri.parse('/deal/newbillepisode');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7371,7 +7496,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentDealNewHiatusPeriodResponse>>
       _dealNewhiatusperiodPost(
           {required WebApiModulesAgentDealNewHiatusPeriodRequest? body}) {
-    final String $url = '/deal/newhiatusperiod';
+    final Uri $url = Uri.parse('/deal/newhiatusperiod');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7385,7 +7510,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _dealEpisodicscheduleLegendGet() {
-    final String $url = '/deal/episodicschedule/legend';
+    final Uri $url = Uri.parse('/deal/episodicschedule/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -7397,7 +7522,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _dealcreditBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealcredit/browse';
+    final Uri $url = Uri.parse('/dealcredit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7415,7 +7540,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _dealcreditExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealcredit/exportexcelxlsx';
+    final Uri $url = Uri.parse('/dealcredit/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7432,7 +7557,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _dealnoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealnote/browse';
+    final Uri $url = Uri.parse('/dealnote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7450,7 +7575,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _dealnoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealnote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/dealnote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7474,7 +7599,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/dealnote';
+    final Uri $url = Uri.parse('/dealnote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -7496,7 +7621,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDealNoteDealNote>> _dealnotePost(
       {required WebApiModulesHomeControlsDealNoteDealNote? body}) {
-    final String $url = '/dealnote';
+    final Uri $url = Uri.parse('/dealnote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7511,7 +7636,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDealNoteDealNote>> _dealnoteIdGet(
       {required String? id}) {
-    final String $url = '/dealnote/${id}';
+    final Uri $url = Uri.parse('/dealnote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -7526,7 +7651,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsDealNoteDealNote? body,
   }) {
-    final String $url = '/dealnote/${id}';
+    final Uri $url = Uri.parse('/dealnote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -7540,7 +7665,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _dealnoteIdDelete({required String? id}) {
-    final String $url = '/dealnote/${id}';
+    final Uri $url = Uri.parse('/dealnote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -7553,7 +7678,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealnoteValidatenotesbyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealnote/validatenotesby/browse';
+    final Uri $url = Uri.parse('/dealnote/validatenotesby/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7568,7 +7693,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _dealshipperBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealshipper/browse';
+    final Uri $url = Uri.parse('/dealshipper/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7586,7 +7711,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _dealshipperExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealshipper/exportexcelxlsx';
+    final Uri $url = Uri.parse('/dealshipper/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7610,7 +7735,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/dealshipper';
+    final Uri $url = Uri.parse('/dealshipper');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -7633,7 +7758,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsDealShipperDealShipper>>
       _dealshipperPost(
           {required WebApiModulesHomeControlsDealShipperDealShipper? body}) {
-    final String $url = '/dealshipper';
+    final Uri $url = Uri.parse('/dealshipper');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7648,7 +7773,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDealShipperDealShipper>>
       _dealshipperIdGet({required String? id}) {
-    final String $url = '/dealshipper/${id}';
+    final Uri $url = Uri.parse('/dealshipper/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -7664,7 +7789,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsDealShipperDealShipper? body,
   }) {
-    final String $url = '/dealshipper/${id}';
+    final Uri $url = Uri.parse('/dealshipper/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -7678,7 +7803,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _dealshipperIdDelete({required String? id}) {
-    final String $url = '/dealshipper/${id}';
+    final Uri $url = Uri.parse('/dealshipper/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -7691,7 +7816,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealshipperValidatecarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealshipper/validatecarrier/browse';
+    final Uri $url = Uri.parse('/dealshipper/validatecarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7707,7 +7832,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _dealshipperValidateshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/dealshipper/validateshipvia/browse';
+    final Uri $url = Uri.parse('/dealshipper/validateshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7722,7 +7847,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _deliveryBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/delivery/browse';
+    final Uri $url = Uri.parse('/delivery/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7740,7 +7865,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _deliveryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/delivery/exportexcelxlsx';
+    final Uri $url = Uri.parse('/delivery/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7764,7 +7889,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/delivery';
+    final Uri $url = Uri.parse('/delivery');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -7786,7 +7911,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDeliveryDelivery>> _deliveryPost(
       {required WebApiModulesHomeControlsDeliveryDelivery? body}) {
-    final String $url = '/delivery';
+    final Uri $url = Uri.parse('/delivery');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7801,7 +7926,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDeliveryDelivery>> _deliveryIdGet(
       {required String? id}) {
-    final String $url = '/delivery/${id}';
+    final Uri $url = Uri.parse('/delivery/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -7816,7 +7941,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsDeliveryDelivery? body,
   }) {
-    final String $url = '/delivery/${id}';
+    final Uri $url = Uri.parse('/delivery/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -7830,7 +7955,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _deliveryIdDelete({required String? id}) {
-    final String $url = '/delivery/${id}';
+    final Uri $url = Uri.parse('/delivery/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -7843,7 +7968,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _depositpaymentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/depositpayment/browse';
+    final Uri $url = Uri.parse('/depositpayment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7861,7 +7986,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _depositpaymentExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/depositpayment/exportexcelxlsx';
+    final Uri $url = Uri.parse('/depositpayment/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7885,7 +8010,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/depositpayment';
+    final Uri $url = Uri.parse('/depositpayment');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -7907,7 +8032,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDepositPaymentDepositPayment>>
       _depositpaymentIdGet({required String? id}) {
-    final String $url = '/depositpayment/${id}';
+    final Uri $url = Uri.parse('/depositpayment/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -7919,7 +8044,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _depreciationLegendGet() {
-    final String $url = '/depreciation/legend';
+    final Uri $url = Uri.parse('/depreciation/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -7931,7 +8056,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _depreciationBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/depreciation/browse';
+    final Uri $url = Uri.parse('/depreciation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7949,7 +8074,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _depreciationExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/depreciation/exportexcelxlsx';
+    final Uri $url = Uri.parse('/depreciation/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -7973,7 +8098,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/depreciation';
+    final Uri $url = Uri.parse('/depreciation');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -7996,7 +8121,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsDepreciationDepreciation>>
       _depreciationPost(
           {required WebApiModulesHomeControlsDepreciationDepreciation? body}) {
-    final String $url = '/depreciation';
+    final Uri $url = Uri.parse('/depreciation');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8011,7 +8136,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsDepreciationDepreciation>>
       _depreciationIdGet({required String? id}) {
-    final String $url = '/depreciation/${id}';
+    final Uri $url = Uri.parse('/depreciation/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -8027,7 +8152,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsDepreciationDepreciation? body,
   }) {
-    final String $url = '/depreciation/${id}';
+    final Uri $url = Uri.parse('/depreciation/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -8043,7 +8168,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _emptycontainerValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/emptycontainer/validatecontaineritem/browse';
+    final Uri $url = Uri.parse('/emptycontainer/validatecontaineritem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8058,7 +8183,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _exchangeSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/exchange/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/exchange/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -8075,7 +8200,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseExchangeExchangeItemInResponse>>
       _exchangeExchangeiteminPost(
           {required WebApiModulesWarehouseExchangeExchangeItemRequest? body}) {
-    final String $url = '/exchange/exchangeitemin';
+    final Uri $url = Uri.parse('/exchange/exchangeitemin');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8091,7 +8216,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseExchangeExchangeItemOutResponse>>
       _exchangeExchangeitemoutPost(
           {required WebApiModulesWarehouseExchangeExchangeItemRequest? body}) {
-    final String $url = '/exchange/exchangeitemout';
+    final Uri $url = Uri.parse('/exchange/exchangeitemout');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8108,7 +8233,7 @@ class _$Home extends Home {
       _exchangeStartexchangecontractPost(
           {required WebApiModulesWarehouseExchangeExchangeContractRequest?
               body}) {
-    final String $url = '/exchange/startexchangecontract';
+    final Uri $url = Uri.parse('/exchange/startexchangecontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8123,7 +8248,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractContract>>
       _exchangeCompleteexchangecontractIdPost({required String? id}) {
-    final String $url = '/exchange/completeexchangecontract/${id}';
+    final Uri $url = Uri.parse('/exchange/completeexchangecontract/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -8136,7 +8261,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _exchangeCancelcontractPost(
       {required WebApiModulesWarehouseContractCancelContractRequest? body}) {
-    final String $url = '/exchange/cancelcontract';
+    final Uri $url = Uri.parse('/exchange/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8152,7 +8277,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _exchangeValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/exchange/validatedeal/browse';
+    final Uri $url = Uri.parse('/exchange/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8168,7 +8293,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _exchangeValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/exchange/validateorder/browse';
+    final Uri $url = Uri.parse('/exchange/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8183,7 +8308,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _exchangeitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/exchangeitem/browse';
+    final Uri $url = Uri.parse('/exchangeitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8201,7 +8326,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _exchangeitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/exchangeitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/exchangeitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8217,7 +8342,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _exchangeitemLegendGet() {
-    final String $url = '/exchangeitem/legend';
+    final Uri $url = Uri.parse('/exchangeitem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -8229,7 +8354,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _generalitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/generalitem/browse';
+    final Uri $url = Uri.parse('/generalitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8247,7 +8372,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _generalitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/generalitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/generalitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8265,7 +8390,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicSortItemsResponse>> _generalitemSortPost(
       {required WebApiModulesHomeControlsGeneralItemSortGeneralItemRequest?
           body}) {
-    final String $url = '/generalitem/sort';
+    final Uri $url = Uri.parse('/generalitem/sort');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8281,7 +8406,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _gldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/gldistribution/browse';
+    final Uri $url = Uri.parse('/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8299,7 +8424,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _gldistributionExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/gldistribution/exportexcelxlsx';
+    final Uri $url = Uri.parse('/gldistribution/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8323,7 +8448,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/gldistribution';
+    final Uri $url = Uri.parse('/gldistribution');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -8347,7 +8472,7 @@ class _$Home extends Home {
       _gldistributionRefreshPost(
           {required WebApiModulesUtilitiesGLDistributionRefreshGLHistoryRequest?
               body}) {
-    final String $url = '/gldistribution/refresh';
+    final Uri $url = Uri.parse('/gldistribution/refresh');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8363,7 +8488,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _glmanualBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/glmanual/browse';
+    final Uri $url = Uri.parse('/glmanual/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8381,7 +8506,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _glmanualExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/glmanual/exportexcelxlsx';
+    final Uri $url = Uri.parse('/glmanual/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8405,7 +8530,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/glmanual';
+    final Uri $url = Uri.parse('/glmanual');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -8427,7 +8552,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsGlManualGlManual>> _glmanualPost(
       {required WebApiModulesHomeControlsGlManualGlManual? body}) {
-    final String $url = '/glmanual';
+    final Uri $url = Uri.parse('/glmanual');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8442,7 +8567,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsGlManualGlManual>> _glmanualIdGet(
       {required String? id}) {
-    final String $url = '/glmanual/${id}';
+    final Uri $url = Uri.parse('/glmanual/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -8457,7 +8582,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsGlManualGlManual? body,
   }) {
-    final String $url = '/glmanual/${id}';
+    final Uri $url = Uri.parse('/glmanual/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -8471,7 +8596,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _glmanualIdDelete({required String? id}) {
-    final String $url = '/glmanual/${id}';
+    final Uri $url = Uri.parse('/glmanual/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -8484,7 +8609,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _glmanualDebitglaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/glmanual/debitglaccount/browse';
+    final Uri $url = Uri.parse('/glmanual/debitglaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8500,7 +8625,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _glmanualCreditglaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/glmanual/creditglaccount/browse';
+    final Uri $url = Uri.parse('/glmanual/creditglaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8516,7 +8641,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryattributevalueBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryattributevalue/browse';
+    final Uri $url = Uri.parse('/inventoryattributevalue/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8534,7 +8659,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventoryattributevalueExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryattributevalue/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventoryattributevalue/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8558,7 +8683,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventoryattributevalue';
+    final Uri $url = Uri.parse('/inventoryattributevalue');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -8584,7 +8709,7 @@ class _$Home extends Home {
       _inventoryattributevaluePost(
           {required WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue?
               body}) {
-    final String $url = '/inventoryattributevalue';
+    final Uri $url = Uri.parse('/inventoryattributevalue');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8603,7 +8728,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue>>
       _inventoryattributevalueIdGet({required String? id}) {
-    final String $url = '/inventoryattributevalue/${id}';
+    final Uri $url = Uri.parse('/inventoryattributevalue/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -8624,7 +8749,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue?
         body,
   }) {
-    final String $url = '/inventoryattributevalue/${id}';
+    final Uri $url = Uri.parse('/inventoryattributevalue/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -8641,7 +8766,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _inventoryattributevalueIdDelete(
       {required String? id}) {
-    final String $url = '/inventoryattributevalue/${id}';
+    final Uri $url = Uri.parse('/inventoryattributevalue/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -8654,7 +8779,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryattributevalueValidateattributeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryattributevalue/validateattribute/browse';
+    final Uri $url =
+        Uri.parse('/inventoryattributevalue/validateattribute/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8670,8 +8796,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryattributevalueValidateattributevalueBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventoryattributevalue/validateattributevalue/browse';
+    final Uri $url =
+        Uri.parse('/inventoryattributevalue/validateattributevalue/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8690,7 +8816,8 @@ class _$Home extends Home {
       _inventoryavailabilityGetinventoryavailabilityPost(
           {required WebApiServicesAvailabilityServiceAvailabilityInventoryWarehouseRequest?
               body}) {
-    final String $url = '/inventoryavailability/getinventoryavailability';
+    final Uri $url =
+        Uri.parse('/inventoryavailability/getinventoryavailability');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8709,7 +8836,8 @@ class _$Home extends Home {
       _inventoryavailabilityGetinventoryminimumavailablePost(
           {required WebApiServicesAvailabilityServiceAvailabilityInventoryWarehouseRequest?
               body}) {
-    final String $url = '/inventoryavailability/getinventoryminimumavailable';
+    final Uri $url =
+        Uri.parse('/inventoryavailability/getinventoryminimumavailable');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8728,8 +8856,8 @@ class _$Home extends Home {
       _inventoryavailabilityGetmultiinventoryminimumavailablePost(
           {required WebApiServicesAvailabilityServiceMultiAvailabilityInventoryWarehouseRequest?
               body}) {
-    final String $url =
-        '/inventoryavailability/getmultiinventoryminimumavailable';
+    final Uri $url =
+        Uri.parse('/inventoryavailability/getmultiinventoryminimumavailable');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8750,7 +8878,8 @@ class _$Home extends Home {
       _inventoryavailabilityCalendarandscheduledataPost(
           {required WebApiServicesAvailabilityServiceAvailabilityCalendarAndScheduleRequest?
               body}) {
-    final String $url = '/inventoryavailability/calendarandscheduledata';
+    final Uri $url =
+        Uri.parse('/inventoryavailability/calendarandscheduledata');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8772,7 +8901,7 @@ class _$Home extends Home {
       _inventoryavailabilityConflictsPost(
           {required WebApiServicesAvailabilityServiceAvailabilityConflictRequest?
               body}) {
-    final String $url = '/inventoryavailability/conflicts';
+    final Uri $url = Uri.parse('/inventoryavailability/conflicts');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8789,7 +8918,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiServicesAvailabilityServicePruneCacheResponse>>
       _inventoryavailabilityPrunecachePost() {
-    final String $url = '/inventoryavailability/prunecache';
+    final Uri $url = Uri.parse('/inventoryavailability/prunecache');
     final Request $request = Request(
       'POST',
       $url,
@@ -8803,7 +8932,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycertificationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycertification/browse';
+    final Uri $url = Uri.parse('/inventorycertification/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8821,7 +8950,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorycertificationExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycertification/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorycertification/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8845,7 +8974,7 @@ class _$Home extends Home {
     int? pagesize,
     String? sort,
   }) {
-    final String $url = '/inventorycertification';
+    final Uri $url = Uri.parse('/inventorycertification');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -8871,7 +9000,7 @@ class _$Home extends Home {
       _inventorycertificationPost(
           {required WebApiModulesInventoryInventoryCertificationInventoryCertification?
               body}) {
-    final String $url = '/inventorycertification';
+    final Uri $url = Uri.parse('/inventorycertification');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8890,7 +9019,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesInventoryInventoryCertificationInventoryCertification>>
       _inventorycertificationIdGet({required String? id}) {
-    final String $url = '/inventorycertification/${id}';
+    final Uri $url = Uri.parse('/inventorycertification/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -8911,7 +9040,7 @@ class _$Home extends Home {
     required WebApiModulesInventoryInventoryCertificationInventoryCertification?
         body,
   }) {
-    final String $url = '/inventorycertification/${id}';
+    final Uri $url = Uri.parse('/inventorycertification/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -8928,7 +9057,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _inventorycertificationIdDelete(
       {required String? id}) {
-    final String $url = '/inventorycertification/${id}';
+    final Uri $url = Uri.parse('/inventorycertification/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -8941,7 +9070,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycolorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycolor/browse';
+    final Uri $url = Uri.parse('/inventorycolor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8959,7 +9088,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorycolorExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycolor/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorycolor/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -8983,7 +9112,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorycolor';
+    final Uri $url = Uri.parse('/inventorycolor');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9007,7 +9136,7 @@ class _$Home extends Home {
       _inventorycolorPost(
           {required WebApiModulesHomeControlsInventoryColorInventoryColor?
               body}) {
-    final String $url = '/inventorycolor';
+    final Uri $url = Uri.parse('/inventorycolor');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9022,7 +9151,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsInventoryColorInventoryColor>>
       _inventorycolorIdGet({required String? id}) {
-    final String $url = '/inventorycolor/${id}';
+    final Uri $url = Uri.parse('/inventorycolor/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9038,7 +9167,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInventoryColorInventoryColor? body,
   }) {
-    final String $url = '/inventorycolor/${id}';
+    final Uri $url = Uri.parse('/inventorycolor/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -9052,7 +9181,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorycolorIdDelete({required String? id}) {
-    final String $url = '/inventorycolor/${id}';
+    final Uri $url = Uri.parse('/inventorycolor/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -9065,7 +9194,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycompatibleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycompatible/browse';
+    final Uri $url = Uri.parse('/inventorycompatible/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9083,7 +9212,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorycompatibleExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycompatible/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorycompatible/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9107,7 +9236,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorycompatible';
+    final Uri $url = Uri.parse('/inventorycompatible');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9133,7 +9262,7 @@ class _$Home extends Home {
       _inventorycompatiblePost(
           {required WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible?
               body}) {
-    final String $url = '/inventorycompatible';
+    final Uri $url = Uri.parse('/inventorycompatible');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9152,7 +9281,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible>>
       _inventorycompatibleIdGet({required String? id}) {
-    final String $url = '/inventorycompatible/${id}';
+    final Uri $url = Uri.parse('/inventorycompatible/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9173,7 +9302,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible?
         body,
   }) {
-    final String $url = '/inventorycompatible/${id}';
+    final Uri $url = Uri.parse('/inventorycompatible/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -9189,7 +9318,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorycompatibleIdDelete({required String? id}) {
-    final String $url = '/inventorycompatible/${id}';
+    final Uri $url = Uri.parse('/inventorycompatible/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -9202,8 +9331,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycompatibleValidatecompatiblewithinventoryrentalBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorycompatible/validatecompatiblewithinventoryrental/browse';
+    final Uri $url = Uri.parse(
+        '/inventorycompatible/validatecompatiblewithinventoryrental/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9219,8 +9348,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycompatibleValidatecompatiblewithinventorysalesBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorycompatible/validatecompatiblewithinventorysales/browse';
+    final Uri $url = Uri.parse(
+        '/inventorycompatible/validatecompatiblewithinventorysales/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9236,7 +9365,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycompletekitBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycompletekit/browse';
+    final Uri $url = Uri.parse('/inventorycompletekit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9254,7 +9383,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorycompletekitExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycompletekit/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorycompletekit/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9270,7 +9399,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _inventorycompletekitLegendGet() {
-    final String $url = '/inventorycompletekit/legend';
+    final Uri $url = Uri.parse('/inventorycompletekit/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -9289,7 +9418,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorycompletekit';
+    final Uri $url = Uri.parse('/inventorycompletekit');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9313,7 +9442,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKit>>
       _inventorycompletekitIdGet({required String? id}) {
-    final String $url = '/inventorycompletekit/${id}';
+    final Uri $url = Uri.parse('/inventorycompletekit/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9326,27 +9455,28 @@ class _$Home extends Home {
   }
 
   @override
-  Future<
-          Response<
-              WebApiModulesHomeControlsInventoryCompleteKitCreateCompleteResponse>>
-      _inventorycompletekitCreatecompleteIdPost({required String? id}) {
-    final String $url = '/inventorycompletekit/createcomplete/${id}';
+  Future<Response<FwStandardModelsFwApiException>>
+      _inventorycompletekitCreatecompleteIdPost({
+    required int? statusCode,
+    required String? message,
+    required String? stackTrace,
+    required String? id,
+  }) {
+    final Uri $url = Uri.parse('/inventorycompletekit/createcomplete/${id}');
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
     );
-    return client.send<
-            WebApiModulesHomeControlsInventoryCompleteKitCreateCompleteResponse,
-            WebApiModulesHomeControlsInventoryCompleteKitCreateCompleteResponse>(
-        $request);
+    return client.send<FwStandardModelsFwApiException,
+        FwStandardModelsFwApiException>($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryconsignorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryconsignor/browse';
+    final Uri $url = Uri.parse('/inventoryconsignor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9360,7 +9490,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _inventoryconsignorLegendGet() {
-    final String $url = '/inventoryconsignor/legend';
+    final Uri $url = Uri.parse('/inventoryconsignor/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -9375,7 +9505,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventoryconsignorExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryconsignor/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventoryconsignor/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9399,7 +9529,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventoryconsignor';
+    final Uri $url = Uri.parse('/inventoryconsignor');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9423,7 +9553,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryConsignorInventoryConsignor>>
       _inventoryconsignorIdGet({required String? id}) {
-    final String $url = '/inventoryconsignor/${id}';
+    final Uri $url = Uri.parse('/inventoryconsignor/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9439,7 +9569,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorycontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycontaineritem/browse';
+    final Uri $url = Uri.parse('/inventorycontaineritem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9457,7 +9587,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorycontaineritemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorycontaineritem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorycontaineritem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9481,7 +9611,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorycontaineritem';
+    final Uri $url = Uri.parse('/inventorycontaineritem');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9507,7 +9637,7 @@ class _$Home extends Home {
       _inventorycontaineritemPost(
           {required WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem?
               body}) {
-    final String $url = '/inventorycontaineritem';
+    final Uri $url = Uri.parse('/inventorycontaineritem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9526,7 +9656,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem>>
       _inventorycontaineritemIdGet({required String? id}) {
-    final String $url = '/inventorycontaineritem/${id}';
+    final Uri $url = Uri.parse('/inventorycontaineritem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9547,7 +9677,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem?
         body,
   }) {
-    final String $url = '/inventorycontaineritem/${id}';
+    final Uri $url = Uri.parse('/inventorycontaineritem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -9564,7 +9694,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _inventorycontaineritemIdDelete(
       {required String? id}) {
-    final String $url = '/inventorycontaineritem/${id}';
+    final Uri $url = Uri.parse('/inventorycontaineritem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -9579,7 +9709,7 @@ class _$Home extends Home {
           WebApiLogicSortItemsResponse>> _inventorycontaineritemSortPost(
       {required WebApiModulesHomeControlsInventoryContainerItemSortContainerItemsRequest?
           body}) {
-    final String $url = '/inventorycontaineritem/sort';
+    final Uri $url = Uri.parse('/inventorycontaineritem/sort');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9595,7 +9725,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationtaxBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorylocationtax/browse';
+    final Uri $url = Uri.parse('/inventorylocationtax/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9613,7 +9743,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorylocationtaxExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorylocationtax/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorylocationtax/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9637,7 +9767,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorylocationtax';
+    final Uri $url = Uri.parse('/inventorylocationtax');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9663,7 +9793,7 @@ class _$Home extends Home {
       _inventorylocationtaxPost(
           {required WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax?
               body}) {
-    final String $url = '/inventorylocationtax';
+    final Uri $url = Uri.parse('/inventorylocationtax');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9682,7 +9812,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax>>
       _inventorylocationtaxIdGet({required String? id}) {
-    final String $url = '/inventorylocationtax/${id}';
+    final Uri $url = Uri.parse('/inventorylocationtax/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9703,7 +9833,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax?
         body,
   }) {
-    final String $url = '/inventorylocationtax/${id}';
+    final Uri $url = Uri.parse('/inventorylocationtax/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -9719,7 +9849,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorylocationtaxIdDelete({required String? id}) {
-    final String $url = '/inventorylocationtax/${id}';
+    final Uri $url = Uri.parse('/inventorylocationtax/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -9732,7 +9862,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorylocationutility/validatewarehouse/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9748,8 +9879,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorylocationutility/validateinventorytype/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9765,7 +9896,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorylocationutility/validatecategory/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9781,7 +9913,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorylocationutility/validatesubcategory/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9797,8 +9930,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidaterentalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorylocationutility/validaterentalinventory/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validaterentalinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9814,8 +9947,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidatesalesinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorylocationutility/validatesalesinventory/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validatesalesinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9831,8 +9964,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidatepartsinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorylocationutility/validatepartsinventory/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validatepartsinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9848,7 +9981,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorylocationutilityValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorylocationutility/validateinventory/browse';
+    final Uri $url =
+        Uri.parse('/inventorylocationutility/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9864,7 +9998,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorymaterialBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorymaterial/browse';
+    final Uri $url = Uri.parse('/inventorymaterial/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9882,7 +10016,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorymaterialExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorymaterial/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorymaterial/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9906,7 +10040,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorymaterial';
+    final Uri $url = Uri.parse('/inventorymaterial');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -9930,7 +10064,7 @@ class _$Home extends Home {
       _inventorymaterialPost(
           {required WebApiModulesHomeControlsInventoryMaterialInventoryMaterial?
               body}) {
-    final String $url = '/inventorymaterial';
+    final Uri $url = Uri.parse('/inventorymaterial');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -9946,7 +10080,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsInventoryMaterialInventoryMaterial>>
       _inventorymaterialIdGet({required String? id}) {
-    final String $url = '/inventorymaterial/${id}';
+    final Uri $url = Uri.parse('/inventorymaterial/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -9963,7 +10097,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInventoryMaterialInventoryMaterial? body,
   }) {
-    final String $url = '/inventorymaterial/${id}';
+    final Uri $url = Uri.parse('/inventorymaterial/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -9978,7 +10112,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorymaterialIdDelete({required String? id}) {
-    final String $url = '/inventorymaterial/${id}';
+    final Uri $url = Uri.parse('/inventorymaterial/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -9991,7 +10125,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorypackageinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorypackageinventory/browse';
+    final Uri $url = Uri.parse('/inventorypackageinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10009,7 +10143,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorypackageinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorypackageinventory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorypackageinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10025,7 +10159,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _inventorypackageinventoryLegendGet() {
-    final String $url = '/inventorypackageinventory/legend';
+    final Uri $url = Uri.parse('/inventorypackageinventory/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -10038,13 +10172,49 @@ class _$Home extends Home {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic>>
-      _inventorypackageinventoryGet({
+      _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidGet({
+    required String? packageid,
+    required String? warehouseid,
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorypackageinventory';
+    final Uri $url = Uri.parse(
+        '/inventorypackageinventory/packageid/${packageid}/warehouseid/${warehouseid}');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic>>
+      _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidCurrencyidCurrencyidGet({
+    required String? packageid,
+    required String? warehouseid,
+    required String? currencyid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse(
+        '/inventorypackageinventory/packageid/${packageid}/warehouseid/${warehouseid}/currencyid/${currencyid}');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -10067,16 +10237,17 @@ class _$Home extends Home {
   Future<
           Response<
               WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory>>
-      _inventorypackageinventoryPost(
-          {required WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory?
-              body}) {
-    final String $url = '/inventorypackageinventory';
-    final $body = body;
+      _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidInventorypackageinventoryidInventorypackageinventoryidGet({
+    required String? packageid,
+    required String? warehouseid,
+    required String? inventorypackageinventoryid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/inventorypackageinventory/packageid/${packageid}/warehouseid/${warehouseid}/inventorypackageinventoryid/${inventorypackageinventoryid}');
     final Request $request = Request(
-      'POST',
+      'GET',
       $url,
       client.baseUrl,
-      body: $body,
     );
     return client.send<
             WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
@@ -10088,12 +10259,39 @@ class _$Home extends Home {
   Future<
           Response<
               WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory>>
-      _inventorypackageinventoryIdGet({required String? id}) {
-    final String $url = '/inventorypackageinventory/${id}';
+      _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidCurrencyidCurrencyidInventorypackageinventoryidInventorypackageinventoryidGet({
+    required String? packageid,
+    required String? warehouseid,
+    required String? currencyid,
+    required String? inventorypackageinventoryid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/inventorypackageinventory/packageid/${packageid}/warehouseid/${warehouseid}/currencyid/${currencyid}/inventorypackageinventoryid/${inventorypackageinventoryid}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
+            WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory>>
+      _inventorypackageinventoryPost(
+          {required WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory?
+              body}) {
+    final Uri $url = Uri.parse('/inventorypackageinventory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
     );
     return client.send<
             WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
@@ -10110,7 +10308,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory?
         body,
   }) {
-    final String $url = '/inventorypackageinventory/${id}';
+    final Uri $url = Uri.parse('/inventorypackageinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -10127,7 +10325,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _inventorypackageinventoryIdDelete(
       {required String? id}) {
-    final String $url = '/inventorypackageinventory/${id}';
+    final Uri $url = Uri.parse('/inventorypackageinventory/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -10142,7 +10340,7 @@ class _$Home extends Home {
           WebApiLogicSortItemsResponse>> _inventorypackageinventorySortPost(
       {required WebApiModulesHomeControlsInventoryPackageInventorySortInventoryPackageInventorysRequest?
           body}) {
-    final String $url = '/inventorypackageinventory/sort';
+    final Uri $url = Uri.parse('/inventorypackageinventory/sort');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10157,7 +10355,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _inventoryprepBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryprep/browse';
+    final Uri $url = Uri.parse('/inventoryprep/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10175,7 +10373,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventoryprepExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryprep/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventoryprep/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10199,7 +10397,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventoryprep';
+    final Uri $url = Uri.parse('/inventoryprep');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -10223,7 +10421,7 @@ class _$Home extends Home {
       _inventoryprepPost(
           {required WebApiModulesHomeControlsInventoryPrepInventoryPrep?
               body}) {
-    final String $url = '/inventoryprep';
+    final Uri $url = Uri.parse('/inventoryprep');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10238,7 +10436,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsInventoryPrepInventoryPrep>>
       _inventoryprepIdGet({required String? id}) {
-    final String $url = '/inventoryprep/${id}';
+    final Uri $url = Uri.parse('/inventoryprep/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -10254,7 +10452,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInventoryPrepInventoryPrep? body,
   }) {
-    final String $url = '/inventoryprep/${id}';
+    final Uri $url = Uri.parse('/inventoryprep/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -10268,7 +10466,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventoryprepIdDelete({required String? id}) {
-    final String $url = '/inventoryprep/${id}';
+    final Uri $url = Uri.parse('/inventoryprep/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -10281,7 +10479,23 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryprepValidatepreprateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryprep/validatepreprate/browse';
+    final Uri $url = Uri.parse('/inventoryprep/validatepreprate/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptCreditsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10295,11 +10509,1274 @@ class _$Home extends Home {
 
   @override
   Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptCreditsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptCreditsLogic>>
+      _inventoryreceiptCreditsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptCreditsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptCreditsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptCredits>>
+      _inventoryreceiptCreditsPost(
+          {required WebApiModulesInventoryInventoryReceiptCredits? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptCredits,
+        WebApiModulesInventoryInventoryReceiptCredits>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptCredits>>
+      _inventoryreceiptCreditsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptCredits,
+        WebApiModulesInventoryInventoryReceiptCredits>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptCredits>>
+      _inventoryreceiptCreditsIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptCredits? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptCredits,
+        WebApiModulesInventoryInventoryReceiptCredits>($request);
+  }
+
+  @override
+  Future<Response<bool>> _inventoryreceiptCreditsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/credits/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptCreditsValidateicodemiscBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/credits/validateicodemisc/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptInventoryReceipt>>
+      _inventoryreceiptIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptInventoryReceipt,
+        WebApiModulesInventoryInventoryReceiptInventoryReceipt>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptInventoryReceipt>>
+      _inventoryreceiptIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptInventoryReceipt? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptInventoryReceipt,
+        WebApiModulesInventoryInventoryReceiptInventoryReceipt>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic>>
+      _inventoryreceiptGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptInventoryReceipt>>
+      _inventoryreceiptPost(
+          {required WebApiModulesInventoryInventoryReceiptInventoryReceipt?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptInventoryReceipt,
+        WebApiModulesInventoryInventoryReceiptInventoryReceipt>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic>>>
+      _inventoryreceiptManyPost(
+          {required List<
+                  WebApiModulesInventoryInventoryReceiptInventoryReceipt>?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/validatevendor/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/validatedeal/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptValidatebuyerBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/validatebuyer/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptValidatetaxoptionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/validatetaxoption/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptGetReceiptTotalsResponse>>
+      _inventoryreceiptGetreceipttotalsGet({String? inventoryreceiptid}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/getreceipttotals');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'inventoryreceiptid': inventoryreceiptid
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptGetReceiptTotalsResponse,
+            WebApiModulesInventoryInventoryReceiptGetReceiptTotalsResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptReceiptAdjustmentResponse>>
+      _inventoryreceiptReceiptadjustmentPost(
+          {required WebApiModulesInventoryInventoryReceiptReceiptAdjustmentRequest?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/receiptadjustment');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptReceiptAdjustmentResponse,
+            WebApiModulesInventoryInventoryReceiptReceiptAdjustmentResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptSyncItemsResponse>>
+      _inventoryreceiptSyncitemsPost({String? inventoryreceiptid}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/syncitems');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'inventoryreceiptid': inventoryreceiptid
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptSyncItemsResponse,
+        WebApiModulesInventoryInventoryReceiptSyncItemsResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptCompleteReceiptResponse>>
+      _inventoryreceiptCompletereceiptPost({String? inventoryreceiptid}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/completereceipt');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'inventoryreceiptid': inventoryreceiptid
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptCompleteReceiptResponse,
+            WebApiModulesInventoryInventoryReceiptCompleteReceiptResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptIsUserPropsWardrobeResponse>>
+      _inventoryreceiptIsuserpropswardrobeGet() {
+    final Uri $url = Uri.parse('/inventoryreceipt/isuserpropswardrobe');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptIsUserPropsWardrobeResponse,
+            WebApiModulesInventoryInventoryReceiptIsUserPropsWardrobeResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptUnassignItemsResponse>>
+      _inventoryreceiptUnassignitemsPost(
+          {required WebApiModulesInventoryInventoryReceiptUnassignItemsRequest?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/unassignitems');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptUnassignItemsResponse,
+        WebApiModulesInventoryInventoryReceiptUnassignItemsResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptItemsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic>>
+      _inventoryreceiptItemsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>>
+      _inventoryreceiptItemsPost(
+          {required WebApiModulesInventoryInventoryReceiptInventoryReceiptItem?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptInventoryReceiptItem,
+        WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>>
+      _inventoryreceiptItemsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptInventoryReceiptItem,
+        WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>>
+      _inventoryreceiptItemsIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptInventoryReceiptItem? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptInventoryReceiptItem,
+        WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>($request);
+  }
+
+  @override
+  Future<Response<bool>> _inventoryreceiptItemsIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic>>>
+      _inventoryreceiptItemsManyPost(
+          {required List<
+                  WebApiModulesInventoryInventoryReceiptInventoryReceiptItem>?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemsValidateicoderentalBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/items/validateicoderental/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemDetailsResponse>>
+      _inventoryreceiptItemsItemdetailsGet({
+    String? inventoryreceiptid,
+    String? itemid,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/itemdetails');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'inventoryreceiptid': inventoryreceiptid,
+      'itemid': itemid,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptItemDetailsResponse,
+        WebApiModulesInventoryInventoryReceiptItemDetailsResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptAssignICodeResponse>>
+      _inventoryreceiptItemsAssignitemPost(
+          {required WebApiModulesInventoryInventoryReceiptAssignICodeRequest?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/assignitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptAssignICodeResponse,
+        WebApiModulesInventoryInventoryReceiptAssignICodeResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptAssignBarcodeResponse>>
+      _inventoryreceiptItemsAssignbarcodesPost(
+          {required WebApiModulesInventoryInventoryReceiptAssignBarcodeRequest?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/items/assignbarcodes');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryInventoryReceiptAssignBarcodeResponse,
+        WebApiModulesInventoryInventoryReceiptAssignBarcodeResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptAddBarcodesToInventoryResponse>>
+      _inventoryreceiptItemsAddbarcodestoinventoryPost(
+          {required WebApiModulesInventoryInventoryReceiptAddBarcodesToInventoryRequest?
+              body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/items/addbarcodestoinventory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptAddBarcodesToInventoryResponse,
+            WebApiModulesInventoryInventoryReceiptAddBarcodesToInventoryResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemsValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/items/validateinventorytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemsValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/items/validatecategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemsValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/items/validatesubcategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemsValidateconditionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/items/validatecondition/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemattributesBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemattributes/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptItemattributesExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/itemattributes/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemAttributeLogic>>
+      _inventoryreceiptItemattributesGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemattributes');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemAttributeLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemAttributeLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemAttribute>>
+      _inventoryreceiptItemattributesPost(
+          {required WebApiModulesInventoryInventoryReceiptItemAttribute?
+              body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemattributes');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemAttribute,
+        WebApiModulesInventoryInventoryReceiptItemAttribute>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemAttribute>>
+      _inventoryreceiptItemattributesIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemattributes/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemAttribute,
+        WebApiModulesInventoryInventoryReceiptItemAttribute>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemAttribute>>
+      _inventoryreceiptItemattributesIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptItemAttribute? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemattributes/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemAttribute,
+        WebApiModulesInventoryInventoryReceiptItemAttribute>($request);
+  }
+
+  @override
+  Future<Response<bool>> _inventoryreceiptItemattributesIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemattributes/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemattributesValidateattributeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/itemattributes/validateattribute/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemattributesValidateattributevalueBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/inventoryreceipt/itemattributes/validateattributevalue/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItembarcodesBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itembarcodes/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptItembarcodesExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/itembarcodes/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemBarcodesLogic>>
+      _inventoryreceiptItembarcodesGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itembarcodes');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemBarcodesLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemBarcodesLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemBarcodes>>
+      _inventoryreceiptItembarcodesIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itembarcodes/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemBarcodes,
+        WebApiModulesInventoryInventoryReceiptItemBarcodes>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemBarcodes>>
+      _inventoryreceiptItembarcodesIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptItemBarcodes? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itembarcodes/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemBarcodes,
+        WebApiModulesInventoryInventoryReceiptItemBarcodes>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemcolorsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptItemcolorsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemColorLogic>>
+      _inventoryreceiptItemcolorsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemColorLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemColorLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemColor>>
+      _inventoryreceiptItemcolorsPost(
+          {required WebApiModulesInventoryInventoryReceiptItemColor? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemColor,
+        WebApiModulesInventoryInventoryReceiptItemColor>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemColor>>
+      _inventoryreceiptItemcolorsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemColor,
+        WebApiModulesInventoryInventoryReceiptItemColor>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemColor>>
+      _inventoryreceiptItemcolorsIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptItemColor? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemColor,
+        WebApiModulesInventoryInventoryReceiptItemColor>($request);
+  }
+
+  @override
+  Future<Response<bool>> _inventoryreceiptItemcolorsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemcolors/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inventoryreceiptItemmaterialsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemmaterials/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventoryreceiptItemmaterialsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inventoryreceipt/itemmaterials/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemMaterialLogic>>
+      _inventoryreceiptItemmaterialsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemmaterials');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemMaterialLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemMaterialLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemMaterial>>
+      _inventoryreceiptItemmaterialsPost(
+          {required WebApiModulesInventoryInventoryReceiptItemMaterial? body}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemmaterials');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemMaterial,
+        WebApiModulesInventoryInventoryReceiptItemMaterial>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemMaterial>>
+      _inventoryreceiptItemmaterialsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemmaterials/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemMaterial,
+        WebApiModulesInventoryInventoryReceiptItemMaterial>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryInventoryReceiptItemMaterial>>
+      _inventoryreceiptItemmaterialsIdPut({
+    required String? id,
+    required WebApiModulesInventoryInventoryReceiptItemMaterial? body,
+  }) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemmaterials/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryInventoryReceiptItemMaterial,
+        WebApiModulesInventoryInventoryReceiptItemMaterial>($request);
+  }
+
+  @override
+  Future<Response<bool>> _inventoryreceiptItemmaterialsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/inventoryreceipt/itemmaterials/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
       Response<
           FwStandardSqlServerFwJsonDataTable>> _inventorysearchSearchPost(
       {required WebApiModulesHomeControlsInventorySearchInventorySearchRequest?
           body}) {
-    final String $url = '/inventorysearch/search';
+    final Uri $url = Uri.parse('/inventorysearch/search');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10317,7 +11794,7 @@ class _$Home extends Home {
           FwStandardSqlServerFwJsonDataTable>> _inventorysearchAccessoriesPost(
       {required WebApiModulesHomeControlsInventorySearchInventorySearchAccessoriesRequest?
           body}) {
-    final String $url = '/inventorysearch/accessories';
+    final Uri $url = Uri.parse('/inventorysearch/accessories');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10334,7 +11811,7 @@ class _$Home extends Home {
       _inventorysearchPost(
           {required WebApiModulesHomeControlsInventorySearchInventorySearch?
               body}) {
-    final String $url = '/inventorysearch';
+    final Uri $url = Uri.parse('/inventorysearch');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10351,7 +11828,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventorySearchInventorySearchGetTotalResponse>>
       _inventorysearchGettotalSessionidGet({required String? sessionId}) {
-    final String $url = '/inventorysearch/gettotal/{sessionid}';
+    final Uri $url = Uri.parse('/inventorysearch/gettotal/{sessionid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -10367,7 +11844,7 @@ class _$Home extends Home {
   Future<Response<bool>> _inventorysearchAddtoorderPost(
       {required WebApiModulesHomeControlsInventorySearchInventorySearchAddToOrderRequest?
           body}) {
-    final String $url = '/inventorysearch/addtoorder';
+    final Uri $url = Uri.parse('/inventorysearch/addtoorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10382,7 +11859,7 @@ class _$Home extends Home {
   Future<Response<bool>> _inventorysearchAddtopackagePost(
       {required WebApiModulesHomeControlsInventorySearchInventorySearchAddToCompleteKitContainerRequest?
           body}) {
-    final String $url = '/inventorysearch/addtopackage';
+    final Uri $url = Uri.parse('/inventorysearch/addtopackage');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10397,7 +11874,7 @@ class _$Home extends Home {
   Future<Response<bool>> _inventorysearchSavenotePost(
       {required WebApiModulesHomeControlsInventorySearchInventorySearchSaveNoteRequest?
           body}) {
-    final String $url = '/inventorysearch/savenote';
+    final Uri $url = Uri.parse('/inventorysearch/savenote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10409,10 +11886,31 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inventorysearchExportexcelxlsxPost(
+          {required WebApiModulesHomeControlsInventorySearchInventorySearchRequest?
+              body}) {
+    final Uri $url = Uri.parse('/inventorysearch/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysearchpreviewBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysearchpreview/browse';
+    final Uri $url = Uri.parse('/inventorysearchpreview/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10431,7 +11929,7 @@ class _$Home extends Home {
       _inventorysearchpreviewPost(
           {required WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview?
               body}) {
-    final String $url = '/inventorysearchpreview';
+    final Uri $url = Uri.parse('/inventorysearchpreview');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10454,7 +11952,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview?
         body,
   }) {
-    final String $url = '/inventorysearchpreview/${id}';
+    final Uri $url = Uri.parse('/inventorysearchpreview/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -10471,7 +11969,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _inventorysearchpreviewIdDelete(
       {required String? id}) {
-    final String $url = '/inventorysearchpreview/${id}';
+    final Uri $url = Uri.parse('/inventorysearchpreview/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -10484,7 +11982,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysubstituteBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysubstitute/browse';
+    final Uri $url = Uri.parse('/inventorysubstitute/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10502,7 +12000,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorysubstituteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysubstitute/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorysubstitute/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10526,7 +12024,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorysubstitute';
+    final Uri $url = Uri.parse('/inventorysubstitute');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -10552,7 +12050,7 @@ class _$Home extends Home {
       _inventorysubstitutePost(
           {required WebApiModulesHomeControlsInventorySubstituteInventorySubstitute?
               body}) {
-    final String $url = '/inventorysubstitute';
+    final Uri $url = Uri.parse('/inventorysubstitute');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10571,7 +12069,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventorySubstituteInventorySubstitute>>
       _inventorysubstituteIdGet({required String? id}) {
-    final String $url = '/inventorysubstitute/${id}';
+    final Uri $url = Uri.parse('/inventorysubstitute/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -10592,7 +12090,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventorySubstituteInventorySubstitute?
         body,
   }) {
-    final String $url = '/inventorysubstitute/${id}';
+    final Uri $url = Uri.parse('/inventorysubstitute/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -10608,7 +12106,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorysubstituteIdDelete({required String? id}) {
-    final String $url = '/inventorysubstitute/${id}';
+    final Uri $url = Uri.parse('/inventorysubstitute/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -10621,8 +12119,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysubstituteValidatesubstituteinventoryrentalBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorysubstitute/validatesubstituteinventoryrental/browse';
+    final Uri $url = Uri.parse(
+        '/inventorysubstitute/validatesubstituteinventoryrental/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10638,8 +12136,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysubstituteValidatesubstituteinventorysalesBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorysubstitute/validatesubstituteinventorysales/browse';
+    final Uri $url = Uri.parse(
+        '/inventorysubstitute/validatesubstituteinventorysales/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10655,8 +12153,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysubstituteValidatesubstituteinventorypartsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/inventorysubstitute/validatesubstituteinventoryparts/browse';
+    final Uri $url = Uri.parse(
+        '/inventorysubstitute/validatesubstituteinventoryparts/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10672,7 +12170,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysummaryoutBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysummaryout/browse';
+    final Uri $url = Uri.parse('/inventorysummaryout/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10690,7 +12188,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorysummaryoutExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysummaryout/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorysummaryout/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10706,7 +12204,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _inventorysummaryoutLegendGet() {
-    final String $url = '/inventorysummaryout/legend';
+    final Uri $url = Uri.parse('/inventorysummaryout/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -10719,7 +12217,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysummaryphysicalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysummaryphysicalinventory/browse';
+    final Uri $url = Uri.parse('/inventorysummaryphysicalinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10737,7 +12235,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorysummaryphysicalinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysummaryphysicalinventory/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/inventorysummaryphysicalinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10755,7 +12254,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysummaryretiredhistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysummaryretiredhistory/browse';
+    final Uri $url = Uri.parse('/inventorysummaryretiredhistory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10773,7 +12272,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorysummaryretiredhistoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorysummaryretiredhistory/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/inventorysummaryretiredhistory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10791,7 +12291,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryvendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryvendor/browse';
+    final Uri $url = Uri.parse('/inventoryvendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10809,7 +12309,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventoryvendorExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryvendor/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventoryvendor/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10833,7 +12333,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventoryvendor';
+    final Uri $url = Uri.parse('/inventoryvendor');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -10857,7 +12357,7 @@ class _$Home extends Home {
       _inventoryvendorPost(
           {required WebApiModulesHomeControlsInventoryVendorInventoryVendor?
               body}) {
-    final String $url = '/inventoryvendor';
+    final Uri $url = Uri.parse('/inventoryvendor');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10872,7 +12372,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsInventoryVendorInventoryVendor>>
       _inventoryvendorIdGet({required String? id}) {
-    final String $url = '/inventoryvendor/${id}';
+    final Uri $url = Uri.parse('/inventoryvendor/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -10888,7 +12388,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInventoryVendorInventoryVendor? body,
   }) {
-    final String $url = '/inventoryvendor/${id}';
+    final Uri $url = Uri.parse('/inventoryvendor/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -10902,7 +12402,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventoryvendorIdDelete({required String? id}) {
-    final String $url = '/inventoryvendor/${id}';
+    final Uri $url = Uri.parse('/inventoryvendor/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -10915,7 +12415,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventoryvendorValidatevendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventoryvendor/validatevendor/browse';
+    final Uri $url = Uri.parse('/inventoryvendor/validatevendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10931,7 +12431,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorywarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorywarehouse/browse';
+    final Uri $url = Uri.parse('/inventorywarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10949,7 +12449,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorywarehouseExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorywarehouse/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorywarehouse/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10973,7 +12473,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorywarehouse';
+    final Uri $url = Uri.parse('/inventorywarehouse');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -10999,7 +12499,7 @@ class _$Home extends Home {
       _inventorywarehousePost(
           {required WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse?
               body}) {
-    final String $url = '/inventorywarehouse';
+    final Uri $url = Uri.parse('/inventorywarehouse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11018,7 +12518,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse>>
       _inventorywarehouseIdGet({required String? id}) {
-    final String $url = '/inventorywarehouse/${id}';
+    final Uri $url = Uri.parse('/inventorywarehouse/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -11039,7 +12539,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse?
         body,
   }) {
-    final String $url = '/inventorywarehouse/${id}';
+    final Uri $url = Uri.parse('/inventorywarehouse/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -11055,7 +12555,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorywarehouseIdDelete({required String? id}) {
-    final String $url = '/inventorywarehouse/${id}';
+    final Uri $url = Uri.parse('/inventorywarehouse/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -11073,7 +12573,7 @@ class _$Home extends Home {
           {required List<
                   WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse>?
               body}) {
-    final String $url = '/inventorywarehouse/many';
+    final Uri $url = Uri.parse('/inventorywarehouse/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11092,7 +12592,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorywarehousespecificBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorywarehousespecific/browse';
+    final Uri $url = Uri.parse('/inventorywarehousespecific/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11110,7 +12610,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _inventorywarehousespecificExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/inventorywarehousespecific/exportexcelxlsx';
+    final Uri $url = Uri.parse('/inventorywarehousespecific/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11134,7 +12634,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/inventorywarehousespecific';
+    final Uri $url = Uri.parse('/inventorywarehousespecific');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -11160,7 +12660,7 @@ class _$Home extends Home {
       _inventorywarehousespecificPost(
           {required WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific?
               body}) {
-    final String $url = '/inventorywarehousespecific';
+    final Uri $url = Uri.parse('/inventorywarehousespecific');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11179,7 +12679,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific>>
       _inventorywarehousespecificIdGet({required String? id}) {
-    final String $url = '/inventorywarehousespecific/${id}';
+    final Uri $url = Uri.parse('/inventorywarehousespecific/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -11200,7 +12700,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific?
         body,
   }) {
-    final String $url = '/inventorywarehousespecific/${id}';
+    final Uri $url = Uri.parse('/inventorywarehousespecific/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -11217,7 +12717,230 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _inventorywarehousespecificIdDelete(
       {required String? id}) {
-    final String $url = '/inventorywarehousespecific/${id}';
+    final Uri $url = Uri.parse('/inventorywarehousespecific/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _invoiceInvoiceidCreditBrowsePost({
+    required String? invoiceid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/credit/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _invoiceInvoiceidCreditExportexcelxlsxPost({
+    required String? invoiceid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/credit/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic>>
+      _invoiceInvoiceidCreditGet({
+    required String? invoiceid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/credit');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingDealCreditDealCredit>>
+      _invoiceInvoiceidCreditReceiptidGet({
+    required String? invoiceid,
+    required String? receiptid,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/credit/${receiptid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesBillingDealCreditDealCredit,
+        WebApiModulesBillingDealCreditDealCredit>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _invoiceInvoiceidReceiptBrowsePost({
+    required String? invoiceid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _invoiceInvoiceidReceiptExportexcelxlsxPost({
+    required String? invoiceid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic>>
+      _invoiceInvoiceidReceiptGet({
+    required String? invoiceid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingInvoiceInvoiceReceipt>>
+      _invoiceInvoiceidReceiptPost({
+    required String? invoiceid,
+    required WebApiModulesBillingInvoiceInvoiceReceipt? body,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesBillingInvoiceInvoiceReceipt,
+        WebApiModulesBillingInvoiceInvoiceReceipt>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingInvoiceInvoiceReceipt>>
+      _invoiceInvoiceidReceiptReceiptidGet({
+    required String? invoiceid,
+    required String? receiptid,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt/${receiptid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesBillingInvoiceInvoiceReceipt,
+        WebApiModulesBillingInvoiceInvoiceReceipt>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingInvoiceInvoiceReceipt>>
+      _invoiceInvoiceidReceiptReceiptidPut({
+    required String? invoiceid,
+    required String? receiptid,
+    required WebApiModulesBillingInvoiceInvoiceReceipt? body,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt/${receiptid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesBillingInvoiceInvoiceReceipt,
+        WebApiModulesBillingInvoiceInvoiceReceipt>($request);
+  }
+
+  @override
+  Future<Response<bool>> _invoiceInvoiceidReceiptReceiptidDelete({
+    required String? invoiceid,
+    required String? receiptid,
+  }) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/receipt/${receiptid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -11229,7 +12952,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoiceBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/browse';
+    final Uri $url = Uri.parse('/invoice/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11243,7 +12966,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _invoiceLegendGet() {
-    final String $url = '/invoice/legend';
+    final Uri $url = Uri.parse('/invoice/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -11258,7 +12981,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoiceExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoice/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11282,7 +13005,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/invoice';
+    final Uri $url = Uri.parse('/invoice');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -11304,7 +13027,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceInvoice>> _invoicePost(
       {required WebApiModulesBillingInvoiceInvoice? body}) {
-    final String $url = '/invoice';
+    final Uri $url = Uri.parse('/invoice');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11319,7 +13042,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceInvoice>> _invoiceIdGet(
       {required String? id}) {
-    final String $url = '/invoice/${id}';
+    final Uri $url = Uri.parse('/invoice/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -11334,7 +13057,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesBillingInvoiceInvoice? body,
   }) {
-    final String $url = '/invoice/${id}';
+    final Uri $url = Uri.parse('/invoice/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -11348,7 +13071,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _invoiceIdDelete({required String? id}) {
-    final String $url = '/invoice/${id}';
+    final Uri $url = Uri.parse('/invoice/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -11360,7 +13083,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceInvoice>> _invoiceIdVoidPost(
       {required String? id}) {
-    final String $url = '/invoice/${id}/void';
+    final Uri $url = Uri.parse('/invoice/${id}/void');
     final Request $request = Request(
       'POST',
       $url,
@@ -11373,7 +13096,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceInvoice>>
       _invoiceIdResetconsignmentfeesPost({required String? id}) {
-    final String $url = '/invoice/${id}/resetconsignmentfees';
+    final Uri $url = Uri.parse('/invoice/${id}/resetconsignmentfees');
     final Request $request = Request(
       'POST',
       $url,
@@ -11387,7 +13110,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingInvoiceCreditInvoiceReponse>>
       _invoiceCreditinvoicePost(
           {required WebApiModulesBillingInvoiceCreditInvoiceRequest? body}) {
-    final String $url = '/invoice/creditinvoice';
+    final Uri $url = Uri.parse('/invoice/creditinvoice');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11402,7 +13125,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>>
       _invoiceIdApprovePost({required String? id}) {
-    final String $url = '/invoice/${id}/approve';
+    final Uri $url = Uri.parse('/invoice/${id}/approve');
     final Request $request = Request(
       'POST',
       $url,
@@ -11413,11 +13136,24 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiLogicTSpStatusResponse>> _invoiceInvoiceidProcessPost(
+      {required String? invoiceid}) {
+    final Uri $url = Uri.parse('/invoice/${invoiceid}/process');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiLogicTSpStatusResponse,
+        WebApiLogicTSpStatusResponse>($request);
+  }
+
+  @override
   Future<
           Response<
               WebApiModulesBillingInvoiceRestoreInvoiceChargeCodesToDefaultResponse>>
       _invoiceIdRestoredefaultchargecodesPost({required String? id}) {
-    final String $url = '/invoice/${id}/restoredefaultchargecodes';
+    final Uri $url = Uri.parse('/invoice/${id}/restoredefaultchargecodes');
     final Request $request = Request(
       'POST',
       $url,
@@ -11432,7 +13168,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>>
       _invoiceIdUnapprovePost({required String? id}) {
-    final String $url = '/invoice/${id}/unapprove';
+    final Uri $url = Uri.parse('/invoice/${id}/unapprove');
     final Request $request = Request(
       'POST',
       $url,
@@ -11446,7 +13182,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatedepartment/browse';
+    final Uri $url = Uri.parse('/invoice/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11462,7 +13198,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatedeal/browse';
+    final Uri $url = Uri.parse('/invoice/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11478,7 +13214,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validateagent/browse';
+    final Uri $url = Uri.parse('/invoice/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11494,7 +13230,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validateprojectmanager/browse';
+    final Uri $url = Uri.parse('/invoice/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11510,7 +13246,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidateoutsidesalesrepresentativeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validateoutsidesalesrepresentative/browse';
+    final Uri $url =
+        Uri.parse('/invoice/validateoutsidesalesrepresentative/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11526,7 +13263,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/invoice/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11542,7 +13279,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatetermsconditionsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatetermsconditions/browse';
+    final Uri $url = Uri.parse('/invoice/validatetermsconditions/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11558,7 +13295,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/invoice/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11574,7 +13311,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatecurrency/browse';
+    final Uri $url = Uri.parse('/invoice/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11590,7 +13327,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/invoice/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11606,7 +13343,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceGldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoice/gldistribution/browse';
+    final Uri $url = Uri.parse('/invoice/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11629,7 +13366,7 @@ class _$Home extends Home {
     List<FwStandardModelsFwQueryFilter>? filter,
     required String? invoiceid,
   }) {
-    final String $url = '/invoice/gldistribution/invoice/${invoiceid}';
+    final Uri $url = Uri.parse('/invoice/gldistribution/invoice/${invoiceid}');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -11651,7 +13388,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoicebatchBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicebatch/browse';
+    final Uri $url = Uri.parse('/invoicebatch/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11669,7 +13406,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicebatchExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicebatch/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicebatch/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11687,7 +13424,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicecontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicecontact/browse';
+    final Uri $url = Uri.parse('/invoicecontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11705,7 +13442,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicecontactExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicecontact/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicecontact/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11723,7 +13460,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicecreationbatchBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicecreationbatch/browse';
+    final Uri $url = Uri.parse('/invoicecreationbatch/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11741,7 +13478,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicecreationbatchExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicecreationbatch/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicecreationbatch/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11765,7 +13502,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/invoicecreationbatch';
+    final Uri $url = Uri.parse('/invoicecreationbatch');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -11789,7 +13526,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatch>>
       _invoicecreationbatchIdGet({required String? id}) {
-    final String $url = '/invoicecreationbatch/${id}';
+    final Uri $url = Uri.parse('/invoicecreationbatch/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -11804,7 +13541,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoiceitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoiceitem/browse';
+    final Uri $url = Uri.parse('/invoiceitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11822,7 +13559,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoiceitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoiceitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoiceitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11846,7 +13583,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/invoiceitem';
+    final Uri $url = Uri.parse('/invoiceitem');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -11869,7 +13606,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsInvoiceItemInvoiceItem>>
       _invoiceitemPost(
           {required WebApiModulesHomeControlsInvoiceItemInvoiceItem? body}) {
-    final String $url = '/invoiceitem';
+    final Uri $url = Uri.parse('/invoiceitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11884,7 +13621,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsInvoiceItemInvoiceItem>>
       _invoiceitemIdGet({required String? id}) {
-    final String $url = '/invoiceitem/${id}';
+    final Uri $url = Uri.parse('/invoiceitem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -11900,7 +13637,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInvoiceItemInvoiceItem? body,
   }) {
-    final String $url = '/invoiceitem/${id}';
+    final Uri $url = Uri.parse('/invoiceitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -11914,7 +13651,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _invoiceitemIdDelete({required String? id}) {
-    final String $url = '/invoiceitem/${id}';
+    final Uri $url = Uri.parse('/invoiceitem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -11927,7 +13664,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceitemValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoiceitem/validateinventory/browse';
+    final Uri $url = Uri.parse('/invoiceitem/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11943,7 +13680,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoiceitemValidateitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoiceitem/validateitem/browse';
+    final Uri $url = Uri.parse('/invoiceitem/validateitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11958,7 +13695,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoicenoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicenote/browse';
+    final Uri $url = Uri.parse('/invoicenote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -11976,7 +13713,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicenoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicenote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicenote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12000,7 +13737,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/invoicenote';
+    final Uri $url = Uri.parse('/invoicenote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -12023,7 +13760,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsInvoiceNoteInvoiceNote>>
       _invoicenotePost(
           {required WebApiModulesHomeControlsInvoiceNoteInvoiceNote? body}) {
-    final String $url = '/invoicenote';
+    final Uri $url = Uri.parse('/invoicenote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12038,7 +13775,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsInvoiceNoteInvoiceNote>>
       _invoicenoteIdGet({required String? id}) {
-    final String $url = '/invoicenote/${id}';
+    final Uri $url = Uri.parse('/invoicenote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -12054,7 +13791,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInvoiceNoteInvoiceNote? body,
   }) {
-    final String $url = '/invoicenote/${id}';
+    final Uri $url = Uri.parse('/invoicenote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -12068,7 +13805,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _invoicenoteIdDelete({required String? id}) {
-    final String $url = '/invoicenote/${id}';
+    final Uri $url = Uri.parse('/invoicenote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -12080,7 +13817,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _invoiceorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoiceorder/browse';
+    final Uri $url = Uri.parse('/invoiceorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12098,7 +13835,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoiceorderExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoiceorder/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoiceorder/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12118,7 +13855,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsInvoiceOrderInvoiceOrder? body,
   }) {
-    final String $url = '/invoiceorder/${id}';
+    final Uri $url = Uri.parse('/invoiceorder/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -12132,180 +13869,9 @@ class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _invoicereceiptBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicereceipt/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _invoicereceiptExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicereceipt/exportexcelxlsx';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceReceiptInvoiceReceiptLogic>>
-      _invoicereceiptGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    final String $url = '/invoicereceipt';
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceReceiptInvoiceReceiptLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceReceiptInvoiceReceiptLogic>(
-        $request);
-  }
-
-  @override
-  Future<Response<WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt>>
-      _invoicereceiptPost(
-          {required WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt?
-              body}) {
-    final String $url = '/invoicereceipt';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt,
-        WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt>>
-      _invoicereceiptIdGet({required String? id}) {
-    final String $url = '/invoicereceipt/${id}';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt,
-        WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt>>
-      _invoicereceiptIdPut({
-    required String? id,
-    required WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt? body,
-  }) {
-    final String $url = '/invoicereceipt/${id}';
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt,
-        WebApiModulesHomeControlsInvoiceReceiptInvoiceReceipt>($request);
-  }
-
-  @override
-  Future<Response<bool>> _invoicereceiptIdDelete({required String? id}) {
-    final String $url = '/invoicereceipt/${id}';
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _invoicerevenueBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicerevenue/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _invoicerevenueExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicerevenue/exportexcelxlsx';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<Response<Object>> _invoicerevenueLegendGet() {
-    final String $url = '/invoicerevenue/legend';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<Object, Object>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicestatushistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicestatushistory/browse';
+    final Uri $url = Uri.parse('/invoicestatushistory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12323,7 +13889,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicestatushistoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicestatushistory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicestatushistory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12341,7 +13907,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicestatusitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicestatusitem/browse';
+    final Uri $url = Uri.parse('/invoicestatusitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12359,7 +13925,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicestatusitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicestatusitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicestatusitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12377,7 +13943,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _invoicestatusitemdetailBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicestatusitemdetail/browse';
+    final Uri $url = Uri.parse('/invoicestatusitemdetail/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12395,7 +13961,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _invoicestatusitemdetailExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/invoicestatusitemdetail/exportexcelxlsx';
+    final Uri $url = Uri.parse('/invoicestatusitemdetail/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12415,7 +13981,7 @@ class _$Home extends Home {
     required String? itemid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/item/${itemid}/document/browse';
+    final Uri $url = Uri.parse('/item/${itemid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12435,7 +14001,7 @@ class _$Home extends Home {
     required String? itemid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/item/${itemid}/document/exportexcelxlsx';
+    final Uri $url = Uri.parse('/item/${itemid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12462,7 +14028,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/item/${itemid}/documents';
+    final Uri $url = Uri.parse('/item/${itemid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -12489,7 +14055,7 @@ class _$Home extends Home {
     required String? itemid,
     required String? documentid,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -12506,7 +14072,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesInventoryAssetAssetDocumentPutRequest? body,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -12523,7 +14089,7 @@ class _$Home extends Home {
     required String? itemid,
     required String? documentid,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -12538,7 +14104,7 @@ class _$Home extends Home {
     required String? itemid,
     required WebApiModulesInventoryAssetAssetDocumentPostRequest? body,
   }) {
-    final String $url = '/item/${itemid}/document';
+    final Uri $url = Uri.parse('/item/${itemid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12558,7 +14124,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/item/${itemid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -12580,8 +14147,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/item/${itemid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/item/${itemid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -12597,8 +14164,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/item/${itemid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/item/${itemid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -12613,7 +14180,7 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}/image';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12628,13 +14195,16 @@ class _$Home extends Home {
   Future<Response<bool>> _itemItemidDocumentDocumentidImageformuploadPost({
     required String? itemid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/item/${itemid}/document/${documentid}/imageformupload';
+    final Uri $url =
+        Uri.parse('/item/${itemid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -12644,7 +14214,7 @@ class _$Home extends Home {
     required String? itemid,
     required String? documentid,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -12659,7 +14229,7 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -12675,7 +14245,7 @@ class _$Home extends Home {
     required String? itemid,
     required String? documentid,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/item/${itemid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -12688,12 +14258,16 @@ class _$Home extends Home {
   Future<Response<bool>> _itemItemidDocumentDocumentidFileformuploadPut({
     required String? itemid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url = '/item/${itemid}/document/${documentid}/fileformupload';
+    final Uri $url =
+        Uri.parse('/item/${itemid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -12701,7 +14275,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _itemItemidDocumentEmptyobjectGet(
       {required String? itemid}) {
-    final String $url = '/item/${itemid}/document/emptyobject';
+    final Uri $url = Uri.parse('/item/${itemid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -12713,7 +14287,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _itemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/browse';
+    final Uri $url = Uri.parse('/item/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12727,7 +14301,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _itemLegendGet() {
-    final String $url = '/item/legend';
+    final Uri $url = Uri.parse('/item/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -12741,7 +14315,7 @@ class _$Home extends Home {
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _itemExportexcelxlsxPost({required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/exportexcelxlsx';
+    final Uri $url = Uri.parse('/item/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12765,7 +14339,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/item';
+    final Uri $url = Uri.parse('/item');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -12787,7 +14361,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryAssetItem>> _itemPost(
       {required WebApiModulesInventoryAssetItem? body}) {
-    final String $url = '/item';
+    final Uri $url = Uri.parse('/item');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12802,7 +14376,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryAssetItem>> _itemIdGet(
       {required String? id}) {
-    final String $url = '/item/${id}';
+    final Uri $url = Uri.parse('/item/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -12817,7 +14391,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventoryAssetItem? body,
   }) {
-    final String $url = '/item/${id}';
+    final Uri $url = Uri.parse('/item/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -12832,7 +14406,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryAssetItemByBarCodeResponse>>
       _itemBybarcodeGet({String? barCode}) {
-    final String $url = '/item/bybarcode';
+    final Uri $url = Uri.parse('/item/bybarcode');
     final Map<String, dynamic> $params = <String, dynamic>{'barCode': barCode};
     final Request $request = Request(
       'GET',
@@ -12848,7 +14422,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemGldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/gldistribution/browse';
+    final Uri $url = Uri.parse('/item/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12864,7 +14438,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemValidateconditionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/validatecondition/browse';
+    final Uri $url = Uri.parse('/item/validatecondition/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12880,7 +14454,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemValidateinspectionvendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/validateinspectionvendor/browse';
+    final Uri $url = Uri.parse('/item/validateinspectionvendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12896,7 +14470,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemValidatemanufacturerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/validatemanufacturer/browse';
+    final Uri $url = Uri.parse('/item/validatemanufacturer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12912,7 +14486,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemValidatecountryoforiginBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/item/validatecountryoforigin/browse';
+    final Uri $url = Uri.parse('/item/validatecountryoforigin/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12928,7 +14502,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemattributevalueBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemattributevalue/browse';
+    final Uri $url = Uri.parse('/itemattributevalue/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12946,7 +14520,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _itemattributevalueExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemattributevalue/exportexcelxlsx';
+    final Uri $url = Uri.parse('/itemattributevalue/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -12970,7 +14544,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/itemattributevalue';
+    final Uri $url = Uri.parse('/itemattributevalue');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -12996,7 +14570,7 @@ class _$Home extends Home {
       _itemattributevaluePost(
           {required WebApiModulesHomeControlsItemAttributeValueItemAttributeValue?
               body}) {
-    final String $url = '/itemattributevalue';
+    final Uri $url = Uri.parse('/itemattributevalue');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13015,7 +14589,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsItemAttributeValueItemAttributeValue>>
       _itemattributevalueIdGet({required String? id}) {
-    final String $url = '/itemattributevalue/${id}';
+    final Uri $url = Uri.parse('/itemattributevalue/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -13036,7 +14610,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsItemAttributeValueItemAttributeValue?
         body,
   }) {
-    final String $url = '/itemattributevalue/${id}';
+    final Uri $url = Uri.parse('/itemattributevalue/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -13052,7 +14626,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _itemattributevalueIdDelete({required String? id}) {
-    final String $url = '/itemattributevalue/${id}';
+    final Uri $url = Uri.parse('/itemattributevalue/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -13065,7 +14639,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemattributevalueValidateattributeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemattributevalue/validateattribute/browse';
+    final Uri $url = Uri.parse('/itemattributevalue/validateattribute/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13081,7 +14655,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _itemattributevalueValidateattributevalueBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemattributevalue/validateattributevalue/browse';
+    final Uri $url =
+        Uri.parse('/itemattributevalue/validateattributevalue/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13096,7 +14671,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _itemchargeBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemcharge/browse';
+    final Uri $url = Uri.parse('/itemcharge/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13114,7 +14689,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _itemchargeExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemcharge/exportexcelxlsx';
+    final Uri $url = Uri.parse('/itemcharge/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13138,7 +14713,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/itemcharge';
+    final Uri $url = Uri.parse('/itemcharge');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -13160,7 +14735,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeItemChargeItemCharge>> _itemchargePost(
       {required WebApiModulesHomeItemChargeItemCharge? body}) {
-    final String $url = '/itemcharge';
+    final Uri $url = Uri.parse('/itemcharge');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13175,7 +14750,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeItemChargeItemCharge>> _itemchargeIdGet(
       {required String? id}) {
-    final String $url = '/itemcharge/${id}';
+    final Uri $url = Uri.parse('/itemcharge/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -13190,7 +14765,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeItemChargeItemCharge? body,
   }) {
-    final String $url = '/itemcharge/${id}';
+    final Uri $url = Uri.parse('/itemcharge/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -13204,7 +14779,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _itemchargeIdDelete({required String? id}) {
-    final String $url = '/itemcharge/${id}';
+    final Uri $url = Uri.parse('/itemcharge/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -13216,7 +14791,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _itemqcBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemqc/browse';
+    final Uri $url = Uri.parse('/itemqc/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13234,7 +14809,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _itemqcExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/itemqc/exportexcelxlsx';
+    final Uri $url = Uri.parse('/itemqc/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13258,7 +14833,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/itemqc';
+    final Uri $url = Uri.parse('/itemqc');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -13280,7 +14855,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsItemQcItemQc>> _itemqcPost(
       {required WebApiModulesHomeControlsItemQcItemQc? body}) {
-    final String $url = '/itemqc';
+    final Uri $url = Uri.parse('/itemqc');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13295,7 +14870,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsItemQcItemQc>> _itemqcIdGet(
       {required String? id}) {
-    final String $url = '/itemqc/${id}';
+    final Uri $url = Uri.parse('/itemqc/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -13310,7 +14885,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsItemQcItemQc? body,
   }) {
-    final String $url = '/itemqc/${id}';
+    final Uri $url = Uri.parse('/itemqc/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -13329,7 +14904,7 @@ class _$Home extends Home {
       _lossanddamageStartsessionPost(
           {required WebApiModulesHomeControlsLossAndDamageStartLossAndDamageSessionRequest?
               body}) {
-    final String $url = '/lossanddamage/startsession';
+    final Uri $url = Uri.parse('/lossanddamage/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13350,7 +14925,7 @@ class _$Home extends Home {
       _lossanddamageUpdateitemPost(
           {required WebApiModulesHomeControlsLossAndDamageUpdateLossAndDamageItemRequest?
               body}) {
-    final String $url = '/lossanddamage/updateitem';
+    final Uri $url = Uri.parse('/lossanddamage/updateitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13371,7 +14946,7 @@ class _$Home extends Home {
       _lossanddamageSelectallPost(
           {required WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest?
               body}) {
-    final String $url = '/lossanddamage/selectall';
+    final Uri $url = Uri.parse('/lossanddamage/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13392,7 +14967,7 @@ class _$Home extends Home {
       _lossanddamageSelectnonePost(
           {required WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest?
               body}) {
-    final String $url = '/lossanddamage/selectnone';
+    final Uri $url = Uri.parse('/lossanddamage/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13413,7 +14988,7 @@ class _$Home extends Home {
       _lossanddamageCompletesessionPost(
           {required WebApiModulesHomeControlsLossAndDamageCompleteLossAndDamageSessionRequest?
               body}) {
-    final String $url = '/lossanddamage/completesession';
+    final Uri $url = Uri.parse('/lossanddamage/completesession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13434,7 +15009,7 @@ class _$Home extends Home {
       _lossanddamageRetirePost(
           {required WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequest?
               body}) {
-    final String $url = '/lossanddamage/retire';
+    final Uri $url = Uri.parse('/lossanddamage/retire');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13452,7 +15027,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _lossanddamageitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/lossanddamageitem/browse';
+    final Uri $url = Uri.parse('/lossanddamageitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13470,7 +15045,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _lossanddamageitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/lossanddamageitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/lossanddamageitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13487,7 +15062,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _manifestBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/manifest/browse';
+    final Uri $url = Uri.parse('/manifest/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13501,7 +15076,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _manifestLegendGet() {
-    final String $url = '/manifest/legend';
+    final Uri $url = Uri.parse('/manifest/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -13516,7 +15091,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _manifestExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/manifest/exportexcelxlsx';
+    final Uri $url = Uri.parse('/manifest/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13540,7 +15115,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/manifest';
+    final Uri $url = Uri.parse('/manifest');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -13562,7 +15137,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsManifestManifest>> _manifestPost(
       {required WebApiModulesHomeControlsManifestManifest? body}) {
-    final String $url = '/manifest';
+    final Uri $url = Uri.parse('/manifest');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13577,7 +15152,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsManifestManifest>> _manifestIdGet(
       {required String? id}) {
-    final String $url = '/manifest/${id}';
+    final Uri $url = Uri.parse('/manifest/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -13592,7 +15167,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsManifestManifest? body,
   }) {
-    final String $url = '/manifest/${id}';
+    final Uri $url = Uri.parse('/manifest/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -13606,13 +15181,66 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _manifestIdDelete({required String? id}) {
-    final String $url = '/manifest/${id}';
+    final Uri $url = Uri.parse('/manifest/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderOrdertypelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/order/ordertypelocation/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderValidateorderlocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/order/validateorderlocation/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderUserCanInsertResponse>>
+      _orderUsercaninsertGet({
+    String? orderid,
+    String? itemClass,
+  }) {
+    final Uri $url = Uri.parse('/order/usercaninsert');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'orderid': orderid,
+      'itemClass': itemClass,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<WebApiModulesAgentOrderUserCanInsertResponse,
+        WebApiModulesAgentOrderUserCanInsertResponse>($request);
   }
 
   @override
@@ -13626,7 +15254,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/order/${orderid}/items';
+    final Uri $url = Uri.parse('/order/${orderid}/items');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -13647,7 +15275,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _orderItemEmptyobjectGet() {
-    final String $url = '/order/item/emptyobject';
+    final Uri $url = Uri.parse('/order/item/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -13659,7 +15287,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderManifestBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/manifest/browse';
+    final Uri $url = Uri.parse('/order/manifest/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13677,7 +15305,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderManifestExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/manifest/exportexcelxlsx';
+    final Uri $url = Uri.parse('/order/manifest/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13693,7 +15321,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _orderManifestEmptyobjectGet() {
-    final String $url = '/order/manifest/emptyobject';
+    final Uri $url = Uri.parse('/order/manifest/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -13708,7 +15336,7 @@ class _$Home extends Home {
     required String? orderid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/order/${orderid}/document/browse';
+    final Uri $url = Uri.parse('/order/${orderid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13728,7 +15356,7 @@ class _$Home extends Home {
     required String? orderid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/order/${orderid}/document/exportexcelxlsx';
+    final Uri $url = Uri.parse('/order/${orderid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13755,7 +15383,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/order/${orderid}/documents';
+    final Uri $url = Uri.parse('/order/${orderid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -13782,7 +15410,7 @@ class _$Home extends Home {
     required String? orderid,
     required String? documentid,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}';
+    final Uri $url = Uri.parse('/order/${orderid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -13799,7 +15427,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesAgentOrderOrderDocumentPutRequest? body,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}';
+    final Uri $url = Uri.parse('/order/${orderid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -13816,7 +15444,7 @@ class _$Home extends Home {
     required String? orderid,
     required String? documentid,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}';
+    final Uri $url = Uri.parse('/order/${orderid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -13831,7 +15459,7 @@ class _$Home extends Home {
     required String? orderid,
     required WebApiModulesAgentOrderOrderDocumentPostRequest? body,
   }) {
-    final String $url = '/order/${orderid}/document';
+    final Uri $url = Uri.parse('/order/${orderid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13851,7 +15479,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/order/${orderid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -13873,8 +15502,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/order/${orderid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/order/${orderid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -13890,8 +15519,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/order/${orderid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/order/${orderid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -13906,7 +15535,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/order/${orderid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -13921,13 +15551,16 @@ class _$Home extends Home {
   Future<Response<bool>> _orderOrderidDocumentDocumentidImageformuploadPost({
     required String? orderid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/order/${orderid}/document/${documentid}/imageformupload';
+    final Uri $url =
+        Uri.parse('/order/${orderid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -13937,7 +15570,7 @@ class _$Home extends Home {
     required String? orderid,
     required String? documentid,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/order/${orderid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -13952,7 +15585,7 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/order/${orderid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -13968,7 +15601,7 @@ class _$Home extends Home {
     required String? orderid,
     required String? documentid,
   }) {
-    final String $url = '/order/${orderid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/order/${orderid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -13981,13 +15614,16 @@ class _$Home extends Home {
   Future<Response<bool>> _orderOrderidDocumentDocumentidFileformuploadPut({
     required String? orderid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/order/${orderid}/document/${documentid}/fileformupload';
+    final Uri $url =
+        Uri.parse('/order/${orderid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -13995,7 +15631,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _orderOrderidDocumentEmptyobjectGet(
       {required String? orderid}) {
-    final String $url = '/order/${orderid}/document/emptyobject';
+    final Uri $url = Uri.parse('/order/${orderid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -14007,7 +15643,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/browse';
+    final Uri $url = Uri.parse('/order/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14022,7 +15658,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderGetOrderResponse>>
       _orderOrderidOrderdetailsGet({required String? orderid}) {
-    final String $url = '/order/${orderid}/orderdetails';
+    final Uri $url = Uri.parse('/order/${orderid}/orderdetails');
     final Request $request = Request(
       'GET',
       $url,
@@ -14034,7 +15670,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _orderLegendGet() {
-    final String $url = '/order/legend';
+    final Uri $url = Uri.parse('/order/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -14049,7 +15685,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/exportexcelxlsx';
+    final Uri $url = Uri.parse('/order/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14067,7 +15703,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentOrderCopyTemplateResponse>>
       _orderCopytemplatePost(
           {required WebApiModulesAgentOrderCopyTemplateRequest? body}) {
-    final String $url = '/order/copytemplate';
+    final Uri $url = Uri.parse('/order/copytemplate');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14085,7 +15721,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderCopyQuoteOrderRequest? body,
   }) {
-    final String $url = '/order/${id}/copytoquote';
+    final Uri $url = Uri.parse('/order/${id}/copytoquote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14103,7 +15739,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderCopyQuoteOrderRequest? body,
   }) {
-    final String $url = '/order/${id}/copytoorder';
+    final Uri $url = Uri.parse('/order/${id}/copytoorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14121,7 +15757,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderCreateLossAndDamageRequest? body,
   }) {
-    final String $url = '/order/${id}/createlossanddamage';
+    final Uri $url = Uri.parse('/order/${id}/createlossanddamage');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14134,10 +15770,10 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesAgentOrderCopyOrderItemsResponse>>
-      _orderCopyorderitemsPost(
-          {required WebApiModulesAgentOrderCopyOrderItemsRequest? body}) {
-    final String $url = '/order/copyorderitems';
+  Future<Response<WebApiModulesAgentOrderDuplicateOrderItemsResponse>>
+      _orderDuplicateorderitemsPost(
+          {required WebApiModulesAgentOrderDuplicateOrderItemsRequest? body}) {
+    final Uri $url = Uri.parse('/order/duplicateorderitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14145,14 +15781,14 @@ class _$Home extends Home {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesAgentOrderCopyOrderItemsResponse,
-        WebApiModulesAgentOrderCopyOrderItemsResponse>($request);
+    return client.send<WebApiModulesAgentOrderDuplicateOrderItemsResponse,
+        WebApiModulesAgentOrderDuplicateOrderItemsResponse>($request);
   }
 
   @override
   Future<Response<WebApiModulesAgentOrderOrder>> _orderCancelIdPost(
       {required String? id}) {
-    final String $url = '/order/cancel/${id}';
+    final Uri $url = Uri.parse('/order/cancel/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -14165,7 +15801,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderOrder>> _orderUncancelIdPost(
       {required String? id}) {
-    final String $url = '/order/uncancel/${id}';
+    final Uri $url = Uri.parse('/order/uncancel/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -14178,7 +15814,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderOrder>> _orderCreatesnapshotIdPost(
       {required String? id}) {
-    final String $url = '/order/createsnapshot/${id}';
+    final Uri $url = Uri.parse('/order/createsnapshot/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -14191,7 +15827,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderOrderOnHoldResponse>>
       _orderOnholdIdPost({required String? id}) {
-    final String $url = '/order/onhold/${id}';
+    final Uri $url = Uri.parse('/order/onhold/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -14204,7 +15840,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _orderApplybottomlinedaysperweekPost(
       {required WebApiApplyBottomLineDaysPerWeekRequest? body}) {
-    final String $url = '/order/applybottomlinedaysperweek';
+    final Uri $url = Uri.parse('/order/applybottomlinedaysperweek');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14218,7 +15854,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _orderApplybottomlinediscountpercentPost(
       {required WebApiApplyBottomLineDiscountPercentRequest? body}) {
-    final String $url = '/order/applybottomlinediscountpercent';
+    final Uri $url = Uri.parse('/order/applybottomlinediscountpercent');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14232,7 +15868,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _orderApplybottomlinetotalPost(
       {required WebApiApplyBottomLineTotalRequest? body}) {
-    final String $url = '/order/applybottomlinetotal';
+    final Uri $url = Uri.parse('/order/applybottomlinetotal');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14249,7 +15885,7 @@ class _$Home extends Home {
       _orderStartcreatepoworksheetsessionPost(
           {required WebApiModulesAgentOrderCreatePoWorksheetSessionRequest?
               body}) {
-    final String $url = '/order/startcreatepoworksheetsession';
+    final Uri $url = Uri.parse('/order/startcreatepoworksheetsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14266,7 +15902,7 @@ class _$Home extends Home {
       _orderStartmodifypoworksheetsessionPost(
           {required WebApiModulesAgentOrderModifyPoWorksheetSessionRequest?
               body}) {
-    final String $url = '/order/startmodifypoworksheetsession';
+    final Uri $url = Uri.parse('/order/startmodifypoworksheetsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14284,7 +15920,7 @@ class _$Home extends Home {
     required String? sessionId,
     required WebApiModulesAgentOrderUpdatePoWorksheetSessionRequest? body,
   }) {
-    final String $url = '/order/updatepoworksheetsession/{sessionid}';
+    final Uri $url = Uri.parse('/order/updatepoworksheetsession/{sessionid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -14299,7 +15935,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderPoWorksheetSessionTotalsResponse>>
       _orderPoworksheetsessiontotalsSessionidGet({required String? sessionId}) {
-    final String $url = '/order/poworksheetsessiontotals/{sessionid}';
+    final Uri $url = Uri.parse('/order/poworksheetsessiontotals/{sessionid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -14313,7 +15949,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentOrderGetCustomRatesResponse>>
       _orderGetcustomratesPost(
           {required WebApiModulesAgentOrderGetCustomRatesRequest? body}) {
-    final String $url = '/order/getcustomrates';
+    final Uri $url = Uri.parse('/order/getcustomrates');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14330,7 +15966,60 @@ class _$Home extends Home {
       _orderCompletepoworksheetsessionPost(
           {required WebApiModulesAgentOrderCompletePoWorksheetSessionRequest?
               body}) {
-    final String $url = '/order/completepoworksheetsession';
+    final Uri $url = Uri.parse('/order/completepoworksheetsession');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesAgentOrderCompletePoWorksheetSessionResponse,
+        WebApiModulesAgentOrderCompletePoWorksheetSessionResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderCreatePoWorksheetSessionResponse>>
+      _orderStartquiklocatesessionPost(
+          {required WebApiModulesAgentOrderCreatePoWorksheetSessionRequest?
+              body}) {
+    final Uri $url = Uri.parse('/order/startquiklocatesession');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentOrderCreatePoWorksheetSessionResponse,
+        WebApiModulesAgentOrderCreatePoWorksheetSessionResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderUpdatePoWorksheetSessionResponse>>
+      _orderUpdatequiklocatesessionSessionidPut({
+    required String? sessionId,
+    required WebApiModulesAgentOrderUpdatePoWorksheetSessionRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/order/updatequiklocatesession/{sessionid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentOrderUpdatePoWorksheetSessionResponse,
+        WebApiModulesAgentOrderUpdatePoWorksheetSessionResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderCompletePoWorksheetSessionResponse>>
+      _orderCompletequiklocatesessionPost(
+          {required WebApiModulesAgentOrderCompletePoWorksheetSessionRequest?
+              body}) {
+    final Uri $url = Uri.parse('/order/completequiklocatesession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14349,7 +16038,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderChangeOrderOfficeLocationRequest? body,
   }) {
-    final String $url = '/order/changeofficelocation/${id}';
+    final Uri $url = Uri.parse('/order/changeofficelocation/${id}');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14366,7 +16055,7 @@ class _$Home extends Home {
       _orderSendcontactconfirmationPost(
           {required WebApiModulesAgentOrderSendContactConfirmationRequest?
               body}) {
-    final String $url = '/order/sendcontactconfirmation';
+    final Uri $url = Uri.parse('/order/sendcontactconfirmation');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14385,7 +16074,7 @@ class _$Home extends Home {
     String? dealId,
     bool? hasRental,
   }) {
-    final String $url = '/order/messages';
+    final Uri $url = Uri.parse('/order/messages');
     final Map<String, dynamic> $params = <String, dynamic>{
       'orderId': orderId,
       'dealId': dealId,
@@ -14404,7 +16093,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderQuikSaleResponse>> _orderQuiksalePost(
       {required WebApiModulesAgentOrderQuikSaleRequest? body}) {
-    final String $url = '/order/quiksale';
+    final Uri $url = Uri.parse('/order/quiksale');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14426,7 +16115,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/order';
+    final Uri $url = Uri.parse('/order');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -14448,7 +16137,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderOrder>> _orderPost(
       {required WebApiModulesAgentOrderOrder? body}) {
-    final String $url = '/order';
+    final Uri $url = Uri.parse('/order');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14463,7 +16152,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderOrder>> _orderIdGet(
       {required String? id}) {
-    final String $url = '/order/${id}';
+    final Uri $url = Uri.parse('/order/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -14478,7 +16167,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderOrder? body,
   }) {
-    final String $url = '/order/${id}';
+    final Uri $url = Uri.parse('/order/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -14494,7 +16183,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatedepartment/browse';
+    final Uri $url = Uri.parse('/order/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14510,7 +16199,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatedeal/browse';
+    final Uri $url = Uri.parse('/order/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14526,7 +16215,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateratetypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateratetype/browse';
+    final Uri $url = Uri.parse('/order/validateratetype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14542,7 +16231,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateordertypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateordertype/browse';
+    final Uri $url = Uri.parse('/order/validateordertype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14558,7 +16247,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateagent/browse';
+    final Uri $url = Uri.parse('/order/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14574,7 +16263,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateprojectmanager/browse';
+    final Uri $url = Uri.parse('/order/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14590,7 +16279,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateoutsidesalesrepresentativeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateoutsidesalesrepresentative/browse';
+    final Uri $url =
+        Uri.parse('/order/validateoutsidesalesrepresentative/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14606,7 +16296,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatemarkettypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatemarkettype/browse';
+    final Uri $url = Uri.parse('/order/validatemarkettype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14622,7 +16312,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatemarketsegmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatemarketsegment/browse';
+    final Uri $url = Uri.parse('/order/validatemarketsegment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14638,7 +16328,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateordergroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateordergroup/browse';
+    final Uri $url = Uri.parse('/order/validateordergroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14654,7 +16344,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatemarketsegmentjobBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatemarketsegmentjob/browse';
+    final Uri $url = Uri.parse('/order/validatemarketsegmentjob/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14670,7 +16360,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatecoverletterBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatecoverletter/browse';
+    final Uri $url = Uri.parse('/order/validatecoverletter/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14686,7 +16376,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatetermsconditionsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatetermsconditions/browse';
+    final Uri $url = Uri.parse('/order/validatetermsconditions/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14702,7 +16392,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatebillingcycleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatebillingcycle/browse';
+    final Uri $url = Uri.parse('/order/validatebillingcycle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14718,7 +16408,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/order/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14734,7 +16424,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/order/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14750,7 +16440,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatecurrency/browse';
+    final Uri $url = Uri.parse('/order/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14766,7 +16456,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/order/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14782,7 +16472,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatediscountreasonBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatediscountreason/browse';
+    final Uri $url = Uri.parse('/order/validatediscountreason/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14798,7 +16488,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateissuedtocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateissuedtocountry/browse';
+    final Uri $url = Uri.parse('/order/validateissuedtocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14814,7 +16504,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateoutdeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateoutdeliverycarrier/browse';
+    final Uri $url = Uri.parse('/order/validateoutdeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14830,7 +16520,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateoutdeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateoutdeliveryshipvia/browse';
+    final Uri $url = Uri.parse('/order/validateoutdeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14846,7 +16536,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateindeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateindeliverycarrier/browse';
+    final Uri $url = Uri.parse('/order/validateindeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14862,7 +16552,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateindeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateindeliveryshipvia/browse';
+    final Uri $url = Uri.parse('/order/validateindeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14878,7 +16568,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateoutdeliverytocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateoutdeliverytocountry/browse';
+    final Uri $url = Uri.parse('/order/validateoutdeliverytocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14894,7 +16584,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateindeliverytocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateindeliverytocountry/browse';
+    final Uri $url = Uri.parse('/order/validateindeliverytocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14910,7 +16600,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/order/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14926,7 +16616,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/order/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14942,7 +16632,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderValidatebilltocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validatebilltocountry/browse';
+    final Uri $url = Uri.parse('/order/validatebilltocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14957,7 +16647,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesSettingsOrderSettingsOrderTypeOrderType>>
       _orderOrdertypeOrdertypeidGet({required String? ordertypeid}) {
-    final String $url = '/order/ordertype/${ordertypeid}';
+    final Uri $url = Uri.parse('/order/ordertype/${ordertypeid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -14968,62 +16658,9 @@ class _$Home extends Home {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _orderOrdertypelocationBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/ordertypelocation/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _orderValidateorderlocationBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/order/validateorderlocation/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAgentOrderUserCanInsertResponse>>
-      _orderUsercaninsertGet({
-    String? orderid,
-    String? itemClass,
-  }) {
-    final String $url = '/order/usercaninsert';
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'orderid': orderid,
-      'itemClass': itemClass,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<WebApiModulesAgentOrderUserCanInsertResponse,
-        WebApiModulesAgentOrderUserCanInsertResponse>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderapprovalBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderapproval/browse';
+    final Uri $url = Uri.parse('/orderapproval/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15041,7 +16678,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderapprovalExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderapproval/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderapproval/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15062,7 +16699,7 @@ class _$Home extends Home {
     int? pagesize,
     String? sort,
   }) {
-    final String $url = '/orderapproval';
+    final Uri $url = Uri.parse('/orderapproval');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -15082,7 +16719,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeOrderApprovalOrderApproval>>
       _orderapprovalPost(
           {required WebApiModulesHomeOrderApprovalOrderApproval? body}) {
-    final String $url = '/orderapproval';
+    final Uri $url = Uri.parse('/orderapproval');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15097,7 +16734,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeOrderApprovalOrderApproval>>
       _orderapprovalIdGet({required String? id}) {
-    final String $url = '/orderapproval/${id}';
+    final Uri $url = Uri.parse('/orderapproval/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -15113,7 +16750,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeOrderApprovalOrderApproval? body,
   }) {
-    final String $url = '/orderapproval/${id}';
+    final Uri $url = Uri.parse('/orderapproval/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -15127,7 +16764,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _orderapprovalIdDelete({required String? id}) {
-    final String $url = '/orderapproval/${id}';
+    final Uri $url = Uri.parse('/orderapproval/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -15140,7 +16777,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderbillingscheduleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderbillingschedule/browse';
+    final Uri $url = Uri.parse('/orderbillingschedule/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15154,7 +16791,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _orderbillingscheduleLegendGet() {
-    final String $url = '/orderbillingschedule/legend';
+    final Uri $url = Uri.parse('/orderbillingschedule/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -15169,7 +16806,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderbillingscheduleExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderbillingschedule/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderbillingschedule/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15187,7 +16824,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderconfirmationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderconfirmation/browse';
+    final Uri $url = Uri.parse('/orderconfirmation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15205,7 +16842,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderconfirmationExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderconfirmation/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderconfirmation/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15226,7 +16863,7 @@ class _$Home extends Home {
     int? pagesize,
     String? sort,
   }) {
-    final String $url = '/orderconfirmation';
+    final Uri $url = Uri.parse('/orderconfirmation');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -15248,7 +16885,7 @@ class _$Home extends Home {
       _orderconfirmationPost(
           {required WebApiModulesHomeOrderConfirmationOrderConfirmation?
               body}) {
-    final String $url = '/orderconfirmation';
+    final Uri $url = Uri.parse('/orderconfirmation');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15263,7 +16900,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeOrderConfirmationOrderConfirmation>>
       _orderconfirmationIdGet({required String? id}) {
-    final String $url = '/orderconfirmation/${id}';
+    final Uri $url = Uri.parse('/orderconfirmation/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -15279,7 +16916,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeOrderConfirmationOrderConfirmation? body,
   }) {
-    final String $url = '/orderconfirmation/${id}';
+    final Uri $url = Uri.parse('/orderconfirmation/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -15293,7 +16930,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _orderconfirmationIdDelete({required String? id}) {
-    final String $url = '/orderconfirmation/${id}';
+    final Uri $url = Uri.parse('/orderconfirmation/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -15305,7 +16942,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _ordercontactBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordercontact/browse';
+    final Uri $url = Uri.parse('/ordercontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15323,7 +16960,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _ordercontactExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordercontact/exportexcelxlsx';
+    final Uri $url = Uri.parse('/ordercontact/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15347,7 +16984,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/ordercontact';
+    final Uri $url = Uri.parse('/ordercontact');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -15370,7 +17007,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsOrderContactOrderContact>>
       _ordercontactPost(
           {required WebApiModulesHomeControlsOrderContactOrderContact? body}) {
-    final String $url = '/ordercontact';
+    final Uri $url = Uri.parse('/ordercontact');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15388,7 +17025,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsOrderContactOrderContact? body,
   }) {
-    final String $url = '/ordercontact';
+    final Uri $url = Uri.parse('/ordercontact');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -15403,7 +17040,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsOrderContactOrderContact>>
       _ordercontactIdGet({required String? id}) {
-    final String $url = '/ordercontact/${id}';
+    final Uri $url = Uri.parse('/ordercontact/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -15419,7 +17056,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsOrderContactOrderContact? body,
   }) {
-    final String $url = '/ordercontact/${id}';
+    final Uri $url = Uri.parse('/ordercontact/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -15433,7 +17070,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _ordercontactIdDelete({required String? id}) {
-    final String $url = '/ordercontact/${id}';
+    final Uri $url = Uri.parse('/ordercontact/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -15446,7 +17083,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _ordercontactValidatecontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordercontact/validatecontact/browse';
+    final Uri $url = Uri.parse('/ordercontact/validatecontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15462,7 +17099,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _ordercontactValidatecontacttitleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordercontact/validatecontacttitle/browse';
+    final Uri $url = Uri.parse('/ordercontact/validatecontacttitle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15477,7 +17114,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderdatesBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderdates/browse';
+    final Uri $url = Uri.parse('/orderdates/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15495,7 +17132,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderdatesExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderdates/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderdates/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15512,7 +17149,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _orderitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/browse';
+    final Uri $url = Uri.parse('/orderitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15530,7 +17167,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15547,7 +17184,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsOrderItemOrderItem>> _orderitemIdGet(
       {required String? id}) {
-    final String $url = '/orderitem/${id}';
+    final Uri $url = Uri.parse('/orderitem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -15563,7 +17200,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsOrderItemOrderItem? body,
   }) {
-    final String $url = '/orderitem/${id}';
+    final Uri $url = Uri.parse('/orderitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -15577,7 +17214,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _orderitemIdDelete({required String? id}) {
-    final String $url = '/orderitem/${id}';
+    final Uri $url = Uri.parse('/orderitem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -15589,7 +17226,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsOrderItemOrderItem>> _orderitemPost(
       {required WebApiModulesHomeControlsOrderItemOrderItem? body}) {
-    final String $url = '/orderitem';
+    final Uri $url = Uri.parse('/orderitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15608,7 +17245,7 @@ class _$Home extends Home {
                   MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsOrderItemOrderItemLogic>>>
       _orderitemManyPost(
           {required List<WebApiModulesHomeControlsOrderItemOrderItem>? body}) {
-    final String $url = '/orderitem/many';
+    final Uri $url = Uri.parse('/orderitem/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15626,7 +17263,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _orderitemInsertheadersPost(
       {required List<WebApiModulesHomeControlsOrderItemOrderItem>? body}) {
-    final String $url = '/orderitem/insertheaders';
+    final Uri $url = Uri.parse('/orderitem/insertheaders');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15641,7 +17278,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _orderitemInserttextsPost(
       {required List<WebApiModulesHomeControlsOrderItemOrderItem>? body}) {
-    final String $url = '/orderitem/inserttexts';
+    final Uri $url = Uri.parse('/orderitem/inserttexts');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15656,7 +17293,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _orderitemInsertsubtotalsPost(
       {required List<WebApiModulesHomeControlsOrderItemOrderItem>? body}) {
-    final String $url = '/orderitem/insertsubtotals';
+    final Uri $url = Uri.parse('/orderitem/insertsubtotals');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15672,7 +17309,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicTSpStatusResponse>> _orderitemInsertlineitemPost(
       {required WebApiModulesHomeControlsOrderItemInsertLineItemRequest?
           body}) {
-    final String $url = '/orderitem/insertlineitem';
+    final Uri $url = Uri.parse('/orderitem/insertlineitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15687,7 +17324,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _orderitemInsertoptionPost(
       {required WebApiModulesHomeControlsOrderItemInsertOptionRequest? body}) {
-    final String $url = '/orderitem/insertoption';
+    final Uri $url = Uri.parse('/orderitem/insertoption');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15704,7 +17341,7 @@ class _$Home extends Home {
       _orderitemSplitlineitemPost(
           {required WebApiModulesHomeControlsOrderItemSplitOrderItemRequest?
               body}) {
-    final String $url = '/orderitem/splitlineitem';
+    final Uri $url = Uri.parse('/orderitem/splitlineitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15740,7 +17377,7 @@ class _$Home extends Home {
     num? hoursOvertime,
     num? hoursDoubletime,
   }) {
-    final String $url = '/orderitem/calculateextended';
+    final Uri $url = Uri.parse('/orderitem/calculateextended');
     final Map<String, dynamic> $params = <String, dynamic>{
       'RateType': rateType,
       'RecType': recType,
@@ -15806,7 +17443,7 @@ class _$Home extends Home {
     num? hoursOvertime,
     num? hoursDoubletime,
   }) {
-    final String $url = '/orderitem/calculatediscountpercent';
+    final Uri $url = Uri.parse('/orderitem/calculatediscountpercent');
     final Map<String, dynamic> $params = <String, dynamic>{
       'RateType': rateType,
       'RecType': recType,
@@ -15856,7 +17493,7 @@ class _$Home extends Home {
     num? price,
     num? cost,
   }) {
-    final String $url = '/orderitem/calculatemarkupmargin';
+    final Uri $url = Uri.parse('/orderitem/calculatemarkupmargin');
     final Map<String, dynamic> $params = <String, dynamic>{
       'FieldToCalculate': fieldToCalculate,
       'MarkupPercent': markupPercent,
@@ -15877,7 +17514,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicSortItemsResponse>> _orderitemSortPost(
       {required WebApiModulesHomeControlsOrderItemSortOrderItemsRequest?
           body}) {
-    final String $url = '/orderitem/sort';
+    final Uri $url = Uri.parse('/orderitem/sort');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15893,7 +17530,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicTSpStatusResponse>> _orderitemCancelmanualsortPost(
       {required WebApiModulesHomeControlsOrderItemCancelManualSortRequest?
           body}) {
-    final String $url = '/orderitem/cancelmanualsort';
+    final Uri $url = Uri.parse('/orderitem/cancelmanualsort');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15912,7 +17549,7 @@ class _$Home extends Home {
       _orderitemCopytoclipboardPost(
           {required WebApiModulesHomeControlsOrderItemCopyOrderItemsToClipboardRequest?
               body}) {
-    final String $url = '/orderitem/copytoclipboard';
+    final Uri $url = Uri.parse('/orderitem/copytoclipboard');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15933,7 +17570,7 @@ class _$Home extends Home {
       _orderitemPastefromclipboardPost(
           {required WebApiModulesHomeControlsOrderItemPasteOrderItemsFromClipboardRequest?
               body}) {
-    final String $url = '/orderitem/pastefromclipboard';
+    final Uri $url = Uri.parse('/orderitem/pastefromclipboard');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15951,7 +17588,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidatebarcodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validatebarcode/browse';
+    final Uri $url = Uri.parse('/orderitem/validatebarcode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15967,7 +17604,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateicoderentalBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateicoderental/browse';
+    final Uri $url = Uri.parse('/orderitem/validateicoderental/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15983,7 +17620,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateicodesalesBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateicodesales/browse';
+    final Uri $url = Uri.parse('/orderitem/validateicodesales/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -15999,7 +17636,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateicodemiscBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateicodemisc/browse';
+    final Uri $url = Uri.parse('/orderitem/validateicodemisc/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16015,7 +17652,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateicodelaborBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateicodelabor/browse';
+    final Uri $url = Uri.parse('/orderitem/validateicodelabor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16031,7 +17668,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateicodepartsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateicodeparts/browse';
+    final Uri $url = Uri.parse('/orderitem/validateicodeparts/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16047,7 +17684,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateunitBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateunit/browse';
+    final Uri $url = Uri.parse('/orderitem/validateunit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16063,7 +17700,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/orderitem/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16079,7 +17716,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateicodetransferBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateicodetransfer/browse';
+    final Uri $url = Uri.parse('/orderitem/validateicodetransfer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16095,7 +17732,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateconsignorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateconsignor/browse';
+    final Uri $url = Uri.parse('/orderitem/validateconsignor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16111,7 +17748,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidateconsignoragreementBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validateconsignoragreement/browse';
+    final Uri $url = Uri.parse('/orderitem/validateconsignoragreement/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16127,7 +17764,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidatecostorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validatecostorder/browse';
+    final Uri $url = Uri.parse('/orderitem/validatecostorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16143,7 +17780,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidatemanufacturerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validatemanufacturer/browse';
+    final Uri $url = Uri.parse('/orderitem/validatemanufacturer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16159,7 +17796,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderitemValidaterepairorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderitem/validaterepairorder/browse';
+    final Uri $url = Uri.parse('/orderitem/validaterepairorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16178,7 +17815,7 @@ class _$Home extends Home {
       _orderitemUpdatecostorderPost(
           {required WebApiModulesSharedControlsHomeControlsOrderItemCostOrderItemsRequest?
               body}) {
-    final String $url = '/orderitem/updatecostorder';
+    final Uri $url = Uri.parse('/orderitem/updatecostorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16195,7 +17832,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _ordernoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordernote/browse';
+    final Uri $url = Uri.parse('/ordernote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16213,7 +17850,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _ordernoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordernote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/ordernote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16237,7 +17874,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/ordernote';
+    final Uri $url = Uri.parse('/ordernote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -16259,7 +17896,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsOrderNoteOrderNote>> _ordernotePost(
       {required WebApiModulesHomeControlsOrderNoteOrderNote? body}) {
-    final String $url = '/ordernote';
+    final Uri $url = Uri.parse('/ordernote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16274,7 +17911,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsOrderNoteOrderNote>> _ordernoteIdGet(
       {required String? id}) {
-    final String $url = '/ordernote/${id}';
+    final Uri $url = Uri.parse('/ordernote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -16290,7 +17927,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsOrderNoteOrderNote? body,
   }) {
-    final String $url = '/ordernote/${id}';
+    final Uri $url = Uri.parse('/ordernote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -16304,7 +17941,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _ordernoteIdDelete({required String? id}) {
-    final String $url = '/ordernote/${id}';
+    final Uri $url = Uri.parse('/ordernote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -16317,7 +17954,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _ordernoteValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordernote/validateuser/browse';
+    final Uri $url = Uri.parse('/ordernote/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16332,7 +17969,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _ordersnapshotBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordersnapshot/browse';
+    final Uri $url = Uri.parse('/ordersnapshot/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16350,7 +17987,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _ordersnapshotExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/ordersnapshot/exportexcelxlsx';
+    final Uri $url = Uri.parse('/ordersnapshot/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16368,7 +18005,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusStoragecontainersBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/storagecontainers/browse';
+    final Uri $url = Uri.parse('/orderstatus/storagecontainers/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16386,7 +18023,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderstatusStoragecontainersExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/storagecontainers/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/orderstatus/storagecontainers/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16410,7 +18048,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/orderstatus/storagecontainers';
+    final Uri $url = Uri.parse('/orderstatus/storagecontainers');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -16431,7 +18069,8 @@ class _$Home extends Home {
 
   @override
   Future<Response<dynamic>> _orderstatusOrderstatusContainersEmptyobjectGet() {
-    final String $url = '/orderstatus/orderstatus/containers/emptyobject';
+    final Uri $url =
+        Uri.parse('/orderstatus/orderstatus/containers/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -16444,7 +18083,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusStoragecontaineritemsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/storagecontaineritems/browse';
+    final Uri $url = Uri.parse('/orderstatus/storagecontaineritems/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16462,7 +18101,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderstatusStoragecontaineritemsExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/storagecontaineritems/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/orderstatus/storagecontaineritems/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16486,7 +18126,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/orderstatus/storagecontaineritems';
+    final Uri $url = Uri.parse('/orderstatus/storagecontaineritems');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -16508,8 +18148,8 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>>
       _orderstatusOrderstatusStoragecontaineritemsEmptyobjectGet() {
-    final String $url =
-        '/orderstatus/orderstatus/storagecontaineritems/emptyobject';
+    final Uri $url =
+        Uri.parse('/orderstatus/orderstatus/storagecontaineritems/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -16522,7 +18162,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/validateorder/browse';
+    final Uri $url = Uri.parse('/orderstatus/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16538,7 +18178,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/orderstatus/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16554,7 +18194,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/validatecategory/browse';
+    final Uri $url = Uri.parse('/orderstatus/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16570,7 +18210,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/orderstatus/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16586,7 +18226,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusValidateicodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/validateicode/browse';
+    final Uri $url = Uri.parse('/orderstatus/validateicode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16602,7 +18242,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatus/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/orderstatus/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16617,7 +18257,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseOrderStatusOrderStatusHeaderResponse>>
       _orderstatusHeaderdetailIdGet({required String? id}) {
-    final String $url = '/orderstatus/headerdetail/${id}';
+    final Uri $url = Uri.parse('/orderstatus/headerdetail/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -16632,7 +18272,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatusdetailBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatusdetail/browse';
+    final Uri $url = Uri.parse('/orderstatusdetail/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16650,7 +18290,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderstatusdetailExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatusdetail/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderstatusdetail/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16667,7 +18307,7 @@ class _$Home extends Home {
   @override
   Future<Response<Object>> _orderstatusdetailLegendOrdertypeGet(
       {required String? orderType}) {
-    final String $url = '/orderstatusdetail/legend/{ordertype}';
+    final Uri $url = Uri.parse('/orderstatusdetail/legend/{ordertype}');
     final Request $request = Request(
       'GET',
       $url,
@@ -16680,7 +18320,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatushistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatushistory/browse';
+    final Uri $url = Uri.parse('/orderstatushistory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16698,7 +18338,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderstatushistoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatushistory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderstatushistory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16722,7 +18362,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/orderstatushistory';
+    final Uri $url = Uri.parse('/orderstatushistory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -16746,7 +18386,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistory>>
       _orderstatushistoryIdGet({required String? id}) {
-    final String $url = '/orderstatushistory/${id}';
+    final Uri $url = Uri.parse('/orderstatushistory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -16762,7 +18402,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderstatussummaryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatussummary/browse';
+    final Uri $url = Uri.parse('/orderstatussummary/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16780,7 +18420,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _orderstatussummaryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/orderstatussummary/exportexcelxlsx';
+    final Uri $url = Uri.parse('/orderstatussummary/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16797,7 +18437,7 @@ class _$Home extends Home {
   @override
   Future<Response<Object>> _orderstatussummaryLegendOrdertypeGet(
       {required String? orderType}) {
-    final String $url = '/orderstatussummary/legend/{ordertype}';
+    final Uri $url = Uri.parse('/orderstatussummary/legend/{ordertype}');
     final Request $request = Request(
       'GET',
       $url,
@@ -16815,7 +18455,7 @@ class _$Home extends Home {
     String? orderId,
     String? orderItemId,
   }) {
-    final String $url = '/orderstatussummary';
+    final Uri $url = Uri.parse('/orderstatussummary');
     final Map<String, dynamic> $params = <String, dynamic>{
       'orderId': orderId,
       'orderItemId': orderItemId,
@@ -16838,7 +18478,7 @@ class _$Home extends Home {
     String? orderid,
     String? totaltype,
   }) {
-    final String $url = '/ordersummary';
+    final Uri $url = Uri.parse('/ordersummary');
     final Map<String, dynamic> $params = <String, dynamic>{
       'orderid': orderid,
       'totaltype': totaltype,
@@ -16860,7 +18500,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/partsinventory/${inventoryid}/document/browse';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16880,8 +18521,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -16908,7 +18549,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/partsinventory/${inventoryid}/documents';
+    final Uri $url = Uri.parse('/partsinventory/${inventoryid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -16935,7 +18576,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url = '/partsinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -16954,7 +18596,8 @@ class _$Home extends Home {
     required WebApiModulesInventoryPartsInventoryPartsInventoryDocumentPutRequest?
         body,
   }) {
-    final String $url = '/partsinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -16972,7 +18615,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url = '/partsinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -16988,7 +18632,7 @@ class _$Home extends Home {
     required WebApiModulesInventoryPartsInventoryPartsInventoryDocumentPostRequest?
         body,
   }) {
-    final String $url = '/partsinventory/${inventoryid}/document';
+    final Uri $url = Uri.parse('/partsinventory/${inventoryid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17009,8 +18653,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/thumbnails';
+    final Uri $url = Uri.parse(
+        '/partsinventory/${inventoryid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -17032,8 +18676,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/partsinventory/${inventoryid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -17050,8 +18694,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/partsinventory/${inventoryid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -17066,8 +18710,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/image';
+    final Uri $url = Uri.parse(
+        '/partsinventory/${inventoryid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17083,13 +18727,16 @@ class _$Home extends Home {
       _partsinventoryInventoryidDocumentDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/partsinventory/${inventoryid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -17100,8 +18747,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -17116,8 +18763,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -17134,8 +18781,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/partsinventory/${inventoryid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -17149,13 +18796,16 @@ class _$Home extends Home {
       _partsinventoryInventoryidDocumentDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/partsinventory/${inventoryid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/partsinventory/${inventoryid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -17164,8 +18814,8 @@ class _$Home extends Home {
   Future<Response<dynamic>>
       _partsinventoryPartsinventoryidDocumentEmptyobjectGet(
           {required String? partsinventoryid}) {
-    final String $url =
-        '/partsinventory/${partsinventoryid}/document/emptyobject';
+    final Uri $url =
+        Uri.parse('/partsinventory/${partsinventoryid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -17178,7 +18828,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/browse';
+    final Uri $url = Uri.parse('/partsinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17192,7 +18842,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _partsinventoryLegendGet() {
-    final String $url = '/partsinventory/legend';
+    final Uri $url = Uri.parse('/partsinventory/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -17203,7 +18853,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _partsinventoryAvailabilitylegendGet() {
-    final String $url = '/partsinventory/availabilitylegend';
+    final Uri $url = Uri.parse('/partsinventory/availabilitylegend');
     final Request $request = Request(
       'GET',
       $url,
@@ -17218,7 +18868,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _partsinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/partsinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17242,7 +18892,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/partsinventory';
+    final Uri $url = Uri.parse('/partsinventory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -17265,7 +18915,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryPartsInventoryPartsInventory>>
       _partsinventoryPost(
           {required WebApiModulesInventoryPartsInventoryPartsInventory? body}) {
-    final String $url = '/partsinventory';
+    final Uri $url = Uri.parse('/partsinventory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17280,7 +18930,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryPartsInventoryPartsInventory>>
       _partsinventoryIdGet({required String? id}) {
-    final String $url = '/partsinventory/${id}';
+    final Uri $url = Uri.parse('/partsinventory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -17296,7 +18946,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventoryPartsInventoryPartsInventory? body,
   }) {
-    final String $url = '/partsinventory/${id}';
+    final Uri $url = Uri.parse('/partsinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -17310,7 +18960,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _partsinventoryIdDelete({required String? id}) {
-    final String $url = '/partsinventory/${id}';
+    final Uri $url = Uri.parse('/partsinventory/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -17323,7 +18973,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/partsinventory/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17339,7 +18989,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validatecategory/browse';
+    final Uri $url = Uri.parse('/partsinventory/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17355,7 +19005,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/partsinventory/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17371,7 +19021,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidateunitBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validateunit/browse';
+    final Uri $url = Uri.parse('/partsinventory/validateunit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17387,7 +19037,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidaterankBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validaterank/browse';
+    final Uri $url = Uri.parse('/partsinventory/validaterank/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17403,7 +19053,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidatemanufacturerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validatemanufacturer/browse';
+    final Uri $url = Uri.parse('/partsinventory/validatemanufacturer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17419,7 +19069,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidateassetaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validateassetaccount/browse';
+    final Uri $url = Uri.parse('/partsinventory/validateassetaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17435,7 +19085,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidateincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validateincomeaccount/browse';
+    final Uri $url = Uri.parse('/partsinventory/validateincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17451,8 +19101,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidatecostofgoodssoldexpenseaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/partsinventory/validatecostofgoodssoldexpenseaccount/browse';
+    final Uri $url = Uri.parse(
+        '/partsinventory/validatecostofgoodssoldexpenseaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17468,7 +19118,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidateprofitandlossBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validateprofitandloss/browse';
+    final Uri $url = Uri.parse('/partsinventory/validateprofitandloss/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17484,7 +19134,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/partsinventory/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17500,7 +19150,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _partsinventoryValidatecountryoforiginBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/partsinventory/validatecountryoforigin/browse';
+    final Uri $url =
+        Uri.parse('/partsinventory/validatecountryoforigin/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17517,7 +19168,7 @@ class _$Home extends Home {
       _partsinventoryCopyPost(
           {required WebApiModulesInventoryInventoryCopyInventoryRequest?
               body}) {
-    final String $url = '/partsinventory/copy';
+    final Uri $url = Uri.parse('/partsinventory/copy');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17536,7 +19187,7 @@ class _$Home extends Home {
       _partsinventoryRefreshusagehistoryPost(
           {required WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequest?
               body}) {
-    final String $url = '/partsinventory/refreshusagehistory';
+    final Uri $url = Uri.parse('/partsinventory/refreshusagehistory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17551,6 +19202,19 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesInventoryInventoryCreateCompleteResponse>>
+      _partsinventoryCreatecompleteIdPost({required String? id}) {
+    final Uri $url = Uri.parse('/partsinventory/createcomplete/${id}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryCreateCompleteResponse,
+        WebApiModulesInventoryInventoryCreateCompleteResponse>($request);
+  }
+
+  @override
   Future<
           Response<
               List<
@@ -17558,7 +19222,7 @@ class _$Home extends Home {
       _partsinventoryManyPost(
           {required List<WebApiModulesInventoryPartsInventoryPartsInventory>?
               body}) {
-    final String $url = '/partsinventory/many';
+    final Uri $url = Uri.parse('/partsinventory/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17576,7 +19240,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _paymentBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/payment/browse';
+    final Uri $url = Uri.parse('/payment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17594,7 +19258,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _paymentExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/payment/exportexcelxlsx';
+    final Uri $url = Uri.parse('/payment/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17610,7 +19274,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _paymentLegendGet() {
-    final String $url = '/payment/legend';
+    final Uri $url = Uri.parse('/payment/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -17629,7 +19293,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/payment';
+    final Uri $url = Uri.parse('/payment');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -17651,7 +19315,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingPaymentPayment>> _paymentPost(
       {required WebApiModulesBillingPaymentPayment? body}) {
-    final String $url = '/payment';
+    final Uri $url = Uri.parse('/payment');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17666,7 +19330,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingPaymentPayment>> _paymentIdGet(
       {required String? id}) {
-    final String $url = '/payment/${id}';
+    final Uri $url = Uri.parse('/payment/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -17681,7 +19345,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesBillingPaymentPayment? body,
   }) {
-    final String $url = '/payment/${id}';
+    final Uri $url = Uri.parse('/payment/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -17695,7 +19359,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _paymentIdDelete({required String? id}) {
-    final String $url = '/payment/${id}';
+    final Uri $url = Uri.parse('/payment/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -17708,7 +19372,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _paymentValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/payment/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/payment/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17724,7 +19388,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _paymentGldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/payment/gldistribution/browse';
+    final Uri $url = Uri.parse('/payment/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17740,7 +19404,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _paymentvendorinvoiceBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/paymentvendorinvoice/browse';
+    final Uri $url = Uri.parse('/paymentvendorinvoice/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17758,7 +19422,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _paymentvendorinvoiceExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/paymentvendorinvoice/exportexcelxlsx';
+    final Uri $url = Uri.parse('/paymentvendorinvoice/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17775,7 +19439,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _personaleventBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/personalevent/browse';
+    final Uri $url = Uri.parse('/personalevent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17793,7 +19457,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _personaleventExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/personalevent/exportexcelxlsx';
+    final Uri $url = Uri.parse('/personalevent/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17817,7 +19481,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/personalevent';
+    final Uri $url = Uri.parse('/personalevent');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -17841,7 +19505,7 @@ class _$Home extends Home {
       _personaleventPost(
           {required WebApiModulesHomeControlsPersonalEventPersonalEvent?
               body}) {
-    final String $url = '/personalevent';
+    final Uri $url = Uri.parse('/personalevent');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17856,7 +19520,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsPersonalEventPersonalEvent>>
       _personaleventIdGet({required String? id}) {
-    final String $url = '/personalevent/${id}';
+    final Uri $url = Uri.parse('/personalevent/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -17872,7 +19536,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsPersonalEventPersonalEvent? body,
   }) {
-    final String $url = '/personalevent/${id}';
+    final Uri $url = Uri.parse('/personalevent/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -17886,7 +19550,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _personaleventIdDelete({required String? id}) {
-    final String $url = '/personalevent/${id}';
+    final Uri $url = Uri.parse('/personalevent/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -17899,7 +19563,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _personaleventValidatecontacteventBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/personalevent/validatecontactevent/browse';
+    final Uri $url = Uri.parse('/personalevent/validatecontactevent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17915,7 +19579,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/browse';
+    final Uri $url = Uri.parse('/physicalinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17929,7 +19593,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _physicalinventoryLegendGet() {
-    final String $url = '/physicalinventory/legend';
+    final Uri $url = Uri.parse('/physicalinventory/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -17944,7 +19608,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/physicalinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -17968,7 +19632,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventory';
+    final Uri $url = Uri.parse('/physicalinventory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -17992,7 +19656,7 @@ class _$Home extends Home {
       _physicalinventoryPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventory?
               body}) {
-    final String $url = '/physicalinventory';
+    final Uri $url = Uri.parse('/physicalinventory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18007,7 +19671,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryPhysicalInventoryPhysicalInventory>>
       _physicalinventoryIdGet({required String? id}) {
-    final String $url = '/physicalinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -18023,7 +19687,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventoryPhysicalInventoryPhysicalInventory? body,
   }) {
-    final String $url = '/physicalinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -18042,7 +19706,7 @@ class _$Home extends Home {
       _physicalinventoryVoidPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryVoidRequest?
               body}) {
-    final String $url = '/physicalinventory/void';
+    final Uri $url = Uri.parse('/physicalinventory/void');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18063,7 +19727,7 @@ class _$Home extends Home {
       _physicalinventoryUpdateicodesPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryUpdateICodesRequest?
               body}) {
-    final String $url = '/physicalinventory/updateicodes';
+    final Uri $url = Uri.parse('/physicalinventory/updateicodes');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18084,7 +19748,7 @@ class _$Home extends Home {
       _physicalinventoryPrescanPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrescanRequest?
               body}) {
-    final String $url = '/physicalinventory/prescan';
+    final Uri $url = Uri.parse('/physicalinventory/prescan');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18105,7 +19769,7 @@ class _$Home extends Home {
       _physicalinventoryInitiatePost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryInitiateRequest?
               body}) {
-    final String $url = '/physicalinventory/initiate';
+    final Uri $url = Uri.parse('/physicalinventory/initiate');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18125,7 +19789,8 @@ class _$Home extends Home {
     required String? id,
     required String? stepname,
   }) {
-    final String $url = '/physicalinventory/${id}/updatestep/${stepname}';
+    final Uri $url =
+        Uri.parse('/physicalinventory/${id}/updatestep/${stepname}');
     final Request $request = Request(
       'POST',
       $url,
@@ -18142,7 +19807,7 @@ class _$Home extends Home {
       _physicalinventoryCountitemPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountItemRequest?
               body}) {
-    final String $url = '/physicalinventory/countitem';
+    final Uri $url = Uri.parse('/physicalinventory/countitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18163,7 +19828,7 @@ class _$Home extends Home {
       _physicalinventoryReplacecountsPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryReplaceCountsRequest?
               body}) {
-    final String $url = '/physicalinventory/replacecounts';
+    final Uri $url = Uri.parse('/physicalinventory/replacecounts');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18184,7 +19849,7 @@ class _$Home extends Home {
       _physicalinventoryGetphysicalcountsPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryStatusRequest?
               body}) {
-    final String $url = '/physicalinventory/getphysicalcounts';
+    final Uri $url = Uri.parse('/physicalinventory/getphysicalcounts');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18205,7 +19870,7 @@ class _$Home extends Home {
       _physicalinventoryApprovePost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryApproveRequest?
               body}) {
-    final String $url = '/physicalinventory/approve';
+    final Uri $url = Uri.parse('/physicalinventory/approve');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18226,7 +19891,7 @@ class _$Home extends Home {
       _physicalinventoryClosePost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseRequest?
               body}) {
-    final String $url = '/physicalinventory/close';
+    final Uri $url = Uri.parse('/physicalinventory/close');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18244,7 +19909,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryValidateconsignorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/validateconsignor/browse';
+    final Uri $url = Uri.parse('/physicalinventory/validateconsignor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18260,7 +19925,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/validateinventorytype/browse';
+    final Uri $url =
+        Uri.parse('/physicalinventory/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18276,7 +19942,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/validatecategory/browse';
+    final Uri $url = Uri.parse('/physicalinventory/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18292,7 +19958,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/physicalinventory/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18308,7 +19974,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryValidateicodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/validateicode/browse';
+    final Uri $url = Uri.parse('/physicalinventory/validateicode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18327,7 +19993,7 @@ class _$Home extends Home {
       _physicalinventoryUncountserialitemPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryUncountSerialItemRequest?
               body}) {
-    final String $url = '/physicalinventory/uncountserialitem';
+    final Uri $url = Uri.parse('/physicalinventory/uncountserialitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18345,7 +20011,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryCountquantityBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/countquantity/browse';
+    final Uri $url = Uri.parse('/physicalinventory/countquantity/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18363,7 +20029,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryCountquantityExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/countquantity/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/physicalinventory/countquantity/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18387,7 +20054,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventory/countquantity';
+    final Uri $url = Uri.parse('/physicalinventory/countquantity');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -18410,7 +20077,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorySerialcountedBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/serialcounted/browse';
+    final Uri $url = Uri.parse('/physicalinventory/serialcounted/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18428,7 +20095,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventorySerialcountedExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/serialcounted/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/physicalinventory/serialcounted/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18446,7 +20114,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryCountserialBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/countserial/browse';
+    final Uri $url = Uri.parse('/physicalinventory/countserial/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18464,7 +20132,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryCountserialExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/countserial/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/physicalinventory/countserial/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18488,7 +20157,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventory/countserial';
+    final Uri $url = Uri.parse('/physicalinventory/countserial');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -18511,7 +20180,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryExceptionsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/exceptions/browse';
+    final Uri $url = Uri.parse('/physicalinventory/exceptions/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18529,7 +20198,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryExceptionsExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/exceptions/exportexcelxlsx';
+    final Uri $url = Uri.parse('/physicalinventory/exceptions/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18553,7 +20222,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventory/exceptions';
+    final Uri $url = Uri.parse('/physicalinventory/exceptions');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -18576,7 +20245,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryItemsaddedBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/itemsadded/browse';
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18594,7 +20263,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryItemsaddedExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/itemsadded/exportexcelxlsx';
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18618,7 +20287,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventory/itemsadded';
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -18646,7 +20315,7 @@ class _$Home extends Home {
     required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAdded?
         body,
   }) {
-    final String $url = '/physicalinventory/itemsadded/${id}';
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -18667,7 +20336,8 @@ class _$Home extends Home {
       _physicalinventoryItemsaddedApprovepurchasecostPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryApprovePurchaseCostRequest?
               body}) {
-    final String $url = '/physicalinventory/itemsadded/approvepurchasecost';
+    final Uri $url =
+        Uri.parse('/physicalinventory/itemsadded/approvepurchasecost');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18688,7 +20358,7 @@ class _$Home extends Home {
       _physicalinventoryItemsaddedNewpurchasecostPost(
           {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryNewPurchaseCostRequest?
               body}) {
-    final String $url = '/physicalinventory/itemsadded/newpurchasecost';
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded/newpurchasecost');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18706,7 +20376,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryRecountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/recount/browse';
+    final Uri $url = Uri.parse('/physicalinventory/recount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18724,7 +20394,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryRecountExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventory/recount/exportexcelxlsx';
+    final Uri $url = Uri.parse('/physicalinventory/recount/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18748,7 +20418,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventory/recount';
+    final Uri $url = Uri.parse('/physicalinventory/recount');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -18771,7 +20441,7 @@ class _$Home extends Home {
   Future<Response<bool>> _physicalinventoryRecountUpdatePut(
       {required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryRecountUpdateRequest?
           body}) {
-    final String $url = '/physicalinventory/recount/update';
+    final Uri $url = Uri.parse('/physicalinventory/recount/update');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -18786,7 +20456,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorycycleinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventorycycleinventory/browse';
+    final Uri $url = Uri.parse('/physicalinventorycycleinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18804,7 +20474,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventorycycleinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventorycycleinventory/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/physicalinventorycycleinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18828,7 +20499,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventorycycleinventory';
+    final Uri $url = Uri.parse('/physicalinventorycycleinventory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -18854,7 +20525,7 @@ class _$Home extends Home {
       _physicalinventorycycleinventoryPost(
           {required WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory?
               body}) {
-    final String $url = '/physicalinventorycycleinventory';
+    final Uri $url = Uri.parse('/physicalinventorycycleinventory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18873,7 +20544,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory>>
       _physicalinventorycycleinventoryIdGet({required String? id}) {
-    final String $url = '/physicalinventorycycleinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventorycycleinventory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -18894,7 +20565,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory?
         body,
   }) {
-    final String $url = '/physicalinventorycycleinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventorycycleinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -18911,7 +20582,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _physicalinventorycycleinventoryIdDelete(
       {required String? id}) {
-    final String $url = '/physicalinventorycycleinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventorycycleinventory/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -18924,8 +20595,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorycycleinventoryValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/physicalinventorycycleinventory/validateinventory/browse';
+    final Uri $url =
+        Uri.parse('/physicalinventorycycleinventory/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18941,8 +20612,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorycycleinventoryValidateicoderentalBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/physicalinventorycycleinventory/validateicoderental/browse';
+    final Uri $url = Uri.parse(
+        '/physicalinventorycycleinventory/validateicoderental/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18958,8 +20629,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorycycleinventoryValidateicodesalesBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/physicalinventorycycleinventory/validateicodesales/browse';
+    final Uri $url =
+        Uri.parse('/physicalinventorycycleinventory/validateicodesales/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18975,8 +20646,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventorycycleinventoryValidateicodepartsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/physicalinventorycycleinventory/validateicodeparts/browse';
+    final Uri $url =
+        Uri.parse('/physicalinventorycycleinventory/validateicodeparts/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -18992,7 +20663,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _physicalinventoryinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventoryinventory/browse';
+    final Uri $url = Uri.parse('/physicalinventoryinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19010,7 +20681,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _physicalinventoryinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/physicalinventoryinventory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/physicalinventoryinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19034,7 +20705,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/physicalinventoryinventory';
+    final Uri $url = Uri.parse('/physicalinventoryinventory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -19060,7 +20731,7 @@ class _$Home extends Home {
       _physicalinventoryinventoryPost(
           {required WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory?
               body}) {
-    final String $url = '/physicalinventoryinventory';
+    final Uri $url = Uri.parse('/physicalinventoryinventory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19079,7 +20750,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory>>
       _physicalinventoryinventoryIdGet({required String? id}) {
-    final String $url = '/physicalinventoryinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventoryinventory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19100,7 +20771,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory?
         body,
   }) {
-    final String $url = '/physicalinventoryinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventoryinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -19117,7 +20788,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _physicalinventoryinventoryIdDelete(
       {required String? id}) {
-    final String $url = '/physicalinventoryinventory/${id}';
+    final Uri $url = Uri.parse('/physicalinventoryinventory/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -19129,7 +20800,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _picklistBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklist/browse';
+    final Uri $url = Uri.parse('/picklist/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19147,7 +20818,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _picklistExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklist/exportexcelxlsx';
+    final Uri $url = Uri.parse('/picklist/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19171,7 +20842,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/picklist';
+    final Uri $url = Uri.parse('/picklist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -19193,7 +20864,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehousePickListPickList>> _picklistPost(
       {required WebApiModulesWarehousePickListPickList? body}) {
-    final String $url = '/picklist';
+    final Uri $url = Uri.parse('/picklist');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19208,7 +20879,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehousePickListPickList>> _picklistIdGet(
       {required String? id}) {
-    final String $url = '/picklist/${id}';
+    final Uri $url = Uri.parse('/picklist/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19223,7 +20894,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesWarehousePickListPickList? body,
   }) {
-    final String $url = '/picklist/${id}';
+    final Uri $url = Uri.parse('/picklist/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -19237,7 +20908,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _picklistIdDelete({required String? id}) {
-    final String $url = '/picklist/${id}';
+    final Uri $url = Uri.parse('/picklist/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -19249,7 +20920,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _picklistitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistitem/browse';
+    final Uri $url = Uri.parse('/picklistitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19267,7 +20938,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _picklistitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/picklistitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19283,7 +20954,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _picklistitemLegendGet() {
-    final String $url = '/picklistitem/legend';
+    final Uri $url = Uri.parse('/picklistitem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -19302,7 +20973,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/picklistitem';
+    final Uri $url = Uri.parse('/picklistitem');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -19325,7 +20996,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsPickListItemPickListItem>>
       _picklistitemPost(
           {required WebApiModulesHomeControlsPickListItemPickListItem? body}) {
-    final String $url = '/picklistitem';
+    final Uri $url = Uri.parse('/picklistitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19340,7 +21011,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsPickListItemPickListItem>>
       _picklistitemIdGet({required String? id}) {
-    final String $url = '/picklistitem/${id}';
+    final Uri $url = Uri.parse('/picklistitem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19356,7 +21027,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsPickListItemPickListItem? body,
   }) {
-    final String $url = '/picklistitem/${id}';
+    final Uri $url = Uri.parse('/picklistitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -19370,7 +21041,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _picklistitemIdDelete({required String? id}) {
-    final String $url = '/picklistitem/${id}';
+    final Uri $url = Uri.parse('/picklistitem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -19383,7 +21054,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _picklistutilityitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistutilityitem/browse';
+    final Uri $url = Uri.parse('/picklistutilityitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19397,7 +21068,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _picklistutilityitemLegendGet() {
-    final String $url = '/picklistutilityitem/legend';
+    final Uri $url = Uri.parse('/picklistutilityitem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -19412,7 +21083,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _picklistutilityitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistutilityitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/picklistutilityitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19433,7 +21104,7 @@ class _$Home extends Home {
       _picklistutilityitemPost(
           {required WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem?
               body}) {
-    final String $url = '/picklistutilityitem';
+    final Uri $url = Uri.parse('/picklistutilityitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19456,7 +21127,7 @@ class _$Home extends Home {
           {required List<
                   WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem>?
               body}) {
-    final String $url = '/picklistutilityitem/many';
+    final Uri $url = Uri.parse('/picklistutilityitem/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19480,7 +21151,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem?
         body,
   }) {
-    final String $url = '/picklistutilityitem/${id}';
+    final Uri $url = Uri.parse('/picklistutilityitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -19496,7 +21167,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _picklistutilityitemIdDelete({required String? id}) {
-    final String $url = '/picklistutilityitem/${id}';
+    final Uri $url = Uri.parse('/picklistutilityitem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -19509,7 +21180,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _picklistutilityitemSelectallPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistutilityitem/selectall';
+    final Uri $url = Uri.parse('/picklistutilityitem/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19525,7 +21196,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _picklistutilityitemSelectnonePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistutilityitem/selectnone';
+    final Uri $url = Uri.parse('/picklistutilityitem/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19544,7 +21215,7 @@ class _$Home extends Home {
       _picklistutilityitemStartsessionPost(
           {required WebApiModulesHomeControlsPickListUtilityItemStartSessionRequest?
               body}) {
-    final String $url = '/picklistutilityitem/startsession';
+    final Uri $url = Uri.parse('/picklistutilityitem/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19563,7 +21234,8 @@ class _$Home extends Home {
       _picklistutilityitemApplypicklistsessionitemsPost(
           {required WebApiModulesHomeControlsPickListUtilityItemApplyPickListSessionItemsRequest?
               body}) {
-    final String $url = '/picklistutilityitem/applypicklistsessionitems';
+    final Uri $url =
+        Uri.parse('/picklistutilityitem/applypicklistsessionitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19582,7 +21254,7 @@ class _$Home extends Home {
       _picklistutilityitemCompletepicklistsessionPost(
           {required WebApiModulesHomeControlsPickListUtilityItemCompleteSessionRequest?
               body}) {
-    final String $url = '/picklistutilityitem/completepicklistsession';
+    final Uri $url = Uri.parse('/picklistutilityitem/completepicklistsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19600,7 +21272,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehousePickListPickList>>
       _picklistutilityitemCreatepicklistPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/picklistutilityitem/createpicklist';
+    final Uri $url = Uri.parse('/picklistutilityitem/createpicklist');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19615,7 +21287,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _pricingBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/pricing/browse';
+    final Uri $url = Uri.parse('/pricing/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19633,7 +21305,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _pricingExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/pricing/exportexcelxlsx';
+    final Uri $url = Uri.parse('/pricing/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19654,7 +21326,8 @@ class _$Home extends Home {
     required String? warehouseid,
     required String? currencyid,
   }) {
-    final String $url = '/pricing/${inventoryid}/${warehouseid}/${currencyid}';
+    final Uri $url =
+        Uri.parse('/pricing/${inventoryid}/${warehouseid}/${currencyid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19670,7 +21343,7 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? warehouseid,
   }) {
-    final String $url = '/pricing/${inventoryid}/${warehouseid}';
+    final Uri $url = Uri.parse('/pricing/${inventoryid}/${warehouseid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19683,7 +21356,7 @@ class _$Home extends Home {
   @override
   Future<Response<List<WebApiModulesHomeControlsPricingPricing>>>
       _pricingInventoryidGet({required String? inventoryid}) {
-    final String $url = '/pricing/${inventoryid}';
+    final Uri $url = Uri.parse('/pricing/${inventoryid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19698,7 +21371,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsPricingPricing? body,
   }) {
-    final String $url = '/pricing/${id}';
+    final Uri $url = Uri.parse('/pricing/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -19717,7 +21390,7 @@ class _$Home extends Home {
                   MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic>>>
       _pricingManyPost(
           {required List<WebApiModulesHomeControlsPricingPricing>? body}) {
-    final String $url = '/pricing/many';
+    final Uri $url = Uri.parse('/pricing/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19738,7 +21411,7 @@ class _$Home extends Home {
     required String? projectid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/project/${projectid}/document/browse';
+    final Uri $url = Uri.parse('/project/${projectid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19758,7 +21431,8 @@ class _$Home extends Home {
     required String? projectid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/project/${projectid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/project/${projectid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19785,7 +21459,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/project/${projectid}/documents';
+    final Uri $url = Uri.parse('/project/${projectid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -19812,7 +21486,7 @@ class _$Home extends Home {
     required String? projectid,
     required String? documentid,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}';
+    final Uri $url = Uri.parse('/project/${projectid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19829,7 +21503,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesAgentProjectProjectDocumentPutRequest? body,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}';
+    final Uri $url = Uri.parse('/project/${projectid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -19846,7 +21520,7 @@ class _$Home extends Home {
     required String? projectid,
     required String? documentid,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}';
+    final Uri $url = Uri.parse('/project/${projectid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -19861,7 +21535,7 @@ class _$Home extends Home {
     required String? projectid,
     required WebApiModulesAgentProjectProjectDocumentPostRequest? body,
   }) {
-    final String $url = '/project/${projectid}/document';
+    final Uri $url = Uri.parse('/project/${projectid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19881,8 +21555,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/project/${projectid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/project/${projectid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -19904,8 +21578,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/project/${projectid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/project/${projectid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -19921,8 +21595,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/project/${projectid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/project/${projectid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -19937,7 +21611,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/project/${projectid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -19953,13 +21628,16 @@ class _$Home extends Home {
       _projectProjectidDocumentDocumentidImageformuploadPost({
     required String? projectid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/project/${projectid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/project/${projectid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -19969,7 +21647,8 @@ class _$Home extends Home {
     required String? projectid,
     required String? documentid,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/project/${projectid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -19984,7 +21663,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/project/${projectid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -20000,7 +21680,8 @@ class _$Home extends Home {
     required String? projectid,
     required String? documentid,
   }) {
-    final String $url = '/project/${projectid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/project/${projectid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20013,13 +21694,16 @@ class _$Home extends Home {
   Future<Response<bool>> _projectProjectidDocumentDocumentidFileformuploadPut({
     required String? projectid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/project/${projectid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/project/${projectid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -20027,7 +21711,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _projectProjectidDocumentEmptyobjectGet(
       {required String? projectid}) {
-    final String $url = '/project/${projectid}/document/emptyobject';
+    final Uri $url = Uri.parse('/project/${projectid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -20039,7 +21723,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _projectBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/browse';
+    final Uri $url = Uri.parse('/project/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20057,7 +21741,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _projectExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/exportexcelxlsx';
+    final Uri $url = Uri.parse('/project/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20081,7 +21765,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/project';
+    final Uri $url = Uri.parse('/project');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -20103,7 +21787,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentProjectProject>> _projectPost(
       {required WebApiModulesAgentProjectProject? body}) {
-    final String $url = '/project';
+    final Uri $url = Uri.parse('/project');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20118,7 +21802,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentProjectProject>> _projectIdGet(
       {required String? id}) {
-    final String $url = '/project/${id}';
+    final Uri $url = Uri.parse('/project/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -20133,7 +21817,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentProjectProject? body,
   }) {
-    final String $url = '/project/${id}';
+    final Uri $url = Uri.parse('/project/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -20147,7 +21831,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _projectIdDelete({required String? id}) {
-    final String $url = '/project/${id}';
+    final Uri $url = Uri.parse('/project/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20161,7 +21845,7 @@ class _$Home extends Home {
       _projectCreatequotePost(
           {required WebApiModulesAgentProjectCreateQuoteFromProjectRequest?
               body}) {
-    final String $url = '/project/createquote';
+    final Uri $url = Uri.parse('/project/createquote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20177,7 +21861,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/validatedeal/browse';
+    final Uri $url = Uri.parse('/project/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20193,7 +21877,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/validatedepartment/browse';
+    final Uri $url = Uri.parse('/project/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20209,7 +21893,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/validateagent/browse';
+    final Uri $url = Uri.parse('/project/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20225,7 +21909,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/validateprojectmanager/browse';
+    final Uri $url = Uri.parse('/project/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20241,7 +21925,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectValidatesalesrepresentativeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/project/validatesalesrepresentative/browse';
+    final Uri $url = Uri.parse('/project/validatesalesrepresentative/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20257,7 +21941,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectcontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectcontact/browse';
+    final Uri $url = Uri.parse('/projectcontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20275,7 +21959,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _projectcontactExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectcontact/exportexcelxlsx';
+    final Uri $url = Uri.parse('/projectcontact/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20299,7 +21983,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/projectcontact';
+    final Uri $url = Uri.parse('/projectcontact');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -20323,7 +22007,7 @@ class _$Home extends Home {
       _projectcontactPost(
           {required WebApiModulesHomeControlsProjectContactProjectContact?
               body}) {
-    final String $url = '/projectcontact';
+    final Uri $url = Uri.parse('/projectcontact');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20338,7 +22022,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsProjectContactProjectContact>>
       _projectcontactIdGet({required String? id}) {
-    final String $url = '/projectcontact/${id}';
+    final Uri $url = Uri.parse('/projectcontact/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -20354,7 +22038,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsProjectContactProjectContact? body,
   }) {
-    final String $url = '/projectcontact/${id}';
+    final Uri $url = Uri.parse('/projectcontact/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -20368,7 +22052,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _projectcontactIdDelete({required String? id}) {
-    final String $url = '/projectcontact/${id}';
+    final Uri $url = Uri.parse('/projectcontact/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20381,7 +22065,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectcontactValidatecontactBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectcontact/validatecontact/browse';
+    final Uri $url = Uri.parse('/projectcontact/validatecontact/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20397,7 +22081,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectcontactValidatecontacttitleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectcontact/validatecontacttitle/browse';
+    final Uri $url = Uri.parse('/projectcontact/validatecontacttitle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20412,7 +22096,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _projectnoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectnote/browse';
+    final Uri $url = Uri.parse('/projectnote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20430,7 +22114,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _projectnoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectnote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/projectnote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20454,7 +22138,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/projectnote';
+    final Uri $url = Uri.parse('/projectnote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -20477,7 +22161,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsProjectNoteProjectNote>>
       _projectnotePost(
           {required WebApiModulesHomeControlsProjectNoteProjectNote? body}) {
-    final String $url = '/projectnote';
+    final Uri $url = Uri.parse('/projectnote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20492,7 +22176,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsProjectNoteProjectNote>>
       _projectnoteIdGet({required String? id}) {
-    final String $url = '/projectnote/${id}';
+    final Uri $url = Uri.parse('/projectnote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -20508,7 +22192,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsProjectNoteProjectNote? body,
   }) {
-    final String $url = '/projectnote/${id}';
+    final Uri $url = Uri.parse('/projectnote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -20522,7 +22206,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _projectnoteIdDelete({required String? id}) {
-    final String $url = '/projectnote/${id}';
+    final Uri $url = Uri.parse('/projectnote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20535,7 +22219,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _projectnoteValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/projectnote/validateuser/browse';
+    final Uri $url = Uri.parse('/projectnote/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20553,7 +22237,8 @@ class _$Home extends Home {
     required String? purchaseorderid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/purchaseorder/${purchaseorderid}/document/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20573,8 +22258,8 @@ class _$Home extends Home {
     required String? purchaseorderid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20601,7 +22286,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/purchaseorder/${purchaseorderid}/documents';
+    final Uri $url = Uri.parse('/purchaseorder/${purchaseorderid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -20628,8 +22313,8 @@ class _$Home extends Home {
     required String? purchaseorderid,
     required String? documentid,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -20647,8 +22332,8 @@ class _$Home extends Home {
     required WebApiModulesAgentPurchaseOrderPurchaseOrderDocumentPutRequest?
         body,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -20665,8 +22350,8 @@ class _$Home extends Home {
     required String? purchaseorderid,
     required String? documentid,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20682,7 +22367,7 @@ class _$Home extends Home {
     required WebApiModulesAgentPurchaseOrderPurchaseOrderDocumentPostRequest?
         body,
   }) {
-    final String $url = '/purchaseorder/${purchaseorderid}/document';
+    final Uri $url = Uri.parse('/purchaseorder/${purchaseorderid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20702,8 +22387,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/thumbnails';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -20725,8 +22410,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -20743,8 +22428,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20760,8 +22445,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/image';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20777,13 +22462,16 @@ class _$Home extends Home {
       _purchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost({
     required String? purchaseorderid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -20794,8 +22482,8 @@ class _$Home extends Home {
     required String? purchaseorderid,
     required String? documentid,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/file';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -20811,8 +22499,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/file';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -20829,8 +22517,8 @@ class _$Home extends Home {
     required String? purchaseorderid,
     required String? documentid,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/file';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -20844,13 +22532,16 @@ class _$Home extends Home {
       _purchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut({
     required String? purchaseorderid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/${purchaseorderid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -20858,8 +22549,8 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _purchaseorderPurchaseorderidDocumentEmptyobjectGet(
       {required String? purchaseorderid}) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/document/emptyobject';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -20871,7 +22562,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _purchaseorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/browse';
+    final Uri $url = Uri.parse('/purchaseorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20887,8 +22578,8 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponse>>
       _purchaseorderPurchaseorderidPurchaseorderdetailsGet(
           {required String? purchaseorderid}) {
-    final String $url =
-        '/purchaseorder/${purchaseorderid}/purchaseorderdetails';
+    final Uri $url =
+        Uri.parse('/purchaseorder/${purchaseorderid}/purchaseorderdetails');
     final Request $request = Request(
       'GET',
       $url,
@@ -20900,7 +22591,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _purchaseorderLegendGet({bool? fromOrder}) {
-    final String $url = '/purchaseorder/legend';
+    final Uri $url = Uri.parse('/purchaseorder/legend');
     final Map<String, dynamic> $params = <String, dynamic>{
       'fromOrder': fromOrder
     };
@@ -20919,7 +22610,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchaseorder/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20943,7 +22634,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/purchaseorder';
+    final Uri $url = Uri.parse('/purchaseorder');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -20966,7 +22657,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentPurchaseOrderPurchaseOrder>>
       _purchaseorderPost(
           {required WebApiModulesAgentPurchaseOrderPurchaseOrder? body}) {
-    final String $url = '/purchaseorder';
+    final Uri $url = Uri.parse('/purchaseorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20981,7 +22672,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentPurchaseOrderPurchaseOrder>>
       _purchaseorderIdGet({required String? id}) {
-    final String $url = '/purchaseorder/${id}';
+    final Uri $url = Uri.parse('/purchaseorder/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -20997,7 +22688,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentPurchaseOrderPurchaseOrder? body,
   }) {
-    final String $url = '/purchaseorder/${id}';
+    final Uri $url = Uri.parse('/purchaseorder/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -21012,7 +22703,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _purchaseorderApplybottomlinedaysperweekPost(
       {required WebApiApplyBottomLineDaysPerWeekRequest? body}) {
-    final String $url = '/purchaseorder/applybottomlinedaysperweek';
+    final Uri $url = Uri.parse('/purchaseorder/applybottomlinedaysperweek');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21026,7 +22717,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _purchaseorderApplybottomlinediscountpercentPost(
       {required WebApiApplyBottomLineDiscountPercentRequest? body}) {
-    final String $url = '/purchaseorder/applybottomlinediscountpercent';
+    final Uri $url = Uri.parse('/purchaseorder/applybottomlinediscountpercent');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21041,7 +22732,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicTSpStatusResponse>>
       _purchaseorderApplybottomlinetotalPost(
           {required WebApiApplyBottomLineTotalRequest? body}) {
-    final String $url = '/purchaseorder/applybottomlinetotal';
+    final Uri $url = Uri.parse('/purchaseorder/applybottomlinetotal');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21056,7 +22747,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentPurchaseOrderPurchaseOrder>>
       _purchaseorderVoidIdPost({required String? id}) {
-    final String $url = '/purchaseorder/void/${id}';
+    final Uri $url = Uri.parse('/purchaseorder/void/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -21069,7 +22760,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentPurchaseOrderPurchaseOrder>>
       _purchaseorderTogglecloseIdPost({required String? id}) {
-    final String $url = '/purchaseorder/toggleclose/${id}';
+    final Uri $url = Uri.parse('/purchaseorder/toggleclose/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -21085,8 +22776,8 @@ class _$Home extends Home {
               WebApiModulesAgentPurchaseOrderNextVendorInvoiceDefaultDatesResponse>>
       _purchaseorderNextvendorinvoicedefaultdatesPurchaseorderidGet(
           {required String? purchaseOrderId}) {
-    final String $url =
-        '/purchaseorder/nextvendorinvoicedefaultdates/{purchaseorderid}';
+    final Uri $url = Uri.parse(
+        '/purchaseorder/nextvendorinvoicedefaultdates/{purchaseorderid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -21103,7 +22794,7 @@ class _$Home extends Home {
       _purchaseorderCopyPost(
           {required WebApiModulesAgentPurchaseOrderCopyPurchaseOrderRequest?
               body}) {
-    final String $url = '/purchaseorder/copy';
+    final Uri $url = Uri.parse('/purchaseorder/copy');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21120,7 +22811,7 @@ class _$Home extends Home {
       _purchaseorderConfirmdropshipPost(
           {required WebApiModulesAgentPurchaseOrderConfirmDropShipRequest?
               body}) {
-    final String $url = '/purchaseorder/confirmdropship';
+    final Uri $url = Uri.parse('/purchaseorder/confirmdropship');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21137,7 +22828,7 @@ class _$Home extends Home {
       _purchaseorderConfirmvendorretrievePost(
           {required WebApiModulesAgentPurchaseOrderConfirmVendorRetrieveRequest?
               body}) {
-    final String $url = '/purchaseorder/confirmvendorretrieve';
+    final Uri $url = Uri.parse('/purchaseorder/confirmvendorretrieve');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21157,7 +22848,7 @@ class _$Home extends Home {
       _purchaseorderSubmitforapprovalPost(
           {required WebApiModulesAgentPurchaseOrderSubmitPurchaseOrderForApprovalRequest?
               body}) {
-    final String $url = '/purchaseorder/submitforapproval';
+    final Uri $url = Uri.parse('/purchaseorder/submitforapproval');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21176,7 +22867,7 @@ class _$Home extends Home {
       _purchaseorderRejectPost(
           {required WebApiModulesAgentPurchaseOrderRejectPurchaseOrderRequest?
               body}) {
-    final String $url = '/purchaseorder/reject';
+    final Uri $url = Uri.parse('/purchaseorder/reject');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21196,7 +22887,7 @@ class _$Home extends Home {
       _purchaseorderFirstapprovePost(
           {required WebApiModulesAgentPurchaseOrderFirstApprovePurchaseOrderRequest?
               body}) {
-    final String $url = '/purchaseorder/firstapprove';
+    final Uri $url = Uri.parse('/purchaseorder/firstapprove');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21217,7 +22908,7 @@ class _$Home extends Home {
       _purchaseorderSecondapprovePost(
           {required WebApiModulesAgentPurchaseOrderSecondApprovePurchaseOrderRequest?
               body}) {
-    final String $url = '/purchaseorder/secondapprove';
+    final Uri $url = Uri.parse('/purchaseorder/secondapprove');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21235,7 +22926,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatevendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatevendor/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validatevendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21251,7 +22942,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatedepartment/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21267,7 +22958,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidaterateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validaterate/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validaterate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21283,7 +22974,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatepotypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatepotype/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validatepotype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21299,7 +22990,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validateagent/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21315,7 +23006,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validateprojectmanager/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21331,7 +23022,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatebillingcycleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatebillingcycle/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validatebillingcycle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21347,7 +23038,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatecurrency/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21363,7 +23054,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/purchaseorder/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21380,7 +23071,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation>>
       _purchaseorderOfficelocationIdGet({required String? id}) {
-    final String $url = '/purchaseorder/officelocation/${id}';
+    final Uri $url = Uri.parse('/purchaseorder/officelocation/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -21396,7 +23087,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatereceivedeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatereceivedeliverycarrier/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorder/validatereceivedeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21412,7 +23104,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatereceivedeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatereceivedeliveryshipvia/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorder/validatereceivedeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21428,7 +23121,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatereturndeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatereturndeliverycarrier/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorder/validatereturndeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21444,7 +23138,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidatereturndeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validatereturndeliveryshipvia/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorder/validatereturndeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21460,7 +23155,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderOrdertypelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/ordertypelocation/browse';
+    final Uri $url = Uri.parse('/purchaseorder/ordertypelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21476,7 +23171,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderValidateconsignoragreementBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorder/validateconsignoragreement/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorder/validateconsignoragreement/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21493,7 +23189,7 @@ class _$Home extends Home {
       _purchaseorderPurchaseorderapprovalPost(
           {required WebApiModulesAgentPurchaseOrderPurchaseOrderApprovalRequest?
               body}) {
-    final String $url = '/purchaseorder/purchaseorderapproval';
+    final Uri $url = Uri.parse('/purchaseorder/purchaseorderapproval');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21507,10 +23203,28 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiLogicTSpStatusResponse>>
+      _purchaseorderAllitemscheckedoutPost(
+          {required WebApiModulesAgentPurchaseOrderAllItemsCheckedOutRequest?
+              body}) {
+    final Uri $url = Uri.parse('/purchaseorder/allitemscheckedout');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiLogicTSpStatusResponse,
+        WebApiLogicTSpStatusResponse>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderapprovalsValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderapprovals/validateofficelocation/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorderapprovals/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21526,7 +23240,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderapprovalsValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderapprovals/validatedepartment/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorderapprovals/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21542,7 +23257,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderconsignorfeeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderconsignorfee/browse';
+    final Uri $url = Uri.parse('/purchaseorderconsignorfee/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21560,7 +23275,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderconsignorfeeExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderconsignorfee/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchaseorderconsignorfee/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21578,7 +23293,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderitemvendorinvoicestatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderitemvendorinvoicestatus/browse';
+    final Uri $url = Uri.parse('/purchaseorderitemvendorinvoicestatus/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21596,7 +23311,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderitemvendorinvoicestatusExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderitemvendorinvoicestatus/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/purchaseorderitemvendorinvoicestatus/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21614,7 +23330,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreceivebarcodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreceivebarcode/browse';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21632,7 +23348,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderreceivebarcodeExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreceivebarcode/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21656,7 +23372,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/purchaseorderreceivebarcode';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -21682,7 +23398,7 @@ class _$Home extends Home {
       _purchaseorderreceivebarcodePost(
           {required WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode?
               body}) {
-    final String $url = '/purchaseorderreceivebarcode';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21701,7 +23417,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode>>
       _purchaseorderreceivebarcodeIdGet({required String? id}) {
-    final String $url = '/purchaseorderreceivebarcode/${id}';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -21722,7 +23438,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode?
         body,
   }) {
-    final String $url = '/purchaseorderreceivebarcode/${id}';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -21739,7 +23455,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _purchaseorderreceivebarcodeIdDelete(
       {required String? id}) {
-    final String $url = '/purchaseorderreceivebarcode/${id}';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -21757,7 +23473,7 @@ class _$Home extends Home {
           {required List<
                   WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode>?
               body}) {
-    final String $url = '/purchaseorderreceivebarcode/many';
+    final Uri $url = Uri.parse('/purchaseorderreceivebarcode/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21776,8 +23492,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreceivebarcodeValidateinspectionvendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/purchaseorderreceivebarcode/validateinspectionvendor/browse';
+    final Uri $url = Uri.parse(
+        '/purchaseorderreceivebarcode/validateinspectionvendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21793,7 +23509,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreceiveitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreceiveitem/browse';
+    final Uri $url = Uri.parse('/purchaseorderreceiveitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21807,7 +23523,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _purchaseorderreceiveitemLegendGet() {
-    final String $url = '/purchaseorderreceiveitem/legend';
+    final Uri $url = Uri.parse('/purchaseorderreceiveitem/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -21822,7 +23538,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderreceiveitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreceiveitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchaseorderreceiveitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21840,7 +23556,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreturnbarcodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreturnbarcode/browse';
+    final Uri $url = Uri.parse('/purchaseorderreturnbarcode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21858,7 +23574,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderreturnbarcodeExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreturnbarcode/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchaseorderreturnbarcode/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21882,7 +23598,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/purchaseorderreturnbarcode';
+    final Uri $url = Uri.parse('/purchaseorderreturnbarcode');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -21906,7 +23622,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode>>
       _purchaseorderreturnbarcodeIdGet({required String? id}) {
-    final String $url = '/purchaseorderreturnbarcode/${id}';
+    final Uri $url = Uri.parse('/purchaseorderreturnbarcode/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -21922,7 +23638,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderreturnitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreturnitem/browse';
+    final Uri $url = Uri.parse('/purchaseorderreturnitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21940,7 +23656,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchaseorderreturnitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderreturnitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchaseorderreturnitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21958,7 +23674,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderstatusValidatepurchaseorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderstatus/validatepurchaseorder/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorderstatus/validatepurchaseorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21974,7 +23691,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderstatusValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderstatus/validateinventorytype/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorderstatus/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21990,7 +23708,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderstatusValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderstatus/validatecategory/browse';
+    final Uri $url = Uri.parse('/purchaseorderstatus/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22006,7 +23724,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderstatusValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderstatus/validatesubcategory/browse';
+    final Uri $url =
+        Uri.parse('/purchaseorderstatus/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22022,7 +23741,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderstatusValidateicodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderstatus/validateicode/browse';
+    final Uri $url = Uri.parse('/purchaseorderstatus/validateicode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22038,7 +23757,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchaseorderstatusValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchaseorderstatus/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/purchaseorderstatus/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22054,7 +23773,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchasevendorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchasevendor/browse';
+    final Uri $url = Uri.parse('/purchasevendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22072,7 +23791,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchasevendorExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchasevendor/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchasevendor/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22090,7 +23809,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _purchasevendorinvoiceitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchasevendorinvoiceitem/browse';
+    final Uri $url = Uri.parse('/purchasevendorinvoiceitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22108,7 +23827,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _purchasevendorinvoiceitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/purchasevendorinvoiceitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/purchasevendorinvoiceitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22132,7 +23851,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/purchasevendorinvoiceitem';
+    final Uri $url = Uri.parse('/purchasevendorinvoiceitem');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -22156,7 +23875,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem>>
       _purchasevendorinvoiceitemIdGet({required String? id}) {
-    final String $url = '/purchasevendorinvoiceitem/${id}';
+    final Uri $url = Uri.parse('/purchasevendorinvoiceitem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -22171,7 +23890,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _quikinItemsBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikin/items/browse';
+    final Uri $url = Uri.parse('/quikin/items/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22189,7 +23908,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _quikinItemsExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikin/items/exportexcelxlsx';
+    final Uri $url = Uri.parse('/quikin/items/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22205,7 +23924,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _quikinItemsLegendGet() {
-    final String $url = '/quikin/items/legend';
+    final Uri $url = Uri.parse('/quikin/items/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -22222,7 +23941,7 @@ class _$Home extends Home {
     String? orderitemid,
     String? warehouseid,
   }) {
-    final String $url = '/quikin/items/loadserialnumbers';
+    final Uri $url = Uri.parse('/quikin/items/loadserialnumbers');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid,
       'inventoryid': inventoryid,
@@ -22242,7 +23961,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _quikinSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/quikin/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/quikin/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -22259,7 +23978,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseContractSessionResponse>>
       _quikinStartsessionPost(
           {required WebApiModulesWarehouseContractSessionRequest? body}) {
-    final String $url = '/quikin/startsession';
+    final Uri $url = Uri.parse('/quikin/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22274,7 +23993,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractContract>>
       _quikinCompletecheckincontractIdPost({required String? id}) {
-    final String $url = '/quikin/completecheckincontract/${id}';
+    final Uri $url = Uri.parse('/quikin/completecheckincontract/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -22288,7 +24007,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInQuikInItemsRequest>>
       _quikinAdditemPost(
           {required WebApiModulesWarehouseCheckInQuikInItemsRequest? body}) {
-    final String $url = '/quikin/additem';
+    final Uri $url = Uri.parse('/quikin/additem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22304,7 +24023,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInQuikInItemsResponse>>
       _quikinCancelitemsPost(
           {required WebApiModulesWarehouseCheckInQuikInItemsRequest? body}) {
-    final String $url = '/quikin/cancelitems';
+    final Uri $url = Uri.parse('/quikin/cancelitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22319,7 +24038,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _quikinCancelcontractPost(
       {required WebApiModulesWarehouseContractCancelContractRequest? body}) {
-    final String $url = '/quikin/cancelcontract';
+    final Uri $url = Uri.parse('/quikin/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22335,7 +24054,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicTSpStatusResponse>> _quikinForcesuspendsessionPost(
       {required WebApiModulesWarehouseContractForceSuspendSessionRequest?
           body}) {
-    final String $url = '/quikin/forcesuspendsession';
+    final Uri $url = Uri.parse('/quikin/forcesuspendsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22351,7 +24070,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quikinValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikin/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/quikin/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22367,7 +24086,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quikinValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikin/validatecategory/browse';
+    final Uri $url = Uri.parse('/quikin/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22383,7 +24102,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quikinValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikin/validateinventory/browse';
+    final Uri $url = Uri.parse('/quikin/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22399,7 +24118,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInAddOrderResponse>>
       _quikinAddorderPost(
           {required WebApiModulesWarehouseCheckInCheckInAddOrder? body}) {
-    final String $url = '/quikin/addorder';
+    final Uri $url = Uri.parse('/quikin/addorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22416,7 +24135,7 @@ class _$Home extends Home {
       _quikinRemoveorderPost(
           {required WebApiModulesWarehouseCheckInCheckInRemoveOrderRequest?
               body}) {
-    final String $url = '/quikin/removeorder';
+    final Uri $url = Uri.parse('/quikin/removeorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22431,7 +24150,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInSessionSettingsResponse>>
       _quikinSessionsettingsGet({String? contractid}) {
-    final String $url = '/quikin/sessionsettings';
+    final Uri $url = Uri.parse('/quikin/sessionsettings');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -22448,7 +24167,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractExceptionsResponse>>
       _quikinGetexceptionsGet({String? contractid}) {
-    final String $url = '/quikin/getexceptions';
+    final Uri $url = Uri.parse('/quikin/getexceptions');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -22466,7 +24185,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quikinValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikin/validateorder/browse';
+    final Uri $url = Uri.parse('/quikin/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22483,7 +24202,7 @@ class _$Home extends Home {
       _quikreceiptQuikreceiptstartPost(
           {required WebApiModulesWarehouseQuikReceiptQuikReceiptSessionRequest?
               body}) {
-    final String $url = '/quikreceipt/quikreceiptstart';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptstart');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22501,7 +24220,7 @@ class _$Home extends Home {
       _quikreceiptQuikreceiptitemPost(
           {required WebApiModulesWarehouseQuikReceiptQuikReceiptItemRequest?
               body}) {
-    final String $url = '/quikreceipt/quikreceiptitem';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22520,7 +24239,7 @@ class _$Home extends Home {
       _quikreceiptQuikreceiptsuspendedsessionsPost(
           {required WebApiModulesWarehouseQuikReceiptQuikReceiptSuspendedSessionRequest?
               body}) {
-    final String $url = '/quikreceipt/quikreceiptsuspendedsessions';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptsuspendedsessions');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22539,7 +24258,7 @@ class _$Home extends Home {
       _quikreceiptQuikreceiptitemsavePost(
           {required WebApiModulesWarehouseQuikReceiptQuikReceiptSaveRequest?
               body}) {
-    final String $url = '/quikreceipt/quikreceiptitemsave';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptitemsave');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22558,7 +24277,7 @@ class _$Home extends Home {
       _quikreceiptQuikreceiptsignaturesavePost(
           {required WebApiModulesWarehouseQuikReceiptQuikReceiptSignatureSaveRequest?
               body}) {
-    final String $url = '/quikreceipt/quikreceiptsignaturesave';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptsignaturesave');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22576,7 +24295,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quikreceiptQuikreceiptgridBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikreceipt/quikreceiptgrid/browse';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptgrid/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22594,7 +24313,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _quikreceiptQuikreceiptgridExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikreceipt/quikreceiptgrid/exportexcelxlsx';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptgrid/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22618,7 +24337,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/quikreceipt/quikreceiptgrid';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptgrid');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -22640,7 +24359,8 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>>
       _quikreceiptQuikreceiptQuikreceiptgridEmptyobjectGet() {
-    final String $url = '/quikreceipt/quikreceipt/quikreceiptgrid/emptyobject';
+    final Uri $url =
+        Uri.parse('/quikreceipt/quikreceipt/quikreceiptgrid/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -22653,7 +24373,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quikreceiptQuikreceiptitemsgridBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikreceipt/quikreceiptitemsgrid/browse';
+    final Uri $url = Uri.parse('/quikreceipt/quikreceiptitemsgrid/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22671,7 +24391,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _quikreceiptQuikreceiptitemsgridExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quikreceipt/quikreceiptitemsgrid/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/quikreceipt/quikreceiptitemsgrid/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22688,8 +24409,8 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>>
       _quikreceiptQuikreceiptQuikreceiptitemsgridEmptyobjectGet() {
-    final String $url =
-        '/quikreceipt/quikreceipt/quikreceiptitemsgrid/emptyobject';
+    final Uri $url =
+        Uri.parse('/quikreceipt/quikreceipt/quikreceiptitemsgrid/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -22704,7 +24425,7 @@ class _$Home extends Home {
     required String? quoteid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/quote/${quoteid}/document/browse';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22724,7 +24445,7 @@ class _$Home extends Home {
     required String? quoteid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/quote/${quoteid}/document/exportexcelxlsx';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22751,7 +24472,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/quote/${quoteid}/documents';
+    final Uri $url = Uri.parse('/quote/${quoteid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -22778,7 +24499,7 @@ class _$Home extends Home {
     required String? quoteid,
     required String? documentid,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -22795,7 +24516,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesAgentQuoteQuoteDocumentPutRequest? body,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -22812,7 +24533,7 @@ class _$Home extends Home {
     required String? quoteid,
     required String? documentid,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -22827,7 +24548,7 @@ class _$Home extends Home {
     required String? quoteid,
     required WebApiModulesAgentQuoteQuoteDocumentPostRequest? body,
   }) {
-    final String $url = '/quote/${quoteid}/document';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22847,7 +24568,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/quote/${quoteid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -22869,8 +24591,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/quote/${quoteid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/quote/${quoteid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -22886,8 +24608,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/quote/${quoteid}/document/${documentid}/image/${imageid}';
+    final Uri $url =
+        Uri.parse('/quote/${quoteid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -22902,7 +24624,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/quote/${quoteid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -22917,13 +24640,16 @@ class _$Home extends Home {
   Future<Response<bool>> _quoteQuoteidDocumentDocumentidImageformuploadPost({
     required String? quoteid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/quote/${quoteid}/document/${documentid}/imageformupload';
+    final Uri $url =
+        Uri.parse('/quote/${quoteid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -22933,7 +24659,7 @@ class _$Home extends Home {
     required String? quoteid,
     required String? documentid,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -22948,7 +24674,7 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -22964,7 +24690,7 @@ class _$Home extends Home {
     required String? quoteid,
     required String? documentid,
   }) {
-    final String $url = '/quote/${quoteid}/document/${documentid}/file';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -22977,13 +24703,16 @@ class _$Home extends Home {
   Future<Response<bool>> _quoteQuoteidDocumentDocumentidFileformuploadPut({
     required String? quoteid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/quote/${quoteid}/document/${documentid}/fileformupload';
+    final Uri $url =
+        Uri.parse('/quote/${quoteid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -22991,7 +24720,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _quoteQuoteidDocumentEmptyobjectGet(
       {required String? quoteid}) {
-    final String $url = '/quote/${quoteid}/document/emptyobject';
+    final Uri $url = Uri.parse('/quote/${quoteid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -23003,7 +24732,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _quoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/browse';
+    final Uri $url = Uri.parse('/quote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23017,7 +24746,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _quoteLegendGet() {
-    final String $url = '/quote/legend';
+    final Uri $url = Uri.parse('/quote/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -23032,7 +24761,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _quoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/quote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23052,7 +24781,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderCopyQuoteOrderRequest? body,
   }) {
-    final String $url = '/quote/${id}/copytoquote';
+    final Uri $url = Uri.parse('/quote/${id}/copytoquote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23070,7 +24799,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderCopyQuoteOrderRequest? body,
   }) {
-    final String $url = '/quote/${id}/copytoorder';
+    final Uri $url = Uri.parse('/quote/${id}/copytoorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23086,7 +24815,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentOrderQuoteToOrderResponse>>
       _quoteCreateorderPost(
           {required WebApiModulesAgentOrderQuoteToOrderRequest? body}) {
-    final String $url = '/quote/createorder';
+    final Uri $url = Uri.parse('/quote/createorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23102,7 +24831,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentOrderGetCustomRatesResponse>>
       _quoteGetcustomratesPost(
           {required WebApiModulesAgentOrderGetCustomRatesRequest? body}) {
-    final String $url = '/quote/getcustomrates';
+    final Uri $url = Uri.parse('/quote/getcustomrates');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23117,7 +24846,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderReserveUnreserveQuoteResponse>>
       _quoteReserveIdPost({required String? id}) {
-    final String $url = '/quote/reserve/${id}';
+    final Uri $url = Uri.parse('/quote/reserve/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23130,7 +24859,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderQuoteNewVersionResponse>>
       _quoteCreatenewversionIdPost({required String? id}) {
-    final String $url = '/quote/createnewversion/${id}';
+    final Uri $url = Uri.parse('/quote/createnewversion/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23143,7 +24872,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _quoteMakequoteactiveIdPost(
       {required String? id}) {
-    final String $url = '/quote/makequoteactive/${id}';
+    final Uri $url = Uri.parse('/quote/makequoteactive/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23158,7 +24887,7 @@ class _$Home extends Home {
       _quoteSendcontactconfirmationPost(
           {required WebApiModulesAgentOrderSendContactConfirmationRequest?
               body}) {
-    final String $url = '/quote/sendcontactconfirmation';
+    final Uri $url = Uri.parse('/quote/sendcontactconfirmation');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23173,7 +24902,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderCancelUncancelQuoteResponse>>
       _quoteCancelIdPost({required String? id}) {
-    final String $url = '/quote/cancel/${id}';
+    final Uri $url = Uri.parse('/quote/cancel/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23186,7 +24915,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderCancelUncancelQuoteResponse>>
       _quoteUncancelIdPost({required String? id}) {
-    final String $url = '/quote/uncancel/${id}';
+    final Uri $url = Uri.parse('/quote/uncancel/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23199,7 +24928,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentOrderQuoteOnHoldResponse>>
       _quoteOnholdIdPost({required String? id}) {
-    final String $url = '/quote/onhold/${id}';
+    final Uri $url = Uri.parse('/quote/onhold/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23212,7 +24941,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _quoteApplybottomlinedaysperweekPost(
       {required WebApiApplyBottomLineDaysPerWeekRequest? body}) {
-    final String $url = '/quote/applybottomlinedaysperweek';
+    final Uri $url = Uri.parse('/quote/applybottomlinedaysperweek');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23226,7 +24955,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _quoteApplybottomlinediscountpercentPost(
       {required WebApiApplyBottomLineDiscountPercentRequest? body}) {
-    final String $url = '/quote/applybottomlinediscountpercent';
+    final Uri $url = Uri.parse('/quote/applybottomlinediscountpercent');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23240,7 +24969,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _quoteApplybottomlinetotalPost(
       {required WebApiApplyBottomLineTotalRequest? body}) {
-    final String $url = '/quote/applybottomlinetotal';
+    final Uri $url = Uri.parse('/quote/applybottomlinetotal');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23258,7 +24987,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentOrderChangeOrderOfficeLocationRequest? body,
   }) {
-    final String $url = '/quote/changeofficelocation/${id}';
+    final Uri $url = Uri.parse('/quote/changeofficelocation/${id}');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23277,7 +25006,7 @@ class _$Home extends Home {
     String? dealId,
     bool? hasRental,
   }) {
-    final String $url = '/quote/messages';
+    final Uri $url = Uri.parse('/quote/messages');
     final Map<String, dynamic> $params = <String, dynamic>{
       'quoteId': quoteId,
       'dealId': dealId,
@@ -23303,7 +25032,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/quote';
+    final Uri $url = Uri.parse('/quote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -23325,7 +25054,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentQuoteQuote>> _quotePost(
       {required WebApiModulesAgentQuoteQuote? body}) {
-    final String $url = '/quote';
+    final Uri $url = Uri.parse('/quote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23340,7 +25069,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentQuoteQuote>> _quoteIdGet(
       {required String? id}) {
-    final String $url = '/quote/${id}';
+    final Uri $url = Uri.parse('/quote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -23355,7 +25084,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentQuoteQuote? body,
   }) {
-    final String $url = '/quote/${id}';
+    final Uri $url = Uri.parse('/quote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -23370,7 +25099,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentQuoteQuote>> _quoteSubmitIdPost(
       {required String? id}) {
-    final String $url = '/quote/submit/${id}';
+    final Uri $url = Uri.parse('/quote/submit/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23383,7 +25112,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentQuoteQuote>>
       _quoteActivatequoterequestIdPost({required String? id}) {
-    final String $url = '/quote/activatequoterequest/${id}';
+    final Uri $url = Uri.parse('/quote/activatequoterequest/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -23397,7 +25126,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatedepartment/browse';
+    final Uri $url = Uri.parse('/quote/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23413,7 +25142,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatedealBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatedeal/browse';
+    final Uri $url = Uri.parse('/quote/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23429,7 +25158,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateratetypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateratetype/browse';
+    final Uri $url = Uri.parse('/quote/validateratetype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23445,7 +25174,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateordertypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateordertype/browse';
+    final Uri $url = Uri.parse('/quote/validateordertype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23461,7 +25190,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateagent/browse';
+    final Uri $url = Uri.parse('/quote/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23477,7 +25206,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateprojectmanagerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateprojectmanager/browse';
+    final Uri $url = Uri.parse('/quote/validateprojectmanager/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23493,7 +25222,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateoutsidesalesrepresentativeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateoutsidesalesrepresentative/browse';
+    final Uri $url =
+        Uri.parse('/quote/validateoutsidesalesrepresentative/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23509,7 +25239,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatemarkettypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatemarkettype/browse';
+    final Uri $url = Uri.parse('/quote/validatemarkettype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23525,7 +25255,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatemarketsegmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatemarketsegment/browse';
+    final Uri $url = Uri.parse('/quote/validatemarketsegment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23541,7 +25271,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatemarketsegmentjobBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatemarketsegmentjob/browse';
+    final Uri $url = Uri.parse('/quote/validatemarketsegmentjob/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23557,7 +25287,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateordergroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateordergroup/browse';
+    final Uri $url = Uri.parse('/quote/validateordergroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23573,7 +25303,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatecoverletterBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatecoverletter/browse';
+    final Uri $url = Uri.parse('/quote/validatecoverletter/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23589,7 +25319,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatetermsconditionsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatetermsconditions/browse';
+    final Uri $url = Uri.parse('/quote/validatetermsconditions/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23605,7 +25335,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatebillingcycleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatebillingcycle/browse';
+    final Uri $url = Uri.parse('/quote/validatebillingcycle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23621,7 +25351,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/quote/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23637,7 +25367,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/quote/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23653,7 +25383,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatecurrency/browse';
+    final Uri $url = Uri.parse('/quote/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23669,7 +25399,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/quote/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23685,7 +25415,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatediscountreasonBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatediscountreason/browse';
+    final Uri $url = Uri.parse('/quote/validatediscountreason/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23701,7 +25431,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateissuedtocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateissuedtocountry/browse';
+    final Uri $url = Uri.parse('/quote/validateissuedtocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23717,7 +25447,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateoutdeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateoutdeliverycarrier/browse';
+    final Uri $url = Uri.parse('/quote/validateoutdeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23733,7 +25463,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateoutdeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateoutdeliveryshipvia/browse';
+    final Uri $url = Uri.parse('/quote/validateoutdeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23749,7 +25479,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateindeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateindeliverycarrier/browse';
+    final Uri $url = Uri.parse('/quote/validateindeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23765,7 +25495,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateindeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateindeliveryshipvia/browse';
+    final Uri $url = Uri.parse('/quote/validateindeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23781,7 +25511,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateoutdeliverytocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateoutdeliverytocountry/browse';
+    final Uri $url = Uri.parse('/quote/validateoutdeliverytocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23797,7 +25527,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateindeliverytocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateindeliverytocountry/browse';
+    final Uri $url = Uri.parse('/quote/validateindeliverytocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23813,7 +25543,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/quote/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23829,7 +25559,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/quote/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23845,7 +25575,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidatebilltocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validatebilltocountry/browse';
+    final Uri $url = Uri.parse('/quote/validatebilltocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23860,7 +25590,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesSettingsOrderSettingsOrderTypeOrderType>>
       _quoteOrdertypeOrdertypeidGet({required String? ordertypeid}) {
-    final String $url = '/quote/ordertype/${ordertypeid}';
+    final Uri $url = Uri.parse('/quote/ordertype/${ordertypeid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -23874,7 +25604,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteOrdertypelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/ordertypelocation/browse';
+    final Uri $url = Uri.parse('/quote/ordertypelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23890,7 +25620,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _quoteValidateorderlocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/quote/validateorderlocation/browse';
+    final Uri $url = Uri.parse('/quote/validateorderlocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23905,7 +25635,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _rateitemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rateitem/browse';
+    final Uri $url = Uri.parse('/rateitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23923,7 +25653,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _rateitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rateitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/rateitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23938,9 +25668,74 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _receiptGldistributionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/receipt/gldistribution/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _receiptGldistributionExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/receipt/gldistribution/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic>>
+      _receiptGldistributionGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/gldistribution');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _receiptBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/browse';
+    final Uri $url = Uri.parse('/receipt/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23954,7 +25749,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _receiptLegendGet() {
-    final String $url = '/receipt/legend';
+    final Uri $url = Uri.parse('/receipt/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -23969,7 +25764,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _receiptExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/exportexcelxlsx';
+    final Uri $url = Uri.parse('/receipt/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -23993,7 +25788,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/receipt';
+    final Uri $url = Uri.parse('/receipt');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -24015,7 +25810,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptPost(
       {required WebApiModulesBillingReceiptReceipt? body}) {
-    final String $url = '/receipt';
+    final Uri $url = Uri.parse('/receipt');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24030,7 +25825,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingReceiptReceipt>> _receiptIdGet(
       {required String? id}) {
-    final String $url = '/receipt/${id}';
+    final Uri $url = Uri.parse('/receipt/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -24045,7 +25840,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesBillingReceiptReceipt? body,
   }) {
-    final String $url = '/receipt/${id}';
+    final Uri $url = Uri.parse('/receipt/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -24059,7 +25854,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _receiptIdDelete({required String? id}) {
-    final String $url = '/receipt/${id}';
+    final Uri $url = Uri.parse('/receipt/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24070,7 +25865,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _receiptOverridedeleteIdDelete({required String? id}) {
-    final String $url = '/receipt/overridedelete/${id}';
+    final Uri $url = Uri.parse('/receipt/overridedelete/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24086,7 +25881,7 @@ class _$Home extends Home {
     String? dealId,
     String? officeLocationId,
   }) {
-    final String $url = '/receipt/remainingdepositamounts';
+    final Uri $url = Uri.parse('/receipt/remainingdepositamounts');
     final Map<String, dynamic> $params = <String, dynamic>{
       'CustomerId': customerId,
       'DealId': dealId,
@@ -24107,7 +25902,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receiptValidatedealdepositBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/validatedealdeposit/browse';
+    final Uri $url = Uri.parse('/receipt/validatedealdeposit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24123,7 +25918,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receiptValidatecustomerdepositBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/validatecustomerdeposit/browse';
+    final Uri $url = Uri.parse('/receipt/validatecustomerdeposit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24139,7 +25934,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receiptValidateappliedbyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/validateappliedby/browse';
+    final Uri $url = Uri.parse('/receipt/validateappliedby/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24155,7 +25950,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receiptValidatepaymenttypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/validatepaymenttype/browse';
+    final Uri $url = Uri.parse('/receipt/validatepaymenttype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24168,10 +25963,128 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic>>
+      _receiptLookupdealdepositPost({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/lookupdealdeposit');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerCreditCustomerCreditLogic>>
+      _receiptLookupcustomerdepositPost({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/lookupcustomerdeposit');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerCreditCustomerCreditLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerCreditCustomerCreditLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic>>
+      _receiptLookupappliedbyPost({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/lookupappliedby');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic>>
+      _receiptLookuppaymenttypeGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/lookuppaymenttype');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _receiptGldistributionBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receipt/gldistribution/browse';
+      _receiptReceiptidGldistributionBrowsePost({
+    required String? receiptid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/receipt/${receiptid}/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24181,6 +26094,102 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic>>
+      _receiptReceiptidGldistributionGet({
+    required String? receiptid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/${receiptid}/gldistribution');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic>>
+      _receiptLocationLocationidCustomerCustomeridCurrencyCurrencyidCreditsGet({
+    required String? locationid,
+    required String? customerid,
+    required String? currencyid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse(
+        '/receipt/location/${locationid}/customer/${customerid}/currency/${currencyid}/credits');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic>>
+      _receiptLocationLocationidDealDealidCurrencyCurrencyidCreditsGet({
+    required String? locationid,
+    required String? dealid,
+    required String? currencyid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse(
+        '/receipt/location/${locationid}/deal/${dealid}/currency/${currencyid}/credits');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic>(
+        $request);
   }
 
   @override
@@ -24188,7 +26197,7 @@ class _$Home extends Home {
       _receiptAdddepletingdepositPost(
           {required WebApiModulesBillingReceiptAddDepletingDepositRequest?
               body}) {
-    final String $url = '/receipt/adddepletingdeposit';
+    final Uri $url = Uri.parse('/receipt/adddepletingdeposit');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24201,9 +26210,98 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic>>
+      _receiptLookupcreditcardpaymenttypeGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/lookupcreditcardpaymenttype');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingInvoiceInvoice>> _receiptInvoiceIdGet(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/receipt/invoice/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesBillingInvoiceInvoice,
+        WebApiModulesBillingInvoiceInvoice>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic>>
+      _receiptInvoiceInvoiceidReceiptGet({
+    required String? invoiceid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receipt/invoice/${invoiceid}/receipt');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation>>
+      _receiptOfficelocationIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/receipt/officelocation/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation,
+            WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _receiptcreditBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receiptcredit/browse';
+    final Uri $url = Uri.parse('/receiptcredit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24221,7 +26319,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _receiptcreditExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receiptcredit/exportexcelxlsx';
+    final Uri $url = Uri.parse('/receiptcredit/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24239,7 +26337,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receiptinvoiceBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receiptinvoice/browse';
+    final Uri $url = Uri.parse('/receiptinvoice/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24257,7 +26355,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _receiptinvoiceExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receiptinvoice/exportexcelxlsx';
+    final Uri $url = Uri.parse('/receiptinvoice/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24272,9 +26370,39 @@ class _$Home extends Home {
   }
 
   @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptInvoiceReceiptInvoiceLogic>>
+      _receiptinvoiceReceiptidGet({
+    required String? receiptid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/receiptinvoice/${receiptid}');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptInvoiceReceiptInvoiceLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptInvoiceReceiptInvoiceLogic>(
+        $request);
+  }
+
+  @override
   Future<Response<bool>> _receivefromvendorSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/receivefromvendor/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/receivefromvendor/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -24292,7 +26420,7 @@ class _$Home extends Home {
       _receivefromvendorStartsessionPost(
           {required WebApiModulesAgentPurchaseOrderReceiveContractRequest?
               body}) {
-    final String $url = '/receivefromvendor/startsession';
+    final Uri $url = Uri.parse('/receivefromvendor/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24308,7 +26436,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentPurchaseOrderReceiveItemResponse>>
       _receivefromvendorReceiveitemsPost(
           {required WebApiModulesAgentPurchaseOrderReceiveItemRequest? body}) {
-    final String $url = '/receivefromvendor/receiveitems';
+    final Uri $url = Uri.parse('/receivefromvendor/receiveitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24327,7 +26455,7 @@ class _$Home extends Home {
       _receivefromvendorSelectallPost(
           {required WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequest?
               body}) {
-    final String $url = '/receivefromvendor/selectall';
+    final Uri $url = Uri.parse('/receivefromvendor/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24348,7 +26476,7 @@ class _$Home extends Home {
       _receivefromvendorSelectnonePost(
           {required WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemRequest?
               body}) {
-    final String $url = '/receivefromvendor/selectnone';
+    final Uri $url = Uri.parse('/receivefromvendor/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24369,7 +26497,7 @@ class _$Home extends Home {
     required WebApiModulesAgentPurchaseOrderCompleteReceiveContractRequest?
         body,
   }) {
-    final String $url = '/receivefromvendor/completecontract/${id}';
+    final Uri $url = Uri.parse('/receivefromvendor/completecontract/${id}');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24386,7 +26514,7 @@ class _$Home extends Home {
       _receivefromvendorCancelcontractPost(
           {required WebApiModulesWarehouseContractCancelContractRequest?
               body}) {
-    final String $url = '/receivefromvendor/cancelcontract';
+    final Uri $url = Uri.parse('/receivefromvendor/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24402,7 +26530,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _receivefromvendorValidatepurchaseorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/receivefromvendor/validatepurchaseorder/browse';
+    final Uri $url =
+        Uri.parse('/receivefromvendor/validatepurchaseorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24418,7 +26547,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _removefromcontainerValidatecontaineritemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/removefromcontainer/validatecontaineritem/browse';
+    final Uri $url =
+        Uri.parse('/removefromcontainer/validatecontaineritem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24434,7 +26564,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _removefromcontainerValidateitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/removefromcontainer/validateitem/browse';
+    final Uri $url = Uri.parse('/removefromcontainer/validateitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24450,7 +26580,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _removefromcontainerValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/removefromcontainer/validateinventory/browse';
+    final Uri $url = Uri.parse('/removefromcontainer/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24463,12 +26593,97 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut({
+    required String? inventoryid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/fileformupload');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidFileDelete({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/file');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidFileGet({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/file');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidFilePut({
+    required String? inventoryid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/file');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>>
+      _rentalinventoryInventoryidWallimagehistoryEmptyobjectGet(
+          {required String? inventoryid}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryInventoryidDocumentBrowsePost({
     required String? inventoryid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/rentalinventory/${inventoryid}/document/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24488,8 +26703,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24516,7 +26731,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/rentalinventory/${inventoryid}/documents';
+    final Uri $url = Uri.parse('/rentalinventory/${inventoryid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -24543,8 +26758,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -24563,8 +26778,8 @@ class _$Home extends Home {
     required WebApiModulesInventoryRentalInventoryRentalInventoryDocumentPutRequest?
         body,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -24582,8 +26797,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24599,7 +26814,7 @@ class _$Home extends Home {
     required WebApiModulesInventoryRentalInventoryRentalInventoryDocumentPostRequest?
         body,
   }) {
-    final String $url = '/rentalinventory/${inventoryid}/document';
+    final Uri $url = Uri.parse('/rentalinventory/${inventoryid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24620,8 +26835,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/thumbnails';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -24643,8 +26858,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -24661,8 +26876,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24678,8 +26893,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/image';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24695,13 +26910,16 @@ class _$Home extends Home {
       _rentalinventoryInventoryidDocumentDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -24712,8 +26930,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -24728,8 +26946,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -24746,8 +26964,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24761,13 +26979,16 @@ class _$Home extends Home {
       _rentalinventoryInventoryidDocumentDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -24776,8 +26997,8 @@ class _$Home extends Home {
   Future<Response<dynamic>>
       _rentalinventoryRentalinventoryidDocumentEmptyobjectGet(
           {required String? rentalinventoryid}) {
-    final String $url =
-        '/rentalinventory/${rentalinventoryid}/document/emptyobject';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${rentalinventoryid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -24790,7 +27011,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/browse';
+    final Uri $url = Uri.parse('/rentalinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24804,7 +27025,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _rentalinventoryLegendGet() {
-    final String $url = '/rentalinventory/legend';
+    final Uri $url = Uri.parse('/rentalinventory/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -24815,7 +27036,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _rentalinventoryAvailabilitylegendGet() {
-    final String $url = '/rentalinventory/availabilitylegend';
+    final Uri $url = Uri.parse('/rentalinventory/availabilitylegend');
     final Request $request = Request(
       'GET',
       $url,
@@ -24830,7 +27051,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _rentalinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/rentalinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24854,7 +27075,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/rentalinventory';
+    final Uri $url = Uri.parse('/rentalinventory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -24878,7 +27099,7 @@ class _$Home extends Home {
       _rentalinventoryPost(
           {required WebApiModulesInventoryRentalInventoryRentalInventory?
               body}) {
-    final String $url = '/rentalinventory';
+    final Uri $url = Uri.parse('/rentalinventory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24893,7 +27114,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
       _rentalinventoryIdGet({required String? id}) {
-    final String $url = '/rentalinventory/${id}';
+    final Uri $url = Uri.parse('/rentalinventory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -24909,7 +27130,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventoryRentalInventoryRentalInventory? body,
   }) {
-    final String $url = '/rentalinventory/${id}';
+    final Uri $url = Uri.parse('/rentalinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -24923,7 +27144,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _rentalinventoryIdDelete({required String? id}) {
-    final String $url = '/rentalinventory/${id}';
+    final Uri $url = Uri.parse('/rentalinventory/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24939,7 +27160,7 @@ class _$Home extends Home {
       _rentalinventoryQcrequiredallwarehousesPost(
           {required WebApiModulesInventoryInventoryRentalInventoryQcRequiredAllWarehousesRequest?
               body}) {
-    final String $url = '/rentalinventory/qcrequiredallwarehouses';
+    final Uri $url = Uri.parse('/rentalinventory/qcrequiredallwarehouses');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24960,7 +27181,7 @@ class _$Home extends Home {
       _rentalinventoryWarehousespecificpackagePost(
           {required WebApiModulesInventoryInventoryInventoryWarehouseSpecificPackageRequest?
               body}) {
-    final String $url = '/rentalinventory/warehousespecificpackage';
+    final Uri $url = Uri.parse('/rentalinventory/warehousespecificpackage');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -24980,8 +27201,8 @@ class _$Home extends Home {
               WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponse>>
       _rentalinventoryInventoryidRentalinventorydetailsGet(
           {required String? inventoryid}) {
-    final String $url =
-        '/rentalinventory/${inventoryid}/rentalinventorydetails';
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/rentalinventorydetails');
     final Request $request = Request(
       'GET',
       $url,
@@ -24997,7 +27218,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25013,7 +27234,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validatecategory/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25029,7 +27250,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25045,7 +27266,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateunitBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validateunit/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validateunit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25061,7 +27282,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidaterankBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validaterank/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validaterank/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25077,7 +27298,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatemanufacturerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validatemanufacturer/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validatemanufacturer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25093,7 +27314,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateassetaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validateassetaccount/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validateassetaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25109,7 +27330,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validateincomeaccount/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validateincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25125,7 +27346,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatesubincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validatesubincomeaccount/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/validatesubincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25141,8 +27363,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateconsignmentincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/rentalinventory/validateconsignmentincomeaccount/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/validateconsignmentincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25158,8 +27380,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateequipmentsaleincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/rentalinventory/validateequipmentsaleincomeaccount/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/validateequipmentsaleincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25175,7 +27397,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateldincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validateldincomeaccount/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/validateldincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25191,8 +27414,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatecostofgoodssoldexpenseaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/rentalinventory/validatecostofgoodssoldexpenseaccount/browse';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/validatecostofgoodssoldexpenseaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25208,8 +27431,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatecostofgoodsrentedexpenseaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/rentalinventory/validatecostofgoodsrentedexpenseaccount/browse';
+    final Uri $url = Uri.parse(
+        '/rentalinventory/validatecostofgoodsrentedexpenseaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25225,7 +27448,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidateprofitandlosscategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validateprofitandlosscategory/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/validateprofitandlosscategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25241,7 +27465,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatecountryoforiginBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validatecountryoforigin/browse';
+    final Uri $url =
+        Uri.parse('/rentalinventory/validatecountryoforigin/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25257,7 +27482,39 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/rentalinventory/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/rentalinventory/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventory/validatedeal/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventory/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25274,7 +27531,7 @@ class _$Home extends Home {
       _rentalinventoryCopyPost(
           {required WebApiModulesInventoryInventoryCopyInventoryRequest?
               body}) {
-    final String $url = '/rentalinventory/copy';
+    final Uri $url = Uri.parse('/rentalinventory/copy');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25293,7 +27550,7 @@ class _$Home extends Home {
       _rentalinventoryRefreshusagehistoryPost(
           {required WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequest?
               body}) {
-    final String $url = '/rentalinventory/refreshusagehistory';
+    final Uri $url = Uri.parse('/rentalinventory/refreshusagehistory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25308,6 +27565,19 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesInventoryInventoryCreateCompleteResponse>>
+      _rentalinventoryCreatecompleteIdPost({required String? id}) {
+    final Uri $url = Uri.parse('/rentalinventory/createcomplete/${id}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryCreateCompleteResponse,
+        WebApiModulesInventoryInventoryCreateCompleteResponse>($request);
+  }
+
+  @override
   Future<
           Response<
               List<
@@ -25315,7 +27585,7 @@ class _$Home extends Home {
       _rentalinventoryManyPost(
           {required List<WebApiModulesInventoryRentalInventoryRentalInventory>?
               body}) {
-    final String $url = '/rentalinventory/many';
+    final Uri $url = Uri.parse('/rentalinventory/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25332,11 +27602,551 @@ class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryValidatesetwallconditionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventory/validatesetwallcondition/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryValidatewallinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventory/validatewallinventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryValidatebrochureiteminventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventory/validatebrochureiteminventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryAddRemoveWallResponse>>
+      _rentalinventoryAddremovewallPost(
+          {required WebApiModulesInventoryRentalInventoryAddRemoveWallRequest?
+              body}) {
+    final Uri $url = Uri.parse('/rentalinventory/addremovewall');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryRentalInventoryAddRemoveWallResponse,
+        WebApiModulesInventoryRentalInventoryAddRemoveWallResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryRentalInventoryAddRemoveBrochureItemResponse>>
+      _rentalinventoryAddremovebrochureitemPost(
+          {required WebApiModulesInventoryRentalInventoryAddRemoveBrochureItemRequest?
+              body}) {
+    final Uri $url = Uri.parse('/rentalinventory/addremovebrochureitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesInventoryRentalInventoryAddRemoveBrochureItemResponse,
+            WebApiModulesInventoryRentalInventoryAddRemoveBrochureItemResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryImageResponse>>
+      _rentalinventoryGetlastsetimageidGet({String? setid}) {
+    final Uri $url = Uri.parse('/rentalinventory/getlastsetimageid');
+    final Map<String, dynamic> $params = <String, dynamic>{'setid': setid};
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<WebApiModulesInventoryRentalInventoryImageResponse,
+        WebApiModulesInventoryRentalInventoryImageResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptSetBrochureHeaderResponse>>
+      _rentalinventorySetbrochureheaderGet({String? setid}) {
+    final Uri $url = Uri.parse('/rentalinventory/setbrochureheader');
+    final Map<String, dynamic> $params = <String, dynamic>{'setid': setid};
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptSetBrochureHeaderResponse,
+            WebApiModulesInventoryInventoryReceiptSetBrochureHeaderResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptSetBrochureTotalsResponse>>
+      _rentalinventorySetbrochuretotalsGet({String? brochureid}) {
+    final Uri $url = Uri.parse('/rentalinventory/setbrochuretotals');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'brochureid': brochureid
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptSetBrochureTotalsResponse,
+            WebApiModulesInventoryInventoryReceiptSetBrochureTotalsResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryRentalInventorySetBrochureUpdateOrderResponse>>
+      _rentalinventorySetbrochureupdateorderPost(
+          {required WebApiModulesInventoryRentalInventorySetBrochureUpdateOrderRequest?
+              body}) {
+    final Uri $url = Uri.parse('/rentalinventory/setbrochureupdateorder');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesInventoryRentalInventorySetBrochureUpdateOrderResponse,
+            WebApiModulesInventoryRentalInventorySetBrochureUpdateOrderResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryWallsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventory/walls/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _rentalinventoryWallsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventory/walls/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryWallsLogic>>
+      _rentalinventoryWallsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/rentalinventory/walls');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryWallsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryWallsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryRentalInventoryWalls>>
+      _rentalinventoryWallsPost(
+          {required WebApiModulesInventoryRentalInventoryRentalInventoryWalls?
+              body}) {
+    final Uri $url = Uri.parse('/rentalinventory/walls');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryRentalInventoryRentalInventoryWalls,
+        WebApiModulesInventoryRentalInventoryRentalInventoryWalls>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryRentalInventoryWalls>>
+      _rentalinventoryWallsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/rentalinventory/walls/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesInventoryRentalInventoryRentalInventoryWalls,
+        WebApiModulesInventoryRentalInventoryRentalInventoryWalls>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryRentalInventoryWalls>>
+      _rentalinventoryWallsIdPut({
+    required String? id,
+    required WebApiModulesInventoryRentalInventoryRentalInventoryWalls? body,
+  }) {
+    final Uri $url = Uri.parse('/rentalinventory/walls/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesInventoryRentalInventoryRentalInventoryWalls,
+        WebApiModulesInventoryRentalInventoryRentalInventoryWalls>($request);
+  }
+
+  @override
+  Future<Response<bool>> _rentalinventoryWallsIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/rentalinventory/walls/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryInventoryidWallimagehistoryBrowsePost({
+    required String? inventoryid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/wallimagehistory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _rentalinventoryInventoryidWallimagehistoryExportexcelxlsxPost({
+    required String? inventoryid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse>>
+      _rentalinventoryInventoryidWallimagehistoryGet({
+    required String? inventoryid,
+    String? documentTypeId,
+    String? description,
+    String? dateStamp,
+    int? pageNo,
+    int? pageSize,
+    String? sort,
+  }) {
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/wallimagehistory');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'DocumentTypeId': documentTypeId,
+      'Description': description,
+      'DateStamp': dateStamp,
+      'PageNo': pageNo,
+      'PageSize': pageSize,
+      'Sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse,
+            FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryWallImageHistory>>
+      _rentalinventoryInventoryidWallimagehistoryPost({
+    required String? inventoryid,
+    required WebApiModulesInventoryRentalInventoryWallImageHistoryPostRequest?
+        body,
+  }) {
+    final Uri $url =
+        Uri.parse('/rentalinventory/${inventoryid}/wallimagehistory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryRentalInventoryWallImageHistory,
+        WebApiModulesInventoryRentalInventoryWallImageHistory>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryWallImageHistory>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidGet({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryRentalInventoryWallImageHistory,
+        WebApiModulesInventoryRentalInventoryWallImageHistory>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventoryRentalInventoryWallImageHistory>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidPut({
+    required String? inventoryid,
+    required String? documentid,
+    required WebApiModulesInventoryRentalInventoryWallImageHistoryPutRequest?
+        body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventoryRentalInventoryWallImageHistory,
+        WebApiModulesInventoryRentalInventoryWallImageHistory>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidDelete({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidThumbnailsGet({
+    required String? inventoryid,
+    required String? documentid,
+    int? pageno,
+    int? pagesize,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/thumbnails');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse,
+        FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidImageImageidGet({
+    required String? inventoryid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentImageResponse,
+        FwStandardGridsAppDocumentGetDocumentImageResponse>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidImageImageidDelete({
+    required String? inventoryid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidImagePost({
+    required String? inventoryid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/image');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _rentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost({
+    required String? inventoryid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/imageformupload');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairRepairidDocumentBrowsePost({
     required String? repairid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/repair/${repairid}/document/browse';
+    final Uri $url = Uri.parse('/repair/${repairid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25356,7 +28166,7 @@ class _$Home extends Home {
     required String? repairid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/repair/${repairid}/document/exportexcelxlsx';
+    final Uri $url = Uri.parse('/repair/${repairid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25383,7 +28193,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/repair/${repairid}/documents';
+    final Uri $url = Uri.parse('/repair/${repairid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -25410,7 +28220,7 @@ class _$Home extends Home {
     required String? repairid,
     required String? documentid,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}';
+    final Uri $url = Uri.parse('/repair/${repairid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -25427,7 +28237,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesInventoryRepairRepairDocumentPutRequest? body,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}';
+    final Uri $url = Uri.parse('/repair/${repairid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -25444,7 +28254,7 @@ class _$Home extends Home {
     required String? repairid,
     required String? documentid,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}';
+    final Uri $url = Uri.parse('/repair/${repairid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -25459,7 +28269,7 @@ class _$Home extends Home {
     required String? repairid,
     required WebApiModulesInventoryRepairRepairDocumentPostRequest? body,
   }) {
-    final String $url = '/repair/${repairid}/document';
+    final Uri $url = Uri.parse('/repair/${repairid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25479,7 +28289,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -25501,8 +28312,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/repair/${repairid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/repair/${repairid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -25518,8 +28329,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/repair/${repairid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/repair/${repairid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -25534,7 +28345,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25549,13 +28361,16 @@ class _$Home extends Home {
   Future<Response<bool>> _repairRepairidDocumentDocumentidImageformuploadPost({
     required String? repairid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/repair/${repairid}/document/${documentid}/imageformupload';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -25565,7 +28380,8 @@ class _$Home extends Home {
     required String? repairid,
     required String? documentid,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -25580,7 +28396,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -25596,7 +28413,8 @@ class _$Home extends Home {
     required String? repairid,
     required String? documentid,
   }) {
-    final String $url = '/repair/${repairid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -25609,13 +28427,16 @@ class _$Home extends Home {
   Future<Response<bool>> _repairRepairidDocumentDocumentidFileformuploadPut({
     required String? repairid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/repair/${repairid}/document/${documentid}/fileformupload';
+    final Uri $url =
+        Uri.parse('/repair/${repairid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -25623,7 +28444,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _repairRepairidDocumentEmptyobjectGet(
       {required String? repairid}) {
-    final String $url = '/repair/${repairid}/document/emptyobject';
+    final Uri $url = Uri.parse('/repair/${repairid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -25635,7 +28456,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _repairBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/browse';
+    final Uri $url = Uri.parse('/repair/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25653,7 +28474,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _repairExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/exportexcelxlsx';
+    final Uri $url = Uri.parse('/repair/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25677,7 +28498,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/repair';
+    final Uri $url = Uri.parse('/repair');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -25699,7 +28520,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRepairRepair>> _repairPost(
       {required WebApiModulesInventoryRepairRepair? body}) {
-    final String $url = '/repair';
+    final Uri $url = Uri.parse('/repair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25714,7 +28535,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRepairRepair>> _repairIdGet(
       {required String? id}) {
-    final String $url = '/repair/${id}';
+    final Uri $url = Uri.parse('/repair/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -25729,7 +28550,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventoryRepairRepair? body,
   }) {
-    final String $url = '/repair/${id}';
+    final Uri $url = Uri.parse('/repair/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -25743,7 +28564,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _repairIdDelete({required String? id}) {
-    final String $url = '/repair/${id}';
+    final Uri $url = Uri.parse('/repair/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -25755,7 +28576,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRepairToggleRepairEstimateResponse>>
       _repairEstimateIdPost({required String? id}) {
-    final String $url = '/repair/estimate/${id}';
+    final Uri $url = Uri.parse('/repair/estimate/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -25768,7 +28589,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRepairToggleRepairCompleteResponse>>
       _repairCompleteIdPost({required String? id}) {
-    final String $url = '/repair/complete/${id}';
+    final Uri $url = Uri.parse('/repair/complete/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -25784,7 +28605,7 @@ class _$Home extends Home {
     required String? id,
     required int? quantity,
   }) {
-    final String $url = '/repair/releaseitems/${id}/${quantity}';
+    final Uri $url = Uri.parse('/repair/releaseitems/${id}/${quantity}');
     final Request $request = Request(
       'POST',
       $url,
@@ -25797,7 +28618,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRepairVoidRepairResponse>>
       _repairVoidIdPost({required String? id}) {
-    final String $url = '/repair/void/${id}';
+    final Uri $url = Uri.parse('/repair/void/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -25812,7 +28633,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsServiceOrderItemCreateServiceOrderFromRepairResponse>>
       _repairIdCreateserviceorderPost({required String? id}) {
-    final String $url = '/repair/${id}/createserviceorder';
+    final Uri $url = Uri.parse('/repair/${id}/createserviceorder');
     final Request $request = Request(
       'POST',
       $url,
@@ -25829,7 +28650,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsLossAndDamageCreateLossAndDamageOrderFromRepairResponse>>
       _repairIdCreatelossanddamageorderPost({required String? id}) {
-    final String $url = '/repair/${id}/createlossanddamageorder';
+    final Uri $url = Uri.parse('/repair/${id}/createlossanddamageorder');
     final Request $request = Request(
       'POST',
       $url,
@@ -25843,7 +28664,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _repairLegendGet() {
-    final String $url = '/repair/legend';
+    final Uri $url = Uri.parse('/repair/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -25856,7 +28677,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidateitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validateitem/browse';
+    final Uri $url = Uri.parse('/repair/validateitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25872,7 +28693,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidaterentalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validaterentalinventory/browse';
+    final Uri $url = Uri.parse('/repair/validaterentalinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25888,7 +28709,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidatesalesinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validatesalesinventory/browse';
+    final Uri $url = Uri.parse('/repair/validatesalesinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25904,7 +28725,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validatedepartment/browse';
+    final Uri $url = Uri.parse('/repair/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25920,7 +28741,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidatedamageorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validatedamageorder/browse';
+    final Uri $url = Uri.parse('/repair/validatedamageorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25936,7 +28757,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidaterepairitemstatusBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validaterepairitemstatus/browse';
+    final Uri $url = Uri.parse('/repair/validaterepairitemstatus/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25952,7 +28773,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/repair/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25968,7 +28789,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidatewarehouselocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validatewarehouselocation/browse';
+    final Uri $url = Uri.parse('/repair/validatewarehouselocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -25984,7 +28805,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validatecurrency/browse';
+    final Uri $url = Uri.parse('/repair/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26000,7 +28821,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/repair/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26022,7 +28843,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/repair/inventorystatus';
+    final Uri $url = Uri.parse('/repair/inventorystatus');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -26045,7 +28866,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidateconsignorBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validateconsignor/browse';
+    final Uri $url = Uri.parse('/repair/validateconsignor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26061,7 +28882,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairValidateconsignoragreementBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repair/validateconsignoragreement/browse';
+    final Uri $url = Uri.parse('/repair/validateconsignoragreement/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26076,7 +28897,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _repaircostBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repaircost/browse';
+    final Uri $url = Uri.parse('/repaircost/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26094,7 +28915,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _repaircostExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repaircost/exportexcelxlsx';
+    final Uri $url = Uri.parse('/repaircost/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26118,7 +28939,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/repaircost';
+    final Uri $url = Uri.parse('/repaircost');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -26141,7 +28962,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsRepairCostRepairCost>>
       _repaircostPost(
           {required WebApiModulesHomeControlsRepairCostRepairCost? body}) {
-    final String $url = '/repaircost';
+    final Uri $url = Uri.parse('/repaircost');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26156,7 +28977,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsRepairCostRepairCost>>
       _repaircostIdGet({required String? id}) {
-    final String $url = '/repaircost/${id}';
+    final Uri $url = Uri.parse('/repaircost/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -26172,7 +28993,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsRepairCostRepairCost? body,
   }) {
-    final String $url = '/repaircost/${id}';
+    final Uri $url = Uri.parse('/repaircost/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -26186,7 +29007,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _repaircostIdDelete({required String? id}) {
-    final String $url = '/repaircost/${id}';
+    final Uri $url = Uri.parse('/repaircost/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -26201,7 +29022,7 @@ class _$Home extends Home {
     num? rate,
     num? discountAmount,
   }) {
-    final String $url = '/repaircost/calculateextended';
+    final Uri $url = Uri.parse('/repaircost/calculateextended');
     final Map<String, dynamic> $params = <String, dynamic>{
       'Quantity': quantity,
       'Rate': rate,
@@ -26220,7 +29041,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repaircostValidaterateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repaircost/validaterate/browse';
+    final Uri $url = Uri.parse('/repaircost/validaterate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26235,7 +29056,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _repairpartBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repairpart/browse';
+    final Uri $url = Uri.parse('/repairpart/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26253,7 +29074,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _repairpartExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repairpart/exportexcelxlsx';
+    final Uri $url = Uri.parse('/repairpart/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26277,7 +29098,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/repairpart';
+    final Uri $url = Uri.parse('/repairpart');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -26300,7 +29121,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsRepairPartRepairPart>>
       _repairpartPost(
           {required WebApiModulesHomeControlsRepairPartRepairPart? body}) {
-    final String $url = '/repairpart';
+    final Uri $url = Uri.parse('/repairpart');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26315,7 +29136,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsRepairPartRepairPart>>
       _repairpartIdGet({required String? id}) {
-    final String $url = '/repairpart/${id}';
+    final Uri $url = Uri.parse('/repairpart/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -26331,7 +29152,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsRepairPartRepairPart? body,
   }) {
-    final String $url = '/repairpart/${id}';
+    final Uri $url = Uri.parse('/repairpart/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -26345,7 +29166,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _repairpartIdDelete({required String? id}) {
-    final String $url = '/repairpart/${id}';
+    final Uri $url = Uri.parse('/repairpart/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -26360,7 +29181,7 @@ class _$Home extends Home {
     num? rate,
     num? discountAmount,
   }) {
-    final String $url = '/repairpart/calculateextended';
+    final Uri $url = Uri.parse('/repairpart/calculateextended');
     final Map<String, dynamic> $params = <String, dynamic>{
       'Quantity': quantity,
       'Rate': rate,
@@ -26379,7 +29200,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairpartValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repairpart/validateinventory/browse';
+    final Uri $url = Uri.parse('/repairpart/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26395,7 +29216,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _repairpartValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repairpart/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/repairpart/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26410,7 +29231,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _repairreleaseBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repairrelease/browse';
+    final Uri $url = Uri.parse('/repairrelease/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26428,7 +29249,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _repairreleaseExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/repairrelease/exportexcelxlsx';
+    final Uri $url = Uri.parse('/repairrelease/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26452,7 +29273,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/repairrelease';
+    final Uri $url = Uri.parse('/repairrelease');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -26474,7 +29295,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsRepairReleaseRepairRelease>>
       _repairreleaseIdGet({required String? id}) {
-    final String $url = '/repairrelease/${id}';
+    final Uri $url = Uri.parse('/repairrelease/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -26485,9 +29306,347 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _reserveditemsValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reserveditems/validateinventorytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _reserveditemsValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reserveditems/validatecategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _reserveditemsValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reserveditems/validatesubcategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _reserveditemsValidateicodeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reserveditems/validateicode/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _reservedrentalitemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reservedrentalitem/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _reservedrentalitemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reservedrentalitem/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemReservedRentalItemLogic>>
+      _reservedrentalitemGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/reservedrentalitem');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemReservedRentalItemLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemReservedRentalItemLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>>
+      _reservedrentalitemPost(
+          {required WebApiModulesHomeControlsReservedRentalItemReservedRentalItem?
+              body}) {
+    final Uri $url = Uri.parse('/reservedrentalitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesHomeControlsReservedRentalItemReservedRentalItem,
+            WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>>
+      _reservedrentalitemIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/reservedrentalitem/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesHomeControlsReservedRentalItemReservedRentalItem,
+            WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>>
+      _reservedrentalitemIdPut({
+    required String? id,
+    required WebApiModulesHomeControlsReservedRentalItemReservedRentalItem?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/reservedrentalitem/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesHomeControlsReservedRentalItemReservedRentalItem,
+            WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _reservedrentalitemIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/reservedrentalitem/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _reservedrentalitemlogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _reservedrentalitemlogExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLogLogic>>
+      _reservedrentalitemlogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLogLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLogLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog>>
+      _reservedrentalitemlogPost(
+          {required WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog?
+              body}) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog,
+            WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog>>
+      _reservedrentalitemlogIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog,
+            WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog>>
+      _reservedrentalitemlogIdPut({
+    required String? id,
+    required WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog,
+            WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _reservedrentalitemlogIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/reservedrentalitemlog/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _retiredBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/retired/browse';
+    final Uri $url = Uri.parse('/retired/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26505,7 +29664,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _retiredExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/retired/exportexcelxlsx';
+    final Uri $url = Uri.parse('/retired/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26529,7 +29688,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/retired';
+    final Uri $url = Uri.parse('/retired');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -26551,7 +29710,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventoryRetiredRetired>> _retiredIdGet(
       {required String? id}) {
-    final String $url = '/retired/${id}';
+    final Uri $url = Uri.parse('/retired/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -26565,7 +29724,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _retiredGldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/retired/gldistribution/browse';
+    final Uri $url = Uri.parse('/retired/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26580,7 +29739,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _returntovendorSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/returntovendor/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/returntovendor/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -26598,7 +29757,7 @@ class _$Home extends Home {
       _returntovendorStartsessionPost(
           {required WebApiModulesAgentPurchaseOrderReturnContractRequest?
               body}) {
-    final String $url = '/returntovendor/startsession';
+    final Uri $url = Uri.parse('/returntovendor/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26614,7 +29773,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesAgentPurchaseOrderReturnItemResponse>>
       _returntovendorReturnitemsPost(
           {required WebApiModulesAgentPurchaseOrderReturnItemRequest? body}) {
-    final String $url = '/returntovendor/returnitems';
+    final Uri $url = Uri.parse('/returntovendor/returnitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26633,7 +29792,7 @@ class _$Home extends Home {
       _returntovendorSelectallPost(
           {required WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequest?
               body}) {
-    final String $url = '/returntovendor/selectall';
+    final Uri $url = Uri.parse('/returntovendor/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26654,7 +29813,7 @@ class _$Home extends Home {
       _returntovendorSelectnonePost(
           {required WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemRequest?
               body}) {
-    final String $url = '/returntovendor/selectnone';
+    final Uri $url = Uri.parse('/returntovendor/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26671,7 +29830,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractContract>>
       _returntovendorCompletecontractIdPost({required String? id}) {
-    final String $url = '/returntovendor/completecontract/${id}';
+    final Uri $url = Uri.parse('/returntovendor/completecontract/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -26686,7 +29845,7 @@ class _$Home extends Home {
       _returntovendorCancelcontractPost(
           {required WebApiModulesWarehouseContractCancelContractRequest?
               body}) {
-    final String $url = '/returntovendor/cancelcontract';
+    final Uri $url = Uri.parse('/returntovendor/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26702,7 +29861,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _returntovendorValidatepurchaseorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/returntovendor/validatepurchaseorder/browse';
+    final Uri $url = Uri.parse('/returntovendor/validatepurchaseorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26715,12 +29874,59 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _revenueBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/revenue/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _revenueExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/revenue/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<Object>> _revenueLegendGet() {
+    final Uri $url = Uri.parse('/revenue/legend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryInventoryidDocumentBrowsePost({
     required String? inventoryid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/salesinventory/${inventoryid}/document/browse';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26740,8 +29946,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/exportexcelxlsx';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26768,7 +29974,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/salesinventory/${inventoryid}/documents';
+    final Uri $url = Uri.parse('/salesinventory/${inventoryid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -26795,7 +30001,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url = '/salesinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -26814,7 +30021,8 @@ class _$Home extends Home {
     required WebApiModulesInventorySalesInventorySalesInventoryDocumentPutRequest?
         body,
   }) {
-    final String $url = '/salesinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -26832,7 +30040,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url = '/salesinventory/${inventoryid}/document/${documentid}';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -26848,7 +30057,7 @@ class _$Home extends Home {
     required WebApiModulesInventorySalesInventorySalesInventoryDocumentPostRequest?
         body,
   }) {
-    final String $url = '/salesinventory/${inventoryid}/document';
+    final Uri $url = Uri.parse('/salesinventory/${inventoryid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26869,8 +30078,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/thumbnails';
+    final Uri $url = Uri.parse(
+        '/salesinventory/${inventoryid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -26892,8 +30101,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/salesinventory/${inventoryid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -26910,8 +30119,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/salesinventory/${inventoryid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -26926,8 +30135,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/image';
+    final Uri $url = Uri.parse(
+        '/salesinventory/${inventoryid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -26943,13 +30152,16 @@ class _$Home extends Home {
       _salesinventoryInventoryidDocumentDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/imageformupload';
+    final Uri $url = Uri.parse(
+        '/salesinventory/${inventoryid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -26960,8 +30172,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -26976,8 +30188,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -26994,8 +30206,8 @@ class _$Home extends Home {
     required String? inventoryid,
     required String? documentid,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/salesinventory/${inventoryid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -27009,13 +30221,16 @@ class _$Home extends Home {
       _salesinventoryInventoryidDocumentDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/salesinventory/${inventoryid}/document/${documentid}/fileformupload';
+    final Uri $url = Uri.parse(
+        '/salesinventory/${inventoryid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -27024,8 +30239,8 @@ class _$Home extends Home {
   Future<Response<dynamic>>
       _salesinventorySalesinventoryidDocumentEmptyobjectGet(
           {required String? salesinventoryid}) {
-    final String $url =
-        '/salesinventory/${salesinventoryid}/document/emptyobject';
+    final Uri $url =
+        Uri.parse('/salesinventory/${salesinventoryid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -27038,7 +30253,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/browse';
+    final Uri $url = Uri.parse('/salesinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27052,7 +30267,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _salesinventoryLegendGet() {
-    final String $url = '/salesinventory/legend';
+    final Uri $url = Uri.parse('/salesinventory/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -27063,7 +30278,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _salesinventoryAvailabilitylegendGet() {
-    final String $url = '/salesinventory/availabilitylegend';
+    final Uri $url = Uri.parse('/salesinventory/availabilitylegend');
     final Request $request = Request(
       'GET',
       $url,
@@ -27078,7 +30293,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _salesinventoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/salesinventory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27102,7 +30317,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/salesinventory';
+    final Uri $url = Uri.parse('/salesinventory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -27125,7 +30340,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventorySalesInventorySalesInventory>>
       _salesinventoryPost(
           {required WebApiModulesInventorySalesInventorySalesInventory? body}) {
-    final String $url = '/salesinventory';
+    final Uri $url = Uri.parse('/salesinventory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27140,7 +30355,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesInventorySalesInventorySalesInventory>>
       _salesinventoryIdGet({required String? id}) {
-    final String $url = '/salesinventory/${id}';
+    final Uri $url = Uri.parse('/salesinventory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -27156,7 +30371,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesInventorySalesInventorySalesInventory? body,
   }) {
-    final String $url = '/salesinventory/${id}';
+    final Uri $url = Uri.parse('/salesinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -27170,7 +30385,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _salesinventoryIdDelete({required String? id}) {
-    final String $url = '/salesinventory/${id}';
+    final Uri $url = Uri.parse('/salesinventory/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -27183,7 +30398,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/salesinventory/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27199,7 +30414,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatecategoryidBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validatecategoryid/browse';
+    final Uri $url = Uri.parse('/salesinventory/validatecategoryid/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27215,7 +30430,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/salesinventory/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27231,7 +30446,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidateunitBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validateunit/browse';
+    final Uri $url = Uri.parse('/salesinventory/validateunit/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27247,7 +30462,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidaterankBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validaterank/browse';
+    final Uri $url = Uri.parse('/salesinventory/validaterank/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27263,7 +30478,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatecountryoforiginBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validatecountryoforigin/browse';
+    final Uri $url =
+        Uri.parse('/salesinventory/validatecountryoforigin/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27279,7 +30495,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidateprofitandlosscategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validateprofitandlosscategory/browse';
+    final Uri $url =
+        Uri.parse('/salesinventory/validateprofitandlosscategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27295,7 +30512,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidateassetaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validateassetaccount/browse';
+    final Uri $url = Uri.parse('/salesinventory/validateassetaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27311,7 +30528,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidateincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validateincomeaccount/browse';
+    final Uri $url = Uri.parse('/salesinventory/validateincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27327,7 +30544,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatesubincomeaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validatesubincomeaccount/browse';
+    final Uri $url =
+        Uri.parse('/salesinventory/validatesubincomeaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27343,8 +30561,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatecostofgoodssoldexpenseaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/salesinventory/validatecostofgoodssoldexpenseaccount/browse';
+    final Uri $url = Uri.parse(
+        '/salesinventory/validatecostofgoodssoldexpenseaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27360,7 +30578,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/salesinventory/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27376,7 +30594,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventoryValidatemanufacturerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/salesinventory/validatemanufacturer/browse';
+    final Uri $url = Uri.parse('/salesinventory/validatemanufacturer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27393,7 +30611,7 @@ class _$Home extends Home {
       _salesinventoryCopyPost(
           {required WebApiModulesInventoryInventoryCopyInventoryRequest?
               body}) {
-    final String $url = '/salesinventory/copy';
+    final Uri $url = Uri.parse('/salesinventory/copy');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27412,7 +30630,7 @@ class _$Home extends Home {
       _salesinventoryRefreshusagehistoryPost(
           {required WebApiModulesInventoryInventoryPopulateInventoryUsageHistoryRequest?
               body}) {
-    final String $url = '/salesinventory/refreshusagehistory';
+    final Uri $url = Uri.parse('/salesinventory/refreshusagehistory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27427,6 +30645,19 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesInventoryInventoryCreateCompleteResponse>>
+      _salesinventoryCreatecompleteIdPost({required String? id}) {
+    final Uri $url = Uri.parse('/salesinventory/createcomplete/${id}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventoryInventoryCreateCompleteResponse,
+        WebApiModulesInventoryInventoryCreateCompleteResponse>($request);
+  }
+
+  @override
   Future<
           Response<
               List<
@@ -27434,7 +30665,7 @@ class _$Home extends Home {
       _salesinventoryManyPost(
           {required List<WebApiModulesInventorySalesInventorySalesInventory>?
               body}) {
-    final String $url = '/salesinventory/many';
+    final Uri $url = Uri.parse('/salesinventory/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27450,10 +30681,102 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesAgentScheduleBarCodeReservationResponse>>
+      _scheduleBarcodereservationdataPost(
+          {required WebApiModulesAgentScheduleBarCodeReservationDataRequest?
+              body}) {
+    final Uri $url = Uri.parse('/schedule/barcodereservationdata');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentScheduleBarCodeReservationResponse,
+        WebApiModulesAgentScheduleBarCodeReservationResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentScheduleReserveBarCodeResponse>>
+      _scheduleReservebarcodePost(
+          {required WebApiModulesAgentScheduleReserveBarCodeRequest? body}) {
+    final Uri $url = Uri.parse('/schedule/reservebarcode');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentScheduleReserveBarCodeResponse,
+        WebApiModulesAgentScheduleReserveBarCodeResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentScheduleUnreserveBarCodeResponse>>
+      _scheduleUnreservebarcodePost(
+          {required WebApiModulesAgentScheduleUnreserveBarCodeRequest? body}) {
+    final Uri $url = Uri.parse('/schedule/unreservebarcode');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAgentScheduleUnreserveBarCodeResponse,
+        WebApiModulesAgentScheduleUnreserveBarCodeResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _scheduleValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/schedule/validateinventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _scheduleValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/schedule/validateorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<Object>> _scheduleAvailabilitylegendGet() {
+    final Uri $url = Uri.parse('/schedule/availabilitylegend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _serviceorderitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/serviceorderitem/browse';
+    final Uri $url = Uri.parse('/serviceorderitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27472,7 +30795,7 @@ class _$Home extends Home {
       _serviceorderitemStartsessionPost(
           {required WebApiModulesHomeControlsServiceOrderItemStartServiceOrderSessionRequest?
               body}) {
-    final String $url = '/serviceorderitem/startsession';
+    final Uri $url = Uri.parse('/serviceorderitem/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27491,7 +30814,7 @@ class _$Home extends Home {
       _serviceorderitemPost(
           {required WebApiModulesHomeControlsServiceOrderItemServiceOrderItem?
               body}) {
-    final String $url = '/serviceorderitem';
+    final Uri $url = Uri.parse('/serviceorderitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27510,7 +30833,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsServiceOrderItemServiceOrderItem? body,
   }) {
-    final String $url = '/serviceorderitem/${id}';
+    final Uri $url = Uri.parse('/serviceorderitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -27530,7 +30853,7 @@ class _$Home extends Home {
       _serviceorderitemCompletesessionPost(
           {required WebApiModulesHomeControlsServiceOrderItemCompleteServiceOrderSessionRequest?
               body}) {
-    final String $url = '/serviceorderitem/completesession';
+    final Uri $url = Uri.parse('/serviceorderitem/completesession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27550,7 +30873,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _serviceorderitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/serviceorderitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/serviceorderitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27565,9 +30888,691 @@ class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _setbrochureBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _setbrochureExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureLogic>>
+      _setbrochureGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/setbrochure');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetBrochureSetBrochure>>
+      _setbrochurePost(
+          {required WebApiModulesInventorySetBrochureSetBrochure? body}) {
+    final Uri $url = Uri.parse('/setbrochure');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventorySetBrochureSetBrochure,
+        WebApiModulesInventorySetBrochureSetBrochure>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetBrochureSetBrochure>>
+      _setbrochureIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/setbrochure/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventorySetBrochureSetBrochure,
+        WebApiModulesInventorySetBrochureSetBrochure>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetBrochureSetBrochure>>
+      _setbrochureIdPut({
+    required String? id,
+    required WebApiModulesInventorySetBrochureSetBrochure? body,
+  }) {
+    final Uri $url = Uri.parse('/setbrochure/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventorySetBrochureSetBrochure,
+        WebApiModulesInventorySetBrochureSetBrochure>($request);
+  }
+
+  @override
+  Future<Response<bool>> _setbrochureIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/setbrochure/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySetBrochureSetBrochureLogic>>>
+      _setbrochureManyPost(
+          {required List<WebApiModulesInventorySetBrochureSetBrochure>? body}) {
+    final Uri $url = Uri.parse('/setbrochure/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySetBrochureSetBrochureLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySetBrochureSetBrochureLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _setbrochureValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/validatedeal/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _setbrochureValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/validateorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _setbrochureValidaterentalinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/validaterentalinventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesInventoryInventoryReceiptSetBrochureTotalsResponse>>
+      _setbrochureGetbrochuretotalsGet({String? brochureid}) {
+    final Uri $url = Uri.parse('/setbrochure/getbrochuretotals');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'brochureid': brochureid
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesInventoryInventoryReceiptSetBrochureTotalsResponse,
+            WebApiModulesInventoryInventoryReceiptSetBrochureTotalsResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _setbrochureItemBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/item/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _setbrochureItemExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/setbrochure/item/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureItemLogic>>
+      _setbrochureItemGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/setbrochure/item');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureItemLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureItemLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetBrochureSetBrochureItem>>
+      _setbrochureItemPost(
+          {required WebApiModulesInventorySetBrochureSetBrochureItem? body}) {
+    final Uri $url = Uri.parse('/setbrochure/item');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventorySetBrochureSetBrochureItem,
+        WebApiModulesInventorySetBrochureSetBrochureItem>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetBrochureSetBrochureItem>>
+      _setbrochureItemIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/setbrochure/item/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventorySetBrochureSetBrochureItem,
+        WebApiModulesInventorySetBrochureSetBrochureItem>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetBrochureSetBrochureItem>>
+      _setbrochureItemIdPut({
+    required String? id,
+    required WebApiModulesInventorySetBrochureSetBrochureItem? body,
+  }) {
+    final Uri $url = Uri.parse('/setbrochure/item/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventorySetBrochureSetBrochureItem,
+        WebApiModulesInventorySetBrochureSetBrochureItem>($request);
+  }
+
+  @override
+  Future<Response<bool>> _setbrochureItemIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/setbrochure/item/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _setimagehistoryDonothingPost(
+      {required Object? body}) {
+    final Uri $url = Uri.parse('/setimagehistory/donothing');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _setimagehistoryInventoryidSetimagehistoryitemBrowsePost({
+    required String? inventoryid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/setimagehistory/${inventoryid}/setimagehistoryitem/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _setimagehistoryInventoryidSetimagehistoryitemExportexcelxlsxPost({
+    required String? inventoryid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse>>
+      _setimagehistoryInventoryidSetimagehistoryitemGet({
+    required String? inventoryid,
+    String? documentTypeId,
+    String? description,
+    String? dateStamp,
+    int? pageNo,
+    int? pageSize,
+    String? sort,
+  }) {
+    final Uri $url =
+        Uri.parse('/setimagehistory/${inventoryid}/setimagehistoryitem');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'DocumentTypeId': documentTypeId,
+      'Description': description,
+      'DateStamp': dateStamp,
+      'PageNo': pageNo,
+      'PageSize': pageSize,
+      'Sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse,
+            FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetImageHistorySetImageHistoryItem>>
+      _setimagehistoryInventoryidSetimagehistoryitemPost({
+    required String? inventoryid,
+    required WebApiModulesInventorySetImageHistorySetImageHistoryItemPostRequest?
+        body,
+  }) {
+    final Uri $url =
+        Uri.parse('/setimagehistory/${inventoryid}/setimagehistoryitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventorySetImageHistorySetImageHistoryItem,
+        WebApiModulesInventorySetImageHistorySetImageHistoryItem>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetImageHistorySetImageHistoryItem>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidGet({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesInventorySetImageHistorySetImageHistoryItem,
+        WebApiModulesInventorySetImageHistorySetImageHistoryItem>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesInventorySetImageHistorySetImageHistoryItem>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidPut({
+    required String? inventoryid,
+    required String? documentid,
+    required WebApiModulesInventorySetImageHistorySetImageHistoryItemPutRequest?
+        body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesInventorySetImageHistorySetImageHistoryItem,
+        WebApiModulesInventorySetImageHistorySetImageHistoryItem>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidDelete({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidThumbnailsGet({
+    required String? inventoryid,
+    required String? documentid,
+    int? pageno,
+    int? pagesize,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/thumbnails');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse,
+        FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidImageImageidGet({
+    required String? inventoryid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentImageResponse,
+        FwStandardGridsAppDocumentGetDocumentImageResponse>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidImageImageidDelete({
+    required String? inventoryid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidImagePost({
+    required String? inventoryid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/image');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost({
+    required String? inventoryid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/imageformupload');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidFileGet({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/file');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidFilePut({
+    required String? inventoryid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/file');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidFileDelete({
+    required String? inventoryid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/file');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _setimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut({
+    required String? inventoryid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/fileformupload');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>>
+      _setimagehistoryInventoryidSetimagehistoryitemEmptyobjectGet(
+          {required String? inventoryid}) {
+    final Uri $url = Uri.parse(
+        '/setimagehistory/${inventoryid}/setimagehistoryitem/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _stageditemBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/stageditem/browse';
+    final Uri $url = Uri.parse('/stageditem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27585,7 +31590,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _stageditemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/stageditem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/stageditem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27603,7 +31608,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _subpurchaseorderitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/subpurchaseorderitem/browse';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27621,7 +31626,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _subpurchaseorderitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/subpurchaseorderitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27640,7 +31645,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem>>
       _subpurchaseorderitemIdGet({required String? id}) {
-    final String $url = '/subpurchaseorderitem/${id}';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -27661,7 +31666,7 @@ class _$Home extends Home {
     required WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem?
         body,
   }) {
-    final String $url = '/subpurchaseorderitem/${id}';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -27677,7 +31682,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _subpurchaseorderitemIdDelete({required String? id}) {
-    final String $url = '/subpurchaseorderitem/${id}';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -27693,7 +31698,7 @@ class _$Home extends Home {
       _subpurchaseorderitemPost(
           {required WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem?
               body}) {
-    final String $url = '/subpurchaseorderitem';
+    final Uri $url = Uri.parse('/subpurchaseorderitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27716,7 +31721,7 @@ class _$Home extends Home {
           {required List<
                   WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem>?
               body}) {
-    final String $url = '/subpurchaseorderitem/many';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27738,7 +31743,7 @@ class _$Home extends Home {
       _subpurchaseorderitemSelectallPost(
           {required WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest?
               body}) {
-    final String $url = '/subpurchaseorderitem/selectall';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/selectall');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27759,7 +31764,7 @@ class _$Home extends Home {
       _subpurchaseorderitemSelectnonePost(
           {required WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest?
               body}) {
-    final String $url = '/subpurchaseorderitem/selectnone';
+    final Uri $url = Uri.parse('/subpurchaseorderitem/selectnone');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27776,7 +31781,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsSuspendedSessionSuspendedSession>>
       _suspendedsessionIdGet({required String? id}) {
-    final String $url = '/suspendedsession/${id}';
+    final Uri $url = Uri.parse('/suspendedsession/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -27791,7 +31796,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _suspendedsessionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/suspendedsession/browse';
+    final Uri $url = Uri.parse('/suspendedsession/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27809,7 +31814,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _suspendedsessionExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/suspendedsession/exportexcelxlsx';
+    final Uri $url = Uri.parse('/suspendedsession/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27826,7 +31831,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _taxableBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/taxable/browse';
+    final Uri $url = Uri.parse('/taxable/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27844,7 +31849,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _taxableExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/taxable/exportexcelxlsx';
+    final Uri $url = Uri.parse('/taxable/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27864,7 +31869,7 @@ class _$Home extends Home {
     required String? masterid,
     required String? locationid,
   }) {
-    final String $url = '/taxable/${masterid}/${locationid}';
+    final Uri $url = Uri.parse('/taxable/${masterid}/${locationid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -27877,7 +31882,7 @@ class _$Home extends Home {
   @override
   Future<Response<List<WebApiModulesHomeControlsTaxableTaxable>>>
       _taxableMasteridGet({required String? masterid}) {
-    final String $url = '/taxable/${masterid}';
+    final Uri $url = Uri.parse('/taxable/${masterid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -27891,7 +31896,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferinItemsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/items/browse';
+    final Uri $url = Uri.parse('/transferin/items/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27909,7 +31914,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _transferinItemsExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/items/exportexcelxlsx';
+    final Uri $url = Uri.parse('/transferin/items/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27925,7 +31930,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _transferinItemsLegendGet() {
-    final String $url = '/transferin/items/legend';
+    final Uri $url = Uri.parse('/transferin/items/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -27938,7 +31943,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairCreateRepairResponse>>
       _transferinItemsCreaterepairPost(
           {required WebApiModulesInventoryRepairCreateRepairRequest? body}) {
-    final String $url = '/transferin/items/createrepair';
+    final Uri $url = Uri.parse('/transferin/items/createrepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27954,7 +31959,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairCancelRepairResponse>>
       _transferinItemsCancelrepairPost(
           {required WebApiModulesInventoryRepairCancelRepairRequest? body}) {
-    final String $url = '/transferin/items/cancelrepair';
+    final Uri $url = Uri.parse('/transferin/items/cancelrepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -27974,7 +31979,7 @@ class _$Home extends Home {
     String? orderitemid,
     String? warehouseid,
   }) {
-    final String $url = '/transferin/items/loadserialnumbers';
+    final Uri $url = Uri.parse('/transferin/items/loadserialnumbers');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid,
       'inventoryid': inventoryid,
@@ -27994,7 +31999,7 @@ class _$Home extends Home {
   @override
   Future<Response<bool>> _transferinSuspendedsessionsexistGet(
       {String? warehouseId}) {
-    final String $url = '/transferin/suspendedsessionsexist';
+    final Uri $url = Uri.parse('/transferin/suspendedsessionsexist');
     final Map<String, dynamic> $params = <String, dynamic>{
       'warehouseId': warehouseId
     };
@@ -28011,7 +32016,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseContractSessionResponse>>
       _transferinStartsessionPost(
           {required WebApiModulesWarehouseContractSessionRequest? body}) {
-    final String $url = '/transferin/startsession';
+    final Uri $url = Uri.parse('/transferin/startsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28026,7 +32031,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractCreateCheckInContractResponse>>
       _transferinCompletecheckincontractIdPost({required String? id}) {
-    final String $url = '/transferin/completecheckincontract/${id}';
+    final Uri $url = Uri.parse('/transferin/completecheckincontract/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -28041,7 +32046,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInItemsResponse>>
       _transferinCheckinitemPost(
           {required WebApiModulesWarehouseCheckInCheckInItemsRequest? body}) {
-    final String $url = '/transferin/checkinitem';
+    final Uri $url = Uri.parse('/transferin/checkinitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28057,7 +32062,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInItemsResponse>>
       _transferinCheckinquantityPost(
           {required WebApiModulesWarehouseCheckInCheckInItemsRequest? body}) {
-    final String $url = '/transferin/checkinquantity';
+    final Uri $url = Uri.parse('/transferin/checkinquantity');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28073,7 +32078,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInSelectedItemsResponse>>
       _transferinCancelitemsPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/transferin/cancelitems';
+    final Uri $url = Uri.parse('/transferin/cancelitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28089,7 +32094,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInSelectedItemsResponse>>
       _transferinSendtorepairPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/transferin/sendtorepair';
+    final Uri $url = Uri.parse('/transferin/sendtorepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28105,7 +32110,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInSelectedItemsResponse>>
       _transferinCancelrepairPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/transferin/cancelrepair';
+    final Uri $url = Uri.parse('/transferin/cancelrepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28121,7 +32126,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairRepairReleaseItemsResponse>>
       _transferinReleaserepairitemsPost(
           {required WebApiModulesWarehouseCheckInSelectedItemsRequest? body}) {
-    final String $url = '/transferin/releaserepairitems';
+    final Uri $url = Uri.parse('/transferin/releaserepairitems');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28136,7 +32141,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiLogicTSpStatusResponse>> _transferinCancelcontractPost(
       {required WebApiModulesWarehouseContractCancelContractRequest? body}) {
-    final String $url = '/transferin/cancelcontract';
+    final Uri $url = Uri.parse('/transferin/cancelcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28153,7 +32158,7 @@ class _$Home extends Home {
       _transferinForcesuspendsessionPost(
           {required WebApiModulesWarehouseContractForceSuspendSessionRequest?
               body}) {
-    final String $url = '/transferin/forcesuspendsession';
+    final Uri $url = Uri.parse('/transferin/forcesuspendsession');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28169,7 +32174,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferinValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/transferin/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28185,7 +32190,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferinValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/validatecategory/browse';
+    final Uri $url = Uri.parse('/transferin/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28201,7 +32206,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferinValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/validateinventory/browse';
+    final Uri $url = Uri.parse('/transferin/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28217,7 +32222,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesWarehouseCheckInCheckInAddOrderResponse>>
       _transferinAddorderPost(
           {required WebApiModulesWarehouseCheckInCheckInAddOrder? body}) {
-    final String $url = '/transferin/addorder';
+    final Uri $url = Uri.parse('/transferin/addorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28234,7 +32239,7 @@ class _$Home extends Home {
       _transferinRemoveorderPost(
           {required WebApiModulesWarehouseCheckInCheckInRemoveOrderRequest?
               body}) {
-    final String $url = '/transferin/removeorder';
+    final Uri $url = Uri.parse('/transferin/removeorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28249,7 +32254,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInSessionSettingsResponse>>
       _transferinSessionsettingsGet({String? contractid}) {
-    final String $url = '/transferin/sessionsettings';
+    final Uri $url = Uri.parse('/transferin/sessionsettings');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -28266,7 +32271,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseContractExceptionsResponse>>
       _transferinGetexceptionsGet({String? contractid}) {
-    final String $url = '/transferin/getexceptions';
+    final Uri $url = Uri.parse('/transferin/getexceptions');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -28283,7 +32288,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesWarehouseCheckInSwapResponse>>
       _transferinCheckinswapsGet({String? contractid}) {
-    final String $url = '/transferin/checkinswaps';
+    final Uri $url = Uri.parse('/transferin/checkinswaps');
     final Map<String, dynamic> $params = <String, dynamic>{
       'contractid': contractid
     };
@@ -28301,7 +32306,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferinValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/validateorder/browse';
+    final Uri $url = Uri.parse('/transferin/validateorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28317,7 +32322,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferinValidatetransferorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferin/validatetransferorder/browse';
+    final Uri $url = Uri.parse('/transferin/validatetransferorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28333,7 +32338,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transfermanifestBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transfermanifest/browse';
+    final Uri $url = Uri.parse('/transfermanifest/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28347,7 +32352,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _transfermanifestLegendGet() {
-    final String $url = '/transfermanifest/legend';
+    final Uri $url = Uri.parse('/transfermanifest/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -28362,7 +32367,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _transfermanifestExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transfermanifest/exportexcelxlsx';
+    final Uri $url = Uri.parse('/transfermanifest/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28386,7 +32391,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/transfermanifest';
+    final Uri $url = Uri.parse('/transfermanifest');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -28409,7 +32414,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsManifestManifest>>
       _transfermanifestPost(
           {required WebApiModulesHomeControlsManifestManifest? body}) {
-    final String $url = '/transfermanifest';
+    final Uri $url = Uri.parse('/transfermanifest');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28424,7 +32429,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsManifestManifest>>
       _transfermanifestIdGet({required String? id}) {
-    final String $url = '/transfermanifest/${id}';
+    final Uri $url = Uri.parse('/transfermanifest/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -28440,7 +32445,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsManifestManifest? body,
   }) {
-    final String $url = '/transfermanifest/${id}';
+    final Uri $url = Uri.parse('/transfermanifest/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -28454,7 +32459,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _transfermanifestIdDelete({required String? id}) {
-    final String $url = '/transfermanifest/${id}';
+    final Uri $url = Uri.parse('/transfermanifest/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -28466,7 +32471,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _transferorderBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/browse';
+    final Uri $url = Uri.parse('/transferorder/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28484,7 +32489,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _transferorderExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/exportexcelxlsx';
+    final Uri $url = Uri.parse('/transferorder/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28500,7 +32505,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _transferorderLegendGet() {
-    final String $url = '/transferorder/legend';
+    final Uri $url = Uri.parse('/transferorder/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -28514,7 +32519,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse>>
       _transferorderConfirmIdPost({required String? id}) {
-    final String $url = '/transferorder/confirm/${id}';
+    final Uri $url = Uri.parse('/transferorder/confirm/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -28536,7 +32541,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/transferorder';
+    final Uri $url = Uri.parse('/transferorder');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -28559,7 +32564,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesTransfersTransferOrderTransferOrder>>
       _transferorderPost(
           {required WebApiModulesTransfersTransferOrderTransferOrder? body}) {
-    final String $url = '/transferorder';
+    final Uri $url = Uri.parse('/transferorder');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28574,7 +32579,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesTransfersTransferOrderTransferOrder>>
       _transferorderIdGet({required String? id}) {
-    final String $url = '/transferorder/${id}';
+    final Uri $url = Uri.parse('/transferorder/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -28590,7 +32595,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesTransfersTransferOrderTransferOrder? body,
   }) {
-    final String $url = '/transferorder/${id}';
+    final Uri $url = Uri.parse('/transferorder/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -28607,7 +32612,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesTransfersTransferOrderCancelTransferOrderResponse>>
       _transferorderCancelIdPost({required String? id}) {
-    final String $url = '/transferorder/cancel/${id}';
+    final Uri $url = Uri.parse('/transferorder/cancel/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -28624,7 +32629,7 @@ class _$Home extends Home {
           Response<
               WebApiModulesTransfersTransferOrderCancelTransferOrderResponse>>
       _transferorderUncancelIdPost({required String? id}) {
-    final String $url = '/transferorder/uncancel/${id}';
+    final Uri $url = Uri.parse('/transferorder/uncancel/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -28640,7 +32645,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validatedepartment/browse';
+    final Uri $url = Uri.parse('/transferorder/validatedepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28656,7 +32661,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidatetransfertypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validatetransfertype/browse';
+    final Uri $url = Uri.parse('/transferorder/validatetransfertype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28672,7 +32677,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidatefromwarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validatefromwarehouse/browse';
+    final Uri $url = Uri.parse('/transferorder/validatefromwarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28688,7 +32693,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidatetowarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validatetowarehouse/browse';
+    final Uri $url = Uri.parse('/transferorder/validatetowarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28704,7 +32709,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidateagentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validateagent/browse';
+    final Uri $url = Uri.parse('/transferorder/validateagent/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28720,7 +32725,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidateoutdeliverycarrierBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validateoutdeliverycarrier/browse';
+    final Uri $url =
+        Uri.parse('/transferorder/validateoutdeliverycarrier/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28736,7 +32742,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidateoutdeliveryshipviaBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validateoutdeliveryshipvia/browse';
+    final Uri $url =
+        Uri.parse('/transferorder/validateoutdeliveryshipvia/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28752,7 +32759,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidateoutdeliverytocountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validateoutdeliverytocountry/browse';
+    final Uri $url =
+        Uri.parse('/transferorder/validateoutdeliverytocountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28768,7 +32776,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferorderValidatesendtoBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferorder/validatesendto/browse';
+    final Uri $url = Uri.parse('/transferorder/validatesendto/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28784,7 +32792,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferoutValidatetransferBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferout/validatetransfer/browse';
+    final Uri $url = Uri.parse('/transferout/validatetransfer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28800,7 +32808,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferreceiptBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferreceipt/browse';
+    final Uri $url = Uri.parse('/transferreceipt/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28814,7 +32822,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _transferreceiptLegendGet() {
-    final String $url = '/transferreceipt/legend';
+    final Uri $url = Uri.parse('/transferreceipt/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -28829,7 +32837,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _transferreceiptExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferreceipt/exportexcelxlsx';
+    final Uri $url = Uri.parse('/transferreceipt/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28853,7 +32861,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/transferreceipt';
+    final Uri $url = Uri.parse('/transferreceipt');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -28876,7 +32884,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsManifestManifest>>
       _transferreceiptPost(
           {required WebApiModulesWarehouseContractContract? body}) {
-    final String $url = '/transferreceipt';
+    final Uri $url = Uri.parse('/transferreceipt');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28891,7 +32899,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsManifestManifest>>
       _transferreceiptIdGet({required String? id}) {
-    final String $url = '/transferreceipt/${id}';
+    final Uri $url = Uri.parse('/transferreceipt/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -28907,7 +32915,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsManifestManifest? body,
   }) {
-    final String $url = '/transferreceipt/${id}';
+    final Uri $url = Uri.parse('/transferreceipt/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -28921,7 +32929,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _transferreceiptIdDelete({required String? id}) {
-    final String $url = '/transferreceipt/${id}';
+    final Uri $url = Uri.parse('/transferreceipt/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -28934,7 +32942,7 @@ class _$Home extends Home {
   Future<Response<WebApiLogicTSpStatusResponse>>
       _transferreceiptVoidcontractPost(
           {required WebApiModulesWarehouseContractVoidContractRequest? body}) {
-    final String $url = '/transferreceipt/voidcontract';
+    final Uri $url = Uri.parse('/transferreceipt/voidcontract');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28950,7 +32958,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferreceiptGldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferreceipt/gldistribution/browse';
+    final Uri $url = Uri.parse('/transferreceipt/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28966,7 +32974,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidatetransferBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferstatus/validatetransfer/browse';
+    final Uri $url = Uri.parse('/transferstatus/validatetransfer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28982,7 +32990,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferstatus/validateinventorytype/browse';
+    final Uri $url = Uri.parse('/transferstatus/validateinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -28998,7 +33006,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidatecategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferstatus/validatecategory/browse';
+    final Uri $url = Uri.parse('/transferstatus/validatecategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29014,7 +33022,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidatesubcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferstatus/validatesubcategory/browse';
+    final Uri $url = Uri.parse('/transferstatus/validatesubcategory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29030,7 +33038,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidateicodeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferstatus/validateicode/browse';
+    final Uri $url = Uri.parse('/transferstatus/validateicode/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29046,7 +33054,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _transferstatusValidatewarehouseBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/transferstatus/validatewarehouse/browse';
+    final Uri $url = Uri.parse('/transferstatus/validatewarehouse/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29064,7 +33072,7 @@ class _$Home extends Home {
     required String? vendorid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/vendor/${vendorid}/document/browse';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29084,7 +33092,7 @@ class _$Home extends Home {
     required String? vendorid,
     required FwStandardModelsBrowseRequest? body,
   }) {
-    final String $url = '/vendor/${vendorid}/document/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29111,7 +33119,7 @@ class _$Home extends Home {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/vendor/${vendorid}/documents';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/documents');
     final Map<String, dynamic> $params = <String, dynamic>{
       'DocumentTypeId': documentTypeId,
       'Description': description,
@@ -29138,7 +33146,7 @@ class _$Home extends Home {
     required String? vendorid,
     required String? documentid,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document/${documentid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -29155,7 +33163,7 @@ class _$Home extends Home {
     required String? documentid,
     required WebApiModulesAgentVendorVendorDocumentPutRequest? body,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document/${documentid}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -29172,7 +33180,7 @@ class _$Home extends Home {
     required String? vendorid,
     required String? documentid,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document/${documentid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -29187,7 +33195,7 @@ class _$Home extends Home {
     required String? vendorid,
     required WebApiModulesAgentVendorVendorDocumentPostRequest? body,
   }) {
-    final String $url = '/vendor/${vendorid}/document';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29207,7 +33215,8 @@ class _$Home extends Home {
     int? pageno,
     int? pagesize,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}/thumbnails';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/thumbnails');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -29229,8 +33238,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/vendor/${vendorid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/vendor/${vendorid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -29246,8 +33255,8 @@ class _$Home extends Home {
     required String? documentid,
     required String? imageid,
   }) {
-    final String $url =
-        '/vendor/${vendorid}/document/${documentid}/image/${imageid}';
+    final Uri $url = Uri.parse(
+        '/vendor/${vendorid}/document/${documentid}/image/${imageid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -29262,7 +33271,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}/image';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/image');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29277,13 +33287,16 @@ class _$Home extends Home {
   Future<Response<bool>> _vendorVendoridDocumentDocumentidImageformuploadPost({
     required String? vendorid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/vendor/${vendorid}/document/${documentid}/imageformupload';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/imageformupload');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -29293,7 +33306,8 @@ class _$Home extends Home {
     required String? vendorid,
     required String? documentid,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/file');
     final Request $request = Request(
       'GET',
       $url,
@@ -29308,7 +33322,8 @@ class _$Home extends Home {
     required String? documentid,
     required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/file');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -29324,7 +33339,8 @@ class _$Home extends Home {
     required String? vendorid,
     required String? documentid,
   }) {
-    final String $url = '/vendor/${vendorid}/document/${documentid}/file';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/file');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -29337,13 +33353,16 @@ class _$Home extends Home {
   Future<Response<bool>> _vendorVendoridDocumentDocumentidFileformuploadPut({
     required String? vendorid,
     required String? documentid,
+    required Object? body,
   }) {
-    final String $url =
-        '/vendor/${vendorid}/document/${documentid}/fileformupload';
+    final Uri $url =
+        Uri.parse('/vendor/${vendorid}/document/${documentid}/fileformupload');
+    final $body = body;
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
+      body: $body,
     );
     return client.send<bool, bool>($request);
   }
@@ -29351,7 +33370,7 @@ class _$Home extends Home {
   @override
   Future<Response<dynamic>> _vendorVendoridDocumentEmptyobjectGet(
       {required String? vendorid}) {
-    final String $url = '/vendor/${vendorid}/document/emptyobject';
+    final Uri $url = Uri.parse('/vendor/${vendorid}/document/emptyobject');
     final Request $request = Request(
       'GET',
       $url,
@@ -29363,7 +33382,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _vendorBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/browse';
+    final Uri $url = Uri.parse('/vendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29381,7 +33400,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendor/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29405,7 +33424,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/vendor';
+    final Uri $url = Uri.parse('/vendor');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -29427,7 +33446,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentVendorVendor>> _vendorPost(
       {required WebApiModulesAgentVendorVendor? body}) {
-    final String $url = '/vendor';
+    final Uri $url = Uri.parse('/vendor');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29442,7 +33461,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesAgentVendorVendor>> _vendorIdGet(
       {required String? id}) {
-    final String $url = '/vendor/${id}';
+    final Uri $url = Uri.parse('/vendor/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -29457,7 +33476,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesAgentVendorVendor? body,
   }) {
-    final String $url = '/vendor/${id}';
+    final Uri $url = Uri.parse('/vendor/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -29471,7 +33490,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _vendorIdDelete({required String? id}) {
-    final String $url = '/vendor/${id}';
+    final Uri $url = Uri.parse('/vendor/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -29482,7 +33501,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _vendorLegendGet() {
-    final String $url = '/vendor/legend';
+    final Uri $url = Uri.parse('/vendor/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -29495,7 +33514,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/vendor/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29511,7 +33530,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatevendorclassBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatevendorclass/browse';
+    final Uri $url = Uri.parse('/vendor/validatevendorclass/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29527,7 +33546,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatecustomerBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatecustomer/browse';
+    final Uri $url = Uri.parse('/vendor/validatecustomer/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29543,7 +33562,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatecountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatecountry/browse';
+    final Uri $url = Uri.parse('/vendor/validatecountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29559,7 +33578,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidaterateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validaterate/browse';
+    final Uri $url = Uri.parse('/vendor/validaterate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29575,7 +33594,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatebillingcycleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatebillingcycle/browse';
+    final Uri $url = Uri.parse('/vendor/validatebillingcycle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29591,7 +33610,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatepaymenttermsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatepaymentterms/browse';
+    final Uri $url = Uri.parse('/vendor/validatepaymentterms/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29607,7 +33626,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidateorganizationtypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validateorganizationtype/browse';
+    final Uri $url = Uri.parse('/vendor/validateorganizationtype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29623,7 +33642,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatepoclassBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatepoclass/browse';
+    final Uri $url = Uri.parse('/vendor/validatepoclass/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29639,7 +33658,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidatecurrencyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validatecurrency/browse';
+    final Uri $url = Uri.parse('/vendor/validatecurrency/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29655,7 +33674,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorValidateremitcountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendor/validateremitcountry/browse';
+    final Uri $url = Uri.parse('/vendor/validateremitcountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29669,7 +33688,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<Object>> _vendorinvoiceLegendGet() {
-    final String $url = '/vendorinvoice/legend';
+    final Uri $url = Uri.parse('/vendorinvoice/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -29681,7 +33700,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _vendorinvoiceBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoice/browse';
+    final Uri $url = Uri.parse('/vendorinvoice/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29699,7 +33718,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoiceExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoice/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendorinvoice/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29723,7 +33742,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/vendorinvoice';
+    final Uri $url = Uri.parse('/vendorinvoice');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -29746,7 +33765,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesBillingVendorInvoiceVendorInvoice>>
       _vendorinvoicePost(
           {required WebApiModulesBillingVendorInvoiceVendorInvoice? body}) {
-    final String $url = '/vendorinvoice';
+    final Uri $url = Uri.parse('/vendorinvoice');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29761,7 +33780,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesBillingVendorInvoiceVendorInvoice>>
       _vendorinvoiceIdGet({required String? id}) {
-    final String $url = '/vendorinvoice/${id}';
+    final Uri $url = Uri.parse('/vendorinvoice/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -29777,7 +33796,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesBillingVendorInvoiceVendorInvoice? body,
   }) {
-    final String $url = '/vendorinvoice/${id}';
+    final Uri $url = Uri.parse('/vendorinvoice/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -29791,7 +33810,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _vendorinvoiceIdDelete({required String? id}) {
-    final String $url = '/vendorinvoice/${id}';
+    final Uri $url = Uri.parse('/vendorinvoice/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -29807,7 +33826,7 @@ class _$Home extends Home {
       _vendorinvoiceToggleapprovedPost(
           {required WebApiModulesBillingVendorInvoiceToggleVendorInvoiceApprovedRequest?
               body}) {
-    final String $url = '/vendorinvoice/toggleapproved';
+    final Uri $url = Uri.parse('/vendorinvoice/toggleapproved');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29826,7 +33845,8 @@ class _$Home extends Home {
           Response<
               WebApiModulesBillingVendorInvoiceRestoreVendorInvoiceChargeCodesToDefaultResponse>>
       _vendorinvoiceIdRestoredefaultchargecodesPost({required String? id}) {
-    final String $url = '/vendorinvoice/${id}/restoredefaultchargecodes';
+    final Uri $url =
+        Uri.parse('/vendorinvoice/${id}/restoredefaultchargecodes');
     final Request $request = Request(
       'POST',
       $url,
@@ -29842,7 +33862,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceValidatetaxoptionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoice/validatetaxoption/browse';
+    final Uri $url = Uri.parse('/vendorinvoice/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29858,7 +33878,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceGldistributionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoice/gldistribution/browse';
+    final Uri $url = Uri.parse('/vendorinvoice/gldistribution/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29874,7 +33894,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceexportbatchBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceexportbatch/browse';
+    final Uri $url = Uri.parse('/vendorinvoiceexportbatch/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29892,7 +33912,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoiceexportbatchExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceexportbatch/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendorinvoiceexportbatch/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29910,7 +33930,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceitemBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceitem/browse';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29928,7 +33948,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoiceitemExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceitem/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29952,7 +33972,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/vendorinvoiceitem';
+    final Uri $url = Uri.parse('/vendorinvoiceitem');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -29976,7 +33996,7 @@ class _$Home extends Home {
       _vendorinvoiceitemPost(
           {required WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem?
               body}) {
-    final String $url = '/vendorinvoiceitem';
+    final Uri $url = Uri.parse('/vendorinvoiceitem');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29992,7 +34012,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>>
       _vendorinvoiceitemIdGet({required String? id}) {
-    final String $url = '/vendorinvoiceitem/${id}';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -30009,7 +34029,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem? body,
   }) {
-    final String $url = '/vendorinvoiceitem/${id}';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -30024,7 +34044,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _vendorinvoiceitemIdDelete({required String? id}) {
-    final String $url = '/vendorinvoiceitem/${id}';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -30042,7 +34062,7 @@ class _$Home extends Home {
           {required List<
                   WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>?
               body}) {
-    final String $url = '/vendorinvoiceitem/many';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/many');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30062,7 +34082,7 @@ class _$Home extends Home {
       _vendorinvoiceitemResettodefaultPost(
           {required WebApiModulesBillingVendorInvoiceResetToDefaultRequest?
               body}) {
-    final String $url = '/vendorinvoiceitem/resettodefault';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/resettodefault');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30078,7 +34098,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceitemValidateglaccountBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceitem/validateglaccount/browse';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/validateglaccount/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30094,7 +34114,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceitemValidateinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceitem/validateinventory/browse';
+    final Uri $url = Uri.parse('/vendorinvoiceitem/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30110,7 +34130,8 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoiceitemcorrespondingdealinvoicesBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoiceitemcorrespondingdealinvoices/browse';
+    final Uri $url =
+        Uri.parse('/vendorinvoiceitemcorrespondingdealinvoices/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30128,8 +34149,8 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoiceitemcorrespondingdealinvoicesExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url =
-        '/vendorinvoiceitemcorrespondingdealinvoices/exportexcelxlsx';
+    final Uri $url = Uri.parse(
+        '/vendorinvoiceitemcorrespondingdealinvoices/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30147,7 +34168,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicenoteBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicenote/browse';
+    final Uri $url = Uri.parse('/vendorinvoicenote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30165,7 +34186,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoicenoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicenote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendorinvoicenote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30189,7 +34210,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/vendorinvoicenote';
+    final Uri $url = Uri.parse('/vendorinvoicenote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -30213,7 +34234,7 @@ class _$Home extends Home {
       _vendorinvoicenotePost(
           {required WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote?
               body}) {
-    final String $url = '/vendorinvoicenote';
+    final Uri $url = Uri.parse('/vendorinvoicenote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30229,7 +34250,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote>>
       _vendorinvoicenoteIdGet({required String? id}) {
-    final String $url = '/vendorinvoicenote/${id}';
+    final Uri $url = Uri.parse('/vendorinvoicenote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -30246,7 +34267,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote? body,
   }) {
-    final String $url = '/vendorinvoicenote/${id}';
+    final Uri $url = Uri.parse('/vendorinvoicenote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -30261,7 +34282,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _vendorinvoicenoteIdDelete({required String? id}) {
-    final String $url = '/vendorinvoicenote/${id}';
+    final Uri $url = Uri.parse('/vendorinvoicenote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -30274,7 +34295,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicenoteValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicenote/validateuser/browse';
+    final Uri $url = Uri.parse('/vendorinvoicenote/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30290,7 +34311,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicepaymentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicepayment/browse';
+    final Uri $url = Uri.parse('/vendorinvoicepayment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30308,7 +34329,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoicepaymentExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicepayment/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendorinvoicepayment/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30326,7 +34347,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendorinvoicestatushistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicestatushistory/browse';
+    final Uri $url = Uri.parse('/vendorinvoicestatushistory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30344,7 +34365,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendorinvoicestatushistoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendorinvoicestatushistory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendorinvoicestatushistory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30361,7 +34382,7 @@ class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _vendornoteBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendornote/browse';
+    final Uri $url = Uri.parse('/vendornote/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30379,7 +34400,7 @@ class _$Home extends Home {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _vendornoteExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendornote/exportexcelxlsx';
+    final Uri $url = Uri.parse('/vendornote/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30403,7 +34424,7 @@ class _$Home extends Home {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/vendornote';
+    final Uri $url = Uri.parse('/vendornote');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -30426,7 +34447,7 @@ class _$Home extends Home {
   Future<Response<WebApiModulesHomeControlsVendorNoteVendorNote>>
       _vendornotePost(
           {required WebApiModulesHomeControlsVendorNoteVendorNote? body}) {
-    final String $url = '/vendornote';
+    final Uri $url = Uri.parse('/vendornote');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30441,7 +34462,7 @@ class _$Home extends Home {
   @override
   Future<Response<WebApiModulesHomeControlsVendorNoteVendorNote>>
       _vendornoteIdGet({required String? id}) {
-    final String $url = '/vendornote/${id}';
+    final Uri $url = Uri.parse('/vendornote/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -30457,7 +34478,7 @@ class _$Home extends Home {
     required String? id,
     required WebApiModulesHomeControlsVendorNoteVendorNote? body,
   }) {
-    final String $url = '/vendornote/${id}';
+    final Uri $url = Uri.parse('/vendornote/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -30471,7 +34492,7 @@ class _$Home extends Home {
 
   @override
   Future<Response<bool>> _vendornoteIdDelete({required String? id}) {
-    final String $url = '/vendornote/${id}';
+    final Uri $url = Uri.parse('/vendornote/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -30484,7 +34505,7 @@ class _$Home extends Home {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _vendornoteValidatenotesbyBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/vendornote/validatenotesby/browse';
+    final Uri $url = Uri.parse('/vendornote/validatenotesby/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -30494,5 +34515,19 @@ class _$Home extends Home {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<bool>> _wallimagehistoryDonothingPost(
+      {required Object? body}) {
+    final Uri $url = Uri.parse('/wallimagehistory/donothing');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
   }
 }

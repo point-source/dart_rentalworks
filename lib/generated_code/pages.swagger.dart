@@ -22,7 +22,7 @@ abstract class Pages extends ChopperService {
   static Pages create({
     ChopperClient? client,
     Authenticator? authenticator,
-    String? baseUrl,
+    Uri? baseUrl,
     Iterable<dynamic>? interceptors,
   }) {
     if (client != null) {
@@ -65,59 +65,6 @@ abstract class Pages extends ChopperService {
   ///
   Future<
           chopper.Response<
-              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>>
-      cardpointepaymentactivelinkMakepaymentPost(
-          {required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest?
-              body}) {
-    generatedMapping.putIfAbsent(
-        WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse,
-        () =>
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
-                .fromJsonFactory);
-
-    return _cardpointepaymentactivelinkMakepaymentPost(body: body);
-  }
-
-  ///
-  @Post(path: '/cardpointepaymentactivelink/makepayment')
-  Future<
-          chopper.Response<
-              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>>
-      _cardpointepaymentactivelinkMakepaymentPost(
-          {@Body()
-              required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest?
-                  body});
-
-  ///Get an empty object
-  Future<chopper.Response> cardpointepaymentactivelinkEmptyobjectGet() {
-    return _cardpointepaymentactivelinkEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/cardpointepaymentactivelink/emptyobject')
-  Future<chopper.Response> _cardpointepaymentactivelinkEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> cardpointepaymentactivelinkEmptybrowseobjectGet() {
-    return _cardpointepaymentactivelinkEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/cardpointepaymentactivelink/emptybrowseobject')
-  Future<chopper.Response> _cardpointepaymentactivelinkEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> cardpointepaymentactivelinkKeyfieldnamesGet() {
-    return _cardpointepaymentactivelinkKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/cardpointepaymentactivelink/keyfieldnames')
-  Future<chopper.Response> _cardpointepaymentactivelinkKeyfieldnamesGet();
-
-  ///
-  Future<
-          chopper.Response<
               WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>>
       cardpointetokenizerGet() {
     generatedMapping.putIfAbsent(
@@ -135,33 +82,6 @@ abstract class Pages extends ChopperService {
           chopper.Response<
               WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>>
       _cardpointetokenizerGet();
-
-  ///Get an empty object
-  Future<chopper.Response> cardpointetokenizerEmptyobjectGet() {
-    return _cardpointetokenizerEmptyobjectGet();
-  }
-
-  ///Get an empty object
-  @Get(path: '/cardpointetokenizer/emptyobject')
-  Future<chopper.Response> _cardpointetokenizerEmptyobjectGet();
-
-  ///Get an empty browse object
-  Future<chopper.Response> cardpointetokenizerEmptybrowseobjectGet() {
-    return _cardpointetokenizerEmptybrowseobjectGet();
-  }
-
-  ///Get an empty browse object
-  @Get(path: '/cardpointetokenizer/emptybrowseobject')
-  Future<chopper.Response> _cardpointetokenizerEmptybrowseobjectGet();
-
-  ///Get an array of primary key field names
-  Future<chopper.Response> cardpointetokenizerKeyfieldnamesGet() {
-    return _cardpointetokenizerKeyfieldnamesGet();
-  }
-
-  ///Get an array of primary key field names
-  @Get(path: '/cardpointetokenizer/keyfieldnames')
-  Future<chopper.Response> _cardpointetokenizerKeyfieldnamesGet();
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -172,11 +92,12 @@ class FwCoreApiSwashbuckleBadRequestResponse {
           Map<String, dynamic> json) =>
       _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
 
-  static const fromJsonFactory =
-      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  static const fromJsonFactory =
+      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
 
   @override
   String toString() => jsonEncode(this);
@@ -196,6 +117,9 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
+  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
   @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
   @JsonKey(name: 'Message', includeIfNull: false)
@@ -203,8 +127,6 @@ class FwStandardModelsFwApiException {
   @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
-  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
-  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -254,98 +176,6 @@ extension $FwStandardModelsFwApiExceptionExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest {
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest({
-    required this.activeLinkToken,
-    required this.account,
-    required this.expirationDate,
-    required this.capture,
-  });
-
-  factory WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestFromJson(
-          json);
-
-  @JsonKey(name: 'ActiveLinkToken', includeIfNull: false)
-  final String activeLinkToken;
-  @JsonKey(name: 'Account', includeIfNull: false)
-  final String account;
-  @JsonKey(name: 'ExpirationDate', includeIfNull: false)
-  final String expirationDate;
-  @JsonKey(name: 'Capture', includeIfNull: false)
-  final bool capture;
-  static const fromJsonFactory =
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestToJson(
-          this);
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest &&
-            (identical(other.activeLinkToken, activeLinkToken) ||
-                const DeepCollectionEquality()
-                    .equals(other.activeLinkToken, activeLinkToken)) &&
-            (identical(other.account, account) ||
-                const DeepCollectionEquality()
-                    .equals(other.account, account)) &&
-            (identical(other.expirationDate, expirationDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationDate, expirationDate)) &&
-            (identical(other.capture, capture) ||
-                const DeepCollectionEquality().equals(other.capture, capture)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(activeLinkToken) ^
-      const DeepCollectionEquality().hash(account) ^
-      const DeepCollectionEquality().hash(expirationDate) ^
-      const DeepCollectionEquality().hash(capture) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequestExtension
-    on WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest {
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
-      copyWith(
-          {String? activeLinkToken,
-          String? account,
-          String? expirationDate,
-          bool? capture}) {
-    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest(
-        activeLinkToken: activeLinkToken ?? this.activeLinkToken,
-        account: account ?? this.account,
-        expirationDate: expirationDate ?? this.expirationDate,
-        capture: capture ?? this.capture);
-  }
-
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest
-      copyWithWrapped(
-          {Wrapped<String>? activeLinkToken,
-          Wrapped<String>? account,
-          Wrapped<String>? expirationDate,
-          Wrapped<bool>? capture}) {
-    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest(
-        activeLinkToken: (activeLinkToken != null
-            ? activeLinkToken.value
-            : this.activeLinkToken),
-        account: (account != null ? account.value : this.account),
-        expirationDate: (expirationDate != null
-            ? expirationDate.value
-            : this.expirationDate),
-        capture: (capture != null ? capture.value : this.capture));
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse {
   WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse({
     this.company,
@@ -362,6 +192,12 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLin
           Map<String, dynamic> json) =>
       _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseFromJson(
           json);
+
+  static const toJsonFactory =
+      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseToJson(
+          this);
 
   @JsonKey(name: 'Company', includeIfNull: false)
   final String? company;
@@ -381,11 +217,6 @@ class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLin
   final String? message;
   static const fromJsonFactory =
       _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -487,74 +318,10 @@ extension $WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActi
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse {
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse({
-    this.statusCode,
-    this.statusMessage,
-  });
-
-  factory WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseFromJson(
-          json);
-
-  @JsonKey(name: 'StatusCode', includeIfNull: false)
-  final String? statusCode;
-  @JsonKey(name: 'StatusMessage', includeIfNull: false)
-  final String? statusMessage;
-  static const fromJsonFactory =
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseToJson(
-          this);
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse &&
-            (identical(other.statusCode, statusCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.statusCode, statusCode)) &&
-            (identical(other.statusMessage, statusMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.statusMessage, statusMessage)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(statusCode) ^
-      const DeepCollectionEquality().hash(statusMessage) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponseExtension
-    on WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse {
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
-      copyWith({String? statusCode, String? statusMessage}) {
-    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse(
-        statusCode: statusCode ?? this.statusCode,
-        statusMessage: statusMessage ?? this.statusMessage);
-  }
-
-  WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse
-      copyWithWrapped(
-          {Wrapped<String?>? statusCode, Wrapped<String?>? statusMessage}) {
-    return WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse(
-        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
-        statusMessage:
-            (statusMessage != null ? statusMessage.value : this.statusMessage));
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse {
   WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse({
     this.site,
+    this.useCvv,
   });
 
   factory WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse.fromJson(
@@ -562,22 +329,27 @@ class WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
       _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseFromJson(
           json);
 
-  @JsonKey(name: 'Site', includeIfNull: false)
-  final String? site;
-  static const fromJsonFactory =
-      _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseFromJson;
   static const toJsonFactory =
       _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseToJson(
           this);
 
+  @JsonKey(name: 'Site', includeIfNull: false)
+  final String? site;
+  @JsonKey(name: 'UseCvv', includeIfNull: false)
+  final bool? useCvv;
+  static const fromJsonFactory =
+      _$WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseFromJson;
+
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse &&
             (identical(other.site, site) ||
-                const DeepCollectionEquality().equals(other.site, site)));
+                const DeepCollectionEquality().equals(other.site, site)) &&
+            (identical(other.useCvv, useCvv) ||
+                const DeepCollectionEquality().equals(other.useCvv, useCvv)));
   }
 
   @override
@@ -585,21 +357,24 @@ class WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(site) ^ runtimeType.hashCode;
+      const DeepCollectionEquality().hash(site) ^
+      const DeepCollectionEquality().hash(useCvv) ^
+      runtimeType.hashCode;
 }
 
 extension $WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponseExtension
     on WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse {
   WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
-      copyWith({String? site}) {
+      copyWith({String? site, bool? useCvv}) {
     return WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse(
-        site: site ?? this.site);
+        site: site ?? this.site, useCvv: useCvv ?? this.useCvv);
   }
 
   WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
-      copyWithWrapped({Wrapped<String?>? site}) {
+      copyWithWrapped({Wrapped<String?>? site, Wrapped<bool?>? useCvv}) {
     return WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse(
-        site: (site != null ? site.value : this.site));
+        site: (site != null ? site.value : this.site),
+        useCvv: (useCvv != null ? useCvv.value : this.useCvv));
   }
 }
 

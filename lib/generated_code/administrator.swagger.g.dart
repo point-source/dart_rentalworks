@@ -194,6 +194,34 @@ Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
   return val;
 }
 
+FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwTranslatedValue(
+      fieldName: json['FieldName'] as String?,
+      translatedValue: json['TranslatedValue'] as String?,
+      untranslatedValue: json['UntranslatedValue'] as String?,
+      isTranslated: json['IsTranslated'] as bool?,
+      userIsTranslating: json['UserIsTranslating'] as bool?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
+    FwStandardDataFwTranslatedValue instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('FieldName', instance.fieldName);
+  writeNotNull('TranslatedValue', instance.translatedValue);
+  writeNotNull('UntranslatedValue', instance.untranslatedValue);
+  writeNotNull('IsTranslated', instance.isTranslated);
+  writeNotNull('UserIsTranslating', instance.userIsTranslating);
+  return val;
+}
+
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsBrowseRequest(
@@ -233,13 +261,18 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               ?.map((e) => e as String)
               .toList() ??
           [],
+      searchgroupings: (json['searchgroupings'] as List<dynamic>?)
+              ?.map((e) => e as int)
+              .toList() ??
+          [],
       uniqueids: json['uniqueids'],
       boundids: json['boundids'],
       filterfields: json['filterfields'] as Map<String, dynamic>?,
       activeview: json['activeview'] as String?,
       emptyobject: json['emptyobject'] as bool?,
       forexcel: json['forexcel'] as bool?,
-      excelfields: (json['excelfields'] as List<dynamic>?)
+      includeallcolumns: json['includeallcolumns'] as bool?,
+      fields: (json['fields'] as List<dynamic>?)
               ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                   e as Map<String, dynamic>))
               .toList() ??
@@ -276,14 +309,15 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   writeNotNull('searchseparators', instance.searchseparators);
   writeNotNull('searchcondition', instance.searchcondition);
   writeNotNull('searchconjunctions', instance.searchconjunctions);
+  writeNotNull('searchgroupings', instance.searchgroupings);
   writeNotNull('uniqueids', instance.uniqueids);
   writeNotNull('boundids', instance.boundids);
   writeNotNull('filterfields', instance.filterfields);
   writeNotNull('activeview', instance.activeview);
   writeNotNull('emptyobject', instance.emptyobject);
   writeNotNull('forexcel', instance.forexcel);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
+  writeNotNull('includeallcolumns', instance.includeallcolumns);
+  writeNotNull('fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('totalfields', instance.totalfields);
   writeNotNull('activeviewfields', instance.activeviewfields);
   return val;
@@ -1363,6 +1397,11 @@ FwStandardModulesAdministratorAlertAlertLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertLogicToJson(
@@ -1393,6 +1432,8 @@ Map<String, dynamic> _$FwStandardModulesAdministratorAlertAlertLogicToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1426,6 +1467,11 @@ FwStandardModulesAdministratorAlertConditionAlertConditionLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1453,6 +1499,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1487,6 +1535,11 @@ FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1515,6 +1568,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1548,6 +1603,11 @@ FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1575,6 +1635,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1618,6 +1680,11 @@ FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1655,6 +1722,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1691,6 +1760,11 @@ FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1721,6 +1795,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1756,6 +1832,11 @@ FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1785,6 +1866,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1863,6 +1946,73 @@ Map<String, dynamic>
   return val;
 }
 
+FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic
+    _$FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic(
+          handlebarsTemplateId: json['HandlebarsTemplateId'] as int?,
+          description: json['Description'] as String?,
+          template: json['Template'] as String?,
+          moduleName: json['ModuleName'] as String?,
+          templateType: json['TemplateType'] as String?,
+          inactive: json['Inactive'] as bool?,
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+        );
+
+Map<String, dynamic>
+    _$FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogicToJson(
+        FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic
+            instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('HandlebarsTemplateId', instance.handlebarsTemplateId);
+  writeNotNull('Description', instance.description);
+  writeNotNull('Template', instance.template);
+  writeNotNull('ModuleName', instance.moduleName);
+  writeNotNull('TemplateType', instance.templateType);
+  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('DateStamp', instance.dateStamp);
+  writeNotNull('AuditNote', instance.auditNote);
+  writeNotNull('RecordTitle', instance.recordTitle);
+  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
+  writeNotNull('_DefaultFieldAttributes',
+      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
+  return val;
+}
+
 FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
     _$FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicFromJson(
             Map<String, dynamic> json) =>
@@ -1898,6 +2048,11 @@ FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1927,6 +2082,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -1963,6 +2120,11 @@ FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -1992,6 +2154,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2006,8 +2170,7 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       rows: (json['Rows'] as List<dynamic>?)
-              ?.map(
-                  (e) => (e as List<dynamic>).map((e) => e as Object?).toList())
+              ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
       pageNo: json['PageNo'] as int?,
@@ -2019,6 +2182,11 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
@@ -2041,6 +2209,8 @@ Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
   writeNotNull('TotalRows', instance.totalRows);
   writeNotNull('DateFields', instance.dateFields);
   writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2228,6 +2398,11 @@ WebApiModulesAdministratorCustomFieldCustomField
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(
@@ -2256,6 +2431,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2293,6 +2470,11 @@ WebApiModulesAdministratorCustomFormCustomForm
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorCustomFormCustomFormToJson(
@@ -2322,6 +2504,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorCustomFormCustomFormToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2365,6 +2549,7 @@ WebApiModulesAdministratorDataHealthDataHealth
           severityColor: json['SeverityColor'] as String?,
           notes: json['Notes'] as String?,
           resolved: json['Resolved'] as bool?,
+          quantity: json['Quantity'] as int?,
           inactive: json['Inactive'] as bool?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
@@ -2385,6 +2570,11 @@ WebApiModulesAdministratorDataHealthDataHealth
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorDataHealthDataHealthToJson(
@@ -2406,6 +2596,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorDataHealthDataHealthToJson(
   writeNotNull('SeverityColor', instance.severityColor);
   writeNotNull('Notes', instance.notes);
   writeNotNull('Resolved', instance.resolved);
+  writeNotNull('Quantity', instance.quantity);
   writeNotNull('Inactive', instance.inactive);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
@@ -2413,6 +2604,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorDataHealthDataHealthToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2453,6 +2646,11 @@ WebApiModulesAdministratorEmailHistoryEmailHistory
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(
@@ -2485,6 +2683,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorEmailHistoryEmailHistoryToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2519,6 +2719,11 @@ WebApiModulesAdministratorGroupGroup
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorGroupGroupToJson(
@@ -2546,6 +2751,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorGroupGroupToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2578,6 +2785,11 @@ WebApiModulesAdministratorHotfixHotfix
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorHotfixHotfixToJson(
@@ -2602,6 +2814,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorHotfixHotfixToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -2613,7 +2827,10 @@ WebApiModulesAdministratorPluginPlugin
           category: json['Category'] as String?,
           description: json['Description'] as String?,
           settings: json['Settings'] as String?,
-          inactive: json['Inactive'] as bool?,
+          dateStamp: json['DateStamp'] == null
+              ? null
+              : DateTime.parse(json['DateStamp'] as String),
+          enabled: json['Enabled'] as bool?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
           fields: (json['_Fields'] as List<dynamic>?)
@@ -2633,6 +2850,11 @@ WebApiModulesAdministratorPluginPlugin
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesAdministratorPluginPluginToJson(
@@ -2649,13 +2871,39 @@ Map<String, dynamic> _$WebApiModulesAdministratorPluginPluginToJson(
   writeNotNull('Category', instance.category);
   writeNotNull('Description', instance.description);
   writeNotNull('Settings', instance.settings);
-  writeNotNull('Inactive', instance.inactive);
+  writeNotNull('DateStamp', instance.dateStamp?.toIso8601String());
+  writeNotNull('Enabled', instance.enabled);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+WebApiModulesAdministratorPluginStatusResponse
+    _$WebApiModulesAdministratorPluginStatusResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorPluginStatusResponse(
+          success: json['Success'] as bool?,
+          responseText: json['ResponseText'] as String?,
+        );
+
+Map<String, dynamic> _$WebApiModulesAdministratorPluginStatusResponseToJson(
+    WebApiModulesAdministratorPluginStatusResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('Success', instance.success);
+  writeNotNull('ResponseText', instance.responseText);
   return val;
 }
 
@@ -2663,6 +2911,7 @@ WebApiModulesAdministratorSystemUpdateApplyUpdateRequest
     _$WebApiModulesAdministratorSystemUpdateApplyUpdateRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAdministratorSystemUpdateApplyUpdateRequest(
+          sessionId: json['SessionId'] as String?,
           currentVersion: json['CurrentVersion'] as String?,
           toVersion: json['ToVersion'] as String?,
         );
@@ -2678,6 +2927,7 @@ Map<String, dynamic>
     }
   }
 
+  writeNotNull('SessionId', instance.sessionId);
   writeNotNull('CurrentVersion', instance.currentVersion);
   writeNotNull('ToVersion', instance.toVersion);
   return val;
@@ -2719,6 +2969,7 @@ WebApiModulesAdministratorSystemUpdateAvailableVersion
           versionDate: json['VersionDate'] == null
               ? null
               : DateTime.parse(json['VersionDate'] as String),
+          versionTime: json['VersionTime'] as String?,
         );
 
 Map<String, dynamic>
@@ -2736,6 +2987,7 @@ Map<String, dynamic>
   writeNotNull('text', instance.text);
   writeNotNull('Version', instance.version);
   writeNotNull('VersionDate', instance.versionDate?.toIso8601String());
+  writeNotNull('VersionTime', instance.versionTime);
   return val;
 }
 
@@ -2991,6 +3243,50 @@ Map<String, dynamic>
   return val;
 }
 
+WebApiModulesAdministratorSystemUpdateNextQaVersionRequest
+    _$WebApiModulesAdministratorSystemUpdateNextQaVersionRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateNextQaVersionRequest(
+          currentVersion: json['CurrentVersion'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesAdministratorSystemUpdateNextQaVersionRequestToJson(
+        WebApiModulesAdministratorSystemUpdateNextQaVersionRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('CurrentVersion', instance.currentVersion);
+  return val;
+}
+
+WebApiModulesAdministratorSystemUpdateNextQaVersionResponse
+    _$WebApiModulesAdministratorSystemUpdateNextQaVersionResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorSystemUpdateNextQaVersionResponse(
+          nextQaVersion: json['NextQaVersion'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesAdministratorSystemUpdateNextQaVersionResponseToJson(
+        WebApiModulesAdministratorSystemUpdateNextQaVersionResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('NextQaVersion', instance.nextQaVersion);
+  return val;
+}
+
 WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
     _$WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryFromJson(
             Map<String, dynamic> json) =>
@@ -3024,6 +3320,11 @@ WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3052,6 +3353,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3082,6 +3385,11 @@ WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3106,6 +3414,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3158,6 +3468,8 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       userTitleId: json['UserTitleId'] as String?,
       userTitle: json['UserTitle'] as String?,
       email: json['Email'] as String?,
+      emailApp: json['EmailApp'] as String?,
+      addRentalWorksUserSignature: json['AddRentalWorksUserSignature'] as bool?,
       officeLocationId: json['OfficeLocationId'] as String?,
       officeLocation: json['OfficeLocation'] as String?,
       warehouseId: json['WarehouseId'] as String?,
@@ -3165,10 +3477,14 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       address1: json['Address1'] as String?,
       address2: json['Address2'] as String?,
       city: json['City'] as String?,
+      stateId: json['StateId'] as String?,
+      stateCode: json['StateCode'] as String?,
       state: json['State'] as String?,
       zipCode: json['ZipCode'] as String?,
       countryId: json['CountryId'] as String?,
       country: json['Country'] as String?,
+      countryCodeIsoAlpha2: json['CountryCodeIsoAlpha2'] as String?,
+      countryCodePhone: json['CountryCodePhone'] as int?,
       officePhone: json['OfficePhone'] as String?,
       officeExtension: json['OfficeExtension'] as String?,
       fax: json['Fax'] as String?,
@@ -3180,6 +3496,8 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       defaultDepartmentType: json['DefaultDepartmentType'] as String?,
       primaryDepartmentId: json['PrimaryDepartmentId'] as String?,
       primaryDepartment: json['PrimaryDepartment'] as String?,
+      languageId: json['LanguageId'] as String?,
+      language: json['Language'] as String?,
       rentalDepartmentId: json['RentalDepartmentId'] as String?,
       rentalDepartment: json['RentalDepartment'] as String?,
       salesDepartmentId: json['SalesDepartmentId'] as String?,
@@ -3222,6 +3540,9 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       discountRule: json['DiscountRule'] as String?,
       stagingAllowIncreaseDecreaseOrderQuantity:
           json['StagingAllowIncreaseDecreaseOrderQuantity'] as bool?,
+      stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt:
+          json['StagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt']
+              as bool?,
       allowStagingOfItemsWhenReservedOnOtherOrdersQuotes:
           json['AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes'] as bool?,
       allowContractIfDealRequiresPOAndOrderHasPendingPO:
@@ -3262,7 +3583,7 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       passwordExpires: json['PasswordExpires'] as bool?,
       passwordExpireDays: json['PasswordExpireDays'] as int?,
       passwordUpdatedDateTime: json['PasswordUpdatedDateTime'] as String?,
-      accountLocked: json['AccountLocked'] as bool?,
+      lockAccount: json['LockAccount'] as bool?,
       memo: json['Memo'] as String?,
       allowCrossLocationEditAndDelete:
           json['AllowCrossLocationEditAndDelete'] as bool?,
@@ -3275,6 +3596,7 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       webAccess: json['WebAccess'] as bool?,
       webAdministrator: json['WebAdministrator'] as bool?,
       browseDefaultRows: json['BrowseDefaultRows'] as int?,
+      gridDefaultRows: json['GridDefaultRows'] as int?,
       applicationTheme: json['ApplicationTheme'] as String?,
       homeMenuGuid: json['HomeMenuGuid'] as String?,
       homeMenuPath: json['HomeMenuPath'] as String?,
@@ -3297,6 +3619,8 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
       locale: json['Locale'] as String?,
       availabilityPreference: json['AvailabilityPreference'] as String?,
       availabilityAllWarehouses: json['AvailabilityAllWarehouses'] as bool?,
+      sourceId: json['SourceId'] as String?,
+      creditCardPinPadId: json['CreditCardPinPadId'] as int?,
       auditNote: json['AuditNote'] as String?,
       recordTitle: json['RecordTitle'] as String?,
       fields: (json['_Fields'] as List<dynamic>?)
@@ -3315,6 +3639,11 @@ WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
                       e as Map<String, dynamic>))
                   .toList() ??
               [],
+      translation: (json['_Translation'] as List<dynamic>?)
+              ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
@@ -3344,6 +3673,9 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('UserTitleId', instance.userTitleId);
   writeNotNull('UserTitle', instance.userTitle);
   writeNotNull('Email', instance.email);
+  writeNotNull('EmailApp', instance.emailApp);
+  writeNotNull(
+      'AddRentalWorksUserSignature', instance.addRentalWorksUserSignature);
   writeNotNull('OfficeLocationId', instance.officeLocationId);
   writeNotNull('OfficeLocation', instance.officeLocation);
   writeNotNull('WarehouseId', instance.warehouseId);
@@ -3351,10 +3683,14 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('Address1', instance.address1);
   writeNotNull('Address2', instance.address2);
   writeNotNull('City', instance.city);
+  writeNotNull('StateId', instance.stateId);
+  writeNotNull('StateCode', instance.stateCode);
   writeNotNull('State', instance.state);
   writeNotNull('ZipCode', instance.zipCode);
   writeNotNull('CountryId', instance.countryId);
   writeNotNull('Country', instance.country);
+  writeNotNull('CountryCodeIsoAlpha2', instance.countryCodeIsoAlpha2);
+  writeNotNull('CountryCodePhone', instance.countryCodePhone);
   writeNotNull('OfficePhone', instance.officePhone);
   writeNotNull('OfficeExtension', instance.officeExtension);
   writeNotNull('Fax', instance.fax);
@@ -3366,6 +3702,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('DefaultDepartmentType', instance.defaultDepartmentType);
   writeNotNull('PrimaryDepartmentId', instance.primaryDepartmentId);
   writeNotNull('PrimaryDepartment', instance.primaryDepartment);
+  writeNotNull('LanguageId', instance.languageId);
+  writeNotNull('Language', instance.language);
   writeNotNull('RentalDepartmentId', instance.rentalDepartmentId);
   writeNotNull('RentalDepartment', instance.rentalDepartment);
   writeNotNull('SalesDepartmentId', instance.salesDepartmentId);
@@ -3409,6 +3747,8 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('DiscountRule', instance.discountRule);
   writeNotNull('StagingAllowIncreaseDecreaseOrderQuantity',
       instance.stagingAllowIncreaseDecreaseOrderQuantity);
+  writeNotNull('StagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt',
+      instance.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt);
   writeNotNull('AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes',
       instance.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes);
   writeNotNull('AllowContractIfDealRequiresPOAndOrderHasPendingPO',
@@ -3449,7 +3789,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('PasswordExpires', instance.passwordExpires);
   writeNotNull('PasswordExpireDays', instance.passwordExpireDays);
   writeNotNull('PasswordUpdatedDateTime', instance.passwordUpdatedDateTime);
-  writeNotNull('AccountLocked', instance.accountLocked);
+  writeNotNull('LockAccount', instance.lockAccount);
   writeNotNull('Memo', instance.memo);
   writeNotNull('AllowCrossLocationEditAndDelete',
       instance.allowCrossLocationEditAndDelete);
@@ -3462,6 +3802,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('WebAccess', instance.webAccess);
   writeNotNull('WebAdministrator', instance.webAdministrator);
   writeNotNull('BrowseDefaultRows', instance.browseDefaultRows);
+  writeNotNull('GridDefaultRows', instance.gridDefaultRows);
   writeNotNull('ApplicationTheme', instance.applicationTheme);
   writeNotNull('HomeMenuGuid', instance.homeMenuGuid);
   writeNotNull('HomeMenuPath', instance.homeMenuPath);
@@ -3484,12 +3825,16 @@ Map<String, dynamic> _$WebApiModulesAdministratorUserUserToJson(
   writeNotNull('Locale', instance.locale);
   writeNotNull('AvailabilityPreference', instance.availabilityPreference);
   writeNotNull('AvailabilityAllWarehouses', instance.availabilityAllWarehouses);
+  writeNotNull('SourceId', instance.sourceId);
+  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
   writeNotNull('AuditNote', instance.auditNote);
   writeNotNull('RecordTitle', instance.recordTitle);
   writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3545,6 +3890,11 @@ WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3571,6 +3921,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3604,6 +3956,11 @@ WebApiModulesAdministratorControlsCustomFormUserCustomFormUser
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3631,6 +3988,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3658,6 +4017,11 @@ WebApiModulesAdministratorControlsCustomModuleCustomModule
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3678,6 +4042,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3712,6 +4078,11 @@ WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3739,6 +4110,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3769,6 +4142,11 @@ WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3793,6 +4171,8 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3825,6 +4205,11 @@ WebApiModulesSettingsWidgetGroupWidgetGroup
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(
@@ -3849,6 +4234,8 @@ Map<String, dynamic> _$WebApiModulesSettingsWidgetGroupWidgetGroupToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3882,6 +4269,11 @@ WebApiModulesSettingsWidgetUserWidgetUser
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic> _$WebApiModulesSettingsWidgetUserWidgetUserToJson(
@@ -3907,6 +4299,8 @@ Map<String, dynamic> _$WebApiModulesSettingsWidgetUserWidgetUserToJson(
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -3941,6 +4335,11 @@ WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
         );
 
 Map<String, dynamic>
@@ -3969,5 +4368,7 @@ Map<String, dynamic>
   writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
   writeNotNull('_DefaultFieldAttributes',
       instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
   return val;
 }

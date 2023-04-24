@@ -24,7 +24,7 @@ abstract class Exports extends ChopperService {
   static Exports create({
     ChopperClient? client,
     Authenticator? authenticator,
-    String? baseUrl,
+    Uri? baseUrl,
     Iterable<dynamic>? interceptors,
   }) {
     if (client != null) {
@@ -56,7 +56,10 @@ abstract class Exports extends ChopperService {
   }
 
   ///
-  @Post(path: '/invoicebatchexport/export')
+  @Post(
+    path: '/invoicebatchexport/export',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse>>
@@ -95,7 +98,10 @@ abstract class Exports extends ChopperService {
   }
 
   ///
-  @Post(path: '/receiptbatchexport/export')
+  @Post(
+    path: '/receiptbatchexport/export',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse>>
@@ -135,7 +141,10 @@ abstract class Exports extends ChopperService {
   }
 
   ///
-  @Post(path: '/vendorinvoicebatchexport/export')
+  @Post(
+    path: '/vendorinvoicebatchexport/export',
+    optionalBody: true,
+  )
   Future<
           chopper.Response<
               WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse>>
@@ -167,17 +176,119 @@ class FwCoreApiSwashbuckleBadRequestResponse {
           Map<String, dynamic> json) =>
       _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
 
-  static const fromJsonFactory =
-      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreApiSwashbuckleBadRequestResponseToJson(this);
+
+  static const fromJsonFactory =
+      _$FwCoreApiSwashbuckleBadRequestResponseFromJson;
 
   @override
   String toString() => jsonEncode(this);
 
   @override
   int get hashCode => runtimeType.hashCode;
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardDataFwTranslatedValue {
+  FwStandardDataFwTranslatedValue({
+    this.fieldName,
+    this.translatedValue,
+    this.untranslatedValue,
+    this.isTranslated,
+    this.userIsTranslating,
+  });
+
+  factory FwStandardDataFwTranslatedValue.fromJson(Map<String, dynamic> json) =>
+      _$FwStandardDataFwTranslatedValueFromJson(json);
+
+  static const toJsonFactory = _$FwStandardDataFwTranslatedValueToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardDataFwTranslatedValueToJson(this);
+
+  @JsonKey(name: 'FieldName', includeIfNull: false)
+  final String? fieldName;
+  @JsonKey(name: 'TranslatedValue', includeIfNull: false)
+  final String? translatedValue;
+  @JsonKey(name: 'UntranslatedValue', includeIfNull: false)
+  final String? untranslatedValue;
+  @JsonKey(name: 'IsTranslated', includeIfNull: false)
+  final bool? isTranslated;
+  @JsonKey(name: 'UserIsTranslating', includeIfNull: false)
+  final bool? userIsTranslating;
+  static const fromJsonFactory = _$FwStandardDataFwTranslatedValueFromJson;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FwStandardDataFwTranslatedValue &&
+            (identical(other.fieldName, fieldName) ||
+                const DeepCollectionEquality()
+                    .equals(other.fieldName, fieldName)) &&
+            (identical(other.translatedValue, translatedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.translatedValue, translatedValue)) &&
+            (identical(other.untranslatedValue, untranslatedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.untranslatedValue, untranslatedValue)) &&
+            (identical(other.isTranslated, isTranslated) ||
+                const DeepCollectionEquality()
+                    .equals(other.isTranslated, isTranslated)) &&
+            (identical(other.userIsTranslating, userIsTranslating) ||
+                const DeepCollectionEquality()
+                    .equals(other.userIsTranslating, userIsTranslating)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(translatedValue) ^
+      const DeepCollectionEquality().hash(untranslatedValue) ^
+      const DeepCollectionEquality().hash(isTranslated) ^
+      const DeepCollectionEquality().hash(userIsTranslating) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardDataFwTranslatedValueExtension
+    on FwStandardDataFwTranslatedValue {
+  FwStandardDataFwTranslatedValue copyWith(
+      {String? fieldName,
+      String? translatedValue,
+      String? untranslatedValue,
+      bool? isTranslated,
+      bool? userIsTranslating}) {
+    return FwStandardDataFwTranslatedValue(
+        fieldName: fieldName ?? this.fieldName,
+        translatedValue: translatedValue ?? this.translatedValue,
+        untranslatedValue: untranslatedValue ?? this.untranslatedValue,
+        isTranslated: isTranslated ?? this.isTranslated,
+        userIsTranslating: userIsTranslating ?? this.userIsTranslating);
+  }
+
+  FwStandardDataFwTranslatedValue copyWithWrapped(
+      {Wrapped<String?>? fieldName,
+      Wrapped<String?>? translatedValue,
+      Wrapped<String?>? untranslatedValue,
+      Wrapped<bool?>? isTranslated,
+      Wrapped<bool?>? userIsTranslating}) {
+    return FwStandardDataFwTranslatedValue(
+        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+        translatedValue: (translatedValue != null
+            ? translatedValue.value
+            : this.translatedValue),
+        untranslatedValue: (untranslatedValue != null
+            ? untranslatedValue.value
+            : this.untranslatedValue),
+        isTranslated:
+            (isTranslated != null ? isTranslated.value : this.isTranslated),
+        userIsTranslating: (userIsTranslating != null
+            ? userIsTranslating.value
+            : this.userIsTranslating));
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -191,6 +302,9 @@ class FwStandardModelsFwApiException {
   factory FwStandardModelsFwApiException.fromJson(Map<String, dynamic> json) =>
       _$FwStandardModelsFwApiExceptionFromJson(json);
 
+  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
+  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
+
   @JsonKey(name: 'StatusCode', includeIfNull: false)
   final int? statusCode;
   @JsonKey(name: 'Message', includeIfNull: false)
@@ -198,8 +312,6 @@ class FwStandardModelsFwApiException {
   @JsonKey(name: 'StackTrace', includeIfNull: false)
   final String? stackTrace;
   static const fromJsonFactory = _$FwStandardModelsFwApiExceptionFromJson;
-  static const toJsonFactory = _$FwStandardModelsFwApiExceptionToJson;
-  Map<String, dynamic> toJson() => _$FwStandardModelsFwApiExceptionToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -261,11 +373,16 @@ class FwStandardSqlServerFwJsonDataTable {
     this.totalRows,
     this.dateFields,
     this.columnNameByIndex,
+    this.translation,
   });
 
   factory FwStandardSqlServerFwJsonDataTable.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableFromJson(json);
+
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableToJson(this);
 
   @JsonKey(name: 'ColumnIndex', includeIfNull: false)
   final Map<String, dynamic>? columnIndex;
@@ -276,7 +393,7 @@ class FwStandardSqlServerFwJsonDataTable {
       includeIfNull: false,
       defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
-  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object>>[])
+  @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object?>>[])
   final List<List<Object?>>? rows;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
@@ -290,10 +407,12 @@ class FwStandardSqlServerFwJsonDataTable {
   final List<String>? dateFields;
   @JsonKey(name: 'ColumnNameByIndex', includeIfNull: false)
   final Map<String, dynamic>? columnNameByIndex;
+  @JsonKey(
+      name: '_Translation',
+      includeIfNull: false,
+      defaultValue: <FwStandardDataFwTranslatedValue>[])
+  final List<FwStandardDataFwTranslatedValue>? translation;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
-  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardSqlServerFwJsonDataTableToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -325,7 +444,10 @@ class FwStandardSqlServerFwJsonDataTable {
                     .equals(other.dateFields, dateFields)) &&
             (identical(other.columnNameByIndex, columnNameByIndex) ||
                 const DeepCollectionEquality()
-                    .equals(other.columnNameByIndex, columnNameByIndex)));
+                    .equals(other.columnNameByIndex, columnNameByIndex)) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality()
+                    .equals(other.translation, translation)));
   }
 
   @override
@@ -343,6 +465,7 @@ class FwStandardSqlServerFwJsonDataTable {
       const DeepCollectionEquality().hash(totalRows) ^
       const DeepCollectionEquality().hash(dateFields) ^
       const DeepCollectionEquality().hash(columnNameByIndex) ^
+      const DeepCollectionEquality().hash(translation) ^
       runtimeType.hashCode;
 }
 
@@ -358,7 +481,8 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
       int? totalPages,
       int? totalRows,
       List<String>? dateFields,
-      Map<String, dynamic>? columnNameByIndex}) {
+      Map<String, dynamic>? columnNameByIndex,
+      List<FwStandardDataFwTranslatedValue>? translation}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex: columnIndex ?? this.columnIndex,
         totals: totals ?? this.totals,
@@ -369,20 +493,22 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         totalPages: totalPages ?? this.totalPages,
         totalRows: totalRows ?? this.totalRows,
         dateFields: dateFields ?? this.dateFields,
-        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex);
+        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex,
+        translation: translation ?? this.translation);
   }
 
   FwStandardSqlServerFwJsonDataTable copyWithWrapped(
       {Wrapped<Map<String, dynamic>?>? columnIndex,
       Wrapped<Map<String, dynamic>?>? totals,
       Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
-      Wrapped<List<List<Object>>?>? rows,
+      Wrapped<List<List<Object?>>?>? rows,
       Wrapped<int?>? pageNo,
       Wrapped<int?>? pageSize,
       Wrapped<int?>? totalPages,
       Wrapped<int?>? totalRows,
       Wrapped<List<String>?>? dateFields,
-      Wrapped<Map<String, dynamic>?>? columnNameByIndex}) {
+      Wrapped<Map<String, dynamic>?>? columnNameByIndex,
+      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation}) {
     return FwStandardSqlServerFwJsonDataTable(
         columnIndex:
             (columnIndex != null ? columnIndex.value : this.columnIndex),
@@ -396,7 +522,9 @@ extension $FwStandardSqlServerFwJsonDataTableExtension
         dateFields: (dateFields != null ? dateFields.value : this.dateFields),
         columnNameByIndex: (columnNameByIndex != null
             ? columnNameByIndex.value
-            : this.columnNameByIndex));
+            : this.columnNameByIndex),
+        translation:
+            (translation != null ? translation.value : this.translation));
   }
 }
 
@@ -413,6 +541,10 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   factory FwStandardSqlServerFwJsonDataTableColumn.fromJson(
           Map<String, dynamic> json) =>
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
+
+  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
 
   @JsonKey(name: 'Name', includeIfNull: false)
   final String? name;
@@ -431,9 +563,6 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   final bool? isVisible;
   static const fromJsonFactory =
       _$FwStandardSqlServerFwJsonDataTableColumnFromJson;
-  static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardSqlServerFwJsonDataTableColumnToJson(this);
 
   @override
   bool operator ==(dynamic other) {
@@ -503,7 +632,13 @@ extension $FwStandardSqlServerFwJsonDataTableColumnExtension
 class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
   WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest({
     this.batchId,
-    this.dataExportFormatId,
+    this.fromBatchNumber,
+    this.toBatchNumber,
+    this.fromDate,
+    this.toDate,
+    this.batchRange,
+    this.locationId,
+    required this.dataExportFormatId,
   });
 
   factory WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest.fromJson(
@@ -511,17 +646,30 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId', includeIfNull: false)
-  final String? batchId;
-  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
-  final String? dataExportFormatId;
-  static const fromJsonFactory =
-      _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestToJson(
           this);
+
+  @JsonKey(name: 'BatchId', includeIfNull: false)
+  final String? batchId;
+  @JsonKey(name: 'FromBatchNumber', includeIfNull: false)
+  final String? fromBatchNumber;
+  @JsonKey(name: 'ToBatchNumber', includeIfNull: false)
+  final String? toBatchNumber;
+  @JsonKey(name: 'FromDate', includeIfNull: false)
+  final DateTime? fromDate;
+  @JsonKey(name: 'ToDate', includeIfNull: false)
+  final DateTime? toDate;
+  @JsonKey(name: 'BatchRange', includeIfNull: false)
+  final String? batchRange;
+  @JsonKey(name: 'LocationId', includeIfNull: false)
+  final String? locationId;
+  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
+  final String dataExportFormatId;
+  static const fromJsonFactory =
+      _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -530,6 +678,23 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
             (identical(other.batchId, batchId) ||
                 const DeepCollectionEquality()
                     .equals(other.batchId, batchId)) &&
+            (identical(other.fromBatchNumber, fromBatchNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromBatchNumber, fromBatchNumber)) &&
+            (identical(other.toBatchNumber, toBatchNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.toBatchNumber, toBatchNumber)) &&
+            (identical(other.fromDate, fromDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromDate, fromDate)) &&
+            (identical(other.toDate, toDate) ||
+                const DeepCollectionEquality().equals(other.toDate, toDate)) &&
+            (identical(other.batchRange, batchRange) ||
+                const DeepCollectionEquality()
+                    .equals(other.batchRange, batchRange)) &&
+            (identical(other.locationId, locationId) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationId, locationId)) &&
             (identical(other.dataExportFormatId, dataExportFormatId) ||
                 const DeepCollectionEquality()
                     .equals(other.dataExportFormatId, dataExportFormatId)));
@@ -541,6 +706,12 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(fromBatchNumber) ^
+      const DeepCollectionEquality().hash(toBatchNumber) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(batchRange) ^
+      const DeepCollectionEquality().hash(locationId) ^
       const DeepCollectionEquality().hash(dataExportFormatId) ^
       runtimeType.hashCode;
 }
@@ -548,17 +719,46 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
 extension $WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequestExtension
     on WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest {
   WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest copyWith(
-      {String? batchId, String? dataExportFormatId}) {
+      {String? batchId,
+      String? fromBatchNumber,
+      String? toBatchNumber,
+      DateTime? fromDate,
+      DateTime? toDate,
+      String? batchRange,
+      String? locationId,
+      String? dataExportFormatId}) {
     return WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest(
         batchId: batchId ?? this.batchId,
+        fromBatchNumber: fromBatchNumber ?? this.fromBatchNumber,
+        toBatchNumber: toBatchNumber ?? this.toBatchNumber,
+        fromDate: fromDate ?? this.fromDate,
+        toDate: toDate ?? this.toDate,
+        batchRange: batchRange ?? this.batchRange,
+        locationId: locationId ?? this.locationId,
         dataExportFormatId: dataExportFormatId ?? this.dataExportFormatId);
   }
 
   WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest
       copyWithWrapped(
-          {Wrapped<String?>? batchId, Wrapped<String?>? dataExportFormatId}) {
+          {Wrapped<String?>? batchId,
+          Wrapped<String?>? fromBatchNumber,
+          Wrapped<String?>? toBatchNumber,
+          Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? batchRange,
+          Wrapped<String?>? locationId,
+          Wrapped<String>? dataExportFormatId}) {
     return WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportRequest(
         batchId: (batchId != null ? batchId.value : this.batchId),
+        fromBatchNumber: (fromBatchNumber != null
+            ? fromBatchNumber.value
+            : this.fromBatchNumber),
+        toBatchNumber:
+            (toBatchNumber != null ? toBatchNumber.value : this.toBatchNumber),
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        batchRange: (batchRange != null ? batchRange.value : this.batchRange),
+        locationId: (locationId != null ? locationId.value : this.locationId),
         dataExportFormatId: (dataExportFormatId != null
             ? dataExportFormatId.value
             : this.dataExportFormatId));
@@ -571,6 +771,8 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
     this.batchId,
     this.batchNumber,
     this.downloadUrl,
+    this.success,
+    this.message,
   });
 
   factory WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse.fromJson(
@@ -578,19 +780,24 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson(
+          this);
+
   @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
   @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
   @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
+  @JsonKey(name: 'success', includeIfNull: false)
+  final bool? success;
+  @JsonKey(name: 'message', includeIfNull: false)
+  final String? message;
   static const fromJsonFactory =
       _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -604,7 +811,12 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
                     .equals(other.batchNumber, batchNumber)) &&
             (identical(other.downloadUrl, downloadUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.downloadUrl, downloadUrl)));
+                    .equals(other.downloadUrl, downloadUrl)) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality()
+                    .equals(other.success, success)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
@@ -615,30 +827,42 @@ class WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
       const DeepCollectionEquality().hash(batchId) ^
       const DeepCollectionEquality().hash(batchNumber) ^
       const DeepCollectionEquality().hash(downloadUrl) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(message) ^
       runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseExtension
     on WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse {
   WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse copyWith(
-      {String? batchId, String? batchNumber, String? downloadUrl}) {
+      {String? batchId,
+      String? batchNumber,
+      String? downloadUrl,
+      bool? success,
+      String? message}) {
     return WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse(
         batchId: batchId ?? this.batchId,
         batchNumber: batchNumber ?? this.batchNumber,
-        downloadUrl: downloadUrl ?? this.downloadUrl);
+        downloadUrl: downloadUrl ?? this.downloadUrl,
+        success: success ?? this.success,
+        message: message ?? this.message);
   }
 
   WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse
       copyWithWrapped(
           {Wrapped<String?>? batchId,
           Wrapped<String?>? batchNumber,
-          Wrapped<String?>? downloadUrl}) {
+          Wrapped<String?>? downloadUrl,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? message}) {
     return WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponse(
         batchId: (batchId != null ? batchId.value : this.batchId),
         batchNumber:
             (batchNumber != null ? batchNumber.value : this.batchNumber),
         downloadUrl:
-            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+        success: (success != null ? success.value : this.success),
+        message: (message != null ? message.value : this.message));
   }
 }
 
@@ -646,7 +870,13 @@ extension $WebApiModulesExportsInvoiceBatchExportInvoiceBatchExportResponseExten
 class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
   WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest({
     this.batchId,
-    this.dataExportFormatId,
+    this.fromBatchNumber,
+    this.toBatchNumber,
+    this.fromDate,
+    this.toDate,
+    this.batchRange,
+    this.locationId,
+    required this.dataExportFormatId,
   });
 
   factory WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest.fromJson(
@@ -654,17 +884,30 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId', includeIfNull: false)
-  final String? batchId;
-  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
-  final String? dataExportFormatId;
-  static const fromJsonFactory =
-      _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestToJson(
           this);
+
+  @JsonKey(name: 'BatchId', includeIfNull: false)
+  final String? batchId;
+  @JsonKey(name: 'FromBatchNumber', includeIfNull: false)
+  final String? fromBatchNumber;
+  @JsonKey(name: 'ToBatchNumber', includeIfNull: false)
+  final String? toBatchNumber;
+  @JsonKey(name: 'FromDate', includeIfNull: false)
+  final DateTime? fromDate;
+  @JsonKey(name: 'ToDate', includeIfNull: false)
+  final DateTime? toDate;
+  @JsonKey(name: 'BatchRange', includeIfNull: false)
+  final String? batchRange;
+  @JsonKey(name: 'LocationId', includeIfNull: false)
+  final String? locationId;
+  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
+  final String dataExportFormatId;
+  static const fromJsonFactory =
+      _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -673,6 +916,23 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
             (identical(other.batchId, batchId) ||
                 const DeepCollectionEquality()
                     .equals(other.batchId, batchId)) &&
+            (identical(other.fromBatchNumber, fromBatchNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromBatchNumber, fromBatchNumber)) &&
+            (identical(other.toBatchNumber, toBatchNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.toBatchNumber, toBatchNumber)) &&
+            (identical(other.fromDate, fromDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromDate, fromDate)) &&
+            (identical(other.toDate, toDate) ||
+                const DeepCollectionEquality().equals(other.toDate, toDate)) &&
+            (identical(other.batchRange, batchRange) ||
+                const DeepCollectionEquality()
+                    .equals(other.batchRange, batchRange)) &&
+            (identical(other.locationId, locationId) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationId, locationId)) &&
             (identical(other.dataExportFormatId, dataExportFormatId) ||
                 const DeepCollectionEquality()
                     .equals(other.dataExportFormatId, dataExportFormatId)));
@@ -684,6 +944,12 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(fromBatchNumber) ^
+      const DeepCollectionEquality().hash(toBatchNumber) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(batchRange) ^
+      const DeepCollectionEquality().hash(locationId) ^
       const DeepCollectionEquality().hash(dataExportFormatId) ^
       runtimeType.hashCode;
 }
@@ -691,17 +957,46 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
 extension $WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequestExtension
     on WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest {
   WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest copyWith(
-      {String? batchId, String? dataExportFormatId}) {
+      {String? batchId,
+      String? fromBatchNumber,
+      String? toBatchNumber,
+      DateTime? fromDate,
+      DateTime? toDate,
+      String? batchRange,
+      String? locationId,
+      String? dataExportFormatId}) {
     return WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest(
         batchId: batchId ?? this.batchId,
+        fromBatchNumber: fromBatchNumber ?? this.fromBatchNumber,
+        toBatchNumber: toBatchNumber ?? this.toBatchNumber,
+        fromDate: fromDate ?? this.fromDate,
+        toDate: toDate ?? this.toDate,
+        batchRange: batchRange ?? this.batchRange,
+        locationId: locationId ?? this.locationId,
         dataExportFormatId: dataExportFormatId ?? this.dataExportFormatId);
   }
 
   WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest
       copyWithWrapped(
-          {Wrapped<String?>? batchId, Wrapped<String?>? dataExportFormatId}) {
+          {Wrapped<String?>? batchId,
+          Wrapped<String?>? fromBatchNumber,
+          Wrapped<String?>? toBatchNumber,
+          Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? batchRange,
+          Wrapped<String?>? locationId,
+          Wrapped<String>? dataExportFormatId}) {
     return WebApiModulesExportsReceiptBatchExportReceiptBatchExportRequest(
         batchId: (batchId != null ? batchId.value : this.batchId),
+        fromBatchNumber: (fromBatchNumber != null
+            ? fromBatchNumber.value
+            : this.fromBatchNumber),
+        toBatchNumber:
+            (toBatchNumber != null ? toBatchNumber.value : this.toBatchNumber),
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        batchRange: (batchRange != null ? batchRange.value : this.batchRange),
+        locationId: (locationId != null ? locationId.value : this.locationId),
         dataExportFormatId: (dataExportFormatId != null
             ? dataExportFormatId.value
             : this.dataExportFormatId));
@@ -714,6 +1009,8 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
     this.batchId,
     this.batchNumber,
     this.downloadUrl,
+    this.success,
+    this.message,
   });
 
   factory WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse.fromJson(
@@ -721,19 +1018,24 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson(
+          this);
+
   @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
   @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
   @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
+  @JsonKey(name: 'success', includeIfNull: false)
+  final bool? success;
+  @JsonKey(name: 'message', includeIfNull: false)
+  final String? message;
   static const fromJsonFactory =
       _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -747,7 +1049,12 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
                     .equals(other.batchNumber, batchNumber)) &&
             (identical(other.downloadUrl, downloadUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.downloadUrl, downloadUrl)));
+                    .equals(other.downloadUrl, downloadUrl)) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality()
+                    .equals(other.success, success)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
@@ -758,30 +1065,42 @@ class WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
       const DeepCollectionEquality().hash(batchId) ^
       const DeepCollectionEquality().hash(batchNumber) ^
       const DeepCollectionEquality().hash(downloadUrl) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(message) ^
       runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseExtension
     on WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse {
   WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse copyWith(
-      {String? batchId, String? batchNumber, String? downloadUrl}) {
+      {String? batchId,
+      String? batchNumber,
+      String? downloadUrl,
+      bool? success,
+      String? message}) {
     return WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse(
         batchId: batchId ?? this.batchId,
         batchNumber: batchNumber ?? this.batchNumber,
-        downloadUrl: downloadUrl ?? this.downloadUrl);
+        downloadUrl: downloadUrl ?? this.downloadUrl,
+        success: success ?? this.success,
+        message: message ?? this.message);
   }
 
   WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse
       copyWithWrapped(
           {Wrapped<String?>? batchId,
           Wrapped<String?>? batchNumber,
-          Wrapped<String?>? downloadUrl}) {
+          Wrapped<String?>? downloadUrl,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? message}) {
     return WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponse(
         batchId: (batchId != null ? batchId.value : this.batchId),
         batchNumber:
             (batchNumber != null ? batchNumber.value : this.batchNumber),
         downloadUrl:
-            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+        success: (success != null ? success.value : this.success),
+        message: (message != null ? message.value : this.message));
   }
 }
 
@@ -789,7 +1108,13 @@ extension $WebApiModulesExportsReceiptBatchExportReceiptBatchExportResponseExten
 class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest {
   WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest({
     this.batchId,
-    this.dataExportFormatId,
+    this.fromBatchNumber,
+    this.toBatchNumber,
+    this.fromDate,
+    this.toDate,
+    this.batchRange,
+    this.locationId,
+    required this.dataExportFormatId,
   });
 
   factory WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest.fromJson(
@@ -797,17 +1122,30 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson(
           json);
 
-  @JsonKey(name: 'BatchId', includeIfNull: false)
-  final String? batchId;
-  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
-  final String? dataExportFormatId;
-  static const fromJsonFactory =
-      _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson;
   static const toJsonFactory =
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestToJson(
           this);
+
+  @JsonKey(name: 'BatchId', includeIfNull: false)
+  final String? batchId;
+  @JsonKey(name: 'FromBatchNumber', includeIfNull: false)
+  final String? fromBatchNumber;
+  @JsonKey(name: 'ToBatchNumber', includeIfNull: false)
+  final String? toBatchNumber;
+  @JsonKey(name: 'FromDate', includeIfNull: false)
+  final DateTime? fromDate;
+  @JsonKey(name: 'ToDate', includeIfNull: false)
+  final DateTime? toDate;
+  @JsonKey(name: 'BatchRange', includeIfNull: false)
+  final String? batchRange;
+  @JsonKey(name: 'LocationId', includeIfNull: false)
+  final String? locationId;
+  @JsonKey(name: 'DataExportFormatId', includeIfNull: false)
+  final String dataExportFormatId;
+  static const fromJsonFactory =
+      _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestFromJson;
 
   @override
   bool operator ==(dynamic other) {
@@ -816,6 +1154,23 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
             (identical(other.batchId, batchId) ||
                 const DeepCollectionEquality()
                     .equals(other.batchId, batchId)) &&
+            (identical(other.fromBatchNumber, fromBatchNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromBatchNumber, fromBatchNumber)) &&
+            (identical(other.toBatchNumber, toBatchNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.toBatchNumber, toBatchNumber)) &&
+            (identical(other.fromDate, fromDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromDate, fromDate)) &&
+            (identical(other.toDate, toDate) ||
+                const DeepCollectionEquality().equals(other.toDate, toDate)) &&
+            (identical(other.batchRange, batchRange) ||
+                const DeepCollectionEquality()
+                    .equals(other.batchRange, batchRange)) &&
+            (identical(other.locationId, locationId) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationId, locationId)) &&
             (identical(other.dataExportFormatId, dataExportFormatId) ||
                 const DeepCollectionEquality()
                     .equals(other.dataExportFormatId, dataExportFormatId)));
@@ -827,6 +1182,12 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(batchId) ^
+      const DeepCollectionEquality().hash(fromBatchNumber) ^
+      const DeepCollectionEquality().hash(toBatchNumber) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(batchRange) ^
+      const DeepCollectionEquality().hash(locationId) ^
       const DeepCollectionEquality().hash(dataExportFormatId) ^
       runtimeType.hashCode;
 }
@@ -834,17 +1195,47 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportReques
 extension $WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequestExtension
     on WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest {
   WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
-      copyWith({String? batchId, String? dataExportFormatId}) {
+      copyWith(
+          {String? batchId,
+          String? fromBatchNumber,
+          String? toBatchNumber,
+          DateTime? fromDate,
+          DateTime? toDate,
+          String? batchRange,
+          String? locationId,
+          String? dataExportFormatId}) {
     return WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest(
         batchId: batchId ?? this.batchId,
+        fromBatchNumber: fromBatchNumber ?? this.fromBatchNumber,
+        toBatchNumber: toBatchNumber ?? this.toBatchNumber,
+        fromDate: fromDate ?? this.fromDate,
+        toDate: toDate ?? this.toDate,
+        batchRange: batchRange ?? this.batchRange,
+        locationId: locationId ?? this.locationId,
         dataExportFormatId: dataExportFormatId ?? this.dataExportFormatId);
   }
 
   WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest
       copyWithWrapped(
-          {Wrapped<String?>? batchId, Wrapped<String?>? dataExportFormatId}) {
+          {Wrapped<String?>? batchId,
+          Wrapped<String?>? fromBatchNumber,
+          Wrapped<String?>? toBatchNumber,
+          Wrapped<DateTime?>? fromDate,
+          Wrapped<DateTime?>? toDate,
+          Wrapped<String?>? batchRange,
+          Wrapped<String?>? locationId,
+          Wrapped<String>? dataExportFormatId}) {
     return WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRequest(
         batchId: (batchId != null ? batchId.value : this.batchId),
+        fromBatchNumber: (fromBatchNumber != null
+            ? fromBatchNumber.value
+            : this.fromBatchNumber),
+        toBatchNumber:
+            (toBatchNumber != null ? toBatchNumber.value : this.toBatchNumber),
+        fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+        toDate: (toDate != null ? toDate.value : this.toDate),
+        batchRange: (batchRange != null ? batchRange.value : this.batchRange),
+        locationId: (locationId != null ? locationId.value : this.locationId),
         dataExportFormatId: (dataExportFormatId != null
             ? dataExportFormatId.value
             : this.dataExportFormatId));
@@ -857,6 +1248,8 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
     this.batchId,
     this.batchNumber,
     this.downloadUrl,
+    this.success,
+    this.message,
   });
 
   factory WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse.fromJson(
@@ -864,19 +1257,24 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseFromJson(
           json);
 
+  static const toJsonFactory =
+      _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseToJson(
+          this);
+
   @JsonKey(name: 'BatchId', includeIfNull: false)
   final String? batchId;
   @JsonKey(name: 'BatchNumber', includeIfNull: false)
   final String? batchNumber;
   @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
+  @JsonKey(name: 'success', includeIfNull: false)
+  final bool? success;
+  @JsonKey(name: 'message', includeIfNull: false)
+  final String? message;
   static const fromJsonFactory =
       _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseFromJson;
-  static const toJsonFactory =
-      _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseToJson(
-          this);
 
   @override
   bool operator ==(dynamic other) {
@@ -890,7 +1288,12 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
                     .equals(other.batchNumber, batchNumber)) &&
             (identical(other.downloadUrl, downloadUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.downloadUrl, downloadUrl)));
+                    .equals(other.downloadUrl, downloadUrl)) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality()
+                    .equals(other.success, success)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
@@ -901,62 +1304,57 @@ class WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportRespon
       const DeepCollectionEquality().hash(batchId) ^
       const DeepCollectionEquality().hash(batchNumber) ^
       const DeepCollectionEquality().hash(downloadUrl) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(message) ^
       runtimeType.hashCode;
 }
 
 extension $WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponseExtension
     on WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse {
   WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
-      copyWith({String? batchId, String? batchNumber, String? downloadUrl}) {
+      copyWith(
+          {String? batchId,
+          String? batchNumber,
+          String? downloadUrl,
+          bool? success,
+          String? message}) {
     return WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse(
         batchId: batchId ?? this.batchId,
         batchNumber: batchNumber ?? this.batchNumber,
-        downloadUrl: downloadUrl ?? this.downloadUrl);
+        downloadUrl: downloadUrl ?? this.downloadUrl,
+        success: success ?? this.success,
+        message: message ?? this.message);
   }
 
   WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse
       copyWithWrapped(
           {Wrapped<String?>? batchId,
           Wrapped<String?>? batchNumber,
-          Wrapped<String?>? downloadUrl}) {
+          Wrapped<String?>? downloadUrl,
+          Wrapped<bool?>? success,
+          Wrapped<String?>? message}) {
     return WebApiModulesExportsVendorInvoiceBatchExportVendorInvoiceBatchExportResponse(
         batchId: (batchId != null ? batchId.value : this.batchId),
         batchNumber:
             (batchNumber != null ? batchNumber.value : this.batchNumber),
         downloadUrl:
-            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
+            (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+        success: (success != null ? success.value : this.success),
+        message: (message != null ? message.value : this.message));
   }
 }
 
 String? fwStandardSqlServerFwDataTypesToJson(
     enums.FwStandardSqlServerFwDataTypes? fwStandardSqlServerFwDataTypes) {
-  return enums
-      .$FwStandardSqlServerFwDataTypesMap[fwStandardSqlServerFwDataTypes];
+  return fwStandardSqlServerFwDataTypes?.value;
 }
 
 enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
   Object? fwStandardSqlServerFwDataTypes, [
   enums.FwStandardSqlServerFwDataTypes? defaultValue,
 ]) {
-  if (fwStandardSqlServerFwDataTypes is String) {
-    return enums.$FwStandardSqlServerFwDataTypesMap.entries
-        .firstWhere(
-            (element) =>
-                element.value.toLowerCase() ==
-                fwStandardSqlServerFwDataTypes.toLowerCase(),
-            orElse: () => const MapEntry(
-                enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown,
-                ''))
-        .key;
-  }
-
-  final parsedResult = defaultValue == null
-      ? null
-      : enums.$FwStandardSqlServerFwDataTypesMap.entries
-          .firstWhereOrNull((element) => element.value == defaultValue)
-          ?.key;
-
-  return parsedResult ??
+  return enums.FwStandardSqlServerFwDataTypes.values
+          .firstWhereOrNull((e) => e.value == fwStandardSqlServerFwDataTypes) ??
       defaultValue ??
       enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
@@ -968,9 +1366,7 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
     return [];
   }
 
-  return fwStandardSqlServerFwDataTypes
-      .map((e) => enums.$FwStandardSqlServerFwDataTypesMap[e]!)
-      .toList();
+  return fwStandardSqlServerFwDataTypes.map((e) => e.value!).toList();
 }
 
 List<enums.FwStandardSqlServerFwDataTypes>

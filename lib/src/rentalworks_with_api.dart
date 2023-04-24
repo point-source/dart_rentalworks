@@ -12,7 +12,7 @@ class RentalWorks {
   RentalWorks.withCredentials(this.baseUrl, this._username, this._password,
       {this.errorConverter});
 
-  String baseUrl;
+  Uri baseUrl;
   String? _jwt;
   String? _username;
   String? _password;
@@ -31,7 +31,7 @@ class RentalWorks {
     }
     final response = await accountServices.jwtPost(
         body: FwStandardModelsFwApplicationUser(
-            userName: _username, password: _password));
+            userName: _username!, password: _password!));
     if (response.isSuccessful) {
       final jwt = response.body?.accessToken;
       if (jwt != null) return jwt;
@@ -44,7 +44,7 @@ class RentalWorks {
 
   Future<Request> Function(Request) get _jwtInterceptor =>
       (Request request) async {
-        if (request.path.startsWith('/jwt')) return request;
+        if (request.uri.path.startsWith('/jwt')) return request;
         final token = await jwt;
         return applyHeader(request, 'Authorization', 'Bearer $token',
             override: false);

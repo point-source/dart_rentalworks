@@ -19,7 +19,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _alertBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alert/browse';
+    final Uri $url = Uri.parse('/alert/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -37,7 +37,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _alertExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alert/exportexcelxlsx';
+    final Uri $url = Uri.parse('/alert/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -61,7 +61,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/alert';
+    final Uri $url = Uri.parse('/alert');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -83,7 +83,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardModulesAdministratorAlertAlertLogic>> _alertPost(
       {required FwStandardModulesAdministratorAlertAlertLogic? body}) {
-    final String $url = '/alert';
+    final Uri $url = Uri.parse('/alert');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -98,7 +98,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardModulesAdministratorAlertAlertLogic>> _alertIdGet(
       {required String? id}) {
-    final String $url = '/alert/${id}';
+    final Uri $url = Uri.parse('/alert/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -113,7 +113,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required FwStandardModulesAdministratorAlertAlertLogic? body,
   }) {
-    final String $url = '/alert/${id}';
+    final Uri $url = Uri.parse('/alert/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -127,7 +127,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _alertIdDelete({required String? id}) {
-    final String $url = '/alert/${id}';
+    final Uri $url = Uri.parse('/alert/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -137,43 +137,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _alertEmptyobjectGet() {
-    final String $url = '/alert/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _alertEmptybrowseobjectGet() {
-    final String $url = '/alert/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _alertKeyfieldnamesGet() {
-    final String $url = '/alert/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _alertconditionBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alertcondition/browse';
+    final Uri $url = Uri.parse('/alertcondition/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -191,7 +158,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _alertconditionExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alertcondition/exportexcelxlsx';
+    final Uri $url = Uri.parse('/alertcondition/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -215,7 +182,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/alertcondition';
+    final Uri $url = Uri.parse('/alertcondition');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -241,7 +208,7 @@ class _$Administrator extends Administrator {
       _alertconditionPost(
           {required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
               body}) {
-    final String $url = '/alertcondition';
+    final Uri $url = Uri.parse('/alertcondition');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -260,7 +227,7 @@ class _$Administrator extends Administrator {
           Response<
               FwStandardModulesAdministratorAlertConditionAlertConditionLogic>>
       _alertconditionIdGet({required String? id}) {
-    final String $url = '/alertcondition/${id}';
+    final Uri $url = Uri.parse('/alertcondition/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -281,7 +248,7 @@ class _$Administrator extends Administrator {
     required FwStandardModulesAdministratorAlertConditionAlertConditionLogic?
         body,
   }) {
-    final String $url = '/alertcondition/${id}';
+    final Uri $url = Uri.parse('/alertcondition/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -297,7 +264,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _alertconditionIdDelete({required String? id}) {
-    final String $url = '/alertcondition/${id}';
+    final Uri $url = Uri.parse('/alertcondition/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -307,42 +274,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _alertconditionEmptyobjectGet() {
-    final String $url = '/alertcondition/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _alertconditionEmptybrowseobjectGet() {
-    final String $url = '/alertcondition/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _alertconditionKeyfieldnamesGet() {
-    final String $url = '/alertcondition/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _alertwebusersBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alertwebusers/browse';
+    final Uri $url = Uri.parse('/alertwebusers/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -360,7 +294,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _alertwebusersExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alertwebusers/exportexcelxlsx';
+    final Uri $url = Uri.parse('/alertwebusers/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -384,7 +318,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/alertwebusers';
+    final Uri $url = Uri.parse('/alertwebusers');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -410,7 +344,7 @@ class _$Administrator extends Administrator {
       _alertwebusersPost(
           {required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
               body}) {
-    final String $url = '/alertwebusers';
+    final Uri $url = Uri.parse('/alertwebusers');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -429,7 +363,7 @@ class _$Administrator extends Administrator {
           Response<
               FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic>>
       _alertwebusersIdGet({required String? id}) {
-    final String $url = '/alertwebusers/${id}';
+    final Uri $url = Uri.parse('/alertwebusers/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -450,7 +384,7 @@ class _$Administrator extends Administrator {
     required FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic?
         body,
   }) {
-    final String $url = '/alertwebusers/${id}';
+    final Uri $url = Uri.parse('/alertwebusers/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -466,7 +400,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _alertwebusersIdDelete({required String? id}) {
-    final String $url = '/alertwebusers/${id}';
+    final Uri $url = Uri.parse('/alertwebusers/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -479,7 +413,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _alertwebusersValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/alertwebusers/validateuser/browse';
+    final Uri $url = Uri.parse('/alertwebusers/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -492,43 +426,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _alertwebusersEmptyobjectGet() {
-    final String $url = '/alertwebusers/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _alertwebusersEmptybrowseobjectGet() {
-    final String $url = '/alertwebusers/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _alertwebusersKeyfieldnamesGet() {
-    final String $url = '/alertwebusers/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _assignedcustomformBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/assignedcustomform/browse';
+    final Uri $url = Uri.parse('/assignedcustomform/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -546,7 +447,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _assignedcustomformExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/assignedcustomform/exportexcelxlsx';
+    final Uri $url = Uri.parse('/assignedcustomform/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -561,42 +462,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _assignedcustomformEmptyobjectGet() {
-    final String $url = '/assignedcustomform/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _assignedcustomformEmptybrowseobjectGet() {
-    final String $url = '/assignedcustomform/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _assignedcustomformKeyfieldnamesGet() {
-    final String $url = '/assignedcustomform/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _customfieldBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customfield/browse';
+    final Uri $url = Uri.parse('/customfield/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -614,7 +482,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customfieldExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customfield/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customfield/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -638,7 +506,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customfield';
+    final Uri $url = Uri.parse('/customfield');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -661,7 +529,7 @@ class _$Administrator extends Administrator {
   Future<Response<WebApiModulesAdministratorCustomFieldCustomField>>
       _customfieldPost(
           {required WebApiModulesAdministratorCustomFieldCustomField? body}) {
-    final String $url = '/customfield';
+    final Uri $url = Uri.parse('/customfield');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -676,7 +544,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorCustomFieldCustomField>>
       _customfieldIdGet({required String? id}) {
-    final String $url = '/customfield/${id}';
+    final Uri $url = Uri.parse('/customfield/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -692,7 +560,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesAdministratorCustomFieldCustomField? body,
   }) {
-    final String $url = '/customfield/${id}';
+    final Uri $url = Uri.parse('/customfield/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -706,7 +574,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _customfieldIdDelete({required String? id}) {
-    final String $url = '/customfield/${id}';
+    final Uri $url = Uri.parse('/customfield/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -716,42 +584,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customfieldEmptyobjectGet() {
-    final String $url = '/customfield/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customfieldEmptybrowseobjectGet() {
-    final String $url = '/customfield/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customfieldKeyfieldnamesGet() {
-    final String $url = '/customfield/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _customformBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customform/browse';
+    final Uri $url = Uri.parse('/customform/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -769,7 +604,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customformExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customform/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customform/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -793,7 +628,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customform';
+    final Uri $url = Uri.parse('/customform');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -816,7 +651,7 @@ class _$Administrator extends Administrator {
   Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
       _customformPost(
           {required WebApiModulesAdministratorCustomFormCustomForm? body}) {
-    final String $url = '/customform';
+    final Uri $url = Uri.parse('/customform');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -831,7 +666,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
       _customformIdGet({required String? id}) {
-    final String $url = '/customform/${id}';
+    final Uri $url = Uri.parse('/customform/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -847,7 +682,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesAdministratorCustomFormCustomForm? body,
   }) {
-    final String $url = '/customform/${id}';
+    final Uri $url = Uri.parse('/customform/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -861,7 +696,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _customformIdDelete({required String? id}) {
-    final String $url = '/customform/${id}';
+    final Uri $url = Uri.parse('/customform/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -874,7 +709,7 @@ class _$Administrator extends Administrator {
   Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
       _customformSelfassignPost(
           {required WebApiModulesAdministratorCustomFormCustomForm? body}) {
-    final String $url = '/customform/selfassign';
+    final Uri $url = Uri.parse('/customform/selfassign');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -892,7 +727,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesAdministratorCustomFormCustomForm? body,
   }) {
-    final String $url = '/customform/selfassign/${id}';
+    final Uri $url = Uri.parse('/customform/selfassign/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -905,43 +740,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customformEmptyobjectGet() {
-    final String $url = '/customform/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customformEmptybrowseobjectGet() {
-    final String $url = '/customform/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customformKeyfieldnamesGet() {
-    final String $url = '/customform/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customformgroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customformgroup/browse';
+    final Uri $url = Uri.parse('/customformgroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -959,7 +761,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customformgroupExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customformgroup/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customformgroup/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -983,7 +785,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customformgroup';
+    final Uri $url = Uri.parse('/customformgroup');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1009,7 +811,7 @@ class _$Administrator extends Administrator {
       _customformgroupPost(
           {required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
               body}) {
-    final String $url = '/customformgroup';
+    final Uri $url = Uri.parse('/customformgroup');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1028,7 +830,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
       _customformgroupIdGet({required String? id}) {
-    final String $url = '/customformgroup/${id}';
+    final Uri $url = Uri.parse('/customformgroup/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1049,7 +851,7 @@ class _$Administrator extends Administrator {
     required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
         body,
   }) {
-    final String $url = '/customformgroup/${id}';
+    final Uri $url = Uri.parse('/customformgroup/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -1065,7 +867,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _customformgroupIdDelete({required String? id}) {
-    final String $url = '/customformgroup/${id}';
+    final Uri $url = Uri.parse('/customformgroup/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -1078,7 +880,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customformgroupValidategroupnameBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customformgroup/validategroupname/browse';
+    final Uri $url = Uri.parse('/customformgroup/validategroupname/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1091,43 +893,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customformgroupEmptyobjectGet() {
-    final String $url = '/customformgroup/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customformgroupEmptybrowseobjectGet() {
-    final String $url = '/customformgroup/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customformgroupKeyfieldnamesGet() {
-    final String $url = '/customformgroup/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customformuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customformuser/browse';
+    final Uri $url = Uri.parse('/customformuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1145,7 +914,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customformuserExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customformuser/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customformuser/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1169,7 +938,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customformuser';
+    final Uri $url = Uri.parse('/customformuser');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1195,7 +964,7 @@ class _$Administrator extends Administrator {
       _customformuserPost(
           {required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
               body}) {
-    final String $url = '/customformuser';
+    final Uri $url = Uri.parse('/customformuser');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1214,7 +983,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
       _customformuserIdGet({required String? id}) {
-    final String $url = '/customformuser/${id}';
+    final Uri $url = Uri.parse('/customformuser/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1235,7 +1004,7 @@ class _$Administrator extends Administrator {
     required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
         body,
   }) {
-    final String $url = '/customformuser/${id}';
+    final Uri $url = Uri.parse('/customformuser/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -1251,7 +1020,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _customformuserIdDelete({required String? id}) {
-    final String $url = '/customformuser/${id}';
+    final Uri $url = Uri.parse('/customformuser/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -1264,7 +1033,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customformuserValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customformuser/validateuser/browse';
+    final Uri $url = Uri.parse('/customformuser/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1277,42 +1046,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customformuserEmptyobjectGet() {
-    final String $url = '/customformuser/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customformuserEmptybrowseobjectGet() {
-    final String $url = '/customformuser/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customformuserKeyfieldnamesGet() {
-    final String $url = '/customformuser/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _custommoduleBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/custommodule/browse';
+    final Uri $url = Uri.parse('/custommodule/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1330,7 +1066,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _custommoduleExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/custommodule/exportexcelxlsx';
+    final Uri $url = Uri.parse('/custommodule/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1354,7 +1090,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/custommodule';
+    final Uri $url = Uri.parse('/custommodule');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1374,43 +1110,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _custommoduleEmptyobjectGet() {
-    final String $url = '/custommodule/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _custommoduleEmptybrowseobjectGet() {
-    final String $url = '/custommodule/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _custommoduleKeyfieldnamesGet() {
-    final String $url = '/custommodule/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportcssBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportcss/browse';
+    final Uri $url = Uri.parse('/customreportcss/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1428,7 +1131,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customreportcssExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportcss/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customreportcss/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1452,7 +1155,7 @@ class _$Administrator extends Administrator {
     int? pagesize,
     String? sort,
   }) {
-    final String $url = '/customreportcss';
+    final Uri $url = Uri.parse('/customreportcss');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1477,7 +1180,7 @@ class _$Administrator extends Administrator {
       _customreportcssPost(
           {required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
               body}) {
-    final String $url = '/customreportcss';
+    final Uri $url = Uri.parse('/customreportcss');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1496,7 +1199,7 @@ class _$Administrator extends Administrator {
           Response<
               FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic>>
       _customreportcssIdGet({required String? id}) {
-    final String $url = '/customreportcss/${id}';
+    final Uri $url = Uri.parse('/customreportcss/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1517,7 +1220,7 @@ class _$Administrator extends Administrator {
     required FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic?
         body,
   }) {
-    final String $url = '/customreportcss/${id}';
+    final Uri $url = Uri.parse('/customreportcss/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -1533,7 +1236,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _customreportcssIdDelete({required String? id}) {
-    final String $url = '/customreportcss/${id}';
+    final Uri $url = Uri.parse('/customreportcss/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -1543,43 +1246,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customreportcssEmptyobjectGet() {
-    final String $url = '/customreportcss/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportcssEmptybrowseobjectGet() {
-    final String $url = '/customreportcss/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportcssKeyfieldnamesGet() {
-    final String $url = '/customreportcss/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportlayoutBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayout/browse';
+    final Uri $url = Uri.parse('/customreportlayout/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1597,7 +1267,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customreportlayoutExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayout/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customreportlayout/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1621,7 +1291,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customreportlayout';
+    final Uri $url = Uri.parse('/customreportlayout');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1647,7 +1317,7 @@ class _$Administrator extends Administrator {
       _customreportlayoutPost(
           {required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
               body}) {
-    final String $url = '/customreportlayout';
+    final Uri $url = Uri.parse('/customreportlayout');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1666,7 +1336,7 @@ class _$Administrator extends Administrator {
           Response<
               FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic>>
       _customreportlayoutIdGet({required String? id}) {
-    final String $url = '/customreportlayout/${id}';
+    final Uri $url = Uri.parse('/customreportlayout/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1687,7 +1357,7 @@ class _$Administrator extends Administrator {
     required FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic?
         body,
   }) {
-    final String $url = '/customreportlayout/${id}';
+    final Uri $url = Uri.parse('/customreportlayout/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -1703,7 +1373,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _customreportlayoutIdDelete({required String? id}) {
-    final String $url = '/customreportlayout/${id}';
+    final Uri $url = Uri.parse('/customreportlayout/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -1717,7 +1387,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse>>
       _customreportlayoutTemplateReportGet({required String? report}) {
-    final String $url = '/customreportlayout/template/${report}';
+    final Uri $url = Uri.parse('/customreportlayout/template/${report}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1733,7 +1403,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportlayoutValidatecustomcssBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayout/validatecustomcss/browse';
+    final Uri $url = Uri.parse('/customreportlayout/validatecustomcss/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1746,43 +1416,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customreportlayoutEmptyobjectGet() {
-    final String $url = '/customreportlayout/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportlayoutEmptybrowseobjectGet() {
-    final String $url = '/customreportlayout/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportlayoutKeyfieldnamesGet() {
-    final String $url = '/customreportlayout/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportlayoutgroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayoutgroup/browse';
+    final Uri $url = Uri.parse('/customreportlayoutgroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1800,7 +1437,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customreportlayoutgroupExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayoutgroup/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customreportlayoutgroup/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1824,7 +1461,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customreportlayoutgroup';
+    final Uri $url = Uri.parse('/customreportlayoutgroup');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -1850,7 +1487,7 @@ class _$Administrator extends Administrator {
       _customreportlayoutgroupPost(
           {required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
               body}) {
-    final String $url = '/customreportlayoutgroup';
+    final Uri $url = Uri.parse('/customreportlayoutgroup');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1869,7 +1506,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup>>
       _customreportlayoutgroupIdGet({required String? id}) {
-    final String $url = '/customreportlayoutgroup/${id}';
+    final Uri $url = Uri.parse('/customreportlayoutgroup/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -1890,7 +1527,7 @@ class _$Administrator extends Administrator {
     required WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroup?
         body,
   }) {
-    final String $url = '/customreportlayoutgroup/${id}';
+    final Uri $url = Uri.parse('/customreportlayoutgroup/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -1907,7 +1544,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<bool>> _customreportlayoutgroupIdDelete(
       {required String? id}) {
-    final String $url = '/customreportlayoutgroup/${id}';
+    final Uri $url = Uri.parse('/customreportlayoutgroup/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -1920,7 +1557,8 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportlayoutgroupValidategroupnameBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayoutgroup/validategroupname/browse';
+    final Uri $url =
+        Uri.parse('/customreportlayoutgroup/validategroupname/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1933,43 +1571,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customreportlayoutgroupEmptyobjectGet() {
-    final String $url = '/customreportlayoutgroup/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportlayoutgroupEmptybrowseobjectGet() {
-    final String $url = '/customreportlayoutgroup/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportlayoutgroupKeyfieldnamesGet() {
-    final String $url = '/customreportlayoutgroup/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportlayoutuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayoutuser/browse';
+    final Uri $url = Uri.parse('/customreportlayoutuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1987,7 +1592,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _customreportlayoutuserExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayoutuser/exportexcelxlsx';
+    final Uri $url = Uri.parse('/customreportlayoutuser/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2011,7 +1616,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/customreportlayoutuser';
+    final Uri $url = Uri.parse('/customreportlayoutuser');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2037,7 +1642,7 @@ class _$Administrator extends Administrator {
       _customreportlayoutuserPost(
           {required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
               body}) {
-    final String $url = '/customreportlayoutuser';
+    final Uri $url = Uri.parse('/customreportlayoutuser');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2056,7 +1661,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser>>
       _customreportlayoutuserIdGet({required String? id}) {
-    final String $url = '/customreportlayoutuser/${id}';
+    final Uri $url = Uri.parse('/customreportlayoutuser/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2077,7 +1682,7 @@ class _$Administrator extends Administrator {
     required WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser?
         body,
   }) {
-    final String $url = '/customreportlayoutuser/${id}';
+    final Uri $url = Uri.parse('/customreportlayoutuser/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -2094,7 +1699,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<bool>> _customreportlayoutuserIdDelete(
       {required String? id}) {
-    final String $url = '/customreportlayoutuser/${id}';
+    final Uri $url = Uri.parse('/customreportlayoutuser/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -2107,7 +1712,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _customreportlayoutuserValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/customreportlayoutuser/validateuser/browse';
+    final Uri $url = Uri.parse('/customreportlayoutuser/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2120,41 +1725,8 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _customreportlayoutuserEmptyobjectGet() {
-    final String $url = '/customreportlayoutuser/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportlayoutuserEmptybrowseobjectGet() {
-    final String $url = '/customreportlayoutuser/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _customreportlayoutuserKeyfieldnamesGet() {
-    final String $url = '/customreportlayoutuser/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<Object>> _datahealthLegendGet() {
-    final String $url = '/datahealth/legend';
+    final Uri $url = Uri.parse('/datahealth/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -2166,7 +1738,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _datahealthBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/datahealth/browse';
+    final Uri $url = Uri.parse('/datahealth/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2184,7 +1756,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _datahealthExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/datahealth/exportexcelxlsx';
+    final Uri $url = Uri.parse('/datahealth/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2208,7 +1780,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/datahealth';
+    final Uri $url = Uri.parse('/datahealth');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2230,7 +1802,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorDataHealthDataHealth>>
       _datahealthIdGet({required String? id}) {
-    final String $url = '/datahealth/${id}';
+    final Uri $url = Uri.parse('/datahealth/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2246,7 +1818,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesAdministratorDataHealthDataHealth? body,
   }) {
-    final String $url = '/datahealth/${id}';
+    final Uri $url = Uri.parse('/datahealth/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -2259,42 +1831,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _datahealthEmptyobjectGet() {
-    final String $url = '/datahealth/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _datahealthEmptybrowseobjectGet() {
-    final String $url = '/datahealth/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _datahealthKeyfieldnamesGet() {
-    final String $url = '/datahealth/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _duplicateruleBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/duplicaterule/browse';
+    final Uri $url = Uri.parse('/duplicaterule/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2312,7 +1851,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _duplicateruleExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/duplicaterule/exportexcelxlsx';
+    final Uri $url = Uri.parse('/duplicaterule/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2336,7 +1875,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/duplicaterule';
+    final Uri $url = Uri.parse('/duplicaterule');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2362,7 +1901,7 @@ class _$Administrator extends Administrator {
       _duplicaterulePost(
           {required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
               body}) {
-    final String $url = '/duplicaterule';
+    final Uri $url = Uri.parse('/duplicaterule');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2381,7 +1920,7 @@ class _$Administrator extends Administrator {
           Response<
               FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic>>
       _duplicateruleIdGet({required String? id}) {
-    final String $url = '/duplicaterule/${id}';
+    final Uri $url = Uri.parse('/duplicaterule/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2402,7 +1941,7 @@ class _$Administrator extends Administrator {
     required FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic?
         body,
   }) {
-    final String $url = '/duplicaterule/${id}';
+    final Uri $url = Uri.parse('/duplicaterule/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -2418,7 +1957,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _duplicateruleIdDelete({required String? id}) {
-    final String $url = '/duplicaterule/${id}';
+    final Uri $url = Uri.parse('/duplicaterule/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -2428,43 +1967,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _duplicateruleEmptyobjectGet() {
-    final String $url = '/duplicaterule/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _duplicateruleEmptybrowseobjectGet() {
-    final String $url = '/duplicaterule/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _duplicateruleKeyfieldnamesGet() {
-    final String $url = '/duplicaterule/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _duplicaterulefieldBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/duplicaterulefield/browse';
+    final Uri $url = Uri.parse('/duplicaterulefield/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2482,7 +1988,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _duplicaterulefieldExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/duplicaterulefield/exportexcelxlsx';
+    final Uri $url = Uri.parse('/duplicaterulefield/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2506,7 +2012,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/duplicaterulefield';
+    final Uri $url = Uri.parse('/duplicaterulefield');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2532,7 +2038,7 @@ class _$Administrator extends Administrator {
       _duplicaterulefieldPost(
           {required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
               body}) {
-    final String $url = '/duplicaterulefield';
+    final Uri $url = Uri.parse('/duplicaterulefield');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2551,7 +2057,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField>>
       _duplicaterulefieldIdGet({required String? id}) {
-    final String $url = '/duplicaterulefield/${id}';
+    final Uri $url = Uri.parse('/duplicaterulefield/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2572,7 +2078,7 @@ class _$Administrator extends Administrator {
     required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
         body,
   }) {
-    final String $url = '/duplicaterulefield/${id}';
+    final Uri $url = Uri.parse('/duplicaterulefield/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -2588,7 +2094,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _duplicaterulefieldIdDelete({required String? id}) {
-    final String $url = '/duplicaterulefield/${id}';
+    final Uri $url = Uri.parse('/duplicaterulefield/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -2598,42 +2104,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _duplicaterulefieldEmptyobjectGet() {
-    final String $url = '/duplicaterulefield/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _duplicaterulefieldEmptybrowseobjectGet() {
-    final String $url = '/duplicaterulefield/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _duplicaterulefieldKeyfieldnamesGet() {
-    final String $url = '/duplicaterulefield/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _emailhistoryBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/emailhistory/browse';
+    final Uri $url = Uri.parse('/emailhistory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2651,7 +2124,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _emailhistoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/emailhistory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/emailhistory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2675,7 +2148,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/emailhistory';
+    final Uri $url = Uri.parse('/emailhistory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2697,7 +2170,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorEmailHistoryEmailHistory>>
       _emailhistoryIdGet({required String? id}) {
-    final String $url = '/emailhistory/${id}';
+    final Uri $url = Uri.parse('/emailhistory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2708,42 +2181,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _emailhistoryEmptyobjectGet() {
-    final String $url = '/emailhistory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emailhistoryEmptybrowseobjectGet() {
-    final String $url = '/emailhistory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emailhistoryKeyfieldnamesGet() {
-    final String $url = '/emailhistory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _emailtemplateBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/emailtemplate/browse';
+    final Uri $url = Uri.parse('/emailtemplate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2765,7 +2205,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/emailtemplate';
+    final Uri $url = Uri.parse('/emailtemplate');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2791,7 +2231,7 @@ class _$Administrator extends Administrator {
       _emailtemplatePost(
           {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
               body}) {
-    final String $url = '/emailtemplate';
+    final Uri $url = Uri.parse('/emailtemplate');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2810,7 +2250,7 @@ class _$Administrator extends Administrator {
           Response<
               FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic>>
       _emailtemplateIdGet({required String? id}) {
-    final String $url = '/emailtemplate/${id}';
+    final Uri $url = Uri.parse('/emailtemplate/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -2824,7 +2264,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _emailtemplateIdDelete({required String? id}) {
-    final String $url = '/emailtemplate/${id}';
+    final Uri $url = Uri.parse('/emailtemplate/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -2842,7 +2282,7 @@ class _$Administrator extends Administrator {
     required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
         body,
   }) {
-    final String $url = '/emailtemplate/${id}';
+    final Uri $url = Uri.parse('/emailtemplate/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -2863,7 +2303,7 @@ class _$Administrator extends Administrator {
       _emailtemplateTemplatecategoriesPost(
           {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
               body}) {
-    final String $url = '/emailtemplate/templatecategories';
+    final Uri $url = Uri.parse('/emailtemplate/templatecategories');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2884,7 +2324,7 @@ class _$Administrator extends Administrator {
       _emailtemplateTemplatefieldsPost(
           {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest?
               body}) {
-    final String $url = '/emailtemplate/templatefields';
+    final Uri $url = Uri.parse('/emailtemplate/templatefields');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2899,42 +2339,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _emailtemplateEmptyobjectGet() {
-    final String $url = '/emailtemplate/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emailtemplateEmptybrowseobjectGet() {
-    final String $url = '/emailtemplate/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _emailtemplateKeyfieldnamesGet() {
-    final String $url = '/emailtemplate/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _groupBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/group/browse';
+    final Uri $url = Uri.parse('/group/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2952,7 +2359,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _groupExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/group/exportexcelxlsx';
+    final Uri $url = Uri.parse('/group/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2976,7 +2383,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/group';
+    final Uri $url = Uri.parse('/group');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -2998,7 +2405,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorGroupGroup>> _groupPost(
       {required WebApiModulesAdministratorGroupGroup? body}) {
-    final String $url = '/group';
+    final Uri $url = Uri.parse('/group');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3013,7 +2420,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorGroupGroup>> _groupIdGet(
       {required String? id}) {
-    final String $url = '/group/${id}';
+    final Uri $url = Uri.parse('/group/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3028,7 +2435,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesAdministratorGroupGroup? body,
   }) {
-    final String $url = '/group/${id}';
+    final Uri $url = Uri.parse('/group/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3042,7 +2449,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _groupIdDelete({required String? id}) {
-    final String $url = '/group/${id}';
+    final Uri $url = Uri.parse('/group/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -3054,7 +2461,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardAppManagerFwAmSecurityTreeNode>>
       _groupApplicationtreeIdGet({required String? id}) {
-    final String $url = '/group/applicationtree/${id}';
+    final Uri $url = Uri.parse('/group/applicationtree/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3069,7 +2476,7 @@ class _$Administrator extends Administrator {
       _groupCopysecuritynodePost(
           {required FwCoreModulesAdministratorGroupCopySecurityNodeRequest?
               body}) {
-    final String $url = '/group/copysecuritynode';
+    final Uri $url = Uri.parse('/group/copysecuritynode');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3092,7 +2499,7 @@ class _$Administrator extends Administrator {
     int? pageSize,
     String? sort,
   }) {
-    final String $url = '/group/lookupgroup';
+    final Uri $url = Uri.parse('/group/lookupgroup');
     final Map<String, dynamic> $params = <String, dynamic>{
       'GroupId': groupId,
       'Name': name,
@@ -3114,7 +2521,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<Object>> _groupLegendGet() {
-    final String $url = '/group/legend';
+    final Uri $url = Uri.parse('/group/legend');
     final Request $request = Request(
       'GET',
       $url,
@@ -3124,42 +2531,146 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _groupEmptyobjectGet() {
-    final String $url = '/group/emptyobject';
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _handlebarstemplateBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/handlebarstemplate/browse');
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
   }
 
   @override
-  Future<Response<dynamic>> _groupEmptybrowseobjectGet() {
-    final String $url = '/group/emptybrowseobject';
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _handlebarstemplateExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/handlebarstemplate/exportexcelxlsx');
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
   }
 
   @override
-  Future<Response<dynamic>> _groupKeyfieldnamesGet() {
-    final String $url = '/group/keyfieldnames';
+  Future<
+          Response<
+              List<
+                  FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>>>
+      _handlebarstemplateGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
+    final Uri $url = Uri.parse('/handlebarstemplate');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            List<
+                FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>,
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>>
+      _handlebarstemplatePost(
+          {required FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic?
+              body}) {
+    final Uri $url = Uri.parse('/handlebarstemplate');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic,
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>>
+      _handlebarstemplateIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/handlebarstemplate/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic,
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>>
+      _handlebarstemplateIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/handlebarstemplate/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic,
+            FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _handlebarstemplateIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/handlebarstemplate/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _hotfixBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/hotfix/browse';
+    final Uri $url = Uri.parse('/hotfix/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3177,7 +2688,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _hotfixExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/hotfix/exportexcelxlsx';
+    final Uri $url = Uri.parse('/hotfix/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3201,7 +2712,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/hotfix';
+    final Uri $url = Uri.parse('/hotfix');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3223,7 +2734,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorHotfixHotfix>> _hotfixIdGet(
       {required String? id}) {
-    final String $url = '/hotfix/${id}';
+    final Uri $url = Uri.parse('/hotfix/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3234,43 +2745,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _hotfixEmptyobjectGet() {
-    final String $url = '/hotfix/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _hotfixEmptybrowseobjectGet() {
-    final String $url = '/hotfix/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _hotfixKeyfieldnamesGet() {
-    final String $url = '/hotfix/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<String>> _hubspotAllcontactsPost(
       {required WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest?
           body}) {
-    final String $url = '/hubspot/allcontacts';
+    final Uri $url = Uri.parse('/hubspot/allcontacts');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3285,7 +2763,7 @@ class _$Administrator extends Administrator {
   Future<Response<String>> _hubspotNewcontactPost(
       {required WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest?
           body}) {
-    final String $url = '/hubspot/newcontact';
+    final Uri $url = Uri.parse('/hubspot/newcontact');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3301,7 +2779,7 @@ class _$Administrator extends Administrator {
       _hubspotGettokensPost(
           {required WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest?
               body}) {
-    final String $url = '/hubspot/gettokens';
+    final Uri $url = Uri.parse('/hubspot/gettokens');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3318,7 +2796,7 @@ class _$Administrator extends Administrator {
   Future<Response<dynamic>> _hubspotGetcontactsepochPost(
       {required WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest?
           body}) {
-    final String $url = '/hubspot/getcontactsepoch';
+    final Uri $url = Uri.parse('/hubspot/getcontactsepoch');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3330,42 +2808,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _hubspotEmptyobjectGet() {
-    final String $url = '/hubspot/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _hubspotEmptybrowseobjectGet() {
-    final String $url = '/hubspot/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _hubspotKeyfieldnamesGet() {
-    final String $url = '/hubspot/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _personBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/person/browse';
+    final Uri $url = Uri.parse('/person/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3383,75 +2828,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _personExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/person/exportexcelxlsx';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<Response<dynamic>> _personEmptyobjectGet() {
-    final String $url = '/person/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _personEmptybrowseobjectGet() {
-    final String $url = '/person/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _personKeyfieldnamesGet() {
-    final String $url = '/person/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _pluginBrowsePost(
-      {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/plugin/browse';
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _pluginExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/plugin/exportexcelxlsx';
+    final Uri $url = Uri.parse('/person/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3475,7 +2852,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/plugin';
+    final Uri $url = Uri.parse('/plugin');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3495,9 +2872,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorPluginPlugin>> _pluginIdGet(
-      {required String? id}) {
-    final String $url = '/plugin/${id}';
+  Future<Response<WebApiModulesAdministratorPluginPlugin>> _pluginPluginidGet(
+      {required String? pluginid}) {
+    final Uri $url = Uri.parse('/plugin/${pluginid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3508,11 +2885,37 @@ class _$Administrator extends Administrator {
   }
 
   @override
+  Future<Response<WebApiModulesAdministratorPluginPlugin>>
+      _pluginDescriptionDescriptionGet({required String? description}) {
+    final Uri $url = Uri.parse('/plugin/description/${description}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorPluginPlugin,
+        WebApiModulesAdministratorPluginPlugin>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorPluginStatusResponse>>
+      _pluginInstallPluginnamePost({required String? pluginname}) {
+    final Uri $url = Uri.parse('/plugin/install/${pluginname}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorPluginStatusResponse,
+        WebApiModulesAdministratorPluginStatusResponse>($request);
+  }
+
+  @override
   Future<Response<WebApiModulesAdministratorPluginPlugin>> _pluginIdPut({
     required String? id,
     required WebApiModulesAdministratorPluginPlugin? body,
   }) {
-    final String $url = '/plugin/${id}';
+    final Uri $url = Uri.parse('/plugin/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -3525,49 +2928,14 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorPluginPlugin>>
-      _pluginDescriptionDescriptionGet({required String? description}) {
-    final String $url = '/plugin/description/${description}';
+  Future<Response<bool>> _pluginIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/plugin/${id}');
     final Request $request = Request(
-      'GET',
+      'DELETE',
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesAdministratorPluginPlugin,
-        WebApiModulesAdministratorPluginPlugin>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _pluginEmptyobjectGet() {
-    final String $url = '/plugin/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _pluginEmptybrowseobjectGet() {
-    final String $url = '/plugin/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _pluginKeyfieldnamesGet() {
-    final String $url = '/plugin/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -3577,7 +2945,7 @@ class _$Administrator extends Administrator {
       _systemupdateVersionhotfixPost(
           {required WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest?
               body}) {
-    final String $url = '/systemupdate/versionhotfix';
+    final Uri $url = Uri.parse('/systemupdate/versionhotfix');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3598,7 +2966,7 @@ class _$Administrator extends Administrator {
       _systemupdateAvailableversionsPost(
           {required WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest?
               body}) {
-    final String $url = '/systemupdate/availableversions';
+    final Uri $url = Uri.parse('/systemupdate/availableversions');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3617,7 +2985,7 @@ class _$Administrator extends Administrator {
       _systemupdateBuilddocumentsPost(
           {required WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest?
               body}) {
-    final String $url = '/systemupdate/builddocuments';
+    final Uri $url = Uri.parse('/systemupdate/builddocuments');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3637,7 +3005,7 @@ class _$Administrator extends Administrator {
       _systemupdateDownloadbuilddocumentPost(
           {required WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest?
               body}) {
-    final String $url = '/systemupdate/downloadbuilddocument';
+    final Uri $url = Uri.parse('/systemupdate/downloadbuilddocument');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3656,7 +3024,7 @@ class _$Administrator extends Administrator {
       _systemupdateApplyupdatePost(
           {required WebApiModulesAdministratorSystemUpdateApplyUpdateRequest?
               body}) {
-    final String $url = '/systemupdate/applyupdate';
+    final Uri $url = Uri.parse('/systemupdate/applyupdate');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3670,43 +3038,28 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _systemupdateEmptyobjectGet() {
-    final String $url = '/systemupdate/emptyobject';
+  Future<Response<WebApiModulesAdministratorSystemUpdateNextQaVersionResponse>>
+      _systemupdateNextqaversionPost(
+          {required WebApiModulesAdministratorSystemUpdateNextQaVersionRequest?
+              body}) {
+    final Uri $url = Uri.parse('/systemupdate/nextqaversion');
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
     );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _systemupdateEmptybrowseobjectGet() {
-    final String $url = '/systemupdate/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _systemupdateKeyfieldnamesGet() {
-    final String $url = '/systemupdate/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+        WebApiModulesAdministratorSystemUpdateNextQaVersionResponse,
+        WebApiModulesAdministratorSystemUpdateNextQaVersionResponse>($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _systemupdatehistoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/systemupdatehistory/browse';
+    final Uri $url = Uri.parse('/systemupdatehistory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3724,7 +3077,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _systemupdatehistoryExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/systemupdatehistory/exportexcelxlsx';
+    final Uri $url = Uri.parse('/systemupdatehistory/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3748,7 +3101,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/systemupdatehistory';
+    final Uri $url = Uri.parse('/systemupdatehistory');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3774,7 +3127,7 @@ class _$Administrator extends Administrator {
       _systemupdatehistoryPost(
           {required WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory?
               body}) {
-    final String $url = '/systemupdatehistory';
+    final Uri $url = Uri.parse('/systemupdatehistory');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3793,7 +3146,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory>>
       _systemupdatehistoryIdGet({required String? id}) {
-    final String $url = '/systemupdatehistory/${id}';
+    final Uri $url = Uri.parse('/systemupdatehistory/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3806,43 +3159,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _systemupdatehistoryEmptyobjectGet() {
-    final String $url = '/systemupdatehistory/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _systemupdatehistoryEmptybrowseobjectGet() {
-    final String $url = '/systemupdatehistory/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _systemupdatehistoryKeyfieldnamesGet() {
-    final String $url = '/systemupdatehistory/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _systemupdatehistorylogBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/systemupdatehistorylog/browse';
+    final Uri $url = Uri.parse('/systemupdatehistorylog/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3860,7 +3180,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _systemupdatehistorylogExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/systemupdatehistorylog/exportexcelxlsx';
+    final Uri $url = Uri.parse('/systemupdatehistorylog/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3884,7 +3204,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/systemupdatehistorylog';
+    final Uri $url = Uri.parse('/systemupdatehistorylog');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -3908,7 +3228,7 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog>>
       _systemupdatehistorylogIdGet({required String? id}) {
-    final String $url = '/systemupdatehistorylog/${id}';
+    final Uri $url = Uri.parse('/systemupdatehistorylog/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3921,42 +3241,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _systemupdatehistorylogEmptyobjectGet() {
-    final String $url = '/systemupdatehistorylog/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _systemupdatehistorylogEmptybrowseobjectGet() {
-    final String $url = '/systemupdatehistorylog/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _systemupdatehistorylogKeyfieldnamesGet() {
-    final String $url = '/systemupdatehistorylog/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _userBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/browse';
+    final Uri $url = Uri.parse('/user/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3973,7 +3260,7 @@ class _$Administrator extends Administrator {
           Response<
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _userExportexcelxlsxPost({required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/exportexcelxlsx';
+    final Uri $url = Uri.parse('/user/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3997,7 +3284,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/user';
+    final Uri $url = Uri.parse('/user');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4019,7 +3306,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorUserUser>> _userPost(
       {required WebApiModulesAdministratorUserUser? body}) {
-    final String $url = '/user';
+    final Uri $url = Uri.parse('/user');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4034,7 +3321,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorUserUser>> _userIdGet(
       {required String? id}) {
-    final String $url = '/user/${id}';
+    final Uri $url = Uri.parse('/user/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4049,7 +3336,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesAdministratorUserUser? body,
   }) {
-    final String $url = '/user/${id}';
+    final Uri $url = Uri.parse('/user/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -4063,7 +3350,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _userIdDelete({required String? id}) {
-    final String $url = '/user/${id}';
+    final Uri $url = Uri.parse('/user/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -4077,7 +3364,8 @@ class _$Administrator extends Administrator {
           Response<
               WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse>>
       _userCreateusersalesrepresentativecontactIdPost({required String? id}) {
-    final String $url = '/user/createusersalesrepresentativecontact/${id}';
+    final Uri $url =
+        Uri.parse('/user/createusersalesrepresentativecontact/${id}');
     final Request $request = Request(
       'POST',
       $url,
@@ -4093,7 +3381,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidategroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validategroup/browse';
+    final Uri $url = Uri.parse('/user/validategroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4109,7 +3397,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidateusertitleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validateusertitle/browse';
+    final Uri $url = Uri.parse('/user/validateusertitle/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4125,7 +3413,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidateofficelocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validateofficelocation/browse';
+    final Uri $url = Uri.parse('/user/validateofficelocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4141,7 +3429,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatewarehouselocationBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatewarehouselocation/browse';
+    final Uri $url = Uri.parse('/user/validatewarehouselocation/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4157,7 +3445,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatestateBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatestate/browse';
+    final Uri $url = Uri.parse('/user/validatestate/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4173,7 +3461,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatecountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatecountry/browse';
+    final Uri $url = Uri.parse('/user/validatecountry/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4189,7 +3477,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidaterentaldepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validaterentaldepartment/browse';
+    final Uri $url = Uri.parse('/user/validaterentaldepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4205,7 +3493,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatesalesdepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatesalesdepartment/browse';
+    final Uri $url = Uri.parse('/user/validatesalesdepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4221,7 +3509,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatelabordepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatelabordepartment/browse';
+    final Uri $url = Uri.parse('/user/validatelabordepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4237,7 +3525,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatemiscdepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatemiscdepartment/browse';
+    final Uri $url = Uri.parse('/user/validatemiscdepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4253,7 +3541,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatepartsdepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatepartsdepartment/browse';
+    final Uri $url = Uri.parse('/user/validatepartsdepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4269,7 +3557,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatefacilitydepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatefacilitydepartment/browse';
+    final Uri $url = Uri.parse('/user/validatefacilitydepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4285,7 +3573,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatetransportationdepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatetransportationdepartment/browse';
+    final Uri $url = Uri.parse('/user/validatetransportationdepartment/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4301,7 +3589,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidaterentalinventoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validaterentalinventory/browse';
+    final Uri $url = Uri.parse('/user/validaterentalinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4317,7 +3605,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatesalesinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatesalesinventorytype/browse';
+    final Uri $url = Uri.parse('/user/validatesalesinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4333,7 +3621,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatepartsinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatepartsinventorytype/browse';
+    final Uri $url = Uri.parse('/user/validatepartsinventorytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4349,7 +3637,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatetransportationtypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatetransportationtype/browse';
+    final Uri $url = Uri.parse('/user/validatetransportationtype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4365,7 +3653,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatelabortypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatelabortype/browse';
+    final Uri $url = Uri.parse('/user/validatelabortype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4381,7 +3669,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatemisctypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatemisctype/browse';
+    final Uri $url = Uri.parse('/user/validatemisctype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4397,7 +3685,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatefacilitytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatefacilitytype/browse';
+    final Uri $url = Uri.parse('/user/validatefacilitytype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4413,7 +3701,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatesuccesssoundBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatesuccesssound/browse';
+    final Uri $url = Uri.parse('/user/validatesuccesssound/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4429,7 +3717,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidateerrorsoundBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validateerrorsound/browse';
+    final Uri $url = Uri.parse('/user/validateerrorsound/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4445,7 +3733,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _userValidatenotificationsoundBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/user/validatenotificationsound/browse';
+    final Uri $url = Uri.parse('/user/validatenotificationsound/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4460,7 +3748,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesAdministratorUserUserCountResponse>>
       _userGetusercountsGet() {
-    final String $url = '/user/getusercounts';
+    final Uri $url = Uri.parse('/user/getusercounts');
     final Request $request = Request(
       'GET',
       $url,
@@ -4471,42 +3759,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _userEmptyobjectGet() {
-    final String $url = '/user/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _userEmptybrowseobjectGet() {
-    final String $url = '/user/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _userKeyfieldnamesGet() {
-    final String $url = '/user/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _webalertlogBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/webalertlog/browse';
+    final Uri $url = Uri.parse('/webalertlog/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4524,7 +3779,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _webalertlogExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/webalertlog/exportexcelxlsx';
+    final Uri $url = Uri.parse('/webalertlog/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4548,7 +3803,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/webalertlog';
+    final Uri $url = Uri.parse('/webalertlog');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4570,7 +3825,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic>>
       _webalertlogIdGet({required String? id}) {
-    final String $url = '/webalertlog/${id}';
+    final Uri $url = Uri.parse('/webalertlog/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4582,42 +3837,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _webalertlogEmptyobjectGet() {
-    final String $url = '/webalertlog/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _webalertlogEmptybrowseobjectGet() {
-    final String $url = '/webalertlog/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _webalertlogKeyfieldnamesGet() {
-    final String $url = '/webalertlog/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _webauditjsonBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/webauditjson/browse';
+    final Uri $url = Uri.parse('/webauditjson/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4635,7 +3857,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _webauditjsonExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/webauditjson/exportexcelxlsx';
+    final Uri $url = Uri.parse('/webauditjson/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4652,7 +3874,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic>>
       _webauditjsonIdGet({required String? id}) {
-    final String $url = '/webauditjson/${id}';
+    final Uri $url = Uri.parse('/webauditjson/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4664,42 +3886,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _webauditjsonEmptyobjectGet() {
-    final String $url = '/webauditjson/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _webauditjsonEmptybrowseobjectGet() {
-    final String $url = '/webauditjson/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _webauditjsonKeyfieldnamesGet() {
-    final String $url = '/webauditjson/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _widgetgroupBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/widgetgroup/browse';
+    final Uri $url = Uri.parse('/widgetgroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4717,7 +3906,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _widgetgroupExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/widgetgroup/exportexcelxlsx';
+    final Uri $url = Uri.parse('/widgetgroup/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4741,7 +3930,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/widgetgroup';
+    final Uri $url = Uri.parse('/widgetgroup');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4764,7 +3953,7 @@ class _$Administrator extends Administrator {
   Future<Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
       _widgetgroupPost(
           {required WebApiModulesSettingsWidgetGroupWidgetGroup? body}) {
-    final String $url = '/widgetgroup';
+    final Uri $url = Uri.parse('/widgetgroup');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4779,7 +3968,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
       _widgetgroupIdGet({required String? id}) {
-    final String $url = '/widgetgroup/${id}';
+    final Uri $url = Uri.parse('/widgetgroup/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4795,7 +3984,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesSettingsWidgetGroupWidgetGroup? body,
   }) {
-    final String $url = '/widgetgroup/${id}';
+    final Uri $url = Uri.parse('/widgetgroup/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -4809,7 +3998,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _widgetgroupIdDelete({required String? id}) {
-    final String $url = '/widgetgroup/${id}';
+    final Uri $url = Uri.parse('/widgetgroup/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -4822,7 +4011,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _widgetgroupValidategroupBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/widgetgroup/validategroup/browse';
+    final Uri $url = Uri.parse('/widgetgroup/validategroup/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4835,42 +4024,9 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<dynamic>> _widgetgroupEmptyobjectGet() {
-    final String $url = '/widgetgroup/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _widgetgroupEmptybrowseobjectGet() {
-    final String $url = '/widgetgroup/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _widgetgroupKeyfieldnamesGet() {
-    final String $url = '/widgetgroup/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _widgetuserBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/widgetuser/browse';
+    final Uri $url = Uri.parse('/widgetuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4888,7 +4044,7 @@ class _$Administrator extends Administrator {
               FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
       _widgetuserExportexcelxlsxPost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/widgetuser/exportexcelxlsx';
+    final Uri $url = Uri.parse('/widgetuser/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4912,7 +4068,7 @@ class _$Administrator extends Administrator {
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final String $url = '/widgetuser';
+    final Uri $url = Uri.parse('/widgetuser');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -4934,7 +4090,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesSettingsWidgetUserWidgetUser>> _widgetuserPost(
       {required WebApiModulesSettingsWidgetUserWidgetUser? body}) {
-    final String $url = '/widgetuser';
+    final Uri $url = Uri.parse('/widgetuser');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -4949,7 +4105,7 @@ class _$Administrator extends Administrator {
   @override
   Future<Response<WebApiModulesSettingsWidgetUserWidgetUser>> _widgetuserIdGet(
       {required String? id}) {
-    final String $url = '/widgetuser/${id}';
+    final Uri $url = Uri.parse('/widgetuser/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -4964,7 +4120,7 @@ class _$Administrator extends Administrator {
     required String? id,
     required WebApiModulesSettingsWidgetUserWidgetUser? body,
   }) {
-    final String $url = '/widgetuser/${id}';
+    final Uri $url = Uri.parse('/widgetuser/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -4978,7 +4134,7 @@ class _$Administrator extends Administrator {
 
   @override
   Future<Response<bool>> _widgetuserIdDelete({required String? id}) {
-    final String $url = '/widgetuser/${id}';
+    final Uri $url = Uri.parse('/widgetuser/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -4991,7 +4147,7 @@ class _$Administrator extends Administrator {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _widgetuserValidateuserBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final String $url = '/widgetuser/validateuser/browse';
+    final Uri $url = Uri.parse('/widgetuser/validateuser/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5001,38 +4157,5 @@ class _$Administrator extends Administrator {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _widgetuserEmptyobjectGet() {
-    final String $url = '/widgetuser/emptyobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _widgetuserEmptybrowseobjectGet() {
-    final String $url = '/widgetuser/emptybrowseobject';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _widgetuserKeyfieldnamesGet() {
-    final String $url = '/widgetuser/keyfieldnames';
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<dynamic, dynamic>($request);
   }
 }
