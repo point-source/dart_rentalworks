@@ -314,6 +314,30 @@
           }
         }
       },
+      "FwStandard.Data.FwTranslatedValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "UntranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTranslated": {
+            "type": "boolean"
+          },
+          "UserIsTranslating": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.FwApiException": {
         "type": "object",
         "properties": {
@@ -336,6 +360,7 @@
           "Time",
           "DateTime",
           "DateTimeOffset",
+          "CreditCardExpirationDate",
           "Decimal",
           "DecimalStringNoTrailingZeros",
           "DecimalString1Digit",
@@ -349,7 +374,9 @@
           "CurrencyStringNoDollarSignNoDecimalPlaces",
           "PhoneUS",
           "ZipcodeUS",
-          "Percentage",
+          "PercentageWholeNumber",
+          "Percentage2Digits",
+          "Percentage4Digits",
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
@@ -421,6 +448,13 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -449,15 +483,43 @@
         "additionalProperties": false
       },
       "WebApi.Modules.Exports.InvoiceBatchExport.InvoiceBatchExportRequest": {
+        "required": [
+          "DataExportFormatId"
+        ],
         "type": "object",
         "properties": {
           "BatchId": {
             "type": "string",
             "nullable": true
           },
-          "DataExportFormatId": {
+          "FromBatchNumber": {
             "type": "string",
             "nullable": true
+          },
+          "ToBatchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "FromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ToDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "BatchRange": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataExportFormatId": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -476,20 +538,55 @@
           "downloadUrl": {
             "type": "string",
             "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "WebApi.Modules.Exports.ReceiptBatchExport.ReceiptBatchExportRequest": {
+        "required": [
+          "DataExportFormatId"
+        ],
         "type": "object",
         "properties": {
           "BatchId": {
             "type": "string",
             "nullable": true
           },
-          "DataExportFormatId": {
+          "FromBatchNumber": {
             "type": "string",
             "nullable": true
+          },
+          "ToBatchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "FromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ToDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "BatchRange": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataExportFormatId": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -508,20 +605,55 @@
           "downloadUrl": {
             "type": "string",
             "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "WebApi.Modules.Exports.VendorInvoiceBatchExport.VendorInvoiceBatchExportRequest": {
+        "required": [
+          "DataExportFormatId"
+        ],
         "type": "object",
         "properties": {
           "BatchId": {
             "type": "string",
             "nullable": true
           },
-          "DataExportFormatId": {
+          "FromBatchNumber": {
             "type": "string",
             "nullable": true
+          },
+          "ToBatchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "FromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ToDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "BatchRange": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataExportFormatId": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -538,6 +670,13 @@
             "nullable": true
           },
           "downloadUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
             "type": "string",
             "nullable": true
           }

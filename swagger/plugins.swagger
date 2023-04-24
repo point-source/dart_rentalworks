@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "paths": {
-    "/azureadplugin/loadadgroups": {
+    "/azureadplugin/loadadcontactgroups": {
       "post": {
         "tags": [
           "AzureADPlugin"
@@ -59,7 +59,7 @@
         }
       }
     },
-    "/azureadplugin/importgroup": {
+    "/azureadplugin/importgroupcontacts": {
       "post": {
         "tags": [
           "AzureADPlugin"
@@ -68,7 +68,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.ImportGroupRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.Contacts_ImportGroupRequest"
               }
             }
           }
@@ -79,7 +79,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.ImportGroupResponse"
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.Contacts_ImportGroupResponse"
                 }
               }
             }
@@ -113,15 +113,30 @@
         }
       }
     },
-    "/azureadplugin/emptyobject": {
-      "get": {
+    "/azureadplugin/loadadusergroups": {
+      "post": {
         "tags": [
           "AzureADPlugin"
         ],
-        "summary": "Get an empty object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.GetAzureADGroupsResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -152,15 +167,30 @@
         }
       }
     },
-    "/azureadplugin/emptybrowseobject": {
-      "get": {
+    "/azureadplugin/importgroupusers": {
+      "post": {
         "tags": [
           "AzureADPlugin"
         ],
-        "summary": "Get an empty browse object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.Users_ImportGroupRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.Users_ImportGroupResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -191,15 +221,196 @@
         }
       }
     },
-    "/azureadplugin/keyfieldnames": {
-      "get": {
+    "/boxedupplugin/sign_up": {
+      "post": {
         "tags": [
-          "AzureADPlugin"
+          "BoxedUpPlugin"
         ],
-        "summary": "Get an array of primary key field names",
+        "summary": "Call BoxedUp to signup for an account and provide a RentalWorks access token.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.RwBoxedUpRequest_WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.StatusResponse_WebApi.Modules.Plugins.BoxedUp.RwBoxedUpTokenResponse_WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boxedupplugin/update_access_token": {
+      "post": {
+        "tags": [
+          "BoxedUpPlugin"
+        ],
+        "summary": "Call BoxedUp to update their RentalWorks access token.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.RwBoxedUpRequest_WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.StatusResponse_WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boxedupplugin/qa/user/3p/sign_up": {
+      "post": {
+        "tags": [
+          "BoxedUpPlugin"
+        ],
+        "summary": "Mock service for testing BoxedUp's /user/3p/sign_up endpoint",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boxedupplugin/qa/user/3p/update_access_token": {
+      "post": {
+        "tags": [
+          "BoxedUpPlugin"
+        ],
+        "summary": "Mock service for testing BoxedUp's /user/3p/update_access_token endpoint",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -927,7 +1138,7 @@
         "tags": [
           "CreditCardPlugin"
         ],
-        "summary": "Capture all ACTIVE pre-authorizations for an order and create depleting deposits.",
+        "summary": "Capture pre-authorizations for an order and create depleting deposits.",
         "parameters": [
           {
             "name": "orderid",
@@ -1182,6 +1393,838 @@
         }
       }
     },
+    "/creditcardplugin/profile/customer/{customerid}/account": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get customer credit card accounts.",
+        "parameters": [
+          {
+            "name": "customerid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Create/update a customer credit card account.",
+        "parameters": [
+          {
+            "name": "customerid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateAccountResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/customer/{customerid}/authorizedaccount": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get customer credit card accounts that have card on file permission from the customer.",
+        "parameters": [
+          {
+            "name": "customerid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/customer/{customerid}/defaultaccount": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get customer default credit card account. Returns null if not found.",
+        "parameters": [
+          {
+            "name": "customerid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/customer/{customerid}/account/{accountid}": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get customer credit card account.",
+        "parameters": [
+          {
+            "name": "customerid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Delete a customer credit card.",
+        "parameters": [
+          {
+            "name": "customerid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginDeleteAccountResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/deal/{dealid}/account": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get deal credit card accounts.",
+        "parameters": [
+          {
+            "name": "dealid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Create/update a deal credit card account.",
+        "parameters": [
+          {
+            "name": "dealid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateAccountResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/deal/{dealid}/authorizedaccount": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get deal credit card accounts that have card on file permission from the customer.",
+        "parameters": [
+          {
+            "name": "dealid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/deal/{dealid}/defaultaccount": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get deal default credit card account.",
+        "parameters": [
+          {
+            "name": "dealid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/profile/deal/{dealid}/account/{accountid}": {
+      "get": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Get deal credit card account.",
+        "parameters": [
+          {
+            "name": "dealid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Delete a deal credit card account.",
+        "parameters": [
+          {
+            "name": "dealid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginDeleteAccountResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/creditcardplugin/deposit": {
       "get": {
         "tags": [
@@ -1271,7 +2314,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest"
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardOrderDepositRequest"
               }
             }
           }
@@ -1282,7 +2325,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardDepositResponse"
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardOrderDepositResponse"
                 }
               }
             }
@@ -1644,15 +2687,41 @@
         }
       }
     },
-    "/creditcardplugin/emptyobject": {
-      "get": {
+    "/creditcardplugin/void/receipt/{receiptid}": {
+      "post": {
         "tags": [
           "CreditCardPlugin"
         ],
-        "summary": "Get an empty object",
+        "summary": "Voids a credit card payment receipt if the transaction has not been settled and the receipt has not been exported",
+        "parameters": [
+          {
+            "name": "receiptid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidReceiptRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -1683,15 +2752,32 @@
         }
       }
     },
-    "/creditcardplugin/emptybrowseobject": {
+    "/creditcardplugin/settings": {
       "get": {
         "tags": [
           "CreditCardPlugin"
         ],
-        "summary": "Get an empty browse object",
+        "summary": "Get settings for interacting with the credit card api",
+        "parameters": [
+          {
+            "name": "receiptid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginGetSettingsResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -1722,15 +2808,85 @@
         }
       }
     },
-    "/creditcardplugin/keyfieldnames": {
-      "get": {
+    "/creditcardplugin/cardpointe/gatewayapi/makepayment": {
+      "post": {
         "tags": [
           "CreditCardPlugin"
         ],
-        "summary": "Get an array of primary key field names",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.AuthorizeRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.MakePaymentAsyncResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creditcardplugin/cardpointe/gatewayapi/sendauthorizeemail": {
+      "post": {
+        "tags": [
+          "CreditCardPlugin"
+        ],
+        "summary": "Sends an email to a customer requesting them to input their credit card information, which is then used to create a credit card pre-authorization or a deposit, based on the Capture flag..",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.SendAuthorizEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.SendPreAuthorizeEmailResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -1850,123 +3006,6 @@
           }
         }
       }
-    },
-    "/hubspotplugin/emptyobject": {
-      "get": {
-        "tags": [
-          "HubspotPlugin"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/hubspotplugin/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "HubspotPlugin"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/hubspotplugin/keyfieldnames": {
-      "get": {
-        "tags": [
-          "HubspotPlugin"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -2035,6 +3074,30 @@
           "DefaultValue": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Data.FwTranslatedValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "UntranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTranslated": {
+            "type": "boolean"
+          },
+          "UserIsTranslating": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2121,6 +3184,14 @@
             },
             "nullable": true
           },
+          "searchgroupings": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
           "uniqueids": {
             "nullable": true
           },
@@ -2144,7 +3215,10 @@
           "forexcel": {
             "type": "boolean"
           },
-          "excelfields": {
+          "includeallcolumns": {
+            "type": "boolean"
+          },
+          "fields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Models.CheckBoxListItem"
@@ -2169,7 +3243,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "example": "{\r\n  \"miscfields\": {},\r\n  \"module\": \"\",\r\n  \"options\": {},\r\n  \"orderby\": \"\",\r\n  \"orderbydirection\": \"\",\r\n  \"top\": 0,\r\n  \"pageno\": 1,\r\n  \"pagesize\": 15,\r\n  \"searchfieldoperators\": [],\r\n  \"searchfields\": [],\r\n  \"searchfieldvalues\": [],\r\n  \"searchfieldtypes\": [],\r\n  \"searchseparators\": [],\r\n  \"searchcondition\": [],\r\n  \"searchconjunctions\": [],\r\n  \"searchgroupings\": [],\r\n  \"uniqueids\": {},\r\n  \"boundids\": {},\r\n  \"filterfields\": {},\r\n  \"activeview\": \"\",\r\n  \"emptyobject\": false,\r\n  \"forexcel\": false,\r\n  \"includeallcolumns\": false,\r\n  \"fields\": [],\r\n  \"totalfields\": [],\r\n  \"activeviewfields\": {}\r\n}"
       },
       "FwStandard.Models.CheckBoxListItem": {
         "type": "object",
@@ -2221,6 +3296,35 @@
           "Value": {
             "type": "string",
             "description": "The value of the DataField to filter on.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Plugins.CreditCard.Account": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.Account"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -2321,6 +3425,7 @@
           "Time",
           "DateTime",
           "DateTimeOffset",
+          "CreditCardExpirationDate",
           "Decimal",
           "DecimalStringNoTrailingZeros",
           "DecimalString1Digit",
@@ -2334,7 +3439,9 @@
           "CurrencyStringNoDollarSignNoDecimalPlaces",
           "PhoneUS",
           "ZipcodeUS",
-          "Percentage",
+          "PercentageWholeNumber",
+          "Percentage2Digits",
+          "Percentage4Digits",
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
@@ -2406,6 +3513,13 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2504,6 +3618,10 @@
             "maxLength": 10,
             "type": "string",
             "description": "Format: Text",
+            "nullable": true
+          },
+          "CustomerDealId": {
+            "type": "string",
             "nullable": true
           },
           "CustomerDeal": {
@@ -2657,8 +3775,16 @@
             "description": "Format: Text",
             "nullable": true
           },
-          "CreditCardAccountToken": {
+          "RefundingTransactionId": {
+            "maxLength": 50,
             "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardNumber": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
             "nullable": true
           },
           "CreditCardExpirationDate": {
@@ -2666,10 +3792,96 @@
             "description": "Format: Date",
             "nullable": true
           },
+          "CreditCardName": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardAccountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardPaymentMode": {
+            "type": "string",
+            "description": "'NEWCARD', 'SAVEDCARD', 'PINPAD' Only used for submitting new credit card receipts.\r\nNEWCARD - you are submitting a tokenized new credit card that was input manually.\r\nSAVEDCARD - you are paying with a saved credit card profile.\r\nPINPAD - Customer is inputing their card with a PINPad device",
+            "nullable": true
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "NewCreditCardAccountToken": {
+            "type": "string",
+            "description": "The tokenized credit card number. Only used for submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardExpirationDate": {
+            "type": "string",
+            "description": "Credit card expiration date MM/YY. Only used for submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardCardholderName": {
+            "type": "string",
+            "description": "Card holder name. Only used for submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardSaveCreditCard": {
+            "type": "boolean",
+            "description": "A flag indicating whether to create a saved credit card profile. Only used for submitting new credit card receipts when CreditCardPaymentMode is 'NEWCARD'.",
+            "nullable": true
+          },
+          "CreditCardDefaultAccount": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "NewCreditCardAuthorizationOnFile": {
+            "type": "boolean",
+            "description": "A flag indicating that customer has given consent to use a saved credit card. Only used for submitting new credit card receipts when NewCreditCardSaveCreditCard is true.",
+            "nullable": true
+          },
+          "NewCreditCardAddress": {
+            "type": "string",
+            "description": "Address for AVS check. Only used for submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardAddress2": {
+            "type": "string",
+            "description": "Address 2 for AVS check. Only used fwhenor submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardCity": {
+            "type": "string",
+            "description": "City for AVS check. (only used when submitting new credit card receipts)",
+            "nullable": true
+          },
+          "NewCreditCardRegion": {
+            "type": "string",
+            "description": "Region/State for AVS check. Only used when submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardPostalCode": {
+            "type": "string",
+            "description": "Postal/Zip Code for AVS check. Only used when submitting new credit card receipts.",
+            "nullable": true
+          },
+          "NewCreditCardCountryId": {
+            "type": "string",
+            "description": "A RentalWorks CountryId for AVS check. Only used when submitting new credit card receipts.",
+            "nullable": true
+          },
           "DateStamp": {
             "type": "string",
             "description": "Format: UTCDateTime",
             "format": "date-time"
+          },
+          "RefundingReceiptId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsCreditCardReceiptVoided": {
+            "type": "boolean"
           },
           "AuditNote": {
             "type": "string",
@@ -2701,6 +3913,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2716,9 +3935,17 @@
             "type": "string",
             "nullable": true
           },
+          "CheckNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "Amount": {
             "type": "number",
             "format": "double"
+          },
+          "RefundCreditCardTransactionId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2741,6 +3968,117 @@
         },
         "additionalProperties": false
       },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.AuthorizeRequest": {
+        "required": [
+          "Account",
+          "ActiveLinkToken",
+          "Capture",
+          "CountryId",
+          "ExpirationDate"
+        ],
+        "type": "object",
+        "properties": {
+          "ActiveLinkToken": {
+            "type": "string",
+            "description": "Token for the ActiveLink"
+          },
+          "Account": {
+            "type": "string",
+            "description": "Token for the CreditCard data"
+          },
+          "ExpirationDate": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Card Expiration in either MMYY or YYYYMMDD format. Not required for eCheck (ACH) requests."
+          },
+          "Capture": {
+            "type": "boolean"
+          },
+          "CountryId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.CardPointeActiveLinkToken": {
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "AmountToPay": {
+            "type": "number",
+            "format": "double"
+          },
+          "Capture": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.MakePaymentAsyncResponse": {
+        "type": "object",
+        "properties": {
+          "StatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.SendAuthorizEmailRequest": {
+        "required": [
+          "ActiveLinkToken"
+        ],
+        "type": "object",
+        "properties": {
+          "ActiveLinkToken": {
+            "$ref": "#/components/schemas/WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.CardPointeActiveLinkToken"
+          },
+          "EmailFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailSubject": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailBody": {
+            "type": "string",
+            "nullable": true
+          },
+          "Capture": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Pages.ActiveLink.CardPointePaymentPaymentActiveLink.SendPreAuthorizeEmailResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WebApi.Modules.Plugins.AzureAD.AzureADGroup": {
         "type": "object",
         "properties": {
@@ -2749,6 +4087,71 @@
             "nullable": true
           },
           "displayName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.ContactData": {
+        "type": "object",
+        "properties": {
+          "ContactId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "SourceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.Contacts_ImportGroupRequest": {
+        "type": "object",
+        "properties": {
+          "AzureADGroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContactTitleId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.Contacts_ImportGroupResponse": {
+        "type": "object",
+        "properties": {
+          "LastImported": {
+            "type": "string",
+            "nullable": true
+          },
+          "Users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Plugins.AzureAD.ContactData"
+            },
+            "nullable": true
+          },
+          "StatusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Message": {
             "type": "string",
             "nullable": true
           }
@@ -2789,27 +4192,45 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Plugins.AzureAD.ImportGroupRequest": {
+      "WebApi.Modules.Plugins.AzureAD.UserData": {
         "type": "object",
         "properties": {
-          "AzureADGroupId": {
+          "UsersId": {
             "type": "string",
             "nullable": true
           },
-          "ContactTitleId": {
+          "FirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "SourceId": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Plugins.AzureAD.ImportGroupResponse": {
+      "WebApi.Modules.Plugins.AzureAD.Users_ImportGroupRequest": {
         "type": "object",
         "properties": {
-          "LastImported": {
+          "AzureADGroupId": {
             "type": "string",
             "nullable": true
-          },
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.AzureAD.Users_ImportGroupResponse": {
+        "type": "object",
+        "properties": {
           "Users": {
             "type": "array",
             "items": {
@@ -2828,26 +4249,395 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Plugins.AzureAD.UserData": {
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpRequest": {
         "type": "object",
         "properties": {
-          "ContactId": {
+          "user": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponseUser"
+          },
+          "error": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponseUser": {
+        "type": "object",
+        "properties": {
+          "first_name": {
             "type": "string",
             "nullable": true
           },
-          "FirstName": {
+          "last_name": {
             "type": "string",
             "nullable": true
           },
-          "LastName": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "Email": {
+          "username": {
             "type": "string",
             "nullable": true
           },
-          "SourceId": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "password_confirmation": {
+            "type": "string",
+            "nullable": true
+          },
+          "erp_integration": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponseUserErp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponseUserErp": {
+        "type": "object",
+        "properties": {
+          "integ_access_endpoint": {
+            "type": "string",
+            "nullable": true
+          },
+          "integ_access_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "integ_source_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpUser": {
+        "required": [
+          "email",
+          "erp_integration",
+          "first_name",
+          "last_name",
+          "password",
+          "password_confirmation",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "password_confirmation": {
+            "type": "string"
+          },
+          "erp_integration": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpUserErp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpUserErp": {
+        "required": [
+          "integ_access_endpoint",
+          "integ_access_token",
+          "integ_source_id",
+          "integ_user_id"
+        ],
+        "type": "object",
+        "properties": {
+          "integ_access_endpoint": {
+            "type": "string"
+          },
+          "integ_access_token": {
+            "type": "string"
+          },
+          "integ_source_id": {
+            "type": "string"
+          },
+          "integ_user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequest": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequestUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequestUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "erp_integration": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequestUserErp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequestUserErp": {
+        "required": [
+          "integ_access_endpoint",
+          "integ_access_token",
+          "integ_source_id",
+          "integ_user_id"
+        ],
+        "type": "object",
+        "properties": {
+          "integ_access_endpoint": {
+            "type": "string"
+          },
+          "integ_access_token": {
+            "type": "string"
+          },
+          "integ_source_id": {
+            "type": "string"
+          },
+          "integ_user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponse": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "timezone": {
+            "type": "string",
+            "nullable": true
+          },
+          "erp_integration": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponseErpIntegration"
+          },
+          "boxedup_endpoint": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponseErpIntegration": {
+        "type": "object",
+        "properties": {
+          "integ_access_endpoint": {
+            "type": "string",
+            "nullable": true
+          },
+          "integ_access_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "integ_source_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.RwBoxedUpRequest_WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpRequest": {
+        "required": [
+          "BoxedUpBaseUrl",
+          "BoxedUpRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "BoxedUpBaseUrl": {
+            "type": "string"
+          },
+          "BoxedUpRequest": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.RwBoxedUpRequest_WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequest": {
+        "required": [
+          "BoxedUpBaseUrl",
+          "BoxedUpRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "BoxedUpBaseUrl": {
+            "type": "string"
+          },
+          "BoxedUpRequest": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.RwBoxedUpTokenResponse_WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse": {
+        "type": "object",
+        "properties": {
+          "RentalWorksAccessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalWorksAccessTokenExpiration": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "BoxedUpResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.StatusResponse_WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "TokenResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.BoxedUpUpdateTokenResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.BoxedUp.StatusResponse_WebApi.Modules.Plugins.BoxedUp.RwBoxedUpTokenResponse_WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "TokenResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.BoxedUp.RwBoxedUpTokenResponse_WebApi.Modules.Plugins.BoxedUp.BoxedUpSignUpResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.Account": {
+        "type": "object",
+        "properties": {
+          "ProfileId": {
+            "type": "string",
+            "nullable": true
+          },
+          "AccountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Nickname": {
+            "type": "string",
+            "nullable": true
+          },
+          "CardType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes"
+          },
+          "Expiration": {
+            "type": "string",
+            "nullable": true
+          },
+          "Last4Digits": {
+            "type": "string",
+            "nullable": true
+          },
+          "CardOnFilePermission": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DefaultAccount": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "CardholderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string",
+            "nullable": true
+          },
+          "Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "Token": {
             "type": "string",
             "nullable": true
           }
@@ -2908,95 +4698,6 @@
           },
           "Status": {
             "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCaptureResponseStatusCodes"
-          },
-          "StatusText": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest": {
-        "required": [
-          "AmountToPay",
-          "DealNumber",
-          "OrderId",
-          "PaymentType"
-        ],
-        "type": "object",
-        "properties": {
-          "PaymentType": {
-            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest_PaymentTypes"
-          },
-          "OrderId": {
-            "type": "string"
-          },
-          "AmountToPay": {
-            "type": "number",
-            "format": "double"
-          },
-          "CreditCardPinPadId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "DealNumber": {
-            "type": "string"
-          },
-          "EmailFrom": {
-            "type": "string",
-            "nullable": true
-          },
-          "EmailTo": {
-            "type": "string",
-            "nullable": true
-          },
-          "EmailSubject": {
-            "type": "string",
-            "nullable": true
-          },
-          "EmailBody": {
-            "type": "string",
-            "nullable": true
-          },
-          "Account": {
-            "type": "string",
-            "description": "The tokenized card number or blank if this initiates a process to collect input from a PIN Pad.",
-            "nullable": true
-          },
-          "ExpirationDate": {
-            "type": "string",
-            "description": "Required if passing Account",
-            "nullable": true
-          },
-          "TrackData": {
-            "type": "string",
-            "description": "The tokenized track data from a credit card reader",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WebApi.Modules.Plugins.CreditCard.CreditCardDepositRequest_PaymentTypes": {
-        "enum": [
-          "TOKENIZEDCARDNUMBER",
-          "TRACKDATA",
-          "EMAIL",
-          "WEBPAY",
-          "PINPAD"
-        ],
-        "type": "string"
-      },
-      "WebApi.Modules.Plugins.CreditCard.CreditCardDepositResponse": {
-        "type": "object",
-        "properties": {
-          "PluginResponse": {
-            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponse"
-          },
-          "Success": {
-            "type": "boolean"
-          },
-          "Status": {
-            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponseStatusCodes"
           },
           "StatusText": {
             "type": "string",
@@ -3148,6 +4849,147 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardOrderDepositRequest": {
+        "required": [
+          "AmountToPay",
+          "DealNumber",
+          "OrderId",
+          "PayWith"
+        ],
+        "type": "object",
+        "properties": {
+          "PayWith": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardOrderDepositRequest_PayWithTypes"
+          },
+          "OrderId": {
+            "type": "string"
+          },
+          "AmountToPay": {
+            "type": "number",
+            "format": "double"
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DealNumber": {
+            "type": "string"
+          },
+          "EmailFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailSubject": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailBody": {
+            "type": "string",
+            "nullable": true
+          },
+          "AccountId": {
+            "type": "string",
+            "description": "The AccountId of the CreditCard to Use",
+            "nullable": true
+          },
+          "Account": {
+            "type": "string",
+            "description": "The tokenized card number or blank if this initiates a process to collect input from a PIN Pad.",
+            "nullable": true
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "description": "Required if passing Account",
+            "nullable": true
+          },
+          "CardholderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardSource": {
+            "type": "string",
+            "description": "Save the credit card on either the 'CUSTOMER' or 'DEAL' record.",
+            "nullable": true
+          },
+          "SaveCreditCard": {
+            "type": "boolean"
+          },
+          "DefaultAccount": {
+            "type": "boolean"
+          },
+          "AuthorizationOnFile": {
+            "type": "boolean"
+          },
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string",
+            "nullable": true
+          },
+          "Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardOrderDepositRequest_PayWithTypes": {
+        "enum": [
+          "TOKENIZEDCARDNUMBER",
+          "SAVEDCARD",
+          "NEWCARD",
+          "TRACKDATA",
+          "EMAIL",
+          "WEBPAY",
+          "PINPAD"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardOrderDepositResponse": {
+        "type": "object",
+        "properties": {
+          "PluginResponse": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponse"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginAuthorizeResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3158,6 +5000,11 @@
         ],
         "type": "object",
         "properties": {
+          "PluginSpecificFields": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          },
           "Amount": {
             "type": "number",
             "format": "double"
@@ -3179,6 +5026,18 @@
             "nullable": true
           },
           "StatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardExpirationDate": {
             "type": "string",
             "nullable": true
           },
@@ -3248,6 +5107,312 @@
         ],
         "type": "string"
       },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateAccountRequest": {
+        "type": "object",
+        "properties": {
+          "AccountId": {
+            "maxLength": 3,
+            "type": "string",
+            "nullable": true
+          },
+          "Profile": {
+            "maxLength": 23,
+            "type": "string",
+            "description": "20-digit profile ID and (optional) 3-digit account ID string in the format <profile id>/<account id>, required to update an existing profile.",
+            "nullable": true
+          },
+          "IsDefaultAccount": {
+            "type": "boolean",
+            "description": "\"Y\" to assign as default account",
+            "nullable": true
+          },
+          "ProfileUpdate": {
+            "type": "boolean",
+            "description": "\"Y\" to update profile data with non-empty request data only as opposed to full profile replacement including empty values",
+            "nullable": true
+          },
+          "CardOnFilePermission": {
+            "type": "boolean",
+            "description": "Optionally specifies whether or not the cardholder provided consent to store their payment details in a profile.\r\nSpecify one of the following values:\r\nY - The cardholder provided their consent to store and reuse their payment details.\r\nN - The cardholder did not provide their consent.\r\nDefaults to N if not provided.",
+            "nullable": true
+          },
+          "AccountUpdaterOptOut": {
+            "type": "boolean",
+            "description": "Specifies whether or not the profile is set to opt out of the CardPointe Account Updater service. Requires the merchant account to be enrolled in the Card Account Updater add-on.\r\nSpecify one of the following values:\r\n[Y - Yes; updates are not retrieved for this profile.]\r\n[N - No; updates are retrieved for this profile.]\r\n[Defaults to N if not provided.]",
+            "nullable": true
+          },
+          "AccountType": {
+            "maxLength": 6,
+            "type": "string",
+            "description": "One of PPAL, PAID, GIFT, PDEBIT, otherwise not required",
+            "nullable": true
+          },
+          "Account": {
+            "maxLength": 19,
+            "type": "string",
+            "description": "One of the following:\r\n[CardSecure Token - See the CardSecure Developer Guide for more information.]\r\n[Clear-text card number]\r\n[Bank Account Number - Account(s) must be entitled with electronic check capability. When using this field, the bankaba field is also required.]",
+            "nullable": true
+          },
+          "BankAba": {
+            "maxLength": 9,
+            "type": "string",
+            "description": "Bank routing (ABA) number, ECHK only",
+            "nullable": true
+          },
+          "Expiry": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Card expiration in one of the following formats:\r\n[MMYY]\r\n[YYYYM (for single-digit months)]\r\n[YYYYMM]\r\n[YYYYMMDD]\r\n[Not required for eCheck (ACH) or digital wallet (for example, Apple Pay or Google Pay) payments.]",
+            "nullable": true
+          },
+          "Name": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account name; optional for credit cards, but required for E-check/ACH authorizations.",
+            "nullable": true
+          },
+          "Address": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account street address.",
+            "nullable": true
+          },
+          "Address2": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account street address 2.",
+            "nullable": true
+          },
+          "City": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account city.",
+            "nullable": true
+          },
+          "Region": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Account US state, Mexican state, or Canadian province.",
+            "nullable": true
+          },
+          "CountryId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Country foreign key identifier",
+            "nullable": true
+          },
+          "Phone": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "Account phone; optional for credit cards, but required for ACH(ECHK or ESAV) transactions.",
+            "nullable": true
+          },
+          "PostalCode": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Account postal code.",
+            "nullable": true
+          },
+          "Company": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "Company name associated with the account. if country is \"US\", must be 5 or 9 digits, otherwise any alphanumeric string is accepted.",
+            "nullable": true
+          },
+          "Email": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "E-Mail address of the account holder",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateAccountResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean",
+            "description": "true when the StatusCode is Approved, otherwise false"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateProfileResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProfileId": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Primary identifier to access profiles",
+            "nullable": true
+          },
+          "AccountId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Account identifier within a profile",
+            "nullable": true
+          },
+          "ResponseStatus": {
+            "maxLength": 1,
+            "type": "string",
+            "description": "A - Approved\r\nB - Retry\r\nC - Declined",
+            "nullable": true
+          },
+          "Token": {
+            "maxLength": 19,
+            "type": "string",
+            "description": "The token included in the request. If a card number or bank account number was included in the request, returns a new token generated for that account.",
+            "nullable": true
+          },
+          "ResponseCode": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Alpha-numeric response code that represents the description of the response.",
+            "nullable": true
+          },
+          "ResponseText": {
+            "maxLength": 40,
+            "type": "string",
+            "description": "Text description of response.",
+            "nullable": true
+          },
+          "CardType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes"
+          },
+          "Expiry": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Card Expiration.",
+            "nullable": true
+          },
+          "CardholderName": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account name.",
+            "nullable": true
+          },
+          "Address": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account street address.",
+            "nullable": true
+          },
+          "Address2": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account street address 2.",
+            "nullable": true
+          },
+          "City": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Account city.",
+            "nullable": true
+          },
+          "Region": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "US State, Mexican State, Canadian Province.",
+            "nullable": true
+          },
+          "Country": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Account country(2 character country code).",
+            "nullable": true
+          },
+          "Phone": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "Account phone.",
+            "nullable": true
+          },
+          "Postal": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Account postal code.",
+            "nullable": true
+          },
+          "Email": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "Email address of the account holder.",
+            "nullable": true
+          },
+          "Company": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "Company name associated with the account.",
+            "nullable": true
+          },
+          "DefaultAccount": {
+            "type": "boolean",
+            "description": "Y marks the default account referenced when a profile ID is used without an associated account ID.",
+            "nullable": true
+          },
+          "GsaCard": {
+            "type": "boolean",
+            "description": "Identifies if the card is a government issued card.",
+            "nullable": true
+          },
+          "AccountUpdaterOptOut": {
+            "type": "boolean",
+            "description": "Identifies whether or not the profile is set to opt out of the CardPointe Account Updater service.\r\nY = Yes (updates are not retrieved for this profile)\r\nN = No (updates are retrieved for this profile)",
+            "nullable": true
+          },
+          "CardOnFilePermission": {
+            "type": "boolean",
+            "description": "Identifies whether or not the cardholder provided consent to store their payment details in a profile. One of the following values:\r\n[Y - The cardholder provided their consent to store and reuse their payment details.]\r\n[N - The cardholder did not provide their consent.]",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginCreateOrUpdateProfileResponseStatusCodes": {
+        "enum": [
+          "Approved",
+          "Retry",
+          "Declined",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginDeleteAccountResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean",
+            "description": "true when the StatusCode is Ok, otherwise false"
+          },
+          "Status": {
+            "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPluginDeleteProfileResponseStatusCodes"
+          },
+          "StatusText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginDeleteProfileResponseStatusCodes": {
+        "enum": [
+          "Ok",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginGetSettingsResponse": {
+        "type": "object",
+        "properties": {
+          "UseCvv": {
+            "type": "boolean",
+            "description": "Indicates if CVV is enabled on the merchant account"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebApi.Modules.Plugins.CreditCard.CreditCardPluginRefundResponse": {
         "type": "object",
         "properties": {
@@ -3276,6 +5441,12 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "IsPartial": {
+            "type": "boolean"
+          },
+          "IsVoid": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -3288,6 +5459,23 @@
           "Error"
         ],
         "type": "string"
+      },
+      "WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidReceiptRequest": {
+        "required": [
+          "ReceiptId"
+        ],
+        "type": "object",
+        "properties": {
+          "ReceiptId": {
+            "type": "string"
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "WebApi.Modules.Plugins.CreditCard.CreditCardPluginVoidResponse": {
         "type": "object",
@@ -3302,6 +5490,13 @@
           "StatusText": {
             "type": "string",
             "nullable": true
+          },
+          "TransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPartial": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -3364,6 +5559,12 @@
             "format": "double",
             "nullable": true
           },
+          "CapturedAmount": {
+            "type": "number",
+            "description": "Format: Decimal",
+            "format": "double",
+            "nullable": true
+          },
           "Status": {
             "maxLength": 20,
             "type": "string",
@@ -3373,10 +5574,30 @@
           "CreditCardPinPadId": {
             "type": "integer",
             "description": "Format: Integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "CreditCardPinPadCode": {
             "type": "string",
+            "nullable": true
+          },
+          "CreditCardPinPadDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardNumber": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardExpirationDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "CreditCardName": {
+            "type": "string",
+            "description": "Format: Integer",
             "nullable": true
           },
           "DateStamp": {
@@ -3415,6 +5636,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3424,11 +5652,11 @@
           "AmountToPay",
           "DealNumber",
           "OrderId",
-          "PaymentType"
+          "PayWith"
         ],
         "type": "object",
         "properties": {
-          "PaymentType": {
+          "PayWith": {
             "$ref": "#/components/schemas/WebApi.Modules.Plugins.CreditCard.CreditCardPreAuthorizationRequest_PaymentTypes"
           },
           "OrderId": {
@@ -3440,19 +5668,80 @@
           },
           "CreditCardPinPadId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "DealNumber": {
             "type": "string"
           },
+          "PaymentBy": {
+            "type": "string",
+            "description": "Either 'CUSTOMER' or 'DEAL'.  This gets set on the invoice.",
+            "nullable": true
+          },
+          "DealId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "AccountId": {
+            "type": "string",
+            "description": "The AccountId of the CreditCard to Use",
+            "nullable": true
+          },
           "Account": {
             "type": "string",
-            "description": "Tokenized credit card number.  Required when RequestType is TokenizedCardNumber",
+            "description": "The tokenized card number or blank if this initiates a process to collect input from a PIN Pad.",
             "nullable": true
           },
           "ExpirationDate": {
             "type": "string",
             "description": "Required if passing Account",
+            "nullable": true
+          },
+          "CardholderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardSource": {
+            "type": "string",
+            "description": "Save the credit card on either the 'CUSTOMER' or 'DEAL' record.",
+            "nullable": true
+          },
+          "SaveCreditCard": {
+            "type": "boolean"
+          },
+          "DefaultAccount": {
+            "type": "boolean"
+          },
+          "AuthorizationOnFile": {
+            "type": "boolean"
+          },
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string",
+            "nullable": true
+          },
+          "Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryId": {
+            "type": "string",
             "nullable": true
           },
           "TrackData": {
@@ -3487,6 +5776,8 @@
         "enum": [
           "PINPAD",
           "TOKENIZEDCARDNUMBER",
+          "SAVEDCARD",
+          "NEWCARD",
           "TRACKDATA",
           "EMAIL",
           "WEBPAY"
@@ -3560,8 +5851,8 @@
         "type": "object",
         "properties": {
           "CreditCardPreAuthorizationId": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "TransactionId": {
             "type": "string",
@@ -3634,9 +5925,25 @@
             "format": "date-time",
             "nullable": true
           },
+          "PayType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CheckOrReferenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "Amount": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "CreditCardName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardExpiration": {
+            "type": "string",
             "nullable": true
           },
           "AuditNote": {
@@ -3667,6 +5974,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -3706,6 +6020,10 @@
             "nullable": true
           },
           "Deal": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerId": {
             "type": "string",
             "nullable": true
           },
@@ -3810,6 +6128,10 @@
             "type": "string",
             "nullable": true
           },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
           "LocationId": {
             "type": "string",
             "nullable": true
@@ -3839,17 +6161,24 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "WebApi.Modules.Plugins.CreditCard.ProcessCreditCardPaymentCardTypes": {
         "enum": [
-          "Other",
-          "Amex",
-          "Visa",
-          "MasterCard",
-          "Discover"
+          "OTHER",
+          "AMEX",
+          "VISA",
+          "MC",
+          "DISC"
         ],
         "type": "string"
       },
@@ -3857,7 +6186,9 @@
         "enum": [
           "Approved",
           "Declined",
-          "FraudDetected"
+          "FraudDetected",
+          "Void",
+          "VoidFailed"
         ],
         "type": "string"
       }

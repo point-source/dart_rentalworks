@@ -415,123 +415,6 @@
         }
       }
     },
-    "/alert/emptyobject": {
-      "get": {
-        "tags": [
-          "Alert"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alert/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "Alert"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alert/keyfieldnames": {
-      "get": {
-        "tags": [
-          "Alert"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/alertcondition/browse": {
       "post": {
         "tags": [
@@ -912,123 +795,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alertcondition/emptyobject": {
-      "get": {
-        "tags": [
-          "AlertCondition"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alertcondition/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "AlertCondition"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alertcondition/keyfieldnames": {
-      "get": {
-        "tags": [
-          "AlertCondition"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -1523,123 +1289,6 @@
         }
       }
     },
-    "/alertwebusers/emptyobject": {
-      "get": {
-        "tags": [
-          "AlertWebUsers"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alertwebusers/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "AlertWebUsers"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/alertwebusers/keyfieldnames": {
-      "get": {
-        "tags": [
-          "AlertWebUsers"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/assignedcustomform/browse": {
       "post": {
         "tags": [
@@ -1718,123 +1367,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/assignedcustomform/emptyobject": {
-      "get": {
-        "tags": [
-          "AssignedCustomForm"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/assignedcustomform/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "AssignedCustomForm"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/assignedcustomform/keyfieldnames": {
-      "get": {
-        "tags": [
-          "AssignedCustomForm"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -2245,123 +1777,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customfield/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomField"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customfield/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomField"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customfield/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomField"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -2920,123 +2335,6 @@
         }
       }
     },
-    "/customform/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomForm"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customform/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomForm"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customform/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomForm"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/customformgroup/browse": {
       "post": {
         "tags": [
@@ -3471,123 +2769,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customformgroup/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomFormGroup"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customformgroup/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomFormGroup"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customformgroup/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomFormGroup"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -4082,123 +3263,6 @@
         }
       }
     },
-    "/customformuser/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomFormUser"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customformuser/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomFormUser"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customformuser/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomFormUser"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/custommodule/browse": {
       "post": {
         "tags": [
@@ -4357,123 +3421,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/custommodule/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomModule"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/custommodule/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomModule"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/custommodule/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomModule"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -4877,123 +3824,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportcss/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomReportCss"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportcss/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomReportCss"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportcss/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomReportCss"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -5543,123 +4373,6 @@
         }
       }
     },
-    "/customreportlayout/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomReportLayout"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayout/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomReportLayout"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayout/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomReportLayout"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/customreportlayoutgroup/browse": {
       "post": {
         "tags": [
@@ -6094,123 +4807,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayoutgroup/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomReportLayoutGroup"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayoutgroup/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomReportLayoutGroup"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayoutgroup/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomReportLayoutGroup"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -6705,123 +5301,6 @@
         }
       }
     },
-    "/customreportlayoutuser/emptyobject": {
-      "get": {
-        "tags": [
-          "CustomReportLayoutUser"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayoutuser/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "CustomReportLayoutUser"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customreportlayoutuser/keyfieldnames": {
-      "get": {
-        "tags": [
-          "CustomReportLayoutUser"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/datahealth/legend": {
       "get": {
         "tags": [
@@ -7145,123 +5624,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/datahealth/emptyobject": {
-      "get": {
-        "tags": [
-          "DataHealth"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/datahealth/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "DataHealth"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/datahealth/keyfieldnames": {
-      "get": {
-        "tags": [
-          "DataHealth"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -7702,123 +6064,6 @@
         }
       }
     },
-    "/duplicaterule/emptyobject": {
-      "get": {
-        "tags": [
-          "DuplicateRule"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/duplicaterule/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "DuplicateRule"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/duplicaterule/keyfieldnames": {
-      "get": {
-        "tags": [
-          "DuplicateRule"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/duplicaterulefield/browse": {
       "post": {
         "tags": [
@@ -8229,123 +6474,6 @@
         }
       }
     },
-    "/duplicaterulefield/emptyobject": {
-      "get": {
-        "tags": [
-          "DuplicateRuleField"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/duplicaterulefield/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "DuplicateRuleField"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/duplicaterulefield/keyfieldnames": {
-      "get": {
-        "tags": [
-          "DuplicateRuleField"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/emailhistory/browse": {
       "post": {
         "tags": [
@@ -8559,123 +6687,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/emailhistory/emptyobject": {
-      "get": {
-        "tags": [
-          "EmailHistory"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/emailhistory/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "EmailHistory"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/emailhistory/keyfieldnames": {
-      "get": {
-        "tags": [
-          "EmailHistory"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -9140,123 +7151,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/emailtemplate/emptyobject": {
-      "get": {
-        "tags": [
-          "EmailTemplate"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/emailtemplate/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "EmailTemplate"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/emailtemplate/keyfieldnames": {
-      "get": {
-        "tags": [
-          "EmailTemplate"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -9949,15 +7843,30 @@
         }
       }
     },
-    "/group/emptyobject": {
-      "get": {
+    "/handlebarstemplate/browse": {
+      "post": {
         "tags": [
-          "Group"
+          "HandlebarsTemplate"
         ],
-        "summary": "Get an empty object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -9988,15 +7897,30 @@
         }
       }
     },
-    "/group/emptybrowseobject": {
-      "get": {
+    "/handlebarstemplate/exportexcelxlsx": {
+      "post": {
         "tags": [
-          "Group"
+          "HandlebarsTemplate"
         ],
-        "summary": "Get an empty browse object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -10027,15 +7951,271 @@
         }
       }
     },
-    "/group/keyfieldnames": {
+    "/handlebarstemplate": {
       "get": {
         "tags": [
-          "Group"
+          "HandlebarsTemplate"
         ],
-        "summary": "Get an array of primary key field names",
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HandlebarsTemplate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/handlebarstemplate/{id}": {
+      "get": {
+        "tags": [
+          "HandlebarsTemplate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "HandlebarsTemplate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HandlebarsTemplate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -10309,123 +8489,6 @@
         }
       }
     },
-    "/hotfix/emptyobject": {
-      "get": {
-        "tags": [
-          "Hotfix"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/hotfix/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "Hotfix"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/hotfix/keyfieldnames": {
-      "get": {
-        "tags": [
-          "Hotfix"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/hubspot/allcontacts": {
       "post": {
         "tags": [
@@ -10635,123 +8698,6 @@
         }
       }
     },
-    "/hubspot/emptyobject": {
-      "get": {
-        "tags": [
-          "HubSpot"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/hubspot/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "HubSpot"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/hubspot/keyfieldnames": {
-      "get": {
-        "tags": [
-          "HubSpot"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/person/browse": {
       "post": {
         "tags": [
@@ -10860,236 +8806,12 @@
         }
       }
     },
-    "/person/emptyobject": {
-      "get": {
-        "tags": [
-          "Person"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/person/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "Person"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/person/keyfieldnames": {
-      "get": {
-        "tags": [
-          "Person"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugin/browse": {
-      "post": {
-        "tags": [
-          "Plugin"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugin/exportexcelxlsx": {
-      "post": {
-        "tags": [
-          "Plugin"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/plugin": {
       "get": {
         "tags": [
           "Plugin"
         ],
+        "summary": "Returns an array of plugin names that are available to this instance.",
         "parameters": [
           {
             "name": "pageno",
@@ -11165,14 +8887,15 @@
         }
       }
     },
-    "/plugin/{id}": {
+    "/plugin/{pluginid}": {
       "get": {
         "tags": [
           "Plugin"
         ],
+        "summary": "Get a single plugin record by pluginid.",
         "parameters": [
           {
-            "name": "id",
+            "name": "pluginid",
             "in": "path",
             "required": true,
             "schema": {
@@ -11218,11 +8941,126 @@
             }
           }
         }
-      },
+      }
+    },
+    "/plugin/description/{description}": {
+      "get": {
+        "tags": [
+          "Plugin"
+        ],
+        "summary": "Get a single plugin record by name (Description).",
+        "parameters": [
+          {
+            "name": "description",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.Plugin.Plugin"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugin/install/{pluginname}": {
+      "post": {
+        "tags": [
+          "Plugin"
+        ],
+        "summary": "Install a plugin by name (Description).",
+        "parameters": [
+          {
+            "name": "pluginname",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.Plugin.StatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugin/{id}": {
       "put": {
         "tags": [
           "Plugin"
         ],
+        "summary": "Edit a plugin's settings.",
         "parameters": [
           {
             "name": "id",
@@ -11280,16 +9118,15 @@
             }
           }
         }
-      }
-    },
-    "/plugin/description/{description}": {
-      "get": {
+      },
+      "delete": {
         "tags": [
           "Plugin"
         ],
+        "summary": "Delete a plugin's settings. (remove the plugin)",
         "parameters": [
           {
-            "name": "description",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -11303,127 +9140,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.Plugin.Plugin"
+                  "type": "boolean"
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugin/emptyobject": {
-      "get": {
-        "tags": [
-          "Plugin"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugin/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "Plugin"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plugin/keyfieldnames": {
-      "get": {
-        "tags": [
-          "Plugin"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -11724,93 +9444,30 @@
         }
       }
     },
-    "/systemupdate/emptyobject": {
-      "get": {
+    "/systemupdate/nextqaversion": {
+      "post": {
         "tags": [
           "SystemUpdate"
         ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.SystemUpdate.NextQaVersionRequest"
               }
             }
           }
-        }
-      }
-    },
-    "/systemupdate/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "SystemUpdate"
-        ],
-        "summary": "Get an empty browse object",
+        },
         "responses": {
           "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.SystemUpdate.NextQaVersionResponse"
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdate/keyfieldnames": {
-      "get": {
-        "tags": [
-          "SystemUpdate"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -12136,123 +9793,6 @@
         }
       }
     },
-    "/systemupdatehistory/emptyobject": {
-      "get": {
-        "tags": [
-          "SystemUpdateHistory"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdatehistory/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "SystemUpdateHistory"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdatehistory/keyfieldnames": {
-      "get": {
-        "tags": [
-          "SystemUpdateHistory"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/systemupdatehistorylog/browse": {
       "post": {
         "tags": [
@@ -12466,123 +10006,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdatehistorylog/emptyobject": {
-      "get": {
-        "tags": [
-          "SystemUpdateHistoryLog"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdatehistorylog/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "SystemUpdateHistoryLog"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdatehistorylog/keyfieldnames": {
-      "get": {
-        "tags": [
-          "SystemUpdateHistoryLog"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -14365,123 +11788,6 @@
         }
       }
     },
-    "/user/emptyobject": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/user/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/user/keyfieldnames": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/webalertlog/browse": {
       "post": {
         "tags": [
@@ -14725,123 +12031,6 @@
         }
       }
     },
-    "/webalertlog/emptyobject": {
-      "get": {
-        "tags": [
-          "WebAlertLog"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/webalertlog/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "WebAlertLog"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/webalertlog/keyfieldnames": {
-      "get": {
-        "tags": [
-          "WebAlertLog"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/webauditjson/browse": {
       "post": {
         "tags": [
@@ -14975,123 +12164,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/webauditjson/emptyobject": {
-      "get": {
-        "tags": [
-          "WebAuditJson"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/webauditjson/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "WebAuditJson"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/webauditjson/keyfieldnames": {
-      "get": {
-        "tags": [
-          "WebAuditJson"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
           },
           "400": {
             "description": "Bad Request",
@@ -15586,123 +12658,6 @@
         }
       }
     },
-    "/widgetgroup/emptyobject": {
-      "get": {
-        "tags": [
-          "WidgetGroup"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/widgetgroup/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "WidgetGroup"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/widgetgroup/keyfieldnames": {
-      "get": {
-        "tags": [
-          "WidgetGroup"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/widgetuser/browse": {
       "post": {
         "tags": [
@@ -16166,123 +13121,6 @@
           }
         }
       }
-    },
-    "/widgetuser/emptyobject": {
-      "get": {
-        "tags": [
-          "WidgetUser"
-        ],
-        "summary": "Get an empty object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/widgetuser/emptybrowseobject": {
-      "get": {
-        "tags": [
-          "WidgetUser"
-        ],
-        "summary": "Get an empty browse object",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/widgetuser/keyfieldnames": {
-      "get": {
-        "tags": [
-          "WidgetUser"
-        ],
-        "summary": "Get an array of primary key field names",
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -16427,6 +13265,30 @@
         },
         "additionalProperties": false
       },
+      "FwStandard.Data.FwTranslatedValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "UntranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTranslated": {
+            "type": "boolean"
+          },
+          "UserIsTranslating": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.BrowseRequest": {
         "type": "object",
         "properties": {
@@ -16509,6 +13371,14 @@
             },
             "nullable": true
           },
+          "searchgroupings": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
           "uniqueids": {
             "nullable": true
           },
@@ -16532,7 +13402,10 @@
           "forexcel": {
             "type": "boolean"
           },
-          "excelfields": {
+          "includeallcolumns": {
+            "type": "boolean"
+          },
+          "fields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Models.CheckBoxListItem"
@@ -16557,7 +13430,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "example": "{\r\n  \"miscfields\": {},\r\n  \"module\": \"\",\r\n  \"options\": {},\r\n  \"orderby\": \"\",\r\n  \"orderbydirection\": \"\",\r\n  \"top\": 0,\r\n  \"pageno\": 1,\r\n  \"pagesize\": 15,\r\n  \"searchfieldoperators\": [],\r\n  \"searchfields\": [],\r\n  \"searchfieldvalues\": [],\r\n  \"searchfieldtypes\": [],\r\n  \"searchseparators\": [],\r\n  \"searchcondition\": [],\r\n  \"searchconjunctions\": [],\r\n  \"searchgroupings\": [],\r\n  \"uniqueids\": {},\r\n  \"boundids\": {},\r\n  \"filterfields\": {},\r\n  \"activeview\": \"\",\r\n  \"emptyobject\": false,\r\n  \"forexcel\": false,\r\n  \"includeallcolumns\": false,\r\n  \"fields\": [],\r\n  \"totalfields\": [],\r\n  \"activeviewfields\": {}\r\n}"
       },
       "FwStandard.Models.CheckBoxListItem": {
         "type": "object",
@@ -17478,6 +14352,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -17541,6 +14422,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -17612,6 +14500,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -17676,6 +14571,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -17775,6 +14677,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -17852,6 +14761,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -17924,6 +14840,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -17958,6 +14881,79 @@
             "type": "array",
             "items": {
               "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Modules.Administrator.HandlebarsTemplate.HandlebarsTemplateLogic": {
+        "type": "object",
+        "properties": {
+          "HandlebarsTemplateId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "Template": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModuleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Inactive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -18039,6 +15035,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18117,6 +15120,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18129,6 +15139,7 @@
           "Time",
           "DateTime",
           "DateTimeOffset",
+          "CreditCardExpirationDate",
           "Decimal",
           "DecimalStringNoTrailingZeros",
           "DecimalString1Digit",
@@ -18142,7 +15153,9 @@
           "CurrencyStringNoDollarSignNoDecimalPlaces",
           "PhoneUS",
           "ZipcodeUS",
-          "Percentage",
+          "PercentageWholeNumber",
+          "Percentage2Digits",
+          "Percentage4Digits",
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
@@ -18214,6 +15227,13 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18400,6 +15420,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18495,6 +15522,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18567,6 +15601,12 @@
             "description": "Format: Boolean",
             "nullable": true
           },
+          "Quantity": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
           "Inactive": {
             "type": "boolean",
             "nullable": true
@@ -18599,6 +15639,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -18715,6 +15762,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18792,6 +15846,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18861,6 +15922,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18890,9 +15958,14 @@
             "description": "Format: Text",
             "nullable": true
           },
-          "Inactive": {
-            "type": "boolean",
-            "description": "Format: Boolean"
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "format": "date-time",
+            "nullable": true
+          },
+          "Enabled": {
+            "type": "boolean"
           },
           "AuditNote": {
             "type": "string",
@@ -18924,6 +15997,26 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.Plugin.StatusResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "ResponseText": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -18931,6 +16024,10 @@
       "WebApi.Modules.Administrator.SystemUpdate.ApplyUpdateRequest": {
         "type": "object",
         "properties": {
+          "SessionId": {
+            "type": "string",
+            "nullable": true
+          },
           "CurrentVersion": {
             "type": "string",
             "nullable": true
@@ -18977,6 +16074,11 @@
           "VersionDate": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          },
+          "VersionTime": {
+            "type": "string",
+            "format": "date-span",
             "nullable": true
           }
         },
@@ -19140,6 +16242,26 @@
         },
         "additionalProperties": false
       },
+      "WebApi.Modules.Administrator.SystemUpdate.NextQaVersionRequest": {
+        "type": "object",
+        "properties": {
+          "CurrentVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.SystemUpdate.NextQaVersionResponse": {
+        "type": "object",
+        "properties": {
+          "NextQaVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WebApi.Modules.Administrator.SystemUpdateHistory.SystemUpdateHistory": {
         "type": "object",
         "properties": {
@@ -19217,6 +16339,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -19275,6 +16404,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -19398,6 +16534,17 @@
             "description": "Format: Text",
             "nullable": true
           },
+          "EmailApp": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "AddRentalWorksUserSignature": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
           "OfficeLocationId": {
             "maxLength": 8,
             "type": "string",
@@ -19436,10 +16583,18 @@
             "description": "Format: Text",
             "nullable": true
           },
-          "State": {
-            "maxLength": 20,
+          "StateId": {
+            "maxLength": 8,
             "type": "string",
             "description": "Format: Text",
+            "nullable": true
+          },
+          "StateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "State": {
+            "type": "string",
             "nullable": true
           },
           "ZipCode": {
@@ -19456,6 +16611,15 @@
           },
           "Country": {
             "type": "string",
+            "nullable": true
+          },
+          "CountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCodePhone": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "OfficePhone": {
@@ -19517,6 +16681,16 @@
             "nullable": true
           },
           "PrimaryDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "LanguageId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Language": {
             "type": "string",
             "nullable": true
           },
@@ -19724,6 +16898,11 @@
             "description": "Format: Boolean",
             "nullable": true
           },
+          "StagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
           "AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes": {
             "type": "boolean",
             "description": "Format: Boolean",
@@ -19840,7 +17019,8 @@
             "description": "Format: Date",
             "nullable": true
           },
-          "AccountLocked": {
+          "LockAccount": {
+            "maxLength": 1,
             "type": "boolean",
             "description": "Format: Boolean",
             "nullable": true
@@ -19895,6 +17075,12 @@
             "nullable": true
           },
           "BrowseDefaultRows": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GridDefaultRows": {
             "type": "integer",
             "description": "Format: Integer",
             "format": "int32",
@@ -20006,6 +17192,18 @@
             "description": "Format: Boolean",
             "nullable": true
           },
+          "SourceId": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
           "AuditNote": {
             "type": "string",
             "nullable": true
@@ -20034,6 +17232,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -20118,6 +17323,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -20190,6 +17402,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -20229,6 +17448,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -20299,6 +17525,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -20357,6 +17590,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -20425,6 +17665,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -20499,6 +17746,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -20569,6 +17823,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }

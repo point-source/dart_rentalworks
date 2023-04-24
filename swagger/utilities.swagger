@@ -1603,7 +1603,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Settings.WidgetSettings.Widget.Widget"
+                  "$ref": "#/components/schemas/WebApi.Modules.Settings.WidgetSettings.Widget.Widget2"
                 }
               }
             }
@@ -1997,6 +1997,44 @@
               "type": "string"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/healthcheck": {
+      "get": {
+        "tags": [
+          "HealthCheck"
         ],
         "responses": {
           "200": {
@@ -3208,6 +3246,280 @@
         }
       }
     },
+    "/inventorypurchaseutility/validatecurrency/browse": {
+      "post": {
+        "tags": [
+          "InventoryPurchaseUtility"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "InventoryPurchaseUtility"
+        ],
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Settings.CurrencySettings.Currency.CurrencyLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventorypurchaseutility/validatedeal/browse": {
+      "post": {
+        "tags": [
+          "InventoryPurchaseUtility"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventorypurchaseutility/lookupdeal/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "InventoryPurchaseUtility"
+        ],
+        "parameters": [
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Agent.Deal.DealLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/inventorypurchaseutility/lookupwarehouse": {
       "get": {
         "tags": [
@@ -3669,6 +3981,86 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Settings.CurrencySettings.Currency.CurrencyLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventorypurchaseutility/lookuporiginalshow": {
+      "get": {
+        "tags": [
+          "InventoryPurchaseUtility"
+        ],
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Agent.Deal.DealLogic"
                 }
               }
             }
@@ -4713,6 +5105,1310 @@
         }
       }
     },
+    "/keepalive": {
+      "get": {
+        "tags": [
+          "Keepalive"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/browse": {
+      "post": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Browse for label designs.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Export label designs to excel.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get barcode labels.",
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Utilities.LabelDesign.LabelDesignLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Create a new barcode label.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.LabelDesign"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.LabelDesign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/{id}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get barcode label by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.LabelDesign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Edit a barcode label.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.LabelDesign"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.LabelDesign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Delete a barcode label.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/fieldnames/assetlabel": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get field names for designing asset labels.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/barcodes/contract/{receivecontractid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a comma separated list of barcodes from a receive contract for printing labels.",
+        "parameters": [
+          {
+            "name": "receivecontractid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/barcodes/purchaseorder/{purchaseorderid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a comma separated list of barcodes from a purchase order for printing labels.",
+        "parameters": [
+          {
+            "name": "purchaseorderid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/barcodes/rentalinventory/{rentalinventoryid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a comma separated list of barcodes from a purchase order for printing labels.",
+        "parameters": [
+          {
+            "name": "rentalinventoryid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/barcodes/salesinventory/{salesinventoryid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a comma separated list of barcodes from a purchase order for printing labels.",
+        "parameters": [
+          {
+            "name": "salesinventoryid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/barcodes/from/{frombarcode}/to/{tobarcode}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a comma separated list of barcodes by a range of barcodes for printing labels.",
+        "parameters": [
+          {
+            "name": "frombarcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tobarcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/barcodes/inventorypurchase/{sessionid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a comma separated list of barcodes by inventory purchase utility sessionid for printing labels.",
+        "parameters": [
+          {
+            "name": "sessionid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/purchaseordernumber/orderid/{orderid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a purchase order number from a purchase order id.",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/contractnumber/contractid/{contractid}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get a contract number by contractid",
+        "parameters": [
+          {
+            "name": "contractid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/labeldata/asset/barcode/{barcode}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get field replacements for printing an asset labels.",
+        "parameters": [
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.BarcodeLabel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/labeldata/receivecontract/{contractid}/barcode/{barcode}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get fields replacements for printing a receive contract barcode label.",
+        "parameters": [
+          {
+            "name": "contractid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.BarcodeLabel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/labeldata/purchaseorder/{orderid}/barcode/{barcode}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get field replacements for printing purchase order barcodes.",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.BarcodeLabel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labeldesign/labeldata/inventorypurchase/{sessionid}/barcode/{barcode}/warehouse/{warehouseid}": {
+      "get": {
+        "tags": [
+          "LabelDesign"
+        ],
+        "summary": "Get field replacements for inventory purchase session barcodes.",
+        "parameters": [
+          {
+            "name": "sessionid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.BarcodeLabel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/migrate/startsession": {
       "post": {
         "tags": [
@@ -5247,6 +6943,114 @@
         }
       }
     },
+    "/migrate/validateorder/browse": {
+      "post": {
+        "tags": [
+          "Migrate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/migrate/validateresponsibleperson/browse": {
+      "post": {
+        "tags": [
+          "Migrate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/migrateitem/browse": {
       "post": {
         "tags": [
@@ -5322,6 +7126,54 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/migrateitem/legend": {
+      "get": {
+        "tags": [
+          "MigrateItem"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -8691,6 +10543,141 @@
         }
       }
     },
+    "/unretired": {
+      "get": {
+        "tags": [
+          "Unretired"
+        ],
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Inventory.Unretired.UnretiredLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/unretired/{id}": {
+      "get": {
+        "tags": [
+          "Unretired"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Inventory.Unretired.Unretired"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/userprofile/{id}": {
       "get": {
         "tags": [
@@ -9261,6 +11248,30 @@
         },
         "additionalProperties": false
       },
+      "FwStandard.Data.FwTranslatedValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "UntranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTranslated": {
+            "type": "boolean"
+          },
+          "UserIsTranslating": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.BrowseRequest": {
         "type": "object",
         "properties": {
@@ -9511,6 +11522,35 @@
         },
         "additionalProperties": false
       },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Agent.Deal.DealLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Agent.Deal.Deal"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.FwQueryResponse_WebApi.Modules.Agent.Vendor.VendorLogic": {
         "type": "object",
         "properties": {
@@ -9547,6 +11587,35 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/WebApi.Modules.Inventory.RentalInventory.RentalInventory"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Inventory.Unretired.UnretiredLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Inventory.Unretired.Unretired"
             },
             "nullable": true
           },
@@ -9663,6 +11732,35 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/WebApi.Modules.Utilities.InventoryPurchaseUtility.InventoryPurchaseItem"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Utilities.LabelDesign.LabelDesignLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Utilities.LabelDesign.LabelDesign"
             },
             "nullable": true
           },
@@ -9921,6 +12019,7 @@
           "Time",
           "DateTime",
           "DateTimeOffset",
+          "CreditCardExpirationDate",
           "Decimal",
           "DecimalStringNoTrailingZeros",
           "DecimalString1Digit",
@@ -10008,6 +12107,13 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -10150,6 +12256,1047 @@
           },
           "msg": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Agent.Deal.Deal": {
+        "type": "object",
+        "properties": {
+          "DealId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "Deal": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "DealNumber": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CustomerId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "OfficeLocationId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OfficeLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DealType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address1": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Address2": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "City": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "State": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ZipCode": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CountryId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCodePhone": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Phone": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PhoneTollFree": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Fax": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PhoneOther": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DepartmentId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Department": {
+            "type": "string",
+            "nullable": true
+          },
+          "CsrId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Csr": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultAgentId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DefaultAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultProjectManagerId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DefaultProjectManager": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealClassificationId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DealClassification": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProductionTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ProductionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealStatusId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DealStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealStatusType": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusAsOf": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "CustomerStatusId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerStatusType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExpectedWrapDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "StagingExcludeOrderAfterWrap": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "BillingCycleId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillingCycle": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillingCycleType": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "EpisodeDateFrom": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "EpisodeDateTo": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "BillWeekend": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "BillHoliday": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "Episodes": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "StartEpisode": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DaysPerEpisode": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "PaymentTermsId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PaymentTerms": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PaymentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultRate": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "MultipleCurrencies": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "CurrencyId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseCustomerDiscount": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "CustomerDiscountTemplateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseDiscountTemplate": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DiscountTemplateId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DiscountTemplate": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalDaysPerWeek": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "RentalDiscountPercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "SalesDiscountPercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "FacilitiesDaysPerWeek": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "FacilitiesDiscountPercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "OutsideSalesRepresentativeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OutsideSalesRepresentative": {
+            "type": "string",
+            "nullable": true
+          },
+          "CommissionRate": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 5, Decimal places: 3",
+            "format": "double",
+            "nullable": true
+          },
+          "CommissionIncludesVendorItems": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "PoRequired": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "PoType": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToAddressType": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToAttention1": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToAttention2": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToAddress1": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToAddress2": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToCity": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToState": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToCountryId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "BillToCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCountryCodePhone": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BillToZipCode": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "AssessFinanceCharge": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "AllowBillingScheduleOverride": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "AllowRebateCreditInvoices": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "UseCustomerCredit": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "CreditStatusId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditStatusThrough": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "CreditApplicationOnFile": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "UnlimitedCredit": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "CreditLimit": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreditBalance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreditAvailable": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CustomerCreditLimit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CustomerCreditBalance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CustomerCreditAvailable": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreditResponsiblePartyOnFile": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "CreditResponsibleParty": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TradeReferencesVerified": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "TradeReferencesVerifiedBy": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TradeReferencesVerifiedOn": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "CreditCardTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreditCardLimit": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreditCardNumber": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardCode": {
+            "maxLength": 5,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardName": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditCardExpirationMonth": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreditCardExpirationYear": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreditCardAuthorizationFormOnFile": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DepletingDepositThresholdAmount": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 9, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "DepletingDepositThresholdPercent": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DepletingDepositTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "DepletingDepositApplied": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "DepletingDepositRemaining": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "UseCustomerInsurance": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "InsuranceCertification": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "InsuranceCertificationValidThrough": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "InsuranceCoverageLiability": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "InsuranceCoverageLiabilityDeductible": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "InsuranceCoverageProperty": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "InsuranceCoveragePropertyDeductible": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SecurityDepositAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "InsuranceCompanyId": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InsuranceCompany": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyAgent": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InsuranceCompanyAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyState": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyZipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyCountryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyCountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyCountryCodePhone": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "InsuranceCompanyPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "InsuranceCompanyFax": {
+            "type": "string",
+            "nullable": true
+          },
+          "VehicleInsuranceCertification": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "UseCustomerTax": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "Taxable": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "TaxStateOfIncorporationId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TaxStateOfIncorporation": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxFederalNo": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PstExemptionNumber": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "NonTaxableYear": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "NonTaxableCertificateNo": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "NonTaxableCertificateValidThrough": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "NonTaxableCertificateOnFile": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableQuoteOrderActivity": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableRental": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableSales": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableFacilities": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableTransportation": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableLabor": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableMisc": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableRentalSale": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableSubRental": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableSubSale": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableSubLabor": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DisableSubMisc": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DefaultOutgoingDeliveryType": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DefaultIncomingDeliveryType": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShippingAddressType": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipAttention": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipAddress1": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipAddress2": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipCity": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipState": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipCountryId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ShipCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShipCountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShipCountryCodePhone": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ShipZipCode": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "RebateRental": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "RebateCustomerId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "RebateCustomer": {
+            "type": "string",
+            "nullable": true
+          },
+          "OwnedEquipmentRebateRentalPerecent": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SubRentalEquipmentRebateRentalPerecent": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "EnableWebQuoteRequest": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "Email": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PaymentTypeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
             "nullable": true
           }
         },
@@ -10488,6 +13635,20 @@
             "type": "string",
             "nullable": true
           },
+          "DefaultPoTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DefaultPoType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultPoTypeIsInternal": {
+            "type": "boolean",
+            "nullable": true
+          },
           "OrganizationTypeId": {
             "maxLength": 8,
             "type": "string",
@@ -10653,6 +13814,34 @@
             "type": "string",
             "nullable": true
           },
+          "IsInternal": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "InternalLocationId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InternalLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "InternalWarehouseId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InternalWarehouse": {
+            "type": "string",
+            "nullable": true
+          },
+          "InternalOrderDealId": {
+            "type": "string",
+            "nullable": true
+          },
           "Inactive": {
             "type": "boolean",
             "description": "Format: Boolean",
@@ -10693,11 +13882,21 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "WebApi.Modules.Exports.OnlineOrderTrackingExport.OnlineOrderTrackingExportRequest": {
+        "required": [
+          "DataExportFormatId"
+        ],
         "type": "object",
         "properties": {
           "FromDate": {
@@ -10713,8 +13912,7 @@
             "nullable": true
           },
           "DataExportFormatId": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -10745,6 +13943,9 @@
         "additionalProperties": false
       },
       "WebApi.Modules.Exports.OrderExport.OrderExportRequest": {
+        "required": [
+          "DataExportFormatId"
+        ],
         "type": "object",
         "properties": {
           "FromDate": {
@@ -10756,8 +13957,7 @@
             "format": "date-time"
           },
           "DataExportFormatId": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -10964,13 +14164,21 @@
             "format": "double",
             "nullable": true
           },
-          "SetOpeningId": {
+          "ShowAssetAvailability": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AssetAvailabilityWarehouseIds": {
+            "type": "string",
+            "nullable": true
+          },
+          "OpeningId": {
             "maxLength": 8,
             "type": "string",
             "description": "Format: Text",
             "nullable": true
           },
-          "SetOpening": {
+          "Opening": {
             "type": "string",
             "nullable": true
           },
@@ -10984,13 +14192,33 @@
             "type": "string",
             "nullable": true
           },
-          "SetSurfaceId": {
+          "SurfaceId": {
             "maxLength": 8,
             "type": "string",
             "description": "Format: Text",
             "nullable": true
           },
-          "SetSurface": {
+          "Surface": {
+            "type": "string",
+            "nullable": true
+          },
+          "ConditionId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "nullable": true
+          },
+          "OriginalShowId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OriginalShow": {
             "type": "string",
             "nullable": true
           },
@@ -12048,12 +15276,6 @@
             "type": "string",
             "nullable": true
           },
-          "OriginalShowId": {
-            "maxLength": 8,
-            "type": "string",
-            "description": "Format: Text",
-            "nullable": true
-          },
           "InputDate": {
             "type": "string",
             "description": "Format: UTCDateTime",
@@ -12134,6 +15356,142 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Inventory.Unretired.Unretired": {
+        "type": "object",
+        "properties": {
+          "UnretiredId": {
+            "type": "string",
+            "nullable": true
+          },
+          "RetiredId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnretiredDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "WarehouseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Warehouse": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ICode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemId": {
+            "type": "string",
+            "nullable": true
+          },
+          "BarCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "SerialNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "RfId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnretiredById": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnretiredBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnretiredReasonId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnretiredReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReasonType": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnretiredQuantity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "UnretiredNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -12249,6 +15607,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -12302,6 +15667,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -12384,6 +15756,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -13068,6 +16447,24 @@
             "type": "string",
             "nullable": true
           },
+          "InternalOrderOrderTypeId": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InternalOrderOrderType": {
+            "type": "string",
+            "nullable": true
+          },
+          "InternalOrderDealId": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InternalOrderDeal": {
+            "type": "string",
+            "nullable": true
+          },
           "AuditNote": {
             "type": "string",
             "nullable": true
@@ -13098,11 +16495,18 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "WebApi.Modules.Settings.WidgetSettings.Widget.Widget": {
+      "WebApi.Modules.Settings.WidgetSettings.Widget.Widget2": {
         "type": "object",
         "properties": {
           "locationId": {
@@ -13416,6 +16820,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -13702,6 +17113,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -13793,6 +17211,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -14077,6 +17502,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -14222,6 +17654,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -14260,6 +17699,124 @@
           },
           "AutoProcessDepeletingDeposit": {
             "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Utilities.LabelDesign.BarcodeLabel": {
+        "type": "object",
+        "properties": {
+          "BARCODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "ICODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "DESCRIPTION": {
+            "type": "string",
+            "nullable": true
+          },
+          "INVENTORYTYPE": {
+            "type": "string",
+            "nullable": true
+          },
+          "CATEGORY": {
+            "type": "string",
+            "nullable": true
+          },
+          "SUBCATEGORY": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Utilities.LabelDesign.LabelDesign": {
+        "type": "object",
+        "properties": {
+          "LabelId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Warehouse": {
+            "type": "string",
+            "nullable": true
+          },
+          "Format": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Category": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Description": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "LabelData": {
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -14387,6 +17944,10 @@
           },
           "ResponsiblePersonId": {
             "type": "string",
+            "nullable": true
+          },
+          "CheckItemsOut": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -14653,6 +18214,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -14880,6 +18448,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -14959,6 +18534,14 @@
             "nullable": true
           },
           "OrderLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "AgentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Agent": {
             "type": "string",
             "nullable": true
           },
@@ -15053,6 +18636,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -15095,6 +18685,10 @@
             "nullable": true
           },
           "IncludeCompleted": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IncludeUnreserved": {
             "type": "boolean",
             "nullable": true
           },
@@ -15201,6 +18795,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "IncludeUnreserved": {
+            "type": "boolean",
+            "nullable": true
+          },
           "IncludeTimes": {
             "type": "boolean",
             "nullable": true
@@ -15289,6 +18887,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -15669,6 +19274,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -16053,6 +19665,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -16139,6 +19758,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -16210,6 +19836,12 @@
             "format": "int32",
             "nullable": true
           },
+          "GridDefaultRows": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
           "ApplicationTheme": {
             "maxLength": 30,
             "type": "string",
@@ -16226,6 +19858,14 @@
             "maxLength": 100,
             "type": "string",
             "description": "Format: Text",
+            "nullable": true
+          },
+          "LanguageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Language": {
+            "type": "string",
             "nullable": true
           },
           "SuccessSoundId": {
@@ -16384,6 +20024,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -16468,6 +20115,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -16577,6 +20231,13 @@
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
             },
             "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -16641,6 +20302,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }
@@ -17209,6 +20877,10 @@
             "type": "string",
             "nullable": true
           },
+          "HasPrintableBarCodes": {
+            "type": "boolean",
+            "nullable": true
+          },
           "DateStamp": {
             "type": "string",
             "description": "Format: UTCDateTime",
@@ -17242,6 +20914,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
             },
             "nullable": true
           }

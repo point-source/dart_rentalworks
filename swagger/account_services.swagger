@@ -396,6 +396,60 @@
           }
         }
       }
+    },
+    "/jwt/azuread": {
+      "post": {
+        "tags": [
+          "Jwt"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.AccountServices.Jwt.AzureADRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwJwtController_JwtResponseModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -466,6 +520,30 @@
         },
         "additionalProperties": false
       },
+      "FwStandard.Data.FwTranslatedValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "UntranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTranslated": {
+            "type": "boolean"
+          },
+          "UserIsTranslating": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.FwApiException": {
         "type": "object",
         "properties": {
@@ -481,18 +559,53 @@
         }
       },
       "FwStandard.Models.FwApplicationUser": {
+        "required": [
+          "Password",
+          "UserName"
+        ],
         "type": "object",
         "properties": {
           "UserName": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "Password": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "WebApp": {
+            "maxLength": 255,
             "type": "string",
             "nullable": true
           },
-          "Password": {
+          "BrowserApp": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "BrowserAppVersion": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "BrowserDeviceId": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "BrowserUserAgent": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "BrowserUrl": {
+            "maxLength": 255,
             "type": "string",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "example": "{\r\n  \"UserName\": \"\",\r\n  \"Password\": \"\"\r\n}"
       },
       "FwStandard.SqlServer.FwDataTypes": {
         "enum": [
@@ -502,6 +615,7 @@
           "Time",
           "DateTime",
           "DateTimeOffset",
+          "CreditCardExpirationDate",
           "Decimal",
           "DecimalStringNoTrailingZeros",
           "DecimalString1Digit",
@@ -515,7 +629,9 @@
           "CurrencyStringNoDollarSignNoDecimalPlaces",
           "PhoneUS",
           "ZipcodeUS",
-          "Percentage",
+          "PercentageWholeNumber",
+          "Percentage2Digits",
+          "Percentage4Digits",
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
@@ -587,6 +703,13 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -725,6 +848,10 @@
             "type": "string",
             "nullable": true
           },
+          "DefaultDealStagingExcludeOrderAfterWrap": {
+            "type": "boolean",
+            "nullable": true
+          },
           "DefaultCustomerStatusId": {
             "type": "string",
             "nullable": true
@@ -784,36 +911,49 @@
         },
         "additionalProperties": false
       },
-      "WebApi.Logic.AppFunc_DepartmentActivitiesResponse": {
+      "WebApi.Logic.AppFunc_DepartmentDefaultActivities": {
         "type": "object",
         "properties": {
-          "DefaultActivityFacilities": {
+          "Facilities": {
             "type": "boolean",
             "nullable": true
           },
-          "DefaultActivityLabor": {
+          "Labor": {
             "type": "boolean",
             "nullable": true
           },
-          "DefaultActivityMiscellaneous": {
+          "Miscellaneous": {
             "type": "boolean",
             "nullable": true
           },
-          "DefaultActivityRental": {
+          "Rental": {
             "type": "boolean",
             "nullable": true
           },
-          "DefaultActivitySales": {
+          "Sales": {
             "type": "boolean",
             "nullable": true
           },
-          "DefaultActivityTransportation": {
+          "Transportation": {
             "type": "boolean",
             "nullable": true
           },
-          "DefaultActivityRentalSale": {
+          "RentalSale": {
             "type": "boolean",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Logic.AppFunc_DepartmentSettingsResponse": {
+        "type": "object",
+        "properties": {
+          "RequireContactConfirmation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DefaultActivities": {
+            "$ref": "#/components/schemas/WebApi.Logic.AppFunc_DepartmentDefaultActivities"
           }
         },
         "additionalProperties": false
@@ -853,7 +993,7 @@
             "$ref": "#/components/schemas/WebApi.Logic.AppFunc_SystemSettingsResponse"
           },
           "department": {
-            "$ref": "#/components/schemas/WebApi.Logic.AppFunc_DepartmentActivitiesResponse"
+            "$ref": "#/components/schemas/WebApi.Logic.AppFunc_DepartmentSettingsResponse"
           },
           "documentBarcodeSettings": {
             "$ref": "#/components/schemas/WebApi.Logic.AppFunc_DocumentBarcodeSettingsResponse"
@@ -895,6 +1035,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "AutoSortInventoryByICode": {
+            "type": "boolean",
+            "nullable": true
+          },
           "EnableConsignment": {
             "type": "boolean",
             "nullable": true
@@ -919,10 +1063,6 @@
             "type": "string",
             "nullable": true
           },
-          "FixedAssetTransferFutureDepreciation": {
-            "type": "boolean",
-            "nullable": true
-          },
           "DefaultRentalQuantityInventoryCostCalculation": {
             "type": "string",
             "nullable": true
@@ -933,6 +1073,14 @@
           },
           "DefaultPartsQuantityInventoryCostCalculation": {
             "type": "string",
+            "nullable": true
+          },
+          "FixedAssetTransferOwnership": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EnableInventoryCertification": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -1013,6 +1161,10 @@
             "type": "string",
             "nullable": true
           },
+          "defaultpaymentby": {
+            "type": "string",
+            "nullable": true
+          },
           "defaulttaxoptionid": {
             "type": "string",
             "nullable": true
@@ -1029,12 +1181,78 @@
             "type": "string",
             "nullable": true
           },
+          "countrycodeisoalpha2": {
+            "type": "string",
+            "nullable": true
+          },
           "phone": {
             "type": "string",
             "nullable": true
           },
           "useorderlocationbydefault": {
             "type": "boolean"
+          },
+          "defaultrepairpotypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultrepairpotype": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailinvoicetoorderedby": {
+            "type": "boolean"
+          },
+          "emailinvoicetoaccountspayable": {
+            "type": "boolean"
+          },
+          "defaultpurchasepotypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultpurchasepotype": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsubrentalpoordertypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsubrentalpoordertype": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsubsalespoordertypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsubsalespoordertype": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsubmiscpoordertypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsubmiscpoordertype": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsublaborpoordertypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultsublaborpoordertype": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultcombinedpoordertypeid": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultcombinedpoordertype": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1062,6 +1280,13 @@
             "type": "string",
             "nullable": true
           },
+          "emailapp": {
+            "type": "string",
+            "nullable": true
+          },
+          "addsignaturetodraft": {
+            "type": "boolean"
+          },
           "fullname": {
             "type": "string",
             "nullable": true
@@ -1074,7 +1299,15 @@
             "type": "integer",
             "format": "int32"
           },
+          "griddefaultrows": {
+            "type": "integer",
+            "format": "int32"
+          },
           "applicationtheme": {
+            "type": "string",
+            "nullable": true
+          },
+          "locale": {
             "type": "string",
             "nullable": true
           },
@@ -1083,6 +1316,14 @@
             "nullable": true
           },
           "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "languageid": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
             "type": "string",
             "nullable": true
           },
@@ -1179,6 +1420,14 @@
           },
           "CanInsertIntoActiveOrder": {
             "type": "boolean"
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CreditCardPinPad": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1216,6 +1465,26 @@
           "transferavailabilitydays": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "regionid": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionwarehouseids": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionwarehouses": {
+            "type": "string",
+            "nullable": true
+          },
+          "internalorderdealid": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -1263,11 +1532,35 @@
             "type": "boolean",
             "nullable": true
           },
+          "EnableOriginalShow": {
+            "type": "boolean",
+            "nullable": true
+          },
           "EnablePayments": {
             "type": "boolean",
             "nullable": true
           },
+          "EnableVendorInvoice": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EnablePropsWardrobe": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EnableSetsWalls": {
+            "type": "boolean",
+            "nullable": true
+          },
           "ShareDealsAcrossOfficeLocations": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SynchronizeCustomerStatusAndCreditStatus": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SynchronizeDealStatusAndCreditStatus": {
             "type": "boolean",
             "nullable": true
           },
@@ -1280,6 +1573,30 @@
             "nullable": true
           },
           "IsVendorNumberAssignedByUser": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "QuoteOrderMessageFormat": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataLanguageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataLanguage": {
+            "type": "string",
+            "nullable": true
+          },
+          "AllCaps": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EnableQuikLocate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DepartmentFilter": {
             "type": "boolean",
             "nullable": true
           }
@@ -1469,9 +1786,6 @@
             "type": "string",
             "nullable": true
           },
-          "RequireOriginalShow": {
-            "type": "boolean"
-          },
           "UserAssignedICodes": {
             "type": "boolean"
           },
@@ -1480,6 +1794,41 @@
           },
           "BarcodeSkipPrefixes": {
             "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+          },
+          "EnableOriginalShow": {
+            "type": "boolean"
+          },
+          "EnablePropsWardrobe": {
+            "type": "boolean"
+          },
+          "EnableSetsWalls": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.AccountServices.Jwt.AzureADRequest": {
+        "type": "object",
+        "properties": {
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "Token": {
+            "type": "string",
+            "nullable": true
+          },
+          "Tenant": {
+            "type": "string",
+            "nullable": true
+          },
+          "Audience": {
+            "type": "string",
+            "nullable": true
+          },
+          "Issuer": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
