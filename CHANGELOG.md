@@ -1,3 +1,8 @@
+## 5.0.1
+
+- Remove 'meta' dependency
+- Downgrade 'collection' dependency to 1.17.0
+
 ## 5.0.0
 
 - Update swagger specs for RW v2019.1.2.241
