@@ -1,3 +1,8 @@
+## 5.0.0
+
+- Update swagger specs for RW v2019.1.2.241
+- Upgrade dependencies
+
 ## 4.0.0
 
 - Update swagger specs for RW v2019.1.2.882
