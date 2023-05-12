@@ -1,18 +1,22 @@
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
+import 'package:http/http.dart' as http;
+
 import 'package:rentalworks/generated_code/account_services.swagger.dart'
     show FwStandardModelsFwApplicationUser;
 import 'package:rentalworks/rentalworks.dart';
 import 'package:rentalworks/src/json_serializable_converter.dart';
 
 class RentalWorks {
-  RentalWorks.withJWT(this.baseUrl, this._jwt, {this.errorConverter});
+  RentalWorks.withJWT(this.baseUrl, this._jwt,
+      {this.errorConverter, this.httpClient});
 
   RentalWorks.withCredentials(this.baseUrl, this._username, this._password,
-      {this.errorConverter});
+      {this.errorConverter, this.httpClient});
 
   Uri baseUrl;
+  http.Client? httpClient;
   String? _jwt;
   String? _username;
   String? _password;
@@ -80,25 +84,23 @@ class RentalWorks {
   ChopperClient? _client;
 
   ChopperClient get client => _client ??= ChopperClient(
-          services: [
-            AccountServices.create(),
-            Administrator.create(),
-            Exports.create(),
-            Home.create(),
-            Mobile.create(),
-            Pages.create(),
-            Plugins.create(),
-            Reports.create(),
-            Settings.create(),
-            Utilities.create()
-          ],
-          interceptors: [
-            _jwtInterceptor,
-            _paramConverterInterceptor
-          ],
-          converter: JsonSerializableConverter(generatedMapping),
-          errorConverter: errorConverter,
-          baseUrl: baseUrl);
+      client: httpClient,
+      services: [
+        AccountServices.create(),
+        Administrator.create(),
+        Exports.create(),
+        Home.create(),
+        Mobile.create(),
+        Pages.create(),
+        Plugins.create(),
+        Reports.create(),
+        Settings.create(),
+        Utilities.create()
+      ],
+      interceptors: [_jwtInterceptor, _paramConverterInterceptor],
+      converter: JsonSerializableConverter(generatedMapping),
+      errorConverter: errorConverter,
+      baseUrl: baseUrl);
 
   AccountServices get accountServices => client.getService<AccountServices>();
 
