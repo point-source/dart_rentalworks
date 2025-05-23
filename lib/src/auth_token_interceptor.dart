@@ -4,7 +4,10 @@ import 'package:chopper/chopper.dart';
 
 /// Interceptor that adds an auth token to the request.
 class AuthTokenInterceptor implements Interceptor {
-  AuthTokenInterceptor(this.getToken, {this.excludePathPrefixes = const []});
+  const AuthTokenInterceptor(
+    this.getToken, {
+    this.excludePathPrefixes = const [],
+  });
 
   /// The auth token to add to the request.
   final FutureOr<String> getToken;
@@ -16,13 +19,14 @@ class AuthTokenInterceptor implements Interceptor {
   FutureOr<Response<BodyType>> intercept<BodyType>(
     Chain<BodyType> chain,
   ) async {
+    Request request = chain.request;
     if (excludePathPrefixes.any(chain.request.uri.path.startsWith)) {
-      return chain.proceed(chain.request);
+      return chain.proceed(request);
     }
 
     final token = await getToken;
 
-    final request = applyHeader(
+    request = applyHeader(
       chain.request,
       'Authorization',
       'Bearer $token',

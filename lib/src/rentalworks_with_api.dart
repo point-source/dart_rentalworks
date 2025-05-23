@@ -4,10 +4,11 @@ import 'package:http/http.dart' as http;
 import 'package:rentalworks/generated_code/account_services.swagger.dart'
     show FwStandardModelsFwApplicationUser;
 import 'package:rentalworks/rentalworks.dart';
-import 'package:rentalworks/src/auth_interceptor.dart';
-import 'package:rentalworks/src/json_serializable_converter.dart';
-import 'package:rentalworks/src/param_converter_interceptor.dart';
+import 'package:rentalworks/src/auth_token_interceptor.dart';
+import 'package:rentalworks/src/rentalworks_json_decoder.dart';
+import 'package:rentalworks/src/param_serializer_interceptor.dart';
 
+// ignore: prefer-match-file-name
 class RentalWorks {
   RentalWorks.withJWT(
     this.baseUrl,
@@ -32,10 +33,9 @@ class RentalWorks {
 
   ErrorConverter? errorConverter;
 
-  Future<String> get jwt async =>
-      _jwt ??= await _fetchJWT(_username, _password);
+  Future<String> get jwt async => _jwt ??= await _fetchJWT();
 
-  Future<String> _fetchJWT(String? username, String? password) async {
+  Future<String> _fetchJWT() async {
     if (_username == null) {
       throw Exception('No username or token supplied');
     }
@@ -49,11 +49,12 @@ class RentalWorks {
       ),
     );
     if (response.isSuccessful) {
-      final jwt = response.body?.accessToken;
-      if (jwt != null) return jwt;
+      final token = response.body?.accessToken;
+      if (token != null) return token;
     }
     final statusCode = response.body?.statuscode ?? response.statusCode;
-    final message = response.body?.statusmessage ?? response.base.reasonPhrase;
+    final message =
+        response.body?.statusmessage ?? response.base.reasonPhrase ?? 'none';
     throw Exception(
       'Could not fetch jwt. Server reported $statusCode: $message',
     );
@@ -85,21 +86,21 @@ class RentalWorks {
         baseUrl: baseUrl,
       );
 
-  AccountServices get accountServices => client.getService<AccountServices>();
+  AccountServices get accountServices => client.getService();
 
-  Administrator get administrator => client.getService<Administrator>();
+  Administrator get administrator => client.getService();
 
-  Exports get exports => client.getService<Exports>();
+  Exports get exports => client.getService();
 
-  Home get home => client.getService<Home>();
+  Home get home => client.getService();
 
-  Mobile get mobile => client.getService<Mobile>();
+  Mobile get mobile => client.getService();
 
-  Plugins get plugins => client.getService<Plugins>();
+  Plugins get plugins => client.getService();
 
-  Reports get reports => client.getService<Reports>();
+  Reports get reports => client.getService();
 
-  Settings get settings => client.getService<Settings>();
+  Settings get settings => client.getService();
 
-  Utilities get utilities => client.getService<Utilities>();
+  Utilities get utilities => client.getService();
 }

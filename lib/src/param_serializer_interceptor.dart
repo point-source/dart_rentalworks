@@ -5,8 +5,9 @@ import 'package:chopper/chopper.dart';
 
 /// Interceptor that serializes the request parameters.
 class ParamSerializerInterceptor implements Interceptor {
-  ParamSerializerInterceptor();
+  const ParamSerializerInterceptor();
 
+  // ignore: avoid-dynamic
   dynamic _convertParams(dynamic value) {
     switch (value.runtimeType) {
       case String:
@@ -19,9 +20,7 @@ class ParamSerializerInterceptor implements Interceptor {
           return value.map(_convertParams);
         }
         if (value is Map<String, dynamic>) {
-          return value.map(
-            (key, value) => MapEntry(key, _convertParams(value)),
-          );
+          return value.map((key, val) => MapEntry(key, _convertParams(val)));
         }
         final json = value?.toJson();
         if (json is Map) {

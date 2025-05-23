@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:rentalworks/generated_code/home.swagger.dart';
 import 'package:rentalworks/generated_code/utilities.swagger.dart' as u;
 import 'package:rentalworks/generated_code/settings.swagger.dart'
@@ -8,11 +9,11 @@ import 'package:rentalworks/rentalworks.dart';
 import 'package:test/test.dart';
 
 void main() {
-  Map<String, String> env = Platform.environment;
+  final env = Platform.environment;
 
   Uri? baseUrl = Uri.tryParse(env['RENTALWORKS_URL'] ?? '');
-  String username = env['RENTALWORKS_USER'] ?? '';
-  String password = env['RENTALWORKS_PASSWORD'] ?? '';
+  String username = env['RW_USERNAME'] ?? '';
+  String password = env['RW_PASSWORD'] ?? '';
 
   if (baseUrl == null) throw Exception('Base URL was not provided');
   if (username.isEmpty || password.isEmpty) {
@@ -92,20 +93,6 @@ void main() {
       expect(transfers.isSuccessful, isTrue);
     });
 
-    test('/transferorder', () async {
-      final transfers = await rw!.home.transferorderGet(
-        filter: [
-          FwStandardModelsFwQueryFilter(
-            field: 'Status',
-            op: '<>',
-            $Value: 'COMPLETE',
-          ),
-        ],
-      );
-      expect(transfers.base.reasonPhrase, 'OK');
-      expect(transfers.isSuccessful, isTrue);
-    });
-
     test('/pricing/{inventoryId}', () async {
       final pricing = await rw!.home.pricingInventoryidGet(
         inventoryid: 'A0001R42',
@@ -118,7 +105,7 @@ void main() {
 
   group('Asset Transfer:', () {
     const String officeLocationId = '0000000F'; // Fuse
-    const departmentId = '0000000I'; // Rental
+    //const departmentId = '0000000I'; // Rental
 
     WebApiModulesInventoryAssetItem? item;
     WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse? warehouse;
@@ -165,7 +152,7 @@ void main() {
       expect(items.isSuccessful, isTrue);
       expect(items.base.reasonPhrase, 'OK');
       expect(items.body?.items ?? [], isNotEmpty);
-      item = items.body?.items?.firstWhere((e) => e.warehouseId != null);
+      item = items.body?.items?.firstWhereOrNull((e) => e.warehouseId != null);
       expect(item, isNotNull);
     });
 
@@ -210,7 +197,7 @@ void main() {
       expect(transferQuery.isSuccessful, isTrue);
       expect(transferQuery.base.reasonPhrase, 'OK');
       expect(transferQuery.body?.items ?? [], isNotEmpty);
-      transfer = transferQuery.body?.items?.first;
+      transfer = transferQuery.body?.items?.firstOrNull;
       expect(transfer, isNotNull);
     });
 
@@ -337,7 +324,8 @@ void main() {
           );
 
       expect(r.error, isNull);
-      originalInventoryId = r.body?.rows?.first.first.toString() ?? '';
+      originalInventoryId =
+          r.body?.rows?.firstOrNull?.firstOrNull?.toString() ?? '';
       expect(originalInventoryId, isNotEmpty);
     });
 

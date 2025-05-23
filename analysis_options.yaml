@@ -11,18 +11,16 @@ include: package:lints/recommended.yaml
 
 analyzer:
   exclude:
+    - "lib/generated_code/"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
-  plugins:
-    - dart_code_metrics
 
 dart_code_metrics:
+  extends:
+    - recommended
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
-  anti-patterns:
-    - long-method
-    - long-parameter-list
   metrics:
     cyclomatic-complexity: 20
     maximum-nesting-level: 5

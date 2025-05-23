@@ -2,11 +2,12 @@ import 'package:chopper/chopper.dart';
 
 typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
 
-class CustomJsonDecoder {
-  CustomJsonDecoder(this.factories);
+class RentalworksJsonDecoder {
+  const RentalworksJsonDecoder(this.factories);
 
   final Map<Type, JsonFactory> factories;
 
+  // ignore: avoid-dynamic
   dynamic decode<T>(dynamic entity) {
     if (entity is Iterable) {
       return _decodeList<T>(entity);
@@ -25,7 +26,7 @@ class CustomJsonDecoder {
 
   T _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
-    if (jsonFactory == null || jsonFactory is! JsonFactory<T>) {
+    if (jsonFactory is! JsonFactory<T>) {
       return throw "Could not find factory for type $T. Is '$T: $T.fromJsonFactory' included in the CustomJsonDecoder instance creation in bootstrapper.dart?";
     }
 
@@ -39,9 +40,9 @@ class CustomJsonDecoder {
 class JsonSerializableConverter extends JsonConverter {
   JsonSerializableConverter(
     Map<Type, Object Function(Map<String, dynamic>)> decoderMappings,
-  ) : jsonDecoder = CustomJsonDecoder(decoderMappings);
+  ) : jsonDecoder = RentalworksJsonDecoder(decoderMappings);
 
-  final CustomJsonDecoder jsonDecoder;
+  final RentalworksJsonDecoder jsonDecoder;
 
   @override
   Future<Response<ResultType>> convertResponse<ResultType, Item>(
@@ -55,7 +56,7 @@ class JsonSerializableConverter extends JsonConverter {
 
     final jsonRes = await super.convertResponse(response);
 
-    return jsonRes.copyWith<ResultType>(
+    return jsonRes.copyWith(
       body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType,
     );
   }
