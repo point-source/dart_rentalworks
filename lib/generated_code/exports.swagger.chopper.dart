@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'exports.swagger.dart';
@@ -6,15 +7,16 @@ part of 'exports.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$Exports extends Exports {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$Exports extends Exports {
   _$Exports([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = Exports;
+  final Type definitionType = Exports;
 
   @override
   Future<
@@ -82,6 +84,130 @@ class _$Exports extends Exports {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override

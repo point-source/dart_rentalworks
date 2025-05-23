@@ -15,34 +15,41 @@ Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
         FwCoreApiSwashbuckleBadRequestResponse instance) =>
     <String, dynamic>{};
 
+FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
+            Map<String, dynamic> json) =>
+        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
+          downloadUrl: json['downloadUrl'] as String?,
+        );
+
+Map<String, dynamic>
+    _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                instance) =>
+        <String, dynamic>{
+          if (instance.downloadUrl case final value?) 'downloadUrl': value,
+        };
+
 FwCoreControllersFwJwtControllerJwtResponseModel
     _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson(
             Map<String, dynamic> json) =>
         FwCoreControllersFwJwtControllerJwtResponseModel(
-          statuscode: json['statuscode'] as int?,
+          statuscode: (json['statuscode'] as num?)?.toInt(),
           statusmessage: json['statusmessage'] as String?,
           accessToken: json['access_token'] as String?,
-          expiresIn: json['expires_in'] as int?,
+          expiresIn: (json['expires_in'] as num?)?.toInt(),
           resetpassword: json['resetpassword'] as bool?,
         );
 
 Map<String, dynamic> _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(
-    FwCoreControllersFwJwtControllerJwtResponseModel instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('statuscode', instance.statuscode);
-  writeNotNull('statusmessage', instance.statusmessage);
-  writeNotNull('access_token', instance.accessToken);
-  writeNotNull('expires_in', instance.expiresIn);
-  writeNotNull('resetpassword', instance.resetpassword);
-  return val;
-}
+        FwCoreControllersFwJwtControllerJwtResponseModel instance) =>
+    <String, dynamic>{
+      if (instance.statuscode case final value?) 'statuscode': value,
+      if (instance.statusmessage case final value?) 'statusmessage': value,
+      if (instance.accessToken case final value?) 'access_token': value,
+      if (instance.expiresIn case final value?) 'expires_in': value,
+      if (instance.resetpassword case final value?) 'resetpassword': value,
+    };
 
 FwStandardAppManagerFwAmSecurityTreeNode
     _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(
@@ -61,22 +68,171 @@ FwStandardAppManagerFwAmSecurityTreeNode
         );
 
 Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
-    FwStandardAppManagerFwAmSecurityTreeNode instance) {
-  final val = <String, dynamic>{};
+        FwStandardAppManagerFwAmSecurityTreeNode instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.caption case final value?) 'caption': value,
+      if (instance.nodetype case final value?) 'nodetype': value,
+      if (instance.properties case final value?) 'properties': value,
+      if (instance.children?.map((e) => e.toJson()).toList() case final value?)
+        'children': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FwStandardBusinessLogicFwBusinessLogic
+    _$FwStandardBusinessLogicFwBusinessLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardBusinessLogicFwBusinessLogic(
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          urlIdentifier: json['UrlIdentifier'],
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          hasImport: json['_HasImport'] as bool?,
+          hasDocuments: json['_HasDocuments'] as bool?,
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
+        );
 
-  writeNotNull('id', instance.id);
-  writeNotNull('caption', instance.caption);
-  writeNotNull('nodetype', instance.nodetype);
-  writeNotNull('properties', instance.properties);
-  writeNotNull('children', instance.children?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
+        FwStandardBusinessLogicFwBusinessLogic instance) =>
+    <String, dynamic>{
+      if (instance.auditNote case final value?) 'AuditNote': value,
+      if (instance.recordTitle case final value?) 'RecordTitle': value,
+      if (instance.urlIdentifier case final value?) 'UrlIdentifier': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        '_Fields': value,
+      if (instance.custom?.map((e) => e.toJson()).toList() case final value?)
+        '_Custom': value,
+      if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_DefaultFieldAttributes': value,
+      if (instance.original?.toJson() case final value?) '_Original': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+      if (instance.hasImport case final value?) '_HasImport': value,
+      if (instance.hasDocuments case final value?) '_HasDocuments': value,
+      if (instance.createdByUserId case final value?) 'CreatedByUserId': value,
+      if (instance.createdByUserName case final value?)
+        'CreatedByUserName': value,
+      if (instance.createdDateTime case final value?) 'CreatedDateTime': value,
+      if (instance.modifiedByUserId case final value?)
+        'ModifiedByUserId': value,
+      if (instance.modifiedByUserName case final value?)
+        'ModifiedByUserName': value,
+      if (instance.modifiedDateTime case final value?)
+        'ModifiedDateTime': value,
+    };
+
+FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+    _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
+          name: json['Name'] as String?,
+          dataType:
+              fwStandardSqlServerFwDataTypesNullableFromJson(json['DataType']),
+          excelOptions:
+              fwStandardSqlServerAttributesFwExcelOptionsNullableFromJson(
+                  json['ExcelOptions']),
+          maxLength: (json['MaxLength'] as num?)?.toInt(),
+          isRequired: json['IsRequired'] as bool?,
+          isPrimaryKey: json['IsPrimaryKey'] as bool?,
+          isReadOnly: json['IsReadOnly'] as bool?,
+          displayFieldName: json['DisplayFieldName'] as String?,
+          allowedValues: json['AllowedValues'] as String?,
+          templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+        );
+
+Map<String, dynamic>
+    _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
+            FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) =>
+        <String, dynamic>{
+          if (instance.name case final value?) 'Name': value,
+          if (fwStandardSqlServerFwDataTypesNullableToJson(instance.dataType)
+              case final value?)
+            'DataType': value,
+          if (fwStandardSqlServerAttributesFwExcelOptionsNullableToJson(
+                  instance.excelOptions)
+              case final value?)
+            'ExcelOptions': value,
+          if (instance.maxLength case final value?) 'MaxLength': value,
+          if (instance.isRequired case final value?) 'IsRequired': value,
+          if (instance.isPrimaryKey case final value?) 'IsPrimaryKey': value,
+          if (instance.isReadOnly case final value?) 'IsReadOnly': value,
+          if (instance.displayFieldName case final value?)
+            'DisplayFieldName': value,
+          if (instance.allowedValues case final value?) 'AllowedValues': value,
+          if (instance.templateSequence case final value?)
+            'TemplateSequence': value,
+        };
+
+FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwCustomValue(
+      moduleName: json['ModuleName'] as String?,
+      fieldName: json['FieldName'] as String?,
+      fieldValue: json['FieldValue'] as String?,
+      fieldType: json['FieldType'] as String?,
+      validationModule: json['ValidationModule'] as String?,
+      validationFieldName: json['ValidationFieldName'] as String?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
+        FwStandardDataFwCustomValue instance) =>
+    <String, dynamic>{
+      if (instance.moduleName case final value?) 'ModuleName': value,
+      if (instance.fieldName case final value?) 'FieldName': value,
+      if (instance.fieldValue case final value?) 'FieldValue': value,
+      if (instance.fieldType case final value?) 'FieldType': value,
+      if (instance.validationModule case final value?)
+        'ValidationModule': value,
+      if (instance.validationFieldName case final value?)
+        'ValidationFieldName': value,
+    };
+
+FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardDataFwDefaultAttribute(
+      fieldName: json['FieldName'] as String?,
+      attributeName: json['AttributeName'] as String?,
+      defaultValue: json['DefaultValue'] as String?,
+    );
+
+Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
+        FwStandardDataFwDefaultAttribute instance) =>
+    <String, dynamic>{
+      if (instance.fieldName case final value?) 'FieldName': value,
+      if (instance.attributeName case final value?) 'AttributeName': value,
+      if (instance.defaultValue case final value?) 'DefaultValue': value,
+    };
 
 FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
         Map<String, dynamic> json) =>
@@ -89,46 +245,150 @@ FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
     );
 
 Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
-    FwStandardDataFwTranslatedValue instance) {
-  final val = <String, dynamic>{};
+        FwStandardDataFwTranslatedValue instance) =>
+    <String, dynamic>{
+      if (instance.fieldName case final value?) 'FieldName': value,
+      if (instance.translatedValue case final value?) 'TranslatedValue': value,
+      if (instance.untranslatedValue case final value?)
+        'UntranslatedValue': value,
+      if (instance.isTranslated case final value?) 'IsTranslated': value,
+      if (instance.userIsTranslating case final value?)
+        'UserIsTranslating': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardModelsBrowseRequest(
+      miscfields: json['miscfields'],
+      module: json['module'] as String?,
+      options: json['options'],
+      orderby: json['orderby'] as String?,
+      orderbydirection: json['orderbydirection'] as String?,
+      top: (json['top'] as num?)?.toInt(),
+      pageno: (json['pageno'] as num?)?.toInt(),
+      pagesize: (json['pagesize'] as num?)?.toInt(),
+      searchfieldoperators: (json['searchfieldoperators'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfields: (json['searchfields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfieldvalues: (json['searchfieldvalues'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchfieldtypes: (json['searchfieldtypes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchseparators: (json['searchseparators'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchcondition: (json['searchcondition'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchconjunctions: (json['searchconjunctions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      searchgroupings: (json['searchgroupings'] as List<dynamic>?)
+              ?.map((e) => (e as num).toInt())
+              .toList() ??
+          [],
+      uniqueids: json['uniqueids'],
+      boundids: json['boundids'],
+      filterfields: json['filterfields'] as Map<String, dynamic>?,
+      activeview: json['activeview'] as String?,
+      emptyobject: json['emptyobject'] as bool?,
+      forexcel: json['forexcel'] as bool?,
+      includeallcolumns: json['includeallcolumns'] as bool?,
+      fields: (json['fields'] as List<dynamic>?)
+              ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      totalfields: (json['totalfields'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+    );
 
-  writeNotNull('FieldName', instance.fieldName);
-  writeNotNull('TranslatedValue', instance.translatedValue);
-  writeNotNull('UntranslatedValue', instance.untranslatedValue);
-  writeNotNull('IsTranslated', instance.isTranslated);
-  writeNotNull('UserIsTranslating', instance.userIsTranslating);
-  return val;
-}
+Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
+        FwStandardModelsBrowseRequest instance) =>
+    <String, dynamic>{
+      if (instance.miscfields case final value?) 'miscfields': value,
+      if (instance.module case final value?) 'module': value,
+      if (instance.options case final value?) 'options': value,
+      if (instance.orderby case final value?) 'orderby': value,
+      if (instance.orderbydirection case final value?)
+        'orderbydirection': value,
+      if (instance.top case final value?) 'top': value,
+      if (instance.pageno case final value?) 'pageno': value,
+      if (instance.pagesize case final value?) 'pagesize': value,
+      if (instance.searchfieldoperators case final value?)
+        'searchfieldoperators': value,
+      if (instance.searchfields case final value?) 'searchfields': value,
+      if (instance.searchfieldvalues case final value?)
+        'searchfieldvalues': value,
+      if (instance.searchfieldtypes case final value?)
+        'searchfieldtypes': value,
+      if (instance.searchseparators case final value?)
+        'searchseparators': value,
+      if (instance.searchcondition case final value?) 'searchcondition': value,
+      if (instance.searchconjunctions case final value?)
+        'searchconjunctions': value,
+      if (instance.searchgroupings case final value?) 'searchgroupings': value,
+      if (instance.uniqueids case final value?) 'uniqueids': value,
+      if (instance.boundids case final value?) 'boundids': value,
+      if (instance.filterfields case final value?) 'filterfields': value,
+      if (instance.activeview case final value?) 'activeview': value,
+      if (instance.emptyobject case final value?) 'emptyobject': value,
+      if (instance.forexcel case final value?) 'forexcel': value,
+      if (instance.includeallcolumns case final value?)
+        'includeallcolumns': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        'fields': value,
+      if (instance.totalfields case final value?) 'totalfields': value,
+      if (instance.activeviewfields case final value?)
+        'activeviewfields': value,
+    };
+
+FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardModelsCheckBoxListItem(
+      $value: json['value'] as String?,
+      text: json['text'] as String?,
+      selected: json['selected'] as bool?,
+    );
+
+Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
+        FwStandardModelsCheckBoxListItem instance) =>
+    <String, dynamic>{
+      if (instance.$value case final value?) 'value': value,
+      if (instance.text case final value?) 'text': value,
+      if (instance.selected case final value?) 'selected': value,
+    };
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwApiException(
-      statusCode: json['StatusCode'] as int?,
+      statusCode: (json['StatusCode'] as num?)?.toInt(),
       message: json['Message'] as String?,
       stackTrace: json['StackTrace'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-    FwStandardModelsFwApiException instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('StatusCode', instance.statusCode);
-  writeNotNull('Message', instance.message);
-  writeNotNull('StackTrace', instance.stackTrace);
-  return val;
-}
+        FwStandardModelsFwApiException instance) =>
+    <String, dynamic>{
+      if (instance.statusCode case final value?) 'StatusCode': value,
+      if (instance.message case final value?) 'Message': value,
+      if (instance.stackTrace case final value?) 'StackTrace': value,
+    };
 
 FwStandardModelsFwApplicationUser _$FwStandardModelsFwApplicationUserFromJson(
         Map<String, dynamic> json) =>
@@ -144,26 +404,64 @@ FwStandardModelsFwApplicationUser _$FwStandardModelsFwApplicationUserFromJson(
     );
 
 Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
-    FwStandardModelsFwApplicationUser instance) {
-  final val = <String, dynamic>{
-    'UserName': instance.userName,
-    'Password': instance.password,
-  };
+        FwStandardModelsFwApplicationUser instance) =>
+    <String, dynamic>{
+      'UserName': instance.userName,
+      'Password': instance.password,
+      if (instance.webApp case final value?) 'WebApp': value,
+      if (instance.browserApp case final value?) 'BrowserApp': value,
+      if (instance.browserAppVersion case final value?)
+        'BrowserAppVersion': value,
+      if (instance.browserDeviceId case final value?) 'BrowserDeviceId': value,
+      if (instance.browserUserAgent case final value?)
+        'BrowserUserAgent': value,
+      if (instance.browserUrl case final value?) 'BrowserUrl': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
+        Map<String, dynamic> json) =>
+    FwStandardModelsFwQueryFilter(
+      field: json['Field'] as String,
+      op: json['Op'] as String,
+      $Value: json['Value'] as String?,
+    );
 
-  writeNotNull('WebApp', instance.webApp);
-  writeNotNull('BrowserApp', instance.browserApp);
-  writeNotNull('BrowserAppVersion', instance.browserAppVersion);
-  writeNotNull('BrowserDeviceId', instance.browserDeviceId);
-  writeNotNull('BrowserUserAgent', instance.browserUserAgent);
-  writeNotNull('BrowserUrl', instance.browserUrl);
-  return val;
-}
+Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
+        FwStandardModelsFwQueryFilter instance) =>
+    <String, dynamic>{
+      'Field': instance.field,
+      'Op': instance.op,
+      if (instance.$Value case final value?) 'Value': value,
+    };
+
+FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: (json['PageNo'] as num?)?.toInt(),
+          pageSize: (json['PageSize'] as num?)?.toInt(),
+          totalItems: (json['TotalItems'] as num?)?.toInt(),
+          sort: json['Sort'] as String?,
+        );
+
+Map<String, dynamic>
+    _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+                instance) =>
+        <String, dynamic>{
+          if (instance.items?.map((e) => e.toJson()).toList() case final value?)
+            'Items': value,
+          if (instance.pageNo case final value?) 'PageNo': value,
+          if (instance.pageSize case final value?) 'PageSize': value,
+          if (instance.totalItems case final value?) 'TotalItems': value,
+          if (instance.sort case final value?) 'Sort': value,
+        };
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
         Map<String, dynamic> json) =>
@@ -179,15 +477,16 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
-      pageNo: json['PageNo'] as int?,
-      pageSize: json['PageSize'] as int?,
-      totalPages: json['TotalPages'] as int?,
-      totalRows: json['TotalRows'] as int?,
+      pageNo: (json['PageNo'] as num?)?.toInt(),
+      pageSize: (json['PageSize'] as num?)?.toInt(),
+      totalPages: (json['TotalPages'] as num?)?.toInt(),
+      totalRows: (json['TotalRows'] as num?)?.toInt(),
       dateFields: (json['DateFields'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      serverVersion: json['ServerVersion'] as String?,
       translation: (json['_Translation'] as List<dynamic>?)
               ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
                   e as Map<String, dynamic>))
@@ -196,29 +495,25 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-    FwStandardSqlServerFwJsonDataTable instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ColumnIndex', instance.columnIndex);
-  writeNotNull('Totals', instance.totals);
-  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
-  writeNotNull('Rows', instance.rows);
-  writeNotNull('PageNo', instance.pageNo);
-  writeNotNull('PageSize', instance.pageSize);
-  writeNotNull('TotalPages', instance.totalPages);
-  writeNotNull('TotalRows', instance.totalRows);
-  writeNotNull('DateFields', instance.dateFields);
-  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+        FwStandardSqlServerFwJsonDataTable instance) =>
+    <String, dynamic>{
+      if (instance.columnIndex case final value?) 'ColumnIndex': value,
+      if (instance.totals case final value?) 'Totals': value,
+      if (instance.columns?.map((e) => e.toJson()).toList() case final value?)
+        'Columns': value,
+      if (instance.rows case final value?) 'Rows': value,
+      if (instance.pageNo case final value?) 'PageNo': value,
+      if (instance.pageSize case final value?) 'PageSize': value,
+      if (instance.totalPages case final value?) 'TotalPages': value,
+      if (instance.totalRows case final value?) 'TotalRows': value,
+      if (instance.dateFields case final value?) 'DateFields': value,
+      if (instance.columnNameByIndex case final value?)
+        'ColumnNameByIndex': value,
+      if (instance.serverVersion case final value?) 'ServerVersion': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+    };
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -226,29 +521,23 @@ FwStandardSqlServerFwJsonDataTableColumn
         FwStandardSqlServerFwJsonDataTableColumn(
           name: json['Name'] as String?,
           dataField: json['DataField'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
+          dataType:
+              fwStandardSqlServerFwDataTypesNullableFromJson(json['DataType']),
           isUniqueId: json['IsUniqueId'] as bool?,
           isVisible: json['IsVisible'] as bool?,
         );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-    FwStandardSqlServerFwJsonDataTableColumn instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Name', instance.name);
-  writeNotNull('DataField', instance.dataField);
-  writeNotNull(
-      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
-  writeNotNull('IsUniqueId', instance.isUniqueId);
-  writeNotNull('IsVisible', instance.isVisible);
-  return val;
-}
+        FwStandardSqlServerFwJsonDataTableColumn instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'Name': value,
+      if (instance.dataField case final value?) 'DataField': value,
+      if (fwStandardSqlServerFwDataTypesNullableToJson(instance.dataType)
+          case final value?)
+        'DataType': value,
+      if (instance.isUniqueId case final value?) 'IsUniqueId': value,
+      if (instance.isVisible case final value?) 'IsVisible': value,
+    };
 
 WebApiLogicAppFuncConsignmentSettingsResponse
     _$WebApiLogicAppFuncConsignmentSettingsResponseFromJson(
@@ -257,31 +546,27 @@ WebApiLogicAppFuncConsignmentSettingsResponse
           enableConsignment: json['EnableConsignment'] as bool?,
           defaultConsignorFeeBasedOn:
               json['DefaultConsignorFeeBasedOn'] as String?,
-          defaultConsignorPercent: json['DefaultConsignorPercent'] as int?,
-          defaultHousePercent: json['DefaultHousePercent'] as int?,
+          defaultConsignorPercent:
+              (json['DefaultConsignorPercent'] as num?)?.toInt(),
+          defaultHousePercent: (json['DefaultHousePercent'] as num?)?.toInt(),
           defaultTreatConsignedQtyAsOwned:
               json['DefaultTreatConsignedQtyAsOwned'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncConsignmentSettingsResponseToJson(
-    WebApiLogicAppFuncConsignmentSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('EnableConsignment', instance.enableConsignment);
-  writeNotNull(
-      'DefaultConsignorFeeBasedOn', instance.defaultConsignorFeeBasedOn);
-  writeNotNull('DefaultConsignorPercent', instance.defaultConsignorPercent);
-  writeNotNull('DefaultHousePercent', instance.defaultHousePercent);
-  writeNotNull('DefaultTreatConsignedQtyAsOwned',
-      instance.defaultTreatConsignedQtyAsOwned);
-  return val;
-}
+        WebApiLogicAppFuncConsignmentSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.enableConsignment case final value?)
+        'EnableConsignment': value,
+      if (instance.defaultConsignorFeeBasedOn case final value?)
+        'DefaultConsignorFeeBasedOn': value,
+      if (instance.defaultConsignorPercent case final value?)
+        'DefaultConsignorPercent': value,
+      if (instance.defaultHousePercent case final value?)
+        'DefaultHousePercent': value,
+      if (instance.defaultTreatConsignedQtyAsOwned case final value?)
+        'DefaultTreatConsignedQtyAsOwned': value,
+    };
 
 WebApiLogicAppFuncCustomFieldsResponse
     _$WebApiLogicAppFuncCustomFieldsResponseFromJson(
@@ -294,18 +579,10 @@ WebApiLogicAppFuncCustomFieldsResponse
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFieldsResponseToJson(
-    WebApiLogicAppFuncCustomFieldsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ModuleNames', instance.moduleNames);
-  return val;
-}
+        WebApiLogicAppFuncCustomFieldsResponse instance) =>
+    <String, dynamic>{
+      if (instance.moduleNames case final value?) 'ModuleNames': value,
+    };
 
 WebApiLogicAppFuncCustomFormModel _$WebApiLogicAppFuncCustomFormModelFromJson(
         Map<String, dynamic> json) =>
@@ -319,23 +596,15 @@ WebApiLogicAppFuncCustomFormModel _$WebApiLogicAppFuncCustomFormModelFromJson(
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormModelToJson(
-    WebApiLogicAppFuncCustomFormModel instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('BaseForm', instance.baseForm);
-  writeNotNull('CustomFormId', instance.customFormId);
-  writeNotNull('Description', instance.description);
-  writeNotNull('ThisUserOnly', instance.thisUserOnly);
-  writeNotNull('Html', instance.html);
-  writeNotNull('AssignTo', instance.assignTo);
-  return val;
-}
+        WebApiLogicAppFuncCustomFormModel instance) =>
+    <String, dynamic>{
+      if (instance.baseForm case final value?) 'BaseForm': value,
+      if (instance.customFormId case final value?) 'CustomFormId': value,
+      if (instance.description case final value?) 'Description': value,
+      if (instance.thisUserOnly case final value?) 'ThisUserOnly': value,
+      if (instance.html case final value?) 'Html': value,
+      if (instance.assignTo case final value?) 'AssignTo': value,
+    };
 
 WebApiLogicAppFuncCustomFormsResponse
     _$WebApiLogicAppFuncCustomFormsResponseFromJson(
@@ -349,19 +618,12 @@ WebApiLogicAppFuncCustomFormsResponse
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormsResponseToJson(
-    WebApiLogicAppFuncCustomFormsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'customForms', instance.customForms?.map((e) => e.toJson()).toList());
-  return val;
-}
+        WebApiLogicAppFuncCustomFormsResponse instance) =>
+    <String, dynamic>{
+      if (instance.customForms?.map((e) => e.toJson()).toList()
+          case final value?)
+        'customForms': value,
+    };
 
 WebApiLogicAppFuncDefaultSettingsResponse
     _$WebApiLogicAppFuncDefaultSettingsResponseFromJson(
@@ -377,9 +639,35 @@ WebApiLogicAppFuncDefaultSettingsResponse
               json['DefaultDealStagingExcludeOrderAfterWrap'] as bool?,
           defaultCustomerStatusId: json['DefaultCustomerStatusId'] as String?,
           defaultCustomerStatus: json['DefaultCustomerStatus'] as String?,
+          defaultCustomerPaymentTypeId:
+              json['DefaultCustomerPaymentTypeId'] as String?,
+          defaultCustomerPaymentType:
+              json['DefaultCustomerPaymentType'] as String?,
           defaultDealBillingCycleId:
               json['DefaultDealBillingCycleId'] as String?,
           defaultDealBillingCycle: json['DefaultDealBillingCycle'] as String?,
+          defaultVendorPaymentTermsId:
+              json['DefaultVendorPaymentTermsId'] as String?,
+          defaultVendorPaymentTerms:
+              json['DefaultVendorPaymentTerms'] as String?,
+          defaultVendorOutgoingDeliveryType:
+              json['DefaultVendorOutgoingDeliveryType'] as String?,
+          defaultVendorIncomingDeliveryType:
+              json['DefaultVendorIncomingDeliveryType'] as String?,
+          defaultVendorRentalInventory:
+              json['DefaultVendorRentalInventory'] as bool?,
+          defaultVendorSalesPartsInventory:
+              json['DefaultVendorSalesPartsInventory'] as bool?,
+          defaultVendorRepair: json['DefaultVendorRepair'] as bool?,
+          defaultVendorManufacturer: json['DefaultVendorManufacturer'] as bool?,
+          defaultVendorFreight: json['DefaultVendorFreight'] as bool?,
+          defaultVendorInsurance: json['DefaultVendorInsurance'] as bool?,
+          defaultVendorSubRent: json['DefaultVendorSubRent'] as bool?,
+          defaultVendorSubSales: json['DefaultVendorSubSales'] as bool?,
+          defaultVendorSubMisc: json['DefaultVendorSubMisc'] as bool?,
+          defaultVendorSubLabor: json['DefaultVendorSubLabor'] as bool?,
+          defaultVendorSubVehicle: json['DefaultVendorSubVehicle'] as bool?,
+          defaultVendorConsignment: json['DefaultVendorConsignment'] as bool?,
           defaultNonRecurringBillingCycleId:
               json['DefaultNonRecurringBillingCycleId'] as String?,
           defaultNonRecurringBillingCycle:
@@ -388,6 +676,9 @@ WebApiLogicAppFuncDefaultSettingsResponse
               json['DefaultVendorBillingCycleId'] as String?,
           defaultVendorBillingCycle:
               json['DefaultVendorBillingCycle'] as String?,
+          defaultVendorPaymentTypeId:
+              json['DefaultVendorPaymentTypeId'] as String?,
+          defaultVendorPaymentType: json['DefaultVendorPaymentType'] as String?,
           defaultCustomerPaymentTermsId:
               json['DefaultCustomerPaymentTermsId'] as String?,
           defaultCustomerPaymentTerms:
@@ -396,47 +687,99 @@ WebApiLogicAppFuncDefaultSettingsResponse
           defaultCreditStatusId: json['DefaultCreditStatusId'] as String?,
           defaultCreditStatus: json['DefaultCreditStatus'] as String?,
           contactShowAllDeals: json['ContactShowAllDeals'] as bool?,
+          defaultFulfillStrictPricingMatch:
+              json['DefaultFulfillStrictPricingMatch'] as bool?,
+          defaultFulfillStrictNestingLvlMatch:
+              json['DefaultFulfillStrictNestingLvlMatch'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDefaultSettingsResponseToJson(
-    WebApiLogicAppFuncDefaultSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('DefaultUnitId', instance.defaultUnitId);
-  writeNotNull('DefaultUnit', instance.defaultUnit);
-  writeNotNull('DefaultDealStatusId', instance.defaultDealStatusId);
-  writeNotNull('DefaultDealStatus', instance.defaultDealStatus);
-  writeNotNull('DefaultDealPoRequired', instance.defaultDealPoRequired);
-  writeNotNull('DefaultDealPoType', instance.defaultDealPoType);
-  writeNotNull('DefaultDealStagingExcludeOrderAfterWrap',
-      instance.defaultDealStagingExcludeOrderAfterWrap);
-  writeNotNull('DefaultCustomerStatusId', instance.defaultCustomerStatusId);
-  writeNotNull('DefaultCustomerStatus', instance.defaultCustomerStatus);
-  writeNotNull('DefaultDealBillingCycleId', instance.defaultDealBillingCycleId);
-  writeNotNull('DefaultDealBillingCycle', instance.defaultDealBillingCycle);
-  writeNotNull('DefaultNonRecurringBillingCycleId',
-      instance.defaultNonRecurringBillingCycleId);
-  writeNotNull('DefaultNonRecurringBillingCycle',
-      instance.defaultNonRecurringBillingCycle);
-  writeNotNull(
-      'DefaultVendorBillingCycleId', instance.defaultVendorBillingCycleId);
-  writeNotNull('DefaultVendorBillingCycle', instance.defaultVendorBillingCycle);
-  writeNotNull(
-      'DefaultCustomerPaymentTermsId', instance.defaultCustomerPaymentTermsId);
-  writeNotNull(
-      'DefaultCustomerPaymentTerms', instance.defaultCustomerPaymentTerms);
-  writeNotNull('DefaultRank', instance.defaultRank);
-  writeNotNull('DefaultCreditStatusId', instance.defaultCreditStatusId);
-  writeNotNull('DefaultCreditStatus', instance.defaultCreditStatus);
-  writeNotNull('ContactShowAllDeals', instance.contactShowAllDeals);
-  return val;
-}
+        WebApiLogicAppFuncDefaultSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.defaultUnitId case final value?) 'DefaultUnitId': value,
+      if (instance.defaultUnit case final value?) 'DefaultUnit': value,
+      if (instance.defaultDealStatusId case final value?)
+        'DefaultDealStatusId': value,
+      if (instance.defaultDealStatus case final value?)
+        'DefaultDealStatus': value,
+      if (instance.defaultDealPoRequired case final value?)
+        'DefaultDealPoRequired': value,
+      if (instance.defaultDealPoType case final value?)
+        'DefaultDealPoType': value,
+      if (instance.defaultDealStagingExcludeOrderAfterWrap case final value?)
+        'DefaultDealStagingExcludeOrderAfterWrap': value,
+      if (instance.defaultCustomerStatusId case final value?)
+        'DefaultCustomerStatusId': value,
+      if (instance.defaultCustomerStatus case final value?)
+        'DefaultCustomerStatus': value,
+      if (instance.defaultCustomerPaymentTypeId case final value?)
+        'DefaultCustomerPaymentTypeId': value,
+      if (instance.defaultCustomerPaymentType case final value?)
+        'DefaultCustomerPaymentType': value,
+      if (instance.defaultDealBillingCycleId case final value?)
+        'DefaultDealBillingCycleId': value,
+      if (instance.defaultDealBillingCycle case final value?)
+        'DefaultDealBillingCycle': value,
+      if (instance.defaultVendorPaymentTermsId case final value?)
+        'DefaultVendorPaymentTermsId': value,
+      if (instance.defaultVendorPaymentTerms case final value?)
+        'DefaultVendorPaymentTerms': value,
+      if (instance.defaultVendorOutgoingDeliveryType case final value?)
+        'DefaultVendorOutgoingDeliveryType': value,
+      if (instance.defaultVendorIncomingDeliveryType case final value?)
+        'DefaultVendorIncomingDeliveryType': value,
+      if (instance.defaultVendorRentalInventory case final value?)
+        'DefaultVendorRentalInventory': value,
+      if (instance.defaultVendorSalesPartsInventory case final value?)
+        'DefaultVendorSalesPartsInventory': value,
+      if (instance.defaultVendorRepair case final value?)
+        'DefaultVendorRepair': value,
+      if (instance.defaultVendorManufacturer case final value?)
+        'DefaultVendorManufacturer': value,
+      if (instance.defaultVendorFreight case final value?)
+        'DefaultVendorFreight': value,
+      if (instance.defaultVendorInsurance case final value?)
+        'DefaultVendorInsurance': value,
+      if (instance.defaultVendorSubRent case final value?)
+        'DefaultVendorSubRent': value,
+      if (instance.defaultVendorSubSales case final value?)
+        'DefaultVendorSubSales': value,
+      if (instance.defaultVendorSubMisc case final value?)
+        'DefaultVendorSubMisc': value,
+      if (instance.defaultVendorSubLabor case final value?)
+        'DefaultVendorSubLabor': value,
+      if (instance.defaultVendorSubVehicle case final value?)
+        'DefaultVendorSubVehicle': value,
+      if (instance.defaultVendorConsignment case final value?)
+        'DefaultVendorConsignment': value,
+      if (instance.defaultNonRecurringBillingCycleId case final value?)
+        'DefaultNonRecurringBillingCycleId': value,
+      if (instance.defaultNonRecurringBillingCycle case final value?)
+        'DefaultNonRecurringBillingCycle': value,
+      if (instance.defaultVendorBillingCycleId case final value?)
+        'DefaultVendorBillingCycleId': value,
+      if (instance.defaultVendorBillingCycle case final value?)
+        'DefaultVendorBillingCycle': value,
+      if (instance.defaultVendorPaymentTypeId case final value?)
+        'DefaultVendorPaymentTypeId': value,
+      if (instance.defaultVendorPaymentType case final value?)
+        'DefaultVendorPaymentType': value,
+      if (instance.defaultCustomerPaymentTermsId case final value?)
+        'DefaultCustomerPaymentTermsId': value,
+      if (instance.defaultCustomerPaymentTerms case final value?)
+        'DefaultCustomerPaymentTerms': value,
+      if (instance.defaultRank case final value?) 'DefaultRank': value,
+      if (instance.defaultCreditStatusId case final value?)
+        'DefaultCreditStatusId': value,
+      if (instance.defaultCreditStatus case final value?)
+        'DefaultCreditStatus': value,
+      if (instance.contactShowAllDeals case final value?)
+        'ContactShowAllDeals': value,
+      if (instance.defaultFulfillStrictPricingMatch case final value?)
+        'DefaultFulfillStrictPricingMatch': value,
+      if (instance.defaultFulfillStrictNestingLvlMatch case final value?)
+        'DefaultFulfillStrictNestingLvlMatch': value,
+    };
 
 WebApiLogicAppFuncDepartmentDefaultActivities
     _$WebApiLogicAppFuncDepartmentDefaultActivitiesFromJson(
@@ -452,24 +795,16 @@ WebApiLogicAppFuncDepartmentDefaultActivities
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDepartmentDefaultActivitiesToJson(
-    WebApiLogicAppFuncDepartmentDefaultActivities instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Facilities', instance.facilities);
-  writeNotNull('Labor', instance.labor);
-  writeNotNull('Miscellaneous', instance.miscellaneous);
-  writeNotNull('Rental', instance.rental);
-  writeNotNull('Sales', instance.sales);
-  writeNotNull('Transportation', instance.transportation);
-  writeNotNull('RentalSale', instance.rentalSale);
-  return val;
-}
+        WebApiLogicAppFuncDepartmentDefaultActivities instance) =>
+    <String, dynamic>{
+      if (instance.facilities case final value?) 'Facilities': value,
+      if (instance.labor case final value?) 'Labor': value,
+      if (instance.miscellaneous case final value?) 'Miscellaneous': value,
+      if (instance.rental case final value?) 'Rental': value,
+      if (instance.sales case final value?) 'Sales': value,
+      if (instance.transportation case final value?) 'Transportation': value,
+      if (instance.rentalSale case final value?) 'RentalSale': value,
+    };
 
 WebApiLogicAppFuncDepartmentSettingsResponse
     _$WebApiLogicAppFuncDepartmentSettingsResponseFromJson(
@@ -484,20 +819,13 @@ WebApiLogicAppFuncDepartmentSettingsResponse
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDepartmentSettingsResponseToJson(
-    WebApiLogicAppFuncDepartmentSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'RequireContactConfirmation', instance.requireContactConfirmation);
-  writeNotNull('DefaultActivities', instance.defaultActivities?.toJson());
-  return val;
-}
+        WebApiLogicAppFuncDepartmentSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.requireContactConfirmation case final value?)
+        'RequireContactConfirmation': value,
+      if (instance.defaultActivities?.toJson() case final value?)
+        'DefaultActivities': value,
+    };
 
 WebApiLogicAppFuncDocumentBarcodeSettingsResponse
     _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseFromJson(
@@ -507,18 +835,11 @@ WebApiLogicAppFuncDocumentBarcodeSettingsResponse
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncDocumentBarcodeSettingsResponseToJson(
-    WebApiLogicAppFuncDocumentBarcodeSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('DocumentBarCodeStyle', instance.documentBarCodeStyle);
-  return val;
-}
+        WebApiLogicAppFuncDocumentBarcodeSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.documentBarCodeStyle case final value?)
+        'DocumentBarCodeStyle': value,
+    };
 
 WebApiLogicAppFuncGetSettingsResponse
     _$WebApiLogicAppFuncGetSettingsResponseFromJson(
@@ -570,46 +891,55 @@ WebApiLogicAppFuncGetSettingsResponse
                   json['warehouses'] as Map<String, dynamic>),
           isTraining: json['isTraining'] as bool?,
           isQA: json['isQA'] as bool?,
-          hasDataWarehouse: json['hasDataWarehouse'] as bool?,
+          isDefault: json['isDefault'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
-    WebApiLogicAppFuncGetSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userSettings', instance.userSettings?.toJson());
-  writeNotNull('customFields', instance.customFields?.toJson());
-  writeNotNull('customForms', instance.customForms?.toJson());
-  writeNotNull('defaultSettings', instance.defaultSettings?.toJson());
-  writeNotNull('inventorySettings', instance.inventorySettings?.toJson());
-  writeNotNull('consignmentSettings', instance.consignmentSettings?.toJson());
-  writeNotNull('systemSettings', instance.systemSettings?.toJson());
-  writeNotNull('department', instance.department?.toJson());
-  writeNotNull(
-      'documentBarcodeSettings', instance.documentBarcodeSettings?.toJson());
-  writeNotNull('systemNumbers', instance.systemNumbers?.toJson());
-  writeNotNull('warehouses', instance.warehouses?.toJson());
-  writeNotNull('isTraining', instance.isTraining);
-  writeNotNull('isQA', instance.isQA);
-  writeNotNull('hasDataWarehouse', instance.hasDataWarehouse);
-  return val;
-}
+        WebApiLogicAppFuncGetSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.userSettings?.toJson() case final value?)
+        'userSettings': value,
+      if (instance.customFields?.toJson() case final value?)
+        'customFields': value,
+      if (instance.customForms?.toJson() case final value?)
+        'customForms': value,
+      if (instance.defaultSettings?.toJson() case final value?)
+        'defaultSettings': value,
+      if (instance.inventorySettings?.toJson() case final value?)
+        'inventorySettings': value,
+      if (instance.consignmentSettings?.toJson() case final value?)
+        'consignmentSettings': value,
+      if (instance.systemSettings?.toJson() case final value?)
+        'systemSettings': value,
+      if (instance.department?.toJson() case final value?) 'department': value,
+      if (instance.documentBarcodeSettings?.toJson() case final value?)
+        'documentBarcodeSettings': value,
+      if (instance.systemNumbers?.toJson() case final value?)
+        'systemNumbers': value,
+      if (instance.warehouses?.toJson() case final value?) 'warehouses': value,
+      if (instance.isTraining case final value?) 'isTraining': value,
+      if (instance.isQA case final value?) 'isQA': value,
+      if (instance.isDefault case final value?) 'isDefault': value,
+    };
 
 WebApiLogicAppFuncInventorySettingsResponse
     _$WebApiLogicAppFuncInventorySettingsResponseFromJson(
             Map<String, dynamic> json) =>
         WebApiLogicAppFuncInventorySettingsResponse(
           iCodeMask: json['ICodeMask'] as String?,
+          padICodeWithZeros: json['PadICodeWithZeros'] as bool?,
           userAssignedICodes: json['UserAssignedICodes'] as bool?,
           enable3WeekPricing: json['Enable3WeekPricing'] as bool?,
+          enableTieredWeekPricing: json['EnableTieredWeekPricing'] as bool?,
+          tier1Name: json['Tier1Name'] as String?,
+          tier2Name: json['Tier2Name'] as String?,
+          tier3Name: json['Tier3Name'] as String?,
+          tier4Name: json['Tier4Name'] as String?,
+          tier5Name: json['Tier5Name'] as String?,
           autoUpdateInventoryMetricImperialDimensions:
               json['AutoUpdateInventoryMetricImperialDimensions'] as bool?,
+          convertDimensionsToSmallestUnit:
+              json['ConvertDimensionsToSmallestUnit'] as bool?,
           autoSortInventoryByICode: json['AutoSortInventoryByICode'] as bool?,
           enableConsignment: json['EnableConsignment'] as bool?,
           enableLease: json['EnableLease'] as bool?,
@@ -631,46 +961,60 @@ WebApiLogicAppFuncInventorySettingsResponse
               json['FixedAssetTransferOwnership'] as bool?,
           enableInventoryCertification:
               json['EnableInventoryCertification'] as bool?,
+          trackItemsInRooms: json['TrackItemsInRooms'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
-    WebApiLogicAppFuncInventorySettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ICodeMask', instance.iCodeMask);
-  writeNotNull('UserAssignedICodes', instance.userAssignedICodes);
-  writeNotNull('Enable3WeekPricing', instance.enable3WeekPricing);
-  writeNotNull('AutoUpdateInventoryMetricImperialDimensions',
-      instance.autoUpdateInventoryMetricImperialDimensions);
-  writeNotNull('AutoSortInventoryByICode', instance.autoSortInventoryByICode);
-  writeNotNull('EnableConsignment', instance.enableConsignment);
-  writeNotNull('EnableLease', instance.enableLease);
-  writeNotNull('DefaultRentalSaleRetiredReasonId',
-      instance.defaultRentalSaleRetiredReasonId);
-  writeNotNull('DefaultRentalSaleRetiredReason',
-      instance.defaultRentalSaleRetiredReason);
-  writeNotNull('DefaultLossAndDamageRetiredReasonId',
-      instance.defaultLossAndDamageRetiredReasonId);
-  writeNotNull('DefaultLossAndDamageRetiredReason',
-      instance.defaultLossAndDamageRetiredReason);
-  writeNotNull('DefaultRentalQuantityInventoryCostCalculation',
-      instance.defaultRentalQuantityInventoryCostCalculation);
-  writeNotNull('DefaultSalesQuantityInventoryCostCalculation',
-      instance.defaultSalesQuantityInventoryCostCalculation);
-  writeNotNull('DefaultPartsQuantityInventoryCostCalculation',
-      instance.defaultPartsQuantityInventoryCostCalculation);
-  writeNotNull(
-      'FixedAssetTransferOwnership', instance.fixedAssetTransferOwnership);
-  writeNotNull(
-      'EnableInventoryCertification', instance.enableInventoryCertification);
-  return val;
-}
+        WebApiLogicAppFuncInventorySettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.iCodeMask case final value?) 'ICodeMask': value,
+      if (instance.padICodeWithZeros case final value?)
+        'PadICodeWithZeros': value,
+      if (instance.userAssignedICodes case final value?)
+        'UserAssignedICodes': value,
+      if (instance.enable3WeekPricing case final value?)
+        'Enable3WeekPricing': value,
+      if (instance.enableTieredWeekPricing case final value?)
+        'EnableTieredWeekPricing': value,
+      if (instance.tier1Name case final value?) 'Tier1Name': value,
+      if (instance.tier2Name case final value?) 'Tier2Name': value,
+      if (instance.tier3Name case final value?) 'Tier3Name': value,
+      if (instance.tier4Name case final value?) 'Tier4Name': value,
+      if (instance.tier5Name case final value?) 'Tier5Name': value,
+      if (instance.autoUpdateInventoryMetricImperialDimensions
+          case final value?)
+        'AutoUpdateInventoryMetricImperialDimensions': value,
+      if (instance.convertDimensionsToSmallestUnit case final value?)
+        'ConvertDimensionsToSmallestUnit': value,
+      if (instance.autoSortInventoryByICode case final value?)
+        'AutoSortInventoryByICode': value,
+      if (instance.enableConsignment case final value?)
+        'EnableConsignment': value,
+      if (instance.enableLease case final value?) 'EnableLease': value,
+      if (instance.defaultRentalSaleRetiredReasonId case final value?)
+        'DefaultRentalSaleRetiredReasonId': value,
+      if (instance.defaultRentalSaleRetiredReason case final value?)
+        'DefaultRentalSaleRetiredReason': value,
+      if (instance.defaultLossAndDamageRetiredReasonId case final value?)
+        'DefaultLossAndDamageRetiredReasonId': value,
+      if (instance.defaultLossAndDamageRetiredReason case final value?)
+        'DefaultLossAndDamageRetiredReason': value,
+      if (instance.defaultRentalQuantityInventoryCostCalculation
+          case final value?)
+        'DefaultRentalQuantityInventoryCostCalculation': value,
+      if (instance.defaultSalesQuantityInventoryCostCalculation
+          case final value?)
+        'DefaultSalesQuantityInventoryCostCalculation': value,
+      if (instance.defaultPartsQuantityInventoryCostCalculation
+          case final value?)
+        'DefaultPartsQuantityInventoryCostCalculation': value,
+      if (instance.fixedAssetTransferOwnership case final value?)
+        'FixedAssetTransferOwnership': value,
+      if (instance.enableInventoryCertification case final value?)
+        'EnableInventoryCertification': value,
+      if (instance.trackItemsInRooms case final value?)
+        'TrackItemsInRooms': value,
+    };
 
 WebApiLogicAppFuncSessionDeal _$WebApiLogicAppFuncSessionDealFromJson(
         Map<String, dynamic> json) =>
@@ -680,19 +1024,11 @@ WebApiLogicAppFuncSessionDeal _$WebApiLogicAppFuncSessionDealFromJson(
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionDealToJson(
-    WebApiLogicAppFuncSessionDeal instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dealid', instance.dealid);
-  writeNotNull('deal', instance.deal);
-  return val;
-}
+        WebApiLogicAppFuncSessionDeal instance) =>
+    <String, dynamic>{
+      if (instance.dealid case final value?) 'dealid': value,
+      if (instance.deal case final value?) 'deal': value,
+    };
 
 WebApiLogicAppFuncSessionDepartment
     _$WebApiLogicAppFuncSessionDepartmentFromJson(Map<String, dynamic> json) =>
@@ -702,19 +1038,11 @@ WebApiLogicAppFuncSessionDepartment
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionDepartmentToJson(
-    WebApiLogicAppFuncSessionDepartment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('departmentid', instance.departmentid);
-  writeNotNull('department', instance.department);
-  return val;
-}
+        WebApiLogicAppFuncSessionDepartment instance) =>
+    <String, dynamic>{
+      if (instance.departmentid case final value?) 'departmentid': value,
+      if (instance.department case final value?) 'department': value,
+    };
 
 WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
         Map<String, dynamic> json) =>
@@ -761,65 +1089,77 @@ WebApiLogicAppFuncSessionLocation _$WebApiLogicAppFuncSessionLocationFromJson(
       defaultcombinedpoordertypeid:
           json['defaultcombinedpoordertypeid'] as String?,
       defaultcombinedpoordertype: json['defaultcombinedpoordertype'] as String?,
+      defaultdealoutdeliverytype: json['defaultdealoutdeliverytype'] as String?,
+      defaultdealindeliverytype: json['defaultdealindeliverytype'] as String?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionLocationToJson(
-    WebApiLogicAppFuncSessionLocation instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('locationid', instance.locationid);
-  writeNotNull('location', instance.location);
-  writeNotNull('locationcode', instance.locationcode);
-  writeNotNull('companyname', instance.companyname);
-  writeNotNull('locationcolor', instance.locationcolor);
-  writeNotNull('ratetype', instance.ratetype);
-  writeNotNull('ratetypedisplay', instance.ratetypedisplay);
-  writeNotNull('defaultcurrency', instance.defaultcurrency);
-  writeNotNull('defaultcurrencyid', instance.defaultcurrencyid);
-  writeNotNull('defaultcurrencycode', instance.defaultcurrencycode);
-  writeNotNull('defaultcurrencysymbol', instance.defaultcurrencysymbol);
-  writeNotNull('defaultpaymentby', instance.defaultpaymentby);
-  writeNotNull('defaulttaxoptionid', instance.defaulttaxoptionid);
-  writeNotNull('defaulttaxoption', instance.defaulttaxoption);
-  writeNotNull('countryid', instance.countryid);
-  writeNotNull('country', instance.country);
-  writeNotNull('countrycodeisoalpha2', instance.countrycodeisoalpha2);
-  writeNotNull('phone', instance.phone);
-  writeNotNull('useorderlocationbydefault', instance.useorderlocationbydefault);
-  writeNotNull('defaultrepairpotypeid', instance.defaultrepairpotypeid);
-  writeNotNull('defaultrepairpotype', instance.defaultrepairpotype);
-  writeNotNull('emailinvoicetoorderedby', instance.emailinvoicetoorderedby);
-  writeNotNull(
-      'emailinvoicetoaccountspayable', instance.emailinvoicetoaccountspayable);
-  writeNotNull('defaultpurchasepotypeid', instance.defaultpurchasepotypeid);
-  writeNotNull('defaultpurchasepotype', instance.defaultpurchasepotype);
-  writeNotNull(
-      'defaultsubrentalpoordertypeid', instance.defaultsubrentalpoordertypeid);
-  writeNotNull(
-      'defaultsubrentalpoordertype', instance.defaultsubrentalpoordertype);
-  writeNotNull(
-      'defaultsubsalespoordertypeid', instance.defaultsubsalespoordertypeid);
-  writeNotNull(
-      'defaultsubsalespoordertype', instance.defaultsubsalespoordertype);
-  writeNotNull(
-      'defaultsubmiscpoordertypeid', instance.defaultsubmiscpoordertypeid);
-  writeNotNull('defaultsubmiscpoordertype', instance.defaultsubmiscpoordertype);
-  writeNotNull(
-      'defaultsublaborpoordertypeid', instance.defaultsublaborpoordertypeid);
-  writeNotNull(
-      'defaultsublaborpoordertype', instance.defaultsublaborpoordertype);
-  writeNotNull(
-      'defaultcombinedpoordertypeid', instance.defaultcombinedpoordertypeid);
-  writeNotNull(
-      'defaultcombinedpoordertype', instance.defaultcombinedpoordertype);
-  return val;
-}
+        WebApiLogicAppFuncSessionLocation instance) =>
+    <String, dynamic>{
+      if (instance.locationid case final value?) 'locationid': value,
+      if (instance.location case final value?) 'location': value,
+      if (instance.locationcode case final value?) 'locationcode': value,
+      if (instance.companyname case final value?) 'companyname': value,
+      if (instance.locationcolor case final value?) 'locationcolor': value,
+      if (instance.ratetype case final value?) 'ratetype': value,
+      if (instance.ratetypedisplay case final value?) 'ratetypedisplay': value,
+      if (instance.defaultcurrency case final value?) 'defaultcurrency': value,
+      if (instance.defaultcurrencyid case final value?)
+        'defaultcurrencyid': value,
+      if (instance.defaultcurrencycode case final value?)
+        'defaultcurrencycode': value,
+      if (instance.defaultcurrencysymbol case final value?)
+        'defaultcurrencysymbol': value,
+      if (instance.defaultpaymentby case final value?)
+        'defaultpaymentby': value,
+      if (instance.defaulttaxoptionid case final value?)
+        'defaulttaxoptionid': value,
+      if (instance.defaulttaxoption case final value?)
+        'defaulttaxoption': value,
+      if (instance.countryid case final value?) 'countryid': value,
+      if (instance.country case final value?) 'country': value,
+      if (instance.countrycodeisoalpha2 case final value?)
+        'countrycodeisoalpha2': value,
+      if (instance.phone case final value?) 'phone': value,
+      if (instance.useorderlocationbydefault case final value?)
+        'useorderlocationbydefault': value,
+      if (instance.defaultrepairpotypeid case final value?)
+        'defaultrepairpotypeid': value,
+      if (instance.defaultrepairpotype case final value?)
+        'defaultrepairpotype': value,
+      if (instance.emailinvoicetoorderedby case final value?)
+        'emailinvoicetoorderedby': value,
+      if (instance.emailinvoicetoaccountspayable case final value?)
+        'emailinvoicetoaccountspayable': value,
+      if (instance.defaultpurchasepotypeid case final value?)
+        'defaultpurchasepotypeid': value,
+      if (instance.defaultpurchasepotype case final value?)
+        'defaultpurchasepotype': value,
+      if (instance.defaultsubrentalpoordertypeid case final value?)
+        'defaultsubrentalpoordertypeid': value,
+      if (instance.defaultsubrentalpoordertype case final value?)
+        'defaultsubrentalpoordertype': value,
+      if (instance.defaultsubsalespoordertypeid case final value?)
+        'defaultsubsalespoordertypeid': value,
+      if (instance.defaultsubsalespoordertype case final value?)
+        'defaultsubsalespoordertype': value,
+      if (instance.defaultsubmiscpoordertypeid case final value?)
+        'defaultsubmiscpoordertypeid': value,
+      if (instance.defaultsubmiscpoordertype case final value?)
+        'defaultsubmiscpoordertype': value,
+      if (instance.defaultsublaborpoordertypeid case final value?)
+        'defaultsublaborpoordertypeid': value,
+      if (instance.defaultsublaborpoordertype case final value?)
+        'defaultsublaborpoordertype': value,
+      if (instance.defaultcombinedpoordertypeid case final value?)
+        'defaultcombinedpoordertypeid': value,
+      if (instance.defaultcombinedpoordertype case final value?)
+        'defaultcombinedpoordertype': value,
+      if (instance.defaultdealoutdeliverytype case final value?)
+        'defaultdealoutdeliverytype': value,
+      if (instance.defaultdealindeliverytype case final value?)
+        'defaultdealindeliverytype': value,
+    };
 
 WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
         Map<String, dynamic> json) =>
@@ -833,8 +1173,8 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
       addsignaturetodraft: json['addsignaturetodraft'] as bool?,
       fullname: json['fullname'] as String?,
       name: json['name'] as String?,
-      browsedefaultrows: json['browsedefaultrows'] as int?,
-      griddefaultrows: json['griddefaultrows'] as int?,
+      browsedefaultrows: (json['browsedefaultrows'] as num?)?.toInt(),
+      griddefaultrows: (json['griddefaultrows'] as num?)?.toInt(),
       applicationtheme: json['applicationtheme'] as String?,
       locale: json['locale'] as String?,
       locationid: json['locationid'] as String?,
@@ -846,7 +1186,7 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
       departmentid: json['departmentid'] as String?,
       department: json['department'] as String?,
       webadministrator: json['webadministrator'] as bool?,
-      firstdayofweek: json['firstdayofweek'] as int?,
+      firstdayofweek: (json['firstdayofweek'] as num?)?.toInt(),
       rentalinventorydepartmentid:
           json['rentalinventorydepartmentid'] as String?,
       rentalinventorydepartment: json['rentalinventorydepartment'] as String?,
@@ -868,75 +1208,85 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
       enablecreatecontract: json['enablecreatecontract'] as bool?,
       qsallowapplyallqtyitems: json['qsallowapplyallqtyitems'] as bool?,
       allowcontractwithexceptions: json['allowcontractwithexceptions'] as bool?,
+      allowswapitems: json['allowswapitems'] as bool?,
       canInsertIntoActiveOrder: json['CanInsertIntoActiveOrder'] as bool?,
-      creditCardPinPadId: json['CreditCardPinPadId'] as int?,
+      creditCardPinPadId: (json['CreditCardPinPadId'] as num?)?.toInt(),
       creditCardPinPad: json['CreditCardPinPad'] as String?,
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
-    WebApiLogicAppFuncSessionUser instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('webusersid', instance.webusersid);
-  writeNotNull('usersid', instance.usersid);
-  writeNotNull('contactid', instance.contactid);
-  writeNotNull('usertype', instance.usertype);
-  writeNotNull('email', instance.email);
-  writeNotNull('emailapp', instance.emailapp);
-  writeNotNull('addsignaturetodraft', instance.addsignaturetodraft);
-  writeNotNull('fullname', instance.fullname);
-  writeNotNull('name', instance.name);
-  writeNotNull('browsedefaultrows', instance.browsedefaultrows);
-  writeNotNull('griddefaultrows', instance.griddefaultrows);
-  writeNotNull('applicationtheme', instance.applicationtheme);
-  writeNotNull('locale', instance.locale);
-  writeNotNull('locationid', instance.locationid);
-  writeNotNull('location', instance.location);
-  writeNotNull('languageid', instance.languageid);
-  writeNotNull('language', instance.language);
-  writeNotNull('warehouseid', instance.warehouseid);
-  writeNotNull('warehouse', instance.warehouse);
-  writeNotNull('departmentid', instance.departmentid);
-  writeNotNull('department', instance.department);
-  writeNotNull('webadministrator', instance.webadministrator);
-  writeNotNull('firstdayofweek', instance.firstdayofweek);
-  writeNotNull(
-      'rentalinventorydepartmentid', instance.rentalinventorydepartmentid);
-  writeNotNull('rentalinventorydepartment', instance.rentalinventorydepartment);
-  writeNotNull(
-      'salesinventorydepartmentid', instance.salesinventorydepartmentid);
-  writeNotNull('salesinventorydepartment', instance.salesinventorydepartment);
-  writeNotNull(
-      'partsinventorydepartmentid', instance.partsinventorydepartmentid);
-  writeNotNull('partsinventorydepartment', instance.partsinventorydepartment);
-  writeNotNull(
-      'transportationinvdepartmentid', instance.transportationinvdepartmentid);
-  writeNotNull(
-      'transportationinvdepartment', instance.transportationinvdepartment);
-  writeNotNull(
-      'laborinventorydepartmentid', instance.laborinventorydepartmentid);
-  writeNotNull('laborinventorydepartment', instance.laborinventorydepartment);
-  writeNotNull('miscinventorydepartmentid', instance.miscinventorydepartmentid);
-  writeNotNull('miscinventorydepartment', instance.miscinventorydepartment);
-  writeNotNull(
-      'spaceinventorydepartmentid', instance.spaceinventorydepartmentid);
-  writeNotNull('spaceinventorydepartment', instance.spaceinventorydepartment);
-  writeNotNull('iscrew', instance.iscrew);
-  writeNotNull('enablecreatecontract', instance.enablecreatecontract);
-  writeNotNull('qsallowapplyallqtyitems', instance.qsallowapplyallqtyitems);
-  writeNotNull(
-      'allowcontractwithexceptions', instance.allowcontractwithexceptions);
-  writeNotNull('CanInsertIntoActiveOrder', instance.canInsertIntoActiveOrder);
-  writeNotNull('CreditCardPinPadId', instance.creditCardPinPadId);
-  writeNotNull('CreditCardPinPad', instance.creditCardPinPad);
-  return val;
-}
+        WebApiLogicAppFuncSessionUser instance) =>
+    <String, dynamic>{
+      if (instance.webusersid case final value?) 'webusersid': value,
+      if (instance.usersid case final value?) 'usersid': value,
+      if (instance.contactid case final value?) 'contactid': value,
+      if (instance.usertype case final value?) 'usertype': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.emailapp case final value?) 'emailapp': value,
+      if (instance.addsignaturetodraft case final value?)
+        'addsignaturetodraft': value,
+      if (instance.fullname case final value?) 'fullname': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.browsedefaultrows case final value?)
+        'browsedefaultrows': value,
+      if (instance.griddefaultrows case final value?) 'griddefaultrows': value,
+      if (instance.applicationtheme case final value?)
+        'applicationtheme': value,
+      if (instance.locale case final value?) 'locale': value,
+      if (instance.locationid case final value?) 'locationid': value,
+      if (instance.location case final value?) 'location': value,
+      if (instance.languageid case final value?) 'languageid': value,
+      if (instance.language case final value?) 'language': value,
+      if (instance.warehouseid case final value?) 'warehouseid': value,
+      if (instance.warehouse case final value?) 'warehouse': value,
+      if (instance.departmentid case final value?) 'departmentid': value,
+      if (instance.department case final value?) 'department': value,
+      if (instance.webadministrator case final value?)
+        'webadministrator': value,
+      if (instance.firstdayofweek case final value?) 'firstdayofweek': value,
+      if (instance.rentalinventorydepartmentid case final value?)
+        'rentalinventorydepartmentid': value,
+      if (instance.rentalinventorydepartment case final value?)
+        'rentalinventorydepartment': value,
+      if (instance.salesinventorydepartmentid case final value?)
+        'salesinventorydepartmentid': value,
+      if (instance.salesinventorydepartment case final value?)
+        'salesinventorydepartment': value,
+      if (instance.partsinventorydepartmentid case final value?)
+        'partsinventorydepartmentid': value,
+      if (instance.partsinventorydepartment case final value?)
+        'partsinventorydepartment': value,
+      if (instance.transportationinvdepartmentid case final value?)
+        'transportationinvdepartmentid': value,
+      if (instance.transportationinvdepartment case final value?)
+        'transportationinvdepartment': value,
+      if (instance.laborinventorydepartmentid case final value?)
+        'laborinventorydepartmentid': value,
+      if (instance.laborinventorydepartment case final value?)
+        'laborinventorydepartment': value,
+      if (instance.miscinventorydepartmentid case final value?)
+        'miscinventorydepartmentid': value,
+      if (instance.miscinventorydepartment case final value?)
+        'miscinventorydepartment': value,
+      if (instance.spaceinventorydepartmentid case final value?)
+        'spaceinventorydepartmentid': value,
+      if (instance.spaceinventorydepartment case final value?)
+        'spaceinventorydepartment': value,
+      if (instance.iscrew case final value?) 'iscrew': value,
+      if (instance.enablecreatecontract case final value?)
+        'enablecreatecontract': value,
+      if (instance.qsallowapplyallqtyitems case final value?)
+        'qsallowapplyallqtyitems': value,
+      if (instance.allowcontractwithexceptions case final value?)
+        'allowcontractwithexceptions': value,
+      if (instance.allowswapitems case final value?) 'allowswapitems': value,
+      if (instance.canInsertIntoActiveOrder case final value?)
+        'CanInsertIntoActiveOrder': value,
+      if (instance.creditCardPinPadId case final value?)
+        'CreditCardPinPadId': value,
+      if (instance.creditCardPinPad case final value?)
+        'CreditCardPinPad': value,
+    };
 
 WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
         Map<String, dynamic> json) =>
@@ -951,7 +1301,8 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
       storagecontainerrescanrequired:
           json['storagecontainerrescanrequired'] as bool?,
       quikreceiptenable: json['quikreceiptenable'] as bool?,
-      transferavailabilitydays: json['transferavailabilitydays'] as int?,
+      transferavailabilitydays:
+          (json['transferavailabilitydays'] as num?)?.toInt(),
       regionid: json['regionid'] as String?,
       region: json['region'] as String?,
       regionwarehouseids: json['regionwarehouseids'] as String?,
@@ -960,35 +1311,32 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
     );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
-    WebApiLogicAppFuncSessionWarehouse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('warehouseid', instance.warehouseid);
-  writeNotNull('warehouse', instance.warehouse);
-  writeNotNull('warehousecode', instance.warehousecode);
-  writeNotNull(
-      'promptforcheckoutexceptions', instance.promptforcheckoutexceptions);
-  writeNotNull(
-      'promptforcheckinexceptions', instance.promptforcheckinexceptions);
-  writeNotNull(
-      'storagecontainerstagingenable', instance.storagecontainerstagingenable);
-  writeNotNull('storagecontainerrescanrequired',
-      instance.storagecontainerrescanrequired);
-  writeNotNull('quikreceiptenable', instance.quikreceiptenable);
-  writeNotNull('transferavailabilitydays', instance.transferavailabilitydays);
-  writeNotNull('regionid', instance.regionid);
-  writeNotNull('region', instance.region);
-  writeNotNull('regionwarehouseids', instance.regionwarehouseids);
-  writeNotNull('regionwarehouses', instance.regionwarehouses);
-  writeNotNull('internalorderdealid', instance.internalorderdealid);
-  return val;
-}
+        WebApiLogicAppFuncSessionWarehouse instance) =>
+    <String, dynamic>{
+      if (instance.warehouseid case final value?) 'warehouseid': value,
+      if (instance.warehouse case final value?) 'warehouse': value,
+      if (instance.warehousecode case final value?) 'warehousecode': value,
+      if (instance.promptforcheckoutexceptions case final value?)
+        'promptforcheckoutexceptions': value,
+      if (instance.promptforcheckinexceptions case final value?)
+        'promptforcheckinexceptions': value,
+      if (instance.storagecontainerstagingenable case final value?)
+        'storagecontainerstagingenable': value,
+      if (instance.storagecontainerrescanrequired case final value?)
+        'storagecontainerrescanrequired': value,
+      if (instance.quikreceiptenable case final value?)
+        'quikreceiptenable': value,
+      if (instance.transferavailabilitydays case final value?)
+        'transferavailabilitydays': value,
+      if (instance.regionid case final value?) 'regionid': value,
+      if (instance.region case final value?) 'region': value,
+      if (instance.regionwarehouseids case final value?)
+        'regionwarehouseids': value,
+      if (instance.regionwarehouses case final value?)
+        'regionwarehouses': value,
+      if (instance.internalorderdealid case final value?)
+        'internalorderdealid': value,
+    };
 
 WebApiLogicAppFuncSystemNumbersModel
     _$WebApiLogicAppFuncSystemNumbersModelFromJson(Map<String, dynamic> json) =>
@@ -998,19 +1346,12 @@ WebApiLogicAppFuncSystemNumbersModel
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersModelToJson(
-    WebApiLogicAppFuncSystemNumbersModel instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Module', instance.module);
-  writeNotNull('IsAssignedByUser', instance.isAssignedByUser);
-  return val;
-}
+        WebApiLogicAppFuncSystemNumbersModel instance) =>
+    <String, dynamic>{
+      if (instance.module case final value?) 'Module': value,
+      if (instance.isAssignedByUser case final value?)
+        'IsAssignedByUser': value,
+    };
 
 WebApiLogicAppFuncSystemNumbersResponse
     _$WebApiLogicAppFuncSystemNumbersResponseFromJson(
@@ -1024,19 +1365,12 @@ WebApiLogicAppFuncSystemNumbersResponse
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemNumbersResponseToJson(
-    WebApiLogicAppFuncSystemNumbersResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'SystemNumbers', instance.systemNumbers?.map((e) => e.toJson()).toList());
-  return val;
-}
+        WebApiLogicAppFuncSystemNumbersResponse instance) =>
+    <String, dynamic>{
+      if (instance.systemNumbers?.map((e) => e.toJson()).toList()
+          case final value?)
+        'SystemNumbers': value,
+    };
 
 WebApiLogicAppFuncSystemSettingsResponse
     _$WebApiLogicAppFuncSystemSettingsResponseFromJson(
@@ -1066,52 +1400,75 @@ WebApiLogicAppFuncSystemSettingsResponse
           allCaps: json['AllCaps'] as bool?,
           enableQuikLocate: json['EnableQuikLocate'] as bool?,
           departmentFilter: json['DepartmentFilter'] as bool?,
+          defaultBillingSelectAllOrders:
+              json['DefaultBillingSelectAllOrders'] as bool?,
+          defaultProcessConsignmentSelectAllInvoices:
+              json['DefaultProcessConsignmentSelectAllInvoices'] as bool?,
+          enableCrew: json['EnableCrew'] as bool?,
+          disableHelpIcon: json['DisableHelpIcon'] as bool?,
+          consolidateOwnedAndSubbedLineItems:
+              json['ConsolidateOwnedAndSubbedLineItems'] as bool?,
+          setSubQuantityToZero: json['SetSubQuantityToZero'] as bool?,
+          promptUserOnPasteLineItems:
+              json['PromptUserOnPasteLineItems'] as bool?,
+          overrideHelpURL: json['OverrideHelpURL'] as String?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
-    WebApiLogicAppFuncSystemSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AllowDeleteInvoices', instance.allowDeleteInvoices);
-  writeNotNull('AllowInvoiceDateChange', instance.allowInvoiceDateChange);
-  writeNotNull('EnableReceipts', instance.enableReceipts);
-  writeNotNull('EnableOriginalShow', instance.enableOriginalShow);
-  writeNotNull('EnablePayments', instance.enablePayments);
-  writeNotNull('EnableVendorInvoice', instance.enableVendorInvoice);
-  writeNotNull('EnablePropsWardrobe', instance.enablePropsWardrobe);
-  writeNotNull('EnableSetsWalls', instance.enableSetsWalls);
-  writeNotNull('ShareDealsAcrossOfficeLocations',
-      instance.shareDealsAcrossOfficeLocations);
-  writeNotNull('SynchronizeCustomerStatusAndCreditStatus',
-      instance.synchronizeCustomerStatusAndCreditStatus);
-  writeNotNull('SynchronizeDealStatusAndCreditStatus',
-      instance.synchronizeDealStatusAndCreditStatus);
-  writeNotNull('SystemName', instance.systemName);
-  writeNotNull('CompanyName', instance.companyName);
-  writeNotNull(
-      'IsVendorNumberAssignedByUser', instance.isVendorNumberAssignedByUser);
-  writeNotNull('QuoteOrderMessageFormat', instance.quoteOrderMessageFormat);
-  writeNotNull('DataLanguageId', instance.dataLanguageId);
-  writeNotNull('DataLanguage', instance.dataLanguage);
-  writeNotNull('AllCaps', instance.allCaps);
-  writeNotNull('EnableQuikLocate', instance.enableQuikLocate);
-  writeNotNull('DepartmentFilter', instance.departmentFilter);
-  return val;
-}
+        WebApiLogicAppFuncSystemSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.allowDeleteInvoices case final value?)
+        'AllowDeleteInvoices': value,
+      if (instance.allowInvoiceDateChange case final value?)
+        'AllowInvoiceDateChange': value,
+      if (instance.enableReceipts case final value?) 'EnableReceipts': value,
+      if (instance.enableOriginalShow case final value?)
+        'EnableOriginalShow': value,
+      if (instance.enablePayments case final value?) 'EnablePayments': value,
+      if (instance.enableVendorInvoice case final value?)
+        'EnableVendorInvoice': value,
+      if (instance.enablePropsWardrobe case final value?)
+        'EnablePropsWardrobe': value,
+      if (instance.enableSetsWalls case final value?) 'EnableSetsWalls': value,
+      if (instance.shareDealsAcrossOfficeLocations case final value?)
+        'ShareDealsAcrossOfficeLocations': value,
+      if (instance.synchronizeCustomerStatusAndCreditStatus case final value?)
+        'SynchronizeCustomerStatusAndCreditStatus': value,
+      if (instance.synchronizeDealStatusAndCreditStatus case final value?)
+        'SynchronizeDealStatusAndCreditStatus': value,
+      if (instance.systemName case final value?) 'SystemName': value,
+      if (instance.companyName case final value?) 'CompanyName': value,
+      if (instance.isVendorNumberAssignedByUser case final value?)
+        'IsVendorNumberAssignedByUser': value,
+      if (instance.quoteOrderMessageFormat case final value?)
+        'QuoteOrderMessageFormat': value,
+      if (instance.dataLanguageId case final value?) 'DataLanguageId': value,
+      if (instance.dataLanguage case final value?) 'DataLanguage': value,
+      if (instance.allCaps case final value?) 'AllCaps': value,
+      if (instance.enableQuikLocate case final value?)
+        'EnableQuikLocate': value,
+      if (instance.departmentFilter case final value?)
+        'DepartmentFilter': value,
+      if (instance.defaultBillingSelectAllOrders case final value?)
+        'DefaultBillingSelectAllOrders': value,
+      if (instance.defaultProcessConsignmentSelectAllInvoices case final value?)
+        'DefaultProcessConsignmentSelectAllInvoices': value,
+      if (instance.enableCrew case final value?) 'EnableCrew': value,
+      if (instance.disableHelpIcon case final value?) 'DisableHelpIcon': value,
+      if (instance.consolidateOwnedAndSubbedLineItems case final value?)
+        'ConsolidateOwnedAndSubbedLineItems': value,
+      if (instance.setSubQuantityToZero case final value?)
+        'SetSubQuantityToZero': value,
+      if (instance.promptUserOnPasteLineItems case final value?)
+        'PromptUserOnPasteLineItems': value,
+      if (instance.overrideHelpURL case final value?) 'OverrideHelpURL': value,
+    };
 
 WebApiLogicAppFuncUserSettingsResponse
     _$WebApiLogicAppFuncUserSettingsResponseFromJson(
             Map<String, dynamic> json) =>
         WebApiLogicAppFuncUserSettingsResponse(
-          successBase64Sound: json['SuccessBase64Sound'] as String?,
-          errorBase64Sound: json['ErrorBase64Sound'] as String?,
-          notificationBase64Sound: json['NotificationBase64Sound'] as String?,
+          soundProfileId: (json['SoundProfileId'] as num?)?.toInt(),
           webAdministrator: json['WebAdministrator'] as bool?,
           homeMenuGuid: json['HomeMenuGuid'] as String?,
           homeMenuPath: json['HomeMenuPath'] as String?,
@@ -1119,42 +1476,47 @@ WebApiLogicAppFuncUserSettingsResponse
               json['ReportsNavigationMenuVisible'] as bool?,
           settingsNavigationMenuVisible:
               json['SettingsNavigationMenuVisible'] as bool?,
+          showUnreservedQuotes: json['ShowUnreservedQuotes'] as bool?,
           mainMenuPinned: json['MainMenuPinned'] as bool?,
           quikActivitySetting: json['QuikActivitySetting'] as String?,
           favoritesJson: json['FavoritesJson'] as String?,
           emailSignature: json['EmailSignature'] as String?,
           availabilityPreference: json['AvailabilityPreference'] as String?,
           availabilityAllWarehouses: json['AvailabilityAllWarehouses'] as bool?,
+          quikSearchMode: json['QuikSearchMode'] as String?,
+          showRentalItemsOutOnly: json['ShowRentalItemsOutOnly'] as bool?,
+          autoPrintContract: json['AutoPrintContract'] as bool?,
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncUserSettingsResponseToJson(
-    WebApiLogicAppFuncUserSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('SuccessBase64Sound', instance.successBase64Sound);
-  writeNotNull('ErrorBase64Sound', instance.errorBase64Sound);
-  writeNotNull('NotificationBase64Sound', instance.notificationBase64Sound);
-  writeNotNull('WebAdministrator', instance.webAdministrator);
-  writeNotNull('HomeMenuGuid', instance.homeMenuGuid);
-  writeNotNull('HomeMenuPath', instance.homeMenuPath);
-  writeNotNull(
-      'ReportsNavigationMenuVisible', instance.reportsNavigationMenuVisible);
-  writeNotNull(
-      'SettingsNavigationMenuVisible', instance.settingsNavigationMenuVisible);
-  writeNotNull('MainMenuPinned', instance.mainMenuPinned);
-  writeNotNull('QuikActivitySetting', instance.quikActivitySetting);
-  writeNotNull('FavoritesJson', instance.favoritesJson);
-  writeNotNull('EmailSignature', instance.emailSignature);
-  writeNotNull('AvailabilityPreference', instance.availabilityPreference);
-  writeNotNull('AvailabilityAllWarehouses', instance.availabilityAllWarehouses);
-  return val;
-}
+        WebApiLogicAppFuncUserSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.soundProfileId case final value?) 'SoundProfileId': value,
+      if (instance.webAdministrator case final value?)
+        'WebAdministrator': value,
+      if (instance.homeMenuGuid case final value?) 'HomeMenuGuid': value,
+      if (instance.homeMenuPath case final value?) 'HomeMenuPath': value,
+      if (instance.reportsNavigationMenuVisible case final value?)
+        'ReportsNavigationMenuVisible': value,
+      if (instance.settingsNavigationMenuVisible case final value?)
+        'SettingsNavigationMenuVisible': value,
+      if (instance.showUnreservedQuotes case final value?)
+        'ShowUnreservedQuotes': value,
+      if (instance.mainMenuPinned case final value?) 'MainMenuPinned': value,
+      if (instance.quikActivitySetting case final value?)
+        'QuikActivitySetting': value,
+      if (instance.favoritesJson case final value?) 'FavoritesJson': value,
+      if (instance.emailSignature case final value?) 'EmailSignature': value,
+      if (instance.availabilityPreference case final value?)
+        'AvailabilityPreference': value,
+      if (instance.availabilityAllWarehouses case final value?)
+        'AvailabilityAllWarehouses': value,
+      if (instance.quikSearchMode case final value?) 'QuikSearchMode': value,
+      if (instance.showRentalItemsOutOnly case final value?)
+        'ShowRentalItemsOutOnly': value,
+      if (instance.autoPrintContract case final value?)
+        'AutoPrintContract': value,
+    };
 
 WebApiLogicAppFuncWarehouseResponse
     _$WebApiLogicAppFuncWarehouseResponseFromJson(Map<String, dynamic> json) =>
@@ -1163,18 +1525,10 @@ WebApiLogicAppFuncWarehouseResponse
         );
 
 Map<String, dynamic> _$WebApiLogicAppFuncWarehouseResponseToJson(
-    WebApiLogicAppFuncWarehouseResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('MultiWarehouse', instance.multiWarehouse);
-  return val;
-}
+        WebApiLogicAppFuncWarehouseResponse instance) =>
+    <String, dynamic>{
+      if (instance.multiWarehouse case final value?) 'MultiWarehouse': value,
+    };
 
 WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
     _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseFromJson(
@@ -1196,21 +1550,15 @@ WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponseToJson(
-        WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('location', instance.location?.toJson());
-  writeNotNull('warehouse', instance.warehouse?.toJson());
-  writeNotNull('department', instance.department?.toJson());
-  return val;
-}
+            WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+                instance) =>
+        <String, dynamic>{
+          if (instance.location?.toJson() case final value?) 'location': value,
+          if (instance.warehouse?.toJson() case final value?)
+            'warehouse': value,
+          if (instance.department?.toJson() case final value?)
+            'department': value,
+        };
 
 WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
     _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseFromJson(
@@ -1252,29 +1600,56 @@ WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountAccountControllerGetSessionResponseToJson(
-        WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+                instance) =>
+        <String, dynamic>{
+          if (instance.location?.toJson() case final value?) 'location': value,
+          if (instance.warehouse?.toJson() case final value?)
+            'warehouse': value,
+          if (instance.department?.toJson() case final value?)
+            'department': value,
+          if (instance.webUser?.toJson() case final value?) 'webUser': value,
+          if (instance.deal?.toJson() case final value?) 'deal': value,
+          if (instance.applicationtree?.toJson() case final value?)
+            'applicationtree': value,
+          if (instance.applicationOptions case final value?)
+            'applicationOptions': value,
+          if (instance.clientcode case final value?) 'clientcode': value,
+          if (instance.serverVersion case final value?) 'serverVersion': value,
+          if (instance.systemSettings?.toJson() case final value?)
+            'systemSettings': value,
+          if (instance.plugins case final value?) 'plugins': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesAccountServicesAccountForgotPasswordRequest
+    _$WebApiModulesAccountServicesAccountForgotPasswordRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountForgotPasswordRequest(
+          email: json['Email'] as String?,
+        );
 
-  writeNotNull('location', instance.location?.toJson());
-  writeNotNull('warehouse', instance.warehouse?.toJson());
-  writeNotNull('department', instance.department?.toJson());
-  writeNotNull('webUser', instance.webUser?.toJson());
-  writeNotNull('deal', instance.deal?.toJson());
-  writeNotNull('applicationtree', instance.applicationtree?.toJson());
-  writeNotNull('applicationOptions', instance.applicationOptions);
-  writeNotNull('clientcode', instance.clientcode);
-  writeNotNull('serverVersion', instance.serverVersion);
-  writeNotNull('systemSettings', instance.systemSettings?.toJson());
-  writeNotNull('plugins', instance.plugins);
-  return val;
-}
+Map<String,
+    dynamic> _$WebApiModulesAccountServicesAccountForgotPasswordRequestToJson(
+        WebApiModulesAccountServicesAccountForgotPasswordRequest instance) =>
+    <String, dynamic>{
+      if (instance.email case final value?) 'Email': value,
+    };
+
+WebApiModulesAccountServicesAccountForgotPasswordResponse
+    _$WebApiModulesAccountServicesAccountForgotPasswordResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountForgotPasswordResponse(
+          status: json['Status'] as String?,
+          message: json['Message'] as String?,
+        );
+
+Map<String,
+    dynamic> _$WebApiModulesAccountServicesAccountForgotPasswordResponseToJson(
+        WebApiModulesAccountServicesAccountForgotPasswordResponse instance) =>
+    <String, dynamic>{
+      if (instance.status case final value?) 'Status': value,
+      if (instance.message case final value?) 'Message': value,
+    };
 
 WebApiModulesAccountServicesAccountGetSettingsRequest
     _$WebApiModulesAccountServicesAccountGetSettingsRequestFromJson(
@@ -1287,20 +1662,46 @@ WebApiModulesAccountServicesAccountGetSettingsRequest
 
 Map<String, dynamic>
     _$WebApiModulesAccountServicesAccountGetSettingsRequestToJson(
-        WebApiModulesAccountServicesAccountGetSettingsRequest instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesAccountServicesAccountGetSettingsRequest instance) =>
+        <String, dynamic>{
+          if (instance.webUsersId case final value?) 'WebUsersId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.locationId case final value?) 'LocationId': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesAccountServicesAccountResetPasswordExternalRequest
+    _$WebApiModulesAccountServicesAccountResetPasswordExternalRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountResetPasswordExternalRequest(
+          newPassword: json['NewPassword'] as String,
+          token: json['Token'] as String,
+        );
 
-  writeNotNull('WebUsersId', instance.webUsersId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('LocationId', instance.locationId);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesAccountServicesAccountResetPasswordExternalRequestToJson(
+            WebApiModulesAccountServicesAccountResetPasswordExternalRequest
+                instance) =>
+        <String, dynamic>{
+          'NewPassword': instance.newPassword,
+          'Token': instance.token,
+        };
+
+WebApiModulesAccountServicesAccountResetPasswordExternalResponse
+    _$WebApiModulesAccountServicesAccountResetPasswordExternalResponseFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAccountServicesAccountResetPasswordExternalResponse(
+          status: json['Status'] as String?,
+          message: json['Message'] as String?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesAccountServicesAccountResetPasswordExternalResponseToJson(
+            WebApiModulesAccountServicesAccountResetPasswordExternalResponse
+                instance) =>
+        <String, dynamic>{
+          if (instance.status case final value?) 'Status': value,
+          if (instance.message case final value?) 'Message': value,
+        };
 
 WebApiModulesAccountServicesAccountResetPasswordRequest
     _$WebApiModulesAccountServicesAccountResetPasswordRequestFromJson(
@@ -1320,25 +1721,17 @@ WebApiModulesAccountServicesAccountResetPasswordResponse
     _$WebApiModulesAccountServicesAccountResetPasswordResponseFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAccountServicesAccountResetPasswordResponse(
-          status: json['Status'] as int?,
+          status: (json['Status'] as num?)?.toInt(),
           message: json['Message'] as String?,
         );
 
-Map<String, dynamic>
-    _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(
-        WebApiModulesAccountServicesAccountResetPasswordResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Status', instance.status);
-  writeNotNull('Message', instance.message);
-  return val;
-}
+Map<String,
+    dynamic> _$WebApiModulesAccountServicesAccountResetPasswordResponseToJson(
+        WebApiModulesAccountServicesAccountResetPasswordResponse instance) =>
+    <String, dynamic>{
+      if (instance.status case final value?) 'Status': value,
+      if (instance.message case final value?) 'Message': value,
+    };
 
 WebApiModulesAccountServicesAccountSystemSettingsResponse
     _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(
@@ -1355,29 +1748,39 @@ WebApiModulesAccountServicesAccountSystemSettingsResponse
           enableOriginalShow: json['EnableOriginalShow'] as bool?,
           enablePropsWardrobe: json['EnablePropsWardrobe'] as bool?,
           enableSetsWalls: json['EnableSetsWalls'] as bool?,
+          isStorefrontHosted: json['IsStorefrontHosted'] as bool?,
+          isStorefrontApiEnabled: json['IsStorefrontApiEnabled'] as bool?,
+          isUniversity: json['IsUniversity'] as bool?,
+          systemUTCDateTime: json['SystemUTCDateTime'] == null
+              ? null
+              : DateTime.parse(json['SystemUTCDateTime'] as String),
         );
 
-Map<String, dynamic>
-    _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(
-        WebApiModulesAccountServicesAccountSystemSettingsResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('DefaultUnitId', instance.defaultUnitId);
-  writeNotNull('DefaultRank', instance.defaultRank);
-  writeNotNull('UserAssignedICodes', instance.userAssignedICodes);
-  writeNotNull('QuikScanStageBySession', instance.quikScanStageBySession);
-  writeNotNull('BarcodeSkipPrefixes', instance.barcodeSkipPrefixes?.toJson());
-  writeNotNull('EnableOriginalShow', instance.enableOriginalShow);
-  writeNotNull('EnablePropsWardrobe', instance.enablePropsWardrobe);
-  writeNotNull('EnableSetsWalls', instance.enableSetsWalls);
-  return val;
-}
+Map<String,
+    dynamic> _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(
+        WebApiModulesAccountServicesAccountSystemSettingsResponse instance) =>
+    <String, dynamic>{
+      if (instance.defaultUnitId case final value?) 'DefaultUnitId': value,
+      if (instance.defaultRank case final value?) 'DefaultRank': value,
+      if (instance.userAssignedICodes case final value?)
+        'UserAssignedICodes': value,
+      if (instance.quikScanStageBySession case final value?)
+        'QuikScanStageBySession': value,
+      if (instance.barcodeSkipPrefixes?.toJson() case final value?)
+        'BarcodeSkipPrefixes': value,
+      if (instance.enableOriginalShow case final value?)
+        'EnableOriginalShow': value,
+      if (instance.enablePropsWardrobe case final value?)
+        'EnablePropsWardrobe': value,
+      if (instance.enableSetsWalls case final value?) 'EnableSetsWalls': value,
+      if (instance.isStorefrontHosted case final value?)
+        'IsStorefrontHosted': value,
+      if (instance.isStorefrontApiEnabled case final value?)
+        'IsStorefrontApiEnabled': value,
+      if (instance.isUniversity case final value?) 'IsUniversity': value,
+      if (instance.systemUTCDateTime?.toIso8601String() case final value?)
+        'SystemUTCDateTime': value,
+    };
 
 WebApiModulesAccountServicesJwtAzureADRequest
     _$WebApiModulesAccountServicesJwtAzureADRequestFromJson(
@@ -1391,87 +1794,144 @@ WebApiModulesAccountServicesJwtAzureADRequest
         );
 
 Map<String, dynamic> _$WebApiModulesAccountServicesJwtAzureADRequestToJson(
-    WebApiModulesAccountServicesJwtAzureADRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Email', instance.email);
-  writeNotNull('Token', instance.token);
-  writeNotNull('Tenant', instance.tenant);
-  writeNotNull('Audience', instance.audience);
-  writeNotNull('Issuer', instance.issuer);
-  return val;
-}
+        WebApiModulesAccountServicesJwtAzureADRequest instance) =>
+    <String, dynamic>{
+      if (instance.email case final value?) 'Email': value,
+      if (instance.token case final value?) 'Token': value,
+      if (instance.tenant case final value?) 'Tenant': value,
+      if (instance.audience case final value?) 'Audience': value,
+      if (instance.issuer case final value?) 'Issuer': value,
+    };
 
 WebApiModulesAccountServicesJwtOktaRequest
     _$WebApiModulesAccountServicesJwtOktaRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesAccountServicesJwtOktaRequest(
-          email: json['Email'] as String?,
           token: json['Token'] as String?,
+          issuer: json['Issuer'] as String?,
+          audience: json['Audience'] as String?,
         );
 
 Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaRequestToJson(
-    WebApiModulesAccountServicesJwtOktaRequest instance) {
-  final val = <String, dynamic>{};
+        WebApiModulesAccountServicesJwtOktaRequest instance) =>
+    <String, dynamic>{
+      if (instance.token case final value?) 'Token': value,
+      if (instance.issuer case final value?) 'Issuer': value,
+      if (instance.audience case final value?) 'Audience': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Email', instance.email);
-  writeNotNull('Token', instance.token);
-  return val;
-}
-
-WebApiModulesAccountServicesJwtOktaSessionRequest
-    _$WebApiModulesAccountServicesJwtOktaSessionRequestFromJson(
+WebApiModulesAdministratorTaskSchedulerTaskSteps
+    _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesAccountServicesJwtOktaSessionRequest(
-          token: json['Token'] as String?,
-          apiurl: json['Apiurl'] as String?,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps(
+          taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
+          taskId: (json['TaskId'] as num?)?.toInt(),
+          name: json['Name'] as String?,
+          stepNumber: (json['StepNumber'] as num?)?.toInt(),
+          type: json['Type'] as String?,
+          command: json['Command'] as String?,
+          onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
+          onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
+          onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
+          retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
+          retryInterval: (json['RetryInterval'] as num?)?.toInt(),
+          onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
+          onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
+          onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
+          outputFilename: json['OutputFilename'] as String?,
+          lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
+          lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
+          lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          urlIdentifier: json['UrlIdentifier'],
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          hasImport: json['_HasImport'] as bool?,
+          hasDocuments: json['_HasDocuments'] as bool?,
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
         );
 
-Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaSessionRequestToJson(
-    WebApiModulesAccountServicesJwtOktaSessionRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Token', instance.token);
-  writeNotNull('Apiurl', instance.apiurl);
-  return val;
-}
-
-WebApiModulesAccountServicesJwtOktaSessionResponseModel
-    _$WebApiModulesAccountServicesJwtOktaSessionResponseModelFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesAccountServicesJwtOktaSessionResponseModel(
-          status: json['Status'] as String?,
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesAccountServicesJwtOktaSessionResponseModelToJson(
-        WebApiModulesAccountServicesJwtOktaSessionResponseModel instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Status', instance.status);
-  return val;
-}
+Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
+        WebApiModulesAdministratorTaskSchedulerTaskSteps instance) =>
+    <String, dynamic>{
+      if (instance.taskStepsId case final value?) 'TaskStepsId': value,
+      if (instance.taskId case final value?) 'TaskId': value,
+      if (instance.name case final value?) 'Name': value,
+      if (instance.stepNumber case final value?) 'StepNumber': value,
+      if (instance.type case final value?) 'Type': value,
+      if (instance.command case final value?) 'Command': value,
+      if (instance.onSuccessActionDisplay case final value?)
+        'OnSuccessActionDisplay': value,
+      if (instance.onFailureActionDisplay case final value?)
+        'OnFailureActionDisplay': value,
+      if (instance.onSuccessAction case final value?) 'OnSuccessAction': value,
+      if (instance.retryAttempts case final value?) 'RetryAttempts': value,
+      if (instance.retryInterval case final value?) 'RetryInterval': value,
+      if (instance.onFailureAction case final value?) 'OnFailureAction': value,
+      if (instance.onSuccessTaskStepsId case final value?)
+        'OnSuccessTaskStepsId': value,
+      if (instance.onFailureTaskStepsId case final value?)
+        'OnFailureTaskStepsId': value,
+      if (instance.outputFilename case final value?) 'OutputFilename': value,
+      if (instance.lastRunOutcome case final value?) 'LastRunOutcome': value,
+      if (instance.lastRunDuration case final value?) 'LastRunDuration': value,
+      if (instance.lastRunRetries case final value?) 'LastRunRetries': value,
+      if (instance.dateStamp case final value?) 'DateStamp': value,
+      if (instance.auditNote case final value?) 'AuditNote': value,
+      if (instance.recordTitle case final value?) 'RecordTitle': value,
+      if (instance.urlIdentifier case final value?) 'UrlIdentifier': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        '_Fields': value,
+      if (instance.custom?.map((e) => e.toJson()).toList() case final value?)
+        '_Custom': value,
+      if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_DefaultFieldAttributes': value,
+      if (instance.original?.toJson() case final value?) '_Original': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+      if (instance.hasImport case final value?) '_HasImport': value,
+      if (instance.hasDocuments case final value?) '_HasDocuments': value,
+      if (instance.createdByUserId case final value?) 'CreatedByUserId': value,
+      if (instance.createdByUserName case final value?)
+        'CreatedByUserName': value,
+      if (instance.createdDateTime case final value?) 'CreatedDateTime': value,
+      if (instance.modifiedByUserId case final value?)
+        'ModifiedByUserId': value,
+      if (instance.modifiedByUserName case final value?)
+        'ModifiedByUserName': value,
+      if (instance.modifiedDateTime case final value?)
+        'ModifiedDateTime': value,
+    };

@@ -1,6 +1,26 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
+enum FwStandardSqlServerAttributesFwExcelOptions {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Required')
+  required('Required'),
+  @JsonValue('Recommended')
+  recommended('Recommended'),
+  @JsonValue('Optional')
+  optional('Optional'),
+  @JsonValue('Omit')
+  omit('Omit'),
+  @JsonValue('None')
+  none('None');
+
+  final String? value;
+
+  const FwStandardSqlServerAttributesFwExcelOptions(this.value);
+}
+
 enum FwStandardSqlServerFwDataTypes {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -70,6 +90,8 @@ enum WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypes {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
 
+  @JsonValue('NOTSET')
+  notset('NOTSET'),
   @JsonValue('TOKENIZEDCARDNUMBER')
   tokenizedcardnumber('TOKENIZEDCARDNUMBER'),
   @JsonValue('SAVEDCARD')
@@ -111,6 +133,21 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes 
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes(
+      this.value);
+}
+
+enum WebApiModulesPluginsCreditCardCreditCardPluginBinResponseStatusCodes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Ok')
+  ok('Ok'),
+  @JsonValue('Error')
+  error('Error');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginBinResponseStatusCodes(
       this.value);
 }
 
@@ -177,6 +214,21 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCo
       this.value);
 }
 
+enum WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponseStatusCodes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Ok')
+  ok('Ok'),
+  @JsonValue('Error')
+  error('Error');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponseStatusCodes(
+      this.value);
+}
+
 enum WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -237,6 +289,21 @@ enum WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes(
+      this.value);
+}
+
+enum WebApiModulesPluginsCreditCardProcessCreditCardCardUsageTypes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('CREDIT')
+  credit('CREDIT'),
+  @JsonValue('DEBIT')
+  debit('DEBIT');
+
+  final String? value;
+
+  const WebApiModulesPluginsCreditCardProcessCreditCardCardUsageTypes(
       this.value);
 }
 

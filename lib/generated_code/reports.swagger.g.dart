@@ -24,68 +24,149 @@ FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
 
 Map<String, dynamic>
     _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
-        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-            instance) {
-  final val = <String, dynamic>{};
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+                instance) =>
+        <String, dynamic>{
+          if (instance.downloadUrl case final value?) 'downloadUrl': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FwStandardBusinessLogicFwBusinessLogic
+    _$FwStandardBusinessLogicFwBusinessLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardBusinessLogicFwBusinessLogic(
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          urlIdentifier: json['UrlIdentifier'],
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          hasImport: json['_HasImport'] as bool?,
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
+        );
 
-  writeNotNull('downloadUrl', instance.downloadUrl);
-  return val;
-}
+Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
+        FwStandardBusinessLogicFwBusinessLogic instance) =>
+    <String, dynamic>{
+      if (instance.auditNote case final value?) 'AuditNote': value,
+      if (instance.recordTitle case final value?) 'RecordTitle': value,
+      if (instance.urlIdentifier case final value?) 'UrlIdentifier': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        '_Fields': value,
+      if (instance.custom?.map((e) => e.toJson()).toList() case final value?)
+        '_Custom': value,
+      if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_DefaultFieldAttributes': value,
+      if (instance.original?.toJson() case final value?) '_Original': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+      if (instance.hasImport case final value?) '_HasImport': value,
+      if (instance.createdByUserId case final value?) 'CreatedByUserId': value,
+      if (instance.createdByUserName case final value?)
+        'CreatedByUserName': value,
+      if (instance.createdDateTime case final value?) 'CreatedDateTime': value,
+      if (instance.modifiedByUserId case final value?)
+        'ModifiedByUserId': value,
+      if (instance.modifiedByUserName case final value?)
+        'ModifiedByUserName': value,
+      if (instance.modifiedDateTime case final value?)
+        'ModifiedDateTime': value,
+    };
 
 FwStandardBusinessLogicFwBusinessLogicFieldDefinition
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
             Map<String, dynamic> json) =>
         FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
           name: json['Name'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
+          dataType:
+              fwStandardSqlServerFwDataTypesNullableFromJson(json['DataType']),
+          excelOptions:
+              fwStandardSqlServerAttributesFwExcelOptionsNullableFromJson(
+                  json['ExcelOptions']),
+          maxLength: (json['MaxLength'] as num?)?.toInt(),
+          isRequired: json['IsRequired'] as bool?,
+          isPrimaryKey: json['IsPrimaryKey'] as bool?,
+          isReadOnly: json['IsReadOnly'] as bool?,
+          displayFieldName: json['DisplayFieldName'] as String?,
+          allowedValues: json['AllowedValues'] as String?,
+          templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
         );
 
 Map<String, dynamic>
     _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
-        FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Name', instance.name);
-  writeNotNull(
-      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
-  return val;
-}
+            FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance) =>
+        <String, dynamic>{
+          if (instance.name case final value?) 'Name': value,
+          if (fwStandardSqlServerFwDataTypesNullableToJson(instance.dataType)
+              case final value?)
+            'DataType': value,
+          if (fwStandardSqlServerAttributesFwExcelOptionsNullableToJson(
+                  instance.excelOptions)
+              case final value?)
+            'ExcelOptions': value,
+          if (instance.maxLength case final value?) 'MaxLength': value,
+          if (instance.isRequired case final value?) 'IsRequired': value,
+          if (instance.isPrimaryKey case final value?) 'IsPrimaryKey': value,
+          if (instance.isReadOnly case final value?) 'IsReadOnly': value,
+          if (instance.displayFieldName case final value?)
+            'DisplayFieldName': value,
+          if (instance.allowedValues case final value?) 'AllowedValues': value,
+          if (instance.templateSequence case final value?)
+            'TemplateSequence': value,
+        };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
         Map<String, dynamic> json) =>
     FwStandardDataFwCustomValue(
+      moduleName: json['ModuleName'] as String?,
       fieldName: json['FieldName'] as String?,
       fieldValue: json['FieldValue'] as String?,
       fieldType: json['FieldType'] as String?,
+      validationModule: json['ValidationModule'] as String?,
+      validationFieldName: json['ValidationFieldName'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
-    FwStandardDataFwCustomValue instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FieldName', instance.fieldName);
-  writeNotNull('FieldValue', instance.fieldValue);
-  writeNotNull('FieldType', instance.fieldType);
-  return val;
-}
+        FwStandardDataFwCustomValue instance) =>
+    <String, dynamic>{
+      if (instance.moduleName case final value?) 'ModuleName': value,
+      if (instance.fieldName case final value?) 'FieldName': value,
+      if (instance.fieldValue case final value?) 'FieldValue': value,
+      if (instance.fieldType case final value?) 'FieldType': value,
+      if (instance.validationModule case final value?)
+        'ValidationModule': value,
+      if (instance.validationFieldName case final value?)
+        'ValidationFieldName': value,
+    };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
         Map<String, dynamic> json) =>
@@ -96,20 +177,12 @@ FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
     );
 
 Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
-    FwStandardDataFwDefaultAttribute instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FieldName', instance.fieldName);
-  writeNotNull('AttributeName', instance.attributeName);
-  writeNotNull('DefaultValue', instance.defaultValue);
-  return val;
-}
+        FwStandardDataFwDefaultAttribute instance) =>
+    <String, dynamic>{
+      if (instance.fieldName case final value?) 'FieldName': value,
+      if (instance.attributeName case final value?) 'AttributeName': value,
+      if (instance.defaultValue case final value?) 'DefaultValue': value,
+    };
 
 FwStandardDataFwReportLoader _$FwStandardDataFwReportLoaderFromJson(
         Map<String, dynamic> json) =>
@@ -137,29 +210,47 @@ FwStandardDataFwReportLoader _$FwStandardDataFwReportLoaderFromJson(
                   e as Map<String, dynamic>))
               .toList() ??
           [],
+      hasImport: json['_HasImport'] as bool?,
+      original: json['_Original'] == null
+          ? null
+          : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+              json['_Original'] as Map<String, dynamic>),
+      createdByUserId: json['CreatedByUserId'] as String?,
+      createdByUserName: json['CreatedByUserName'] as String?,
+      createdDateTime: json['CreatedDateTime'] as String?,
+      modifiedByUserId: json['ModifiedByUserId'] as String?,
+      modifiedByUserName: json['ModifiedByUserName'] as String?,
+      modifiedDateTime: json['ModifiedDateTime'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardDataFwReportLoaderToJson(
-    FwStandardDataFwReportLoader instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PrintDate', instance.printDate);
-  writeNotNull('PrintTime', instance.printTime);
-  writeNotNull('PrintDateTime', instance.printDateTime);
-  writeNotNull('DateFields', instance.dateFields);
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+        FwStandardDataFwReportLoader instance) =>
+    <String, dynamic>{
+      if (instance.printDate case final value?) 'PrintDate': value,
+      if (instance.printTime case final value?) 'PrintTime': value,
+      if (instance.printDateTime case final value?) 'PrintDateTime': value,
+      if (instance.dateFields case final value?) 'DateFields': value,
+      if (instance.custom?.map((e) => e.toJson()).toList() case final value?)
+        '_Custom': value,
+      if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_DefaultFieldAttributes': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+      if (instance.hasImport case final value?) '_HasImport': value,
+      if (instance.original?.toJson() case final value?) '_Original': value,
+      if (instance.createdByUserId case final value?) 'CreatedByUserId': value,
+      if (instance.createdByUserName case final value?)
+        'CreatedByUserName': value,
+      if (instance.createdDateTime case final value?) 'CreatedDateTime': value,
+      if (instance.modifiedByUserId case final value?)
+        'ModifiedByUserId': value,
+      if (instance.modifiedByUserName case final value?)
+        'ModifiedByUserName': value,
+      if (instance.modifiedDateTime case final value?)
+        'ModifiedDateTime': value,
+    };
 
 FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
         Map<String, dynamic> json) =>
@@ -172,22 +263,16 @@ FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
     );
 
 Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
-    FwStandardDataFwTranslatedValue instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FieldName', instance.fieldName);
-  writeNotNull('TranslatedValue', instance.translatedValue);
-  writeNotNull('UntranslatedValue', instance.untranslatedValue);
-  writeNotNull('IsTranslated', instance.isTranslated);
-  writeNotNull('UserIsTranslating', instance.userIsTranslating);
-  return val;
-}
+        FwStandardDataFwTranslatedValue instance) =>
+    <String, dynamic>{
+      if (instance.fieldName case final value?) 'FieldName': value,
+      if (instance.translatedValue case final value?) 'TranslatedValue': value,
+      if (instance.untranslatedValue case final value?)
+        'UntranslatedValue': value,
+      if (instance.isTranslated case final value?) 'IsTranslated': value,
+      if (instance.userIsTranslating case final value?)
+        'UserIsTranslating': value,
+    };
 
 FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
         Map<String, dynamic> json) =>
@@ -197,9 +282,9 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
       options: json['options'],
       orderby: json['orderby'] as String?,
       orderbydirection: json['orderbydirection'] as String?,
-      top: json['top'] as int?,
-      pageno: json['pageno'] as int?,
-      pagesize: json['pagesize'] as int?,
+      top: (json['top'] as num?)?.toInt(),
+      pageno: (json['pageno'] as num?)?.toInt(),
+      pagesize: (json['pagesize'] as num?)?.toInt(),
       searchfieldoperators: (json['searchfieldoperators'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -229,7 +314,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
               .toList() ??
           [],
       searchgroupings: (json['searchgroupings'] as List<dynamic>?)
-              ?.map((e) => e as int)
+              ?.map((e) => (e as num).toInt())
               .toList() ??
           [],
       uniqueids: json['uniqueids'],
@@ -252,116 +337,121 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
     );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
-    FwStandardModelsBrowseRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('miscfields', instance.miscfields);
-  writeNotNull('module', instance.module);
-  writeNotNull('options', instance.options);
-  writeNotNull('orderby', instance.orderby);
-  writeNotNull('orderbydirection', instance.orderbydirection);
-  writeNotNull('top', instance.top);
-  writeNotNull('pageno', instance.pageno);
-  writeNotNull('pagesize', instance.pagesize);
-  writeNotNull('searchfieldoperators', instance.searchfieldoperators);
-  writeNotNull('searchfields', instance.searchfields);
-  writeNotNull('searchfieldvalues', instance.searchfieldvalues);
-  writeNotNull('searchfieldtypes', instance.searchfieldtypes);
-  writeNotNull('searchseparators', instance.searchseparators);
-  writeNotNull('searchcondition', instance.searchcondition);
-  writeNotNull('searchconjunctions', instance.searchconjunctions);
-  writeNotNull('searchgroupings', instance.searchgroupings);
-  writeNotNull('uniqueids', instance.uniqueids);
-  writeNotNull('boundids', instance.boundids);
-  writeNotNull('filterfields', instance.filterfields);
-  writeNotNull('activeview', instance.activeview);
-  writeNotNull('emptyobject', instance.emptyobject);
-  writeNotNull('forexcel', instance.forexcel);
-  writeNotNull('includeallcolumns', instance.includeallcolumns);
-  writeNotNull('fields', instance.fields?.map((e) => e.toJson()).toList());
-  writeNotNull('totalfields', instance.totalfields);
-  writeNotNull('activeviewfields', instance.activeviewfields);
-  return val;
-}
+        FwStandardModelsBrowseRequest instance) =>
+    <String, dynamic>{
+      if (instance.miscfields case final value?) 'miscfields': value,
+      if (instance.module case final value?) 'module': value,
+      if (instance.options case final value?) 'options': value,
+      if (instance.orderby case final value?) 'orderby': value,
+      if (instance.orderbydirection case final value?)
+        'orderbydirection': value,
+      if (instance.top case final value?) 'top': value,
+      if (instance.pageno case final value?) 'pageno': value,
+      if (instance.pagesize case final value?) 'pagesize': value,
+      if (instance.searchfieldoperators case final value?)
+        'searchfieldoperators': value,
+      if (instance.searchfields case final value?) 'searchfields': value,
+      if (instance.searchfieldvalues case final value?)
+        'searchfieldvalues': value,
+      if (instance.searchfieldtypes case final value?)
+        'searchfieldtypes': value,
+      if (instance.searchseparators case final value?)
+        'searchseparators': value,
+      if (instance.searchcondition case final value?) 'searchcondition': value,
+      if (instance.searchconjunctions case final value?)
+        'searchconjunctions': value,
+      if (instance.searchgroupings case final value?) 'searchgroupings': value,
+      if (instance.uniqueids case final value?) 'uniqueids': value,
+      if (instance.boundids case final value?) 'boundids': value,
+      if (instance.filterfields case final value?) 'filterfields': value,
+      if (instance.activeview case final value?) 'activeview': value,
+      if (instance.emptyobject case final value?) 'emptyobject': value,
+      if (instance.forexcel case final value?) 'forexcel': value,
+      if (instance.includeallcolumns case final value?)
+        'includeallcolumns': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        'fields': value,
+      if (instance.totalfields case final value?) 'totalfields': value,
+      if (instance.activeviewfields case final value?)
+        'activeviewfields': value,
+    };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsCheckBoxListItem(
-      value: json['value'] as String?,
+      $value: json['value'] as String?,
       text: json['text'] as String?,
       selected: json['selected'] as bool?,
     );
 
 Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
-    FwStandardModelsCheckBoxListItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('value', instance.value);
-  writeNotNull('text', instance.text);
-  writeNotNull('selected', instance.selected);
-  return val;
-}
+        FwStandardModelsCheckBoxListItem instance) =>
+    <String, dynamic>{
+      if (instance.$value case final value?) 'value': value,
+      if (instance.text case final value?) 'text': value,
+      if (instance.selected case final value?) 'selected': value,
+    };
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwApiException(
-      statusCode: json['StatusCode'] as int?,
+      statusCode: (json['StatusCode'] as num?)?.toInt(),
       message: json['Message'] as String?,
       stackTrace: json['StackTrace'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwApiExceptionToJson(
-    FwStandardModelsFwApiException instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('StatusCode', instance.statusCode);
-  writeNotNull('Message', instance.message);
-  writeNotNull('StackTrace', instance.stackTrace);
-  return val;
-}
+        FwStandardModelsFwApiException instance) =>
+    <String, dynamic>{
+      if (instance.statusCode case final value?) 'StatusCode': value,
+      if (instance.message case final value?) 'Message': value,
+      if (instance.stackTrace case final value?) 'StackTrace': value,
+    };
 
 FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
         Map<String, dynamic> json) =>
     FwStandardModelsFwQueryFilter(
       field: json['Field'] as String,
       op: json['Op'] as String,
-      value: json['Value'] as String?,
+      $Value: json['Value'] as String?,
     );
 
 Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
-    FwStandardModelsFwQueryFilter instance) {
-  final val = <String, dynamic>{
-    'Field': instance.field,
-    'Op': instance.op,
-  };
+        FwStandardModelsFwQueryFilter instance) =>
+    <String, dynamic>{
+      'Field': instance.field,
+      'Op': instance.op,
+      if (instance.$Value case final value?) 'Value': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
+            Map<String, dynamic> json) =>
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
+          items: (json['Items'] as List<dynamic>?)
+                  ?.map((e) =>
+                      WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          pageNo: (json['PageNo'] as num?)?.toInt(),
+          pageSize: (json['PageSize'] as num?)?.toInt(),
+          totalItems: (json['TotalItems'] as num?)?.toInt(),
+          sort: json['Sort'] as String?,
+        );
 
-  writeNotNull('Value', instance.value);
-  return val;
-}
+Map<String, dynamic>
+    _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+                instance) =>
+        <String, dynamic>{
+          if (instance.items?.map((e) => e.toJson()).toList() case final value?)
+            'Items': value,
+          if (instance.pageNo case final value?) 'PageNo': value,
+          if (instance.pageSize case final value?) 'PageSize': value,
+          if (instance.totalItems case final value?) 'TotalItems': value,
+          if (instance.sort case final value?) 'Sort': value,
+        };
 
 FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
     _$FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogicFromJson(
@@ -373,58 +463,43 @@ FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSet
                           .fromJson(e as Map<String, dynamic>))
                   .toList() ??
               [],
-          pageNo: json['PageNo'] as int?,
-          pageSize: json['PageSize'] as int?,
-          totalItems: json['TotalItems'] as int?,
+          pageNo: (json['PageNo'] as num?)?.toInt(),
+          pageSize: (json['PageSize'] as num?)?.toInt(),
+          totalItems: (json['TotalItems'] as num?)?.toInt(),
           sort: json['Sort'] as String?,
         );
 
 Map<String, dynamic>
     _$FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogicToJson(
-        FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
-  writeNotNull('PageNo', instance.pageNo);
-  writeNotNull('PageSize', instance.pageSize);
-  writeNotNull('TotalItems', instance.totalItems);
-  writeNotNull('Sort', instance.sort);
-  return val;
-}
+            FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic
+                instance) =>
+        <String, dynamic>{
+          if (instance.items?.map((e) => e.toJson()).toList() case final value?)
+            'Items': value,
+          if (instance.pageNo case final value?) 'PageNo': value,
+          if (instance.pageSize case final value?) 'PageSize': value,
+          if (instance.totalItems case final value?) 'TotalItems': value,
+          if (instance.sort case final value?) 'Sort': value,
+        };
 
 FwStandardModelsSelectedCheckBoxListItem
     _$FwStandardModelsSelectedCheckBoxListItemFromJson(
             Map<String, dynamic> json) =>
         FwStandardModelsSelectedCheckBoxListItem(
-          value: json['value'] as String?,
+          $value: json['value'] as String?,
         );
 
 Map<String, dynamic> _$FwStandardModelsSelectedCheckBoxListItemToJson(
-    FwStandardModelsSelectedCheckBoxListItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('value', instance.value);
-  return val;
-}
+        FwStandardModelsSelectedCheckBoxListItem instance) =>
+    <String, dynamic>{
+      if (instance.$value case final value?) 'value': value,
+    };
 
 FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
     _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderFromJson(
             Map<String, dynamic> json) =>
         FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader(
-          customReportCssId: json['CustomReportCssId'] as int?,
+          customReportCssId: (json['CustomReportCssId'] as num?)?.toInt(),
           description: json['Description'] as String?,
           css: json['Css'] as String?,
           isGlobal: json['IsGlobal'] as bool?,
@@ -446,33 +521,55 @@ FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
                       e as Map<String, dynamic>))
                   .toList() ??
               [],
+          hasImport: json['_HasImport'] as bool?,
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
         );
 
 Map<String, dynamic>
     _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderToJson(
-        FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('CustomReportCssId', instance.customReportCssId);
-  writeNotNull('Description', instance.description);
-  writeNotNull('Css', instance.css);
-  writeNotNull('IsGlobal', instance.isGlobal);
-  writeNotNull('Inactive', instance.inactive);
-  writeNotNull('Active', instance.active);
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+            FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader
+                instance) =>
+        <String, dynamic>{
+          if (instance.customReportCssId case final value?)
+            'CustomReportCssId': value,
+          if (instance.description case final value?) 'Description': value,
+          if (instance.css case final value?) 'Css': value,
+          if (instance.isGlobal case final value?) 'IsGlobal': value,
+          if (instance.inactive case final value?) 'Inactive': value,
+          if (instance.active case final value?) 'Active': value,
+          if (instance.custom?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Custom': value,
+          if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_DefaultFieldAttributes': value,
+          if (instance.translation?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Translation': value,
+          if (instance.hasImport case final value?) '_HasImport': value,
+          if (instance.original?.toJson() case final value?) '_Original': value,
+          if (instance.createdByUserId case final value?)
+            'CreatedByUserId': value,
+          if (instance.createdByUserName case final value?)
+            'CreatedByUserName': value,
+          if (instance.createdDateTime case final value?)
+            'CreatedDateTime': value,
+          if (instance.modifiedByUserId case final value?)
+            'ModifiedByUserId': value,
+          if (instance.modifiedByUserName case final value?)
+            'ModifiedByUserName': value,
+          if (instance.modifiedDateTime case final value?)
+            'ModifiedDateTime': value,
+        };
 
 FwStandardReportingFwReportEmailInfo
     _$FwStandardReportingFwReportEmailInfoFromJson(Map<String, dynamic> json) =>
@@ -485,22 +582,14 @@ FwStandardReportingFwReportEmailInfo
         );
 
 Map<String, dynamic> _$FwStandardReportingFwReportEmailInfoToJson(
-    FwStandardReportingFwReportEmailInfo instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('from', instance.from);
-  writeNotNull('to', instance.to);
-  writeNotNull('cc', instance.cc);
-  writeNotNull('subject', instance.subject);
-  writeNotNull('body', instance.body);
-  return val;
-}
+        FwStandardReportingFwReportEmailInfo instance) =>
+    <String, dynamic>{
+      if (instance.from case final value?) 'from': value,
+      if (instance.to case final value?) 'to': value,
+      if (instance.cc case final value?) 'cc': value,
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.body case final value?) 'body': value,
+    };
 
 FwStandardReportingFwReportRenderRequest
     _$FwStandardReportingFwReportRenderRequestFromJson(
@@ -520,46 +609,32 @@ FwStandardReportingFwReportRenderRequest
         );
 
 Map<String, dynamic> _$FwStandardReportingFwReportRenderRequestToJson(
-    FwStandardReportingFwReportRenderRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('renderMode', instance.renderMode);
-  writeNotNull('parameters', instance.parameters);
-  writeNotNull('email', instance.email?.toJson());
-  writeNotNull('downloadPdfAsAttachment', instance.downloadPdfAsAttachment);
-  writeNotNull('emailImageOptions', instance.emailImageOptions?.toJson());
-  return val;
-}
+        FwStandardReportingFwReportRenderRequest instance) =>
+    <String, dynamic>{
+      if (instance.renderMode case final value?) 'renderMode': value,
+      if (instance.parameters case final value?) 'parameters': value,
+      if (instance.email?.toJson() case final value?) 'email': value,
+      if (instance.downloadPdfAsAttachment case final value?)
+        'downloadPdfAsAttachment': value,
+      if (instance.emailImageOptions?.toJson() case final value?)
+        'emailImageOptions': value,
+    };
 
 FwStandardReportingFwReportRenderRequestEmailImageOptions
     _$FwStandardReportingFwReportRenderRequestEmailImageOptionsFromJson(
             Map<String, dynamic> json) =>
         FwStandardReportingFwReportRenderRequestEmailImageOptions(
-          width: json['Width'] as int?,
-          height: json['Height'] as int?,
+          width: (json['Width'] as num?)?.toInt(),
+          height: (json['Height'] as num?)?.toInt(),
         );
 
-Map<String, dynamic>
-    _$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson(
-        FwStandardReportingFwReportRenderRequestEmailImageOptions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Width', instance.width);
-  writeNotNull('Height', instance.height);
-  return val;
-}
+Map<String,
+    dynamic> _$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson(
+        FwStandardReportingFwReportRenderRequestEmailImageOptions instance) =>
+    <String, dynamic>{
+      if (instance.width case final value?) 'Width': value,
+      if (instance.height case final value?) 'Height': value,
+    };
 
 FwStandardReportingFwReportRenderResponse
     _$FwStandardReportingFwReportRenderResponseFromJson(
@@ -573,22 +648,15 @@ FwStandardReportingFwReportRenderResponse
         );
 
 Map<String, dynamic> _$FwStandardReportingFwReportRenderResponseToJson(
-    FwStandardReportingFwReportRenderResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('renderMode', instance.renderMode);
-  writeNotNull('htmlReportUrl', instance.htmlReportUrl);
-  writeNotNull('pdfReportUrl', instance.pdfReportUrl);
-  writeNotNull('consoleOutput', instance.consoleOutput);
-  writeNotNull('draftDownloadUrl', instance.draftDownloadUrl);
-  return val;
-}
+        FwStandardReportingFwReportRenderResponse instance) =>
+    <String, dynamic>{
+      if (instance.renderMode case final value?) 'renderMode': value,
+      if (instance.htmlReportUrl case final value?) 'htmlReportUrl': value,
+      if (instance.pdfReportUrl case final value?) 'pdfReportUrl': value,
+      if (instance.consoleOutput case final value?) 'consoleOutput': value,
+      if (instance.draftDownloadUrl case final value?)
+        'draftDownloadUrl': value,
+    };
 
 FwStandardSqlServerFwDateTime _$FwStandardSqlServerFwDateTimeFromJson(
         Map<String, dynamic> json) =>
@@ -597,18 +665,10 @@ FwStandardSqlServerFwDateTime _$FwStandardSqlServerFwDateTimeFromJson(
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwDateTimeToJson(
-    FwStandardSqlServerFwDateTime instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Val', instance.val);
-  return val;
-}
+        FwStandardSqlServerFwDateTime instance) =>
+    <String, dynamic>{
+      if (instance.val case final value?) 'Val': value,
+    };
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
         Map<String, dynamic> json) =>
@@ -624,15 +684,16 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
               ?.map((e) => e as List<dynamic>)
               .toList() ??
           [],
-      pageNo: json['PageNo'] as int?,
-      pageSize: json['PageSize'] as int?,
-      totalPages: json['TotalPages'] as int?,
-      totalRows: json['TotalRows'] as int?,
+      pageNo: (json['PageNo'] as num?)?.toInt(),
+      pageSize: (json['PageSize'] as num?)?.toInt(),
+      totalPages: (json['TotalPages'] as num?)?.toInt(),
+      totalRows: (json['TotalRows'] as num?)?.toInt(),
       dateFields: (json['DateFields'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           [],
       columnNameByIndex: json['ColumnNameByIndex'] as Map<String, dynamic>?,
+      serverVersion: json['ServerVersion'] as String?,
       translation: (json['_Translation'] as List<dynamic>?)
               ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
                   e as Map<String, dynamic>))
@@ -641,29 +702,25 @@ FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
     );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableToJson(
-    FwStandardSqlServerFwJsonDataTable instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ColumnIndex', instance.columnIndex);
-  writeNotNull('Totals', instance.totals);
-  writeNotNull('Columns', instance.columns?.map((e) => e.toJson()).toList());
-  writeNotNull('Rows', instance.rows);
-  writeNotNull('PageNo', instance.pageNo);
-  writeNotNull('PageSize', instance.pageSize);
-  writeNotNull('TotalPages', instance.totalPages);
-  writeNotNull('TotalRows', instance.totalRows);
-  writeNotNull('DateFields', instance.dateFields);
-  writeNotNull('ColumnNameByIndex', instance.columnNameByIndex);
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+        FwStandardSqlServerFwJsonDataTable instance) =>
+    <String, dynamic>{
+      if (instance.columnIndex case final value?) 'ColumnIndex': value,
+      if (instance.totals case final value?) 'Totals': value,
+      if (instance.columns?.map((e) => e.toJson()).toList() case final value?)
+        'Columns': value,
+      if (instance.rows case final value?) 'Rows': value,
+      if (instance.pageNo case final value?) 'PageNo': value,
+      if (instance.pageSize case final value?) 'PageSize': value,
+      if (instance.totalPages case final value?) 'TotalPages': value,
+      if (instance.totalRows case final value?) 'TotalRows': value,
+      if (instance.dateFields case final value?) 'DateFields': value,
+      if (instance.columnNameByIndex case final value?)
+        'ColumnNameByIndex': value,
+      if (instance.serverVersion case final value?) 'ServerVersion': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+    };
 
 FwStandardSqlServerFwJsonDataTableColumn
     _$FwStandardSqlServerFwJsonDataTableColumnFromJson(
@@ -671,29 +728,23 @@ FwStandardSqlServerFwJsonDataTableColumn
         FwStandardSqlServerFwJsonDataTableColumn(
           name: json['Name'] as String?,
           dataField: json['DataField'] as String?,
-          dataType: fwStandardSqlServerFwDataTypesFromJson(json['DataType']),
+          dataType:
+              fwStandardSqlServerFwDataTypesNullableFromJson(json['DataType']),
           isUniqueId: json['IsUniqueId'] as bool?,
           isVisible: json['IsVisible'] as bool?,
         );
 
 Map<String, dynamic> _$FwStandardSqlServerFwJsonDataTableColumnToJson(
-    FwStandardSqlServerFwJsonDataTableColumn instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Name', instance.name);
-  writeNotNull('DataField', instance.dataField);
-  writeNotNull(
-      'DataType', fwStandardSqlServerFwDataTypesToJson(instance.dataType));
-  writeNotNull('IsUniqueId', instance.isUniqueId);
-  writeNotNull('IsVisible', instance.isVisible);
-  return val;
-}
+        FwStandardSqlServerFwJsonDataTableColumn instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'Name': value,
+      if (instance.dataField case final value?) 'DataField': value,
+      if (fwStandardSqlServerFwDataTypesNullableToJson(instance.dataType)
+          case final value?)
+        'DataType': value,
+      if (instance.isUniqueId case final value?) 'IsUniqueId': value,
+      if (instance.isVisible case final value?) 'IsVisible': value,
+    };
 
 WebApiDataAppReportResponse _$WebApiDataAppReportResponseFromJson(
         Map<String, dynamic> json) =>
@@ -721,27 +772,135 @@ WebApiDataAppReportResponse _$WebApiDataAppReportResponseFromJson(
     );
 
 Map<String, dynamic> _$WebApiDataAppReportResponseToJson(
-    WebApiDataAppReportResponse instance) {
-  final val = <String, dynamic>{};
+        WebApiDataAppReportResponse instance) =>
+    <String, dynamic>{
+      if (instance.dataTable?.toJson() case final value?) 'DataTable': value,
+      if (instance.dataObject?.toJson() case final value?) 'DataObject': value,
+      if (instance.printDate case final value?) 'PrintDate': value,
+      if (instance.printTime case final value?) 'PrintTime': value,
+      if (instance.printDateTime case final value?) 'PrintDateTime': value,
+      if (instance.customReportTemplate case final value?)
+        'CustomReportTemplate': value,
+      if (instance.globalCssRules?.map((e) => e.toJson()).toList()
+          case final value?)
+        'GlobalCssRules': value,
+      if (instance.globalStyle case final value?) 'GlobalStyle': value,
+      if (instance.emailTemplate case final value?) 'EmailTemplate': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesAdministratorTaskSchedulerTaskSteps
+    _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesAdministratorTaskSchedulerTaskSteps(
+          taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
+          taskId: (json['TaskId'] as num?)?.toInt(),
+          name: json['Name'] as String?,
+          stepNumber: (json['StepNumber'] as num?)?.toInt(),
+          type: json['Type'] as String?,
+          command: json['Command'] as String?,
+          onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
+          onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
+          onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
+          retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
+          retryInterval: (json['RetryInterval'] as num?)?.toInt(),
+          onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
+          onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
+          onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
+          outputFilename: json['OutputFilename'] as String?,
+          lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
+          lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
+          lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
+          dateStamp: json['DateStamp'] as String?,
+          auditNote: json['AuditNote'] as String?,
+          recordTitle: json['RecordTitle'] as String?,
+          urlIdentifier: json['UrlIdentifier'],
+          fields: (json['_Fields'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardBusinessLogicFwBusinessLogicFieldDefinition
+                          .fromJson(e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          custom: (json['_Custom'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwCustomValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          defaultFieldAttributes:
+              (json['_DefaultFieldAttributes'] as List<dynamic>?)
+                      ?.map((e) => FwStandardDataFwDefaultAttribute.fromJson(
+                          e as Map<String, dynamic>))
+                      .toList() ??
+                  [],
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          translation: (json['_Translation'] as List<dynamic>?)
+                  ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          hasImport: json['_HasImport'] as bool?,
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
+        );
 
-  writeNotNull('DataTable', instance.dataTable?.toJson());
-  writeNotNull('DataObject', instance.dataObject?.toJson());
-  writeNotNull('PrintDate', instance.printDate);
-  writeNotNull('PrintTime', instance.printTime);
-  writeNotNull('PrintDateTime', instance.printDateTime);
-  writeNotNull('CustomReportTemplate', instance.customReportTemplate);
-  writeNotNull('GlobalCssRules',
-      instance.globalCssRules?.map((e) => e.toJson()).toList());
-  writeNotNull('GlobalStyle', instance.globalStyle);
-  writeNotNull('EmailTemplate', instance.emailTemplate);
-  return val;
-}
+Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
+        WebApiModulesAdministratorTaskSchedulerTaskSteps instance) =>
+    <String, dynamic>{
+      if (instance.taskStepsId case final value?) 'TaskStepsId': value,
+      if (instance.taskId case final value?) 'TaskId': value,
+      if (instance.name case final value?) 'Name': value,
+      if (instance.stepNumber case final value?) 'StepNumber': value,
+      if (instance.type case final value?) 'Type': value,
+      if (instance.command case final value?) 'Command': value,
+      if (instance.onSuccessActionDisplay case final value?)
+        'OnSuccessActionDisplay': value,
+      if (instance.onFailureActionDisplay case final value?)
+        'OnFailureActionDisplay': value,
+      if (instance.onSuccessAction case final value?) 'OnSuccessAction': value,
+      if (instance.retryAttempts case final value?) 'RetryAttempts': value,
+      if (instance.retryInterval case final value?) 'RetryInterval': value,
+      if (instance.onFailureAction case final value?) 'OnFailureAction': value,
+      if (instance.onSuccessTaskStepsId case final value?)
+        'OnSuccessTaskStepsId': value,
+      if (instance.onFailureTaskStepsId case final value?)
+        'OnFailureTaskStepsId': value,
+      if (instance.outputFilename case final value?) 'OutputFilename': value,
+      if (instance.lastRunOutcome case final value?) 'LastRunOutcome': value,
+      if (instance.lastRunDuration case final value?) 'LastRunDuration': value,
+      if (instance.lastRunRetries case final value?) 'LastRunRetries': value,
+      if (instance.dateStamp case final value?) 'DateStamp': value,
+      if (instance.auditNote case final value?) 'AuditNote': value,
+      if (instance.recordTitle case final value?) 'RecordTitle': value,
+      if (instance.urlIdentifier case final value?) 'UrlIdentifier': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        '_Fields': value,
+      if (instance.custom?.map((e) => e.toJson()).toList() case final value?)
+        '_Custom': value,
+      if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_DefaultFieldAttributes': value,
+      if (instance.original?.toJson() case final value?) '_Original': value,
+      if (instance.translation?.map((e) => e.toJson()).toList()
+          case final value?)
+        '_Translation': value,
+      if (instance.hasImport case final value?) '_HasImport': value,
+      if (instance.createdByUserId case final value?) 'CreatedByUserId': value,
+      if (instance.createdByUserName case final value?)
+        'CreatedByUserName': value,
+      if (instance.createdDateTime case final value?) 'CreatedDateTime': value,
+      if (instance.modifiedByUserId case final value?)
+        'ModifiedByUserId': value,
+      if (instance.modifiedByUserName case final value?)
+        'ModifiedByUserName': value,
+      if (instance.modifiedDateTime case final value?)
+        'ModifiedDateTime': value,
+    };
 
 WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
     _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestFromJson(
@@ -775,37 +934,38 @@ WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequestToJson(
-        WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealCsrId', instance.dealCsrId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealCsrId case final value?) 'DealCsrId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsAccountingReportsArAgingSummaryReportArAgingSummaryReportRequest
     _$WebApiModulesReportsAccountingReportsArAgingSummaryReportArAgingSummaryReportRequestFromJson(
@@ -839,37 +999,38 @@ WebApiModulesReportsAccountingReportsArAgingSummaryReportArAgingSummaryReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsArAgingSummaryReportArAgingSummaryReportRequestToJson(
-        WebApiModulesReportsAccountingReportsArAgingSummaryReportArAgingSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealCsrId', instance.dealCsrId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsAccountingReportsArAgingSummaryReportArAgingSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealCsrId case final value?) 'DealCsrId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest
     _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestFromJson(
@@ -910,38 +1071,42 @@ WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportReque
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequestToJson(
-        WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('PaymentTypeId', instance.paymentTypeId);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsAccountingReportsDailyReceiptsReportDailyReceiptsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.paymentTypeId case final value?) 'PaymentTypeId': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsAccountingReportsDepreciationGlDetailReportDepreciationGlDetailReportRequest
     _$WebApiModulesReportsAccountingReportsDepreciationGlDetailReportDepreciationGlDetailReportRequestFromJson(
@@ -974,34 +1139,36 @@ WebApiModulesReportsAccountingReportsDepreciationGlDetailReportDepreciationGlDet
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsDepreciationGlDetailReportDepreciationGlDetailReportRequestToJson(
-        WebApiModulesReportsAccountingReportsDepreciationGlDetailReportDepreciationGlDetailReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsAccountingReportsDepreciationGlDetailReportDepreciationGlDetailReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest
     _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestFromJson(
@@ -1040,40 +1207,44 @@ WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequestToJson(
-        WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('GlDistributionType', instance.glDistributionType);
-  writeNotNull('GlAccountId', instance.glAccountId);
-  writeNotNull('ExcludeGlAccountId', instance.excludeGlAccountId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('IsSomeDetail', instance.isSomeDetail);
-  writeNotNull('IsFullDetail', instance.isFullDetail);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsAccountingReportsGlDistributionReportGlDistributionReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.glDistributionType case final value?)
+            'GlDistributionType': value,
+          if (instance.glAccountId case final value?) 'GlAccountId': value,
+          if (instance.excludeGlAccountId case final value?)
+            'ExcludeGlAccountId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.isSomeDetail case final value?) 'IsSomeDetail': value,
+          if (instance.isFullDetail case final value?) 'IsFullDetail': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailReportRequest
     _$WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailReportRequestFromJson(
@@ -1106,34 +1277,36 @@ WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailRepor
 
 Map<String, dynamic>
     _$WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailReportRequestToJson(
-        WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
     _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestFromJson(
@@ -1172,40 +1345,43 @@ WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestToJson(
-        WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
     _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestFromJson(
@@ -1223,6 +1399,7 @@ WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
           dealId: json['DealId'] as String?,
           projectId: json['ProjectId'] as String?,
           agentId: json['AgentId'] as String?,
+          orderId: json['OrderId'] as String?,
           status: (json['Status'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -1266,49 +1443,59 @@ WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequestToJson(
-        WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('ProjectId', instance.projectId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('Status', instance.status?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'IncludeFilter', instance.includeFilter?.map((e) => e.toJson()).toList());
-  writeNotNull('IncludeTaxFilter',
-      instance.includeTaxFilter?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'ExcludeOrdersBilledInTotal', instance.excludeOrdersBilledInTotal);
-  writeNotNull('ExcludeZeroOrderTotal', instance.excludeZeroOrderTotal);
-  writeNotNull('IncludeProjectStatus', instance.includeProjectStatus);
-  writeNotNull('IncludeCreditsInvoiced', instance.includeCreditsInvoiced);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingBillingAnalysisReportBillingAnalysisReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.projectId case final value?) 'ProjectId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.status?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Status': value,
+          if (instance.includeFilter?.map((e) => e.toJson()).toList()
+              case final value?)
+            'IncludeFilter': value,
+          if (instance.includeTaxFilter?.map((e) => e.toJson()).toList()
+              case final value?)
+            'IncludeTaxFilter': value,
+          if (instance.excludeOrdersBilledInTotal case final value?)
+            'ExcludeOrdersBilledInTotal': value,
+          if (instance.excludeZeroOrderTotal case final value?)
+            'ExcludeZeroOrderTotal': value,
+          if (instance.includeProjectStatus case final value?)
+            'IncludeProjectStatus': value,
+          if (instance.includeCreditsInvoiced case final value?)
+            'IncludeCreditsInvoiced': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
     _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestFromJson(
@@ -1352,42 +1539,47 @@ WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestToJson(
-        WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('IncludeCredits', instance.includeCredits);
-  writeNotNull('ExcludeBilled100', instance.excludeBilled100);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('DealCsrId', instance.dealCsrId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.includeCredits case final value?)
+            'IncludeCredits': value,
+          if (instance.excludeBilled100 case final value?)
+            'ExcludeBilled100': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.dealCsrId case final value?) 'DealCsrId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingBillingScheduleReportBillingScheduleReportRequest
     _$WebApiModulesReportsBillingBillingScheduleReportBillingScheduleReportRequestFromJson(
@@ -1414,32 +1606,31 @@ WebApiModulesReportsBillingBillingScheduleReportBillingScheduleReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingScheduleReportBillingScheduleReportRequestToJson(
-        WebApiModulesReportsBillingBillingScheduleReportBillingScheduleReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingBillingScheduleReportBillingScheduleReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
     _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestFromJson(
@@ -1481,43 +1672,50 @@ WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequestToJson(
-        WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('IncludePaidInvoices', instance.includePaidInvoices);
-  writeNotNull('IncludeZeroBalance', instance.includeZeroBalance);
-  writeNotNull('PaymentsThroughToday', instance.paymentsThroughToday);
-  writeNotNull('HidePaymentDetails', instance.hidePaymentDetails);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DealStatusId', instance.dealStatusId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.includePaidInvoices case final value?)
+            'IncludePaidInvoices': value,
+          if (instance.includeZeroBalance case final value?)
+            'IncludeZeroBalance': value,
+          if (instance.paymentsThroughToday case final value?)
+            'PaymentsThroughToday': value,
+          if (instance.hidePaymentDetails case final value?)
+            'HidePaymentDetails': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.dealStatusId case final value?) 'DealStatusId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest
     _$WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestFromJson(
@@ -1545,33 +1743,34 @@ WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequestToJson(
-        WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('InvoiceCreationBatchId', instance.invoiceCreationBatchId);
-  writeNotNull('ExceptionsOnly', instance.exceptionsOnly);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingCreateInvoiceProcessReportCreateInvoiceProcessReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.invoiceCreationBatchId case final value?)
+            'InvoiceCreationBatchId': value,
+          if (instance.exceptionsOnly case final value?)
+            'ExceptionsOnly': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
     _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestFromJson(
@@ -1584,7 +1783,7 @@ WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
               ? null
               : DateTime.parse(json['ToDate'] as String),
           dateType: json['DateType'] as String?,
-          discountPercent: json['DiscountPercent'] as int?,
+          discountPercent: (json['DiscountPercent'] as num?)?.toInt(),
           officeLocationId: json['OfficeLocationId'] as String?,
           departmentId: json['DepartmentId'] as String?,
           customerId: json['CustomerId'] as String?,
@@ -1610,40 +1809,44 @@ WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequestToJson(
-        WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('DiscountPercent', instance.discountPercent);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('DiscountReasonId', instance.discountReasonId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingInvoiceDiscountReportInvoiceDiscountReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.discountPercent case final value?)
+            'DiscountPercent': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.discountReasonId case final value?)
+            'DiscountReasonId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest
     _$WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestFromJson(
@@ -1672,33 +1875,34 @@ WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestToJson(
-        WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('InvoiceId', instance.invoiceId);
-  writeNotNull('RollUpPeriods', instance.rollUpPeriods);
-  writeNotNull('PrintZeroExtended', instance.printZeroExtended);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.invoiceId case final value?) 'InvoiceId': value,
+          if (instance.rollUpPeriods case final value?) 'RollUpPeriods': value,
+          if (instance.printZeroExtended case final value?)
+            'PrintZeroExtended': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
     _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestFromJson(
@@ -1742,40 +1946,45 @@ WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequestToJson(
-        WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingInvoiceSummaryReportInvoiceSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
     _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestFromJson(
@@ -1820,41 +2029,45 @@ WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestToJson(
-        WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateField', instance.dateField);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateField case final value?) 'DateField': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest
     _$WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestFromJson(
@@ -1893,40 +2106,44 @@ WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingRepor
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequestToJson(
-        WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('ProjectManagerId', instance.projectManagerId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingProjectManagerBillingReportProjectManagerBillingReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.projectManagerId case final value?)
+            'ProjectManagerId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingQuoteBillingScheduleReportQuoteBillingScheduleReportRequest
     _$WebApiModulesReportsBillingQuoteBillingScheduleReportQuoteBillingScheduleReportRequestFromJson(
@@ -1953,32 +2170,31 @@ WebApiModulesReportsBillingQuoteBillingScheduleReportQuoteBillingScheduleReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingQuoteBillingScheduleReportQuoteBillingScheduleReportRequestToJson(
-        WebApiModulesReportsBillingQuoteBillingScheduleReportQuoteBillingScheduleReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('QuoteId', instance.quoteId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingQuoteBillingScheduleReportQuoteBillingScheduleReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.quoteId case final value?) 'QuoteId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
     _$WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestFromJson(
@@ -2014,37 +2230,39 @@ WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequestToJson(
-        WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateField', instance.dateField);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingSalesQuoteBillingReportSalesQuoteBillingReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateField case final value?) 'DateField': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest
     _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestFromJson(
@@ -2083,40 +2301,44 @@ WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBi
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequestToJson(
-        WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('SalesRepresentativeId', instance.salesRepresentativeId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresentativeBillingReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.salesRepresentativeId case final value?)
+            'SalesRepresentativeId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingTaxesPaidReportTaxesPaidReportRequest
     _$WebApiModulesReportsBillingTaxesPaidReportTaxesPaidReportRequestFromJson(
@@ -2157,37 +2379,41 @@ WebApiModulesReportsBillingTaxesPaidReportTaxesPaidReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingTaxesPaidReportTaxesPaidReportRequestToJson(
-        WebApiModulesReportsBillingTaxesPaidReportTaxesPaidReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingTaxesPaidReportTaxesPaidReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingReportsReceiptReportReceiptReportRequest
     _$WebApiModulesReportsBillingReportsReceiptReportReceiptReportRequestFromJson(
@@ -2214,32 +2440,31 @@ WebApiModulesReportsBillingReportsReceiptReportReceiptReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingReportsReceiptReportReceiptReportRequestToJson(
-        WebApiModulesReportsBillingReportsReceiptReportReceiptReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ReceiptId', instance.receiptId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingReportsReceiptReportReceiptReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.receiptId case final value?) 'ReceiptId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequest
     _$WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequestFromJson(
@@ -2259,12 +2484,7 @@ WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequest
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -2291,44 +2511,48 @@ WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequestToJson(
-        WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsBillingReportsRevenueReportRevenueReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
     _$WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestFromJson(
@@ -2340,10 +2564,16 @@ WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
           toDate: json['ToDate'] == null
               ? null
               : DateTime.parse(json['ToDate'] as String),
-          hoursOffsetFromUTC: json['HoursOffsetFromUTC'] as int?,
+          hoursOffsetFromUTC: (json['HoursOffsetFromUTC'] as num?)?.toInt(),
           moduleName: json['ModuleName'] as String?,
           webUsersId: json['WebUsersId'] as String?,
           keyword: json['Keyword'] as String?,
+          auditType: (json['AuditType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -2364,47 +2594,58 @@ WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequestToJson(
-        WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('HoursOffsetFromUTC', instance.hoursOffsetFromUTC);
-  writeNotNull('ModuleName', instance.moduleName);
-  writeNotNull('WebUsersId', instance.webUsersId);
-  writeNotNull('Keyword', instance.keyword);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.hoursOffsetFromUTC case final value?)
+            'HoursOffsetFromUTC': value,
+          if (instance.moduleName case final value?) 'ModuleName': value,
+          if (instance.webUsersId case final value?) 'WebUsersId': value,
+          if (instance.keyword case final value?) 'Keyword': value,
+          if (instance.auditType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'AuditType': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest
     _$WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest(
           batchId: json['BatchId'] as String?,
-          batchNumber: json['BatchNumber'] as String?,
-          batchDate: json['BatchDate'] == null
+          fromBatchNumber: json['FromBatchNumber'] as String?,
+          toBatchNumber: json['ToBatchNumber'] as String?,
+          batchFromDate: json['BatchFromDate'] == null
               ? null
-              : DateTime.parse(json['BatchDate'] as String),
+              : DateTime.parse(json['BatchFromDate'] as String),
+          batchToDate: json['BatchToDate'] == null
+              ? null
+              : DateTime.parse(json['BatchToDate'] as String),
+          batchRange: json['BatchRange'] as String?,
+          locationId: json['LocationId'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -2425,44 +2666,56 @@ WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatc
 
 Map<String, dynamic>
     _$WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequestToJson(
-        WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('BatchId', instance.batchId);
-  writeNotNull('BatchNumber', instance.batchNumber);
-  writeNotNull('BatchDate', instance.batchDate?.toIso8601String());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsChargeProcessingReportsDealInvoiceBatchReportDealInvoiceBatchReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.batchId case final value?) 'BatchId': value,
+          if (instance.fromBatchNumber case final value?)
+            'FromBatchNumber': value,
+          if (instance.toBatchNumber case final value?) 'ToBatchNumber': value,
+          if (instance.batchFromDate?.toIso8601String() case final value?)
+            'BatchFromDate': value,
+          if (instance.batchToDate?.toIso8601String() case final value?)
+            'BatchToDate': value,
+          if (instance.batchRange case final value?) 'BatchRange': value,
+          if (instance.locationId case final value?) 'LocationId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest
     _$WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest(
           batchId: json['BatchId'] as String?,
-          batchNumber: json['BatchNumber'] as String?,
-          batchDate: json['BatchDate'] == null
+          fromBatchNumber: json['FromBatchNumber'] as String?,
+          toBatchNumber: json['ToBatchNumber'] as String?,
+          batchFromDate: json['BatchFromDate'] == null
               ? null
-              : DateTime.parse(json['BatchDate'] as String),
+              : DateTime.parse(json['BatchFromDate'] as String),
+          batchToDate: json['BatchToDate'] == null
+              ? null
+              : DateTime.parse(json['BatchToDate'] as String),
+          batchRange: json['BatchRange'] as String?,
+          locationId: json['LocationId'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -2483,44 +2736,56 @@ WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequestToJson(
-        WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('BatchId', instance.batchId);
-  writeNotNull('BatchNumber', instance.batchNumber);
-  writeNotNull('BatchDate', instance.batchDate?.toIso8601String());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsChargeProcessingReportsReceiptBatchReportReceiptBatchReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.batchId case final value?) 'BatchId': value,
+          if (instance.fromBatchNumber case final value?)
+            'FromBatchNumber': value,
+          if (instance.toBatchNumber case final value?) 'ToBatchNumber': value,
+          if (instance.batchFromDate?.toIso8601String() case final value?)
+            'BatchFromDate': value,
+          if (instance.batchToDate?.toIso8601String() case final value?)
+            'BatchToDate': value,
+          if (instance.batchRange case final value?) 'BatchRange': value,
+          if (instance.locationId case final value?) 'LocationId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest
     _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest(
           batchId: json['BatchId'] as String?,
-          batchNumber: json['BatchNumber'] as String?,
-          batchDate: json['BatchDate'] == null
+          fromBatchNumber: json['FromBatchNumber'] as String?,
+          toBatchNumber: json['ToBatchNumber'] as String?,
+          batchFromDate: json['BatchFromDate'] == null
               ? null
-              : DateTime.parse(json['BatchDate'] as String),
+              : DateTime.parse(json['BatchFromDate'] as String),
+          batchToDate: json['BatchToDate'] == null
+              ? null
+              : DateTime.parse(json['BatchToDate'] as String),
+          batchRange: json['BatchRange'] as String?,
+          locationId: json['LocationId'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -2541,34 +2806,40 @@ WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoice
 
 Map<String, dynamic>
     _$WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequestToJson(
-        WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('BatchId', instance.batchId);
-  writeNotNull('BatchNumber', instance.batchNumber);
-  writeNotNull('BatchDate', instance.batchDate?.toIso8601String());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsChargeProcessingReportsVendorInvoiceBatchReportVendorInvoiceBatchReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.batchId case final value?) 'BatchId': value,
+          if (instance.fromBatchNumber case final value?)
+            'FromBatchNumber': value,
+          if (instance.toBatchNumber case final value?) 'ToBatchNumber': value,
+          if (instance.batchFromDate?.toIso8601String() case final value?)
+            'BatchFromDate': value,
+          if (instance.batchToDate?.toIso8601String() case final value?)
+            'BatchToDate': value,
+          if (instance.batchRange case final value?) 'BatchRange': value,
+          if (instance.locationId case final value?) 'LocationId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
     _$WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequestFromJson(
@@ -2607,40 +2878,43 @@ WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderH
 
 Map<String, dynamic>
     _$WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequestToJson(
-        WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('ConsignorId', instance.consignorId);
-  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsConsignedInventoryOrderHistoryReportConsignedInventoryOrderHistoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.consignorId case final value?) 'ConsignorId': value,
+          if (instance.consignorAgreementId case final value?)
+            'ConsignorAgreementId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
     _$WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequestFromJson(
@@ -2673,38 +2947,39 @@ WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequestToJson(
-        WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('ConsignorId', instance.consignorId);
-  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsConsignedInventoryReportConsignedInventoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.consignorId case final value?) 'ConsignorId': value,
+          if (instance.consignorAgreementId case final value?)
+            'ConsignorAgreementId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
     _$WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequestFromJson(
@@ -2732,33 +3007,33 @@ WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequestToJson(
-        WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ConsignorId', instance.consignorId);
-  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsConsignmentReportsConsignorItemsReportConsignorItemsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.consignorId case final value?) 'ConsignorId': value,
+          if (instance.consignorAgreementId case final value?)
+            'ConsignorAgreementId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
     _$WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequestFromJson(
@@ -2787,34 +3062,34 @@ WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryS
 
 Map<String, dynamic>
     _$WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequestToJson(
-        WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('ConsignorId', instance.consignorId);
-  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsConsignorInventoryStatusAndLocationReportConsignorInventoryStatusAndLocationReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.consignorId case final value?) 'ConsignorId': value,
+          if (instance.consignorAgreementId case final value?)
+            'ConsignorAgreementId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
     _$WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequestFromJson(
@@ -2849,36 +3124,39 @@ WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequestToJson(
-        WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('ConsignorId', instance.consignorId);
-  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsConsignorSettlementReportConsignorSettlementReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.consignorId case final value?) 'ConsignorId': value,
+          if (instance.consignorAgreementId case final value?)
+            'ConsignorAgreementId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
     _$WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequestFromJson(
@@ -2914,37 +3192,41 @@ WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequestToJson(
-        WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('IncludeUnpaidFees', instance.includeUnpaidFees);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('ConsignorId', instance.consignorId);
-  writeNotNull('ConsignorAgreementId', instance.consignorAgreementId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsConsignorStatementReportConsignorStatementReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.includeUnpaidFees case final value?)
+            'IncludeUnpaidFees': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.consignorId case final value?) 'ConsignorId': value,
+          if (instance.consignorAgreementId case final value?)
+            'ConsignorAgreementId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest
     _$WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestFromJson(
@@ -2957,7 +3239,7 @@ WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportR
               ? null
               : DateTime.parse(json['ToDate'] as String),
           filterDates: json['FilterDates'] as bool?,
-          daysChanged: json['DaysChanged'] as int?,
+          daysChanged: (json['DaysChanged'] as num?)?.toInt(),
           officeLocationId: json['OfficeLocationId'] as String?,
           departmentId: json['DepartmentId'] as String?,
           userId: json['UserId'] as String?,
@@ -2988,41 +3270,44 @@ WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequestToJson(
-        WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('FilterDates', instance.filterDates);
-  writeNotNull('DaysChanged', instance.daysChanged);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('UserId', instance.userId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull(
-      'RevisionTypes', instance.revisionTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsContractRevisionReportContractRevisionReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.filterDates case final value?) 'FilterDates': value,
+          if (instance.daysChanged case final value?) 'DaysChanged': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.userId case final value?) 'UserId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.revisionTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'RevisionTypes': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest
     _$WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestFromJson(
@@ -3049,32 +3334,31 @@ WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequestToJson(
-        WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsExchangeContractReportExchangeContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsInContractReportInContractReportRequest
     _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestFromJson(
@@ -3087,6 +3371,7 @@ WebApiModulesReportsContractReportsInContractReportInContractReportRequest
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3107,38 +3392,42 @@ WebApiModulesReportsContractReportsInContractReportInContractReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsInContractReportInContractReportRequestToJson(
-        WebApiModulesReportsContractReportsInContractReportInContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ShowSwappedItems', instance.showSwappedItems);
-  writeNotNull('ExchangeContractId', instance.exchangeContractId);
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsInContractReportInContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.showSwappedItems case final value?)
+            'ShowSwappedItems': value,
+          if (instance.exchangeContractId case final value?)
+            'ExchangeContractId': value,
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
     _$WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestFromJson(
@@ -3149,6 +3438,7 @@ WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3169,36 +3459,38 @@ WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsLostContractReportLostContractReportRequestToJson(
-        WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsLostContractReportLostContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
     _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestFromJson(
@@ -3209,6 +3501,7 @@ WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3229,36 +3522,38 @@ WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsOutContractReportOutContractReportRequestToJson(
-        WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsOutContractReportOutContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportRequest
     _$WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportRequestFromJson(
@@ -3271,6 +3566,7 @@ WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportReque
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3291,38 +3587,42 @@ WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportReque
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportRequestToJson(
-        WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ShowSwappedItems', instance.showSwappedItems);
-  writeNotNull('ExchangeContractId', instance.exchangeContractId);
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsQuikInContractReportQuikInContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.showSwappedItems case final value?)
+            'ShowSwappedItems': value,
+          if (instance.exchangeContractId case final value?)
+            'ExchangeContractId': value,
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest
     _$WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestFromJson(
@@ -3333,6 +3633,7 @@ WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportReq
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3353,36 +3654,38 @@ WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequestToJson(
-        WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsReceiveContractReportReceiveContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest
     _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestFromJson(
@@ -3393,6 +3696,7 @@ WebApiModulesReportsContractReportsReturnContractReportReturnContractReportReque
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3413,36 +3717,38 @@ WebApiModulesReportsContractReportsReturnContractReportReturnContractReportReque
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequestToJson(
-        WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsReturnContractReportReturnContractReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
     _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestFromJson(
@@ -3485,48 +3791,53 @@ WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsReturnListReportReturnListReportRequestToJson(
-        WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('SortBy', instance.sortBy);
-  writeNotNull('PrintBarcodeMode', instance.printBarcodeMode);
-  writeNotNull('IncludeSales', instance.includeSales);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('OrderIds', instance.orderIds);
-  writeNotNull('IncludeTrackedByBarcode', instance.includeTrackedByBarcode);
-  writeNotNull('PrintBarcodes', instance.printBarcodes);
-  writeNotNull('PaginateByInventoryType', instance.paginateByInventoryType);
-  writeNotNull('AddBoxforMeterReading', instance.addBoxforMeterReading);
-  writeNotNull('PrintICodeColumn', instance.printICodeColumn);
-  writeNotNull('PrintAisleShelf', instance.printAisleShelf);
-  writeNotNull('PrintOut', instance.printOut);
-  writeNotNull('PrintIn', instance.printIn);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsReturnListReportReturnListReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.sortBy case final value?) 'SortBy': value,
+          if (instance.printBarcodeMode case final value?)
+            'PrintBarcodeMode': value,
+          if (instance.includeSales case final value?) 'IncludeSales': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.orderIds case final value?) 'OrderIds': value,
+          if (instance.includeTrackedByBarcode case final value?)
+            'IncludeTrackedByBarcode': value,
+          if (instance.printBarcodes case final value?) 'PrintBarcodes': value,
+          if (instance.paginateByInventoryType case final value?)
+            'PaginateByInventoryType': value,
+          if (instance.addBoxforMeterReading case final value?)
+            'AddBoxforMeterReading': value,
+          if (instance.printICodeColumn case final value?)
+            'PrintICodeColumn': value,
+          if (instance.printAisleShelf case final value?)
+            'PrintAisleShelf': value,
+          if (instance.printOut case final value?) 'PrintOut': value,
+          if (instance.printIn case final value?) 'PrintIn': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest
     _$WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestFromJson(
@@ -3537,6 +3848,7 @@ WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportR
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3557,36 +3869,38 @@ WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequestToJson(
-        WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsTransferManifestReportTransferManifestReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest
     _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestFromJson(
@@ -3597,6 +3911,7 @@ WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportReq
           contractType: json['ContractType'] as String?,
           includeSubVendor: json['IncludeSubVendor'] as bool?,
           showImages: json['ShowImages'] as bool?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -3617,36 +3932,38 @@ WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequestToJson(
-        WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('IncludeSubVendor', instance.includeSubVendor);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsContractReportsTransferReceiptReportTransferReceiptReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.includeSubVendor case final value?)
+            'IncludeSubVendor': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
     _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestFromJson(
@@ -3683,38 +4000,40 @@ WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequestToJson(
-        WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsCrewReportsCrewSignInReportCrewSignInReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest
     _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestFromJson(
@@ -3744,35 +4063,35 @@ WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportReque
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequestToJson(
-        WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OnlyRemaining', instance.onlyRemaining);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsCreditsOnAccountReportCreditsOnAccountReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.onlyRemaining case final value?) 'OnlyRemaining': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest
     _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestFromJson(
@@ -3817,42 +4136,47 @@ WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMont
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequestToJson(
-        WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerTypeId', instance.customerTypeId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull(
-      'RevenueTypes', instance.revenueTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsCustomerRevenueByMonthReportCustomerRevenueByMonthReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerTypeId case final value?)
+            'CustomerTypeId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.revenueTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'RevenueTypes': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest
     _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestFromJson(
@@ -3892,41 +4216,43 @@ WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeR
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequestToJson(
-        WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderTypeId', instance.orderTypeId);
-  writeNotNull('CurrencyId', instance.currencyId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsCustomerRevenueByTypeReportCustomerRevenueByTypeReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderTypeId case final value?) 'OrderTypeId': value,
+          if (instance.currencyId case final value?) 'CurrencyId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest
     _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestFromJson(
@@ -3974,44 +4300,50 @@ WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequestToJson(
-        WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('DeductVendorItemCost', instance.deductVendorItemCost);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('NoCharge', instance.noCharge);
-  writeNotNull('BilledHiatus', instance.billedHiatus);
-  writeNotNull('BillableFlat', instance.billableFlat);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsDealInvoiceDetailReportDealInvoiceDetailReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.deductVendorItemCost case final value?)
+            'DeductVendorItemCost': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.noCharge case final value?) 'NoCharge': value,
+          if (instance.billedHiatus case final value?) 'BilledHiatus': value,
+          if (instance.billableFlat case final value?) 'BillableFlat': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest
     _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestFromJson(
@@ -4068,54 +4400,65 @@ WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsRep
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequestToJson(
-        WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeValueCost', instance.includeValueCost);
-  writeNotNull('ItemsToInclude', instance.itemsToInclude);
-  writeNotNull('FilterDates', instance.filterDates);
-  writeNotNull('IncludeFullImages', instance.includeFullImages);
-  writeNotNull('IncludeThumbnailImages', instance.includeThumbnailImages);
-  writeNotNull('ExcludePendingExchanges', instance.excludePendingExchanges);
-  writeNotNull('IncludeContainersOnly', instance.includeContainersOnly);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderUnitId', instance.orderUnitId);
-  writeNotNull('OrderTypeId', instance.orderTypeId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsDealOutstandingItemsReportDealOutstandingItemsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeValueCost case final value?)
+            'IncludeValueCost': value,
+          if (instance.itemsToInclude case final value?)
+            'ItemsToInclude': value,
+          if (instance.filterDates case final value?) 'FilterDates': value,
+          if (instance.includeFullImages case final value?)
+            'IncludeFullImages': value,
+          if (instance.includeThumbnailImages case final value?)
+            'IncludeThumbnailImages': value,
+          if (instance.excludePendingExchanges case final value?)
+            'ExcludePendingExchanges': value,
+          if (instance.includeContainersOnly case final value?)
+            'IncludeContainersOnly': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderUnitId case final value?) 'OrderUnitId': value,
+          if (instance.orderTypeId case final value?) 'OrderTypeId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
     _$WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestFromJson(
@@ -4194,64 +4537,72 @@ WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequestToJson(
-        WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FilterDatesOrderCreate', instance.filterDatesOrderCreate);
-  writeNotNull(
-      'OrderCreateFromDate', instance.orderCreateFromDate?.toIso8601String());
-  writeNotNull(
-      'OrderCreateToDate', instance.orderCreateToDate?.toIso8601String());
-  writeNotNull('FilterDatesOrderStart', instance.filterDatesOrderStart);
-  writeNotNull(
-      'OrderStartFromDate', instance.orderStartFromDate?.toIso8601String());
-  writeNotNull(
-      'OrderStartToDate', instance.orderStartToDate?.toIso8601String());
-  writeNotNull('FilterDatesDealCredit', instance.filterDatesDealCredit);
-  writeNotNull(
-      'DealCreditFromDate', instance.dealCreditFromDate?.toIso8601String());
-  writeNotNull(
-      'DealCreditToDate', instance.dealCreditToDate?.toIso8601String());
-  writeNotNull('FilterDatesDealInsurance', instance.filterDatesDealInsurance);
-  writeNotNull('DealInsuranceFromDate',
-      instance.dealInsuranceFromDate?.toIso8601String());
-  writeNotNull(
-      'DealInsuranceToDate', instance.dealInsuranceToDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealStatusId', instance.dealStatusId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('NoCharge', instance.noCharge);
-  writeNotNull(
-      'OrderType', instance.orderType?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'QuoteStatus', instance.quoteStatus?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'OrderStatus', instance.orderStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsOrdersByDealReportOrdersByDealReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.filterDatesOrderCreate case final value?)
+            'FilterDatesOrderCreate': value,
+          if (instance.orderCreateFromDate?.toIso8601String() case final value?)
+            'OrderCreateFromDate': value,
+          if (instance.orderCreateToDate?.toIso8601String() case final value?)
+            'OrderCreateToDate': value,
+          if (instance.filterDatesOrderStart case final value?)
+            'FilterDatesOrderStart': value,
+          if (instance.orderStartFromDate?.toIso8601String() case final value?)
+            'OrderStartFromDate': value,
+          if (instance.orderStartToDate?.toIso8601String() case final value?)
+            'OrderStartToDate': value,
+          if (instance.filterDatesDealCredit case final value?)
+            'FilterDatesDealCredit': value,
+          if (instance.dealCreditFromDate?.toIso8601String() case final value?)
+            'DealCreditFromDate': value,
+          if (instance.dealCreditToDate?.toIso8601String() case final value?)
+            'DealCreditToDate': value,
+          if (instance.filterDatesDealInsurance case final value?)
+            'FilterDatesDealInsurance': value,
+          if (instance.dealInsuranceFromDate?.toIso8601String()
+              case final value?)
+            'DealInsuranceFromDate': value,
+          if (instance.dealInsuranceToDate?.toIso8601String() case final value?)
+            'DealInsuranceToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealStatusId case final value?) 'DealStatusId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.noCharge case final value?) 'NoCharge': value,
+          if (instance.orderType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderType': value,
+          if (instance.quoteStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'QuoteStatus': value,
+          if (instance.orderStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderStatus': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
     _$WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestFromJson(
@@ -4291,41 +4642,43 @@ WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequestToJson(
-        WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OnlyIncludeItemsStillUnassigned',
-      instance.onlyIncludeItemsStillUnassigned);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsDealReportsReturnReceiptReportReturnReceiptReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.onlyIncludeItemsStillUnassigned case final value?)
+            'OnlyIncludeItemsStillUnassigned': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
     _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestFromJson(
@@ -4334,12 +4687,7 @@ WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
           asOfDate: json['AsOfDate'] == null
               ? null
               : DateTime.parse(json['AsOfDate'] as String),
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -4372,41 +4720,44 @@ WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequestToJson(
-        WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('ExcludeFullyDepreciated', instance.excludeFullyDepreciated);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsFixedAssetBookValueFixedAssetBookValueRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.excludeFullyDepreciated case final value?)
+            'ExcludeFullyDepreciated': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest
     _$WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestFromJson(
@@ -4423,12 +4774,7 @@ WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequ
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -4455,41 +4801,44 @@ WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequestToJson(
-        WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsFixedAssetDepreciationReportFixedAssetDepreciationReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsIncomeGlDetailReportIncomeGlDetailReportRequest
     _$WebApiModulesReportsIncomeGlDetailReportIncomeGlDetailReportRequestFromJson(
@@ -4522,34 +4871,36 @@ WebApiModulesReportsIncomeGlDetailReportIncomeGlDetailReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsIncomeGlDetailReportIncomeGlDetailReportRequestToJson(
-        WebApiModulesReportsIncomeGlDetailReportIncomeGlDetailReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsIncomeGlDetailReportIncomeGlDetailReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest
     _$WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestFromJson(
@@ -4576,32 +4927,31 @@ WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequestToJson(
-        WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('InDeliveryId', instance.inDeliveryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsIncomingDeliveryInstructionsIncomingDeliveryInstructionsRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.inDeliveryId case final value?) 'InDeliveryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
     _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestFromJson(
@@ -4619,13 +4969,9 @@ WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           changeType: json['ChangeType'] as String?,
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -4652,44 +4998,48 @@ WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequestToJson(
-        WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('ChangeType', instance.changeType);
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsInventoryChangeReportInventoryChangeReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.changeType case final value?) 'ChangeType': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest
     _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestFromJson(
@@ -4706,13 +5056,9 @@ WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequ
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -4739,43 +5085,48 @@ WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequestToJson(
-        WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsInventoryRepairHistoryReportInventoryRepairHistoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
     _$WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestFromJson(
@@ -4822,49 +5173,198 @@ WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequestToJson(
-        WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsMultiLocationReportsTransferReportTransferReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.fromWarehouseId case final value?)
+            'FromWarehouseId': value,
+          if (instance.toWarehouseId case final value?) 'ToWarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.transferId case final value?) 'TransferId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsOrderChangeReportOrderChangeReportRequest
+    _$WebApiModulesReportsOrderChangeReportOrderChangeReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderChangeReportOrderChangeReportRequest(
+          orderType: json['OrderType'] as String?,
+          orderId: json['OrderId'] as String?,
+          quoteId: json['QuoteId'] as String?,
+          fromDate: json['FromDate'] as String?,
+          fromTime: json['FromTime'] as String?,
+          toDate: json['ToDate'] as String?,
+          toTime: json['ToTime'] as String?,
+          filterBy: json['FilterBy'] as String?,
+          hoursOffsetFromUTC: (json['HoursOffsetFromUTC'] as num?)?.toInt(),
+          excludeZeroVariance: json['ExcludeZeroVariance'] as bool?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('FromWarehouseId', instance.fromWarehouseId);
-  writeNotNull('ToWarehouseId', instance.toWarehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('TransferId', instance.transferId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsOrderChangeReportOrderChangeReportRequestToJson(
+            WebApiModulesReportsOrderChangeReportOrderChangeReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderType case final value?) 'OrderType': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.quoteId case final value?) 'QuoteId': value,
+          if (instance.fromDate case final value?) 'FromDate': value,
+          if (instance.fromTime case final value?) 'FromTime': value,
+          if (instance.toDate case final value?) 'ToDate': value,
+          if (instance.toTime case final value?) 'ToTime': value,
+          if (instance.filterBy case final value?) 'FilterBy': value,
+          if (instance.hoursOffsetFromUTC case final value?)
+            'HoursOffsetFromUTC': value,
+          if (instance.excludeZeroVariance case final value?)
+            'ExcludeZeroVariance': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
+
+WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequest
+    _$WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          userId: json['UserId'] as String?,
+          orderTypeId: json['OrderTypeId'] as String?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
+
+Map<String, dynamic>
+    _$WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequestToJson(
+            WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.userId case final value?) 'UserId': value,
+          if (instance.orderTypeId case final value?) 'OrderTypeId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest
     _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest(
           orderId: json['OrderId'] as String?,
+          shippingCaseId: json['ShippingCaseId'] as String?,
+          weightInCase: json['WeightInCase'] as String?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -4885,32 +5385,36 @@ WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelReques
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequestToJson(
-        WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsIncomingShippingLabelIncomingShippingLabelRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.shippingCaseId case final value?)
+            'ShippingCaseId': value,
+          if (instance.weightInCase case final value?) 'WeightInCase': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsInventoryStatusByOrderReportInventoryStatusByOrderReportRequest
     _$WebApiModulesReportsOrderReportsInventoryStatusByOrderReportInventoryStatusByOrderReportRequestFromJson(
@@ -4966,55 +5470,59 @@ WebApiModulesReportsOrderReportsInventoryStatusByOrderReportInventoryStatusByOrd
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsInventoryStatusByOrderReportInventoryStatusByOrderReportRequestToJson(
-        WebApiModulesReportsOrderReportsInventoryStatusByOrderReportInventoryStatusByOrderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderType', instance.orderType);
-  writeNotNull('View', instance.view);
-  writeNotNull(
-      'SearchDatesBy', instance.searchDatesBy?.map((e) => e.toJson()).toList());
-  writeNotNull('FromDate', instance.fromDate);
-  writeNotNull('ToDate', instance.toDate);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'Activities', instance.activities?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsInventoryStatusByOrderReportInventoryStatusByOrderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderType case final value?) 'OrderType': value,
+          if (instance.view case final value?) 'View': value,
+          if (instance.searchDatesBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SearchDatesBy': value,
+          if (instance.fromDate case final value?) 'FromDate': value,
+          if (instance.toDate case final value?) 'ToDate': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.activities?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Activities': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
     _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest(
           reportType: json['ReportType'] as String?,
-          days: json['Days'] as int?,
+          days: (json['Days'] as num?)?.toInt(),
           dueBackDate: json['DueBackDate'] == null
               ? null
               : DateTime.parse(json['DueBackDate'] as String),
@@ -5026,6 +5534,7 @@ WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
           inventoryTypeId: json['InventoryTypeId'] as String?,
           orderedByContactId: json['OrderedByContactId'] as String?,
           orderId: json['OrderId'] as String?,
+          agentId: json['AgentId'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5046,42 +5555,46 @@ WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequestToJson(
-        WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ReportType', instance.reportType);
-  writeNotNull('Days', instance.days);
-  writeNotNull('DueBackDate', instance.dueBackDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('OrderedByContactId', instance.orderedByContactId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsLateReturnsReportLateReturnsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reportType case final value?) 'ReportType': value,
+          if (instance.days case final value?) 'Days': value,
+          if (instance.dueBackDate?.toIso8601String() case final value?)
+            'DueBackDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.orderedByContactId case final value?)
+            'OrderedByContactId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
     _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestFromJson(
@@ -5109,18 +5622,14 @@ WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
+          refreshIfNeeded: json['RefreshIfNeeded'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5141,48 +5650,156 @@ WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequestToJson(
-        WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsOrderReportsOrderConflictReportOrderConflictReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.availableFor case final value?) 'AvailableFor': value,
+          if (instance.conflictType case final value?) 'ConflictType': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.classifications?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Classifications': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.refreshIfNeeded case final value?)
+            'RefreshIfNeeded': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequest
+    _$WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          departmentId: json['DepartmentId'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          userId: json['UserId'] as String?,
+          orderTypeId: json['OrderTypeId'] as String?,
+          orderStatus: (json['OrderStatus'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          outgoingDeliveryType: (json['OutgoingDeliveryType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          incomingDeliveryType: (json['IncomingDeliveryType'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          printAlertBannerMessage: json['PrintAlertBannerMessage'] as bool?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          filterDates: json['FilterDates'] as bool?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('AvailableFor', instance.availableFor);
-  writeNotNull('ConflictType', instance.conflictType);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Classifications',
-      instance.classifications?.map((e) => e.toJson()).toList());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequestToJson(
+            WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.userId case final value?) 'UserId': value,
+          if (instance.orderTypeId case final value?) 'OrderTypeId': value,
+          if (instance.orderStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderStatus': value,
+          if (instance.outgoingDeliveryType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OutgoingDeliveryType': value,
+          if (instance.incomingDeliveryType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'IncomingDeliveryType': value,
+          if (instance.printAlertBannerMessage case final value?)
+            'PrintAlertBannerMessage': value,
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.filterDates case final value?) 'FilterDates': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
     _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestFromJson(
@@ -5191,7 +5808,7 @@ WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
           orderId: json['OrderId'] as String?,
           id: json['Id'] as String?,
           reportView:
-              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableFromJson(
                   json['ReportView']),
           printEntireGroup: json['PrintEntireGroup'] as bool?,
           printInventoryType: json['PrintInventoryType'] as bool?,
@@ -5214,6 +5831,9 @@ WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
           printActivityMonthly: json['PrintActivityMonthly'] as bool?,
           printActivityPeriod: json['PrintActivityPeriod'] as bool?,
           languageId: json['LanguageId'] as String?,
+          filterRentalAndSaleItems: json['FilterRentalAndSaleItems'] as bool?,
+          rentalAndSaleItemsToInclude:
+              json['RentalAndSaleItemsToInclude'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5234,58 +5854,78 @@ WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestToJson(
-        WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('Id', instance.id);
-  writeNotNull(
-      'ReportView',
-      webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
-          instance.reportView));
-  writeNotNull('PrintEntireGroup', instance.printEntireGroup);
-  writeNotNull('PrintInventoryType', instance.printInventoryType);
-  writeNotNull('PrintCategory', instance.printCategory);
-  writeNotNull('PrintTotalReplacementCost', instance.printTotalReplacementCost);
-  writeNotNull(
-      'PrintInventoryTypeSubTotal', instance.printInventoryTypeSubTotal);
-  writeNotNull('PrintCategorySubTotal', instance.printCategorySubTotal);
-  writeNotNull('PrintZeroExtended', instance.printZeroExtended);
-  writeNotNull('PrintLineItemNotes', instance.printLineItemNotes);
-  writeNotNull('PrintSplitLines', instance.printSplitLines);
-  writeNotNull('PrintGrandTotal', instance.printGrandTotal);
-  writeNotNull('PrintGrossTotal', instance.printGrossTotal);
-  writeNotNull('PrintGrandDiscount', instance.printGrandDiscount);
-  writeNotNull('PrintGrandWeekly', instance.printGrandWeekly);
-  writeNotNull('PrintGrandMonthly', instance.printGrandMonthly);
-  writeNotNull('PrintGrandPeriod', instance.printGrandPeriod);
-  writeNotNull('PrintGrandHiatus', instance.printGrandHiatus);
-  writeNotNull('PrintActivityWeekly', instance.printActivityWeekly);
-  writeNotNull('PrintActivityMonthly', instance.printActivityMonthly);
-  writeNotNull('PrintActivityPeriod', instance.printActivityPeriod);
-  writeNotNull('LanguageId', instance.languageId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsOrderReportOrderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.id case final value?) 'Id': value,
+          if (webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableToJson(
+                  instance.reportView)
+              case final value?)
+            'ReportView': value,
+          if (instance.printEntireGroup case final value?)
+            'PrintEntireGroup': value,
+          if (instance.printInventoryType case final value?)
+            'PrintInventoryType': value,
+          if (instance.printCategory case final value?) 'PrintCategory': value,
+          if (instance.printTotalReplacementCost case final value?)
+            'PrintTotalReplacementCost': value,
+          if (instance.printInventoryTypeSubTotal case final value?)
+            'PrintInventoryTypeSubTotal': value,
+          if (instance.printCategorySubTotal case final value?)
+            'PrintCategorySubTotal': value,
+          if (instance.printZeroExtended case final value?)
+            'PrintZeroExtended': value,
+          if (instance.printLineItemNotes case final value?)
+            'PrintLineItemNotes': value,
+          if (instance.printSplitLines case final value?)
+            'PrintSplitLines': value,
+          if (instance.printGrandTotal case final value?)
+            'PrintGrandTotal': value,
+          if (instance.printGrossTotal case final value?)
+            'PrintGrossTotal': value,
+          if (instance.printGrandDiscount case final value?)
+            'PrintGrandDiscount': value,
+          if (instance.printGrandWeekly case final value?)
+            'PrintGrandWeekly': value,
+          if (instance.printGrandMonthly case final value?)
+            'PrintGrandMonthly': value,
+          if (instance.printGrandPeriod case final value?)
+            'PrintGrandPeriod': value,
+          if (instance.printGrandHiatus case final value?)
+            'PrintGrandHiatus': value,
+          if (instance.printActivityWeekly case final value?)
+            'PrintActivityWeekly': value,
+          if (instance.printActivityMonthly case final value?)
+            'PrintActivityMonthly': value,
+          if (instance.printActivityPeriod case final value?)
+            'PrintActivityPeriod': value,
+          if (instance.languageId case final value?) 'LanguageId': value,
+          if (instance.filterRentalAndSaleItems case final value?)
+            'FilterRentalAndSaleItems': value,
+          if (instance.rentalAndSaleItemsToInclude case final value?)
+            'RentalAndSaleItemsToInclude': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest
     _$WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestFromJson(
@@ -5313,33 +5953,32 @@ WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequestToJson(
-        WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('View', instance.view);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsOrderStatusDetailReportOrderStatusDetailReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.view case final value?) 'View': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest
     _$WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestFromJson(
@@ -5367,39 +6006,41 @@ WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReport
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequestToJson(
-        WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('View', instance.view);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.view case final value?) 'View': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
     _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
           orderId: json['OrderId'] as String?,
+          shippingCaseId: json['ShippingCaseId'] as String?,
+          weightInCase: json['WeightInCase'] as String?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5420,32 +6061,36 @@ WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelReques
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequestToJson(
-        WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.shippingCaseId case final value?)
+            'ShippingCaseId': value,
+          if (instance.weightInCase case final value?) 'WeightInCase': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest
     _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestFromJson(
@@ -5481,41 +6126,40 @@ WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequestToJson(
-        WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('OnlyIncludeICodesWithQuantityAvail',
-      instance.onlyIncludeICodesWithQuantityAvail);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsOutstandingSubRentalReportOutstandingSubRentalReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.onlyIncludeICodesWithQuantityAvail case final value?)
+            'OnlyIncludeICodesWithQuantityAvail': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
     _$WebApiModulesReportsOrderReportsPickListReportPickListReportRequestFromJson(
@@ -5547,33 +6191,160 @@ WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsPickListReportPickListReportRequestToJson(
-        WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsOrderReportsPickListReportPickListReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.pickListId case final value?) 'PickListId': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsOrderReportsProjectReportProjectReportRequest
+    _$WebApiModulesReportsOrderReportsProjectReportProjectReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsProjectReportProjectReportRequest(
+          projectId: json['ProjectId'] as String?,
+          id: json['Id'] as String?,
+          reportView:
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableFromJson(
+                  json['ReportView']),
+          printEntireGroup: json['PrintEntireGroup'] as bool?,
+          printInventoryType: json['PrintInventoryType'] as bool?,
+          printCategory: json['PrintCategory'] as bool?,
+          printTotalReplacementCost: json['PrintTotalReplacementCost'] as bool?,
+          printInventoryTypeSubTotal:
+              json['PrintInventoryTypeSubTotal'] as bool?,
+          printCategorySubTotal: json['PrintCategorySubTotal'] as bool?,
+          printZeroExtended: json['PrintZeroExtended'] as bool?,
+          printLineItemNotes: json['PrintLineItemNotes'] as bool?,
+          printSplitLines: json['PrintSplitLines'] as bool?,
+          printGrandTotal: json['PrintGrandTotal'] as bool?,
+          printGrossTotal: json['PrintGrossTotal'] as bool?,
+          printGrandDiscount: json['PrintGrandDiscount'] as bool?,
+          printGrandWeekly: json['PrintGrandWeekly'] as bool?,
+          printGrandMonthly: json['PrintGrandMonthly'] as bool?,
+          printGrandPeriod: json['PrintGrandPeriod'] as bool?,
+          printGrandHiatus: json['PrintGrandHiatus'] as bool?,
+          printActivityWeekly: json['PrintActivityWeekly'] as bool?,
+          printActivityMonthly: json['PrintActivityMonthly'] as bool?,
+          printActivityPeriod: json['PrintActivityPeriod'] as bool?,
+          languageId: json['LanguageId'] as String?,
+          filterRentalAndSaleItems: json['FilterRentalAndSaleItems'] as bool?,
+          rentalAndSaleItemsToInclude:
+              json['RentalAndSaleItemsToInclude'] as String?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('PickListId', instance.pickListId);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsOrderReportsProjectReportProjectReportRequestToJson(
+            WebApiModulesReportsOrderReportsProjectReportProjectReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.projectId case final value?) 'ProjectId': value,
+          if (instance.id case final value?) 'Id': value,
+          if (webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableToJson(
+                  instance.reportView)
+              case final value?)
+            'ReportView': value,
+          if (instance.printEntireGroup case final value?)
+            'PrintEntireGroup': value,
+          if (instance.printInventoryType case final value?)
+            'PrintInventoryType': value,
+          if (instance.printCategory case final value?) 'PrintCategory': value,
+          if (instance.printTotalReplacementCost case final value?)
+            'PrintTotalReplacementCost': value,
+          if (instance.printInventoryTypeSubTotal case final value?)
+            'PrintInventoryTypeSubTotal': value,
+          if (instance.printCategorySubTotal case final value?)
+            'PrintCategorySubTotal': value,
+          if (instance.printZeroExtended case final value?)
+            'PrintZeroExtended': value,
+          if (instance.printLineItemNotes case final value?)
+            'PrintLineItemNotes': value,
+          if (instance.printSplitLines case final value?)
+            'PrintSplitLines': value,
+          if (instance.printGrandTotal case final value?)
+            'PrintGrandTotal': value,
+          if (instance.printGrossTotal case final value?)
+            'PrintGrossTotal': value,
+          if (instance.printGrandDiscount case final value?)
+            'PrintGrandDiscount': value,
+          if (instance.printGrandWeekly case final value?)
+            'PrintGrandWeekly': value,
+          if (instance.printGrandMonthly case final value?)
+            'PrintGrandMonthly': value,
+          if (instance.printGrandPeriod case final value?)
+            'PrintGrandPeriod': value,
+          if (instance.printGrandHiatus case final value?)
+            'PrintGrandHiatus': value,
+          if (instance.printActivityWeekly case final value?)
+            'PrintActivityWeekly': value,
+          if (instance.printActivityMonthly case final value?)
+            'PrintActivityMonthly': value,
+          if (instance.printActivityPeriod case final value?)
+            'PrintActivityPeriod': value,
+          if (instance.languageId case final value?) 'LanguageId': value,
+          if (instance.filterRentalAndSaleItems case final value?)
+            'FilterRentalAndSaleItems': value,
+          if (instance.rentalAndSaleItemsToInclude case final value?)
+            'RentalAndSaleItemsToInclude': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
     _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestFromJson(
@@ -5596,6 +6367,8 @@ WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
           activityTypeId: json['ActivityTypeId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           agentId: json['AgentId'] as String?,
+          dealId: json['DealId'] as String?,
+          includeCompleted: json['IncludeCompleted'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5616,40 +6389,47 @@ WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequestToJson(
-        WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull(
-      'OrderType', instance.orderType?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('ActivityTypeId', instance.activityTypeId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsQuikActivityReportQuikActivityReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.orderType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderType': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.activityTypeId case final value?)
+            'ActivityTypeId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.includeCompleted case final value?)
+            'IncludeCompleted': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest
     _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestFromJson(
@@ -5713,49 +6493,56 @@ WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequestToJson(
-        WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('FilterDates', instance.filterDates);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealTypeId', instance.dealTypeId);
-  writeNotNull('DealStatusId', instance.dealStatusId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull(
-      'OrderType', instance.orderType?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'QuoteStatus', instance.quoteStatus?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'OrderStatus', instance.orderStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsQuoteOrderMasterReportQuoteOrderMasterReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.filterDates case final value?) 'FilterDates': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealTypeId case final value?) 'DealTypeId': value,
+          if (instance.dealStatusId case final value?) 'DealStatusId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.orderType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderType': value,
+          if (instance.quoteStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'QuoteStatus': value,
+          if (instance.orderStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderStatus': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
     _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestFromJson(
@@ -5764,7 +6551,7 @@ WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
           quoteId: json['QuoteId'] as String?,
           id: json['Id'] as String?,
           reportView:
-              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableFromJson(
                   json['ReportView']),
           printEntireGroup: json['PrintEntireGroup'] as bool?,
           printInventoryType: json['PrintInventoryType'] as bool?,
@@ -5787,6 +6574,9 @@ WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
           printActivityMonthly: json['PrintActivityMonthly'] as bool?,
           printActivityPeriod: json['PrintActivityPeriod'] as bool?,
           languageId: json['LanguageId'] as String?,
+          filterRentalAndSaleItems: json['FilterRentalAndSaleItems'] as bool?,
+          rentalAndSaleItemsToInclude:
+              json['RentalAndSaleItemsToInclude'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5807,58 +6597,131 @@ WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestToJson(
-        WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.quoteId case final value?) 'QuoteId': value,
+          if (instance.id case final value?) 'Id': value,
+          if (webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableToJson(
+                  instance.reportView)
+              case final value?)
+            'ReportView': value,
+          if (instance.printEntireGroup case final value?)
+            'PrintEntireGroup': value,
+          if (instance.printInventoryType case final value?)
+            'PrintInventoryType': value,
+          if (instance.printCategory case final value?) 'PrintCategory': value,
+          if (instance.printTotalReplacementCost case final value?)
+            'PrintTotalReplacementCost': value,
+          if (instance.printInventoryTypeSubTotal case final value?)
+            'PrintInventoryTypeSubTotal': value,
+          if (instance.printCategorySubTotal case final value?)
+            'PrintCategorySubTotal': value,
+          if (instance.printZeroExtended case final value?)
+            'PrintZeroExtended': value,
+          if (instance.printLineItemNotes case final value?)
+            'PrintLineItemNotes': value,
+          if (instance.printSplitLines case final value?)
+            'PrintSplitLines': value,
+          if (instance.printGrandTotal case final value?)
+            'PrintGrandTotal': value,
+          if (instance.printGrossTotal case final value?)
+            'PrintGrossTotal': value,
+          if (instance.printGrandDiscount case final value?)
+            'PrintGrandDiscount': value,
+          if (instance.printGrandWeekly case final value?)
+            'PrintGrandWeekly': value,
+          if (instance.printGrandMonthly case final value?)
+            'PrintGrandMonthly': value,
+          if (instance.printGrandPeriod case final value?)
+            'PrintGrandPeriod': value,
+          if (instance.printGrandHiatus case final value?)
+            'PrintGrandHiatus': value,
+          if (instance.printActivityWeekly case final value?)
+            'PrintActivityWeekly': value,
+          if (instance.printActivityMonthly case final value?)
+            'PrintActivityMonthly': value,
+          if (instance.printActivityPeriod case final value?)
+            'PrintActivityPeriod': value,
+          if (instance.languageId case final value?) 'LanguageId': value,
+          if (instance.filterRentalAndSaleItems case final value?)
+            'FilterRentalAndSaleItems': value,
+          if (instance.rentalAndSaleItemsToInclude case final value?)
+            'RentalAndSaleItemsToInclude': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest
+    _$WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest(
+          orderId: json['OrderId'] as String?,
+          itemId: json['ItemId'] as String?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('QuoteId', instance.quoteId);
-  writeNotNull('Id', instance.id);
-  writeNotNull(
-      'ReportView',
-      webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
-          instance.reportView));
-  writeNotNull('PrintEntireGroup', instance.printEntireGroup);
-  writeNotNull('PrintInventoryType', instance.printInventoryType);
-  writeNotNull('PrintCategory', instance.printCategory);
-  writeNotNull('PrintTotalReplacementCost', instance.printTotalReplacementCost);
-  writeNotNull(
-      'PrintInventoryTypeSubTotal', instance.printInventoryTypeSubTotal);
-  writeNotNull('PrintCategorySubTotal', instance.printCategorySubTotal);
-  writeNotNull('PrintZeroExtended', instance.printZeroExtended);
-  writeNotNull('PrintLineItemNotes', instance.printLineItemNotes);
-  writeNotNull('PrintSplitLines', instance.printSplitLines);
-  writeNotNull('PrintGrandTotal', instance.printGrandTotal);
-  writeNotNull('PrintGrossTotal', instance.printGrossTotal);
-  writeNotNull('PrintGrandDiscount', instance.printGrandDiscount);
-  writeNotNull('PrintGrandWeekly', instance.printGrandWeekly);
-  writeNotNull('PrintGrandMonthly', instance.printGrandMonthly);
-  writeNotNull('PrintGrandPeriod', instance.printGrandPeriod);
-  writeNotNull('PrintGrandHiatus', instance.printGrandHiatus);
-  writeNotNull('PrintActivityWeekly', instance.printActivityWeekly);
-  writeNotNull('PrintActivityMonthly', instance.printActivityMonthly);
-  writeNotNull('PrintActivityPeriod', instance.printActivityPeriod);
-  writeNotNull('LanguageId', instance.languageId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequestToJson(
+            WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.itemId case final value?) 'ItemId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest
     _$WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestFromJson(
@@ -5882,12 +6745,7 @@ WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsRepo
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -5914,58 +6772,68 @@ WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsRepo
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequestToJson(
-        WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('IncludeNoCharge', instance.includeNoCharge);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStagedItemsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.includeNoCharge case final value?)
+            'IncludeNoCharge': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
     _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest(
           orderId: json['OrderId'] as String?,
+          quoteId: json['QuoteId'] as String?,
+          projectId: json['ProjectId'] as String?,
           rentalValue: json['RentalValue'] as String?,
           weightInCase: json['WeightInCase'] as bool?,
           excludeZeroValueItems: json['ExcludeZeroValueItems'] as bool?,
           filterBy: json['FilterBy'] as String?,
+          groupByShippingCase: json['GroupByShippingCase'] as bool?,
+          outContractId: json['OutContractId'] as String?,
+          orderType: json['OrderType'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5986,36 +6854,42 @@ WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestToJson(
-        WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('RentalValue', instance.rentalValue);
-  writeNotNull('WeightInCase', instance.weightInCase);
-  writeNotNull('ExcludeZeroValueItems', instance.excludeZeroValueItems);
-  writeNotNull('FilterBy', instance.filterBy);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.quoteId case final value?) 'QuoteId': value,
+          if (instance.projectId case final value?) 'ProjectId': value,
+          if (instance.rentalValue case final value?) 'RentalValue': value,
+          if (instance.weightInCase case final value?) 'WeightInCase': value,
+          if (instance.excludeZeroValueItems case final value?)
+            'ExcludeZeroValueItems': value,
+          if (instance.filterBy case final value?) 'FilterBy': value,
+          if (instance.groupByShippingCase case final value?)
+            'GroupByShippingCase': value,
+          if (instance.outContractId case final value?) 'OutContractId': value,
+          if (instance.orderType case final value?) 'OrderType': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest
     _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestFromJson(
@@ -6042,32 +6916,31 @@ WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequestToJson(
-        WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OutDeliveryId', instance.outDeliveryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsOutgoingDeliveryInstructionsOutgoingDeliveryInstructionsRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.outDeliveryId case final value?) 'OutDeliveryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest
     _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestFromJson(
@@ -6100,38 +6973,40 @@ WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInvento
 
 Map<String, dynamic>
     _$WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequestToJson(
-        WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ReorderPointMode', instance.reorderPointMode);
-  writeNotNull('IncludeZeroReorderPoint', instance.includeZeroReorderPoint);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPartsInventoryReportsPartsInventoryReorderReportPartsInventoryReorderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reorderPointMode case final value?)
+            'ReorderPointMode': value,
+          if (instance.includeZeroReorderPoint case final value?)
+            'IncludeZeroReorderPoint': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestFromJson(
@@ -6180,47 +7055,52 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhy
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull('IsSpace', instance.isSpace);
-  writeNotNull('isRecount', instance.isRecount);
-  writeNotNull('IncludeCompleteKits', instance.includeCompleteKits);
-  writeNotNull(
-      'IncludeCompleteKitReferences', instance.includeCompleteKitReferences);
-  writeNotNull(
-      'ExcludeOptionalAccessories', instance.excludeOptionalAccessories);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryCountSheetReportPhysicalInventoryCountSheetReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.isSpace case final value?) 'IsSpace': value,
+          if (instance.isRecount case final value?) 'isRecount': value,
+          if (instance.includeCompleteKits case final value?)
+            'IncludeCompleteKits': value,
+          if (instance.includeCompleteKitReferences case final value?)
+            'IncludeCompleteKitReferences': value,
+          if (instance.excludeOptionalAccessories case final value?)
+            'ExcludeOptionalAccessories': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestFromJson(
@@ -6267,45 +7147,49 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPh
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('ConsignorIds', instance.consignorIds);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull('IncludeIcodesThatAreNotDiscrepancies',
-      instance.includeIcodesThatAreNotDiscrepancies);
-  writeNotNull(
-      'PrintBarcodeSerialNotCounted', instance.printBarcodeSerialNotCounted);
-  writeNotNull('IsSpace', instance.isSpace);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryDiscrepancyReportPhysicalInventoryDiscrepancyReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.consignorIds case final value?) 'ConsignorIds': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.includeIcodesThatAreNotDiscrepancies case final value?)
+            'IncludeIcodesThatAreNotDiscrepancies': value,
+          if (instance.printBarcodeSerialNotCounted case final value?)
+            'PrintBarcodeSerialNotCounted': value,
+          if (instance.isSpace case final value?) 'IsSpace': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestFromJson(
@@ -6347,40 +7231,45 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhys
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull('IncludeZeroOwned', instance.includeZeroOwned);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryExceptionReportPhysicalInventoryExceptionReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.includeZeroOwned case final value?)
+            'IncludeZeroOwned': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestFromJson(
@@ -6393,8 +7282,9 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressRepo
           categoryIds: json['CategoryIds'] as String?,
           masterIds: json['MasterIds'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
-                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                      e as Map<String, dynamic>))
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
                   .toList() ??
               [],
           sortBy: (json['SortBy'] as List<dynamic>?)
@@ -6422,40 +7312,44 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressRepo
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryPrescanProgressReportPhysicalInventoryPrescanProgressReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestFromJson(
@@ -6512,49 +7406,57 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationRepor
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('FromDate', instance.fromDate?.toJson());
-  writeNotNull('ToDate', instance.toDate?.toJson());
-  writeNotNull('AvailableFor', instance.availableFor);
-  writeNotNull('ItemsCounted', instance.itemsCounted);
-  writeNotNull('IncludeOrders', instance.includeOrders);
-  writeNotNull('IncludeOrderBarcodes', instance.includeOrderBarcodes);
-  writeNotNull('IncludeCountedBarcodes', instance.includeCountedBarcodes);
-  writeNotNull('ExcludeZeroCostExtended', instance.excludeZeroCostExtended);
-  writeNotNull('OnlyChangedItems', instance.onlyChangedItems);
-  writeNotNull('TrackedbyIds', instance.trackedbyIds);
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryReconciliationReportPhysicalInventoryReconciliationReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.fromDate?.toJson() case final value?) 'FromDate': value,
+          if (instance.toDate?.toJson() case final value?) 'ToDate': value,
+          if (instance.availableFor case final value?) 'AvailableFor': value,
+          if (instance.itemsCounted case final value?) 'ItemsCounted': value,
+          if (instance.includeOrders case final value?) 'IncludeOrders': value,
+          if (instance.includeOrderBarcodes case final value?)
+            'IncludeOrderBarcodes': value,
+          if (instance.includeCountedBarcodes case final value?)
+            'IncludeCountedBarcodes': value,
+          if (instance.excludeZeroCostExtended case final value?)
+            'ExcludeZeroCostExtended': value,
+          if (instance.onlyChangedItems case final value?)
+            'OnlyChangedItems': value,
+          if (instance.trackedbyIds case final value?) 'TrackedbyIds': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestFromJson(
@@ -6596,40 +7498,45 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisRepo
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('IncludeIdenticalCounts', instance.includeIdenticalCounts);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryRecountAnalysisReportPhysicalInventoryRecountAnalysisReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.includeIdenticalCounts case final value?)
+            'IncludeIdenticalCounts': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestFromJson(
@@ -6672,41 +7579,47 @@ WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysic
 
 Map<String, dynamic>
     _$WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequestToJson(
-        WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PhysicalInventoryId', instance.physicalInventoryId);
-  writeNotNull('IncludeNoChangeItems', instance.includeNoChangeItems);
-  writeNotNull('ShowRetiredBarcodes', instance.showRetiredBarcodes);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SpaceIds', instance.spaceIds);
-  writeNotNull('InventoryDepartmentIds', instance.inventoryDepartmentIds);
-  writeNotNull('CategoryIds', instance.categoryIds);
-  writeNotNull('MasterIds', instance.masterIds);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPhysicalInventoryReportsPhysicalInventoryResultsReportPhysicalInventoryResultsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.physicalInventoryId case final value?)
+            'PhysicalInventoryId': value,
+          if (instance.includeNoChangeItems case final value?)
+            'IncludeNoChangeItems': value,
+          if (instance.showRetiredBarcodes case final value?)
+            'ShowRetiredBarcodes': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.spaceIds case final value?) 'SpaceIds': value,
+          if (instance.inventoryDepartmentIds case final value?)
+            'InventoryDepartmentIds': value,
+          if (instance.categoryIds case final value?) 'CategoryIds': value,
+          if (instance.masterIds case final value?) 'MasterIds': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPropsWardrobeReportsBrochureAnalysisReportBrochureAnalysisReportRequest
     _$WebApiModulesReportsPropsWardrobeReportsBrochureAnalysisReportBrochureAnalysisReportRequestFromJson(
@@ -6739,34 +7652,36 @@ WebApiModulesReportsPropsWardrobeReportsBrochureAnalysisReportBrochureAnalysisRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsPropsWardrobeReportsBrochureAnalysisReportBrochureAnalysisReportRequestToJson(
-        WebApiModulesReportsPropsWardrobeReportsBrochureAnalysisReportBrochureAnalysisReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPropsWardrobeReportsBrochureAnalysisReportBrochureAnalysisReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPropsWardrobeReportsInventoryByLocationReportInventoryByLocationReportRequest
     _$WebApiModulesReportsPropsWardrobeReportsInventoryByLocationReportInventoryByLocationReportRequestFromJson(
@@ -6815,46 +7730,53 @@ WebApiModulesReportsPropsWardrobeReportsInventoryByLocationReportInventoryByLoca
 
 Map<String, dynamic>
     _$WebApiModulesReportsPropsWardrobeReportsInventoryByLocationReportInventoryByLocationReportRequestToJson(
-        WebApiModulesReportsPropsWardrobeReportsInventoryByLocationReportInventoryByLocationReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'ReportType', instance.reportType?.map((e) => e.toJson()).toList());
-  writeNotNull('AsOfDate', instance.asOfDate);
-  writeNotNull('ShowMissingAisleShelfOnly', instance.showMissingAisleShelfOnly);
-  writeNotNull('FromAisleShelf', instance.fromAisleShelf);
-  writeNotNull('ToAisleShelf', instance.toAisleShelf);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('InventoryStatusId', instance.inventoryStatusId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPropsWardrobeReportsInventoryByLocationReportInventoryByLocationReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reportType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'ReportType': value,
+          if (instance.asOfDate case final value?) 'AsOfDate': value,
+          if (instance.showMissingAisleShelfOnly case final value?)
+            'ShowMissingAisleShelfOnly': value,
+          if (instance.fromAisleShelf case final value?)
+            'FromAisleShelf': value,
+          if (instance.toAisleShelf case final value?) 'ToAisleShelf': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.inventoryStatusId case final value?)
+            'InventoryStatusId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPropsWardrobeReportsInventoryReceiptDetailsReportInventoryReceiptDetailsReportRequest
     _$WebApiModulesReportsPropsWardrobeReportsInventoryReceiptDetailsReportInventoryReceiptDetailsReportRequestFromJson(
@@ -6904,47 +7826,52 @@ WebApiModulesReportsPropsWardrobeReportsInventoryReceiptDetailsReportInventoryRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsPropsWardrobeReportsInventoryReceiptDetailsReportInventoryReceiptDetailsReportRequestToJson(
-        WebApiModulesReportsPropsWardrobeReportsInventoryReceiptDetailsReportInventoryReceiptDetailsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'ReportType', instance.reportType?.map((e) => e.toJson()).toList());
-  writeNotNull('FromDate', instance.fromDate);
-  writeNotNull('ToDate', instance.toDate);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('InventoryReceiptId', instance.inventoryReceiptId);
-  writeNotNull('BuyerId', instance.buyerId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPropsWardrobeReportsInventoryReceiptDetailsReportInventoryReceiptDetailsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reportType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'ReportType': value,
+          if (instance.fromDate case final value?) 'FromDate': value,
+          if (instance.toDate case final value?) 'ToDate': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.inventoryReceiptId case final value?)
+            'InventoryReceiptId': value,
+          if (instance.buyerId case final value?) 'BuyerId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPropsWardrobeReportsInventoryReceiptSummaryReportInventoryReceiptSummaryReportRequest
     _$WebApiModulesReportsPropsWardrobeReportsInventoryReceiptSummaryReportInventoryReceiptSummaryReportRequestFromJson(
@@ -6988,41 +7915,44 @@ WebApiModulesReportsPropsWardrobeReportsInventoryReceiptSummaryReportInventoryRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsPropsWardrobeReportsInventoryReceiptSummaryReportInventoryReceiptSummaryReportRequestToJson(
-        WebApiModulesReportsPropsWardrobeReportsInventoryReceiptSummaryReportInventoryReceiptSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'ReportType', instance.reportType?.map((e) => e.toJson()).toList());
-  writeNotNull('FromDate', instance.fromDate);
-  writeNotNull('ToDate', instance.toDate);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('BuyerId', instance.buyerId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPropsWardrobeReportsInventoryReceiptSummaryReportInventoryReceiptSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reportType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'ReportType': value,
+          if (instance.fromDate case final value?) 'FromDate': value,
+          if (instance.toDate case final value?) 'ToDate': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.buyerId case final value?) 'BuyerId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchasedByDealReportRequest
     _$WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchasedByDealReportRequestFromJson(
@@ -7035,8 +7965,9 @@ WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchased
                   .toList() ??
               [],
           trackedBy: (json['TrackedBy'] as List<dynamic>?)
-                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                      e as Map<String, dynamic>))
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
                   .toList() ??
               [],
           costRangeFrom: (json['CostRangeFrom'] as num?)?.toDouble(),
@@ -7075,47 +8006,53 @@ WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchased
 
 Map<String, dynamic>
     _$WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchasedByDealReportRequestToJson(
-        WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchasedByDealReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'ReportType', instance.reportType?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBy', instance.trackedBy?.map((e) => e.toJson()).toList());
-  writeNotNull('CostRangeFrom', instance.costRangeFrom);
-  writeNotNull('CostRangeTo', instance.costRangeTo);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('InventoryStatusId', instance.inventoryStatusId);
-  writeNotNull('ShowImages', instance.showImages);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPropsWardrobeReportsItemsPurchasedByDealReportItemsPurchasedByDealReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reportType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'ReportType': value,
+          if (instance.trackedBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBy': value,
+          if (instance.costRangeFrom case final value?) 'CostRangeFrom': value,
+          if (instance.costRangeTo case final value?) 'CostRangeTo': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.inventoryStatusId case final value?)
+            'InventoryStatusId': value,
+          if (instance.showImages case final value?) 'ShowImages': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest
     _$WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestFromJson(
@@ -7143,33 +8080,33 @@ WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderRetu
 
 Map<String, dynamic>
     _$WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequestToJson(
-        WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRateUpdateReportRateUpdateReportRequest
     _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestFromJson(
@@ -7197,32 +8134,34 @@ WebApiModulesReportsRateUpdateReportRateUpdateReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsRateUpdateReportRateUpdateReportRequestToJson(
-        WebApiModulesReportsRateUpdateReportRateUpdateReportRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PendingModificationsOnly', instance.pendingModificationsOnly);
-  writeNotNull('RateUpdateBatchId', instance.rateUpdateBatchId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRateUpdateReportRateUpdateReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.pendingModificationsOnly case final value?)
+            'PendingModificationsOnly': value,
+          if (instance.rateUpdateBatchId case final value?)
+            'RateUpdateBatchId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestFromJson(
@@ -7239,7 +8178,8 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRen
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
           excludeMigrates: json['ExcludeMigrates'] as bool?,
           ownershipTypes: (json['OwnershipTypes'] as List<dynamic>?)
                   ?.map((e) =>
@@ -7247,12 +8187,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRen
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -7279,46 +8214,52 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRen
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('ExcludeMigrates', instance.excludeMigrates);
-  writeNotNull('OwnershipTypes',
-      instance.ownershipTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryActivityByDateReportRentalInventoryActivityByDateReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.excludeMigrates case final value?)
+            'ExcludeMigrates': value,
+          if (instance.ownershipTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OwnershipTypes': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRentalInventoryAssetAttributeReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRentalInventoryAssetAttributeReportRequestFromJson(
@@ -7329,13 +8270,9 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRen
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
+          ranks: json['Ranks'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
           sortBy: (json['SortBy'] as List<dynamic>?)
                   ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                       e as Map<String, dynamic>))
@@ -7361,40 +8298,43 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRen
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRentalInventoryAssetAttributeReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRentalInventoryAssetAttributeReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryAssetAttributeReportRentalInventoryAssetAttributeReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestFromJson(
@@ -7421,19 +8361,16 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRenta
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
+          refreshIfNeeded: json['RefreshIfNeeded'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -7454,49 +8391,59 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRenta
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('IsDetail', instance.isDetail);
-  writeNotNull('IncludeZeroQuantity', instance.includeZeroQuantity);
-  writeNotNull('OnlyIncludeLowAndNegative', instance.onlyIncludeLowAndNegative);
-  writeNotNull('OnlyIncludeNegative', instance.onlyIncludeNegative);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Classifications',
-      instance.classifications?.map((e) => e.toJson()).toList());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRentalInventoryAvailabilityReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.isDetail case final value?) 'IsDetail': value,
+          if (instance.includeZeroQuantity case final value?)
+            'IncludeZeroQuantity': value,
+          if (instance.onlyIncludeLowAndNegative case final value?)
+            'OnlyIncludeLowAndNegative': value,
+          if (instance.onlyIncludeNegative case final value?)
+            'OnlyIncludeNegative': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.classifications?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Classifications': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.refreshIfNeeded case final value?)
+            'RefreshIfNeeded': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestFromJson(
@@ -7508,12 +8455,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInven
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           originalShowId: json['OriginalShowId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -7526,7 +8468,8 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInven
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
           includeRetiredSerializedItems:
               json['IncludeRetiredSerializedItems'] as bool?,
           includeItemsReceivedInDateRange:
@@ -7557,50 +8500,56 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInven
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('OwnershipTypes',
-      instance.ownershipTypes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull(
-      'IncludeRetiredSerializedItems', instance.includeRetiredSerializedItems);
-  writeNotNull('IncludeItemsReceivedInDateRange',
-      instance.includeItemsReceivedInDateRange);
-  writeNotNull('ReceiveFromDate', instance.receiveFromDate?.toIso8601String());
-  writeNotNull('ReceiveToDate', instance.receiveToDate?.toIso8601String());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.ownershipTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OwnershipTypes': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.includeRetiredSerializedItems case final value?)
+            'IncludeRetiredSerializedItems': value,
+          if (instance.includeItemsReceivedInDateRange case final value?)
+            'IncludeItemsReceivedInDateRange': value,
+          if (instance.receiveFromDate?.toIso8601String() case final value?)
+            'ReceiveFromDate': value,
+          if (instance.receiveToDate?.toIso8601String() case final value?)
+            'ReceiveToDate': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestFromJson(
@@ -7618,13 +8567,8 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInv
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          value: json['Value'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          $Value: json['Value'] as String?,
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -7651,43 +8595,47 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInv
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('IncludeZeroOwned', instance.includeZeroOwned);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Value', instance.value);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryMovementReportRentalInventoryMovementReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.includeZeroOwned case final value?)
+            'IncludeZeroOwned': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.$Value case final value?) 'Value': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInventoryOutageReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInventoryOutageReportRequestFromJson(
@@ -7703,12 +8651,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInven
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           outageFilterMode: json['OutageFilterMode'] as String?,
           outageFilterAmount: (json['OutageFilterAmount'] as num?)?.toDouble(),
           filterDatesByOutagePercent:
@@ -7733,47 +8676,57 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInven
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInventoryOutageReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInventoryOutageReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryOutageReportRentalInventoryOutageReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.outageFilterMode case final value?)
+            'OutageFilterMode': value,
+          if (instance.outageFilterAmount case final value?)
+            'OutageFilterAmount': value,
+          if (instance.filterDatesByOutagePercent case final value?)
+            'FilterDatesByOutagePercent': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull('OutageFilterMode', instance.outageFilterMode);
-  writeNotNull('OutageFilterAmount', instance.outageFilterAmount);
-  writeNotNull(
-      'FilterDatesByOutagePercent', instance.filterDatesByOutagePercent);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
-
-WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
-    _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestFromJson(
+WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequest
+    _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequestFromJson(
             Map<String, dynamic> json) =>
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest(
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
           warehouseId: json['WarehouseId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
@@ -7798,37 +8751,168 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalI
         );
 
 Map<String, dynamic>
+    _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequestToJson(
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
+
+WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
+    _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest(
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          inContractId: json['InContractId'] as String?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
+
+Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryQCRequiredReportRentalInventoryQCRequiredReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.inContractId case final value?) 'InContractId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequest
+    _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequest(
+          asOfDate: json['AsOfDate'] == null
+              ? null
+              : DateTime.parse(json['AsOfDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: json['Ranks'] as String?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequestToJson(
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestFromJson(
@@ -7848,12 +8932,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportR
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -7886,48 +8965,57 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportR
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('IncludePeriodRevenue', instance.includePeriodRevenue);
-  writeNotNull('RevenueFromDate', instance.revenueFromDate?.toIso8601String());
-  writeNotNull('RevenueToDate', instance.revenueToDate?.toIso8601String());
-  writeNotNull('RevenueFilterMode', instance.revenueFilterMode);
-  writeNotNull('RevenueFilterAmount', instance.revenueFilterAmount);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('IncludeNotRentedSince', instance.includeNotRentedSince);
-  writeNotNull(
-      'NotRentedSinceDate', instance.notRentedSinceDate?.toIso8601String());
-  writeNotNull('IncludeZeroOwned', instance.includeZeroOwned);
-  writeNotNull('ShowStagedAndOut', instance.showStagedAndOut);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryStatusAndRevenueReportRentalInventoryStatusAndRevenueReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.includePeriodRevenue case final value?)
+            'IncludePeriodRevenue': value,
+          if (instance.revenueFromDate?.toIso8601String() case final value?)
+            'RevenueFromDate': value,
+          if (instance.revenueToDate?.toIso8601String() case final value?)
+            'RevenueToDate': value,
+          if (instance.revenueFilterMode case final value?)
+            'RevenueFilterMode': value,
+          if (instance.revenueFilterAmount case final value?)
+            'RevenueFilterAmount': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.includeNotRentedSince case final value?)
+            'IncludeNotRentedSince': value,
+          if (instance.notRentedSinceDate?.toIso8601String() case final value?)
+            'NotRentedSinceDate': value,
+          if (instance.includeZeroOwned case final value?)
+            'IncludeZeroOwned': value,
+          if (instance.showStagedAndOut case final value?)
+            'ShowStagedAndOut': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRentalInventorySummaryByRankReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRentalInventorySummaryByRankReportRequestFromJson(
@@ -7937,12 +9025,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRent
               ? null
               : DateTime.parse(json['AsOfDate'] as String),
           warehouseId: json['WarehouseId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -7963,34 +9046,34 @@ WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRent
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRentalInventorySummaryByRankReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRentalInventorySummaryByRankReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventorySummaryByRankReportRentalInventorySummaryByRankReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestFromJson(
@@ -8000,7 +9083,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRental
               ? null
               : DateTime.parse(json['AsOfDate'] as String),
           includeZeroQuantity: json['IncludeZeroQuantity'] as bool?,
-          daysUnused: json['DaysUnused'] as int?,
+          daysUnused: (json['DaysUnused'] as num?)?.toInt(),
           warehouseId: json['WarehouseId'] as String?,
           departmentId: json['DepartmentId'] as String?,
           dealId: json['DealId'] as String?,
@@ -8039,44 +9122,49 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRental
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('IncludeZeroQuantity', instance.includeZeroQuantity);
-  writeNotNull('DaysUnused', instance.daysUnused);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryUnusedItemsReportRentalInventoryUnusedItemsReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.includeZeroQuantity case final value?)
+            'IncludeZeroQuantity': value,
+          if (instance.daysUnused case final value?) 'DaysUnused': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRentalInventoryUsageByCustomerReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRentalInventoryUsageByCustomerReportRequestFromJson(
@@ -8096,12 +9184,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRe
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           customerId: json['CustomerId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -8133,48 +9216,55 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRentalInventoryUsageByCustomerReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRentalInventoryUsageByCustomerReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('UtilizationFilterMode', instance.utilizationFilterMode);
-  writeNotNull('UtilizationFilterAmount', instance.utilizationFilterAmount);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('ExcludeZeroOwned', instance.excludeZeroOwned);
-  writeNotNull('FilterDatesByUtilizationPercent',
-      instance.filterDatesByUtilizationPercent);
-  writeNotNull('OnlyIncludeItemsThatAreTheMainItemOfAComplete',
-      instance.onlyIncludeItemsThatAreTheMainItemOfAComplete);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageByCustomerReportRentalInventoryUsageByCustomerReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.utilizationFilterMode case final value?)
+            'UtilizationFilterMode': value,
+          if (instance.utilizationFilterAmount case final value?)
+            'UtilizationFilterAmount': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.excludeZeroOwned case final value?)
+            'ExcludeZeroOwned': value,
+          if (instance.filterDatesByUtilizationPercent case final value?)
+            'FilterDatesByUtilizationPercent': value,
+          if (instance.onlyIncludeItemsThatAreTheMainItemOfAComplete
+              case final value?)
+            'OnlyIncludeItemsThatAreTheMainItemOfAComplete': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestFromJson(
@@ -8193,12 +9283,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInvent
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -8230,47 +9315,54 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInvent
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('UtilizationFilterMode', instance.utilizationFilterMode);
-  writeNotNull('UtilizationFilterAmount', instance.utilizationFilterAmount);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('ExcludeZeroOwned', instance.excludeZeroOwned);
-  writeNotNull('FilterDatesByUtilizationPercent',
-      instance.filterDatesByUtilizationPercent);
-  writeNotNull('OnlyIncludeItemsThatAreTheMainItemOfAComplete',
-      instance.onlyIncludeItemsThatAreTheMainItemOfAComplete);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryUsageReportRentalInventoryUsageReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.utilizationFilterMode case final value?)
+            'UtilizationFilterMode': value,
+          if (instance.utilizationFilterAmount case final value?)
+            'UtilizationFilterAmount': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.excludeZeroOwned case final value?)
+            'ExcludeZeroOwned': value,
+          if (instance.filterDatesByUtilizationPercent case final value?)
+            'FilterDatesByUtilizationPercent': value,
+          if (instance.onlyIncludeItemsThatAreTheMainItemOfAComplete
+              case final value?)
+            'OnlyIncludeItemsThatAreTheMainItemOfAComplete': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestFromJson(
@@ -8288,12 +9380,7 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInvent
           groupByICode: json['GroupByICode'] as bool?,
           quantityValueBasedOn: json['QuantityValueBasedOn'] as String?,
           serializedValueBasedOn: json['SerializedValueBasedOn'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           trackedBys: (json['TrackedBys'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardModelsSelectedCheckBoxListItem.fromJson(
@@ -8326,48 +9413,55 @@ WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInvent
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('IncludeOwned', instance.includeOwned);
-  writeNotNull('IncludeConsigned', instance.includeConsigned);
-  writeNotNull('IncludeZeroQuantity', instance.includeZeroQuantity);
-  writeNotNull('GroupByICode', instance.groupByICode);
-  writeNotNull('QuantityValueBasedOn', instance.quantityValueBasedOn);
-  writeNotNull('SerializedValueBasedOn', instance.serializedValueBasedOn);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('Summary', instance.summary);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalInventoryValueReportRentalInventoryValueReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.includeOwned case final value?) 'IncludeOwned': value,
+          if (instance.includeConsigned case final value?)
+            'IncludeConsigned': value,
+          if (instance.includeZeroQuantity case final value?)
+            'IncludeZeroQuantity': value,
+          if (instance.groupByICode case final value?) 'GroupByICode': value,
+          if (instance.quantityValueBasedOn case final value?)
+            'QuantityValueBasedOn': value,
+          if (instance.serializedValueBasedOn case final value?)
+            'SerializedValueBasedOn': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.summary case final value?) 'Summary': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestFromJson(
@@ -8381,6 +9475,7 @@ WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryRepo
               : DateTime.parse(json['ToDate'] as String),
           excludeRetiredItems: json['ExcludeRetiredItems'] as bool?,
           excludeUnretiredItems: json['ExcludeUnretiredItems'] as bool?,
+          includeSubRentalItems: json['IncludeSubRentalItems'] as bool?,
           warehouseId: json['WarehouseId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
@@ -8409,43 +9504,51 @@ WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryRepo
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('ExcludeRetiredItems', instance.excludeRetiredItems);
-  writeNotNull('ExcludeUnretiredItems', instance.excludeUnretiredItems);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('RetiredReasonId', instance.retiredReasonId);
-  writeNotNull('UnretiredReasonId', instance.unretiredReasonId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsRentalLostAndDamagedBillingHistoryReportRentalLostAndDamagedBillingHistoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.excludeRetiredItems case final value?)
+            'ExcludeRetiredItems': value,
+          if (instance.excludeUnretiredItems case final value?)
+            'ExcludeUnretiredItems': value,
+          if (instance.includeSubRentalItems case final value?)
+            'IncludeSubRentalItems': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.retiredReasonId case final value?)
+            'RetiredReasonId': value,
+          if (instance.unretiredReasonId case final value?)
+            'UnretiredReasonId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestFromJson(
@@ -8458,12 +9561,7 @@ WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRen
               ? null
               : DateTime.parse(json['ToDate'] as String),
           includeUnretired: json['IncludeUnretired'] as bool?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
@@ -8492,43 +9590,143 @@ WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRen
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredRentalInventoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.includeUnretired case final value?)
+            'IncludeUnretired': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.retiredReasonId case final value?)
+            'RetiredReasonId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
+    _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest(
+          usePeriodSelector: json['UsePeriodSelector'] as bool?,
+          reportYear: json['ReportYear'] as String?,
+          reportPeriod: json['ReportPeriod'] as String?,
+          useDateRange: json['UseDateRange'] as bool?,
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          ranks: json['Ranks'] as String?,
+          trackedBys: (json['TrackedBys'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          includeZeroCurrentOwned: json['IncludeZeroCurrentOwned'] as bool?,
+          includeZeroAverageOwned: json['IncludeZeroAverageOwned'] as bool?,
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('IncludeUnretired', instance.includeUnretired);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('RetiredReasonId', instance.retiredReasonId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestToJson(
+            WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.usePeriodSelector case final value?)
+            'UsePeriodSelector': value,
+          if (instance.reportYear case final value?) 'ReportYear': value,
+          if (instance.reportPeriod case final value?) 'ReportPeriod': value,
+          if (instance.useDateRange case final value?) 'UseDateRange': value,
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.includeZeroCurrentOwned case final value?)
+            'IncludeZeroCurrentOwned': value,
+          if (instance.includeZeroAverageOwned case final value?)
+            'IncludeZeroAverageOwned': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestFromJson(
@@ -8567,135 +9765,42 @@ WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInv
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserId', instance.userId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
-
-WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
-    _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestFromJson(
-            Map<String, dynamic> json) =>
-        WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest(
-          usePeriodSelector: json['UsePeriodSelector'] as bool?,
-          reportYear: json['ReportYear'] as String?,
-          reportPeriod: json['ReportPeriod'] as String?,
-          useDateRange: json['UseDateRange'] as bool?,
-          fromDate: json['FromDate'] == null
-              ? null
-              : DateTime.parse(json['FromDate'] as String),
-          toDate: json['ToDate'] == null
-              ? null
-              : DateTime.parse(json['ToDate'] as String),
-          warehouseId: json['WarehouseId'] as String?,
-          inventoryTypeId: json['InventoryTypeId'] as String?,
-          categoryId: json['CategoryId'] as String?,
-          subCategoryId: json['SubCategoryId'] as String?,
-          inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          trackedBys: (json['TrackedBys'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          includeZeroCurrentOwned: json['IncludeZeroCurrentOwned'] as bool?,
-          includeZeroAverageOwned: json['IncludeZeroAverageOwned'] as bool?,
-          userDepartmentId: json['UserDepartmentId'] as String?,
-          userLocationId: json['UserLocationId'] as String?,
-          userWarehouseId: json['UserWarehouseId'] as String?,
-          customReportLayoutId: json['CustomReportLayoutId'] as String?,
-          isSummary: json['IsSummary'] as bool?,
-          includeSubHeadingsAndSubTotals:
-              json['IncludeSubHeadingsAndSubTotals'] as bool?,
-          includeIdColumns: json['IncludeIdColumns'] as bool?,
-          locale: json['Locale'] as String?,
-          excelfields: (json['excelfields'] as List<dynamic>?)
-                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
-                      e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          reportName: json['ReportName'] as String?,
-          useEmailTemplate: json['UseEmailTemplate'] as bool?,
-        );
-
-Map<String, dynamic>
-    _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsReturnOnAssetReportReturnOnAssetReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('UsePeriodSelector', instance.usePeriodSelector);
-  writeNotNull('ReportYear', instance.reportYear);
-  writeNotNull('ReportPeriod', instance.reportPeriod);
-  writeNotNull('UseDateRange', instance.useDateRange);
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('IncludeZeroCurrentOwned', instance.includeZeroCurrentOwned);
-  writeNotNull('IncludeZeroAverageOwned', instance.includeZeroAverageOwned);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsReturnedToInventoryReportReturnedToInventoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userId case final value?) 'UserId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequest
     _$WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequestFromJson(
@@ -8723,8 +9828,8 @@ WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequest
           iCode: json['ICode'] as String?,
           description: json['Description'] as String?,
           barcode: json['Barcode'] as String?,
-          value: json['Value'] as String?,
-          quanity: json['Quanity'] as int?,
+          $Value: json['Value'] as String?,
+          quanity: (json['Quanity'] as num?)?.toInt(),
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -8745,51 +9850,53 @@ WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('BrochureId', instance.brochureId);
-  writeNotNull('Summary', instance.summary);
-  writeNotNull('IncludeValue', instance.includeValue);
-  writeNotNull('PrintOneImagePerPage', instance.printOneImagePerPage);
-  writeNotNull('PrintHeader', instance.printHeader);
-  writeNotNull('HeaderTitle', instance.headerTitle);
-  writeNotNull('PrintFooter', instance.printFooter);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('DealIds', instance.dealIds);
-  writeNotNull('OrderIds', instance.orderIds);
-  writeNotNull('SetIds', instance.setIds);
-  writeNotNull('ImageId', instance.imageId);
-  writeNotNull('UniqueId1', instance.uniqueId1);
-  writeNotNull('UniqueId2', instance.uniqueId2);
-  writeNotNull('UniqueId3', instance.uniqueId3);
-  writeNotNull('ICode', instance.iCode);
-  writeNotNull('Description', instance.description);
-  writeNotNull('Barcode', instance.barcode);
-  writeNotNull('Value', instance.value);
-  writeNotNull('Quanity', instance.quanity);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsSetBrochureSetBrochureReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.brochureId case final value?) 'BrochureId': value,
+          if (instance.summary case final value?) 'Summary': value,
+          if (instance.includeValue case final value?) 'IncludeValue': value,
+          if (instance.printOneImagePerPage case final value?)
+            'PrintOneImagePerPage': value,
+          if (instance.printHeader case final value?) 'PrintHeader': value,
+          if (instance.headerTitle case final value?) 'HeaderTitle': value,
+          if (instance.printFooter case final value?) 'PrintFooter': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.dealIds case final value?) 'DealIds': value,
+          if (instance.orderIds case final value?) 'OrderIds': value,
+          if (instance.setIds case final value?) 'SetIds': value,
+          if (instance.imageId case final value?) 'ImageId': value,
+          if (instance.uniqueId1 case final value?) 'UniqueId1': value,
+          if (instance.uniqueId2 case final value?) 'UniqueId2': value,
+          if (instance.uniqueId3 case final value?) 'UniqueId3': value,
+          if (instance.iCode case final value?) 'ICode': value,
+          if (instance.description case final value?) 'Description': value,
+          if (instance.barcode case final value?) 'Barcode': value,
+          if (instance.$Value case final value?) 'Value': value,
+          if (instance.quanity case final value?) 'Quanity': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestFromJson(
@@ -8827,39 +9934,42 @@ WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretire
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UnretiredReasonId', instance.unretiredReasonId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsUnretiredRentalInventoryReportUnretiredRentalInventoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.unretiredReasonId case final value?)
+            'UnretiredReasonId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest
     _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestFromJson(
@@ -8887,13 +9997,9 @@ WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOf
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
+          ranks: json['Ranks'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -8914,46 +10020,50 @@ WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOf
 
 Map<String, dynamic>
     _$WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequestToJson(
-        WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('AsOfDate', instance.asOfDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('ExcludeHiatus', instance.excludeHiatus);
-  writeNotNull('OwnershipTypes',
-      instance.ownershipTypes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRentalInventoryReportsValueOfOutRentalInventoryReportValueOfOutRentalInventoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.asOfDate?.toIso8601String() case final value?)
+            'AsOfDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.excludeHiatus case final value?) 'ExcludeHiatus': value,
+          if (instance.ownershipTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OwnershipTypes': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest
     _$WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequestFromJson(
@@ -8974,7 +10084,7 @@ WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusRe
           billable: json['Billable'] as bool?,
           billed: json['Billed'] as bool?,
           owned: json['Owned'] as bool?,
-          daysInRepair: json['DaysInRepair'] as int?,
+          daysInRepair: (json['DaysInRepair'] as num?)?.toInt(),
           daysInRepairFilterMode: json['DaysInRepairFilterMode'] as String?,
           includeOutsideRepairsOnly: json['IncludeOutsideRepairsOnly'] as bool?,
           includeDamageNotes: json['IncludeDamageNotes'] as bool?,
@@ -9009,52 +10119,61 @@ WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequestToJson(
-        WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('RepairOrderStatus',
-      instance.repairOrderStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('Priority', instance.priority?.map((e) => e.toJson()).toList());
-  writeNotNull('Billable', instance.billable);
-  writeNotNull('Billed', instance.billed);
-  writeNotNull('Owned', instance.owned);
-  writeNotNull('DaysInRepair', instance.daysInRepair);
-  writeNotNull('DaysInRepairFilterMode', instance.daysInRepairFilterMode);
-  writeNotNull('IncludeOutsideRepairsOnly', instance.includeOutsideRepairsOnly);
-  writeNotNull('IncludeDamageNotes', instance.includeDamageNotes);
-  writeNotNull('IncludeCorrectionNotes', instance.includeCorrectionNotes);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('RepairItemStatusId', instance.repairItemStatusId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('VendorRepairItemStatusId', instance.vendorRepairItemStatusId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRepairOrderReportsRepairOrderStatusReportRepairOrderStatusReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.repairOrderStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'RepairOrderStatus': value,
+          if (instance.priority?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Priority': value,
+          if (instance.billable case final value?) 'Billable': value,
+          if (instance.billed case final value?) 'Billed': value,
+          if (instance.owned case final value?) 'Owned': value,
+          if (instance.daysInRepair case final value?) 'DaysInRepair': value,
+          if (instance.daysInRepairFilterMode case final value?)
+            'DaysInRepairFilterMode': value,
+          if (instance.includeOutsideRepairsOnly case final value?)
+            'IncludeOutsideRepairsOnly': value,
+          if (instance.includeDamageNotes case final value?)
+            'IncludeDamageNotes': value,
+          if (instance.includeCorrectionNotes case final value?)
+            'IncludeCorrectionNotes': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.repairItemStatusId case final value?)
+            'RepairItemStatusId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.vendorRepairItemStatusId case final value?)
+            'VendorRepairItemStatusId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
     _$WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestFromJson(
@@ -9081,32 +10200,31 @@ WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequestToJson(
-        WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('RepairId', instance.repairId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRepairOrderReportsRepairTagRepairTagRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.repairId case final value?) 'RepairId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
     _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestFromJson(
@@ -9133,32 +10251,31 @@ WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequestToJson(
-        WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('RepairId', instance.repairId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsRepairReportsRepairOrderReportRepairOrderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.repairId case final value?) 'RepairId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestFromJson(
@@ -9189,36 +10306,36 @@ WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderRepor
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequestToJson(
-        WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSalesInventoryReportsSalesBackorderReportSalesBackorderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestFromJson(
@@ -9266,44 +10383,50 @@ WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequestToJson(
-        WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('Summary', instance.summary);
-  writeNotNull('IncludeSalesTax', instance.includeSalesTax);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSalesInventoryReportsSalesHistoryReportSalesHistoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.summary case final value?) 'Summary': value,
+          if (instance.includeSalesTax case final value?)
+            'IncludeSalesTax': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestFromJson(
@@ -9323,12 +10446,7 @@ WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventor
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           excludeZeroOwned: json['ExcludeZeroOwned'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
@@ -9350,42 +10468,48 @@ WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventor
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequestToJson(
-        WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('IncludePeriodRevenue', instance.includePeriodRevenue);
-  writeNotNull('RevenueFromDate', instance.revenueFromDate?.toIso8601String());
-  writeNotNull('RevenueToDate', instance.revenueToDate?.toIso8601String());
-  writeNotNull('RevenueFilterMode', instance.revenueFilterMode);
-  writeNotNull('RevenueFilterAmount', instance.revenueFilterAmount);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull('ExcludeZeroOwned', instance.excludeZeroOwned);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSalesInventoryReportsSalesInventoryMasterReportSalesInventoryMasterReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.includePeriodRevenue case final value?)
+            'IncludePeriodRevenue': value,
+          if (instance.revenueFromDate?.toIso8601String() case final value?)
+            'RevenueFromDate': value,
+          if (instance.revenueToDate?.toIso8601String() case final value?)
+            'RevenueToDate': value,
+          if (instance.revenueFilterMode case final value?)
+            'RevenueFilterMode': value,
+          if (instance.revenueFilterAmount case final value?)
+            'RevenueFilterAmount': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.excludeZeroOwned case final value?)
+            'ExcludeZeroOwned': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestFromJson(
@@ -9398,6 +10522,9 @@ WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInvento
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
+          throughDate: json['ThroughDate'] == null
+              ? null
+              : DateTime.parse(json['ThroughDate'] as String),
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -9418,38 +10545,42 @@ WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInvento
 
 Map<String, dynamic>
     _$WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequestToJson(
-        WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ReorderPointMode', instance.reorderPointMode);
-  writeNotNull('IncludeZeroReorderPoint', instance.includeZeroReorderPoint);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSalesInventoryReportsSalesInventoryReorderReportSalesInventoryReorderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.reorderPointMode case final value?)
+            'ReorderPointMode': value,
+          if (instance.includeZeroReorderPoint case final value?)
+            'IncludeZeroReorderPoint': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.throughDate?.toIso8601String() case final value?)
+            'ThroughDate': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest
     _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestFromJson(
@@ -9465,13 +10596,9 @@ WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequ
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           attributeId: json['AttributeId'] as String?,
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
+          ranks: json['Ranks'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -9492,40 +10619,43 @@ WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequestToJson(
-        WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('AttributeId', instance.attributeId);
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSharedInventoryAttributesReportInventoryAttributesReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.attributeId case final value?) 'AttributeId': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
     _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestFromJson(
@@ -9543,13 +10673,9 @@ WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
-          fixedAsset: webApiIncludeExcludeAllFromJson(json['FixedAsset']),
+          ranks: json['Ranks'] as String?,
+          fixedAsset:
+              webApiIncludeExcludeAllNullableFromJson(json['FixedAsset']),
           warehouseId: json['WarehouseId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
@@ -9577,45 +10703,50 @@ WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequestToJson(
-        WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Classifications',
-      instance.classifications?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'FixedAsset', webApiIncludeExcludeAllToJson(instance.fixedAsset));
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('WarehouseCatalogId', instance.warehouseCatalogId);
-  writeNotNull('IncludeZeroQuantity', instance.includeZeroQuantity);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSharedInventoryCatalogReportInventoryCatalogReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.classifications?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Classifications': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (webApiIncludeExcludeAllNullableToJson(instance.fixedAsset)
+              case final value?)
+            'FixedAsset': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.warehouseCatalogId case final value?)
+            'WarehouseCatalogId': value,
+          if (instance.includeZeroQuantity case final value?)
+            'IncludeZeroQuantity': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest
     _$WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestFromJson(
@@ -9639,18 +10770,14 @@ WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistory
                           e as Map<String, dynamic>))
                   .toList() ??
               [],
-          ranks: (json['Ranks'] as List<dynamic>?)
-                  ?.map((e) =>
-                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
-                          e as Map<String, dynamic>))
-                  .toList() ??
-              [],
+          ranks: json['Ranks'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           inventoryTypeId: json['InventoryTypeId'] as String?,
           categoryId: json['CategoryId'] as String?,
           subCategoryId: json['SubCategoryId'] as String?,
           inventoryId: json['InventoryId'] as String?,
           originalShowId: json['OriginalShowId'] as String?,
+          vendorId: json['VendorId'] as String?,
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
           userWarehouseId: json['UserWarehouseId'] as String?,
@@ -9671,46 +10798,51 @@ WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistory
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequestToJson(
-        WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'PurchasedFromDate', instance.purchasedFromDate?.toIso8601String());
-  writeNotNull('PurchasedToDate', instance.purchasedToDate?.toIso8601String());
-  writeNotNull(
-      'ReceivedFromDate', instance.receivedFromDate?.toIso8601String());
-  writeNotNull('ReceivedToDate', instance.receivedToDate?.toIso8601String());
-  writeNotNull(
-      'TrackedBys', instance.trackedBys?.map((e) => e.toJson()).toList());
-  writeNotNull('Ranks', instance.ranks?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('OriginalShowId', instance.originalShowId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSharedInventoryPurchaseHistoryReportInventoryPurchaseHistoryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchasedFromDate?.toIso8601String() case final value?)
+            'PurchasedFromDate': value,
+          if (instance.purchasedToDate?.toIso8601String() case final value?)
+            'PurchasedToDate': value,
+          if (instance.receivedFromDate?.toIso8601String() case final value?)
+            'ReceivedFromDate': value,
+          if (instance.receivedToDate?.toIso8601String() case final value?)
+            'ReceivedToDate': value,
+          if (instance.trackedBys?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TrackedBys': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.originalShowId case final value?)
+            'OriginalShowId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest
     _$WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestFromJson(
@@ -9753,46 +10885,49 @@ WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequestToJson(
-        WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('TransactionTypes',
-      instance.transactionTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSharedInventoryTransactionReportInventoryTransactionReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.transactionTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'TransactionTypes': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsSharedReportSettingsReportSettings
     _$WebApiModulesReportsSharedReportSettingsReportSettingsFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsSharedReportSettingsReportSettings(
-          id: json['Id'] as int?,
+          id: (json['Id'] as num?)?.toInt(),
           webUserId: json['WebUserId'] as String?,
           reportName: json['ReportName'] as String?,
           description: json['Description'] as String?,
@@ -9801,6 +10936,7 @@ WebApiModulesReportsSharedReportSettingsReportSettings
           dateStamp: json['DateStamp'] as String?,
           auditNote: json['AuditNote'] as String?,
           recordTitle: json['RecordTitle'] as String?,
+          urlIdentifier: json['UrlIdentifier'],
           fields: (json['_Fields'] as List<dynamic>?)
                   ?.map((e) =>
                       FwStandardBusinessLogicFwBusinessLogicFieldDefinition
@@ -9818,41 +10954,65 @@ WebApiModulesReportsSharedReportSettingsReportSettings
                           e as Map<String, dynamic>))
                       .toList() ??
                   [],
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
           translation: (json['_Translation'] as List<dynamic>?)
                   ?.map((e) => FwStandardDataFwTranslatedValue.fromJson(
                       e as Map<String, dynamic>))
                   .toList() ??
               [],
+          hasImport: json['_HasImport'] as bool?,
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
         );
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedReportSettingsReportSettingsToJson(
-        WebApiModulesReportsSharedReportSettingsReportSettings instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('Id', instance.id);
-  writeNotNull('WebUserId', instance.webUserId);
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('Description', instance.description);
-  writeNotNull('Settings', instance.settings);
-  writeNotNull('ExcelSettings', instance.excelSettings);
-  writeNotNull('DateStamp', instance.dateStamp);
-  writeNotNull('AuditNote', instance.auditNote);
-  writeNotNull('RecordTitle', instance.recordTitle);
-  writeNotNull('_Fields', instance.fields?.map((e) => e.toJson()).toList());
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+            WebApiModulesReportsSharedReportSettingsReportSettings instance) =>
+        <String, dynamic>{
+          if (instance.id case final value?) 'Id': value,
+          if (instance.webUserId case final value?) 'WebUserId': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.description case final value?) 'Description': value,
+          if (instance.settings case final value?) 'Settings': value,
+          if (instance.excelSettings case final value?) 'ExcelSettings': value,
+          if (instance.dateStamp case final value?) 'DateStamp': value,
+          if (instance.auditNote case final value?) 'AuditNote': value,
+          if (instance.recordTitle case final value?) 'RecordTitle': value,
+          if (instance.urlIdentifier case final value?) 'UrlIdentifier': value,
+          if (instance.fields?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Fields': value,
+          if (instance.custom?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Custom': value,
+          if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_DefaultFieldAttributes': value,
+          if (instance.original?.toJson() case final value?) '_Original': value,
+          if (instance.translation?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Translation': value,
+          if (instance.hasImport case final value?) '_HasImport': value,
+          if (instance.createdByUserId case final value?)
+            'CreatedByUserId': value,
+          if (instance.createdByUserName case final value?)
+            'CreatedByUserName': value,
+          if (instance.createdDateTime case final value?)
+            'CreatedDateTime': value,
+          if (instance.modifiedByUserId case final value?)
+            'ModifiedByUserId': value,
+          if (instance.modifiedByUserName case final value?)
+            'ModifiedByUserName': value,
+          if (instance.modifiedDateTime case final value?)
+            'ModifiedDateTime': value,
+        };
 
 WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest
     _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestFromJson(
@@ -9893,37 +11053,41 @@ WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequestToJson(
-        WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsSharedSalesTaxReportSalesTaxReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsTransferFixedAssetOwnershipReportTransferFixedAssetOwnershipReportRequest
     _$WebApiModulesReportsTransferFixedAssetOwnershipReportTransferFixedAssetOwnershipReportRequestFromJson(
@@ -9961,39 +11125,42 @@ WebApiModulesReportsTransferFixedAssetOwnershipReportTransferFixedAssetOwnership
 
 Map<String, dynamic>
     _$WebApiModulesReportsTransferFixedAssetOwnershipReportTransferFixedAssetOwnershipReportRequestToJson(
-        WebApiModulesReportsTransferFixedAssetOwnershipReportTransferFixedAssetOwnershipReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('FromWarehouseId', instance.fromWarehouseId);
-  writeNotNull('ToWarehouseId', instance.toWarehouseId);
-  writeNotNull('TransferId', instance.transferId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsTransferFixedAssetOwnershipReportTransferFixedAssetOwnershipReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.fromWarehouseId case final value?)
+            'FromWarehouseId': value,
+          if (instance.toWarehouseId case final value?) 'ToWarehouseId': value,
+          if (instance.transferId case final value?) 'TransferId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequest
     _$WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequestFromJson(
@@ -10001,7 +11168,7 @@ WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequest
         WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequest(
           transferId: json['TransferId'] as String?,
           reportView:
-              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableFromJson(
                   json['ReportView']),
           userDepartmentId: json['UserDepartmentId'] as String?,
           userLocationId: json['UserLocationId'] as String?,
@@ -10023,36 +11190,35 @@ WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequestToJson(
-        WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('TransferId', instance.transferId);
-  writeNotNull(
-      'ReportView',
-      webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
-          instance.reportView));
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsTransferReportsTransferOrderReportTransferOrderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.transferId case final value?) 'TransferId': value,
+          if (webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableToJson(
+                  instance.reportView)
+              case final value?)
+            'ReportView': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsInventoryStatusByPurchaseOrderReportInventoryStatusByPurchaseOrderReportRequest
     _$WebApiModulesReportsVendorReportsInventoryStatusByPurchaseOrderReportInventoryStatusByPurchaseOrderReportRequestFromJson(
@@ -10107,47 +11273,146 @@ WebApiModulesReportsVendorReportsInventoryStatusByPurchaseOrderReportInventorySt
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsInventoryStatusByPurchaseOrderReportInventoryStatusByPurchaseOrderReportRequestToJson(
-        WebApiModulesReportsVendorReportsInventoryStatusByPurchaseOrderReportInventoryStatusByPurchaseOrderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsVendorReportsInventoryStatusByPurchaseOrderReportInventoryStatusByPurchaseOrderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderType case final value?) 'OrderType': value,
+          if (instance.searchDatesBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SearchDatesBy': value,
+          if (instance.fromDate case final value?) 'FromDate': value,
+          if (instance.toDate case final value?) 'ToDate': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.activities?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Activities': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.pOTypeId case final value?) 'POTypeId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequest
+    _$WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequest(
+          fromDate: json['FromDate'] == null
+              ? null
+              : DateTime.parse(json['FromDate'] as String),
+          toDate: json['ToDate'] == null
+              ? null
+              : DateTime.parse(json['ToDate'] as String),
+          warehouseId: json['WarehouseId'] as String?,
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          inventoryId: json['InventoryId'] as String?,
+          poTypeId: json['PoTypeId'] as String?,
+          vendorId: json['VendorId'] as String?,
+          ranks: json['Ranks'] as String?,
+          oustandingOnly: json['OustandingOnly'] as bool?,
+          statuses: (json['Statuses'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          activities: (json['Activities'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('OrderType', instance.orderType);
-  writeNotNull(
-      'SearchDatesBy', instance.searchDatesBy?.map((e) => e.toJson()).toList());
-  writeNotNull('FromDate', instance.fromDate);
-  writeNotNull('ToDate', instance.toDate);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'Activities', instance.activities?.map((e) => e.toJson()).toList());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('POTypeId', instance.pOTypeId);
-  writeNotNull('InventoryTypeId', instance.inventoryTypeId);
-  writeNotNull('CategoryId', instance.categoryId);
-  writeNotNull('SubCategoryId', instance.subCategoryId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequestToJson(
+            WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.poTypeId case final value?) 'PoTypeId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.oustandingOnly case final value?)
+            'OustandingOnly': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.activities?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Activities': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderAccrualsPurchaseOrderAccrualsRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderAccrualsPurchaseOrderAccrualsRequestFromJson(
@@ -10197,40 +11462,45 @@ WebApiModulesReportsVendorReportsPurchaseOrderAccrualsPurchaseOrderAccrualsReque
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderAccrualsPurchaseOrderAccrualsRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderAccrualsPurchaseOrderAccrualsRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'Activities', instance.activities?.map((e) => e.toJson()).toList());
-  writeNotNull('AccrualsThrough', instance.accrualsThrough?.toIso8601String());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderAccrualsPurchaseOrderAccrualsRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.activities?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Activities': value,
+          if (instance.accrualsThrough?.toIso8601String() case final value?)
+            'AccrualsThrough': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestFromJson(
@@ -10277,39 +11547,43 @@ WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterRep
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'Activities', instance.activities?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderMasterReportPurchaseOrderMasterReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.activities?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Activities': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderPaymentScheduleReportPurchaseOrderPaymentScheduleReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderPaymentScheduleReportPurchaseOrderPaymentScheduleReportRequestFromJson(
@@ -10336,32 +11610,32 @@ WebApiModulesReportsVendorReportsPurchaseOrderPaymentScheduleReportPurchaseOrder
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderPaymentScheduleReportPurchaseOrderPaymentScheduleReportRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderPaymentScheduleReportPurchaseOrderPaymentScheduleReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderPaymentScheduleReportPurchaseOrderPaymentScheduleReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestFromJson(
@@ -10389,33 +11663,33 @@ WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveLis
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderReceiveListPurchaseOrderReceiveListRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestFromJson(
@@ -10423,7 +11697,7 @@ WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
         WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest(
           purchaseOrderId: json['PurchaseOrderId'] as String?,
           reportView:
-              webApiModulesReportsOrderReportsOrderReportReportViewTypeFromJson(
+              webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableFromJson(
                   json['ReportView']),
           excludeZeroConsignorFee: json['ExcludeZeroConsignorFee'] as bool?,
           userDepartmentId: json['UserDepartmentId'] as String?,
@@ -10446,37 +11720,38 @@ WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull(
-      'ReportView',
-      webApiModulesReportsOrderReportsOrderReportReportViewTypeToJson(
-          instance.reportView));
-  writeNotNull('ExcludeZeroConsignorFee', instance.excludeZeroConsignorFee);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderReportPurchaseOrderReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (webApiModulesReportsOrderReportsOrderReportReportViewTypeNullableToJson(
+                  instance.reportView)
+              case final value?)
+            'ReportView': value,
+          if (instance.excludeZeroConsignorFee case final value?)
+            'ExcludeZeroConsignorFee': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderStatusDetailReportPurchaseOrderStatusDetailReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderStatusDetailReportPurchaseOrderStatusDetailReportRequestFromJson(
@@ -10504,33 +11779,33 @@ WebApiModulesReportsVendorReportsPurchaseOrderStatusDetailReportPurchaseOrderSta
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderStatusDetailReportPurchaseOrderStatusDetailReportRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderStatusDetailReportPurchaseOrderStatusDetailReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('View', instance.view);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderStatusDetailReportPurchaseOrderStatusDetailReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.view case final value?) 'View': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderStatusSummaryReportPurchaseOrderStatusSummaryReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderStatusSummaryReportPurchaseOrderStatusSummaryReportRequestFromJson(
@@ -10558,33 +11833,33 @@ WebApiModulesReportsVendorReportsPurchaseOrderStatusSummaryReportPurchaseOrderSt
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderStatusSummaryReportPurchaseOrderStatusSummaryReportRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderStatusSummaryReportPurchaseOrderStatusSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('View', instance.view);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderStatusSummaryReportPurchaseOrderStatusSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.view case final value?) 'View': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest
     _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestFromJson(
@@ -10627,39 +11902,43 @@ WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryR
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequestToJson(
-        WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('ProjectId', instance.projectId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('PoApprovalStatusId', instance.poApprovalStatusId);
-  writeNotNull('Status', instance.status?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsPurchaseOrderSummaryReportPurchaseOrderSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.projectId case final value?) 'ProjectId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.poApprovalStatusId case final value?)
+            'PoApprovalStatusId': value,
+          if (instance.status?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Status': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
     _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestFromJson(
@@ -10710,42 +11989,49 @@ WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequestToJson(
-        WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('PoClassificationId', instance.poClassificationId);
-  writeNotNull('RecType', instance.recType?.map((e) => e.toJson()).toList());
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsSubItemStatusReportSubItemStatusReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.poClassificationId case final value?)
+            'PoClassificationId': value,
+          if (instance.recType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'RecType': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest
     _$WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestFromJson(
@@ -10795,41 +12081,48 @@ WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportReq
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequestToJson(
-        WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('CustomerId', instance.customerId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('PoClassificationId', instance.poClassificationId);
-  writeNotNull('RecType', instance.recType?.map((e) => e.toJson()).toList());
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsSubProfitabilityReportSubProfitabilityReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.customerId case final value?) 'CustomerId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.poClassificationId case final value?)
+            'PoClassificationId': value,
+          if (instance.recType?.map((e) => e.toJson()).toList()
+              case final value?)
+            'RecType': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest
     _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestFromJson(
@@ -10881,45 +12174,52 @@ WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingA
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequestToJson(
-        WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('PoClassificationId', instance.poClassificationId);
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('InventoryId', instance.inventoryId);
-  writeNotNull(
-      'InvoiceStatus', instance.invoiceStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('PurchaseOrderStatus',
-      instance.purchaseOrderStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('IncludeVendorTax', instance.includeVendorTax);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsSubRentalBillingAnalysisReportSubRentalBillingAnalysisReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.poClassificationId case final value?)
+            'PoClassificationId': value,
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.inventoryId case final value?) 'InventoryId': value,
+          if (instance.invoiceStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'InvoiceStatus': value,
+          if (instance.purchaseOrderStatus?.map((e) => e.toJson()).toList()
+              case final value?)
+            'PurchaseOrderStatus': value,
+          if (instance.includeVendorTax case final value?)
+            'IncludeVendorTax': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest
     _$WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestFromJson(
@@ -10971,44 +12271,52 @@ WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryR
 
 Map<String, dynamic>
     _$WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequestToJson(
-        WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('DateType', instance.dateType);
-  writeNotNull('Statuses', instance.statuses?.map((e) => e.toJson()).toList());
-  writeNotNull('IncludeAccruals', instance.includeAccruals);
-  writeNotNull('AccrualFromDate', instance.accrualFromDate?.toIso8601String());
-  writeNotNull('AccrualToDate', instance.accrualToDate?.toIso8601String());
-  writeNotNull('AccrualsOnly', instance.accrualsOnly);
-  writeNotNull('OfficeLocationId', instance.officeLocationId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('VendorId', instance.vendorId);
-  writeNotNull('PurchaseOrderId', instance.purchaseOrderId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsVendorReportsVendorInvoiceSummaryReportVendorInvoiceSummaryReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.dateType case final value?) 'DateType': value,
+          if (instance.statuses?.map((e) => e.toJson()).toList()
+              case final value?)
+            'Statuses': value,
+          if (instance.includeAccruals case final value?)
+            'IncludeAccruals': value,
+          if (instance.accrualFromDate?.toIso8601String() case final value?)
+            'AccrualFromDate': value,
+          if (instance.accrualToDate?.toIso8601String() case final value?)
+            'AccrualToDate': value,
+          if (instance.accrualsOnly case final value?) 'AccrualsOnly': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.vendorId case final value?) 'VendorId': value,
+          if (instance.purchaseOrderId case final value?)
+            'PurchaseOrderId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest
     _$WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestFromJson(
@@ -11036,33 +12344,100 @@ WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequ
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequestToJson(
-        WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest
-            instance) {
-  final val = <String, dynamic>{};
+            WebApiModulesReportsWarehouseReportsContainerPackingListContainerPackingListRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.containerItemId case final value?)
+            'ContainerItemId': value,
+          if (instance.appLanguageId case final value?) 'AppLanguageId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequest
+    _$WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequestFromJson(
+            Map<String, dynamic> json) =>
+        WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequest(
+          inventoryTypeId: json['InventoryTypeId'] as String?,
+          categoryId: json['CategoryId'] as String?,
+          subCategoryId: json['SubCategoryId'] as String?,
+          ranks: json['Ranks'] as String?,
+          includeFilter: (json['IncludeFilter'] as List<dynamic>?)
+                  ?.map((e) =>
+                      FwStandardModelsSelectedCheckBoxListItem.fromJson(
+                          e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          userDepartmentId: json['UserDepartmentId'] as String?,
+          userLocationId: json['UserLocationId'] as String?,
+          userWarehouseId: json['UserWarehouseId'] as String?,
+          customReportLayoutId: json['CustomReportLayoutId'] as String?,
+          isSummary: json['IsSummary'] as bool?,
+          includeSubHeadingsAndSubTotals:
+              json['IncludeSubHeadingsAndSubTotals'] as bool?,
+          includeIdColumns: json['IncludeIdColumns'] as bool?,
+          locale: json['Locale'] as String?,
+          excelfields: (json['excelfields'] as List<dynamic>?)
+                  ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList() ??
+              [],
+          reportName: json['ReportName'] as String?,
+          useEmailTemplate: json['UseEmailTemplate'] as bool?,
+        );
 
-  writeNotNull('ContainerItemId', instance.containerItemId);
-  writeNotNull('AppLanguageId', instance.appLanguageId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+Map<String, dynamic>
+    _$WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequestToJson(
+            WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.inventoryTypeId case final value?)
+            'InventoryTypeId': value,
+          if (instance.categoryId case final value?) 'CategoryId': value,
+          if (instance.subCategoryId case final value?) 'SubCategoryId': value,
+          if (instance.ranks case final value?) 'Ranks': value,
+          if (instance.includeFilter?.map((e) => e.toJson()).toList()
+              case final value?)
+            'IncludeFilter': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataFromJson(
@@ -11078,24 +12453,18 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaDataToJson(
-        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('PersonSignature', instance.personSignature);
-  writeNotNull('QuikReceiptId', instance.quikReceiptId);
-  writeNotNull('QuikReceiptTermsConditionsHtml',
-      instance.quikReceiptTermsConditionsHtml);
-  writeNotNull('PersonPrintedName', instance.personPrintedName);
-  writeNotNull('Note', instance.note);
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData
+                instance) =>
+        <String, dynamic>{
+          if (instance.personSignature case final value?)
+            'PersonSignature': value,
+          if (instance.quikReceiptId case final value?) 'QuikReceiptId': value,
+          if (instance.quikReceiptTermsConditionsHtml case final value?)
+            'QuikReceiptTermsConditionsHtml': value,
+          if (instance.personPrintedName case final value?)
+            'PersonPrintedName': value,
+          if (instance.note case final value?) 'Note': value,
+        };
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLFromJson(
@@ -11127,40 +12496,61 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
                       e as Map<String, dynamic>))
                   .toList() ??
               [],
+          hasImport: json['_HasImport'] as bool?,
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
         );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLToJson(
-        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('RowType', instance.rowType);
-  writeNotNull('Description', instance.description);
-  writeNotNull('Quantity', instance.quantity);
-  writeNotNull('PrintDate', instance.printDate);
-  writeNotNull('PrintTime', instance.printTime);
-  writeNotNull('PrintDateTime', instance.printDateTime);
-  writeNotNull('DateFields', instance.dateFields);
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemL
+                instance) =>
+        <String, dynamic>{
+          if (instance.rowType case final value?) 'RowType': value,
+          if (instance.description case final value?) 'Description': value,
+          if (instance.quantity case final value?) 'Quantity': value,
+          if (instance.printDate case final value?) 'PrintDate': value,
+          if (instance.printTime case final value?) 'PrintTime': value,
+          if (instance.printDateTime case final value?) 'PrintDateTime': value,
+          if (instance.dateFields case final value?) 'DateFields': value,
+          if (instance.custom?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Custom': value,
+          if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_DefaultFieldAttributes': value,
+          if (instance.translation?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Translation': value,
+          if (instance.hasImport case final value?) '_HasImport': value,
+          if (instance.original?.toJson() case final value?) '_Original': value,
+          if (instance.createdByUserId case final value?)
+            'CreatedByUserId': value,
+          if (instance.createdByUserName case final value?)
+            'CreatedByUserName': value,
+          if (instance.createdDateTime case final value?)
+            'CreatedDateTime': value,
+          if (instance.modifiedByUserId case final value?)
+            'ModifiedByUserId': value,
+          if (instance.modifiedByUserName case final value?)
+            'ModifiedByUserName': value,
+          if (instance.modifiedDateTime case final value?)
+            'ModifiedDateTime': value,
+        };
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLFromJson(
             Map<String, dynamic> json) =>
         WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL(
-          sessionNo: json['SessionNo'] as int?,
+          sessionNo: (json['SessionNo'] as num?)?.toInt(),
           customer: json['Customer'] as String?,
           warehouseId: json['WarehouseId'] as String?,
           estRentFrom: json['EstRentFrom'] as String?,
@@ -11184,12 +12574,21 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
           orderId: json['OrderId'] as String?,
           orderNumber: json['OrderNumber'] as String?,
           orderDate: json['OrderDate'] as String?,
+          orderStatus: json['OrderStatus'] as String?,
+          orderStatusAsOfDate: json['OrderStatusAsOfDate'] as String?,
           orderPoNumber: json['OrderPoNumber'] as String?,
           orderType: json['OrderType'] as String?,
+          orderTypeDescription: json['OrderTypeDescription'] as String?,
           orderDescription: json['OrderDescription'] as String?,
           orderNumberAndDescription:
               json['OrderNumberAndDescription'] as String?,
+          orderBillingStartDate: json['OrderBillingStartDate'] as String?,
+          orderBillingEndDate: json['OrderBillingEndDate'] as String?,
           orderLocation: json['OrderLocation'] as String?,
+          deliveryTargetShipDate: json['DeliveryTargetShipDate'] as String?,
+          deliveryRequiredDate: json['DeliveryRequiredDate'] as String?,
+          deliveryDeliveryType: json['DeliveryDeliveryType'] as String?,
+          deliveryDeliveryNotes: json['DeliveryDeliveryNotes'] as String?,
           rowType: json['RowType'] as String?,
           contractId: json['ContractId'] as String?,
           contractNumber: json['ContractNumber'] as String?,
@@ -11240,9 +12639,11 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
           agentEmail: json['AgentEmail'] as String?,
           agentPhoneAndExtension: json['AgentPhoneAndExtension'] as String?,
           agentFax: json['AgentFax'] as String?,
+          agentMobilePhone: json['AgentMobilePhone'] as String?,
           department: json['Department'] as String?,
           deliveryContact: json['DeliveryContact'] as String?,
           deliveryLocation: json['DeliveryLocation'] as String?,
+          deliveryAttention: json['DeliveryAttention'] as String?,
           deliveryAddress1: json['DeliveryAddress1'] as String?,
           deliveryAddress2: json['DeliveryAddress2'] as String?,
           deliveryCity: json['DeliveryCity'] as String?,
@@ -11251,12 +12652,17 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
           deliveryCityStateZipCode: json['DeliveryCityStateZipCode'] as String?,
           deliveryCountry: json['DeliveryCountry'] as String?,
           deliveryContactPhone: json['DeliveryContactPhone'] as String?,
+          deliveryType: json['DeliveryType'] as String?,
+          deliveryCarrier: json['DeliveryCarrier'] as String?,
+          deliveryShipVia: json['DeliveryShipVia'] as String?,
           termsAndConditionsId: json['TermsAndConditionsId'] as String?,
           termsAndConditionsHtml: json['TermsAndConditionsHtml'] as String?,
           termsAndConditionsNewPage: json['TermsAndConditionsNewPage'] as bool?,
           personPrintName: json['PersonPrintName'] as String?,
           personSignature: json['PersonSignature'] as String?,
           note: json['Note'] as String?,
+          officeLocationId: json['OfficeLocationId'] as String?,
+          logosrc: json['Logosrc'] as String?,
           printDate: json['PrintDate'] as String?,
           printTime: json['PrintTime'] as String?,
           printDateTime: json['PrintDateTime'] as String?,
@@ -11280,118 +12686,206 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
                       e as Map<String, dynamic>))
                   .toList() ??
               [],
+          hasImport: json['_HasImport'] as bool?,
+          original: json['_Original'] == null
+              ? null
+              : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+                  json['_Original'] as Map<String, dynamic>),
+          createdByUserId: json['CreatedByUserId'] as String?,
+          createdByUserName: json['CreatedByUserName'] as String?,
+          createdDateTime: json['CreatedDateTime'] as String?,
+          modifiedByUserId: json['ModifiedByUserId'] as String?,
+          modifiedByUserName: json['ModifiedByUserName'] as String?,
+          modifiedDateTime: json['ModifiedDateTime'] as String?,
         );
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLToJson(
-        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('SessionNo', instance.sessionNo);
-  writeNotNull('Customer', instance.customer);
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('EstRentFrom', instance.estRentFrom);
-  writeNotNull('EstRentTo', instance.estRentTo);
-  writeNotNull(
-      'QuikReceiptTermsConditionsId', instance.quikReceiptTermsConditionsId);
-  writeNotNull('Items', instance.items?.map((e) => e.toJson()).toList());
-  writeNotNull('MetaData', instance.metaData?.toJson());
-  writeNotNull('DealId', instance.dealId);
-  writeNotNull('Deal', instance.deal);
-  writeNotNull('DealNumber', instance.dealNumber);
-  writeNotNull('DealNumberAndDeal', instance.dealNumberAndDeal);
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('OrderNumber', instance.orderNumber);
-  writeNotNull('OrderDate', instance.orderDate);
-  writeNotNull('OrderPoNumber', instance.orderPoNumber);
-  writeNotNull('OrderType', instance.orderType);
-  writeNotNull('OrderDescription', instance.orderDescription);
-  writeNotNull('OrderNumberAndDescription', instance.orderNumberAndDescription);
-  writeNotNull('OrderLocation', instance.orderLocation);
-  writeNotNull('RowType', instance.rowType);
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('ContractNumber', instance.contractNumber);
-  writeNotNull('ContractDate', instance.contractDate);
-  writeNotNull('ContractTime', instance.contractTime);
-  writeNotNull('ContractDateAndTime', instance.contractDateAndTime);
-  writeNotNull('ContractType', instance.contractType);
-  writeNotNull('ExchangeContractId', instance.exchangeContractId);
-  writeNotNull('HasPendingExchange', instance.hasPendingExchange);
-  writeNotNull('HasRental', instance.hasRental);
-  writeNotNull('HasSales', instance.hasSales);
-  writeNotNull('InputByUserId', instance.inputByUserId);
-  writeNotNull('BillingDate', instance.billingDate);
-  writeNotNull('OfficeLocation', instance.officeLocation);
-  writeNotNull('OfficeLocationCompany', instance.officeLocationCompany);
-  writeNotNull('OfficeLocationAddress1', instance.officeLocationAddress1);
-  writeNotNull('OfficeLocationAddress2', instance.officeLocationAddress2);
-  writeNotNull('OfficeLocationCityStateZipCode',
-      instance.officeLocationCityStateZipCode);
-  writeNotNull('OfficeLocationCityStateZipCodeCountry',
-      instance.officeLocationCityStateZipCodeCountry);
-  writeNotNull('OfficeLocationPhone', instance.officeLocationPhone);
-  writeNotNull('OfficeLocationFax', instance.officeLocationFax);
-  writeNotNull('Warehouse', instance.warehouse);
-  writeNotNull('WarehouseAddress1', instance.warehouseAddress1);
-  writeNotNull('WarehouseAddress2', instance.warehouseAddress2);
-  writeNotNull('WarehouseCityStateZipCode', instance.warehouseCityStateZipCode);
-  writeNotNull('WarehouseCityStateZipCodeCountry',
-      instance.warehouseCityStateZipCodeCountry);
-  writeNotNull('WarehousePhone', instance.warehousePhone);
-  writeNotNull('WarehouseFax', instance.warehouseFax);
-  writeNotNull('IssuedToCompany', instance.issuedToCompany);
-  writeNotNull('IssuedToAttentionTo1', instance.issuedToAttentionTo1);
-  writeNotNull('IssuedToAttentionTo2', instance.issuedToAttentionTo2);
-  writeNotNull('IssuedToAddress1', instance.issuedToAddress1);
-  writeNotNull('IssuedToAddress2', instance.issuedToAddress2);
-  writeNotNull('IssuedToCity', instance.issuedToCity);
-  writeNotNull('IssuedToState', instance.issuedToState);
-  writeNotNull('IssuedToZipCode', instance.issuedToZipCode);
-  writeNotNull('IssuedToCountry', instance.issuedToCountry);
-  writeNotNull('IssuedToPhone', instance.issuedToPhone);
-  writeNotNull('IssuedToFax', instance.issuedToFax);
-  writeNotNull('UsageDates', instance.usageDates);
-  writeNotNull('BillingCycle', instance.billingCycle);
-  writeNotNull('PaymentTerms', instance.paymentTerms);
-  writeNotNull('Agent', instance.agent);
-  writeNotNull('AgentEmail', instance.agentEmail);
-  writeNotNull('AgentPhoneAndExtension', instance.agentPhoneAndExtension);
-  writeNotNull('AgentFax', instance.agentFax);
-  writeNotNull('Department', instance.department);
-  writeNotNull('DeliveryContact', instance.deliveryContact);
-  writeNotNull('DeliveryLocation', instance.deliveryLocation);
-  writeNotNull('DeliveryAddress1', instance.deliveryAddress1);
-  writeNotNull('DeliveryAddress2', instance.deliveryAddress2);
-  writeNotNull('DeliveryCity', instance.deliveryCity);
-  writeNotNull('DeliveryState', instance.deliveryState);
-  writeNotNull('DeliveryZip', instance.deliveryZip);
-  writeNotNull('DeliveryCityStateZipCode', instance.deliveryCityStateZipCode);
-  writeNotNull('DeliveryCountry', instance.deliveryCountry);
-  writeNotNull('DeliveryContactPhone', instance.deliveryContactPhone);
-  writeNotNull('TermsAndConditionsId', instance.termsAndConditionsId);
-  writeNotNull('TermsAndConditionsHtml', instance.termsAndConditionsHtml);
-  writeNotNull('TermsAndConditionsNewPage', instance.termsAndConditionsNewPage);
-  writeNotNull('PersonPrintName', instance.personPrintName);
-  writeNotNull('PersonSignature', instance.personSignature);
-  writeNotNull('Note', instance.note);
-  writeNotNull('PrintDate', instance.printDate);
-  writeNotNull('PrintTime', instance.printTime);
-  writeNotNull('PrintDateTime', instance.printDateTime);
-  writeNotNull('DateFields', instance.dateFields);
-  writeNotNull('_Custom', instance.custom?.map((e) => e.toJson()).toList());
-  writeNotNull('_DefaultFieldAttributes',
-      instance.defaultFieldAttributes?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      '_Translation', instance.translation?.map((e) => e.toJson()).toList());
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL
+                instance) =>
+        <String, dynamic>{
+          if (instance.sessionNo case final value?) 'SessionNo': value,
+          if (instance.customer case final value?) 'Customer': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.estRentFrom case final value?) 'EstRentFrom': value,
+          if (instance.estRentTo case final value?) 'EstRentTo': value,
+          if (instance.quikReceiptTermsConditionsId case final value?)
+            'QuikReceiptTermsConditionsId': value,
+          if (instance.items?.map((e) => e.toJson()).toList() case final value?)
+            'Items': value,
+          if (instance.metaData?.toJson() case final value?) 'MetaData': value,
+          if (instance.dealId case final value?) 'DealId': value,
+          if (instance.deal case final value?) 'Deal': value,
+          if (instance.dealNumber case final value?) 'DealNumber': value,
+          if (instance.dealNumberAndDeal case final value?)
+            'DealNumberAndDeal': value,
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.orderNumber case final value?) 'OrderNumber': value,
+          if (instance.orderDate case final value?) 'OrderDate': value,
+          if (instance.orderStatus case final value?) 'OrderStatus': value,
+          if (instance.orderStatusAsOfDate case final value?)
+            'OrderStatusAsOfDate': value,
+          if (instance.orderPoNumber case final value?) 'OrderPoNumber': value,
+          if (instance.orderType case final value?) 'OrderType': value,
+          if (instance.orderTypeDescription case final value?)
+            'OrderTypeDescription': value,
+          if (instance.orderDescription case final value?)
+            'OrderDescription': value,
+          if (instance.orderNumberAndDescription case final value?)
+            'OrderNumberAndDescription': value,
+          if (instance.orderBillingStartDate case final value?)
+            'OrderBillingStartDate': value,
+          if (instance.orderBillingEndDate case final value?)
+            'OrderBillingEndDate': value,
+          if (instance.orderLocation case final value?) 'OrderLocation': value,
+          if (instance.deliveryTargetShipDate case final value?)
+            'DeliveryTargetShipDate': value,
+          if (instance.deliveryRequiredDate case final value?)
+            'DeliveryRequiredDate': value,
+          if (instance.deliveryDeliveryType case final value?)
+            'DeliveryDeliveryType': value,
+          if (instance.deliveryDeliveryNotes case final value?)
+            'DeliveryDeliveryNotes': value,
+          if (instance.rowType case final value?) 'RowType': value,
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.contractNumber case final value?)
+            'ContractNumber': value,
+          if (instance.contractDate case final value?) 'ContractDate': value,
+          if (instance.contractTime case final value?) 'ContractTime': value,
+          if (instance.contractDateAndTime case final value?)
+            'ContractDateAndTime': value,
+          if (instance.contractType case final value?) 'ContractType': value,
+          if (instance.exchangeContractId case final value?)
+            'ExchangeContractId': value,
+          if (instance.hasPendingExchange case final value?)
+            'HasPendingExchange': value,
+          if (instance.hasRental case final value?) 'HasRental': value,
+          if (instance.hasSales case final value?) 'HasSales': value,
+          if (instance.inputByUserId case final value?) 'InputByUserId': value,
+          if (instance.billingDate case final value?) 'BillingDate': value,
+          if (instance.officeLocation case final value?)
+            'OfficeLocation': value,
+          if (instance.officeLocationCompany case final value?)
+            'OfficeLocationCompany': value,
+          if (instance.officeLocationAddress1 case final value?)
+            'OfficeLocationAddress1': value,
+          if (instance.officeLocationAddress2 case final value?)
+            'OfficeLocationAddress2': value,
+          if (instance.officeLocationCityStateZipCode case final value?)
+            'OfficeLocationCityStateZipCode': value,
+          if (instance.officeLocationCityStateZipCodeCountry case final value?)
+            'OfficeLocationCityStateZipCodeCountry': value,
+          if (instance.officeLocationPhone case final value?)
+            'OfficeLocationPhone': value,
+          if (instance.officeLocationFax case final value?)
+            'OfficeLocationFax': value,
+          if (instance.warehouse case final value?) 'Warehouse': value,
+          if (instance.warehouseAddress1 case final value?)
+            'WarehouseAddress1': value,
+          if (instance.warehouseAddress2 case final value?)
+            'WarehouseAddress2': value,
+          if (instance.warehouseCityStateZipCode case final value?)
+            'WarehouseCityStateZipCode': value,
+          if (instance.warehouseCityStateZipCodeCountry case final value?)
+            'WarehouseCityStateZipCodeCountry': value,
+          if (instance.warehousePhone case final value?)
+            'WarehousePhone': value,
+          if (instance.warehouseFax case final value?) 'WarehouseFax': value,
+          if (instance.issuedToCompany case final value?)
+            'IssuedToCompany': value,
+          if (instance.issuedToAttentionTo1 case final value?)
+            'IssuedToAttentionTo1': value,
+          if (instance.issuedToAttentionTo2 case final value?)
+            'IssuedToAttentionTo2': value,
+          if (instance.issuedToAddress1 case final value?)
+            'IssuedToAddress1': value,
+          if (instance.issuedToAddress2 case final value?)
+            'IssuedToAddress2': value,
+          if (instance.issuedToCity case final value?) 'IssuedToCity': value,
+          if (instance.issuedToState case final value?) 'IssuedToState': value,
+          if (instance.issuedToZipCode case final value?)
+            'IssuedToZipCode': value,
+          if (instance.issuedToCountry case final value?)
+            'IssuedToCountry': value,
+          if (instance.issuedToPhone case final value?) 'IssuedToPhone': value,
+          if (instance.issuedToFax case final value?) 'IssuedToFax': value,
+          if (instance.usageDates case final value?) 'UsageDates': value,
+          if (instance.billingCycle case final value?) 'BillingCycle': value,
+          if (instance.paymentTerms case final value?) 'PaymentTerms': value,
+          if (instance.agent case final value?) 'Agent': value,
+          if (instance.agentEmail case final value?) 'AgentEmail': value,
+          if (instance.agentPhoneAndExtension case final value?)
+            'AgentPhoneAndExtension': value,
+          if (instance.agentFax case final value?) 'AgentFax': value,
+          if (instance.agentMobilePhone case final value?)
+            'AgentMobilePhone': value,
+          if (instance.department case final value?) 'Department': value,
+          if (instance.deliveryContact case final value?)
+            'DeliveryContact': value,
+          if (instance.deliveryLocation case final value?)
+            'DeliveryLocation': value,
+          if (instance.deliveryAttention case final value?)
+            'DeliveryAttention': value,
+          if (instance.deliveryAddress1 case final value?)
+            'DeliveryAddress1': value,
+          if (instance.deliveryAddress2 case final value?)
+            'DeliveryAddress2': value,
+          if (instance.deliveryCity case final value?) 'DeliveryCity': value,
+          if (instance.deliveryState case final value?) 'DeliveryState': value,
+          if (instance.deliveryZip case final value?) 'DeliveryZip': value,
+          if (instance.deliveryCityStateZipCode case final value?)
+            'DeliveryCityStateZipCode': value,
+          if (instance.deliveryCountry case final value?)
+            'DeliveryCountry': value,
+          if (instance.deliveryContactPhone case final value?)
+            'DeliveryContactPhone': value,
+          if (instance.deliveryType case final value?) 'DeliveryType': value,
+          if (instance.deliveryCarrier case final value?)
+            'DeliveryCarrier': value,
+          if (instance.deliveryShipVia case final value?)
+            'DeliveryShipVia': value,
+          if (instance.termsAndConditionsId case final value?)
+            'TermsAndConditionsId': value,
+          if (instance.termsAndConditionsHtml case final value?)
+            'TermsAndConditionsHtml': value,
+          if (instance.termsAndConditionsNewPage case final value?)
+            'TermsAndConditionsNewPage': value,
+          if (instance.personPrintName case final value?)
+            'PersonPrintName': value,
+          if (instance.personSignature case final value?)
+            'PersonSignature': value,
+          if (instance.note case final value?) 'Note': value,
+          if (instance.officeLocationId case final value?)
+            'OfficeLocationId': value,
+          if (instance.logosrc case final value?) 'Logosrc': value,
+          if (instance.printDate case final value?) 'PrintDate': value,
+          if (instance.printTime case final value?) 'PrintTime': value,
+          if (instance.printDateTime case final value?) 'PrintDateTime': value,
+          if (instance.dateFields case final value?) 'DateFields': value,
+          if (instance.custom?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Custom': value,
+          if (instance.defaultFieldAttributes?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_DefaultFieldAttributes': value,
+          if (instance.translation?.map((e) => e.toJson()).toList()
+              case final value?)
+            '_Translation': value,
+          if (instance.hasImport case final value?) '_HasImport': value,
+          if (instance.original?.toJson() case final value?) '_Original': value,
+          if (instance.createdByUserId case final value?)
+            'CreatedByUserId': value,
+          if (instance.createdByUserName case final value?)
+            'CreatedByUserName': value,
+          if (instance.createdDateTime case final value?)
+            'CreatedDateTime': value,
+          if (instance.modifiedByUserId case final value?)
+            'ModifiedByUserId': value,
+          if (instance.modifiedByUserName case final value?)
+            'ModifiedByUserName': value,
+          if (instance.modifiedDateTime case final value?)
+            'ModifiedDateTime': value,
+        };
 
 WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestFromJson(
@@ -11419,33 +12913,32 @@ WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequestToJson(
-        WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ContractId', instance.contractId);
-  writeNotNull('QuikReceiptId', instance.quikReceiptId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.contractId case final value?) 'ContractId': value,
+          if (instance.quikReceiptId case final value?) 'QuikReceiptId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest
     _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestFromJson(
@@ -11474,34 +12967,35 @@ WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRe
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequestToJson(
-        WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('OrderId', instance.orderId);
-  writeNotNull('PrintedByUsersId', instance.printedByUsersId);
-  writeNotNull('StorageContainerItemId', instance.storageContainerItemId);
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsStorageContainerLabelStorageContainerLabelRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.orderId case final value?) 'OrderId': value,
+          if (instance.printedByUsersId case final value?)
+            'PrintedByUsersId': value,
+          if (instance.storageContainerItemId case final value?)
+            'StorageContainerItemId': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest
     _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestFromJson(
@@ -11517,6 +13011,7 @@ WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchRepo
           departmentId: json['DepartmentId'] as String?,
           agentId: json['AgentId'] as String?,
           activityTypeId: json['ActivityTypeId'] as String?,
+          excludeCompleteOrders: json['ExcludeCompleteOrders'] as bool?,
           sortBy: (json['SortBy'] as List<dynamic>?)
                   ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                       e as Map<String, dynamic>))
@@ -11548,40 +13043,47 @@ WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchRepo
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequestToJson(
-        WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('ActivityTypeId', instance.activityTypeId);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'OrderTypes', instance.orderTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsWarehouseDispatchReportWarehouseDispatchReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.activityTypeId case final value?)
+            'ActivityTypeId': value,
+          if (instance.excludeCompleteOrders case final value?)
+            'ExcludeCompleteOrders': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.orderTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderTypes': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest
     _$WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestFromJson(
@@ -11597,6 +13099,7 @@ WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReport
           departmentId: json['DepartmentId'] as String?,
           agentId: json['AgentId'] as String?,
           activityTypeId: json['ActivityTypeId'] as String?,
+          excludeCompleteOrders: json['ExcludeCompleteOrders'] as bool?,
           sortBy: (json['SortBy'] as List<dynamic>?)
                   ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                       e as Map<String, dynamic>))
@@ -11628,40 +13131,47 @@ WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReport
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequestToJson(
-        WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('ActivityTypeId', instance.activityTypeId);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'OrderTypes', instance.orderTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsWarehouseInboundReportWarehouseInboundReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.activityTypeId case final value?)
+            'ActivityTypeId': value,
+          if (instance.excludeCompleteOrders case final value?)
+            'ExcludeCompleteOrders': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.orderTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderTypes': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };
 
 WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest
     _$WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestFromJson(
@@ -11677,6 +13187,7 @@ WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundRepo
           departmentId: json['DepartmentId'] as String?,
           agentId: json['AgentId'] as String?,
           activityTypeId: json['ActivityTypeId'] as String?,
+          excludeCompleteOrders: json['ExcludeCompleteOrders'] as bool?,
           sortBy: (json['SortBy'] as List<dynamic>?)
                   ?.map((e) => FwStandardModelsCheckBoxListItem.fromJson(
                       e as Map<String, dynamic>))
@@ -11708,37 +13219,44 @@ WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundRepo
 
 Map<String, dynamic>
     _$WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequestToJson(
-        WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest
-            instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('FromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('ToDate', instance.toDate?.toIso8601String());
-  writeNotNull('WarehouseId', instance.warehouseId);
-  writeNotNull('DepartmentId', instance.departmentId);
-  writeNotNull('AgentId', instance.agentId);
-  writeNotNull('ActivityTypeId', instance.activityTypeId);
-  writeNotNull('SortBy', instance.sortBy?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'OrderTypes', instance.orderTypes?.map((e) => e.toJson()).toList());
-  writeNotNull('UserDepartmentId', instance.userDepartmentId);
-  writeNotNull('UserLocationId', instance.userLocationId);
-  writeNotNull('UserWarehouseId', instance.userWarehouseId);
-  writeNotNull('CustomReportLayoutId', instance.customReportLayoutId);
-  writeNotNull('IsSummary', instance.isSummary);
-  writeNotNull('IncludeSubHeadingsAndSubTotals',
-      instance.includeSubHeadingsAndSubTotals);
-  writeNotNull('IncludeIdColumns', instance.includeIdColumns);
-  writeNotNull('Locale', instance.locale);
-  writeNotNull(
-      'excelfields', instance.excelfields?.map((e) => e.toJson()).toList());
-  writeNotNull('ReportName', instance.reportName);
-  writeNotNull('UseEmailTemplate', instance.useEmailTemplate);
-  return val;
-}
+            WebApiModulesReportsWarehouseReportsWarehouseOutboundReportWarehouseOutboundReportRequest
+                instance) =>
+        <String, dynamic>{
+          if (instance.fromDate?.toIso8601String() case final value?)
+            'FromDate': value,
+          if (instance.toDate?.toIso8601String() case final value?)
+            'ToDate': value,
+          if (instance.warehouseId case final value?) 'WarehouseId': value,
+          if (instance.departmentId case final value?) 'DepartmentId': value,
+          if (instance.agentId case final value?) 'AgentId': value,
+          if (instance.activityTypeId case final value?)
+            'ActivityTypeId': value,
+          if (instance.excludeCompleteOrders case final value?)
+            'ExcludeCompleteOrders': value,
+          if (instance.sortBy?.map((e) => e.toJson()).toList()
+              case final value?)
+            'SortBy': value,
+          if (instance.orderTypes?.map((e) => e.toJson()).toList()
+              case final value?)
+            'OrderTypes': value,
+          if (instance.userDepartmentId case final value?)
+            'UserDepartmentId': value,
+          if (instance.userLocationId case final value?)
+            'UserLocationId': value,
+          if (instance.userWarehouseId case final value?)
+            'UserWarehouseId': value,
+          if (instance.customReportLayoutId case final value?)
+            'CustomReportLayoutId': value,
+          if (instance.isSummary case final value?) 'IsSummary': value,
+          if (instance.includeSubHeadingsAndSubTotals case final value?)
+            'IncludeSubHeadingsAndSubTotals': value,
+          if (instance.includeIdColumns case final value?)
+            'IncludeIdColumns': value,
+          if (instance.locale case final value?) 'Locale': value,
+          if (instance.excelfields?.map((e) => e.toJson()).toList()
+              case final value?)
+            'excelfields': value,
+          if (instance.reportName case final value?) 'ReportName': value,
+          if (instance.useEmailTemplate case final value?)
+            'UseEmailTemplate': value,
+        };

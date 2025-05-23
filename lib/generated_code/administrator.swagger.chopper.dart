@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'administrator.swagger.dart';
@@ -6,15 +7,16 @@ part of 'administrator.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$Administrator extends Administrator {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$Administrator extends Administrator {
   _$Administrator([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = Administrator;
+  final Type definitionType = Administrator;
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _alertBrowsePost(
@@ -462,6 +464,233 @@ class _$Administrator extends Administrator {
   }
 
   @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorCreateNewSystemCreateNewSystemResponse>>
+      _createnewsystemPost(
+          {required FwStandardModulesAdministratorCreateNewSystemCreateNewSystemRequest?
+              body}) {
+    final Uri $url = Uri.parse('/createnewsystem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwStandardModulesAdministratorCreateNewSystemCreateNewSystemResponse,
+            FwStandardModulesAdministratorCreateNewSystemCreateNewSystemResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorCreateNewSystemGetDefaultsResponse>>
+      _createnewsystemGetdefaultsPost(
+          {required FwStandardModulesAdministratorCreateNewSystemGetDefaultsRequest?
+              body}) {
+    final Uri $url = Uri.parse('/createnewsystem/getdefaults');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwStandardModulesAdministratorCreateNewSystemGetDefaultsResponse,
+            FwStandardModulesAdministratorCreateNewSystemGetDefaultsResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _createnewsystemhistoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/createnewsystemhistory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _createnewsystemhistoryExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/createnewsystemhistory/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistoryLogic>>
+      _createnewsystemhistoryGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/createnewsystemhistory');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistoryLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistoryLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory>>
+      _createnewsystemhistoryPost(
+          {required WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory?
+              body}) {
+    final Uri $url = Uri.parse('/createnewsystemhistory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory,
+            WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory>>
+      _createnewsystemhistoryIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/createnewsystemhistory/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory,
+            WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _createnewsystemhistorylogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/createnewsystemhistorylog/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _createnewsystemhistorylogExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/createnewsystemhistorylog/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLogLogic>>
+      _createnewsystemhistorylogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/createnewsystemhistorylog');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLogLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLogLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLog>>
+      _createnewsystemhistorylogIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/createnewsystemhistorylog/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLog,
+            WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLog>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _customfieldBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/customfield/browse');
@@ -621,7 +850,7 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormCustomFormLogic>>
       _customformGet({
     int? pageno,
     int? pagesize,
@@ -642,15 +871,16 @@ class _$Administrator extends Administrator {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFormCustomFormLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormCustomFormLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormCustomFormLogic>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
+  Future<Response<FwStandardModulesAdministratorCustomFormCustomFormLogic>>
       _customformPost(
-          {required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+          {required FwStandardModulesAdministratorCustomFormCustomFormLogic?
+              body}) {
     final Uri $url = Uri.parse('/customform');
     final $body = body;
     final Request $request = Request(
@@ -659,12 +889,12 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesAdministratorCustomFormCustomForm,
-        WebApiModulesAdministratorCustomFormCustomForm>($request);
+    return client.send<FwStandardModulesAdministratorCustomFormCustomFormLogic,
+        FwStandardModulesAdministratorCustomFormCustomFormLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
+  Future<Response<FwStandardModulesAdministratorCustomFormCustomFormLogic>>
       _customformIdGet({required String? id}) {
     final Uri $url = Uri.parse('/customform/${id}');
     final Request $request = Request(
@@ -672,15 +902,15 @@ class _$Administrator extends Administrator {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesAdministratorCustomFormCustomForm,
-        WebApiModulesAdministratorCustomFormCustomForm>($request);
+    return client.send<FwStandardModulesAdministratorCustomFormCustomFormLogic,
+        FwStandardModulesAdministratorCustomFormCustomFormLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
+  Future<Response<FwStandardModulesAdministratorCustomFormCustomFormLogic>>
       _customformIdPut({
     required String? id,
-    required WebApiModulesAdministratorCustomFormCustomForm? body,
+    required FwStandardModulesAdministratorCustomFormCustomFormLogic? body,
   }) {
     final Uri $url = Uri.parse('/customform/${id}');
     final $body = body;
@@ -690,8 +920,8 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesAdministratorCustomFormCustomForm,
-        WebApiModulesAdministratorCustomFormCustomForm>($request);
+    return client.send<FwStandardModulesAdministratorCustomFormCustomFormLogic,
+        FwStandardModulesAdministratorCustomFormCustomFormLogic>($request);
   }
 
   @override
@@ -706,9 +936,10 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
+  Future<Response<FwStandardModulesAdministratorCustomFormCustomFormLogic>>
       _customformSelfassignPost(
-          {required WebApiModulesAdministratorCustomFormCustomForm? body}) {
+          {required FwStandardModulesAdministratorCustomFormCustomFormLogic?
+              body}) {
     final Uri $url = Uri.parse('/customform/selfassign');
     final $body = body;
     final Request $request = Request(
@@ -717,15 +948,15 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesAdministratorCustomFormCustomForm,
-        WebApiModulesAdministratorCustomFormCustomForm>($request);
+    return client.send<FwStandardModulesAdministratorCustomFormCustomFormLogic,
+        FwStandardModulesAdministratorCustomFormCustomFormLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorCustomFormCustomForm>>
+  Future<Response<FwStandardModulesAdministratorCustomFormCustomFormLogic>>
       _customformSelfassignIdPut({
     required String? id,
-    required WebApiModulesAdministratorCustomFormCustomForm? body,
+    required FwStandardModulesAdministratorCustomFormCustomFormLogic? body,
   }) {
     final Uri $url = Uri.parse('/customform/selfassign/${id}');
     final $body = body;
@@ -735,8 +966,8 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesAdministratorCustomFormCustomForm,
-        WebApiModulesAdministratorCustomFormCustomForm>($request);
+    return client.send<FwStandardModulesAdministratorCustomFormCustomFormLogic,
+        FwStandardModulesAdministratorCustomFormCustomFormLogic>($request);
   }
 
   @override
@@ -778,7 +1009,7 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>>
       _customformgroupGet({
     int? pageno,
     int? pagesize,
@@ -799,17 +1030,17 @@ class _$Administrator extends Administrator {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormGroupCustomFormGroupLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
+              FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>>
       _customformgroupPost(
-          {required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
+          {required FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic?
               body}) {
     final Uri $url = Uri.parse('/customformgroup');
     final $body = body;
@@ -820,15 +1051,15 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>(
+            FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic,
+            FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
+              FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>>
       _customformgroupIdGet({required String? id}) {
     final Uri $url = Uri.parse('/customformgroup/${id}');
     final Request $request = Request(
@@ -837,18 +1068,18 @@ class _$Administrator extends Administrator {
       client.baseUrl,
     );
     return client.send<
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>(
+            FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic,
+            FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>>
+              FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>>
       _customformgroupIdPut({
     required String? id,
-    required WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup?
+    required FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic?
         body,
   }) {
     final Uri $url = Uri.parse('/customformgroup/${id}');
@@ -860,8 +1091,8 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup,
-            WebApiModulesAdministratorControlsCustomFormGroupCustomFormGroup>(
+            FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic,
+            FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic>(
         $request);
   }
 
@@ -931,7 +1162,7 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>>
       _customformuserGet({
     int? pageno,
     int? pagesize,
@@ -952,17 +1183,17 @@ class _$Administrator extends Administrator {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomFormUserCustomFormUserLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormUserCustomFormUserLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
+              FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>>
       _customformuserPost(
-          {required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
+          {required FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic?
               body}) {
     final Uri $url = Uri.parse('/customformuser');
     final $body = body;
@@ -973,15 +1204,15 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>(
+            FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic,
+            FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
+              FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>>
       _customformuserIdGet({required String? id}) {
     final Uri $url = Uri.parse('/customformuser/${id}');
     final Request $request = Request(
@@ -990,18 +1221,18 @@ class _$Administrator extends Administrator {
       client.baseUrl,
     );
     return client.send<
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>(
+            FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic,
+            FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>>
+              FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>>
       _customformuserIdPut({
     required String? id,
-    required WebApiModulesAdministratorControlsCustomFormUserCustomFormUser?
+    required FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic?
         body,
   }) {
     final Uri $url = Uri.parse('/customformuser/${id}');
@@ -1013,8 +1244,8 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser,
-            WebApiModulesAdministratorControlsCustomFormUserCustomFormUser>(
+            FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic,
+            FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic>(
         $request);
   }
 
@@ -1413,6 +1644,24 @@ class _$Administrator extends Administrator {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardModelsCopyLogicResponse>>
+      _customreportlayoutIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/customreportlayout/${id}/copy');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardModelsCopyLogicResponse,
+        FwStandardModelsCopyLogicResponse>($request);
   }
 
   @override
@@ -1828,6 +2077,23 @@ class _$Administrator extends Administrator {
     );
     return client.send<WebApiModulesAdministratorDataHealthDataHealth,
         WebApiModulesAdministratorDataHealthDataHealth>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+      _datahealthCheckdatahealthPost(
+          {required WebApiModulesAdministratorDataHealthCheckDataHealthRequest?
+              body}) {
+    final Uri $url = Uri.parse('/datahealth/checkdatahealth');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerTSpStatusResponse,
+        FwStandardSqlServerTSpStatusResponse>($request);
   }
 
   @override
@@ -2299,30 +2565,26 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse>>
-      _emailtemplateTemplatecategoriesPost(
-          {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic?
-              body}) {
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateCategoriesResponse>>
+      _emailtemplateTemplatecategoriesPost() {
     final Uri $url = Uri.parse('/emailtemplate/templatecategories');
-    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
     );
     return client.send<
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse,
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateCategoriesResponse>(
+            FwStandardModulesAdministratorEmailTemplateEmailTemplateCategoriesResponse,
+            FwStandardModulesAdministratorEmailTemplateEmailTemplateCategoriesResponse>(
         $request);
   }
 
   @override
   Future<
           Response<
-              FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse>>
+              FwStandardModulesAdministratorEmailTemplateEmailTemplateFieldsResponse>>
       _emailtemplateTemplatefieldsPost(
-          {required FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicGetTemplateFieldsRequest?
+          {required FwStandardModulesAdministratorEmailTemplateGetEmailTemplateFieldsRequest?
               body}) {
     final Uri $url = Uri.parse('/emailtemplate/templatefields');
     final $body = body;
@@ -2333,8 +2595,8 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse,
-            FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicTemplateFieldsResponse>(
+            FwStandardModulesAdministratorEmailTemplateEmailTemplateFieldsResponse,
+            FwStandardModulesAdministratorEmailTemplateEmailTemplateFieldsResponse>(
         $request);
   }
 
@@ -2456,6 +2718,23 @@ class _$Administrator extends Administrator {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardModelsCopyLogicResponse>> _groupIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/group/${id}/copy');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardModelsCopyLogicResponse,
+        FwStandardModelsCopyLogicResponse>($request);
   }
 
   @override
@@ -2745,69 +3024,6 @@ class _$Administrator extends Administrator {
   }
 
   @override
-  Future<Response<String>> _hubspotAllcontactsPost(
-      {required WebApiModulesAccountServicesHubSpotGetHubSpotContactsRequest?
-          body}) {
-    final Uri $url = Uri.parse('/hubspot/allcontacts');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<String, String>($request);
-  }
-
-  @override
-  Future<Response<String>> _hubspotNewcontactPost(
-      {required WebApiModulesAccountServicesHubSpotPostHubSpotContactRequest?
-          body}) {
-    final Uri $url = Uri.parse('/hubspot/newcontact');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<String, String>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAccountServicesHubSpotGetWriteTokensResponse>>
-      _hubspotGettokensPost(
-          {required WebApiModulesAccountServicesHubSpotGetHubSpotTokensRequest?
-              body}) {
-    final Uri $url = Uri.parse('/hubspot/gettokens');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-        WebApiModulesAccountServicesHubSpotGetWriteTokensResponse,
-        WebApiModulesAccountServicesHubSpotGetWriteTokensResponse>($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _hubspotGetcontactsepochPost(
-      {required WebApiModulesAccountServicesHubSpotSearchHubSpotContactsWithinPeriodRequest?
-          body}) {
-    final Uri $url = Uri.parse('/hubspot/getcontactsepoch');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _personBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/person/browse');
@@ -2941,9 +3157,119 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse>>
+              List<
+                  WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertySchema>>>
+      _quikscansetupSettingsSchemaGet() {
+    final Uri $url = Uri.parse('/quikscansetup/settings/schema');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            List<
+                WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertySchema>,
+            WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertySchema>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorQuikScanSetupQuikScanSettings>>
+      _quikscansetupSettingsGet() {
+    final Uri $url = Uri.parse('/quikscansetup/settings');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorQuikScanSetupQuikScanSettings,
+        WebApiModulesAdministratorQuikScanSetupQuikScanSettings>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _quikscansetupSettingsPut(
+      {required WebApiModulesAdministratorQuikScanSetupQuikScanSettings?
+          body}) {
+    final Uri $url = Uri.parse('/quikscansetup/settings');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>> _storefrontsetupIsstorefrontenabledGet() {
+    final Uri $url = Uri.parse('/storefrontsetup/isstorefrontenabled');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<int>> _storefrontsetupThumbnailsizeGet() {
+    final Uri $url = Uri.parse('/storefrontsetup/thumbnailsize');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<int, int>($request);
+  }
+
+  @override
+  Future<Response<String>> _storefrontsetupRegeneratethumbnailsPost() {
+    final Uri $url = Uri.parse('/storefrontsetup/regeneratethumbnails');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<String>> _storefrontsetupCacheimagesPost(
+      {required WebApiModulesAdministratorStorefrontSetupCacheImagesRequest?
+          body}) {
+    final Uri $url = Uri.parse('/storefrontsetup/cacheimages');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<String>> _storefrontsetupClearimagecachePost(
+      {required WebApiModulesAdministratorStorefrontSetupClearImageCacheRequest?
+          body}) {
+    final Uri $url = Uri.parse('/storefrontsetup/clearimagecache');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModulesAdministratorSystemUpdateGetVersionHotfixResponse>>
       _systemupdateVersionhotfixPost(
-          {required WebApiModulesAdministratorSystemUpdateGetVersionHotfixRequest?
+          {required FwStandardModulesAdministratorSystemUpdateGetVersionHotfixRequest?
               body}) {
     final Uri $url = Uri.parse('/systemupdate/versionhotfix');
     final $body = body;
@@ -2954,17 +3280,17 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse,
-            WebApiModulesAdministratorSystemUpdateGetVersionHotfixResponse>(
+            FwStandardModulesAdministratorSystemUpdateGetVersionHotfixResponse,
+            FwStandardModulesAdministratorSystemUpdateGetVersionHotfixResponse>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse>>
+              FwStandardModulesAdministratorSystemUpdateAvailableVersionsResponse>>
       _systemupdateAvailableversionsPost(
-          {required WebApiModulesAdministratorSystemUpdateAvailableVersionsRequest?
+          {required FwStandardModulesAdministratorSystemUpdateAvailableVersionsRequest?
               body}) {
     final Uri $url = Uri.parse('/systemupdate/availableversions');
     final $body = body;
@@ -2975,15 +3301,17 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse,
-            WebApiModulesAdministratorSystemUpdateAvailableVersionsResponse>(
+            FwStandardModulesAdministratorSystemUpdateAvailableVersionsResponse,
+            FwStandardModulesAdministratorSystemUpdateAvailableVersionsResponse>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse>>
+  Future<
+          Response<
+              FwStandardModulesAdministratorSystemUpdateBuildDocumentsResponse>>
       _systemupdateBuilddocumentsPost(
-          {required WebApiModulesAdministratorSystemUpdateBuildDocumentsRequest?
+          {required FwStandardModulesAdministratorSystemUpdateBuildDocumentsRequest?
               body}) {
     final Uri $url = Uri.parse('/systemupdate/builddocuments');
     final $body = body;
@@ -2994,16 +3322,17 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-        WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse,
-        WebApiModulesAdministratorSystemUpdateBuildDocumentsResponse>($request);
+            FwStandardModulesAdministratorSystemUpdateBuildDocumentsResponse,
+            FwStandardModulesAdministratorSystemUpdateBuildDocumentsResponse>(
+        $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse>>
+              FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentResponse>>
       _systemupdateDownloadbuilddocumentPost(
-          {required WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentRequest?
+          {required FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentRequest?
               body}) {
     final Uri $url = Uri.parse('/systemupdate/downloadbuilddocument');
     final $body = body;
@@ -3014,15 +3343,17 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-            WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse,
-            WebApiModulesAdministratorSystemUpdateDownloadBuildDocumentResponse>(
+            FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentResponse,
+            FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentResponse>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorSystemUpdateApplyUpdateResponse>>
+  Future<
+          Response<
+              FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse>>
       _systemupdateApplyupdatePost(
-          {required WebApiModulesAdministratorSystemUpdateApplyUpdateRequest?
+          {required FwStandardModulesAdministratorSystemUpdateApplyUpdateRequest?
               body}) {
     final Uri $url = Uri.parse('/systemupdate/applyupdate');
     final $body = body;
@@ -3033,14 +3364,17 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-        WebApiModulesAdministratorSystemUpdateApplyUpdateResponse,
-        WebApiModulesAdministratorSystemUpdateApplyUpdateResponse>($request);
+            FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse,
+            FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse>(
+        $request);
   }
 
   @override
-  Future<Response<WebApiModulesAdministratorSystemUpdateNextQaVersionResponse>>
+  Future<
+          Response<
+              FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse>>
       _systemupdateNextqaversionPost(
-          {required WebApiModulesAdministratorSystemUpdateNextQaVersionRequest?
+          {required FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest?
               body}) {
     final Uri $url = Uri.parse('/systemupdate/nextqaversion');
     final $body = body;
@@ -3051,8 +3385,38 @@ class _$Administrator extends Administrator {
       body: $body,
     );
     return client.send<
-        WebApiModulesAdministratorSystemUpdateNextQaVersionResponse,
-        WebApiModulesAdministratorSystemUpdateNextQaVersionResponse>($request);
+            FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse,
+            FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesAdministratorSystemUpdateRestartResponse>>
+      _systemupdateRestartPost(
+          {required FwStandardModulesAdministratorSystemUpdateRestartRequest?
+              body}) {
+    final Uri $url = Uri.parse('/systemupdate/restart');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        FwStandardModulesAdministratorSystemUpdateRestartResponse,
+        FwStandardModulesAdministratorSystemUpdateRestartResponse>($request);
+  }
+
+  @override
+  Future<Response<String>> _systemupdateCurrentversionGet() {
+    final Uri $url = Uri.parse('/systemupdate/currentversion');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<String, String>($request);
   }
 
   @override
@@ -3241,6 +3605,130 @@ class _$Administrator extends Administrator {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _userBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/user/browse');
@@ -3357,6 +3845,23 @@ class _$Administrator extends Administrator {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardModelsCopyLogicResponse>> _userIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/user/${id}/copy');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardModelsCopyLogicResponse,
+        FwStandardModelsCopyLogicResponse>($request);
   }
 
   @override
@@ -3759,6 +4264,19 @@ class _$Administrator extends Administrator {
   }
 
   @override
+  Future<Response<List<WebApiModulesAdministratorUserKissFlowUser>>>
+      _userKissflowusersGet() {
+    final Uri $url = Uri.parse('/user/kissflowusers');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<List<WebApiModulesAdministratorUserKissFlowUser>,
+        WebApiModulesAdministratorUserKissFlowUser>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _webalertlogBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/webalertlog/browse');
@@ -3886,6 +4404,81 @@ class _$Administrator extends Administrator {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _webeventlogBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/webeventlog/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _webeventlogExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/webeventlog/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<FwStandardModulesAdministratorWebEventLogWebEventLogLogic>>>
+      _webeventlogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+  }) {
+    final Uri $url = Uri.parse('/webeventlog');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+        List<FwStandardModulesAdministratorWebEventLogWebEventLogLogic>,
+        FwStandardModulesAdministratorWebEventLogWebEventLogLogic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesAdministratorWebEventLogWebEventLogLogic>>
+      _webeventlogIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/webeventlog/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        FwStandardModulesAdministratorWebEventLogWebEventLogLogic,
+        FwStandardModulesAdministratorWebEventLogWebEventLogLogic>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _widgetgroupBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/widgetgroup/browse');
@@ -3923,7 +4516,7 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetGroupWidgetGroupLogic>>
       _widgetgroupGet({
     int? pageno,
     int? pagesize,
@@ -3944,15 +4537,16 @@ class _$Administrator extends Administrator {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetGroupWidgetGroupLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetGroupWidgetGroupLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetGroupWidgetGroupLogic>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
+  Future<Response<FwStandardModulesSettingsWidgetGroupWidgetGroupLogic>>
       _widgetgroupPost(
-          {required WebApiModulesSettingsWidgetGroupWidgetGroup? body}) {
+          {required FwStandardModulesSettingsWidgetGroupWidgetGroupLogic?
+              body}) {
     final Uri $url = Uri.parse('/widgetgroup');
     final $body = body;
     final Request $request = Request(
@@ -3961,12 +4555,12 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWidgetGroupWidgetGroup,
-        WebApiModulesSettingsWidgetGroupWidgetGroup>($request);
+    return client.send<FwStandardModulesSettingsWidgetGroupWidgetGroupLogic,
+        FwStandardModulesSettingsWidgetGroupWidgetGroupLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
+  Future<Response<FwStandardModulesSettingsWidgetGroupWidgetGroupLogic>>
       _widgetgroupIdGet({required String? id}) {
     final Uri $url = Uri.parse('/widgetgroup/${id}');
     final Request $request = Request(
@@ -3974,15 +4568,15 @@ class _$Administrator extends Administrator {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesSettingsWidgetGroupWidgetGroup,
-        WebApiModulesSettingsWidgetGroupWidgetGroup>($request);
+    return client.send<FwStandardModulesSettingsWidgetGroupWidgetGroupLogic,
+        FwStandardModulesSettingsWidgetGroupWidgetGroupLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetGroupWidgetGroup>>
+  Future<Response<FwStandardModulesSettingsWidgetGroupWidgetGroupLogic>>
       _widgetgroupIdPut({
     required String? id,
-    required WebApiModulesSettingsWidgetGroupWidgetGroup? body,
+    required FwStandardModulesSettingsWidgetGroupWidgetGroupLogic? body,
   }) {
     final Uri $url = Uri.parse('/widgetgroup/${id}');
     final $body = body;
@@ -3992,8 +4586,8 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWidgetGroupWidgetGroup,
-        WebApiModulesSettingsWidgetGroupWidgetGroup>($request);
+    return client.send<FwStandardModulesSettingsWidgetGroupWidgetGroupLogic,
+        FwStandardModulesSettingsWidgetGroupWidgetGroupLogic>($request);
   }
 
   @override
@@ -4061,7 +4655,7 @@ class _$Administrator extends Administrator {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetUserWidgetUserLogic>>
       _widgetuserGet({
     int? pageno,
     int? pagesize,
@@ -4082,14 +4676,15 @@ class _$Administrator extends Administrator {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetUserWidgetUserLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetUserWidgetUserLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetUserWidgetUserLogic>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetUserWidgetUser>> _widgetuserPost(
-      {required WebApiModulesSettingsWidgetUserWidgetUser? body}) {
+  Future<Response<FwStandardModulesSettingsWidgetUserWidgetUserLogic>>
+      _widgetuserPost(
+          {required FwStandardModulesSettingsWidgetUserWidgetUserLogic? body}) {
     final Uri $url = Uri.parse('/widgetuser');
     final $body = body;
     final Request $request = Request(
@@ -4098,27 +4693,28 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWidgetUserWidgetUser,
-        WebApiModulesSettingsWidgetUserWidgetUser>($request);
+    return client.send<FwStandardModulesSettingsWidgetUserWidgetUserLogic,
+        FwStandardModulesSettingsWidgetUserWidgetUserLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetUserWidgetUser>> _widgetuserIdGet(
-      {required String? id}) {
+  Future<Response<FwStandardModulesSettingsWidgetUserWidgetUserLogic>>
+      _widgetuserIdGet({required String? id}) {
     final Uri $url = Uri.parse('/widgetuser/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesSettingsWidgetUserWidgetUser,
-        WebApiModulesSettingsWidgetUserWidgetUser>($request);
+    return client.send<FwStandardModulesSettingsWidgetUserWidgetUserLogic,
+        FwStandardModulesSettingsWidgetUserWidgetUserLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetUserWidgetUser>> _widgetuserIdPut({
+  Future<Response<FwStandardModulesSettingsWidgetUserWidgetUserLogic>>
+      _widgetuserIdPut({
     required String? id,
-    required WebApiModulesSettingsWidgetUserWidgetUser? body,
+    required FwStandardModulesSettingsWidgetUserWidgetUserLogic? body,
   }) {
     final Uri $url = Uri.parse('/widgetuser/${id}');
     final $body = body;
@@ -4128,8 +4724,8 @@ class _$Administrator extends Administrator {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWidgetUserWidgetUser,
-        WebApiModulesSettingsWidgetUserWidgetUser>($request);
+    return client.send<FwStandardModulesSettingsWidgetUserWidgetUserLogic,
+        FwStandardModulesSettingsWidgetUserWidgetUserLogic>($request);
   }
 
   @override

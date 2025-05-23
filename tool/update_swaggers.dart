@@ -6,6 +6,8 @@ Future<void> main(List<String> args) async {
 
   const pages = [
     'account_services',
+    'home',
+    'warehouse',
     'administrator',
     'exports',
     'mobile',
@@ -14,6 +16,7 @@ Future<void> main(List<String> args) async {
     'reports',
     'settings',
     'utilities',
+    'integrations',
   ];
 
   for (var page in pages) {

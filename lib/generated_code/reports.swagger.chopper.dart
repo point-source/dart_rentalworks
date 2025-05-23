@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'reports.swagger.dart';
@@ -6,15 +7,186 @@ part of 'reports.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$Reports extends Reports {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$Reports extends Reports {
   _$Reports([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = Reports;
+  final Type definitionType = Reports;
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _activeorderswithuncontracteditemsreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url =
+        Uri.parse('/activeorderswithuncontracteditemsreport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _activeorderswithuncontracteditemsreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequest?
+              body}) {
+    final Uri $url =
+        Uri.parse('/activeorderswithuncontracteditemsreport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+      _activeorderswithuncontracteditemsreportRunreportPost(
+          {required WebApiModulesReportsOrderReportsActiveOrdersWithUncontractedItemsReportActiveOrdersWithUncontractedItemsReportRequest?
+              body}) {
+    final Uri $url =
+        Uri.parse('/activeorderswithuncontracteditemsreport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/activeorderswithuncontracteditemsreport/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/activeorderswithuncontracteditemsreport/validatedepartment/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/activeorderswithuncontracteditemsreport/validateagent/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/activeorderswithuncontracteditemsreport/validateofficelocation/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportValidateordertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/activeorderswithuncontracteditemsreport/validateordertype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportEmptyobjectGet() {
+    final Uri $url =
+        Uri.parse('/activeorderswithuncontracteditemsreport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _activeorderswithuncontracteditemsreportPreviewGet() {
+    final Uri $url =
+        Uri.parse('/activeorderswithuncontracteditemsreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
 
   @override
   Future<Response<FwStandardReportingFwReportRenderResponse>>
@@ -4526,6 +4698,138 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _inactiveeligiblereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/inactiveeligiblereport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _inactiveeligiblereportExportexcelxlsxPost(
+          {required WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/inactiveeligiblereport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> _inactiveeligiblereportRunreportPost(
+      {required WebApiModulesReportsWarehouseReportsInactiveEligibleReportInactiveEligibleReportRequest?
+          body}) {
+    final Uri $url = Uri.parse('/inactiveeligiblereport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inactiveeligiblereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inactiveeligiblereport/validateinventorytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inactiveeligiblereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inactiveeligiblereport/validatecategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inactiveeligiblereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/inactiveeligiblereport/validatesubcategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inactiveeligiblereportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/inactiveeligiblereport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _inactiveeligiblereportPreviewGet() {
+    final Uri $url = Uri.parse('/inactiveeligiblereport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
       _incomegldetailreportRenderPost(
           {required FwStandardReportingFwReportRenderRequest? body}) {
     final Uri $url = Uri.parse('/incomegldetailreport/render');
@@ -4721,6 +5025,23 @@ class _$Reports extends Reports {
       _incomingshippinglabelValidateorderBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/incomingshippinglabel/validateorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _incomingshippinglabelIncomingshippinglabelBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/incomingshippinglabel/incomingshippinglabel/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5829,10 +6150,10 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _inventorystatusbypurchaseorderreportValidatedealBrowsePost(
+      _inventorystatusbypurchaseorderreportValidatepotypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url =
-        Uri.parse('/inventorystatusbypurchaseorderreport/validatedeal/browse');
+    final Uri $url = Uri.parse(
+        '/inventorystatusbypurchaseorderreport/validatepotype/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -6727,6 +7048,22 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _latereturnsreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/latereturnsreport/validateagent/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _latereturnsreportEmptyobjectGet() {
     final Uri $url = Uri.parse('/latereturnsreport/emptyobject');
     final Request $request = Request(
@@ -6818,6 +7155,85 @@ class _$Reports extends Reports {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _lostcontractreportPreviewGet() {
     final Uri $url = Uri.parse('/lostcontractreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _orderchangereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/orderchangereport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _orderchangereportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderChangeReportOrderChangeReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/orderchangereport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderchangereportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/orderchangereport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>> _orderchangereportRunreportPost(
+      {required WebApiModulesReportsOrderChangeReportOrderChangeReportRequest?
+          body}) {
+    final Uri $url = Uri.parse('/orderchangereport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderchangereportPreviewGet() {
+    final Uri $url = Uri.parse('/orderchangereport/preview');
     final Request $request = Request(
       'GET',
       $url,
@@ -7030,6 +7446,172 @@ class _$Reports extends Reports {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _orderconflictreportPreviewGet() {
     final Uri $url = Uri.parse('/orderconflictreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _orderdatesandbannersreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/orderdatesandbannersreport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _orderdatesandbannersreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/orderdatesandbannersreport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> _orderdatesandbannersreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBannersReportRequest?
+          body}) {
+    final Uri $url = Uri.parse('/orderdatesandbannersreport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/orderdatesandbannersreport/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/orderdatesandbannersreport/validatedepartment/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportValidateagentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/orderdatesandbannersreport/validateagent/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/orderdatesandbannersreport/validateofficelocation/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportValidateordertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/orderdatesandbannersreport/validateordertype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/orderdatesandbannersreport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _orderdatesandbannersreportPreviewGet() {
+    final Uri $url = Uri.parse('/orderdatesandbannersreport/preview');
     final Request $request = Request(
       'GET',
       $url,
@@ -7496,6 +8078,23 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _ordervaluesheetreportValidatecontractBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/ordervaluesheetreport/validatecontract/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _ordervaluesheetreportEmptyobjectGet() {
     final Uri $url = Uri.parse('/ordervaluesheetreport/emptyobject');
     final Request $request = Request(
@@ -7706,6 +8305,23 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outgoingshippinglabelValidateshippingcaseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outgoingshippinglabel/validateshippingcase/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _outgoingshippinglabelEmptyobjectGet() {
     final Uri $url = Uri.parse('/outgoingshippinglabel/emptyobject');
     final Request $request = Request(
@@ -7721,6 +8337,189 @@ class _$Reports extends Reports {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _outgoingshippinglabelPreviewGet() {
     final Uri $url = Uri.parse('/outgoingshippinglabel/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _outstandingpurchasereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/outstandingpurchasereport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _outstandingpurchasereportExportexcelxlsxPost(
+          {required WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/outstandingpurchasereport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+      Response<
+          WebApiDataAppReportResponse>> _outstandingpurchasereportRunreportPost(
+      {required WebApiModulesReportsVendorReportsOutstandingPurchaseReportOutstandingPurchaseReportRequest?
+          body}) {
+    final Uri $url = Uri.parse('/outstandingpurchasereport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outstandingpurchasereport/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outstandingpurchasereport/validateinventorytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outstandingpurchasereport/validatecategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outstandingpurchasereport/validateinventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportValidatepotypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outstandingpurchasereport/validatepotype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/outstandingpurchasereport/validatevendor/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/outstandingpurchasereport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _outstandingpurchasereportPreviewGet() {
+    final Uri $url = Uri.parse('/outstandingpurchasereport/preview');
     final Request $request = Request(
       'GET',
       $url,
@@ -8609,6 +9408,23 @@ class _$Reports extends Reports {
           {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse(
         '/partsinventorypurchasehistoryreport/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _partsinventorypurchasehistoryreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/partsinventorypurchasehistoryreport/validatevendor/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -10691,6 +11507,80 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _projectreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/projectreport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>> _projectreportRunreportPost(
+      {required WebApiModulesReportsOrderReportsProjectReportProjectReportRequest?
+          body}) {
+    final Uri $url = Uri.parse('/projectreport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _projectreportValidateprojectBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/projectreport/validateproject/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _projectreportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/projectreport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _projectreportPreviewGet() {
+    final Uri $url = Uri.parse('/projectreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
       _purchasegldetailreportRenderPost(
           {required FwStandardReportingFwReportRenderRequest? body}) {
     final Uri $url = Uri.parse('/purchasegldetailreport/render');
@@ -11816,6 +12706,22 @@ class _$Reports extends Reports {
       _quikactivityreportValidatedepartmentBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/quikactivityreport/validatedepartment/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _quikactivityreportValidatedealBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/quikactivityreport/validatedeal/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -14385,6 +15291,23 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventorypurchasehistoryreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventorypurchasehistoryreport/validatevendor/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventorypurchasehistoryreportEmptyobjectGet() {
     final Uri $url =
         Uri.parse('/rentalinventorypurchasehistoryreport/emptyobject');
@@ -14401,6 +15324,172 @@ class _$Reports extends Reports {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventorypurchasehistoryreportPreviewGet() {
     final Uri $url = Uri.parse('/rentalinventorypurchasehistoryreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _rentalinventoryqccompletereportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventoryqccompletereport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _rentalinventoryqccompletereportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequest?
+              body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventoryqccompletereport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+      _rentalinventoryqccompletereportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryQCCompleteReportRentalInventoryQCCompleteReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/rentalinventoryqccompletereport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventoryqccompletereport/validateinventorytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventoryqccompletereport/validatecategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportValidatesubcategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventoryqccompletereport/validatesubcategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventoryqccompletereport/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventoryqccompletereport/validateinventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/rentalinventoryqccompletereport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryqccompletereportPreviewGet() {
+    final Uri $url = Uri.parse('/rentalinventoryqccompletereport/preview');
     final Request $request = Request(
       'GET',
       $url,
@@ -14567,6 +15656,156 @@ class _$Reports extends Reports {
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalinventoryqcrequiredreportPreviewGet() {
     final Uri $url = Uri.parse('/rentalinventoryqcrequiredreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _rentalinventoryquantityownedreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/rentalinventoryquantityownedreport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _rentalinventoryquantityownedreportExportexcelxlsxPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequest?
+              body}) {
+    final Uri $url =
+        Uri.parse('/rentalinventoryquantityownedreport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+      _rentalinventoryquantityownedreportRunreportPost(
+          {required WebApiModulesReportsRentalInventoryReportsRentalInventoryQuantityOwnedReportRentalInventoryQuantityOwnedReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/rentalinventoryquantityownedreport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryquantityownedreportValidateinventorytypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventoryquantityownedreport/validateinventorytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryquantityownedreportValidatecategoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventoryquantityownedreport/validatecategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryquantityownedreportValidateinventoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventoryquantityownedreport/validateinventory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryquantityownedreportValidatewarehouseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse(
+        '/rentalinventoryquantityownedreport/validatewarehouse/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryquantityownedreportEmptyobjectGet() {
+    final Uri $url =
+        Uri.parse('/rentalinventoryquantityownedreport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _rentalinventoryquantityownedreportPreviewGet() {
+    final Uri $url = Uri.parse('/rentalinventoryquantityownedreport/preview');
     final Request $request = Request(
       'GET',
       $url,
@@ -18799,6 +20038,23 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _salesinventorypurchasehistoryreportValidatevendorBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/salesinventorypurchasehistoryreport/validatevendor/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _salesinventorypurchasehistoryreportEmptyobjectGet() {
     final Uri $url =
         Uri.parse('/salesinventorypurchasehistoryreport/emptyobject');
@@ -19927,6 +21183,121 @@ class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardReportingFwReportRenderResponse>>
+      _shippingcasepackinglistreportRenderPost(
+          {required FwStandardReportingFwReportRenderRequest? body}) {
+    final Uri $url = Uri.parse('/shippingcasepackinglistreport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardReportingFwReportRenderResponse,
+        FwStandardReportingFwReportRenderResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _shippingcasepackinglistreportExportexcelxlsxPost(
+          {required WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest?
+              body}) {
+    final Uri $url =
+        Uri.parse('/shippingcasepackinglistreport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+      _shippingcasepackinglistreportRunreportPost(
+          {required WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest?
+              body}) {
+    final Uri $url = Uri.parse('/shippingcasepackinglistreport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiDataAppReportResponse,
+        WebApiDataAppReportResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _shippingcasepackinglistreportValidateshippingcaseBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/shippingcasepackinglistreport/validateshippingcase/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _shippingcasepackinglistreportValidateorderBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/shippingcasepackinglistreport/validateorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _shippingcasepackinglistreportEmptyobjectGet() {
+    final Uri $url = Uri.parse('/shippingcasepackinglistreport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _shippingcasepackinglistreportPreviewGet() {
+    final Uri $url = Uri.parse('/shippingcasepackinglistreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
       _storagecontainerlabelRenderPost(
           {required FwStandardReportingFwReportRenderRequest? body}) {
     final Uri $url = Uri.parse('/storagecontainerlabel/render');
@@ -20746,6 +22117,130 @@ class _$Reports extends Reports {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override

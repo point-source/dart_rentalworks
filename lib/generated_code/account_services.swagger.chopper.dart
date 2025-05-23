@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'account_services.swagger.dart';
@@ -6,15 +7,16 @@ part of 'account_services.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$AccountServices extends AccountServices {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$AccountServices extends AccountServices {
   _$AccountServices([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = AccountServices;
+  final Type definitionType = AccountServices;
 
   @override
   Future<
@@ -99,6 +101,45 @@ class _$AccountServices extends AccountServices {
   }
 
   @override
+  Future<Response<WebApiModulesAccountServicesAccountForgotPasswordResponse>>
+      _accountForgotpasswordPost(
+          {required WebApiModulesAccountServicesAccountForgotPasswordRequest?
+              body}) {
+    final Uri $url = Uri.parse('/account/forgotpassword');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesAccountServicesAccountForgotPasswordResponse,
+        WebApiModulesAccountServicesAccountForgotPasswordResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesAccountServicesAccountResetPasswordExternalResponse>>
+      _accountResetpasswordexternalPost(
+          {required WebApiModulesAccountServicesAccountResetPasswordExternalRequest?
+              body}) {
+    final Uri $url = Uri.parse('/account/resetpasswordexternal');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesAccountServicesAccountResetPasswordExternalResponse,
+            WebApiModulesAccountServicesAccountResetPasswordExternalResponse>(
+        $request);
+  }
+
+  @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> _jwtPost(
       {required FwStandardModelsFwApplicationUser? body}) {
     final Uri $url = Uri.parse('/jwt');
@@ -130,22 +171,6 @@ class _$AccountServices extends AccountServices {
   }
 
   @override
-  Future<Response<WebApiModulesAccountServicesJwtOktaSessionResponseModel>>
-      _jwtOktaverifyPost(
-          {required WebApiModulesAccountServicesJwtOktaSessionRequest? body}) {
-    final Uri $url = Uri.parse('/jwt/oktaverify');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<WebApiModulesAccountServicesJwtOktaSessionResponseModel,
-        WebApiModulesAccountServicesJwtOktaSessionResponseModel>($request);
-  }
-
-  @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
       _jwtAzureadPost(
           {required WebApiModulesAccountServicesJwtAzureADRequest? body}) {
@@ -159,5 +184,129 @@ class _$AccountServices extends AccountServices {
     );
     return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
         FwCoreControllersFwJwtControllerJwtResponseModel>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 }

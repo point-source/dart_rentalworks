@@ -38,14 +38,15 @@ class CustomJsonDecoder {
 
 class JsonSerializableConverter extends JsonConverter {
   JsonSerializableConverter(
-      Map<Type, Object Function(Map<String, dynamic>)> decoderMappings)
-      : jsonDecoder = CustomJsonDecoder(decoderMappings);
+    Map<Type, Object Function(Map<String, dynamic>)> decoderMappings,
+  ) : jsonDecoder = CustomJsonDecoder(decoderMappings);
 
   final CustomJsonDecoder jsonDecoder;
 
   @override
   Future<Response<ResultType>> convertResponse<ResultType, Item>(
-      Response response) async {
+    Response response,
+  ) async {
     if (response.bodyString.isEmpty) {
       // In rare cases, when let's say 204 (no content) is returned -
       // we cannot decode the missing json with the result type specified
@@ -53,7 +54,9 @@ class JsonSerializableConverter extends JsonConverter {
     }
 
     final jsonRes = await super.convertResponse(response);
+
     return jsonRes.copyWith<ResultType>(
-        body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+      body: jsonDecoder.decode<Item>(jsonRes.body) as ResultType,
+    );
   }
 }

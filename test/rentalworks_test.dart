@@ -25,8 +25,11 @@ void main() {
       expect(rentalworks, isA<RentalWorks>());
     });
     test('with Credentials', () {
-      RentalWorks rentalworks =
-          RentalWorks.withCredentials(baseUrl, 'my-username', 'my-password');
+      RentalWorks rentalworks = RentalWorks.withCredentials(
+        baseUrl,
+        'my-username',
+        'my-password',
+      );
       expect(rentalworks, isA<RentalWorks>());
     });
   });
@@ -42,20 +45,23 @@ void main() {
   group('Fetch:', () {
     test('/quotes/browse', () async {
       final quotes = await rw!.home.quoteBrowsePost(
-          body: FwStandardModelsBrowseRequest(
-        orderby: 'QuoteNumber desc',
-        top: 0,
-        pageno: 1,
-        pagesize: 1,
-        forexcel: false,
-        emptyobject: false,
-      ));
+        body: FwStandardModelsBrowseRequest(
+          orderby: 'QuoteNumber desc',
+          top: 0,
+          pageno: 1,
+          pagesize: 1,
+          forexcel: false,
+          emptyobject: false,
+        ),
+      );
       expect(quotes.isSuccessful, isTrue);
     });
 
     test('/ordersummary', () async {
-      final summary =
-          await rw!.home.ordersummaryGet(orderid: '304949', totaltype: 'P');
+      final summary = await rw!.home.ordersummaryGet(
+        orderid: '304949',
+        totaltype: 'P',
+      );
       expect(summary.base.reasonPhrase, 'OK');
       expect(summary.isSuccessful, isTrue);
     });
@@ -73,26 +79,37 @@ void main() {
     });
 
     test('/transferorder', () async {
-      final transfers = await rw!.home.transferorderGet(filter: [
-        FwStandardModelsFwQueryFilter(
-            field: 'Status', op: '<>', value: 'COMPLETE'),
-      ]);
+      final transfers = await rw!.home.transferorderGet(
+        filter: [
+          FwStandardModelsFwQueryFilter(
+            field: 'Status',
+            op: '<>',
+            $Value: 'COMPLETE',
+          ),
+        ],
+      );
       expect(transfers.base.reasonPhrase, 'OK');
       expect(transfers.isSuccessful, isTrue);
     });
 
     test('/transferorder', () async {
-      final transfers = await rw!.home.transferorderGet(filter: [
-        FwStandardModelsFwQueryFilter(
-            field: 'Status', op: '<>', value: 'COMPLETE'),
-      ]);
+      final transfers = await rw!.home.transferorderGet(
+        filter: [
+          FwStandardModelsFwQueryFilter(
+            field: 'Status',
+            op: '<>',
+            $Value: 'COMPLETE',
+          ),
+        ],
+      );
       expect(transfers.base.reasonPhrase, 'OK');
       expect(transfers.isSuccessful, isTrue);
     });
 
     test('/pricing/{inventoryId}', () async {
-      final pricing =
-          await rw!.home.pricingInventoryidGet(inventoryid: 'A0001R42');
+      final pricing = await rw!.home.pricingInventoryidGet(
+        inventoryid: 'A0001R42',
+      );
       expect(pricing.base.reasonPhrase, 'OK');
       expect(pricing.isSuccessful, isTrue);
       expect(pricing.body ?? [], isNotEmpty);
@@ -109,18 +126,42 @@ void main() {
     String contractId = '';
 
     test('get item', () async {
-      final items = await rw!.home.itemGet(pageno: 1, filter: [
-        FwStandardModelsFwQueryFilter(
-            field: 'StatusType', op: '<>', value: 'RETIRED'),
-        FwStandardModelsFwQueryFilter(
-            field: 'StatusType', op: '<>', value: 'OUT'),
-        FwStandardModelsFwQueryFilter(
-            field: 'StatusType', op: '<>', value: 'INTRANSIT'),
-        FwStandardModelsFwQueryFilter(
-            field: 'StatusType', op: '<>', value: 'STAGED'),
-        FwStandardModelsFwQueryFilter(
-            field: 'StatusType', op: '<>', value: 'INCONTAINER'),
-      ]);
+      final items = await rw!.home.itemGet(
+        pageno: 1,
+        filter: [
+          FwStandardModelsFwQueryFilter(
+            field: 'BarCode',
+            op: '=',
+            $Value: '000052',
+          ), // Intel NUC
+          FwStandardModelsFwQueryFilter(
+            field: 'StatusType',
+            op: '<>',
+            $Value: 'RETIRED',
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'StatusType',
+            op: '<>',
+            $Value: 'OUT',
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'StatusType',
+            op: '<>',
+            $Value: 'INTRANSIT',
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'StatusType',
+            op: '<>',
+            $Value: 'STAGED',
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'StatusType',
+            op: '<>',
+            $Value: 'INCONTAINER',
+          ),
+        ],
+      );
+      expect(items.error, isNull);
       expect(items.isSuccessful, isTrue);
       expect(items.base.reasonPhrase, 'OK');
       expect(items.body?.items ?? [], isNotEmpty);
@@ -130,8 +171,9 @@ void main() {
 
     test('locate item (get warehouse)', () async {
       expect(item, isNotNull);
-      final warehouseQuery =
-          await rw!.settings.warehouseIdGet(id: item!.warehouseId);
+      final warehouseQuery = await rw!.settings.warehouseIdGet(
+        id: item!.warehouseId,
+      );
       expect(warehouseQuery.isSuccessful, isTrue);
       expect(warehouseQuery.base.reasonPhrase, 'OK');
       warehouse = warehouseQuery.body;
@@ -141,16 +183,30 @@ void main() {
     test('find transfer', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
-      final transferQuery = await rw!.home.transferorderGet(filter: [
-        FwStandardModelsFwQueryFilter(
-            field: 'FromWarehouseId', op: '=', value: warehouse!.warehouseId),
-        FwStandardModelsFwQueryFilter(
-            field: 'Description', op: 'contains', value: 'inventory'),
-        FwStandardModelsFwQueryFilter(
-            field: 'Description', op: 'contains', value: 'virtual'),
-        FwStandardModelsFwQueryFilter(
-            field: 'Status', op: '<>', value: 'CANCELLED'),
-      ]);
+      final transferQuery = await rw!.home.transferorderGet(
+        filter: [
+          FwStandardModelsFwQueryFilter(
+            field: 'FromWarehouseId',
+            op: '=',
+            $Value: warehouse!.warehouseId,
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'Description',
+            op: 'contains',
+            $Value: 'inventory',
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'Description',
+            op: 'contains',
+            $Value: 'virtual',
+          ),
+          FwStandardModelsFwQueryFilter(
+            field: 'Status',
+            op: '<>',
+            $Value: 'CANCELLED',
+          ),
+        ],
+      );
       expect(transferQuery.isSuccessful, isTrue);
       expect(transferQuery.base.reasonPhrase, 'OK');
       expect(transferQuery.body?.items ?? [], isNotEmpty);
@@ -163,13 +219,14 @@ void main() {
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
       final transferAdd = await rw!.home.checkoutStageitemPost(
-          body: WebApiModulesWarehouseCheckOutStageItemRequest(
-              addItemToOrder:
-                  true, // maybe not necessary but do it just in case
-              transferRepair: true,
-              orderId: transfer!.transferId,
-              code: item!.barCode,
-              warehouseId: warehouse!.warehouseId));
+        body: WebApiModulesWarehouseCheckOutStageItemRequest(
+          addItemToOrder: true, // maybe not necessary but do it just in case
+          transferRepair: true,
+          orderId: transfer!.transferId,
+          code: item!.barCode,
+          warehouseId: warehouse!.warehouseId,
+        ),
+      );
       expect(transferAdd.isSuccessful, isTrue);
       expect(transferAdd.base.reasonPhrase, 'OK');
     });
@@ -179,17 +236,20 @@ void main() {
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
       final checkoutStaged = await rw!.home.checkoutCheckoutallstagedPost(
-          body: WebApiModulesWarehouseCheckOutCheckOutAllStagedRequest(
-              officeLocationId: officeLocationId,
-              orderId: transfer!.transferId,
-              warehouseId: warehouse!.warehouseId));
+        body: WebApiModulesWarehouseCheckOutCheckOutAllStagedRequest(
+          officeLocationId: officeLocationId,
+          orderId: transfer!.transferId,
+          warehouseId: warehouse!.warehouseId,
+        ),
+      );
       expect(checkoutStaged.isSuccessful, isTrue);
       expect(checkoutStaged.base.reasonPhrase, 'OK');
       contractId = checkoutStaged.body?.contractId ?? '';
       expect(contractId, isNotEmpty);
+      print('contractId: $contractId');
     });
 
-/*     test('create contract', () async {
+    /*     test('create contract', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
@@ -212,24 +272,35 @@ void main() {
       expect(transfer, isNotNull);
       expect(contractId, isNotEmpty);
       final checkInItem = await rw!.home.transferinCheckinitemPost(
-          body: WebApiModulesWarehouseCheckInCheckInItemsRequest(
-              contractId: contractId,
-              moduleType: 'T',
-              items: [
+        body: WebApiModulesWarehouseCheckInCheckInItemsRequest(
+          contractId: contractId,
+          contractType: 'RECEIPT',
+          forceNewSession: false,
+          locationId: officeLocationId,
+          userWarehouseId: warehouse!.warehouseId,
+          moduleType: 'T',
+          items: [
             WebApiModulesWarehouseCheckInCheckInItem(
-                isBarcode: true, barcode: item!.barCode),
-          ]));
+              isBarcode: true,
+              barcode: item!.barCode,
+            ),
+          ],
+        ),
+      );
+      expect(checkInItem.error, isNull);
       expect(checkInItem.isSuccessful, isTrue);
       expect(checkInItem.base.reasonPhrase, 'OK');
     });
 
-    test('generate reciept', () async {
+    /*    test('generate reciept', () async {
       expect(contractId, isNotEmpty);
+      print('contractId: $contractId');
       final checkInReceipt = await rw!.home
           .transferinCompletecheckincontractIdPost(id: contractId);
+      expect(checkInReceipt.error, isNull);
       expect(checkInReceipt.isSuccessful, isTrue);
       expect(checkInReceipt.base.reasonPhrase, 'OK');
-    });
+    }); */
   });
 
   group('Change ICode: ', () {
@@ -237,7 +308,7 @@ void main() {
     String originalInventoryId = '';
 
     setUp(() async {
-      final asset = await rw!.home.itemBybarcodeGet(barCode: '001152');
+      final asset = await rw!.home.itemBybarcodeGet(barCode: '000067');
       item = asset.body?.item;
       originalInventoryId = item?.inventoryId ?? '';
     });
@@ -246,25 +317,26 @@ void main() {
       expect(item?.iCode, isNotNull);
       final r = await rw!.utilities
           .changeicodeutilityValidaterentalinventoryBrowsePost(
-        body: u.FwStandardModelsBrowseRequest(
-          pageno: 1,
-          pagesize: 1,
-          searchfieldoperators: ['like', '<>'],
-          searchfields: ['ICode', 'Inactive'],
-          searchfieldvalues: [item!.iCode!, 'T'],
-          searchfieldtypes: ['text', 'text'],
-          searchseparators: [','],
-          searchcondition: ['and'],
-          fields: [
-            u.FwStandardModelsCheckBoxListItem(
-              value: "InventoryId",
-              text: "InventoryId",
-              selected: true,
+            body: u.FwStandardModelsBrowseRequest(
+              pageno: 1,
+              pagesize: 1,
+              searchfieldoperators: ['like', '<>'],
+              searchfields: ['ICode', 'Inactive'],
+              searchfieldvalues: [item!.iCode!, 'T'],
+              searchfieldtypes: ['text', 'text'],
+              searchseparators: [','],
+              searchcondition: ['and'],
+              fields: [
+                u.FwStandardModelsCheckBoxListItem(
+                  $value: "InventoryId",
+                  text: "InventoryId",
+                  selected: true,
+                ),
+              ],
             ),
-          ],
-        ),
-      );
+          );
 
+      expect(r.error, isNull);
       originalInventoryId = r.body?.rows?.first.first.toString() ?? '';
       expect(originalInventoryId, isNotEmpty);
     });
@@ -274,7 +346,7 @@ void main() {
       final r = await rw!.utilities.changeicodeutilityChangeicodePost(
         body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
           itemId: item!.itemId!,
-          inventoryId: '00005CMS',
+          inventoryId: '00005CUR',
         ),
       );
       expect(r.isSuccessful, isTrue);

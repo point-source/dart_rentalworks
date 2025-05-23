@@ -1,6 +1,26 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
+enum FwStandardSqlServerAttributesFwExcelOptions {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Required')
+  required('Required'),
+  @JsonValue('Recommended')
+  recommended('Recommended'),
+  @JsonValue('Optional')
+  optional('Optional'),
+  @JsonValue('Omit')
+  omit('Omit'),
+  @JsonValue('None')
+  none('None');
+
+  final String? value;
+
+  const FwStandardSqlServerAttributesFwExcelOptions(this.value);
+}
+
 enum FwStandardSqlServerFwDataTypes {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -64,4 +84,21 @@ enum FwStandardSqlServerFwDataTypes {
   final String? value;
 
   const FwStandardSqlServerFwDataTypes(this.value);
+}
+
+enum WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Boolean')
+  boolean('Boolean'),
+  @JsonValue('Text')
+  text('Text'),
+  @JsonValue('Number')
+  number('Number');
+
+  final String? value;
+
+  const WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes(
+      this.value);
 }

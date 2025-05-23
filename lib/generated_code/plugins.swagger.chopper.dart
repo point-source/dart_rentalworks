@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'plugins.swagger.dart';
@@ -6,15 +7,16 @@ part of 'plugins.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$Plugins extends Plugins {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$Plugins extends Plugins {
   _$Plugins([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = Plugins;
+  final Type definitionType = Plugins;
 
   @override
   Future<Response<WebApiModulesPluginsAzureADGetAzureADGroupsResponse>>
@@ -246,6 +248,17 @@ class _$Plugins extends Plugins {
   }
 
   @override
+  Future<Response<Object>> _creditcardpluginLogLegendGet() {
+    final Uri $url = Uri.parse('/creditcardplugin/log/legend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic>>
@@ -278,10 +291,13 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPreAuthorizationResponse>>
-      _creditcardpluginPreauthorizationPost(
-          {required WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest?
-              body}) {
-    final Uri $url = Uri.parse('/creditcardplugin/preauthorization');
+      _creditcardpluginPreauthorizationLocationLocationidPost({
+    required String? locationid,
+    required WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequest?
+        body,
+  }) {
+    final Uri $url =
+        Uri.parse('/creditcardplugin/preauthorization/location/${locationid}');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -378,13 +394,14 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderResponse>>
-      _creditcardpluginPreauthorizationOrderOrderidCapturepreauthorizationsPost({
+      _creditcardpluginPreauthorizationLocationLocationidOrderOrderidCapturepreauthorizationsPost({
+    required String? locationid,
     required String? orderid,
     required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest?
         body,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/preauthorization/order/${orderid}/capturepreauthorizations');
+        '/creditcardplugin/preauthorization/location/${locationid}/order/${orderid}/capturepreauthorizations');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -402,13 +419,14 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationResponse>>
-      _creditcardpluginPreauthorizationPreauthorizationidCapturePost({
+      _creditcardpluginPreauthorizationPreauthorizationidLocationLocationidCapturePost({
     required String? preauthorizationid,
+    required String? locationid,
     required WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationRequest?
         body,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/preauthorization/${preauthorizationid}/capture');
+        '/creditcardplugin/preauthorization/${preauthorizationid}/location/${locationid}/capture');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -426,13 +444,14 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusResponse>>
-      _creditcardpluginPreauthorizationPreauthorizationidUpdatestatusPost({
+      _creditcardpluginPreauthorizationPreauthorizationidLocationLocationidUpdatestatusPost({
     required String? preauthorizationid,
+    required String? locationid,
     required WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest?
         body,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/preauthorization/${preauthorizationid}/updatestatus');
+        '/creditcardplugin/preauthorization/${preauthorizationid}/location/${locationid}/updatestatus');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -450,13 +469,14 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationResponse>>
-      _creditcardpluginPreauthorizationPreauthorizationidVoidPost({
+      _creditcardpluginPreauthorizationPreauthorizationidLocationLocationidVoidPost({
     required String? preauthorizationid,
+    required String? locationid,
     required WebApiModulesPluginsCreditCardCreditCardVoidPreAuthorizationRequest?
         body,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/preauthorization/${preauthorizationid}/void');
+        '/creditcardplugin/preauthorization/${preauthorizationid}/location/${locationid}/void');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -474,15 +494,16 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount>>
-      _creditcardpluginProfileCustomerCustomeridAccountGet({
+      _creditcardpluginProfileCustomerCustomeridLocationLocationidAccountGet({
+    required String? locationid,
     required String? customerid,
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/profile/customer/${customerid}/account');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/profile/customer/${customerid}/location/${locationid}/account');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -505,13 +526,14 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse>>
-      _creditcardpluginProfileCustomerCustomeridAccountPost({
+      _creditcardpluginProfileCustomerCustomeridLocationLocationidAccountPost({
+    required String? locationid,
     required String? customerid,
     required WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest?
         body,
   }) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/profile/customer/${customerid}/account');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/profile/customer/${customerid}/location/${locationid}/account');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -529,7 +551,8 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount>>
-      _creditcardpluginProfileCustomerCustomeridAuthorizedaccountGet({
+      _creditcardpluginProfileCustomerCustomeridLocationLocationidAuthorizedaccountGet({
+    required String? locationid,
     required String? customerid,
     int? pageno,
     int? pagesize,
@@ -537,7 +560,7 @@ class _$Plugins extends Plugins {
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/profile/customer/${customerid}/authorizedaccount');
+        '/creditcardplugin/profile/customer/${customerid}/location/${locationid}/authorizedaccount');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -558,10 +581,12 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<dynamic>>
-      _creditcardpluginProfileCustomerCustomeridDefaultaccountGet(
-          {required String? customerid}) {
+      _creditcardpluginProfileCustomerCustomeridLocationLocationidDefaultaccountGet({
+    required String? locationid,
+    required String? customerid,
+  }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/profile/customer/${customerid}/defaultaccount');
+        '/creditcardplugin/profile/customer/${customerid}/location/${locationid}/defaultaccount');
     final Request $request = Request(
       'GET',
       $url,
@@ -572,12 +597,13 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsCreditCardAccount>>
-      _creditcardpluginProfileCustomerCustomeridAccountAccountidGet({
+      _creditcardpluginProfileCustomerCustomeridLocationLocationidAccountAccountidGet({
+    required String? locationid,
     required String? customerid,
     required String? accountid,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/profile/customer/${customerid}/account/${accountid}');
+        '/creditcardplugin/profile/customer/${customerid}/location/${locationid}/account/${accountid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -591,12 +617,13 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse>>
-      _creditcardpluginProfileCustomerCustomeridAccountAccountidDelete({
+      _creditcardpluginProfileCustomerCustomeridLocationLocationidAccountAccountidDelete({
+    required String? locationid,
     required String? customerid,
     required String? accountid,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/profile/customer/${customerid}/account/${accountid}');
+        '/creditcardplugin/profile/customer/${customerid}/location/${locationid}/account/${accountid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -612,15 +639,16 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount>>
-      _creditcardpluginProfileDealDealidAccountGet({
+      _creditcardpluginProfileDealDealidLocationLocationidAccountGet({
+    required String? locationid,
     required String? dealid,
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/profile/deal/${dealid}/account');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/profile/deal/${dealid}/location/${locationid}/account');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -643,13 +671,14 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse>>
-      _creditcardpluginProfileDealDealidAccountPost({
+      _creditcardpluginProfileDealDealidLocationLocationidAccountPost({
+    required String? locationid,
     required String? dealid,
     required WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest?
         body,
   }) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/profile/deal/${dealid}/account');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/profile/deal/${dealid}/location/${locationid}/account');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -667,15 +696,16 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount>>
-      _creditcardpluginProfileDealDealidAuthorizedaccountGet({
+      _creditcardpluginProfileDealDealidLocationLocationidAuthorizedaccountGet({
+    required String? locationid,
     required String? dealid,
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/profile/deal/${dealid}/authorizedaccount');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/profile/deal/${dealid}/location/${locationid}/authorizedaccount');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -695,10 +725,13 @@ class _$Plugins extends Plugins {
   }
 
   @override
-  Future<Response<dynamic>> _creditcardpluginProfileDealDealidDefaultaccountGet(
-      {required String? dealid}) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/profile/deal/${dealid}/defaultaccount');
+  Future<Response<dynamic>>
+      _creditcardpluginProfileDealDealidLocationLocationidDefaultaccountGet({
+    required String? locationid,
+    required String? dealid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/profile/deal/${dealid}/location/${locationid}/defaultaccount');
     final Request $request = Request(
       'GET',
       $url,
@@ -709,12 +742,13 @@ class _$Plugins extends Plugins {
 
   @override
   Future<Response<WebApiModulesPluginsCreditCardAccount>>
-      _creditcardpluginProfileDealDealidAccountAccountidGet({
+      _creditcardpluginProfileDealDealidLocationLocationidAccountAccountidGet({
+    required String? locationid,
     required String? dealid,
     required String? accountid,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/profile/deal/${dealid}/account/${accountid}');
+        '/creditcardplugin/profile/deal/${dealid}/location/${locationid}/account/${accountid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -728,12 +762,13 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse>>
-      _creditcardpluginProfileDealDealidAccountAccountidDelete({
+      _creditcardpluginProfileDealDealidLocationLocationidAccountAccountidDelete({
+    required String? locationid,
     required String? dealid,
     required String? accountid,
   }) {
     final Uri $url = Uri.parse(
-        '/creditcardplugin/profile/deal/${dealid}/account/${accountid}');
+        '/creditcardplugin/profile/deal/${dealid}/location/${locationid}/account/${accountid}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -772,24 +807,6 @@ class _$Plugins extends Plugins {
             FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic,
             FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic>(
         $request);
-  }
-
-  @override
-  Future<Response<WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse>>
-      _creditcardpluginDepositPost(
-          {required WebApiModulesPluginsCreditCardCreditCardOrderDepositRequest?
-              body}) {
-    final Uri $url = Uri.parse('/creditcardplugin/deposit');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-        WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse,
-        WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse>($request);
   }
 
   @override
@@ -840,12 +857,34 @@ class _$Plugins extends Plugins {
   }
 
   @override
+  Future<Response<WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse>>
+      _creditcardpluginDepositLocationLocationidPost({
+    required String? locationid,
+    required WebApiModulesPluginsCreditCardCreditCardOrderDepositRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/creditcardplugin/deposit/location/${locationid}');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse,
+        WebApiModulesPluginsCreditCardCreditCardOrderDepositResponse>($request);
+  }
+
+  @override
   Future<Response<WebApiModulesPluginsCreditCardCreditCardRefundResponse>>
-      _creditcardpluginDepositReceiptidRefundPost({
+      _creditcardpluginDepositReceiptidLocationLocationidRefundPost({
+    required String? locationid,
     required String? receiptid,
     required WebApiModulesPluginsCreditCardCreditCardRefundRequest? body,
   }) {
-    final Uri $url = Uri.parse('/creditcardplugin/deposit/${receiptid}/refund');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/deposit/${receiptid}/location/${locationid}/refund');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -887,13 +926,79 @@ class _$Plugins extends Plugins {
   }
 
   @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardProcessCreditCardPaymentType>>
+      _creditcardpluginProcesscreditcardinfoLookuppaymenttypeGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url =
+        Uri.parse('/creditcardplugin/processcreditcardinfo/lookuppaymenttype');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardProcessCreditCardPaymentType,
+            FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardProcessCreditCardPaymentType>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsCreditCardProcessCreditCardPaymentType>>
+      _creditcardpluginProcesscreditcardinfoPaymenttypebytokenTokenLocationLocationidGet({
+    required String? token,
+    required String? locationid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/processcreditcardinfo/paymenttypebytoken/${token}/location/${locationid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesPluginsCreditCardProcessCreditCardPaymentType,
+        WebApiModulesPluginsCreditCardProcessCreditCardPaymentType>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsCreditCardProcessCreditCardPaymentType>>
+      _creditcardpluginProcesscreditcardinfoPaymenttypePaymenttypeidGet(
+          {required String? paymenttypeid}) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/processcreditcardinfo/paymenttype/${paymenttypeid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesPluginsCreditCardProcessCreditCardPaymentType,
+        WebApiModulesPluginsCreditCardProcessCreditCardPaymentType>($request);
+  }
+
+  @override
   Future<Response<WebApiModulesPluginsCreditCardCreditCardPluginVoidResponse>>
-      _creditcardpluginVoidReceiptReceiptidPost({
+      _creditcardpluginVoidReceiptReceiptidLocationLocationidPost({
+    required String? locationid,
     required String? receiptid,
     required WebApiModulesPluginsCreditCardCreditCardPluginVoidReceiptRequest?
         body,
   }) {
-    final Uri $url = Uri.parse('/creditcardplugin/void/receipt/${receiptid}');
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/void/receipt/${receiptid}/location/${locationid}');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -910,8 +1015,12 @@ class _$Plugins extends Plugins {
   Future<
           Response<
               WebApiModulesPluginsCreditCardCreditCardPluginGetSettingsResponse>>
-      _creditcardpluginSettingsGet({required String? receiptid}) {
-    final Uri $url = Uri.parse('/creditcardplugin/settings');
+      _creditcardpluginSettingsLocationLocationidGet({
+    required String? locationid,
+    required String? receiptid,
+  }) {
+    final Uri $url =
+        Uri.parse('/creditcardplugin/settings/location/${locationid}');
     final Request $request = Request(
       'GET',
       $url,
@@ -924,14 +1033,403 @@ class _$Plugins extends Plugins {
   }
 
   @override
+  Future<Response<List<WebApiModulesPluginsCreditCardCreditCardPluginLocation>>>
+      _creditcardpluginLocationsGet() {
+    final Uri $url = Uri.parse('/creditcardplugin/locations');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        List<WebApiModulesPluginsCreditCardCreditCardPluginLocation>,
+        WebApiModulesPluginsCreditCardCreditCardPluginLocation>($request);
+  }
+
+  @override
   Future<
           Response<
-              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>>
-      _creditcardpluginCardpointeGatewayapiMakepaymentPost(
-          {required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkAuthorizeRequest?
+              WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>>
+      _creditcardpluginCardpointeGatewayapiSurchargefeeLocationLocationidGet(
+          {required String? locationid}) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/${locationid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse,
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>>
+      _creditcardpluginCardpointeGatewayapiSurchargefeeLocationLocationidCustomerCustomeridAccountidAccountidPostalcodePostalcodeAmountAmountGet({
+    required String? locationid,
+    required String? customerid,
+    required String? accountid,
+    required String? postalcode,
+    required num? amount,
+  }) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/${locationid}/customer/${customerid}/accountid/${accountid}/postalcode/${postalcode}/amount/${amount}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse,
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>>
+      _creditcardpluginCardpointeGatewayapiSurchargefeeLocationLocationidDealDealidAccountidAccountidPostalcodePostalcodeAmountAmountGet({
+    required String? locationid,
+    required String? dealid,
+    required String? accountid,
+    required String? postalcode,
+    required num? amount,
+  }) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/${locationid}/deal/${dealid}/accountid/${accountid}/postalcode/${postalcode}/amount/${amount}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse,
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>>
+      _creditcardpluginCardpointeGatewayapiSurchargefeeLocationLocationidAccountAccountidPostalcodePostalcodeAmountAmountGet({
+    required String? locationid,
+    required String? accountid,
+    required String? postalcode,
+    required num? amount,
+  }) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/${locationid}/account/${accountid}/postalcode/${postalcode}/amount/${amount}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse,
+            WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsCreditCardCreditCardPluginBinResponse>>
+      _creditcardpluginCardpointeGatewayapiCarddetailsAccountAccountidLocationLocationidGet({
+    required String? accountid,
+    required String? locationid,
+  }) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/cardpointe/gatewayapi/carddetails/account/${accountid}/location/${locationid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesPluginsCreditCardCreditCardPluginBinResponse,
+        WebApiModulesPluginsCreditCardCreditCardPluginBinResponse>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+      _creditcardpluginCardpointeIscreditcardfeeenabledLocationLocationidGet(
+          {required String? locationid}) {
+    final Uri $url = Uri.parse(
+        '/creditcardplugin/cardpointe/iscreditcardfeeenabled/location/${locationid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+      _freightpoppluginPostshipmentdataPost(
+          {required WebApiModulesPluginsFreightPopFreightPopPayload? body}) {
+    final Uri $url = Uri.parse('/freightpopplugin/postshipmentdata');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerTSpStatusResponse,
+        FwStandardSqlServerTSpStatusResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+      _freightpoppluginGettrackingnumberPost(
+          {required WebApiModulesPluginsFreightPopFreightPopShipmentRequest?
               body}) {
+    final Uri $url = Uri.parse('/freightpopplugin/gettrackingnumber');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerTSpStatusResponse,
+        FwStandardSqlServerTSpStatusResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicRwToQBOLocations>>
+      _quickbooksonlinepluginLocationsGet() {
+    final Uri $url = Uri.parse('/quickbooksonlineplugin/locations');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicRwToQBOLocations,
+            WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicRwToQBOLocations>(
+        $request);
+  }
+
+  @override
+  Future<Response<String>> _quickbooksonlinepluginGetauthorizationrequestGet(
+      {String? locationid}) {
     final Uri $url =
-        Uri.parse('/creditcardplugin/cardpointe/gatewayapi/makepayment');
+        Uri.parse('/quickbooksonlineplugin/getauthorizationrequest');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'locationid': locationid
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<bool>> _quickbooksonlinepluginAuthorizePost(
+      {required WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicQBOAuth?
+          body}) {
+    final Uri $url = Uri.parse('/quickbooksonlineplugin/authorize');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _quickbooksonlinepluginDisconnectPost(
+      {String? locationid}) {
+    final Uri $url = Uri.parse('/quickbooksonlineplugin/disconnect');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'locationid': locationid
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsShopifyShopifyLocations>>
+      _shopifypluginLocationsGet() {
+    final Uri $url = Uri.parse('/shopifyplugin/locations');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesPluginsShopifyShopifyLocations,
+        WebApiModulesPluginsShopifyShopifyLocations>($request);
+  }
+
+  @override
+  Future<Response<bool>> _shopifypluginSavelocationsPost(
+      {required WebApiModulesPluginsShopifyShopifyLocations? body}) {
+    final Uri $url = Uri.parse('/shopifyplugin/savelocations');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsShopifyValidateShopURLResponse>>
+      _shopifypluginValidateshopifyurlPost(
+          {required WebApiModulesPluginsShopifyValidateShopURLRequest? body}) {
+    final Uri $url = Uri.parse('/shopifyplugin/validateshopifyurl');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesPluginsShopifyValidateShopURLResponse,
+        WebApiModulesPluginsShopifyValidateShopURLResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsShopifyShopifyIntegrationStatus>>
+      _shopifypluginIntegrationStatusLocationLocationidGet(
+          {required String? locationid}) {
+    final Uri $url =
+        Uri.parse('/shopifyplugin/integration_status/location/${locationid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesPluginsShopifyShopifyIntegrationStatus,
+        WebApiModulesPluginsShopifyShopifyIntegrationStatus>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsShopifyEnableCreateOrderWebhookResponse>>
+      _shopifypluginEnableCreateOrderWebhookLocationLocationidPost(
+          {required String? locationid}) {
+    final Uri $url = Uri.parse(
+        '/shopifyplugin/enable_create_order_webhook/location/${locationid}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesPluginsShopifyEnableCreateOrderWebhookResponse,
+        WebApiModulesPluginsShopifyEnableCreateOrderWebhookResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsShopifyDisableCreateOrderWebhookResponse>>
+      _shopifypluginDisableCreateOrderWebhookLocationLocationidPost(
+          {required String? locationid}) {
+    final Uri $url = Uri.parse(
+        '/shopifyplugin/disable_create_order_webhook/location/${locationid}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesPluginsShopifyDisableCreateOrderWebhookResponse,
+        WebApiModulesPluginsShopifyDisableCreateOrderWebhookResponse>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesIntegrationsShopifyShopifyInstallThemeResponse>>
+      _shopifypluginInstallThemeLocationLocationidPost(
+          {required String? locationid}) {
+    final Uri $url =
+        Uri.parse('/shopifyplugin/install_theme/location/${locationid}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesIntegrationsShopifyShopifyInstallThemeResponse,
+        WebApiModulesIntegrationsShopifyShopifyInstallThemeResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesIntegrationsShopifyShopifyUninstallThemeResponse>>
+      _shopifypluginUninstallThemeLocationLocationidPost(
+          {required String? locationid}) {
+    final Uri $url =
+        Uri.parse('/shopifyplugin/uninstall_theme/location/${locationid}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesIntegrationsShopifyShopifyUninstallThemeResponse,
+            WebApiModulesIntegrationsShopifyShopifyUninstallThemeResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<String>>
+      _shopifypluginCreateQuoteFromShopifyOrderLocationLocationidOrderNumberOrderNumberPost({
+    required String? locationid,
+    required String? orderNumber,
+  }) {
+    final Uri $url = Uri.parse(
+        '/shopifyplugin/create_quote_from_shopify_order/location/${locationid}/order_number/${orderNumber}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -940,20 +1438,45 @@ class _$Plugins extends Plugins {
       body: $body,
     );
     return client.send<
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse,
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkMakePaymentAsyncResponse>(
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
         $request);
   }
 
   @override
   Future<
           Response<
-              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponse>>
-      _creditcardpluginCardpointeGatewayapiSendauthorizeemailPost(
-          {required WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendAuthorizEmailRequest?
-              body}) {
-    final Uri $url =
-        Uri.parse('/creditcardplugin/cardpointe/gatewayapi/sendauthorizeemail');
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -961,39 +1484,50 @@ class _$Plugins extends Plugins {
       client.baseUrl,
       body: $body,
     );
-    return client.send<
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponse,
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkSendPreAuthorizeEmailResponse>(
-        $request);
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
   }
 
   @override
-  Future<
-          Response<
-              WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool>>
-      _hubspotpluginHashubspotrefreshtokenPost() {
-    final Uri $url = Uri.parse('/hubspotplugin/hashubspotrefreshtoken');
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
-      'POST',
+      'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<
-            WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool,
-            WebApiModulesAccountServicesHubSpotGetHubSpotRefreshTokenBool>(
-        $request);
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
   }
 
   @override
-  Future<Response<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens>>
-      _hubspotpluginDeletehubspottokensPost() {
-    final Uri $url = Uri.parse('/hubspotplugin/deletehubspottokens');
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
     final Request $request = Request(
-      'POST',
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens,
-        WebApiModulesAccountServicesHubSpotDeleteHubSpotTokens>($request);
+    return client.send<bool, bool>($request);
   }
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'mobile.swagger.dart';
@@ -6,15 +7,16 @@ part of 'mobile.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$Mobile extends Mobile {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$Mobile extends Mobile {
   _$Mobile([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = Mobile;
+  final Type definitionType = Mobile;
 
   @override
   Future<
@@ -51,7 +53,7 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<WebApiLogicTSpStatusResponse>>
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
       _quikscanExchangeCancelcontractPost(
           {required WebApiModulesWarehouseContractCancelContractRequest?
               body}) {
@@ -63,8 +65,8 @@ class _$Mobile extends Mobile {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiLogicTSpStatusResponse,
-        WebApiLogicTSpStatusResponse>($request);
+    return client.send<FwStandardSqlServerTSpStatusResponse,
+        FwStandardSqlServerTSpStatusResponse>($request);
   }
 
   @override
@@ -129,11 +131,10 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<
-      Response<
-          WebApiLogicTSpStatusResponse>> _quikscanQuikassetUpdateunitvaluePost(
-      {required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
-          body}) {
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+      _quikscanQuikassetUpdateunitvaluePost(
+          {required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
+              body}) {
     final Uri $url = Uri.parse('/quikscan/quikasset/updateunitvalue');
     final $body = body;
     final Request $request = Request(
@@ -142,8 +143,8 @@ class _$Mobile extends Mobile {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiLogicTSpStatusResponse,
-        WebApiLogicTSpStatusResponse>($request);
+    return client.send<FwStandardSqlServerTSpStatusResponse,
+        FwStandardSqlServerTSpStatusResponse>($request);
   }
 
   @override
@@ -287,7 +288,7 @@ class _$Mobile extends Mobile {
   }
 
   @override
-  Future<Response<WebApiLogicTSpStatusResponse>>
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
       _quikscanQuikassetDeleteimagePost(
           {required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
               body}) {
@@ -299,8 +300,8 @@ class _$Mobile extends Mobile {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiLogicTSpStatusResponse,
-        WebApiLogicTSpStatusResponse>($request);
+    return client.send<FwStandardSqlServerTSpStatusResponse,
+        FwStandardSqlServerTSpStatusResponse>($request);
   }
 
   @override
@@ -403,5 +404,184 @@ class _$Mobile extends Mobile {
       body: $body,
     );
     return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseCheckOutStagingTabsResponse>>
+      _quikscanStagingStagingtabsGet({
+    String? orderId,
+    String? warehouseId,
+  }) {
+    final Uri $url = Uri.parse('/quikscan/staging/stagingtabs');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'OrderId': orderId,
+      'WarehouseId': warehouseId,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<WebApiModulesWarehouseCheckOutStagingTabsResponse,
+        WebApiModulesWarehouseCheckOutStagingTabsResponse>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse>>
+      _quikscanStagingOrderhasstoragecontainerPost(
+          {required WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest?
+              body}) {
+    final Uri $url = Uri.parse('/quikscan/staging/orderhasstoragecontainer');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse,
+            WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _quikscanStagingAllowCreateContractOrderOrderidGet(
+      {required String? orderId}) {
+    final Uri $url =
+        Uri.parse('/quikscan/staging/allow-create-contract/order/{orderid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
   }
 }

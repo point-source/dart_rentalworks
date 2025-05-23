@@ -1,0 +1,6281 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RentalWorksIntegrations API v1",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/training"
+    }
+  ],
+  "paths": {
+    "/boxedup/catalog": {
+      "get": {
+        "tags": [
+          "BoxedUp"
+        ],
+        "summary": "Get catalogs.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalog"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boxedup/catalog/{catalogid}": {
+      "get": {
+        "tags": [
+          "BoxedUp"
+        ],
+        "parameters": [
+          {
+            "name": "catalogid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalog"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boxedup/catalog/{catalogid}/products/locationid/{locationid}/warehouseid/{warehouseid}": {
+      "get": {
+        "tags": [
+          "BoxedUp"
+        ],
+        "summary": "Get products in a catalog with availability.",
+        "parameters": [
+          {
+            "name": "catalogid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          },
+          {
+            "name": "inventorydepartmentid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subcategoryid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Integrations.Storefront.StorefrontProductLoader"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shopify/create_order_webhook/location/{locationid}": {
+      "post": {
+        "tags": [
+          "Shopify"
+        ],
+        "parameters": [
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShopifySharp.Order"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shopify/theme-install-instructions": {
+      "get": {
+        "tags": [
+          "Shopify"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/settings/schema": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Returns storefront settings.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchema"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/settings": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Returns storefront settings.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Update storefront settings.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/catalog": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get catalogs.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalog"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/catalog/{catalogid}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get catalog by id.",
+        "parameters": [
+          {
+            "name": "catalogid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalog"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/catalog/{catalogid}/categorytree": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get categorytree for a catalog.",
+        "parameters": [
+          {
+            "name": "catalogid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalog"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/catalog/{catalogid}/products/locationid/{locationid}/warehouseid/{warehouseid}/fromdate/{fromdate}/todate/{todate}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get products in a catalog with availability.",
+        "parameters": [
+          {
+            "name": "catalogid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "todate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          },
+          {
+            "name": "inventorydepartmentid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subcategoryid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Integrations.Storefront.StorefrontProductLoader"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/products/{productids}/locationid/{locationid}/warehouseid/{warehouseid}/fromdate/{fromdate}/todate/{todate}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get products by id with availability.  (for revalidating shopping cart)",
+        "parameters": [
+          {
+            "name": "productids",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "todate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Integrations.Storefront.StorefrontProductLoader"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/products/inventoryids/{inventoryids}/locationid/{locationid}/warehouseid/{warehouseid}/fromdate/{fromdate}/todate/{todate}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get products by comma separated list of InventoryIds with availability. \r\n(When a product is removed from a catalog the catalog's product id will change, so we can query this endpoint to update the product ids in a users shopping cart if we can find the same InventoryId on a different catalog listing.",
+        "parameters": [
+          {
+            "name": "inventoryids",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "todate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Integrations.Storefront.StorefrontProductLoader"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/product/{productid}/warehouseid/{warehouseid}/locationid/{locationid}/fromdate/{fromdate}/todate/{todate}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get product details of a single product, availability will be defaulted to today + 6 days and use the location/warehouse from the product's catalog.",
+        "parameters": [
+          {
+            "name": "productid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "todate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontProductL"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/lookupwarehouse": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Lookup warehouses",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.LocationModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/lookuplocation": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Lookup locations for a warehouse",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.LocationModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/lookupdeal": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Lookup a list of valid deals for submitting quote requests",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.DealModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/login": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Login (for Contacts)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.LoginResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/login/azure": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Login (for Contacts)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.AccountServices.Jwt.AzureADRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.LoginResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/sendresetpasswordemail": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Send email to Reset Password (for Contacts)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.SendResetPasswordEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/sendchangepasswordemail": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Send email to Reset Password (for Contacts)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.SendResetPasswordEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/resetpasswordfromemail": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Send email to Reset Password (for Contacts)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ResetPasswordFromEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.LoginResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/register": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Register a new account (Contact)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ContactRegistrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ContactRegistrationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/productavailability/inventoryid/{inventoryid}/warehouseid/{warehouseid}/fromdate/{fromdate}/todate/{todate}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "parameters": [
+          {
+            "name": "inventoryid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "todate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductAvailability"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/productdetails/productid/{productid}/locationid/{locationid}/warehouseid/{warehouseid}/fromdate/{fromdate}/todate/{todate}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get extended product details with availability and rates",
+        "parameters": [
+          {
+            "name": "productid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 8,
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 8,
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 8,
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 255,
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "todate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 255,
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.GetProductWarehouseDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/submitquoterequest": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Submit a Quote Request",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.SubmitQuoteRequestResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/sendinquiryemail": {
+      "post": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Send an inquiry email about an item.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.SendInquiryEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.SendInquiryEmailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/progressmeter/{id}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Returns the current status from a progress meter session.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontProgress"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/version": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Returns the storefront api version.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/taskscheduler/tasksteps/browse": {
+      "post": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/taskscheduler/tasksteps/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/taskscheduler/tasksteps": {
+      "get": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.TaskScheduler.TaskStepsLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/taskscheduler/tasksteps/{id}": {
+      "get": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TaskScheduler"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FwCore.Api.Swashbuckle.BadRequestResponse": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult": {
+        "type": "object",
+        "properties": {
+          "downloadUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.BusinessLogic.FwBusinessLogic": {
+        "type": "object",
+        "properties": {
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "UrlIdentifier": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Original": {
+            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          },
+          "_HasImport": {
+            "type": "boolean"
+          },
+          "CreatedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/FwStandard.SqlServer.FwDataTypes"
+          },
+          "ExcelOptions": {
+            "$ref": "#/components/schemas/FwStandard.SqlServer.Attributes.FwExcelOptions"
+          },
+          "MaxLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsRequired": {
+            "type": "boolean"
+          },
+          "IsPrimaryKey": {
+            "type": "boolean"
+          },
+          "IsReadOnly": {
+            "type": "boolean"
+          },
+          "DisplayFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AllowedValues": {
+            "type": "string",
+            "nullable": true
+          },
+          "TemplateSequence": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Data.FwCustomValue": {
+        "type": "object",
+        "properties": {
+          "ModuleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationModule": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationFieldName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Data.FwDefaultAttribute": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AttributeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Data.FwTranslatedValue": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "UntranslatedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTranslated": {
+            "type": "boolean"
+          },
+          "UserIsTranslating": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.BrowseRequest": {
+        "type": "object",
+        "properties": {
+          "miscfields": {
+            "nullable": true
+          },
+          "module": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "nullable": true
+          },
+          "orderby": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderbydirection": {
+            "type": "string",
+            "nullable": true
+          },
+          "top": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageno": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pagesize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "searchfieldoperators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchfields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchfieldvalues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchfieldtypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchseparators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchcondition": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchconjunctions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "searchgroupings": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "uniqueids": {
+            "nullable": true
+          },
+          "boundids": {
+            "nullable": true
+          },
+          "filterfields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "activeview": {
+            "type": "string",
+            "nullable": true
+          },
+          "emptyobject": {
+            "type": "boolean"
+          },
+          "forexcel": {
+            "type": "boolean"
+          },
+          "includeallcolumns": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Models.CheckBoxListItem"
+            },
+            "nullable": true
+          },
+          "totalfields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "activeviewfields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "example": "{\r\n  \"miscfields\": {},\r\n  \"module\": \"\",\r\n  \"options\": {},\r\n  \"orderby\": \"\",\r\n  \"orderbydirection\": \"\",\r\n  \"top\": 0,\r\n  \"pageno\": 1,\r\n  \"pagesize\": 15,\r\n  \"searchfieldoperators\": [],\r\n  \"searchfields\": [],\r\n  \"searchfieldvalues\": [],\r\n  \"searchfieldtypes\": [],\r\n  \"searchseparators\": [],\r\n  \"searchcondition\": [],\r\n  \"searchconjunctions\": [],\r\n  \"searchgroupings\": [],\r\n  \"uniqueids\": {},\r\n  \"boundids\": {},\r\n  \"filterfields\": {},\r\n  \"activeview\": \"\",\r\n  \"emptyobject\": false,\r\n  \"forexcel\": false,\r\n  \"includeallcolumns\": false,\r\n  \"fields\": [],\r\n  \"totalfields\": [],\r\n  \"activeviewfields\": {}\r\n}"
+      },
+      "FwStandard.Models.CheckBoxListItem": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "selected": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwApiException": {
+        "type": "object",
+        "properties": {
+          "StatusCode": {
+            "type": "integer"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "StackTrace": {
+            "type": "string"
+          }
+        }
+      },
+      "FwStandard.Models.FwQueryFilter": {
+        "required": [
+          "Field",
+          "Op"
+        ],
+        "type": "object",
+        "properties": {
+          "Field": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The DataField name to filter on."
+          },
+          "Op": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Comparison operator: = (equals), <> (not equals)"
+          },
+          "Value": {
+            "type": "string",
+            "description": "The value of the DataField to filter on.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.TaskScheduler.TaskStepsLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Integrations.Storefront.StorefrontProductLoader": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontProductL"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.SqlServer.Attributes.FwExcelOptions": {
+        "enum": [
+          "Required",
+          "Recommended",
+          "Optional",
+          "Omit",
+          "None"
+        ],
+        "type": "string"
+      },
+      "FwStandard.SqlServer.FwDataTypes": {
+        "enum": [
+          "Text",
+          "NonTrimmableText",
+          "Date",
+          "Time",
+          "DateTime",
+          "DateTimeOffset",
+          "CreditCardExpirationDate",
+          "Decimal",
+          "DecimalStringNoTrailingZeros",
+          "DecimalString1Digit",
+          "DecimalString2Digits",
+          "DecimalString3Digits",
+          "DecimalString4Digits",
+          "DecimalString8Digits",
+          "Boolean",
+          "CurrencyString",
+          "CurrencyStringNoDollarSign",
+          "CurrencyStringNoDollarSignNoDecimalPlaces",
+          "PhoneUS",
+          "ZipcodeUS",
+          "PercentageWholeNumber",
+          "Percentage2Digits",
+          "Percentage4Digits",
+          "OleToHtmlColor",
+          "Integer",
+          "JpgDataUrl",
+          "UTCDateTime"
+        ],
+        "type": "string"
+      },
+      "FwStandard.SqlServer.FwJsonDataTable": {
+        "type": "object",
+        "properties": {
+          "ColumnIndex": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "Totals": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTableColumn"
+            },
+            "nullable": true
+          },
+          "Rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": { }
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalRows": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DateFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ColumnNameByIndex": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "ServerVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.SqlServer.FwJsonDataTableColumn": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataField": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/FwStandard.SqlServer.FwDataTypes"
+          },
+          "IsUniqueId": {
+            "type": "boolean"
+          },
+          "IsVisible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Address": {
+        "type": "object",
+        "properties": {
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "default": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "province_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.ClientDetails": {
+        "type": "object",
+        "properties": {
+          "accept_language": {
+            "type": "string",
+            "nullable": true
+          },
+          "browser_height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "browser_ip": {
+            "type": "string",
+            "nullable": true
+          },
+          "browser_width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "session_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_agent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.CurrencyExchangeAdjustment": {
+        "type": "object",
+        "properties": {
+          "adjustment": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "original_amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "final_amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Customer": {
+        "type": "object",
+        "properties": {
+          "addresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.Address"
+            },
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "default_address": {
+            "$ref": "#/components/schemas/ShopifySharp.Address"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "multipass_identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_order_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "last_order_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "orders_count": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "tags": {
+            "type": "string",
+            "nullable": true
+          },
+          "tax_exempt": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "tax_exemptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "total_spent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "verified_email": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sms_marketing_consent": {
+            "$ref": "#/components/schemas/ShopifySharp.CustomerSmsMarketingConsent"
+          },
+          "metafields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.MetaField"
+            },
+            "nullable": true
+          },
+          "email_marketing_consent": {
+            "$ref": "#/components/schemas/ShopifySharp.CustomerEmailMarketingConsent"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.CustomerEmailMarketingConsent": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "opt_in_level": {
+            "type": "string",
+            "nullable": true
+          },
+          "consent_updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.CustomerSmsMarketingConsent": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "opt_in_level": {
+            "type": "string",
+            "nullable": true
+          },
+          "consent_updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "consent_collected_from": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.DiscountAllocation": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "discount_application_index": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "amount_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.DiscountApplication": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "value_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "allocation_method": {
+            "type": "string",
+            "nullable": true
+          },
+          "target_selection": {
+            "type": "string",
+            "nullable": true
+          },
+          "target_type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.DiscountCode": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Entities.Return": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Fulfillment": {
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "line_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.LineItem"
+            },
+            "nullable": true
+          },
+          "order_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "receipt": {
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "location_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "notify_customer": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "destination": {
+            "$ref": "#/components/schemas/ShopifySharp.Address"
+          },
+          "tracking_company": {
+            "type": "string",
+            "nullable": true
+          },
+          "tracking_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "tracking_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "tracking_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "tracking_urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "variant_inventory_management": {
+            "type": "string",
+            "nullable": true
+          },
+          "service": {
+            "type": "string",
+            "nullable": true
+          },
+          "shipment_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "origin_address": {
+            "$ref": "#/components/schemas/ShopifySharp.FulfillmentOriginAddress"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.FulfillmentOriginAddress": {
+        "type": "object",
+        "properties": {
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "province_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.LineItem": {
+        "type": "object",
+        "properties": {
+          "fulfillable_quantity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fulfillment_service": {
+            "type": "string",
+            "nullable": true
+          },
+          "fulfillment_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "grams": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "product_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "requires_shipping": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "variant_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "variant_title": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendor": {
+            "type": "string",
+            "nullable": true
+          },
+          "gift_card": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "taxable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "tax_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.TaxLine"
+            },
+            "nullable": true
+          },
+          "tip_payment_gateway": {
+            "type": "string",
+            "nullable": true
+          },
+          "tip_payment_method": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_discount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total_discount_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "discount_allocations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.DiscountAllocation"
+            },
+            "nullable": true
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.LineItemProperty"
+            },
+            "nullable": true
+          },
+          "variant_inventory_management": {
+            "type": "string",
+            "nullable": true
+          },
+          "product_exists": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "pre_tax_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pre_tax_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "duties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.LineItemDuty"
+            },
+            "nullable": true
+          },
+          "fulfillment_line_item_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "attributed_staffs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.LineItemAttributedStaff"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.LineItemAttributedStaff": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.LineItemDuty": {
+        "type": "object",
+        "properties": {
+          "harmonized_system_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_code_of_origin": {
+            "type": "string",
+            "nullable": true
+          },
+          "price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "tax_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.TaxLine"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.LineItemProperty": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.MetaField": {
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "owner_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "owner_resource": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.NoteAttribute": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Order": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "billing_address": {
+            "$ref": "#/components/schemas/ShopifySharp.Address"
+          },
+          "browser_ip": {
+            "type": "string",
+            "nullable": true
+          },
+          "buyer_accepts_marketing": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "cancel_reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "cancelled_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cart_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkout_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkout_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "client_details": {
+            "$ref": "#/components/schemas/ShopifySharp.ClientDetails"
+          },
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "confirmed": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "customer": {
+            "$ref": "#/components/schemas/ShopifySharp.Customer"
+          },
+          "customer_locale": {
+            "type": "string",
+            "nullable": true
+          },
+          "device_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "discount_codes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.DiscountCode"
+            },
+            "nullable": true
+          },
+          "discount_applications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.DiscountApplication"
+            },
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "financial_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "fulfillments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.Fulfillment"
+            },
+            "nullable": true
+          },
+          "fulfillment_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "tags": {
+            "type": "string",
+            "nullable": true
+          },
+          "landing_site": {
+            "type": "string",
+            "nullable": true
+          },
+          "line_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.LineItem"
+            },
+            "nullable": true
+          },
+          "location_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "note_attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.NoteAttribute"
+            },
+            "nullable": true
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "order_number": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "order_status_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_gateway_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "processed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "processing_method": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "referring_site": {
+            "type": "string",
+            "nullable": true
+          },
+          "refunds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.Refund"
+            },
+            "nullable": true
+          },
+          "shipping_address": {
+            "$ref": "#/components/schemas/ShopifySharp.Address"
+          },
+          "shipping_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.ShippingLine"
+            },
+            "nullable": true
+          },
+          "source_identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "source_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "subtotal_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tax_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.TaxLine"
+            },
+            "nullable": true
+          },
+          "taxes_included": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "test": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_discounts": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total_line_items_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total_tip_received": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total_tax": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total_weight": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.Transaction"
+            },
+            "nullable": true
+          },
+          "metafields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.MetaField"
+            },
+            "nullable": true
+          },
+          "current_total_duties_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "original_total_duties_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "presentment_currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_line_items_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "total_discounts_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "total_shipping_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "subtotal_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "total_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "total_outstanding": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_tax_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "estimated_taxes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "current_subtotal_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "current_subtotal_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "current_total_discounts": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "current_total_discounts_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "current_total_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "current_total_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "current_total_tax": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "current_total_tax_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "payment_terms": {
+            "$ref": "#/components/schemas/ShopifySharp.PaymentTerms"
+          },
+          "current_total_additional_fees_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "original_total_additional_fees_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "po_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "tax_exempt": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "company": {
+            "$ref": "#/components/schemas/ShopifySharp.OrderCompany"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.OrderCompany": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "location_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.PaymentDetails": {
+        "type": "object",
+        "properties": {
+          "avs_result_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "credit_card_bin": {
+            "type": "string",
+            "nullable": true
+          },
+          "cvv_result_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "credit_card_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "credit_card_company": {
+            "type": "string",
+            "nullable": true
+          },
+          "credit_card_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "credit_card_wallet": {
+            "type": "string",
+            "nullable": true
+          },
+          "credit_card_expiration_month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "credit_card_expiration_year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "payment_method_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "buyer_action_info": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.PaymentSchedule": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "due_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expected_payment_method": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.PaymentTerms": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "due_in_days": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "payment_terms_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_terms_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_schedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.PaymentSchedule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.PaymentsRefundAttributes": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "acquirer_reference_number": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Price": {
+        "type": "object",
+        "properties": {
+          "currency_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.PriceSet": {
+        "type": "object",
+        "properties": {
+          "shop_money": {
+            "$ref": "#/components/schemas/ShopifySharp.Price"
+          },
+          "presentment_money": {
+            "$ref": "#/components/schemas/ShopifySharp.Price"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Refund": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "notify": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "shipping": {
+            "$ref": "#/components/schemas/ShopifySharp.Shipping"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "order_adjustments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.RefundOrderAdjustment"
+            },
+            "nullable": true
+          },
+          "processed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "discrepancy_reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "refund_line_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.RefundLineItem"
+            },
+            "nullable": true
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.Transaction"
+            },
+            "nullable": true
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "duties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.RefundDuty"
+            },
+            "nullable": true
+          },
+          "refund_duties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.RefundDutyType"
+            },
+            "nullable": true
+          },
+          "return": {
+            "$ref": "#/components/schemas/ShopifySharp.Entities.Return"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.RefundDuty": {
+        "type": "object",
+        "properties": {
+          "duty_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "amount_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.RefundDutyType": {
+        "type": "object",
+        "properties": {
+          "duty_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "refund_type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.RefundLineItem": {
+        "type": "object",
+        "properties": {
+          "line_item": {
+            "$ref": "#/components/schemas/ShopifySharp.LineItem"
+          },
+          "line_item_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "total_tax": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "subtotal_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "total_tax_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "restock_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "location_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.RefundOrderAdjustment": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "refund_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tax_amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string",
+            "nullable": true
+          },
+          "Reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "tax_amount_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Shipping": {
+        "type": "object",
+        "properties": {
+          "full_refund": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maximum_refundable": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.ShippingLine": {
+        "type": "object",
+        "properties": {
+          "carrier_identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_removed": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "discounted_price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "discount_allocations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.DiscountAllocation"
+            },
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "tax_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShopifySharp.TaxLine"
+            },
+            "nullable": true
+          },
+          "price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "discounted_price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.TaxLine": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "price_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShopifySharp.Transaction": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "authorization": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorization_expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "device_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "gateway": {
+            "type": "string",
+            "nullable": true
+          },
+          "source_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_details": {
+            "$ref": "#/components/schemas/ShopifySharp.PaymentDetails"
+          },
+          "kind": {
+            "type": "string",
+            "nullable": true
+          },
+          "order_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "receipt": {
+            "nullable": true
+          },
+          "error_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "test": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "location_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "parent_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "processed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "maximum_refundable": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "currency_exchange_adjustment": {
+            "$ref": "#/components/schemas/ShopifySharp.CurrencyExchangeAdjustment"
+          },
+          "payments_refund_attributes": {
+            "$ref": "#/components/schemas/ShopifySharp.PaymentsRefundAttributes"
+          },
+          "payment_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_unsettled_set": {
+            "$ref": "#/components/schemas/ShopifySharp.PriceSet"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "admin_graphql_api_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorefrontPackageItem": {
+        "type": "object",
+        "properties": {
+          "Images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductImage"
+            },
+            "nullable": true
+          },
+          "ProductId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "InventoryPackageInventoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ICode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPrimary": {
+            "type": "boolean"
+          },
+          "DefaultQuantity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "DefaultQuantityColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsOption": {
+            "type": "boolean"
+          },
+          "Charge": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "NoChargePrint": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsRequired": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OptionColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemTrackedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "AvailFor": {
+            "type": "string",
+            "nullable": true
+          },
+          "AvailFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderBy": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ItemColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsNestedComplete": {
+            "type": "string",
+            "nullable": true
+          },
+          "Inactive": {
+            "type": "string",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ParentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PackageItemClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemNonDiscountable": {
+            "type": "string",
+            "nullable": true
+          },
+          "PrimaryInventoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnitId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PackageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Availability": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductAvailability"
+          },
+          "DailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "WeeklyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "MonthlyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "DailyExtended": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "WeeklyExtended": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "MonthlyExtended": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "SalesPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "Retail": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "CurrencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.AccountServices.Jwt.AzureADRequest": {
+        "type": "object",
+        "properties": {
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "Token": {
+            "type": "string",
+            "nullable": true
+          },
+          "Tenant": {
+            "type": "string",
+            "nullable": true
+          },
+          "Audience": {
+            "type": "string",
+            "nullable": true
+          },
+          "Issuer": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.TaskScheduler.TaskSteps": {
+        "type": "object",
+        "properties": {
+          "TaskStepsId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TaskId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "StepNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Command": {
+            "type": "string",
+            "nullable": true
+          },
+          "OnSuccessActionDisplay": {
+            "type": "string",
+            "nullable": true
+          },
+          "OnFailureActionDisplay": {
+            "type": "string",
+            "nullable": true
+          },
+          "OnSuccessAction": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RetryAttempts": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RetryInterval": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OnFailureAction": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OnSuccessTaskStepsId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OnFailureTaskStepsId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OutputFilename": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastRunOutcome": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LastRunDuration": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LastRunRetries": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "UrlIdentifier": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Original": {
+            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          },
+          "_HasImport": {
+            "type": "boolean"
+          },
+          "CreatedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ContactRegistrationRequest": {
+        "required": [
+          "Email",
+          "FirstName",
+          "LastName"
+        ],
+        "type": "object",
+        "properties": {
+          "Language": {
+            "maxLength": 2,
+            "type": "string",
+            "nullable": true
+          },
+          "FirstName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "LastName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Phone": {
+            "maxLength": 20,
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ContactRegistrationResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.DealModel": {
+        "type": "object",
+        "properties": {
+          "DealId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Deal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.GetProductWarehouseDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "Availability": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductAvailability"
+          },
+          "DailyRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "WeeklyRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "MonthlyRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "CurrencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.LocationModel": {
+        "type": "object",
+        "properties": {
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Warehouse": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.LoginRequest": {
+        "required": [
+          "Email",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Email": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Password": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.LoginResponse": {
+        "type": "object",
+        "properties": {
+          "AuthToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "FullName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ProductAvailability": {
+        "type": "object",
+        "properties": {
+          "TotalIn": {
+            "type": "number",
+            "format": "float"
+          },
+          "Total": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ProductCategory": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "UrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LinkUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductSubCategory"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ProductDepartment": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "UrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductCategory"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ProductImage": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ProductSubCategory": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "UrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LinkUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.QuoteRequest": {
+        "required": [
+          "DepartmentId",
+          "Items",
+          "LocationId",
+          "StartDate",
+          "StopDate",
+          "WarehouseId"
+        ],
+        "type": "object",
+        "properties": {
+          "WebCatalogId": {
+            "maxLength": 8,
+            "type": "string",
+            "nullable": true
+          },
+          "Language": {
+            "maxLength": 2,
+            "type": "string",
+            "nullable": true
+          },
+          "DepartmentId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "LocationId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "WarehouseId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "DealId": {
+            "maxLength": 8,
+            "type": "string",
+            "nullable": true
+          },
+          "QuoteDescription": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "JobName": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "StartDate": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "StopDate": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Notes": {
+            "maxLength": 8000,
+            "type": "string",
+            "nullable": true
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.QuoteRequestItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.QuoteRequestItem": {
+        "required": [
+          "InventoryId",
+          "Qty",
+          "WebCatalogId"
+        ],
+        "type": "object",
+        "properties": {
+          "InventoryId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "WebCatalogId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Qty": {
+            "type": "number",
+            "format": "float"
+          },
+          "PackageItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.QuoteRequestPackageItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.QuoteRequestPackageItem": {
+        "required": [
+          "InventoryId",
+          "InventoryPackageInventoryId",
+          "Qty"
+        ],
+        "type": "object",
+        "properties": {
+          "InventoryId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "InventoryPackageInventoryId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Qty": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.ResetPasswordFromEmailRequest": {
+        "required": [
+          "Email",
+          "NewPassword",
+          "TemporaryPassword"
+        ],
+        "type": "object",
+        "properties": {
+          "Email": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "TemporaryPassword": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "NewPassword": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.SendInquiryEmailRequest": {
+        "required": [
+          "CatalogProductId",
+          "Email",
+          "FirstName",
+          "LastName",
+          "LocationId",
+          "Message",
+          "Phone",
+          "WarehouseId"
+        ],
+        "type": "object",
+        "properties": {
+          "CatalogProductId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "WarehouseId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "LocationId": {
+            "maxLength": 8,
+            "minLength": 1,
+            "type": "string"
+          },
+          "FirstName": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "LastName": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Phone": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Email": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Message": {
+            "maxLength": 8000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.SendInquiryEmailResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "FailureMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.SendResetPasswordEmailRequest": {
+        "required": [
+          "EmailTo"
+        ],
+        "type": "object",
+        "properties": {
+          "EmailTo": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Language": {
+            "maxLength": 2,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontProductL": {
+        "type": "object",
+        "properties": {
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          },
+          "_HasImport": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Keywords": {
+            "type": "string",
+            "nullable": true
+          },
+          "Tags": {
+            "type": "string",
+            "nullable": true
+          },
+          "Barcodes": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemUrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DetailedDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "TechnicalNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "Classification": {
+            "type": "string",
+            "nullable": true
+          },
+          "AvailableFor": {
+            "type": "string",
+            "nullable": true
+          },
+          "Owned": {
+            "type": "number",
+            "format": "double"
+          },
+          "InventoryTypeOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "CategoryOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubCategoryOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "MasterOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "Availability": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductAvailability"
+          },
+          "WarehouseSpecific": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "PackagePrice": {
+            "type": "string",
+            "nullable": true
+          },
+          "DailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "WeeklyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "MonthlyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "SalesPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "CurrencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PackageItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StorefrontPackageItem"
+            },
+            "nullable": true
+          },
+          "Manufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "ManufacturerPartNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "ManufacturerUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnitValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ReplacementCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ShipWeightLbs": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ShipWeightOz": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "Images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductImage"
+            },
+            "nullable": true
+          },
+          "WebCatalogId": {
+            "type": "string",
+            "nullable": true
+          },
+          "WebCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "WebCatalogUrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "InventoryDepartmentUrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CategoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Category": {
+            "type": "string",
+            "nullable": true
+          },
+          "CategoryUrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubCategoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubCategory": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubCategoryUrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "_Original": {
+            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
+          },
+          "CreatedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontProgress": {
+        "type": "object",
+        "properties": {
+          "LastUpdated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Failed": {
+            "type": "boolean"
+          },
+          "FailureMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "FailureStackTrace": {
+            "type": "string",
+            "nullable": true
+          },
+          "SessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrentStep": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TotalSteps": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "PercentComplete": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettings": {
+        "type": "object",
+        "properties": {
+          "IsStorefrontEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsUniversity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsAnonymousAccessEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SeparateQuoteRequestsByCatalog": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "MakeQuoteRequestIntoOrderOnSubmission": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "FilterCatalogsByLocation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoplaySpeed": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "AutoplayImagesOnLandingPage": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoplayImagesOnProductBrowser": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoplayImagesOnProductDetails": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertyDataTypes": {
+        "enum": [
+          "Boolean",
+          "Text",
+          "Number"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchema": {
+        "type": "object",
+        "properties": {
+          "Group": {
+            "type": "string",
+            "nullable": true
+          },
+          "Caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertyDataTypes"
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.SubmitQuoteRequestResponse": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "FailureMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProgressMeterSessionId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.WebCatalog": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "UrlName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "AllowAddingUnavailableItems": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasRental": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasSales": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "GridFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalogResponseField"
+            },
+            "nullable": true
+          },
+          "ListFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalogResponseField"
+            },
+            "nullable": true
+          },
+          "DetailFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalogResponseField"
+            },
+            "nullable": true
+          },
+          "ShoppingCartFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalogResponseField"
+            },
+            "nullable": true
+          },
+          "Images": {
+            "type": "string",
+            "nullable": true
+          },
+          "LandingPageHtml": {
+            "type": "string",
+            "nullable": true
+          },
+          "Departments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductDepartment"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.WebCatalogResponseField": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "string",
+            "nullable": true
+          },
+          "Text": {
+            "type": "string",
+            "nullable": true
+          },
+          "Selected": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. (Don't add the prefix Bearer anymore).",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

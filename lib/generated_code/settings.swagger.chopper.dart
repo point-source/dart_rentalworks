@@ -1,3 +1,4 @@
+// dart format width=80
 //Generated code
 
 part of 'settings.swagger.dart';
@@ -6,15 +7,16 @@ part of 'settings.swagger.dart';
 // ChopperGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations, unnecessary_brace_in_string_interps
-class _$Settings extends Settings {
+// coverage:ignore-file
+// ignore_for_file: type=lint
+final class _$Settings extends Settings {
   _$Settings([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = Settings;
+  final Type definitionType = Settings;
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
@@ -1661,6 +1663,23 @@ class _$Settings extends Settings {
   }
 
   @override
+  Future<Response<FwStandardModelsCopyLogicResponse>> _billingcycleIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/billingcycle/${id}/copy');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardModelsCopyLogicResponse,
+        FwStandardModelsCopyLogicResponse>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _billingcycleeventBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -3223,6 +3242,320 @@ class _$Settings extends Settings {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _crewContactidDocumentBrowsePost({
+    required String? contactid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _crewContactidDocumentExportexcelxlsxPost({
+    required String? contactid,
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse>>
+      _crewContactidDocumentsGet({
+    required String? contactid,
+    String? documentTypeId,
+    String? description,
+    String? dateStamp,
+    int? pageNo,
+    int? pageSize,
+    String? sort,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/documents');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'DocumentTypeId': documentTypeId,
+      'Description': description,
+      'DateStamp': dateStamp,
+      'PageNo': pageNo,
+      'PageSize': pageSize,
+      'Sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse,
+            FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsLaborSettingsCrewCrewDocument>>
+      _crewContactidDocumentDocumentidGet({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document/${documentid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesSettingsLaborSettingsCrewCrewDocument,
+        WebApiModulesSettingsLaborSettingsCrewCrewDocument>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsLaborSettingsCrewCrewDocument>>
+      _crewContactidDocumentDocumentidPut({
+    required String? contactid,
+    required String? documentid,
+    required WebApiModulesSettingsLaborSettingsCrewCrewDocumentPutRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document/${documentid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesSettingsLaborSettingsCrewCrewDocument,
+        WebApiModulesSettingsLaborSettingsCrewCrewDocument>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidDelete({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document/${documentid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsLaborSettingsCrewCrewDocument>>
+      _crewContactidDocumentPost({
+    required String? contactid,
+    required WebApiModulesSettingsLaborSettingsCrewCrewDocumentPostRequest?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesSettingsLaborSettingsCrewCrewDocument,
+        WebApiModulesSettingsLaborSettingsCrewCrewDocument>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>>
+      _crewContactidDocumentDocumentidThumbnailsGet({
+    required String? contactid,
+    required String? documentid,
+    int? pageno,
+    int? pagesize,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/thumbnails');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse,
+        FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
+      _crewContactidDocumentDocumentidImageImageidGet({
+    required String? contactid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<FwStandardGridsAppDocumentGetDocumentImageResponse,
+        FwStandardGridsAppDocumentGetDocumentImageResponse>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidImageImageidDelete({
+    required String? contactid,
+    required String? documentid,
+    required String? imageid,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/image/${imageid}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidImagePost({
+    required String? contactid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/image');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidImageformuploadPost({
+    required String? contactid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/imageformupload');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _crewContactidDocumentDocumentidFileGet({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/file');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidFilePut({
+    required String? contactid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/file');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidFileDelete({
+    required String? contactid,
+    required String? documentid,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/file');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _crewContactidDocumentDocumentidFileformuploadPut({
+    required String? contactid,
+    required String? documentid,
+    required Object? body,
+  }) {
+    final Uri $url =
+        Uri.parse('/crew/${contactid}/document/${documentid}/fileformupload');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _crewContactidDocumentEmptyobjectGet(
+      {required String? contactid}) {
+    final Uri $url = Uri.parse('/crew/${contactid}/document/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -10212,6 +10545,52 @@ class _$Settings extends Settings {
   }
 
   @override
+  Future<
+          Response<
+              WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicMultiQBOSyncResponse>>
+      _glaccountGetqbodataGet({String? accountid}) {
+    final Uri $url = Uri.parse('/glaccount/getqbodata');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'accountid': accountid
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicMultiQBOSyncResponse,
+            WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicMultiQBOSyncResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicQBOSyncResponse>>
+      _glaccountSynctoqboPost({
+    String? accountid,
+    String? locationid,
+  }) {
+    final Uri $url = Uri.parse('/glaccount/synctoqbo');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'accountid': accountid,
+      'locationid': locationid,
+    };
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicQBOSyncResponse,
+            WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicQBOSyncResponse>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _gldistributionruleBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -11073,174 +11452,6 @@ class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _inventoryrankBrowsePost(
-      {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/inventoryrank/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _inventoryrankExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/inventoryrank/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryRankInventoryRankLogic>>
-      _inventoryrankGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    final Uri $url = Uri.parse('/inventoryrank');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryRankInventoryRankLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryRankInventoryRankLogic>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank>>
-      _inventoryrankPost(
-          {required WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank?
-              body}) {
-    final Uri $url = Uri.parse('/inventoryrank');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank,
-            WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank>>
-      _inventoryrankIdGet({required String? id}) {
-    final Uri $url = Uri.parse('/inventoryrank/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<
-            WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank,
-            WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank>>
-      _inventoryrankIdPut({
-    required String? id,
-    required WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank?
-        body,
-  }) {
-    final Uri $url = Uri.parse('/inventoryrank/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank,
-            WebApiModulesSettingsInventorySettingsInventoryRankInventoryRank>(
-        $request);
-  }
-
-  @override
-  Future<Response<bool>> _inventoryrankIdDelete({required String? id}) {
-    final Uri $url = Uri.parse('/inventoryrank/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _inventoryrankValidatewarehouseBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/inventoryrank/validatewarehouse/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _inventoryrankValidateinventorytypeBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/inventoryrank/validateinventorytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _inventorysettingsBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -11659,6 +11870,85 @@ class _$Settings extends Settings {
     );
     return client.send<WebApiLogicSortItemsResponse,
         WebApiLogicSortItemsResponse>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _itemlocationhistoryBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/itemlocationhistory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _itemlocationhistoryExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/itemlocationhistory/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsItemLocationHistoryItemLocationHistoryLogic>>
+      _itemlocationhistoryGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/itemlocationhistory');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsItemLocationHistoryItemLocationHistoryLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsItemLocationHistoryItemLocationHistoryLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsItemLocationHistoryItemLocationHistory>>
+      _itemlocationhistoryIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/itemlocationhistory/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesSettingsItemLocationHistoryItemLocationHistory,
+        WebApiModulesSettingsItemLocationHistoryItemLocationHistory>($request);
   }
 
   @override
@@ -13755,17 +14045,6 @@ class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<bool>> _officelocationIdDelete({required String? id}) {
-    final Uri $url = Uri.parse('/officelocation/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _officelocationValidateratetypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -13787,6 +14066,22 @@ class _$Settings extends Settings {
           {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url =
         Uri.parse('/officelocation/validatedefaultpurchasepotype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _officelocationValidatetaxoptionBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/officelocation/validatetaxoption/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20009,6 +20304,23 @@ class _$Settings extends Settings {
   }
 
   @override
+  Future<Response<FwStandardModelsCopyLogicResponse>> _regionIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+  }) {
+    final Uri $url = Uri.parse('/region/${id}/copy');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardModelsCopyLogicResponse,
+        FwStandardModelsCopyLogicResponse>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _rentalcategoryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -20180,40 +20492,6 @@ class _$Settings extends Settings {
       _rentalcategoryValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/rentalcategory/validateinventorytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _rentalcategoryValidateinventorybarcodedesignerBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url =
-        Uri.parse('/rentalcategory/validateinventorybarcodedesigner/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _rentalcategoryValidatebarcodedesignerBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url =
-        Uri.parse('/rentalcategory/validatebarcodedesigner/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -20803,39 +21081,6 @@ class _$Settings extends Settings {
       _salescategoryValidateinventorytypeBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/salescategory/validateinventorytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _salescategoryValidateinventorybarcodedesignerBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url =
-        Uri.parse('/salescategory/validateinventorybarcodedesigner/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _salescategoryValidatebarcodedesignerBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/salescategory/validatebarcodedesigner/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -21450,6 +21695,293 @@ class _$Settings extends Settings {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _soundprofileBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/soundprofile/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _soundprofileExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/soundprofile/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundProfileLogic>>
+      _soundprofileGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/soundprofile');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundProfileLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundProfileLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsUserSettingsSoundProfileSoundProfile>>
+      _soundprofilePost(
+          {required WebApiModulesSettingsUserSettingsSoundProfileSoundProfile?
+              body}) {
+    final Uri $url = Uri.parse('/soundprofile');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesSettingsUserSettingsSoundProfileSoundProfile,
+        WebApiModulesSettingsUserSettingsSoundProfileSoundProfile>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsUserSettingsSoundProfileSoundProfile>>
+      _soundprofileIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/soundprofile/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+        WebApiModulesSettingsUserSettingsSoundProfileSoundProfile,
+        WebApiModulesSettingsUserSettingsSoundProfileSoundProfile>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesSettingsUserSettingsSoundProfileSoundProfile>>
+      _soundprofileIdPut({
+    required String? id,
+    required WebApiModulesSettingsUserSettingsSoundProfileSoundProfile? body,
+  }) {
+    final Uri $url = Uri.parse('/soundprofile/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+        WebApiModulesSettingsUserSettingsSoundProfileSoundProfile,
+        WebApiModulesSettingsUserSettingsSoundProfileSoundProfile>($request);
+  }
+
+  @override
+  Future<Response<bool>> _soundprofileIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/soundprofile/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _soundprofilesoundBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/soundprofilesound/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _soundprofilesoundExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/soundprofilesound/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic>>
+      _soundprofilesoundGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/soundprofilesound');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>>
+      _soundprofilesoundPost(
+          {required WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound?
+              body}) {
+    final Uri $url = Uri.parse('/soundprofilesound');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound,
+            WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>>
+      _soundprofilesoundIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/soundprofilesound/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound,
+            WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>>
+      _soundprofilesoundIdPut({
+    required String? id,
+    required WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/soundprofilesound/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound,
+            WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _soundprofilesoundIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/soundprofilesound/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic>>>
+      _soundprofilesoundManyPost(
+          {required List<
+                  WebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSound>?
+              body}) {
+    final Uri $url = Uri.parse('/soundprofilesound/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic>(
+        $request);
   }
 
   @override
@@ -22344,6 +22876,349 @@ class _$Settings extends Settings {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _storefrontcatalogBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _storefrontcatalogExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalogLogic>>
+      _storefrontcatalogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/storefrontcatalog');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalogLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalogLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog>>
+      _storefrontcatalogPost(
+          {required WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog?
+              body}) {
+    final Uri $url = Uri.parse('/storefrontcatalog');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog,
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog>>
+      _storefrontcatalogIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog,
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog>>
+      _storefrontcatalogIdPut({
+    required String? id,
+    required WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog,
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalog>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _storefrontcatalogIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogReponse>>
+      _storefrontcatalogIdCatalogGet({required String? id}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}/catalog');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogReponse,
+            WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogReponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogItemReponse>>
+      _storefrontcatalogIdCatalogitemsGet({
+    required String? id,
+    String? rectype,
+    String? departmentid,
+    String? categoryid,
+    String? subcategoryid,
+  }) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}/catalogitems');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'rectype': rectype,
+      'departmentid': departmentid,
+      'categoryid': categoryid,
+      'subcategoryid': subcategoryid,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogItemReponse,
+            WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogItemReponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemReponse>>
+      _storefrontcatalogIdTogglecatalogitemPost({
+    required String? id,
+    required WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemRequest?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}/togglecatalogitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemReponse,
+            WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemReponse>(
+        $request);
+  }
+
+  @override
+  Future<Response<dynamic>> _storefrontcatalogIdUpdatecatalogitempercentPost({
+    required String? id,
+    required WebApiModulesSettingsInventorySettingsStorefrontUpdateCatalogItemPercentRequest?
+        body,
+  }) {
+    final Uri $url =
+        Uri.parse('/storefrontcatalog/${id}/updatecatalogitempercent');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _storefrontcatalogValidateofficelocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/storefrontcatalog/validateofficelocation/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _storefrontcatalogValidatewarehouselocationBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url =
+        Uri.parse('/storefrontcatalog/validatewarehouselocation/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _storefrontcatalogValidatedepartmentBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/validatedepartment/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _storefrontcatalogValidateordertypeBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/validateordertype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontStorefrontViewFieldsDefaultResponse>>
+      _storefrontcatalogStorefrontviewfieldsdefaultGet() {
+    final Uri $url =
+        Uri.parse('/storefrontcatalog/storefrontviewfieldsdefault');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontViewFieldsDefaultResponse,
+            WebApiModulesSettingsInventorySettingsStorefrontStorefrontViewFieldsDefaultResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontGetShopifyStoreURLResponse>>
+      _storefrontcatalogIdShopifystoreurlGet({required String? id}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}/shopifystoreurl');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontGetShopifyStoreURLResponse,
+            WebApiModulesSettingsInventorySettingsStorefrontGetShopifyStoreURLResponse>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsStorefrontSyncToShopifyResponse>>
+      _storefrontcatalogIdSynctoshopifyPost({required String? id}) {
+    final Uri $url = Uri.parse('/storefrontcatalog/${id}/synctoshopify');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsStorefrontSyncToShopifyResponse,
+            WebApiModulesSettingsInventorySettingsStorefrontSyncToShopifyResponse>(
+        $request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _subcategoryBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/subcategory/browse');
@@ -22824,6 +23699,130 @@ class _$Settings extends Settings {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+      _taskschedulerTaskstepsBrowsePost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _taskschedulerTaskstepsExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
+      _taskschedulerTaskstepsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
+        $request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsPost(
+          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
+      _taskschedulerTaskstepsIdPut({
+    required String? id,
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
+        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+  }
+
+  @override
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
+      {required String? id}) {
+    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _taxoptionBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/taxoption/browse');
@@ -22943,6 +23942,29 @@ class _$Settings extends Settings {
       client.baseUrl,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              List<
+                  MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic>>>
+      _taxoptionManyPost(
+          {required List<WebApiModulesSettingsTaxSettingsTaxOptionTaxOption>?
+              body}) {
+    final Uri $url = Uri.parse('/taxoption/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            List<
+                MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic>,
+            MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic>(
+        $request);
   }
 
   @override
@@ -23433,6 +24455,148 @@ class _$Settings extends Settings {
   @override
   Future<Response<bool>> _termsconditionsIdDelete({required String? id}) {
     final Uri $url = Uri.parse('/termsconditions/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _tieredpricingBrowsePost(
+      {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/tieredpricing/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<FwStandardSqlServerFwJsonDataTable,
+        FwStandardSqlServerFwJsonDataTable>($request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
+      _tieredpricingExportexcelxlsxPost(
+          {required FwStandardModelsBrowseRequest? body}) {
+    final Uri $url = Uri.parse('/tieredpricing/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsTieredPricingTieredPricingLogic>>
+      _tieredpricingGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    String? departmentid,
+    String? locationid,
+    String? warehouseid,
+  }) {
+    final Uri $url = Uri.parse('/tieredpricing');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+      'departmentid': departmentid,
+      'locationid': locationid,
+      'warehouseid': warehouseid,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+    );
+    return client.send<
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsTieredPricingTieredPricingLogic,
+            FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsTieredPricingTieredPricingLogic>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing>>
+      _tieredpricingPost(
+          {required WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing?
+              body}) {
+    final Uri $url = Uri.parse('/tieredpricing');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing,
+            WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing>>
+      _tieredpricingIdGet({required String? id}) {
+    final Uri $url = Uri.parse('/tieredpricing/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing,
+            WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing>(
+        $request);
+  }
+
+  @override
+  Future<
+          Response<
+              WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing>>
+      _tieredpricingIdPut({
+    required String? id,
+    required WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing?
+        body,
+  }) {
+    final Uri $url = Uri.parse('/tieredpricing/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<
+            WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing,
+            WebApiModulesSettingsInventorySettingsTieredPricingTieredPricing>(
+        $request);
+  }
+
+  @override
+  Future<Response<bool>> _tieredpricingIdDelete({required String? id}) {
+    final Uri $url = Uri.parse('/tieredpricing/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -24269,7 +25433,7 @@ class _$Settings extends Settings {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsWebUserWidgetUserWidgetLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesSettingsWebUserWidgetUserWidgetLogic>>
       _userwidgetGet({
     int? pageno,
     int? pagesize,
@@ -24290,15 +25454,16 @@ class _$Settings extends Settings {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWebUserWidgetUserWidgetLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWebUserWidgetUserWidgetLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWebUserWidgetUserWidgetLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWebUserWidgetUserWidgetLogic>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWebUserWidgetUserWidget>>
+  Future<Response<FwStandardModulesSettingsWebUserWidgetUserWidgetLogic>>
       _userwidgetPost(
-          {required WebApiModulesSettingsWebUserWidgetUserWidget? body}) {
+          {required FwStandardModulesSettingsWebUserWidgetUserWidgetLogic?
+              body}) {
     final Uri $url = Uri.parse('/userwidget');
     final $body = body;
     final Request $request = Request(
@@ -24307,12 +25472,12 @@ class _$Settings extends Settings {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWebUserWidgetUserWidget,
-        WebApiModulesSettingsWebUserWidgetUserWidget>($request);
+    return client.send<FwStandardModulesSettingsWebUserWidgetUserWidgetLogic,
+        FwStandardModulesSettingsWebUserWidgetUserWidgetLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWebUserWidgetUserWidget>>
+  Future<Response<FwStandardModulesSettingsWebUserWidgetUserWidgetLogic>>
       _userwidgetIdGet({required String? id}) {
     final Uri $url = Uri.parse('/userwidget/${id}');
     final Request $request = Request(
@@ -24320,15 +25485,15 @@ class _$Settings extends Settings {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesSettingsWebUserWidgetUserWidget,
-        WebApiModulesSettingsWebUserWidgetUserWidget>($request);
+    return client.send<FwStandardModulesSettingsWebUserWidgetUserWidgetLogic,
+        FwStandardModulesSettingsWebUserWidgetUserWidgetLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWebUserWidgetUserWidget>>
+  Future<Response<FwStandardModulesSettingsWebUserWidgetUserWidgetLogic>>
       _userwidgetIdPut({
     required String? id,
-    required WebApiModulesSettingsWebUserWidgetUserWidget? body,
+    required FwStandardModulesSettingsWebUserWidgetUserWidgetLogic? body,
   }) {
     final Uri $url = Uri.parse('/userwidget/${id}');
     final $body = body;
@@ -24338,8 +25503,8 @@ class _$Settings extends Settings {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWebUserWidgetUserWidget,
-        WebApiModulesSettingsWebUserWidgetUserWidget>($request);
+    return client.send<FwStandardModulesSettingsWebUserWidgetUserWidgetLogic,
+        FwStandardModulesSettingsWebUserWidgetUserWidgetLogic>($request);
   }
 
   @override
@@ -27563,17 +28728,6 @@ class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<bool>> _warehouseIdDelete({required String? id}) {
-    final Uri $url = Uri.parse('/warehouse/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
       _warehouseValidatecountryBrowsePost(
           {required FwStandardModelsBrowseRequest? body}) {
@@ -27732,144 +28886,6 @@ class _$Settings extends Settings {
     );
     return client.send<FwStandardSqlServerFwJsonDataTable,
         FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _warehouseavailabilityhourBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _warehouseavailabilityhourExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHourLogic>>
-      _warehouseavailabilityhourGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHourLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHourLogic>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour>>
-      _warehouseavailabilityhourPost(
-          {required WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour?
-              body}) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour,
-            WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour>>
-      _warehouseavailabilityhourIdGet({required String? id}) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<
-            WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour,
-            WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour>>
-      _warehouseavailabilityhourIdPut({
-    required String? id,
-    required WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour?
-        body,
-  }) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour,
-            WebApiModulesSettingsWarehouseAvailabilityHourWarehouseAvailabilityHour>(
-        $request);
-  }
-
-  @override
-  Future<Response<bool>> _warehouseavailabilityhourIdDelete(
-      {required String? id}) {
-    final Uri $url = Uri.parse('/warehouseavailabilityhour/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
   }
 
   @override
@@ -28424,24 +29440,6 @@ class _$Settings extends Settings {
 
   @override
   Future<Response<WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment>>
-      _warehousedepartmentPost(
-          {required WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment?
-              body}) {
-    final Uri $url = Uri.parse('/warehousedepartment');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-        WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment,
-        WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsWarehouseDepartmentWarehouseDepartment>>
       _warehousedepartmentIdGet({required String? id}) {
     final Uri $url = Uri.parse('/warehousedepartment/${id}');
     final Request $request = Request(
@@ -28912,132 +29910,6 @@ class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _webcatalogBrowsePost(
-      {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/webcatalog/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _webcatalogExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    final Uri $url = Uri.parse('/webcatalog/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
-  }
-
-  @override
-  Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalogLogic>>
-      _webcatalogGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    final Uri $url = Uri.parse('/webcatalog');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-    );
-    return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalogLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalogLogic>(
-        $request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog>>
-      _webcatalogPost(
-          {required WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog?
-              body}) {
-    final Uri $url = Uri.parse('/webcatalog');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-        WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog,
-        WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog>>
-      _webcatalogIdGet({required String? id}) {
-    final Uri $url = Uri.parse('/webcatalog/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<
-        WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog,
-        WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog>($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog>>
-      _webcatalogIdPut({
-    required String? id,
-    required WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog? body,
-  }) {
-    final Uri $url = Uri.parse('/webcatalog/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<
-        WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog,
-        WebApiModulesSettingsWebCatalogSettingsWebCatalogWebCatalog>($request);
-  }
-
-  @override
-  Future<Response<bool>> _webcatalogIdDelete({required String? id}) {
-    final Uri $url = Uri.parse('/webcatalog/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _widgetBrowsePost(
       {required FwStandardModelsBrowseRequest? body}) {
     final Uri $url = Uri.parse('/widget/browse');
@@ -29075,7 +29947,7 @@ class _$Settings extends Settings {
   @override
   Future<
           Response<
-              FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetSettingsWidgetWidgetLogic>>
+              FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>>
       _widgetGet({
     int? pageno,
     int? pagesize,
@@ -29096,14 +29968,16 @@ class _$Settings extends Settings {
       parameters: $params,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetSettingsWidgetWidgetLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesSettingsWidgetSettingsWidgetWidgetLogic>(
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic,
+            FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>(
         $request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetSettingsWidgetWidget>> _widgetPost(
-      {required WebApiModulesSettingsWidgetSettingsWidgetWidget? body}) {
+  Future<Response<FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>>
+      _widgetPost(
+          {required FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic?
+              body}) {
     final Uri $url = Uri.parse('/widget');
     final $body = body;
     final Request $request = Request(
@@ -29112,12 +29986,12 @@ class _$Settings extends Settings {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWidgetSettingsWidgetWidget,
-        WebApiModulesSettingsWidgetSettingsWidgetWidget>($request);
+    return client.send<FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic,
+        FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetSettingsWidgetWidget>>
+  Future<Response<FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>>
       _widgetIdGet({required String? id}) {
     final Uri $url = Uri.parse('/widget/${id}');
     final Request $request = Request(
@@ -29125,15 +29999,15 @@ class _$Settings extends Settings {
       $url,
       client.baseUrl,
     );
-    return client.send<WebApiModulesSettingsWidgetSettingsWidgetWidget,
-        WebApiModulesSettingsWidgetSettingsWidgetWidget>($request);
+    return client.send<FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic,
+        FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsWidgetSettingsWidgetWidget>>
+  Future<Response<FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>>
       _widgetIdPut({
     required String? id,
-    required WebApiModulesSettingsWidgetSettingsWidgetWidget? body,
+    required FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic? body,
   }) {
     final Uri $url = Uri.parse('/widget/${id}');
     final $body = body;
@@ -29143,8 +30017,8 @@ class _$Settings extends Settings {
       client.baseUrl,
       body: $body,
     );
-    return client.send<WebApiModulesSettingsWidgetSettingsWidgetWidget,
-        WebApiModulesSettingsWidgetSettingsWidgetWidget>($request);
+    return client.send<FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic,
+        FwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic>($request);
   }
 
   @override
