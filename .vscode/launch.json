@@ -8,25 +8,16 @@
             "name": "example",
             "request": "launch",
             "type": "dart",
-            "cwd": "example",
-            "program": "rentalworks_example.dart",
+            "cwd": "",
+            "program": "example/rentalworks_example.dart",
             "args": []
         },
         {
             "name": "tests",
             "request": "launch",
             "type": "dart",
+            "cwd": "",
             "program": "test/rentalworks_test.dart",
-            "customTool": "doppler",
-            "customToolReplacesArgs": 8,
-            "toolArgs": [
-                "run",
-                "--",
-                "dart",
-                "--enable-vm-service=0",
-                "--pause_isolates_on_start=true",
-                "--no-serve-devtools",
-            ]
         },
         {
             "name": "builder",

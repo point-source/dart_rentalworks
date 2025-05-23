@@ -15,7 +15,8 @@ class RentalWorks {
     this._jwt, {
     this.errorConverter,
     this.httpClient,
-  });
+  }) : _username = null,
+       _password = null;
 
   RentalWorks.withCredentials(
     this.baseUrl,
@@ -25,11 +26,14 @@ class RentalWorks {
     this.httpClient,
   });
 
-  Uri baseUrl;
-  http.Client? httpClient;
+  /// The base url of the rentalworks instance.
+  ///
+  /// Example: https://mycompany.rentalworksweb.com
+  final String baseUrl;
+  final http.Client? httpClient;
   String? _jwt;
-  String? _username;
-  String? _password;
+  final String? _username;
+  final String? _password;
 
   ErrorConverter? errorConverter;
 
@@ -44,8 +48,8 @@ class RentalWorks {
     }
     final response = await accountServices.jwtPost(
       body: FwStandardModelsFwApplicationUser(
-        userName: _username!,
-        password: _password!,
+        userName: _username,
+        password: _password,
       ),
     );
     if (response.isSuccessful) {
@@ -78,12 +82,12 @@ class RentalWorks {
           Utilities.create(),
         ],
         interceptors: [
-          AuthTokenInterceptor(jwt, excludePathPrefixes: ['/jwt']),
+          AuthTokenInterceptor(() => jwt, excludePaths: ['/jwt']),
           ParamSerializerInterceptor(),
         ],
         converter: JsonSerializableConverter(generatedMapping),
         errorConverter: errorConverter,
-        baseUrl: baseUrl,
+        baseUrl: Uri.parse('$baseUrl/api/v1'),
       );
 
   AccountServices get accountServices => client.getService();

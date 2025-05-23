@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:collection/collection.dart';
+import 'package:dotenv/dotenv.dart';
 import 'package:rentalworks/generated_code/home.swagger.dart';
 import 'package:rentalworks/generated_code/utilities.swagger.dart' as u;
 import 'package:rentalworks/generated_code/settings.swagger.dart'
@@ -9,13 +8,13 @@ import 'package:rentalworks/rentalworks.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final env = Platform.environment;
+  final env = DotEnv(includePlatformEnvironment: true)..load();
 
-  Uri? baseUrl = Uri.tryParse(env['RENTALWORKS_URL'] ?? '');
+  String baseUrl = env['RENTALWORKS_URL'] ?? '';
   String username = env['RW_USERNAME'] ?? '';
   String password = env['RW_PASSWORD'] ?? '';
 
-  if (baseUrl == null) throw Exception('Base URL was not provided');
+  if (baseUrl.isEmpty) throw Exception('Base URL was not provided');
   if (username.isEmpty || password.isEmpty) {
     throw Exception('Credentials were not provided.');
   }
@@ -115,37 +114,43 @@ void main() {
     test('get item', () async {
       final items = await rw!.home.itemGet(
         pageno: 1,
+        pagesize: 1,
         filter: [
           FwStandardModelsFwQueryFilter(
-            field: 'BarCode',
-            op: '=',
-            $Value: '000052',
-          ), // Intel NUC
-          FwStandardModelsFwQueryFilter(
             field: 'StatusType',
-            op: '<>',
+            op: '=',
             $Value: 'RETIRED',
           ),
-          FwStandardModelsFwQueryFilter(
-            field: 'StatusType',
-            op: '<>',
-            $Value: 'OUT',
-          ),
-          FwStandardModelsFwQueryFilter(
-            field: 'StatusType',
-            op: '<>',
-            $Value: 'INTRANSIT',
-          ),
-          FwStandardModelsFwQueryFilter(
-            field: 'StatusType',
-            op: '<>',
-            $Value: 'STAGED',
-          ),
-          FwStandardModelsFwQueryFilter(
-            field: 'StatusType',
-            op: '<>',
-            $Value: 'INCONTAINER',
-          ),
+          //FwStandardModelsFwQueryFilter(
+          //  field: 'BarCode',
+          //  op: '=',
+          //  $Value: '000052',
+          //), // Intel NUC
+          //FwStandardModelsFwQueryFilter(
+          //  field: 'StatusType',
+          //  op: '==',
+          //  $Value: 'RETIRED',
+          //),
+          //FwStandardModelsFwQueryFilter(
+          //  field: 'StatusType',
+          //  op: '<>',
+          //  $Value: 'OUT',
+          //),
+          //FwStandardModelsFwQueryFilter(
+          //  field: 'StatusType',
+          //  op: '<>',
+          //  $Value: 'INTRANSIT',
+          //),
+          //FwStandardModelsFwQueryFilter(
+          //  field: 'StatusType',
+          //  op: '<>',
+          //  $Value: 'STAGED',
+          //),
+          //FwStandardModelsFwQueryFilter(
+          //  field: 'StatusType',
+          //  op: '<>',
+          //  $Value: 'INCONTAINER',
+          //),
         ],
       );
       expect(items.error, isNull);
@@ -154,6 +159,7 @@ void main() {
       expect(items.body?.items ?? [], isNotEmpty);
       item = items.body?.items?.firstWhereOrNull((e) => e.warehouseId != null);
       expect(item, isNotNull);
+      print('item: ${item?.barCode} // ${item?.description}');
     });
 
     test('locate item (get warehouse)', () async {
@@ -165,6 +171,7 @@ void main() {
       expect(warehouseQuery.base.reasonPhrase, 'OK');
       warehouse = warehouseQuery.body;
       expect(warehouse, isNotNull);
+      print('warehouse: ${warehouse?.warehouseId} // ${warehouse?.city}');
     });
 
     test('find transfer', () async {
@@ -199,6 +206,7 @@ void main() {
       expect(transferQuery.body?.items ?? [], isNotEmpty);
       transfer = transferQuery.body?.items?.firstOrNull;
       expect(transfer, isNotNull);
+      print('transfer: ${transfer?.transferId} // ${transfer?.description}');
     });
 
     test('stage item', () async {
@@ -297,6 +305,7 @@ void main() {
     setUp(() async {
       final asset = await rw!.home.itemBybarcodeGet(barCode: '000067');
       item = asset.body?.item;
+      print('item: ${item?.barCode} // ${item?.description}');
       originalInventoryId = item?.inventoryId ?? '';
     });
 
@@ -327,6 +336,7 @@ void main() {
       originalInventoryId =
           r.body?.rows?.firstOrNull?.firstOrNull?.toString() ?? '';
       expect(originalInventoryId, isNotEmpty);
+      print('originalInventoryId: $originalInventoryId');
     });
 
     test('Change ICode', () async {

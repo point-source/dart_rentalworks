@@ -1,9 +1,8 @@
-import 'dart:io';
-
+import 'package:dotenv/dotenv.dart';
 import 'package:rentalworks/rentalworks.dart';
 
 void main() async {
-  final env = Platform.environment;
+  final env = DotEnv(includePlatformEnvironment: true)..load();
   final baseUrl = env['RENTALWORKS_URL'];
   final username = env['RW_USERNAME'];
   final password = env['RW_PASSWORD'];
@@ -14,11 +13,7 @@ void main() async {
     );
   }
 
-  var rw = RentalWorks.withCredentials(
-    Uri.parse('$baseUrl/api/v1'),
-    username,
-    password,
-  );
+  var rw = RentalWorks.withCredentials(baseUrl, username, password);
   var deals = await rw.home.dealGet(pageno: 1, pagesize: 25);
 
   if (!deals.isSuccessful) {
